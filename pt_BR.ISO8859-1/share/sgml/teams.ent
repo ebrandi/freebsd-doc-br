@@ -1,0 +1,56 @@
+<!--
+     Names and email address of teams of people working on specified
+     tasks. Usally they're just mail aliases set up at hub.FreeBSD.org
+
+     Use these entities when referencing appropriate teams.
+
+     Please keep this list in alphabetical order by entity names.
+
+     IMPORTANT:  If you delete names from this file you *must* ensure that
+                 all references to them have been removed from the handbook's
+                 translations.  If they haven't then you *will* break the
+                 builds for the other languages, and we will poke fun of you
+                 in public.
+
+     The FreeBSD Documentation Project
+     The FreeBSD Brazilian Portuguese Documentation Project
+
+     Original revision: 1.10
+
+     $FreeBSD: head/pt_BR.ISO8859-1/share/sgml/teams.ent 39534 2012-09-14 12:11:19Z gabor $
+-->
+
+<!ENTITY a.core-secretary "Secretário do Grupo Central
+  (<literal>Core Team</literal>) <email>core-secretary@FreeBSD.org</email>">
+
+<!ENTITY a.cvs "Responsáveis pelo Repositório CVS
+  (<literal>Repository Meisters</literal>) <email>cvs@FreeBSD.org</email>">
+
+<!ENTITY a.cvsup-master "Coordenador de Sítio Espelho CVSup
+  <email>cvsup-master@FreeBSD.org</email>">
+
+<!ENTITY a.doceng "Equipe de Engenharia de
+  Documentação<email>doceng@FreeBSD.org</email>">
+
+<!ENTITY a.donations "Escritório de relacionamento para
+  doa&ccecil;ões <email>donations@FreeBSD.org</email>">
+
+<!ENTITY a.faq "Responsável pelo <literal>FAQ</literal>
+  <email>faq@FreeBSD.org</email>">
+
+<!ENTITY a.ftp-master "Coordenador de Sítio Espelho FTP
+  <email>ftp-master@FreeBSD.org</email>">
+
+<!ENTITY a.portmgr "Equipe de Gerênciamento de <literal>Ports</literal>
+  <email>portmgr@FreeBSD.org</email>">
+
+<!ENTITY a.re "Equipe de Engenharia de Lançamento
+  <email>re@FreeBSD.org</email>">
+
+<!ENTITY a.security-officer "Equipe de Oficiais de Segurança
+  <email>security-officer@FreeBSD.org</email>">
+
+<!ENTITY a.www "Lista de discussão dos Responsáveis
+  pelo Sítio WWW FreeBSD
+  (<foreignphrase>webmaster</foreignphrase)
+  <email>www@FreeBSD.org</email>">
