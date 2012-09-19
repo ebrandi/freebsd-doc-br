@@ -101,26 +101,20 @@
 	disponibilidade sua particiação é valiosa para o time.</para>
 
       <para>É necessário boa capacidade de leitura de textos
-	técnicos em língua inglesa, ou qualquer outra língua cujo
-	Projeto de Documentação do FreeBSD esteja disponível
-	e mantido em suas últimas revisões, como Francês,
-	Alemão e Japonês.  É necessário também
-	fluência em língua portuguesa escrita e em especial
-	familiaridade com termos técnicos. É um trabalho
-	colaborativo, portanto facilidade para trabalho em equipe é
-	essencial bem, como a correta observância de regras,
-	poi,s além de cumprir com os preceitos originais
-	do <acronym>FDP</acronym>, o &adocbr; ainda
+	técnicos em língua inglesa, além de fluência em língua 
+	portuguesa escrita e em especial familiaridade com termos 
+	técnicos. É um trabalho colaborativo, portanto facilidade 
+	para trabalho em equipe é essencial bem, como a correta 
+	observância de regras, pois além de cumprir com os preceitos 
+	originais do <acronym>FDP</acronym>, o &adocbr; ainda
 	faz uso de regras e padrões próprios.</para>
 
       <para>Se você se encaixa neste perfil, sua presença
 	no time será valiosa.  Para tal, o primeiro passo
 	é ler atentamente o &a.ptbr.p.fdpp;, disponível
-	em <ulink
-	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">
-	Português Brasileiro aqui</ulink> e em
-	<ulink url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">
-	Inglês aqui</ulink>.</para>
+	em 
+	<ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">Português Brasileiro aqui</ulink> e em
+	<ulink url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">Inglês aqui</ulink>.</para>
 
       <para>Após a leitura do <acronym>FDP</acronym> se ainda assim
 	você quiser se juntar ao time, siga para o <link 
@@ -131,20 +125,18 @@
     <sect1 id="prefacio-participar-papeis">
       <title>Papéis à desempenhar no Projeto</title>
 
-      <para>O &adocbr; é constituído de
-	membros que atuam em uma ou mais atividades dentro dos seguintes
-	papéis:</para>
+      <para>O &adocbr; é constituído de membros que atuam em uma ou 
+	mais atividades dentro dos seguintes papéis:</para>
 
       <itemizedlist>
 	<title>Tradutor 1 (Inglês para Português Brasileiro)</title>
 
 	<listitem>
-	  <para>É o mais comum tradutor, que desempenha o maior
-	    número de trabalho dentro do projeto.
-	    É responsável por traduzir a documentação
-	    original do Projeto FreeBSD da língua inglesa para o
-	    português falado no Brasil.  Deve cumprir os requisitos
-	    anteriormente descritos.</para>
+	  <para>É a função mais comum e que desempenha o maior
+	    número de atividades dentro do projeto.  É responsável 
+	    por traduzir a documentação original do Projeto FreeBSD 
+	    da língua inglesa para o português falado no Brasil.  
+	    Deve cumprir os requisitos anteriormente descritos.</para>
 	</listitem>
       </itemizedlist>
 
@@ -153,71 +145,66 @@
 
 	<listitem>
 	  <para>É menos comum mas igualmente importante.  Ao ler
-	    o <acronym>FDP</acronym> você soube que
-	    para incluir informações localizadas em
-	    algum documento já existente dentro do Projeto,
-	    o time de localização deve antes submetê-las
-	    à documentação original, em inglês.  Isso
-	    é para garantir integridade de conteúdo
-	    em qualquer língua.  Complementarmente
-	    qualquer contribução completa (livro ou artigo)
-	    que desejemos criar oficialmente, tem antes que
-	    ser aprovada em língua inglesa.  Aqui
+	    o <acronym>FDP</acronym> você soube que para incluir 
+	    informações localizadas em algum documento já existente 
+	    dentro do Projeto, o time de localização deve antes 
+	    submetê-las à documentação original, em inglês.  Isso
+	    é para garantir integridade de conteúdo em qualquer 
+	    língua.  Complementarmente qualquer contribução completa 
+	    (livro ou artigo) que desejemos criar oficialmente, tem 
+	    antes que ser aprovada em língua inglesa.  Aqui
 	    entra o Tradutor 2.</para>
 
 	    <para>O Tradutor 2 deve ter grande facilidade para escrita
 	    formal e técnica em língua inglesa.  Não precisa ser
-	    fluente, pois a documentação submetida será
-	    revisada por nativos desta língua, contudo,
-	    não é possível o uso de linguagem coloquial.
-	    É através do Tradutor 2 que a comunidade
-	    conseguirá submeter contribuições à
+	    fluente, pois a documentação submetida será revisada por 
+	    nativos desta língua, contudo, não é possível o uso de 
+	    linguagem coloquial.  É através do Tradutor 2 que a 
+	    comunidade conseguirá submeter contribuições à
 	    documentação oficial do Projeto FreeBSD.</para>
 	</listitem>
       </itemizedlist>
 	
       <itemizedlist>
 	<title>Marcador / Revisor de Marcação
-	  <acronym>SGML</acronym></title>
+	  <acronym>XML</acronym></title>
 
 	<listitem>
 	  <para>Trata-se do contribuidor responsável por
-	    criar arquivos <acronym>SGML</acronym> que conformem
-	    com o padrão
-	    <foreignphrase>DocBook DTD</foreignphrase> expandido
-	    pelo <acronym>FDP</acronym>.  Para desempenhar essa função
-	    o indivíduo deve ter facilidade e principalmente
-	    gostar de marcação XML-compatível, além de
-	    estudar detalhadamente as entidades e tipos de documentos
-	    criados exclusivamente pelo <acronym>FDP</acronym>.  Em
-	    resumo, pessoa que conheça o &a.ptbr.p.fdpp;
-	    em detalhes, bem como o processo de construção
-	    de documentos do <acronym>FDP</acronym>, disposição de
+	    criar arquivos <acronym>XML</acronym> que conformem
+	    com o padrão <foreignphrase>DTD DocBook 
+	    XML</foreignphrase> expandido pelo <acronym>FDP</acronym>.
+	    Para desempenhar essa função o indivíduo deve ter 
+	    facilidade e principalmente gostar de marcação 
+	    XML-compatível, além de estudar detalhadamente as 
+	    entidades e tipos de documentos criados exclusivamente 
+	    pelo <acronym>FDP</acronym>.  Em resumo, uma pessoa que 
+	    conheça o &a.ptbr.p.fdpp; em detalhes, bem como o 
+	    processo de construção de documentos do 
+	    <acronym>FDP</acronym>, disposição de
 	    <filename>Makefile</filename>s e detalhes de rotinas
-	    &man.make.1; relacionadas ao Projeto de Documentação.</para>
+	    &man.make.1; relacionadas ao Projeto de 
+	    Documentação.</para>
 
-	  <para>O Marcador <acronym>SGML</acronym> é responsável por
-	    revisar documentos <acronym>SGML</acronym> traduzidos por outros
-	    membros menos
-	    familiarizados com a linguagem, e por criar novos documentos
-	    inteiros para submissão junto à Documentação
-	    Oficial do Projeto.  De maneira geral funções de
-	    Marcador <acronym>SGML</acronym> são frequentemente
-	    desempenhadas por Tradutores 1 e 2,
+	  <para>O Marcador <acronym>XML</acronym> é responsável por
+	    revisar documentos <acronym>XML</acronym> traduzidos por
+	    outros membros menos familiarizados com a linguagem, e 
+	    por criar novos documentos inteiros para submissão junto 
+	    à Documentação Oficial do Projeto.  De maneira geral 
+	    as funções de Marcador <acronym>SGML</acronym> são 
+	    frequentemente desempenhadas por Tradutores 1 e 2,
 	    ainda que de forma mais superficial.
 	    Mas em geral são também obrigações destes
 	    conhecer o essencial sobre esta atividade.</para>
 
-	  <para>Marcadores <acronym>SGML</acronym> que gostem deste trabalho
-	    são espécies raras e em extinção.
-	    Se você é um deles, seu esforço
-	    será muito apreciado.</para>
+	  <para>Marcadores <acronym>XML</acronym> que gostem deste 
+	    trabalho são espécies raras e em extinção.  Se você é um 
+	    deles, seu esforço será muito apreciado.</para>
 	</listitem>
       </itemizedlist>
 
       <itemizedlist>
-	<title>Revisor Ling&uuml;ista</title>
-
+	<title>Revisor Lingüista</title>
 	<listitem>
 	  <para>É o responsável por revisar gramática,
 	    ortografia e contexto dos documentos traduzidos,
@@ -233,12 +220,16 @@
 	    tradutores ao revisar textos de
 	    outros membros do time.</para>
 	  </listitem>
-      </itemizedlist>
+	</itemizedlist>	  
     </sect1>
   </chapter>
 
   <chapter id="documentos">
     <title>Documentos Trabalhados pelo &adocbr;</title>
+    
+    <sect1 id="documentos-trabalhados">
+    
+    <title>Desafios do Projeto &adocbr;</title>
 
     <para>O primeiro e mais importante desafio do &adocbr;
       é traduzir toda a documentação oficial
@@ -262,15 +253,35 @@
 
     <para>A seguir você encontrará os documentos que estão sendo
     trabalhados atualmente, seus status e planos para o futuro.</para>
+    </sect1>
 
     <sect1 id="documentos-integrados">
       <title>Integrados oficialmente ao Projeto FreeBSD</title>
 
+      <sect2 id="books-finalizados">
+
+      <title>Livros</title>
+      <itemizedlist>
+        <title>
+          <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">FDP Primer &mdash; &a.ptbr.p.fdpp; para novos colaboradores</ulink></title>
+
+        <listitem>
+          <para>Este &a.ptbr.p.fdpp; cobre tudo o que você precisa 
+	    saber para começar a contribuir com o Projeto de 
+	    Documentação do FreeBSD, desde as ferramentas e softwares
+	    que você estará utilizando (tanto os obrigatórios quanto 
+	    os recomendados) à filosofia por trás do projeto de 
+	    documentação.</para>
+
+          <para>Está em conformidade com a revisão SVN 
+	    <literal>r38826</literal> do documento original em 
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
       <itemizedlist>
 	<title>
-	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/faq/">
-	    FAQ &mdash; Perguntas Frequentes Sobre o FreeBSD
-	  </ulink>
+	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/faq/">FAQ &mdash; Perguntas Frequentes Sobre o FreeBSD</ulink>
 	</title>
 
 	<listitem>
@@ -283,11 +294,16 @@
 	    inicial para o &adocbr;.  Hoje o conteúdo precisa ser
 	    atualizado.</para>
 	    
-	    <para>Está em conformidade com a revisão
-	    <literal>1.456</literal> do documento original em Inglês.</para>
+	  <para>Está em conformidade com a revisão 
+	    <literal>1.456</literal> do documento original em 
+	    Inglês - Documento de 2003, extremamente 
+	    desatualizado.</para>
 	</listitem>
       </itemizedlist>
+      </sect2>
 
+      <sect2 id="artigos-finalizados">
+      <title>Artigos</title>
       <itemizedlist>
 	<title>
 	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/contributing/">
@@ -305,30 +321,6 @@
 	    <literal>r38826</literal> do documento original em
 	    Inglês.</para>
 	</listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink
-	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">
-            FDP Primer &mdash; &a.ptbr.p.fdpp; para novos
-	    colaboradores
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Este &a.ptbr.p.fdpp; cobre tudo o que você precisa
-            saber para começar a contribuir com o Projeto de
-            Documentação do FreeBSD, desde as ferramentas e
-            softwares que você estará utilizando (tanto
-            os obrigatórios quanto os recomendados) à
-            filosofia por trás do projeto de
-            documentação.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>r38826</literal> do documento original em
-	    Inglês.</para>
-        </listitem>
       </itemizedlist>
 
       <itemizedlist>
@@ -441,7 +433,7 @@
 	    Inglês.</para>
         </listitem>
       </itemizedlist>
-
+    </sect2>
     </sect1>
 
     <sect1 id="documentos-em-revisao">
@@ -495,252 +487,6 @@
 	  Inglês.</para>
 	</listitem>
       </itemizedlist>
-    </sect1>
-
-    <sect1 id="documentos-desatualizados">
-      <title>Documentos traduzidos, mas que estão desatualizados com
-        relação ao original</title>
-
-      <para>Os documentos a seguir passaram pelo precesso de traduão e
-        revisão em sua grande maioria, mas por problemas de ordem maior
-        não puderam ser integrados à árvore oficial do &os;. Todos
-	estão desatualizados com relação a versão original e precisam
-	ser revisados ou traduzidos do zero novamente.</para>
-
-      <itemizedlist>
-        <title>
-          <ulink
-	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/books/handbook/">
-            <foreignphrase>Handbook</foreignphrase> do FreeBSD
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>É a principal e mais utilizada referência de
-            documentação oficial do &os;.  Traz abordagem de
-            nível básico à intermediário da
-            instalação e administração geral do sistema.
-            É um trabalho em constante atualização, e
-            é parte de um esforço voluntário de
-            dezenas de contribuidores.  Trata-se de uma das maiores
-            e mais completas referências centralizadas sobre
-            um sistema de Código Aberto conhecidas.
-            Deve ser cuidadosamente lido por novos usuários
-            do FreeBSD e constantemente revistos por
-            usuários mais experientes, pois está em
-            constante melhoria.</para>
-
-           <para>Está em conformidade com a revisão
-	    <literal>1.2</literal> do documento original em
-	    Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink
-	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/books/porters-handbook">
-            <foreignphrase>Handbook</foreignphrase> dos
-	    Desenvolvedores de Ports
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>É a referência primária para todo indivíduo
-            que deseje conhecer mais sobre a Coleção de
-            <literal>Ports</literal> do FreeBSD, em especial que
-            deseje contribuir ativamente, tornando-se um mantenedor de
-            <literal>ports</literal> já existentes ou
-            novos <literal>ports</literal>.  Documenta todas as
-            regras e padrões sob os quais um <literal>port</literal>
-            deve ser criado, incluindo exemplos de arquivos
-            <filename>Makefile</filename>, variáveis como
-            <makevar>MASTERDIR</makevar>, <makevar>BROKEN</makevar>
-            <makevar>FORBIDDEN</makevar>,
-	    <makevar>DEPRECATED</makevar>,
-            e considerações especiais sobre o subsistema de
-            gerenciamento de aplicações de terceiros.</para>
-
-           <para>Está em conformidade com a revisão
-	    <literal>1.349</literal> do documento original em
-	    Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/pxe/">
-            Guia de Jumpstart para o FreeBSD
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Este artigo detalha o método utilizado para permitir que
-            se instale o FreeBSD em equipamentos que utilizem a tecnologia
-            Intel PXE para dar boot no equipamento através da rede.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.22</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/hubs/">
-            Espelhando o FreeBSD
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Este é um artigo que trata sobre como espelhar o FreeBSD,
-            o mesmo esta em fase de elaboração pelos coordenadores do
-            sites espelho.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.42</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/solid-state/">
-            FreeBSD e Dispositivos de Estado Sólido
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Os sistemas Embedded possuem a vantagem de ter a sua
-            estabilidade aumentada devido a ausência completa de partes
-            móveis (Discos rigidos).  Entretanto é
-            necessário levar em conta que geralmente estes dispositivos
-            possuem pouco espaço de disco disponível,
-            além de terem na durabilidade da midia de
-            armazenamento outro fator crítico.
-            Este artigo aborda o uso de dispositivos de armazenamento em
-            estado sólido na criação de sistemas
-            embedded.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.11</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/diskless-x/">
-            Um guia sobre como implementar um terminal diskless X
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Retirado do artigo original:</para>
-            <blockquote>
-              <title>Um guia sobre como implementar um terminal diskless X</title>
-
-              <attribution>Escrito em primeira pessoa por <quote>Jerry
-                Kendall</quote></attribution>
-
-              <para>Com a ajuda de alguns amigos da lista FreeBSD-hackers, eu
-                pude criar um terminal X diskless.  A criação
-                do terminal X necessitou incialmente da criação
-                de um sistema diskless com utilitários minimos
-                montados via NFS.  Estes mesmos passos
-                foram utilizados para criar 2 sistemas diskless distintos.  O
-                primeiro é o <hostid role="fqdn">altair.example.com</hostid>.
-                Um terminal X diskless o qual eu executo no meu velho
-                386DX-40.  Ele possui um HD de 340 Mb, mas eu não quiz
-                mudá-lo.  Assim, ele da boot a partir do
-                <hostid role="fqdn">antares.example.com</hostid> através da
-                rede Ethernet.  O segundo sistema é um 486DX2-66.  Eu o
-                configurei um FreeBSD Diskless, o qual não utiliza o disco
-                local.  O servidor neste caso é uma SUN 670MP executando
-                Sun OS 4.1.3.  O mesmo procedimento de configuração foi
-                necessário em ambos.</para>
-            </blockquote>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.15</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/release/doc/pt_BR.ISO8859-1/early-adopter/">
-            Guia dos Novos Adeptos ao FreeBSD 5.X
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Guia de referência para usuários migrando da
-            série 4.<replaceable>X</replaceable> para
-            5.<replaceable>X</replaceable> ou superior.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.15</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/dialup-firewall/">
-            Dialup firewalling com FreeBSD
-          </ulink>
-        </title>
-
-        <listitem>
-        <para>Este artigo documenta como configurar um firewall
-          utilizando uma conexão discada com o FreeBSD e o IPFW, e
-          especificamente como implementar um firewall de
-          filtragem de pacotes em cima de um endereço IP atribuido
-          dinâmicamente.  Este documento não aborda a
-          configuração da sua conexão
-          PPP propriamente dita.</para>
-
-        <para>Está em conformidade com a revisão
-          <literal>1.32</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink
-	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/laptop/">
-            Utilizando o FreeBSD em Laptops
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>FreeBSD trabalha bem em muitos laptops, com algumas
-            advertências.  Algumas questões
-            específicas para rodar o &os; em laptops,
-            relacionando diferentes requerimentos de hardwares de
-            desktops, são discutidas neste documento.</para>
-
-            <para>Está em conformidade com a revisão
-            <literal>1.19</literal> do documento original em Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
-      <itemizedlist>
-        <title>
-          <ulink url="http://doc.fug.com.br/hardware-notes/">
-            Notas de Hardware do FreeBSD
-          </ulink>
-        </title>
-
-        <listitem>
-          <para>Guia de compatibilidade de Hardware para &os;
-           Documenta todos os chipsets e equipamentos sabidamente
-           suportados de forma plena pelo &os;.  Deve
-           ser usado como referência antes de adquirir
-           novo hardware voltado para o sistema.</para>
-
-           <para>Está em conformidade com a revisão
-             <literal>1.4</literal> do documento original em
-             Inglês.</para>
-        </listitem>
-      </itemizedlist>
-
     </sect1>
 
     <sect1 id="objetivos-futuros">
