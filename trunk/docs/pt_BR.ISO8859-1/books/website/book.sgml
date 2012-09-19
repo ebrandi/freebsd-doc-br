@@ -23,38 +23,47 @@
 
 <book lang='pt_br'>
   <bookinfo>
-    <title>Projeto de Documentação do FreeBSD em
-      Português Brasileiro</title>
+    <title>Projeto de Documentação do FreeBSD em Português 
+      Brasileiro</title>
 
-    <corpauthor>Grupo Brasileiro de Usuários de FreeBSD (&fug;)</corpauthor>
-
-    <pubdate>$FreeBSD$</pubdate>
+    <corpauthor>Grupo Brasileiro de Usuários de FreeBSD  
+      - &fug;</corpauthor>
 
     <copyright>
       <year>2003</year>
       <year>2004</year>
       <year>2005</year>
       <year>2006</year>
-      <holder>Projeto de Documentação do FreeBSD</holder>
+      <year>2007</year>
+      <year>2008</year>
+      <year>2009</year>
+      <year>2010</year>
+      <year>2011</year>
+      <year>2012</year>
+      <holder>FUG Doc-Br</holder>
     </copyright>
 
-    &bookinfo.legalnotice;
+    &legalnotice;
+    
+    <pubdate>$FreeBSD$</pubdate>
+    <releaseinfo>$FreeBSD$</releaseinfo>
 
     <abstract>
-      <para>Este é o Web site do Projeto de
-	Documentação do FreeBSD em Português
-	Brasileiro, criado em 2003
-	pelo Grupo de Usuários Brasileiros de FreeBSD,
-	<ulink url="http://www.fug.com.br">&afug;</ulink>.
-	Todo documento disponível
-	neste Web site está em constante desenvolvimento,
-	exceto onde explicitamente denotado o contrário.
-	Essa é a segunda fase do projeto, de volta ao
-	trabalho após 18 meses de inatividade.</para>
+      <para>Este é o website do Projeto de Documentação do FreeBSD 
+	em Português Brasileiro, criado em 2003 pelo Grupo de 
+	Usuários Brasileiros de FreeBSD, 
+	<ulink url="http://www.fug.com.br">&afug;</ulink>.</para>
+
+      <para>Todos os documentos disponíveis neste site estão em 
+	constante desenvolvimento, exceto onde for explicitamente 
+	denotado o contrário.</para>  
+	
+      <para>Esta é a terceira geração do projeto, que volta a
+     	atividade depois de 9 anos de inatividade.</para>
     </abstract>
   </bookinfo>
 
-  <preface id="prefacio">
+  <chapter id="perfacio">
     <title>Prefácio</title>
 
     <sect1 id="prefacio-objetivo">
@@ -227,6 +236,7 @@
 	  </listitem>
       </itemizedlist>
     </sect1>
+  </chapter>
 
   <chapter id="documentos">
     <title>Documentos Trabalhados pelo &adocbr;</title>
@@ -806,7 +816,7 @@
 	</listitem>
       </itemizedlist>
     </sect1>
-
+  </chapter>
 
   <chapter id="docbr-internals">
     <title>Projeto &adocbr; internamente</title>
@@ -1029,6 +1039,7 @@
 
 	<para>Para saber mais sobre os módulos disponíveis leia a
 	próxima seção.</para>
+      </sect2>
 
       <sect2 id="organizacao-modulos">
 	<title>Organização dos Repositórios Git</title>

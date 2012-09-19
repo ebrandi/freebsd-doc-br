@@ -2,14 +2,15 @@
 # The FreeBSD Documentation Project
 # The FreeBSD Brazilian Portuguese Documentation Project
 # 
-# $FreeBSD
+# $FreeBSD$
 #
 
 MAINTAINER=ebrandi@fugspbr.org
 
 DOC?= book
 
-FORMATS?= html-split html
+FORMATS?= html-split
+NO_TIDY="YES"
 
 INSTALL_COMPRESSED?= gz
 INSTALL_ONLY_COMPRESSED?=
