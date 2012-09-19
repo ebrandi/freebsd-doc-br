@@ -576,11 +576,10 @@
 
     <para>Se você chegou aqui, é fundamental que
       já tenha lido o &primer;.  Se não o fez ainda,
-      acesse-o em
-      <ulink url="http://server06.ebrandi.eti.br/books/fdp-primer/">
-      Português Brasileiro aqui</ulink> e em
-      <ulink url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">
-      Inglês aqui</ulink>.</para>
+      acesse-o em <ulink 
+      url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">Português Brasileiro aqui</ulink> 
+      e em <ulink 
+      url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">Inglês aqui</ulink>.</para>
 
     <sect1 id="metodo-trabalho-doc-br">
       <title>Métodos de trabalho &docbr;</title>
@@ -591,60 +590,14 @@
 	trabalho é diretamente realizado por editores de texto
 	que podem ser dos mais simples, como &man.vi.1; e &man.ee.1;,
 	à editores mais completos com &vim; e &emacs;.
-	O <acronym>FDP</acronym> aconselha uso do &emacs;, em especial por ele ter
-	suporte à modo de operação <acronym>SGML</acronym> &mdash; o chamado <literal>SGML-mode</literal>.
-	No &adocbr; temos ainda que considerar a necessidade de trabalhar
-	com acentos em padrão de entidades <acronym>XML</acronym>
-	(<acronym>SGML</acronym>), isso quer dizer que palavras
-	acentuadas não podem ter os acentos literais, mas sim,
-	deve fazer uso dessas entidades para representar os
-	caracteres especiais típicos de nossa
-	língua &mdash; chamados de padrão <literal>ISO 8859-1</literal> ou
-	suporte à caracteres latinos.</para>
-
-      <para>Por exemplo, a seguinte expressão:</para>
-
-      <example>
-	<title>Exemplo de acentos literais</title>
-
-	<programlisting>Este é o Projeto de Documentação do FreeBSD.</programlisting>
-      </example>
-
-      <para>Será escrito da seguinte forma:</para>
-
-      <example>
-	<title>Exemplo de acentos com entidades <acronym>SGML</acronym></title>
-
-        <programlisting>Este &amp;eacute; o Projeto de Documenta&amp;ccedil;&amp;atilde;o do FreeBSD.</programlisting>
-      </example>
-
-      <para>Portanto temos que decidir como trabalhar essa necessidade.
-	Alguns (poucos é verdade) membros do projeto trabalham em
-	editores simples como &man.ee.1; e &man.vi.1; e escrevem as frases
-	diretamente com essas entidades.  Contudo isso é
-	incomum e quase não-humano (rs).
-	N&amp;atilde;o temos esperan&amp;ccedil;a nem
-	&amp;eacute; nosso desejo que voc&amp;ecirc; goste de escrever e ler
-	dessa maneira.</para>
-
-      <para>Por isso você pode usar outros métodos.  Editores como &vim;
-	por exemplo tem o modo de tradução de caracteres.
-	Quando abre um arquivo ele pode converter as entidades
-	<acronym>SGML</acronym> para acentos em nosso padrão de caracteres,
-	e ao fechar o arquivo ele converte de volta nossos
-	caracteres para entidades <acronym>SGML</acronym>.  Dessa forma ao ler/editar no
-	&vim; o indivíduo sempre terá o texto
-	literal, e o resultado final salvo no arquivo
-	serão as entidades.  Tudo de forma transparente.</para>
-
-      <para>Outros membros preferem usar editores da base como &man.vi.1;
-	ou &man.ee.1; e traduzir tudo com acentos.  Antes de normalizar
-	ou analisar a sintaxe do arquivo <acronym>SGML</acronym> contudo,
-	transforma seus acentos em entidades <acronym>SGML</acronym>.  Esse particularmente
-	é o método que este que está escrevendo
-	esse arquivo <acronym>SGML</acronym> adota.</para>
-
-      <para>Ou com &emacs; você pode escolher como quer trabalhar.
+	O <acronym>FDP</acronym> aconselha uso do &emacs;, em 
+	especial por ele ter suporte à modo de operação 
+	<acronym>SGML</acronym> &mdash; o chamado 
+	<literal>SGML-mode</literal>.  Muitos dos nossos membros 
+	preferem usar editores da base como &man.vi.1; ou 
+	&man.ee.1;.</para>
+	
+      <para>Você pode escolher como quer trabalhar.
 	O fato é, você deve optar pelo editor de texto
 	o qual tem mais aptidão e fica mais confortável
 	para trabalhar.  O trabalho é grande e não muito
@@ -654,15 +607,17 @@
       <para>O Projeto de Documentação em Português Brasileiro
 	do FreeBSD dispõe de scripts e arquivos de
 	configurações para auxiliar o trabalho do
-	desenvolvedor.  Portanto seja qual for sua opção
+	tradutor.  Portanto seja qual for sua opção
 	editor de texto, terá ferramentas para auxiliá-lo.
 	Complementarmente o time criou também um script
 	em linguagem <application>Perl</application> que analisa
-	o arquivo <acronym>SGML</acronym> e revisa algumas das principais regras do <acronym>FDP</acronym>.
+	o arquivo <acronym>XML</acronym> e revisa algumas das 
+	principais regras do <acronym>FDP</acronym>.
 	Por exemplo, você viu ao ler o &primer; que a
 	identação das colunas deve seguir 2 caracteres
 	de espaço.  Que cada oito espaços devem
-	ser substituídos por um <literal>\t</literal> (<literal>tab</literal>).
+	ser substituídos por um <literal>\t</literal> 
+	(<literal>tab</literal>).
 	Que o final de uma sentença deve ser denotado
 	com dois espaços se não houver
 	quebra de linhas ou final de parágrafo, que as
@@ -671,136 +626,148 @@
 	O script corrige todas as regras que ele for capaz e dispara
 	um alerta para as regras que não conseguir corrigir.</para>
 
-      <para>A outra ferramenta que o contribuidor do DOC-BR deve conhecer,
-	ao menos o básico, é o <application>git</application>.  Nosso
-	projeto faz uso de um repositório
-	<application>git</application> para armazenar e possibilitar o
-	trabalho paralelo das dezenas de membros simultâneamente.  As
-	vantagens do Git é ter um controle rígido sobre versões,
-	podendo restaurar um arquivo errôneamente modificado à
-	qualquer momento, e possibilitar trabalho concorrente de
-	diversos indivíduos.  A desvantagem é que é algo mais à se
-	aprender, caso você não tenha familiaridade com essa
-	ferramenta.</para>
+      <para>Outra ferramenta que o contribuidor do DOC-BR deve 
+	ter noções básicas é o Subversion
+	(<application>svn</application>).  Nosso projeto faz uso de 
+	um repositório <application>svn</application> para armazenar 
+	e possibilitar o trabalho paralelo das dezenas de membros 
+	simultâneamente.  As vantagens do uso do svn é ter um 
+	controle rígido sobre versões, podendo restaurar um arquivo 
+	errôneamente modificado à qualquer momento, e possibilitar 
+	trabalho concorrente de diversos indivíduos.  A desvantagem 
+	é que é algo mais à se aprender, caso você não tenha 
+	familiaridade com essa ferramenta.</para>
 
       <para>Por último, o método de comunicação entre todos os membros
         do DOC-BR é através de correio eletrônico, especificamente a
-        lista de discussão DOC disponível na &fug;. Saiba como participar
-        da lista na seção seguinte deste documento.</para>
+        lista de discussão DOC disponível na &fug;. Saiba como 
+	participar da lista na seção seguinte deste documento.</para>
     </sect1>
 
     <sect1 id="lista-docbr">
       <title>Lista DOC-BR, o método de comunicação primário do
         Projeto.</title>
 
-      <para>Os participantes do Projeto DOC-BR fazem uso dessa <ulink
-        url="https://www.fug.com.br/mailman/listinfo/doc">lista de
-        discussão</ulink> para interagir, discutir e decidir cada etapa
-        de trabalho do esforço de tradução para Português Brasileiro da
-	documentação oficial do FreeBSD.</para>
+      <para>Os participantes do Projeto DOC-BR fazem uso de uma lista
+	de discussão para interagir, discutir e decidir cada etapa
+        de trabalho do esforço de tradução para Português Brasileiro 
+	da documentação oficial do FreeBSD.</para>
 
       <para>Outras converas sobre metodologia e decisões práticas de
         traduções, interpretações de texto, grafia, gramática e
         conformidade/atualização do glossário de expressões comuns às
-        traduções também se passam <ulink
-        url="https://www.fug.com.br/mailman/listinfo/doc">nesta
-        lista</ulink>.</para>
+        traduções também se passam na lista.</para>
 
       <para>A lista chama-se apenas <emphasis>doc</emphasis>, e é
-        hospedada diretamente na infra-estrutura da FUG-BR.  Se você tem
-	dúvidas, críticas ou sugestões acera do Projeto DOC-BR, e
+        hospedada diretamente na infra-estrutura da FUG-BR.  Se você 
+	tem dúvidas, críticas ou sugestões acera do Projeto DOC-BR, e
         principalmente se quer se tornar parte desse esforço,
-	cadastre-se na lista.  Ela pode ser acessada <ulink
-	url="https://www.fug.com.br/mailman/listinfo/doc">aqui</ulink>.</para>
+	cadastre-se na lista.</para> 
 
-      <para>Para se cadastrar nesta lista, acesse sua interface
-        <literal>Web</literal> <ulink
-        url="https://www.fug.com.br/mailman/listinfo/doc">aqui</ulink>.</para>
+      <para>Para se cadastrar nesta lista, visite o url: <ulink
+        url="https://www.fug.com.br/mailman/listinfo/doc">https://www.fug.com.br/mailman/listinfo/doc</ulink>.</para>
     </sect1>
 
-    <sect1 id="repositorio-git">
-      <title>Repositório Git do Projeto &adocbr;</title>
+    <sect1 id="repositorio-svn">
+      <title>Repositório Subversion do Projeto &adocbr;</title>
 
-      <para>O &adocbr; adota o Git como sistema de controle de versão
-        para seu repositório fonte.  Apesar de ter diferenças
+      <para>O &adocbr; adota o Subversion
+      (<application>svn</application>) como sistema de controle de 
+	versão para seu repositório fonte.  Apesar de ter diferenças
         significativas com relação ao sistema utilizado pelo projeto
-        anteriormente, o <acronym>CVS</acronym>, e mesmo com o utilizado
-        pela árvore oficial do projeto FreeBSD, o Subversion, o Git tem
-        uma série de vantagens com relação a estes, entre elas está seu
-        desenho distribuído.</para>
+        anteriormente, o <acronym>CVS</acronym>, o Subversion tem
+        uma série de vantagens.</para>
+	
+      <para>Assim como o <acronym>CVS</acronym>, o Subversion está
+        incluído na instalação padrão do FreeBSD e você não precisará
+        instalar nenhum software adicional para ter acesso ao 
+	repositório da DOC-BR localmente.</para>
 
-      <para>Diferente do <acronym>CVS</acronym>, o Git não está
-        incluído na instalação padrão do FreeBSD e você precisará
-        instalá-lo no seu sistema para ter acesso ao repositório
-        localmente.  Você pode adicioná-lo ao seu sistema através do
-	<application>pkg_add</application> ou a partir do
-	<literal>ports</literal> em
-	<filename>/usr/ports/devel/git</filename></para>
+      <sect2 id="svn-googlecode">
+	<title>Hospedagem do Repositório no Google Code</title>
 
-      <sect2 id="git-github">
-	<title>Hospedagem do Repositório no GitHub</title>
-
-	<para>O &adocbr; utiliza o <ulink url="https://github.com/">
-	  GitHub</ulink>  para hospedar seu
-	  repositório Git.  Ele é utilizado por grandes projetos de
-	  código aberto e tem funções bastante úteis, como gráficos,
-	  feeds, wiki, entre outras.</para>
+	<para>O &adocbr; utiliza o <ulink
+	  url="http://code.google.com/intl/pt-BR/">Google Code</ulink>
+	  para hospedar seu repositório Subversion.  Ele é utilizado 
+	  por grandes projetos de código aberto e tem funções 
+	  bastante úteis, como gráficos, feeds, wiki, entre 
+	  outras.</para>
 
 	<para>Você pode contribuir com o projeto de várias formas no
-	  GitHub, ou até mesmo acessar o repositório de forma anônima.
-	  Mas para contribuir de forma ativa, enviando seus 
+	  Google Code, ou até mesmo acessar o repositório de forma 
+	  anônima.  Mas para contribuir de forma ativa, enviando seus 
 	  <foreignphrase>commits</foreignphrase>
-	  diretamente para o repositório, ou mesmo para criar um
-	  <foreignphrase>fork</foreignphrase> do
-	  projeto e poder enviar <literal>pull requests</literal>, você precisa criar sua conta no serviço acessando
-	  <ulink url="https://github.com/signup/free">
-	  https://github.com/signup/free</ulink>.</para>
-
+	  diretamente para o repositório, você irá precisar de uma
+	  conta no google (a sua conta no gmail por exemplo).</para>
+	  
 	<para>É de suma importância que você consulte a
-	  <ulink url="https://help.github.com/">ajuda do GitHub</ulink>
+	  <ulink
+	  url="http://code.google.com/p/support/wiki/GettingStarted">ajuda do Google Code</ulink>
 	  para obter mais detalhes de seu funcionamento.</para>
       </sect2>
 
-      <sect2 id="git-anonimo">
-	<title>Acesso anônimo ao servidor GitHub</title>
+      <sect2 id="svn-anonimo">
+	<title>Acesso anônimo ao repositório svn</title>
 
 	<para>Se você não pretende contribuir de forma ativa e tem
 	  apenas curiosidade sobre o andamento do projeto, pode
-	  consultar o servidor GitHub sem ter usuário e senha. Para isso
-	  acesse-o como anônimo. Os procedimentos são:</para>
+	  consultar o repositório no Google Code sem ter um usuário 
+	  e senha. Para isso acesse-o como anônimo. O comando para
+	  isso é:</para>
 
-	  <screen>&prompt.user; <userinput>git clone git://github.com/doc-br/doc-br.git</userinput></screen>
-
-	<para>Entre no diretório do repositório que acabou de ser
-	  criado e mude para o <foreignphrase>branch</foreignphrase>
-	  de desenvolvimento:</para>
-
-	  <screen>&prompt.user; <userinput>git checkout doc-br-2012-fdp</userinput></screen>
-
+	  <screen>&prompt.user; <userinput>svn checkout http://freebsd-doc-br.googlecode.com/svn/trunk/ freebsd-doc-br-read-only</userinput></screen> 
+	
 	<para>A partir desse momento você tem o repositório completo
-	do &adocbr; disponível.  Os módulos do &adocbr; estão
-	divididos entre vários repositórios e você precisará clonar
-	cada um deles separadamente.</para>
+	do &adocbr; disponívei localmente em sua maquina.</para>
 
 	<para>Para saber mais sobre os módulos disponíveis leia a
 	próxima seção.</para>
       </sect2>
 
       <sect2 id="organizacao-modulos">
-	<title>Organização dos Repositórios Git</title>
+	<title>Organização do Repositório Subversion</title>
 
-	<para>Os módulos do Projeto de Documentação do FreeBSD
-	  em Português Brasileiro, hospedados no GitHub, foram
-	  divididos em repositórios e podem ser acessados
-	  separadamente.  Os módulos disponíveis e a finalidades deles
-	  estão descritos a seguir:</para>
+	<para>O código fonte do Projeto de Documentação do FreeBSD
+	  em Português Brasileiro, hospedados no Google Code, foram
+	  divididos em varios subdiretórios, os principais estão
+	  listados abaixo:</para>
+	  
+<programlisting>
+trunk/
+      docs/
+           en_US.ISO8859-1/
+	                   articles/
+                           books/
+			   htdocs/
+			   share/
+           pt_BR.ISO8859-1/
+	                   articles/
+                           books/
+			   htdocs/
+			   share/
+			   website/
+           share/
+	         mk/
+		 sgml/
+     tools/
+           babylon/
+	   glossario/
+	   sandbox/
+	   scripts/
+	   vim/
+</programlisting>
+	  
+	  
+	<para>A finalidade de cada um deles está descrita a 
+	    seguir:</para>
 
 	<itemizedlist>
-	  <title><ulink url="https://github.com/doc-br/doc-br">doc-br/</ulink></title>
+	  <title>docs</title>
 
 	  <listitem>
-	      <para>Este é o repositório que contém os fontes em SGML dos
-		artigos e livros para tradução e revisão.</para>
+	      <para>Este é o repositório que contém os fontes em 
+		XML dos artigos e livros para tradução e 
+		revisão.</para>
 	  </listitem>
 	  <listitem>
 	    <itemizedlist>
@@ -811,8 +778,8 @@
 	          todos os livros e artigos trabalhados
 	          pelo <acronym>FDP</acronym>, na língua
 	          Português Brasileiro. É a estrutura importada
-	          junto ao repositório Subversion oficial do &os; sempre que
-	          cada novo artigo ou livro está pronto.  A
+	          junto ao repositório Subversion oficial do &os; 
+		  sempre que cada novo artigo ou livro está pronto.  A
 	          constituição desse documento é rigidamente
 	          disposta no padrão que você leu no &primer;
 	          e que portanto já conhece.
@@ -848,7 +815,7 @@
 
 
 	<itemizedlist>
-	  <title><ulink url="https://github.com/doc-br/Tools">tools/</ulink></title>
+	  <title>tools</title>
 
 	  <listitem>
 	    <para>Neste módulo ficam os scripts e arquivos
@@ -935,7 +902,7 @@
 
 
 	<itemizedlist>
-	  <title><ulink url="https://github.com/doc-br/Glossario">glossario/</ulink></title>
+	  <title>glossario</title>
 
 	  <listitem>
 	    <para>Trata-se do glossário de palavras e expressões
@@ -1014,54 +981,24 @@
 	      ficarem melhor, use-as então.</para>
 	  </listitem>
 	</itemizedlist>
-
-	<!-- Modulo nao esta mais disponivel
-	     TODO: remover esta descricao no 
-	     futuro.
-
-	<itemizedlist>
-	  <title>src/</title>
-
-	  <listitem>
-	    <para>São os documentos de distribuição, íntriseco
-	      e diretamente relacionado ao lançamento de
-	      novas versões do &os;.  No sistema, é o conteúdo
-	      disposto em <filename class="directory">/usr/src/release/doc/</filename>.
-	      Nele estão por exemplo as
-	      <emphasis>Notas de Hardware</emphasis>.</para>
-	  </listitem>
-	</itemizedlist>
-
-
-	<itemizedlist>
-	  <title>www/</title>
-
-	  <listitem>
-	    <para>Trata-se do sítio Web do Projeto &os;.
-	      Nenhum documento primário está atualmente
-	      sendo trabalhado sob este módulo.</para>
-	  </listitem>
-	</itemizedlist>
-
-	Fim da area a ser removida -->
       </sect2>
     </sect1>
 
-    <sect1 id="essencial-sobre-git-na-docbr">
-      <title>Essencial sobre Git para trabalho na DOC-BR</title>
+    <sect1 id="essencial-sobre-svn-na-docbr">
+      <title>Essencial sobre svn para trabalho na DOC-BR</title>
 	<para>Aqui você acompanhará o essencial sobre o que
-	  é preciso saber de <application>git</application> e
-	  <ulink url="https://github.com/">GitHub</ulink> para 
+	  é preciso saber de <application>svn</application> e sobre o
+	  <ulink url="http://code.google.com">Google Code</ulink> para 
 	  desempenhar corretamente as funções na DOC-BR quando você
 	  já for membro do time.</para>
 
 	<note>
-	<para>Para acessar o servidor Git do DOC-BR com privilégios
+	<para>Para acessar o servidor Subversion do DOC-BR com privilégios
 	  para atualização e adição de novos documentos
 	  é necessário um nome de usuário válido no
-	  GitHub.  Você soube anteriormente como criá-lo.
-	  Quando a associação ao projeto DOC-BR concluir,
-	  será possível acessar o GitHub com
+	  Google Code.  Você soube anteriormente como criá-lo.
+	  Quando a associação ao projeto DOC-BR for concluida,
+	  será possível acessar o servidor svn com
 	  privilégios de escrita.</para>
 	</note>
 
