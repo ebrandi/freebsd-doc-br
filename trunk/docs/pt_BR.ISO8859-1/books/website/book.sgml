@@ -319,7 +319,7 @@
       <step>
         <title>
           <ulink
-            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/new-users/">Guia 
+            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/linux-users/">Guia 
 	    Rápido do FreeBSD para Usuários Linux</ulink>
         </title>
 
@@ -408,9 +408,49 @@
             qualquer outra lista de discussão
             com grande tráfego de e-mails semanais.</para>
 
-            <para>Está em conformidade com a revisão
+          <para>Está em conformidade com a revisão
             <literal>r38826</literal> do documento original em
 	    Inglês.</para>
+      </step>
+
+      <step>
+	<title><ulink
+	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/contributing-ports/">Contribuindo 
+	  para a Coleção de Ports do FreeBSD</ulink></title>
+
+	<para>Este artigo descreve as formas pelas quais uma pessoa
+	pode contribuir com a Coleção de Ports do FreeBSD.</para>
+
+	<para>Está em conformidade com a revisão
+	<literal>r39544</literal>  do documento original em 
+	Inglês.</para>
+      </step>
+
+      <step>
+	<title><ulink 
+	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/new-users/">Introdução
+	  para os novatos em FreeBSD e Unix</ulink></title>
+
+      <para>Esta introdução é para os novatos no FreeBSD e no UNIX,
+      então ela começa com o básico.</para>
+
+      <para>Está em conformidade com a revisão
+	<literal>r39544</literal>  do documento original em
+	Inglês.</para>
+      </step>
+
+      <step>
+	<title><ulink 
+	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/hubs/">Espelhando 
+	  o FreeBSD</ulink></title>
+
+      <para>Este artigo aborda a configuração de um site espelho 
+	destinado à distribuição do FreeBSD e tem como público alvo 
+	os administradores destes sites.</para>
+
+      <para>Está em conformidade com a revisão 
+	<literal>r39544</literal>  do documento original em 
+	Inglês.</para>
       </step>
       </procedure>
     </sect2>
