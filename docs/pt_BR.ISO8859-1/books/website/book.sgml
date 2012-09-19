@@ -1,0 +1,2107 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN" "../../../share/sgml/freebsd42.dtd" [
+
+<!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT" "../../share/sgml/entities.ent">
+%entities;
+
+<!ENTITY bibliography SYSTEM "../docs/share/sgml/bibliography.sgml">
+<!ENTITY adocbr "<acronym>DOC-BR</acronym>">
+<!ENTITY docbr "DOC-BR">
+<!ENTITY fug "FUG-BR">
+<!ENTITY afug "<acronym>FUG-BR</acronym>">
+<!ENTITY primer "&a.ptbr.p.fdpp;">
+<!ENTITY vim "<application>vim(8)</application>">
+<!ENTITY emacs "<application>emacs(8)</application>">
+]>
+
+<!--
+     The FreeBSD Documentation Project
+     The FreeBSD Brazilian Portuguese Documentation Project
+
+     $FreeBSD$
+-->
+
+<book lang='pt_br'>
+  <bookinfo>
+    <title>Projeto de Documentação do FreeBSD em
+      Português Brasileiro</title>
+
+    <corpauthor>Grupo Brasileiro de Usuários de FreeBSD (&fug;)</corpauthor>
+
+    <pubdate>$FreeBSD$</pubdate>
+
+    <copyright>
+      <year>2003</year>
+      <year>2004</year>
+      <year>2005</year>
+      <year>2006</year>
+      <holder>Projeto de Documentação do FreeBSD</holder>
+    </copyright>
+
+    &bookinfo.legalnotice;
+
+    <abstract>
+      <para>Este é o Web site do Projeto de
+	Documentação do FreeBSD em Português
+	Brasileiro, criado em 2003
+	pelo Grupo de Usuários Brasileiros de FreeBSD,
+	<ulink url="http://www.fug.com.br">&afug;</ulink>.
+	Todo documento disponível
+	neste Web site está em constante desenvolvimento,
+	exceto onde explicitamente denotado o contrário.
+	Essa é a segunda fase do projeto, de volta ao
+	trabalho após 18 meses de inatividade.</para>
+    </abstract>
+  </bookinfo>
+
+  <preface id="prefacio">
+    <title>Prefácio</title>
+
+    <sect1 id="prefacio-objetivo">
+      <title>Objetivo</title>
+
+      <para>O projeto brasileiro de documentação do FreeBSD
+	é formados por membros do Grupo Brasileiro de Usuários
+	FreeBSD (<ulink url="http://www.fug.com.br">&fug;</ulink>) e tem
+	por objetivo traduzir para a língua portuguesa os
+	documentos produzidos pelo <foreignphrase>FreeBSD Documentation Project
+	(<acronym>FDP</acronym>)</foreignphrase>.</para>
+	
+      <para>O trabalho de tradução é realizado diretamente nos
+	originais em <acronym>SGML</acronym>, que são mantidos em um
+	repositório Git até que estejam prontos (traduzidos e
+	revisados) para serem incorporados à árvore Subversion oficial
+	do Projeto FreeBSD.</para>
+    </sect1>
+
+   <sect1 id="prefacio-participar">
+      <title>Seja parte do Projeto</title>
+
+      <para>O Projeto&nbsp;Brasileiro&nbsp;de&nbsp;Documentação&nbsp;do&nbsp;FreeBSD
+	(<foreignphrase>FreeBSD&nbsp;Brazilian&nbsp;Portuguese&nbsp;Documentation&nbsp;Project</foreignphrase>),
+	chamado comumente apenas de &adocbr; é composto do
+	esforço voluntário de usuários do sistema, em geral
+	membros da &afug;.  Então por que não
+	juntar-se ao time?</para>
+
+      <para>Para fazer parte deste projeto você deve ter um apurado
+	senso de responsabilidade e comprometimento, o que inclui especialmente
+	não assumir mais atribuições do que você
+	é capaz de cumprir, em especial em relação ao
+	tempo disponível para contribuir.
+	Mas note bem, mesmo com pouca disponibilidade sua
+	particiação é valiosa para o time.</para>
+
+      <para>&Eacute; necessário boa capacidade de leitura de textos
+	técnicos em língua inglesa, ou qualquer outra língua cujo
+	Projeto de Documentação do FreeBSD esteja disponível
+	e mantido em suas últimas revisões, como Francês,
+	Alemão e Japonês.  &Eacute; necessário também
+	fluência em língua portuguesa escrita e em especial
+	familiaridade com termos técnicos. &Eacute; um trabalho
+	colaborativo, portanto facilidade para trabalho em equipe é
+	essencial bem, como a correta observ&acirc;ncia de regras,
+	poi,s além de cumprir com os preceitos originais
+	do <acronym>FDP</acronym>, o &adocbr; ainda
+	faz uso de regras e padrões próprios.</para>
+
+      <para>Se você se encaixa neste perfil, sua presença
+	no time será valiosa.  Para tal, o primeiro passo
+	é ler atentamente o &a.ptbr.p.fdpp;, disponível
+	em <ulink
+	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">
+	Português Brasileiro aqui</ulink> e em
+	<ulink url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">
+	Inglês aqui</ulink>.</para>
+
+      <para>Após a leitura do <acronym>FDP</acronym> se ainda assim
+	você quiser se juntar ao time, siga para o <link 
+	  linkend="docbr-internals">Capítulo 2</link> deste
+	documento.</para>
+    </sect1>
+
+    <sect1 id="prefacio-participar-papeis">
+      <title>Papéis à desempenhar no Projeto</title>
+
+      <para>O &adocbr; é constituído de
+	membros que atuam em uma ou mais atividades dentro dos seguintes
+	papéis:</para>
+
+      <itemizedlist>
+	<title>Tradutor 1 (Inglês para Português Brasileiro)</title>
+
+	<listitem>
+	  <para>&Eacute; o mais comum tradutor, que desempenha o maior
+	    número de trabalho dentro do projeto.
+	    &Eacute; responsável por traduzir a documentação
+	    original do Projeto FreeBSD da língua inglesa para o
+	    português falado no Brasil.  Deve cumprir os requisitos
+	    anteriormente descritos.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>Tradutor 2 (Português Brasileiro para Inglês)</title>
+
+	<listitem>
+	  <para>&Eacute; menos comum mas igualmente importante.  Ao ler
+	    o <acronym>FDP</acronym> você soube que
+	    para incluir informações localizadas em
+	    algum documento já existente dentro do Projeto,
+	    o time de localização deve antes submetê-las
+	    à documentação original, em inglês.  Isso
+	    é para garantir integridade de conteúdo
+	    em qualquer língua.  Complementarmente
+	    qualquer contribução completa (livro ou artigo)
+	    que desejemos criar oficialmente, tem antes que
+	    ser aprovada em língua inglesa.  Aqui
+	    entra o Tradutor 2.</para>
+
+	    <para>O Tradutor 2 deve ter grande facilidade para escrita
+	    formal e técnica em língua inglesa.  Não precisa ser
+	    fluente, pois a documentação submetida será
+	    revisada por nativos desta língua, contudo,
+	    não é possível o uso de linguagem coloquial.
+	    &Eacute; através do Tradutor 2 que a comunidade
+	    conseguirá submeter contribuições à
+	    documentação oficial do Projeto FreeBSD.</para>
+	</listitem>
+      </itemizedlist>
+	
+      <itemizedlist>
+	<title>Marcador / Revisor de Marcação
+	  <acronym>SGML</acronym></title>
+
+	<listitem>
+	  <para>Trata-se do contribuidor responsável por
+	    criar arquivos <acronym>SGML</acronym> que conformem
+	    com o padrão
+	    <foreignphrase>DocBook DTD</foreignphrase> expandido
+	    pelo <acronym>FDP</acronym>.  Para desempenhar essa função
+	    o indivíduo deve ter facilidade e principalmente
+	    gostar de marcação XML-compatível, além de
+	    estudar detalhadamente as entidades e tipos de documentos
+	    criados exclusivamente pelo <acronym>FDP</acronym>.  Em
+	    resumo, pessoa que conheça o &a.ptbr.p.fdpp;
+	    em detalhes, bem como o processo de construção
+	    de documentos do <acronym>FDP</acronym>, disposição de
+	    <filename>Makefile</filename>s e detalhes de rotinas
+	    &man.make.1; relacionadas ao Projeto de Documentação.</para>
+
+	  <para>O Marcador <acronym>SGML</acronym> é responsável por
+	    revisar documentos <acronym>SGML</acronym> traduzidos por outros
+	    membros menos
+	    familiarizados com a linguagem, e por criar novos documentos
+	    inteiros para submissão junto à Documentação
+	    Oficial do Projeto.  De maneira geral funções de
+	    Marcador <acronym>SGML</acronym> são frequentemente
+	    desempenhadas por Tradutores 1 e 2,
+	    ainda que de forma mais superficial.
+	    Mas em geral são também obrigações destes
+	    conhecer o essencial sobre esta atividade.</para>
+
+	  <para>Marcadores <acronym>SGML</acronym> que gostem deste trabalho
+	    são espécies raras e em extinção.
+	    Se você é um deles, seu esforço
+	    será muito apreciado.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>Revisor Ling&uuml;ista</title>
+
+	<listitem>
+	  <para>&Eacute; o responsável por revisar gramática,
+	    ortografia e contexto dos documentos traduzidos,
+	    bem como garantir conformidade dos ítens
+	    traduzidos com o Glossário de expressões
+	    comuns usados pelo &adocbr;.</para>
+
+	  <para>Pode desempenhar função de revisor para
+	    língua inglesa no caso de documentações
+	    inéditas, mas usualmente revisa a tradução
+	    do Inglês para Português Brasileiro.  &Eacute; uma
+	    função não raramente desempenhada por
+	    tradutores ao revisar textos de
+	    outros membros do time.</para>
+	  </listitem>
+      </itemizedlist>
+    </sect1>
+
+  <chapter id="documentos">
+    <title>Documentos Trabalhados pelo &adocbr;</title>
+
+    <para>O primeiro e mais importante desafio do &adocbr;
+      é traduzir toda a documentação oficial
+      do Projeto FreeBSD, essencialmente sob as categorias Livros
+      (<foreignphrase>books</foreignphrase>) e Artigos
+      (<foreignphrase>articles</foreignphrase>).  Este é o grande
+      desafio, e o foco primário de trabalho
+      são os livros <emphasis>Handbook do FreeBSD</emphasis> e
+      <emphasis>FAQ do FreeBSD</emphasis>.</para>
+
+    <para>Nessa nova fase do projeto, após quase nove anos de
+      inatividade, estamos buscando a conclusão da tradução e revisão
+      dos documentos que estavam em andamento, como no caso do
+      &a.ptbr.p.fdpp;.  Mas, infelizmente, muitos dos documentos já
+      traduzidos pelo projeto não foram incorporados à árvore oficial
+      do &os; e acabaram ficando defasados quanto a versão oficial.
+      Esses documento precisaram ser traduzidos do zero novamente e
+      revisados, pois o trabalho de rastreamento de
+      <foreignphrase>commits</foreignphrase> e mudanças seria
+      inviável.</para>
+
+    <para>A seguir você encontrará os documentos que estão sendo
+    trabalhados atualmente, seus status e planos para o futuro.</para>
+
+    <sect1 id="documentos-integrados">
+      <title>Integrados oficialmente ao Projeto FreeBSD</title>
+
+      <itemizedlist>
+	<title>
+	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/faq/">
+	    FAQ &mdash; Perguntas Frequentes Sobre o FreeBSD
+	  </ulink>
+	</title>
+
+	<listitem>
+	  <para>Tratam-se das Perguntas Mais Frequentes sobre o
+	    FreeBSD, é originalmente o primeiro trabalho completo
+	    terminado pelo &adocbr; em um esforço centralizado
+	    desempenhado pela <ulink
+	    url="http://www.freebsdbrasil.com.b/r">FreeBSD
+	    Brasil</ulink> e revisado pela comunidade.  Foi o pontapé
+	    inicial para o &adocbr;.  Hoje o conteúdo precisa ser
+	    atualizado.</para>
+	    
+	    <para>Está em conformidade com a revisão
+	    <literal>1.456</literal> do documento original em Inglês.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>
+	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/contributing/">
+	    Contribuindo com o FreeBSD
+	  </ulink>
+	</title>
+
+	<listitem>
+	  <para>Artigo escrito por <quote>Jordan K. Hubbard</quote>
+	    aborda as diferentes maneiras como um indivíduo,
+	    organização ou grupo de usuários podem contribuir com o
+	    Projeto FreeBSD.</para>
+	    
+	    <para>Está em conformidade com a revisão
+	    <literal>r38826</literal> do documento original em
+	    Inglês.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">
+            FDP Primer &mdash; &a.ptbr.p.fdpp; para novos
+	    colaboradores
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este &a.ptbr.p.fdpp; cobre tudo o que você precisa
+            saber para começar a contribuir com o Projeto de
+            Documentação do FreeBSD, desde as ferramentas e
+            softwares que você estará utilizando (tanto
+            os obrigatórios quanto os recomendados) à
+            filosofia por trás do projeto de
+            documentação.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>r38826</literal> do documento original em
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/new-users/">
+            Guia Rápido do FreeBSD para Usuários Linux
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este documento tem por objetivo tentar destacar as
+	    principais
+            diferenças entre os dois sistemas operacionais, indo desde
+            gerenciamento de pacotes, até os métodos de atualização do
+            sistema.</para>
+
+          <para>Está em conformidade com a revisão
+            <literal>r39170</literal> do documento original em
+            Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/problem-reports/">
+            Escrevendo relatórios de problema no FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este artigo descreve qual a melhor forma de formular e
+            de submeter um relátorio de problemas para o Projeto
+            FreeBSD.</para>
+
+            <para>Está em conformidade com a revisão
+              <literal>r38826</literal> do documento original em
+              Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/explaining-bsd/">
+            Explicando FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>No mundo do código aberto, a palavra
+	    <quote>Linux</quote>
+            é quase um sinônimo de <quote>Sistema
+            Operacional</quote>, mas esse não é o
+            único sistema operacional <trademark>UNIX</trademark>
+            de código aberto.  De acordo com o <ulink
+            url="http://www.leb.net/hzo/ioscount/data/r.9904.txt">
+            Contador de Sistemas Operacionais da Internet</ulink>, em
+            Abril de 1999 31.3% das máquinas conectadas na rede
+            rodam Linux.  14.6% rodam BSD UNIX.  Alguns dos
+            responsáveis pelas maiores operações da
+            rede no mundo, como o <ulink
+            url="http://www.yahoo.com">Yahoo!</ulink>, rodam BSD.  O
+            servidor FTP mais requisitado do mundo, <ulink
+            url="ftp://ftp.cdrom.com/">ftp.cdrom.com</ulink>, usa BSD
+            pra transferir 1.4 TB de dados por dia.  &Eacute; claro, que
+            não se trata de um nicho de mercado:  O BSD é um
+            segredo muito bem guardado.</para>
+
+          <para>Então, qual é o segredo?  Por que o BSD
+            não é melhor difundido, mais conhecido?  Esse
+            documento abordará essas e outras
+            questões.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>r38826</literal> do documento original em
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/freebsd-questions/">
+            Como obter o melhor resultado para as suas perguntas na
+            lista de discussão FreeBSD-Question
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este documento prove informações úteis
+            para as pessoas que planejam enviar um email para a lista
+	    de
+            discussão <literal>FreeBSD-questions</literal>.
+            Os avisos e conselhos foram elaborados com
+            o com objetivo de maximizar as chances de que o leitor
+	    receba
+            respostas úteis para as suas mensagens.</para>
+
+          <para>Este documento é enviado regularmente para a lista de
+            discussão FreeBSD-questions.  As dicas aqui mencionadas
+            são também indicadas
+            para a lista &afug;, e de forma geral para
+            qualquer outra lista de discussão
+            com grande tráfego de e-mails semanais.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>r38826</literal> do documento original em
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+    </sect1>
+
+    <sect1 id="documentos-em-revisao">
+      <title>Atualmente em fase de revisão (à ser integrados em breve)</title>
+
+      <para>Atualmente não existe nenhum documento em fase de revisão,
+	veja na seção a seguir os documentos em fase de tradução,
+	estes são os próximos a entrarem nesta área.</para>
+    </sect1>
+
+
+    <sect1 id="documentos-em-traducao">
+      <title>Em trabalho de tradução</title>
+
+      <itemizedlist>
+	<title>
+	  <ulink
+	    url="http://server06.ebrandi.eti.br/articles/portbuild/">
+	    Procedimentos para Construção de Pacotes
+	  </ulink>
+	</title>
+
+	<listitem>
+	  <para>Este artigo documenta os trabalhos internos do
+	    <literal>cluester</literal> de construção de pacotes, é
+	    ele quem realiza a compilação dos pacotes para oferecer os
+	    binários pré-compilados aos usuários do &os;.
+	  </para>
+
+	  <para>Está em conformidade com a revisão
+	  <literal>r39401</literal> do documento original em
+	  Inglês.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>
+	  <ulink
+	    url="http://server06.ebrandi.eti.br/articles/rc-scripting/">
+	    Criando <literal>scripts</literal> rc.d para BSD na
+	    prática</ulink>
+	</title>
+
+	<listitem>
+	  <para>Este artigo tem por objetivo iniciar o usuário na
+	  criação de <literal>scripts</literal> para o
+	  <literal>framework</literal> <literal>rc.d</literal>.</para>
+
+	  <para>Está em conformidade com a revisão
+	  <literal>r38826</literal> do documento original em
+	  Inglês.</para>
+	</listitem>
+      </itemizedlist>
+    </sect1>
+
+    <sect1 id="documentos-desatualizados">
+      <title>Documentos traduzidos, mas que estão desatualizados com
+        relação ao original</title>
+
+      <para>Os documentos a seguir passaram pelo precesso de traduão e
+        revisão em sua grande maioria, mas por problemas de ordem maior
+        não puderam ser integrados à árvore oficial do &os;. Todos
+	estão desatualizados com relação a versão original e precisam
+	ser revisados ou traduzidos do zero novamente.</para>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/books/handbook/">
+            <foreignphrase>Handbook</foreignphrase> do FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>&Eacute; a principal e mais utilizada referência de
+            documentação oficial do &os;.  Traz abordagem de
+            nível básico à intermediário da
+            instalação e administração geral do sistema.
+            &Eacute; um trabalho em constante atualização, e
+            é parte de um esforço voluntário de
+            dezenas de contribuidores.  Trata-se de uma das maiores
+            e mais completas referências centralizadas sobre
+            um sistema de Código Aberto conhecidas.
+            Deve ser cuidadosamente lido por novos usuários
+            do FreeBSD e constantemente revistos por
+            usuários mais experientes, pois está em
+            constante melhoria.</para>
+
+           <para>Está em conformidade com a revisão
+	    <literal>1.2</literal> do documento original em
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/books/porters-handbook">
+            <foreignphrase>Handbook</foreignphrase> dos
+	    Desenvolvedores de Ports
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>&Eacute; a referência primária para todo indivíduo
+            que deseje conhecer mais sobre a Coleção de
+            <literal>Ports</literal> do FreeBSD, em especial que
+            deseje contribuir ativamente, tornando-se um mantenedor de
+            <literal>ports</literal> já existentes ou
+            novos <literal>ports</literal>.  Documenta todas as
+            regras e padrões sob os quais um <literal>port</literal>
+            deve ser criado, incluindo exemplos de arquivos
+            <filename>Makefile</filename>, variáveis como
+            <makevar>MASTERDIR</makevar>, <makevar>BROKEN</makevar>
+            <makevar>FORBIDDEN</makevar>,
+	    <makevar>DEPRECATED</makevar>,
+            e considerações especiais sobre o subsistema de
+            gerenciamento de aplicações de terceiros.</para>
+
+           <para>Está em conformidade com a revisão
+	    <literal>1.349</literal> do documento original em
+	    Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/pxe/">
+            Guia de Jumpstart para o FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este artigo detalha o método utilizado para permitir que
+            se instale o FreeBSD em equipamentos que utilizem a tecnologia
+            Intel PXE para dar boot no equipamento através da rede.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.22</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/hubs/">
+            Espelhando o FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Este é um artigo que trata sobre como espelhar o FreeBSD,
+            o mesmo esta em fase de elaboração pelos coordenadores do
+            sites espelho.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.42</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/solid-state/">
+            FreeBSD e Dispositivos de Estado Sólido
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Os sistemas Embedded possuem a vantagem de ter a sua
+            estabilidade aumentada devido a ausência completa de partes
+            móveis (Discos rigidos).  Entretanto é
+            necessário levar em conta que geralmente estes dispositivos
+            possuem pouco espaço de disco disponível,
+            além de terem na durabilidade da midia de
+            armazenamento outro fator crítico.
+            Este artigo aborda o uso de dispositivos de armazenamento em
+            estado sólido na criação de sistemas
+            embedded.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.11</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/diskless-x/">
+            Um guia sobre como implementar um terminal diskless X
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Retirado do artigo original:</para>
+            <blockquote>
+              <title>Um guia sobre como implementar um terminal diskless X</title>
+
+              <attribution>Escrito em primeira pessoa por <quote>Jerry
+                Kendall</quote></attribution>
+
+              <para>Com a ajuda de alguns amigos da lista FreeBSD-hackers, eu
+                pude criar um terminal X diskless.  A criação
+                do terminal X necessitou incialmente da criação
+                de um sistema diskless com utilitários minimos
+                montados via NFS.  Estes mesmos passos
+                foram utilizados para criar 2 sistemas diskless distintos.  O
+                primeiro é o <hostid role="fqdn">altair.example.com</hostid>.
+                Um terminal X diskless o qual eu executo no meu velho
+                386DX-40.  Ele possui um HD de 340 Mb, mas eu não quiz
+                mudá-lo.  Assim, ele da boot a partir do
+                <hostid role="fqdn">antares.example.com</hostid> através da
+                rede Ethernet.  O segundo sistema é um 486DX2-66.  Eu o
+                configurei um FreeBSD Diskless, o qual não utiliza o disco
+                local.  O servidor neste caso é uma SUN 670MP executando
+                Sun OS 4.1.3.  O mesmo procedimento de configuração foi
+                necessário em ambos.</para>
+            </blockquote>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.15</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/release/doc/pt_BR.ISO8859-1/early-adopter/">
+            Guia dos Novos Adeptos ao FreeBSD 5.X
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Guia de referência para usuários migrando da
+            série 4.<replaceable>X</replaceable> para
+            5.<replaceable>X</replaceable> ou superior.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.15</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/dialup-firewall/">
+            Dialup firewalling com FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+        <para>Este artigo documenta como configurar um firewall
+          utilizando uma conexão discada com o FreeBSD e o IPFW, e
+          especificamente como implementar um firewall de
+          filtragem de pacotes em cima de um endereço IP atribuido
+          din&acirc;micamente.  Este documento não aborda a
+          configuração da sua conexão
+          PPP propriamente dita.</para>
+
+        <para>Está em conformidade com a revisão
+          <literal>1.32</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink
+	    url="http://doc.fug.com.br/doc/pt_BR.ISO8859-1/articles/laptop/">
+            Utilizando o FreeBSD em Laptops
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>FreeBSD trabalha bem em muitos laptops, com algumas
+            advertências.  Algumas questões
+            específicas para rodar o &os; em laptops,
+            relacionando diferentes requerimentos de hardwares de
+            desktops, são discutidas neste documento.</para>
+
+            <para>Está em conformidade com a revisão
+            <literal>1.19</literal> do documento original em Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <title>
+          <ulink url="http://doc.fug.com.br/hardware-notes/">
+            Notas de Hardware do FreeBSD
+          </ulink>
+        </title>
+
+        <listitem>
+          <para>Guia de compatibilidade de Hardware para &os;
+           Documenta todos os chipsets e equipamentos sabidamente
+           suportados de forma plena pelo &os;.  Deve
+           ser usado como referência antes de adquirir
+           novo hardware voltado para o sistema.</para>
+
+           <para>Está em conformidade com a revisão
+             <literal>1.4</literal> do documento original em
+             Inglês.</para>
+        </listitem>
+      </itemizedlist>
+
+    </sect1>
+
+    <sect1 id="objetivos-futuros">
+      <title>Objetivos futuros para o &adocbr;</title>
+
+      <itemizedlist>
+	<title>Tradução do Web site do Projeto FreeBSD</title>
+
+	<listitem>
+	  <para>O Web site do Projeto FreeBSD é um
+	    conjunto de documentos cuja manutenção
+	    demanda muita disponibilidade de muitos indivíduos,
+	    realidade por enquanto não compatível com a
+	    atual formação do time &adocbr;.
+	    O Web site é extremamente volátil, conta com
+	    dezenas de atualizações diárias, e por isso
+	    demanda atenção especial.  &Eacute; o ítem menos
+	    prioritário para o &adocbr;.
+	    Contudo se você deseja e tem disponibilidade
+	    para considerar manter o Web site do Projeto,
+	    entre em contato conosco.</para>
+
+	  <para>Como o Web site do Projeto é intimamente
+	    conectado com os artigos e livros que constituem
+	    a documentação oficial do &os;, o
+	    voluntário deve necessáriamente conhecer
+	    os procedimentos relacionados à
+	    manutenção destes documentos.  Ou seja, já
+	    ter sido parte dos outros esforços do
+	    &adocbr;.</para>
+	</listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>Tradução das páginas de manuais do &os;</title>
+
+	<listitem>
+	  <para>As páginas de manuais
+	   <foreignphrase>online</foreignphrase> do &os; tem
+	    característica de ser extremamente ricas em
+	    detalhes e exemplos.  São em geral mantidas pelos
+	    próprios desenvolvedores do sistema quando
+	    criam ou atualizam as aplicações ou recursos
+	    do <literal>kernel</literal>, bem como aplicações
+	    da <literal>userland</literal>, bibliotecas, e outros
+	    ítens relacionados ao sistema operacional.  A
+	    revisão e melhoria dessas páginas de manuais, bem
+	    como devida formatação das mesmas é função
+	    do <acronym>FDP</acronym>.  Contudo, quando esse
+	    trabalho é assumido por um Time de Localização
+	    como o Projeto de Documentação
+    	    do FreeBSD em Português Brasileiro, este tem
+	    o trabalho de traduzir e manter atualizadas todas
+	    as páginas de manuais do sistema.  Trata-se de um
+	    trabalho de dedicação prioritária pois, uma vez
+	    disponíveis, as páginas de manuais não podem
+	    jamais estar em conformidade com revisões
+	    passadas, que não as revisões mais
+	    recentes à cada ciclo de versões do FreeBSD.  Ou
+	    seja a cada novo <literal>RELEASE</literal>, que
+	    ocorre em média de quatro em quatro meses, todas as
+	    páginas de manuais tem que ser revisadas e atualizadas.
+	    &Eacute; um trabalho árduo e que demanda dedicação.</para>
+	
+	  <para>Outra característica desse trabalho, é que
+	    o voluntário deve conhecer outras ferramentas
+	    além das comuns ao <acronym>FDP</acronym>, como
+	    &man.groff.1; e &man.troff.1;.  Este é
+	    um trabalho não iniciado no &adocbr;.
+	    Tem menor prioridade e demanda maior comprometimento
+	    dos indivíduos envolvidos.</para>
+	</listitem>
+      </itemizedlist>
+    </sect1>
+
+
+  <chapter id="docbr-internals">
+    <title>Projeto &adocbr; internamente</title>
+
+    <para>Agora que você já está por dentro do que
+      é &docbr;, conhece os documentos prontos e ainda sendo
+      trabalhados por este projeto, já tem noção dos
+      métodos de trabalho do time, pode decidir se deseja
+      participar da equipe.  Nesse capítulo
+      você saberá um pouco sobre como e por onde
+      começar.</para>
+
+    <para>Se você chegou aqui, é fundamental que
+      já tenha lido o &primer;.  Se não o fez ainda,
+      acesse-o em
+      <ulink url="http://server06.ebrandi.eti.br/books/fdp-primer/">
+      Português Brasileiro aqui</ulink> e em
+      <ulink url="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">
+      Inglês aqui</ulink>.</para>
+
+    <sect1 id="metodo-trabalho-doc-br">
+      <title>Métodos de trabalho &docbr;</title>
+
+      <para>O &adocbr; assume o método de trabalho indicado pelo
+	Projeto de Documentação do FreeBSD, e possui ainda
+	características próprias de trabalho.  De forma geral todo
+	trabalho é diretamente realizado por editores de texto
+	que podem ser dos mais simples, como &man.vi.1; e &man.ee.1;,
+	à editores mais completos com &vim; e &emacs;.
+	O <acronym>FDP</acronym> aconselha uso do &emacs;, em especial por ele ter
+	suporte à modo de operação <acronym>SGML</acronym> &mdash; o chamado <literal>SGML-mode</literal>.
+	No &adocbr; temos ainda que considerar a necessidade de trabalhar
+	com acentos em padrão de entidades <acronym>XML</acronym>
+	(<acronym>SGML</acronym>), isso quer dizer que palavras
+	acentuadas não podem ter os acentos literais, mas sim,
+	deve fazer uso dessas entidades para representar os
+	caracteres especiais típicos de nossa
+	língua &mdash; chamados de padrão <literal>ISO 8859-1</literal> ou
+	suporte à caracteres latinos.</para>
+
+      <para>Por exemplo, a seguinte expressão:</para>
+
+      <example>
+	<title>Exemplo de acentos literais</title>
+
+	<programlisting>Este é o Projeto de Documentação do FreeBSD.</programlisting>
+      </example>
+
+      <para>Será escrito da seguinte forma:</para>
+
+      <example>
+	<title>Exemplo de acentos com entidades <acronym>SGML</acronym></title>
+
+        <programlisting>Este &amp;eacute; o Projeto de Documenta&amp;ccedil;&amp;atilde;o do FreeBSD.</programlisting>
+      </example>
+
+      <para>Portanto temos que decidir como trabalhar essa necessidade.
+	Alguns (poucos é verdade) membros do projeto trabalham em
+	editores simples como &man.ee.1; e &man.vi.1; e escrevem as frases
+	diretamente com essas entidades.  Contudo isso é
+	incomum e quase não-humano (rs).
+	N&amp;atilde;o temos esperan&amp;ccedil;a nem
+	&amp;eacute; nosso desejo que voc&amp;ecirc; goste de escrever e ler
+	dessa maneira.</para>
+
+      <para>Por isso você pode usar outros métodos.  Editores como &vim;
+	por exemplo tem o modo de tradução de caracteres.
+	Quando abre um arquivo ele pode converter as entidades
+	<acronym>SGML</acronym> para acentos em nosso padrão de caracteres,
+	e ao fechar o arquivo ele converte de volta nossos
+	caracteres para entidades <acronym>SGML</acronym>.  Dessa forma ao ler/editar no
+	&vim; o indivíduo sempre terá o texto
+	literal, e o resultado final salvo no arquivo
+	serão as entidades.  Tudo de forma transparente.</para>
+
+      <para>Outros membros preferem usar editores da base como &man.vi.1;
+	ou &man.ee.1; e traduzir tudo com acentos.  Antes de normalizar
+	ou analisar a sintaxe do arquivo <acronym>SGML</acronym> contudo,
+	transforma seus acentos em entidades <acronym>SGML</acronym>.  Esse particularmente
+	é o método que este que está escrevendo
+	esse arquivo <acronym>SGML</acronym> adota.</para>
+
+      <para>Ou com &emacs; você pode escolher como quer trabalhar.
+	O fato é, você deve optar pelo editor de texto
+	o qual tem mais aptidão e fica mais confortável
+	para trabalhar.  O trabalho é grande e não muito
+	simples, então o editor de texto não precisa ser
+	algo a mais à aprender ou adaptar-se.</para>
+
+      <para>O Projeto de Documentação em Português Brasileiro
+	do FreeBSD dispõe de scripts e arquivos de
+	configurações para auxiliar o trabalho do
+	desenvolvedor.  Portanto seja qual for sua opção
+	editor de texto, terá ferramentas para auxiliá-lo.
+	Complementarmente o time criou também um script
+	em linguagem <application>Perl</application> que analisa
+	o arquivo <acronym>SGML</acronym> e revisa algumas das principais regras do <acronym>FDP</acronym>.
+	Por exemplo, você viu ao ler o &primer; que a
+	identação das colunas deve seguir 2 caracteres
+	de espaço.  Que cada oito espaços devem
+	ser substituídos por um <literal>\t</literal> (<literal>tab</literal>).
+	Que o final de uma sentença deve ser denotado
+	com dois espaços se não houver
+	quebra de linhas ou final de parágrafo, que as
+	linhas devem acabar no máximo na coluna
+	84 ou preferencialmente antes da coluna 70, etc.
+	O script corrige todas as regras que ele for capaz e dispara
+	um alerta para as regras que não conseguir corrigir.</para>
+
+      <para>A outra ferramenta que o contribuidor do DOC-BR deve conhecer,
+	ao menos o básico, é o <application>git</application>.  Nosso
+	projeto faz uso de um repositório
+	<application>git</application> para armazenar e possibilitar o
+	trabalho paralelo das dezenas de membros simult&acirc;neamente.  As
+	vantagens do Git é ter um controle rígido sobre versões,
+	podendo restaurar um arquivo errôneamente modificado à
+	qualquer momento, e possibilitar trabalho concorrente de
+	diversos indivíduos.  A desvantagem é que é algo mais à se
+	aprender, caso você não tenha familiaridade com essa
+	ferramenta.</para>
+
+      <para>Por último, o método de comunicação entre todos os membros
+        do DOC-BR é através de correio eletrônico, especificamente a
+        lista de discussão DOC disponível na &fug;. Saiba como participar
+        da lista na seção seguinte deste documento.</para>
+    </sect1>
+
+    <sect1 id="lista-docbr">
+      <title>Lista DOC-BR, o método de comunicação primário do
+        Projeto.</title>
+
+      <para>Os participantes do Projeto DOC-BR fazem uso dessa <ulink
+        url="https://www.fug.com.br/mailman/listinfo/doc">lista de
+        discussão</ulink> para interagir, discutir e decidir cada etapa
+        de trabalho do esforço de tradução para Português Brasileiro da
+	documentação oficial do FreeBSD.</para>
+
+      <para>Outras converas sobre metodologia e decisões práticas de
+        traduções, interpretações de texto, grafia, gramática e
+        conformidade/atualização do glossário de expressões comuns às
+        traduções também se passam <ulink
+        url="https://www.fug.com.br/mailman/listinfo/doc">nesta
+        lista</ulink>.</para>
+
+      <para>A lista chama-se apenas <emphasis>doc</emphasis>, e é
+        hospedada diretamente na infra-estrutura da FUG-BR.  Se você tem
+	dúvidas, críticas ou sugestões acera do Projeto DOC-BR, e
+        principalmente se quer se tornar parte desse esforço,
+	cadastre-se na lista.  Ela pode ser acessada <ulink
+	url="https://www.fug.com.br/mailman/listinfo/doc">aqui</ulink>.</para>
+
+      <para>Para se cadastrar nesta lista, acesse sua interface
+        <literal>Web</literal> <ulink
+        url="https://www.fug.com.br/mailman/listinfo/doc">aqui</ulink>.</para>
+    </sect1>
+
+    <sect1 id="repositorio-git">
+      <title>Repositório Git do Projeto &adocbr;</title>
+
+      <para>O &adocbr; adota o Git como sistema de controle de versão
+        para seu repositório fonte.  Apesar de ter diferenças
+        significativas com relação ao sistema utilizado pelo projeto
+        anteriormente, o <acronym>CVS</acronym>, e mesmo com o utilizado
+        pela árvore oficial do projeto FreeBSD, o Subversion, o Git tem
+        uma série de vantagens com relação a estes, entre elas está seu
+        desenho distribuído.</para>
+
+      <para>Diferente do <acronym>CVS</acronym>, o Git não está
+        incluído na instalação padrão do FreeBSD e você precisará
+        instalá-lo no seu sistema para ter acesso ao repositório
+        localmente.  Você pode adicioná-lo ao seu sistema através do
+	<application>pkg_add</application> ou a partir do
+	<literal>ports</literal> em
+	<filename>/usr/ports/devel/git</filename></para>
+
+      <sect2 id="git-github">
+	<title>Hospedagem do Repositório no GitHub</title>
+
+	<para>O &adocbr; utiliza o <ulink url="https://github.com/">
+	  GitHub</ulink>  para hospedar seu
+	  repositório Git.  Ele é utilizado por grandes projetos de
+	  código aberto e tem funções bastante úteis, como gráficos,
+	  feeds, wiki, entre outras.</para>
+
+	<para>Você pode contribuir com o projeto de várias formas no
+	  GitHub, ou até mesmo acessar o repositório de forma anônima.
+	  Mas para contribuir de forma ativa, enviando seus 
+	  <foreignphrase>commits</foreignphrase>
+	  diretamente para o repositório, ou mesmo para criar um
+	  <foreignphrase>fork</foreignphrase> do
+	  projeto e poder enviar <literal>pull requests</literal>, você precisa criar sua conta no serviço acessando
+	  <ulink url="https://github.com/signup/free">
+	  https://github.com/signup/free</ulink>.</para>
+
+	<para>&Eacute; de suma import&acirc;ncia que você consulte a
+	  <ulink url="https://help.github.com/">ajuda do GitHub</ulink>
+	  para obter mais detalhes de seu funcionamento.</para>
+      </sect2>
+
+      <sect2 id="git-anonimo">
+	<title>Acesso anônimo ao servidor GitHub</title>
+
+	<para>Se você não pretende contribuir de forma ativa e tem
+	  apenas curiosidade sobre o andamento do projeto, pode
+	  consultar o servidor GitHub sem ter usuário e senha. Para isso
+	  acesse-o como anônimo. Os procedimentos são:</para>
+
+	  <screen>&prompt.user; <userinput>git clone git://github.com/doc-br/doc-br.git</userinput></screen>
+
+	<para>Entre no diretório do repositório que acabou de ser
+	  criado e mude para o <foreignphrase>branch</foreignphrase>
+	  de desenvolvimento:</para>
+
+	  <screen>&prompt.user; <userinput>git checkout doc-br-2012-fdp</userinput></screen>
+
+	<para>A partir desse momento você tem o repositório completo
+	do &adocbr; disponível.  Os módulos do &adocbr; estão
+	divididos entre vários repositórios e você precisará clonar
+	cada um deles separadamente.</para>
+
+	<para>Para saber mais sobre os módulos disponíveis leia a
+	próxima seção.</para>
+
+      <sect2 id="organizacao-modulos">
+	<title>Organização dos Repositórios Git</title>
+
+	<para>Os módulos do Projeto de Documentação do FreeBSD
+	  em Português Brasileiro, hospedados no GitHub, foram
+	  divididos em repositórios e podem ser acessados
+	  separadamente.  Os módulos disponíveis e a finalidades deles
+	  estão descritos a seguir:</para>
+
+	<itemizedlist>
+	  <title><ulink url="https://github.com/doc-br/doc-br">doc-br/</ulink></title>
+
+	  <listitem>
+	      <para>Este é o repositório que contém os fontes em SGML dos
+		artigos e livros para tradução e revisão.</para>
+	  </listitem>
+	  <listitem>
+	    <itemizedlist>
+	      <title>pt_BR.ISO8859-1/</title>
+
+	      <listitem>
+	        <para>Trata-se da estrutura <acronym>ISO</acronym> de
+	          todos os livros e artigos trabalhados
+	          pelo <acronym>FDP</acronym>, na língua
+	          Português Brasileiro. &Eacute; a estrutura importada
+	          junto ao repositório Subversion oficial do &os; sempre que
+	          cada novo artigo ou livro está pronto.  A
+	          constituição desse documento é rigidamente
+	          disposta no padrão que você leu no &primer;
+	          e que portanto já conhece.
+	          Como não é particular à DOC-BR não será
+	          documentado aqui.  &Eacute; essencial que você
+	          tenha lido o &primer;.</para>
+	      </listitem>
+	      <listitem>
+	        <para>Essa estrutura no sistema é o
+	          <filename class="directory">/usr/doc/pt_BR.ISO8859-1/</filename> quando o
+	          usuário sincronizou a documentação do sistema
+	          através de <application>CSup</application> por exemplo.
+	          O resultado construído dessa estrutura
+	          (documentos criados/compilados) são instalados
+	          sob <filename  class="directory">/usr/share/doc/pt_BR.ISO8859-1/</filename>
+	          em um sistema &os; com documentação
+	          instalada (por <acronym>CD-ROM</acronym> por exemplo).
+	          Note que <filename class="directory">/usr/doc/pt_BR.ISO8859-1/</filename>
+	          é distinto de
+	          <filename class="directory">/usr/share/doc/pt_BR.ISO8859-1</filename>.
+	          O primeiro só está disponível se o usuário
+	          obter via sincronia com repositório &os;,
+	          e trata-se dos <acronym>SGML</acronym>, entidades e <acronym>DTD</acronym>s
+	          (ou seja, o código fonte da documentação),
+	          enquanto o segundo é o resultado pronto
+	          (já compilado) em formato <literal>HTML</literal>,
+	          texto plano, <literal>PDF</literal>, <literal>PostScript</literal>
+	          e outros, que pode ser instalado do <acronym>CD-ROM</acronym> por exemplo.</para>
+	      </listitem>
+	    </itemizedlist>
+	  </listitem>
+	</itemizedlist>
+
+
+	<itemizedlist>
+	  <title><ulink url="https://github.com/doc-br/Tools">tools/</ulink></title>
+
+	  <listitem>
+	    <para>Neste módulo ficam os scripts e arquivos
+	      criados e utilizados pelo DOC-BR.  Ele é
+	      constituído dos subdiretórios
+	      <filename class="directory">babylon/</filename>,
+	      <filename class="directory">scripts/</filename>,
+  	      <filename class="directory">vim/</filename>
+	      e <filename class="directory">sandbox/</filename>.  Tem ainda os arquivos
+	      <filename>Readme.txt</filename> e <filename>palavras.txt</filename>.
+	      O diretório <filename class="directory">babylon/</filename>
+	      é usado por pessoas que trabalham com &emacs;.  Ele
+	      contém instruções e base de dados para tradução
+	      de textos simples de português para inglês.
+	      As traduções devem ser usadas apenas como referência
+	      e jamais ser usadas integralmente no contexto do documento
+	      traduzido.  O diretório tem um arquivo <filename>Readme.txt</filename>
+	      com todas as intruções sobre como configurar
+	      e utilizar esse recurso no &emacs;.</para>
+
+	    </listitem>
+	    <listitem>
+	    <para>O diretório <filename class="directory">scripts/</filename> tem os
+	      <foreignphrase>scripts</foreignphrase> criados e mantidos
+	      pela DOC-BR para colocar os documentos em
+	      conformidade com as regras do <acronym>FDP</acronym>.  Ao menos um
+	      <foreignphrase>script</foreignphrase> deve ser sempre
+	      utilizado por todos membros do DOC-BR, trata-se do
+	      <filename>fdp.pl</filename>, escript por
+	      <quote>Diego Linke</quote>.  Ele recebe como entrada
+	      o arquivo <acronym>SGML</acronym> e na saída gera o mesmo arquivo
+	      (<literal>stdout</literal>) com as regras do projeto
+	      corrigidas, e com alertas que o tradutor deve estar atento.</para>
+	    </listitem>
+	    <listitem>
+	    <para>Outro arquivo muito útil do diretório <filename class="directory">tools/</filename>
+	      é o <filename>acentos.sed</filename>.  Ele serve como arquivo de
+	      par&acirc;metro para o &man.sed.1;, e faz a conversão de acentos
+	      em nosso conjunto de caracteres para acentos
+	      com entidades <acronym>SGML</acronym>.  Uso obrigatório para desenvolvedores
+	      que não trabalham com editores que fazem essa
+	      conversão automáticamente como &vim; ou &emacs;.</para>
+	    </listitem>
+	    <listitem>
+	    <para>No diretório <filename class="directory">vim/</filename> você encontrará
+	      o mesmo conteúdo do
+	      <filename class="directory">/usr/doc/share/examples/vim</filename>
+	      em seu sistema após sincronizar a documentação.  São os
+	      arquivos e <foreignphrase>scripts</foreignphrase> usados para configurar a conversão
+	      automática de acentos no &vim;.</para>
+	    </listitem>
+	    <listitem>
+	    <para>O diretório <filename class="directory">sandbox/</filename> dentro do
+	      módulo <filename class="directory">tools/</filename> é uma área
+	      livre para experiências <acronym>CVS</acronym> de
+	      novos usuários.  Todos podem editar
+	      e adicionar novos arquivos dentro deste
+	      diretório, para ficarem mais à vontade
+	      com o <acronym>CVS</acronym>.  Dentro dele você encontrará
+	      o diretório <filename>exercicios/</filename>
+	      com vários arquivos <acronym>SGML</acronym> com exercícios
+	      propostos pelo <acronym>FDP</acronym> bem como algumas
+	      variações destes.</para>
+	    </listitem>
+	    <listitem>
+	    <para>Finalmente os arquivos <filename class="directory">palavras.txt</filename>
+	      são palavras as quais os revisores devem se
+	      atentar, pois usualmente os tradutores esquecem
+	      de acentuar.  O <filename>Readme.txt</filename> é
+	      o arquivo de informações mais completo disponível
+	      pelo DOC-BR no <acronym>CVS</acronym>.  Parte do conteúdo deste
+	      você encontrará aqui também.   &Eacute; leitura obrigatório
+	      se além de contribuir com o DOC-BR
+	      você pensa também em se aprofundar nos
+	      detalhes sobre como a documentação do &os;
+	      funciona, detalhes sobre arquivos
+	      <filename>Makefile</filename> por exemplo,
+	      bem a construção/compilação dos
+	      documentos para outros formatos (<literal>PDF</literal>,
+	      <literal>doc</literal>, etc), ou se você
+	      também pretende trabalhar com &emacs;.</para>
+	  </listitem>
+	</itemizedlist>
+
+
+	<itemizedlist>
+	  <title><ulink url="https://github.com/doc-br/Glossario">glossario/</ulink></title>
+
+	  <listitem>
+	    <para>Trata-se do glossário de palavras e expressões
+	      comuns em inglês, que encontraremos frequentemente
+	      durante o trabalho de tradução.
+	      Como o projeto é constituído de diversos
+	      indivíduos, o glossário também serve
+	      como padronização ling&uuml;ísta, para
+	      garantir que textos distintos traduzidos por pessoas diferentes
+	      sejam traduzidos da mesma forma quando essas expressões
+	      especiais aparecerem, não sendo notadas
+	      diferenças para o leitor.</para>
+
+	    <para>Dentro desse diretório além do
+	      próprio <filename>glossario.txt</filename> há
+	      também um arquivo <filename>LEIAME.glossario.txt</filename>.
+	      Este serviu de inspiração para os próximos parágrafos.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Todo tradutor deve sempre seguir à
+	      risca as expressões adotadas no glossário.
+	      Quando você se deparar com uma expressão
+	      especial que não tem certeza sobre como traduzi-la,
+	      e esta não estiver no glossário ainda, saiba
+	      que você está diante de um candidato em potencial
+	      para nova entrada no glossário.  Portanto
+	      envie para a lista de discussão DOC-BR
+	      suas dúvidas sobre essa expressão
+	      para que todos membros possam discutir sobre como ela deve ser
+	      colocada no glossário.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Algumas traduções são estranhas mas devemos tentar
+	      seguir a norma oficial do português
+	      brasileiro.  Afinal de contas, quem ler a versão
+	      em português provavelmente estará acostumado
+	      com estes termos traduzidos.  Quem acha muito
+	      estranho (prefere eles em inglês) provavelmente
+	      lerá a versão em inglês de qualquer maneira.</para>
+
+	    <para>Por exemplo, a traduçãoo escolhida pelos especialistas
+	      em teoria da informação para
+	      <quote><foreignphrase>site</foreignphrase></quote>
+	      é <literal>s&amp;&amp;iacute;tio</literal>.  Muitos consideram de
+	      péssimo gosto, mas é o correto, então vamos
+	      nos esforçar para usá-la.  Em casos
+	      especiais podemos usar &lt;literal&gt;Web site&lt;/literal&gt;.</para>
+
+	    <para>Já em casos mais cabulosos, ninguém vai concordar
+	      com os especialistas e traduzir palavras consagradas
+	      como <quote><foreignphrase>kernel</foreignphrase></quote>,
+	      para <emphasis>cerne</emphasis> ou <emphasis>núcleo</emphasis>.
+	      Apesar de correta, a tradução estraga o prazer da leitura.
+	      Nesse caso, opte por usar a expressão original
+	      de forma literal, &lt;literal&gt;kernel&lt;/literal&gt;.</para>
+	  </listitem>
+	  <listitem>
+	    <para>A regra para uso do glossário é simples.
+	      Do lado esquerdo temos a expressão original,
+	      e do lado direito as possibilidades de traduções.
+	      Opte pela que melhor se encaixar no contexto.  Do
+	      lado direito essas possibilidades são
+	      denotadas com <literal>|</literal> que significa <quote>ou</quote>.
+	      Portanto <literal>A|B</literal> é <literal>A</literal> ou
+	      <literal>B</literal>.  Prefira as primeiras entradas.
+	      Por exemplo:</para>
+
+	    <example>
+	      <title>Trecho do arquivo <filename>glossario.txt</filename></title>
+
+	      <programlisting>claimed -> reinvidicada|reclamada|exigida|invocada</programlisting>
+	    </example>
+
+	    <para>Prefira <quote>reinvidicada</quote> sempre que possível
+	      ou em caso de dúvida.   Se no contexto as outras opções
+	      ficarem melhor, use-as então.</para>
+	  </listitem>
+	</itemizedlist>
+
+	<!-- Modulo nao esta mais disponivel
+	     TODO: remover esta descricao no 
+	     futuro.
+
+	<itemizedlist>
+	  <title>src/</title>
+
+	  <listitem>
+	    <para>São os documentos de distribuição, íntriseco
+	      e diretamente relacionado ao lançamento de
+	      novas versões do &os;.  No sistema, é o conteúdo
+	      disposto em <filename class="directory">/usr/src/release/doc/</filename>.
+	      Nele estão por exemplo as
+	      <emphasis>Notas de Hardware</emphasis>.</para>
+	  </listitem>
+	</itemizedlist>
+
+
+	<itemizedlist>
+	  <title>www/</title>
+
+	  <listitem>
+	    <para>Trata-se do sítio Web do Projeto &os;.
+	      Nenhum documento primário está atualmente
+	      sendo trabalhado sob este módulo.</para>
+	  </listitem>
+	</itemizedlist>
+
+	Fim da area a ser removida -->
+      </sect2>
+    </sect1>
+
+    <sect1 id="essencial-sobre-git-na-docbr">
+      <title>Essencial sobre Git para trabalho na DOC-BR</title>
+	<para>Aqui você acompanhará o essencial sobre o que
+	  é preciso saber de <application>git</application> e
+	  <ulink url="https://github.com/">GitHub</ulink> para 
+	  desempenhar corretamente as funções na DOC-BR quando você
+	  já for membro do time.</para>
+
+	<note>
+	<para>Para acessar o servidor Git do DOC-BR com privilégios
+	  para atualização e adição de novos documentos
+	  é necessário um nome de usuário válido no
+	  GitHub.  Você soube anteriormente como criá-lo.
+	  Quando a associação ao projeto DOC-BR concluir,
+	  será possível acessar o GitHub com
+	  privilégios de escrita.</para>
+	</note>
+
+      <sect2 id="criando-ambiente-trabalho">
+	<title>Criando seu ambiente de trabalho no DOC-BR</title>
+
+	<para>Para criar seu ambiente de trabalho, aconselhamos fortemente
+	  que as principais configurações e
+	  informações comuns ao seu ambiente
+	  <acronym>CVS</acronym> sejam definidas em variáveis de ambiente, ao
+	  invés de passá-las frequentemente por par&acirc;metro em
+	  linha de comando, como mencionado anteriormente para
+	  acesso anônimo.</para>
+
+	<para>As variáveis de ambiente e seus respectivos valores
+	  em um intepretador de comando compatível
+	  com a <application>Bourne Shell</application>
+	  (&man.sh.1;) devem ser criadas da seguinte maneira:</para>
+
+	<example>
+	  <title>Variáveis de ambiente para
+	    &man.cvs.1; em <application>Bourne Shell</application></title>
+	
+	<programlisting>CVS_RSH=ssh
+export CVS_RSH
+CVSROOT=:ext:<replaceable>seulogin</replaceable>@cvs.doc-br.berlios.de:/cvsroot/doc-br
+export CVSROOT</programlisting>
+	</example>
+
+	<!-- XXX ASSIM COMO <screen>, <programlisting> TAMBEM PRECISA QUE
+	  A IDENTACAO FIQUE A EXTREMA ESQUERDA, ENTAO NESSE CASO ELA PODE
+	  SER QUEBRADA -->
+
+	<para>Para tornar essa modificação permanente
+	  adicione estas linhas no seu <filename>~/.profile</filename> ou
+	  no profile do sistema.  Substituia
+	 <replaceable>seulogin</replaceable> por seu nome
+	 de usuário.</para>
+
+	<para>No caso do interpretador de comandos ser compatível
+	  <application>C Shell</application> (como &man.csh.1; ou &man.tcsh.1;,
+	  padrão em sistemas <acronym>BSD</acronym>) defina
+	  as variáveis:</para>
+
+	<programlisting>setenv CVS_RSH ssh
+setenv CVSROOT :ext:<replaceable>seulogin</replaceable>@cvs.doc-br.berlios.de:/cvsroot/doc-br</programlisting>
+
+	<para>Para tornar estas mudanças permanentes, coloque-as
+	  no <filename>~/.cshrc</filename> ou em
+	  <filename>/etc/csh.cshrc</filename>.  Substitua
+	  <replaceable>seulogin</replaceable>por seu nome
+	  de usuário.</para>
+
+	<para>Agora já é possível acessar o repositório <acronym>CVS</acronym>.
+	  Mas é necessário decidir e customizar seu
+	  ambiente de trabalho.  Para isso seguem algumas
+	  sugestões adotadas no DOC-BR.  Você pode
+	  modificá-las como achar mais conveniente caso
+	  esteja completamente seguro em trabalhar com <acronym>CVS</acronym>.</para>
+
+	<procedure>
+	  <step>
+	    <para>Dentro de seu diretório <literal>home</literal>
+	      (<filename>~/</filename>) crie um diretório
+	      chamado <filename>CVS_ROOT</filename>.  Nele você
+	      assumirá raiz de todo seu trabalho em sistemas <acronym>CVS</acronym>,
+	      mesmo que existam outros além do DOC-BR.
+	      Dentro dele crie o subdiretório
+	      <filename class="directory">doc-br</filename>.  Este sim exclusivo
+	      à nossas atividades.</para>
+	  </step>
+
+	  <step>
+	    <para>Entre neste diretório:</para>
+
+	    <screen>&prompt.user; cd ~/CVS_ROOT/doc-br/</screen>
+	
+	    <para>e nele dê o comando</para>
+
+	    <screen>&prompt.user; cvs checkout pt_BR.ISO8859-1</screen>
+	  </step>
+
+	  <step>
+	    <para>Antes de iniciar qualquer trabalho em um determinado
+	      módulo, sempre execute o comando <command>cvs update</command>
+	      dentro deste módulo:</para>
+
+	    <screen>&prompt.user; cd pt_BR.ISO8859-1/
+&prompt.user; cvs update</screen>
+
+	    <para>Dessa maneira qualquer modificação
+	      que um outro membro do time tiver feito nesses arquivos
+	      serão atualizadas na sua máquina local, e
+	      você mantem completa integridade entre o seu módulo
+	      e o módulo remoto, sem a necessidade de obter os arquivos
+	      todos novamente com <command>cvs checkout</command>.</para>
+	  </step>
+
+	  <step>
+	    <para>Sempre execute os comandos <command>cvs commit</command>
+	      dentro do diretório do capítulo que
+	      estiver traduzindo, de forma à diminuir o risco
+	      de sobrescrever cópias desatualizadas em
+	      documentos modificados por outros membros do time.  Mesmo
+	      sabendo que trabalhar com <acronym>CVS</acronym> é um
+	      processo seguro, já que ele alerta sobre este
+	      conflito e permite ao usuário corrigi-lo,
+	      ainda assim é um procedimento bom à
+	      se acostumar.</para>
+	  </step>
+
+	  <step>
+	    <para>Sempre que você parar de traduzir um arquivo, mesmo
+	      que seja temporário, digamos para tomar um lanche ou ver TV,
+	      faça o <literal>commit</literal>.  Com o
+	      <command>cvs commit</command> você deixará seus
+	      colegas de time por dentro do que já fez,
+	      e garantirá <foreignphrase>snapshots</foreignphrase>
+	      atualizados do estado atual da documentação, além
+	      claro de não correr riscos de perder seu trabalho
+	      caso aconteça alguma tragédia no
+	      seu computador neste meio tempo.</para>
+	  </step>
+
+	  <step>
+	    <para>Se desejar ler todo o histórico de
+	      <literal>log</literal>s de <literal>commit</literal>s em um
+	      dado arquivo, use o comando:</para>
+
+	    <screen>&prompt.user; cvs log <replaceable>arquivo</replaceable></screen>
+	  </step>
+
+	  <step>
+	    <para>Se desejar ver o que mudou de uma revisão
+	      para outra, em um dado arquivo, é possível
+	      executar um &man.diff.1; remoto no &man.cvs.1;.  Para isso
+	      dê:</para>
+
+	    <screen>&prompt.user; cvs diff -r<replaceable>revisão_atual</replaceable> -r<replaceable>revisão_anterior_desejada</replaceable> <replaceable>nome_do_arquivo</replaceable></screen>
+	  </step>
+
+	  <step>
+	    <para>Caso queira saber mais sobre <acronym>CVS</acronym> ou ainda restem dúvidas,
+	      não deixe de ler o documento sobre <acronym>CVS</acronym> disponível
+	      em <ulink url="http://cvsbook.red-bean.com/">http://cvsbook.red-bean.com/</ulink>.
+	      Mas de maneira geral você não precisará conhecer
+	      mais operações no <acronym>CVS</acronym> do que as mencionadas aqui.</para>
+	  </step>
+
+	  <step>
+	    <para>Evite ao máximo enviar em um mesmo <literal>commit</literal>
+	      alterações de conteúdo e de formatação <acronym>SGML</acronym>.
+	      Isso porquê cada novo <literal>commit</literal> gera uma nova
+	      revisão do arquivo, e caso seja necessário restaurar
+	      o arquivo como era antes da formatação ou
+	      antes da alteração de conteúdo, não
+	      será possível já que
+	      ambas mudanças foram feitas
+	      no mesmo <literal>commit</literal>.
+	      Quanto mais <literal>commit</literal>melhor!</para>
+	  </step>
+	</procedure>
+      </sect2>
+    </sect1>
+
+    <sect1 id="ferramentas-docbr">
+      <title>As ferramentas DOC-BR</title>
+	<para>Trataremos aqui apenas das ferramentas criadas e utilizadas
+	  constantemente pelo DOC-BR.  Tratam-se dos arquivos
+	  disponíveis sob o módulo
+	  <filename class="directory">tools/</filename> no repositório <acronym>CVS</acronym>.  Já
+	  vimos o que são e o que fazem esses arquivos, agora
+	  vamos aprender a usá-los.</para>
+
+      <sect2 id="ferramenta-fdp">
+	<title>A ferramenta <filename>fdp.pl</filename></title>
+
+	<para>O <filename>fdp.pl</filename> como já mencionado,
+	   pega o arquivo <acronym>SGML</acronym> na saída padrão e retorna
+	   o mesmo conteúdo, porém tratado/modificado
+	   na saída.  Portanto, como o resultado vai para
+	   saída padrão (<literal>stdout</literal>)
+	   ele deve ser redirecionado a um outro arquivo
+	   temporário.  Use-o da seguinte forma:</para>
+
+	<screen>&prompt.user; cp arquivo.sgml arquivo.sgml.bk
+&prompt.user; <replaceable>/caminho/para/</replaceable>fdp.pl <replaceable>arquivo</replaceable>.sgml > <replaceable>arquivo</replaceable>.sgml.novo</screen>
+
+	<para>Analise o conteúdo na tela (mensagens de alerta) e o
+	   novo arquivo gerado,
+	   <filename><replaceable>arquivo</replaceable>.sgml.novo</filename>.
+	   Estando ok, renomei-o para o arquivo original:</para>
+
+	<screen>&prompt.user; mv <replaceable>arquivo</replaceable>.sgml.novo <replaceable>arquivo</replaceable>.sgml</screen>
+
+	<para>Não se esqueça de fazer backup do arquivo
+	  antes (comando &man.cp.1;).</para>
+
+	<para>Acompanhe exemplo prático de uso dessa ferramenta:</para>
+
+	<example>
+	  <title>Exemplo de uso do <filename>fdp.pl</filename></title>
+
+	  <screen>&prompt.user; cp book.sgml book.sgml.bkp
+&prompt.user; ~/CVS_ROOT/DOC-BR/tools/scripts/fdp.pl book.sgml > book.sgml.novo
+
+[..]
+ATENCAO: A linha 598 tem mais de 70 colunas tem 72 colunas
+ATENCAO: A linha 599 tem mais de 70 colunas tem 73 colunas
+ATENCAO: A linha 600 tem mais de 70 colunas tem 74 colunas
+ATENCAO: A linha 603 tem mais de 70 colunas tem 81 colunas
+ATENCAO: A linha 622 tem mais de 70 colunas tem 79 colunas
+
+Total de 9 linha(s) alterada(s) no arquivo book.sgml
+&prompt.user;
+&prompt.user; mv book.sgml.novo book.sgml</screen>
+	</example>
+      </sect2>
+
+      <sect2 id="ferramenta-sed">
+	<title>Ferramenta &man.sed.1; em conjunto com
+	  <filename>acentos.sed</filename></title>
+
+	<para><filename>acentos.sed</filename> é
+	  usado como arquivo de par&acirc;metros para o &man.sed.1;
+	  (usado com a opção <literal>-f</literal>).  Seu uso é similar
+	  ao <filename>fdp.pl</filename> pois o &man.sed.1; também receberá
+	  o arquivo original como entrada e gerará
+	  o resultado na saída padrão.  Portanto para
+	  usá-lo faça como no exemplo:</para>
+
+	<example>
+	 <title>Exemplo de uso do <filename>acentos.sed</filename></title>
+	
+	  <screen>&prompt.user; sed -f ~/CVS_ROOT/DOC-BR/tools/scripts/acentos.sed book.sgml > book.sgml.novo
+&prompt.user; mv book.sgml.novo book.sgml</screen>
+	</example>
+      </sect2>
+
+      <sect2 id="ferramentas-vim">
+	<title>Configurando o &vim; com as ferramentas <acronym>FDP</acronym></title>
+
+	<para>XXX pendente.  Preciso levantar essas informações
+	  com quem usa o &vim;.</para>
+      </sect2>
+
+      <sect2 id="outras-ferramentas">
+	<title>Outras ferramentas no módulo <filename class="directory">tools/</filename></title>
+
+	<para>Os outros arquivos, <filename>grep.sh</filename>,
+	  <filename>man.sh</filename>, <filename>unman.sh</filename> e
+	  <filename>space2tab.sh</filename> são rotinas
+	  para verificar e corrigir os ítens
+	  das regras do <acronym>FDP</acronym>, mas separados, para análises
+	  independentes.  Normalmente são usados apenas
+	  por revisores mais minuciosos, já que
+	  as funções desempenhadas por estes
+	  são todas desempenhadas também
+	  pelo <filename>fdp.pl</filename>.  Portanto dê
+	  preferência por usar o <filename>fdp.pl</filename>.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="primeiro-commit">
+      <title>O primeiro commit</title>
+
+      <para>Como parte de um exercício muito simples,
+	faça <literal>checkout</literal> de todos os
+	módulos relevantes do <acronym>CVS</acronym> do Projeto DOC-BR.
+	Depois entre no diretório
+	<filename class="directory">tools/sandbox/exercicios</filename>:</para>
+
+      <screen>&prompt.user; cd ~/CVS_ROOT/doc-br
+&prompt.user; cvs co tools
+&prompt.user; cvs co pt_BR.ISO8859-1
+&prompt.user; cvs co glossario
+
+&prompt.user; cd ~/CVS_ROOT/doc-br/tools/sandbox/exercicios</screen>
+
+      <para>Neste diretório, observe uma série
+	de arquivos <acronym>SGML</acronym>.  Você pode utiliza-los da
+	forma como achar conveniente, fique a vontade para
+	modificá-los todos.  Mas a primeira atividade proposta
+	é com o arquivo <filename class="directory">exercicio-novo-membro.sgml</filename>.</para>
+
+      <para>Edite-o e modifique as entidades <literal>versao</literal> e
+	<literal>author</literal>.  Incremente <quote>versao</quote> em
+	<literal>0.1</literal> (por exemplo, se ela é
+	<literal>1.2</literal>, coloque como <literal>1.3</literal>) e
+	modifique seu nome em <literal>author</literal>.</para>
+
+      <para>Com <command>nsgmls</command> verifique a integridade desse
+	arquivo <acronym>SGML</acronym>:</para>
+	
+      <screen>&prompt.user; nsgmls -s exercicio-novo-membro.sgml</screen>
+
+      <para>Se houver erro, corrija-os.  Em seguida
+	faça a normalização desse arquivo
+	<acronym>SGML</acronym> para <literal>HTML</literal>
+	com a aplicação <command>sgmlnorm</command> mantendo o
+	<literal>DOCTYPE</literal> no resultado normalizado.</para>
+
+      <screen>&prompt.user; sgmlnorm -d exercicio-novo-membro.sgml > exercicio-novo-membro.html</screen>
+
+      <para>Analise então o conteúdo do arquivo e
+	veja se as frases que mencionam a versão
+	e autor do arquivo estão apresentando essa
+	informação de maneira correta.</para>
+
+      <warning>
+	<para>Nenhum desses dois passos são relacionados ao
+	  trabalho diário do DOC-BR, mas são etapas
+	  que o membro deve em teoria ter uma noção
+	  mínima de como funcionam, pois é isso
+	  que acontece quando compilamos nossos <acronym>SGML</acronym>
+	  tornando-os arquivos em formatos finais
+	  (<literal>PDF</literal>, <literal>doc</literal>, <literal>HTML</literal>, etc).
+	  Se no seu sistema não tem essas aplicações,
+	  então você não instalou o meta-port
+	  <filename role="ports">textproc/docproj</filename>, sendo
+	  assim provavelmente não leu o &primer; atenciosamente.
+	  Nesse caso você não precisa continuar lendo esse texto,
+	  pois estará desperdiçando seu tempo, e
+	  potencialmente o nosso.  Usuários sem a
+	  sensibilidade para entender a relev&acirc;ncia
+	  do &primer; e dos exercícios nele propostos
+	  não estão áptos à prover ajuda apreciada
+	  pela DOC-BR &mdash; a não ser em casos muito especiais
+	  (já ter participado de um projeto desse tipo ou
+	  ter familiaridade com <literal>DocBook</literal>, por exemplo).
+	  Se não é o seu caso desconsidere esse parágrafo.
+	  Se é, por gentileza leia o &primer; atentamente.</para>
+	</warning>
+
+	<para>Agora sim, finalmente vamos exercitar tarefas
+	  diárias do projeto.  Ao acabar de editar o <acronym>SGML</acronym>,
+	  use o <filename>fdp.pl</filename> para verificar
+	  se houveram correções no arquivo:</para>
+
+	<screen>&prompt.user; cp exercicio-novo-membro.sgml exercicio-novo-membro.sgml.bkp
+&prompt.user; ~/CVS_ROOT/DOC-BR/tools/scripts/fdp.pl exercicio-novo-membro.sgml > exercicio-novo-membro.sgml.novo
+Total de 2 linha(s) alterada(s) no arquivo exercicio-novo-membro.sgml</screen>
+
+	<para>Caso hajam correções você verá uma linha de
+	  sumário similar à esta, dizendo o número
+	  de linhas alteradas.  Não é possível saber
+	  quais alterações foram feitas e em quais linhas
+	  através do próprio <filename>fdpl.pl</filename>.
+	  De qualquer maneira no dia-a-dia não será necessário
+	  analisar o que foi modificado pela ferramenta, mas se desejar
+	  fazê-lo em alguma sitação particular,
+	  pode usar o &man.diff.1, por exemplo:</para>
+
+	<example>
+	  <title>Exemplo de uso do &man.diff.1; para verificar modificações locais</title>
+
+	  <screen>&prompt.user; diff -u exercicio-novo-membro.sgml exercicio-novo-membro.sgml.novo</screen>
+	</example>
+
+	<para>Ao terminar a correção com <filename>fdp.pl</filename>,
+	  renomeie o novo arquivo para o arquivo original:</para>
+
+	<screen>&prompt.user; mv exercicio-novo-membro.sgml.novo exercicio-novo-membro.sgml</screen>
+
+	<para>Agora é a vez de usar o &man.sed.1;
+	  para transformar acentos em entidades <acronym>SGML</acronym>:</para>
+
+	<screen>&prompt.user; sed -f ~/CVS_ROOT/DOC-BR/tools/scripts/acentos.sed exercicio-novo-membro.sgml > exercicio-novo-membro.sgml.novo
+&prompt.user; mv exercicio-novo-membro.sgml.novo exercicio-novo-membro.sgml</screen>
+
+	<para>Em ambos os casos, nesse primeiro exercício
+	  você pode usar <filename>fdp.pl</filename> e o &man.sed.1; sem apontar
+	  o novo arquivo, e analisar apenas a saída padrão.
+	  Nesse caso a alteração não terá sido feita,
+	  mas como o arquivo de exercício é pequeno você
+	  terá uma visão clara das modificações, em especial
+	  no caso do &man.sed.1; com <filename>acentos.sed</filename>.
+	  No dia-a-dia esta prática não é muito viável
+	  pois o arquivo sendo trabalhado será grande.</para>
+
+	<para>Agora é hora de finalmente efetivar sua modificação,
+	  com um <literal>commit</literal>:</para>
+
+	<screen>&prompt.user; cvs commit exercicio-novo-membro.sgml
+<userinput>Password:</userinput></screen>
+
+	<para>Ao término do <literal>commit</literal> você
+	  terá enviado seu arquivo para o <acronym>CVS</acronym>,
+	  portanto agora a versão disponível remotamente
+	  é a mesma que você tem localmente.  Você notará
+	  que ao enviar o <literal>commit</literal>, o &man.cvs.1; abrirá
+	  uma tela no seu editor de texto padrão
+	  (conteúdo da variável de ambiente <literal>EDITOR</literal>).
+	  Nele você deve escrever o <literal>log</literal> do motivo de
+	  seu <literal>commit</literal>.  Você pode evitar este editor
+	  de textos e enviar a mensagem de <literal>log</literal> já na linha
+	  de comando, para tal use a opção <literal>-m</literal> do &man.cvs.1;:</para>
+
+	<screen>&prompt.user; cvs commit -m 'atualizacao para versao 1.2, modificacao do author para meu nome' exercicio-novo-membro.sgml</screen>
+	
+	<para><emphasis>Não faça <literal>commit</literal> sem
+	  <literal>log</literal>s!</emphasis>.  Os logs
+	  não precisam ser detalhados, mas ao menos mencione
+	  o que foi feito.  Por exemplo, <literal>log</literal>s ruins seriam:</para>
+
+	<example>
+	  <title>Exemplos de maus <literal>log</literal>s de <literal>commit</literal></title>
+
+	  <itemizedlist>
+	    <listitem>
+ 	      <para><quote>corrigindo ultimo problema</quote></para>
+	    </listitem>
+
+	    <listitem>
+	      <para><quote>atualizando</quote></para>
+	    </listitem>
+
+	    <listitem>
+	      <para><quote>continuando traducao, mais um pouco</quote></para>
+	    </listitem>
+	  </itemizedlist>
+	</example>
+
+	<para>Nesses casos os logs mínimos deveriam conter:</para>
+
+	<example>
+	  <title>Exemplos bons e curtos de <literal>log</literal>s de <literal>commit</literal></title>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para><quote>corrigindo problema por falta de entidade e erro de digitacao</quote></para>
+	    </listitem>
+
+	    <listitem>
+	      <para><quote>atualizando capitulo 3, adicao de novo paragrafo, conformidade com rev 1.445</quote></para>
+	    </listitem>
+
+	    <listitem>
+	      <para><quote>continuando traducao, agora 45% esta pronto; traduzido ate capitulo 4</quote></para>
+	    </listitem>
+	  </itemizedlist>
+	</example>
+
+	<para>Dessa forma apenas lendo a mensagem de log do <literal>commit</literal>
+	  os companheiros de equipe saberão exatamente o que
+	  está acontecendo.</para>
+
+	<para>Para exercitar, tire <literal>diff</literal>s remotos desse
+	  arquivo com <command>cvs diff</command>, e se desejar modifique
+	  outros arquivos desse diretório e faça
+	  <literal>commit</literal> deles.  Consulte também os <literal>log</literal>s
+	  dos arquivos com "cvs log".</para>
+
+      <sect2 id="autenticacao-cvs-por-chave-publica">
+	<title>Configurando autenticação <acronym>CVS</acronym> por chave pública do &man.ssh.1;</title>
+
+	<para>Você notou que o método de autenticação <acronym>CVS</acronym> usado no DOC-BR é
+	  o <acronym>SSH</acronym>.  Notou também que no
+	  <literal>commit</literal> o servidor <acronym>CVS</acronym> solicitou senha.  De fato
+	  não só para cada <literal>commit</literal>, mas para cada ação
+	  como <literal>update</literal> ou <literal>checkout</literal> o
+	  servidor <acronym>CVS</acronym> sempre solicitará senha.  Isso garante que o usuário que
+	  está fazendo o acesso <acronym>CVS</acronym> é mesmo quem ele diz ser.</para>
+
+	<para>Contudo alguns membros do time consideram ter que enviar a senha
+	  a todo momento incômodo demais.  A solução nesse caso é configurar o
+	  &man.ssh.1; para trabalhar com autenticação por chave pública ao fazer
+	  qualquer acesso no servidor <acronym>CVS</acronym> do Projeto DOC-BR.</para>
+
+	<para>Se você já tem uma chave privada, copie o par público dela
+	  (a chave pública) para o arquivo
+	  <filename>~/.ssh/authorized_keys</filename> no servidor
+	  <hostid role="fqdn">shell.berlios.de</hostid>.</para>
+
+	<para>Se ainda não tem, é um bom momento para criá-la.  Crie
+	  sua chave com o &man.ssh-keygen.1;.  No caso do BerliOS especificamente
+	  a chave deve ser do tipo <literal>rsa</literal>.  Use o par&acirc;metro
+	  <literal>-t rsa</literal> do &man.ssh-keygen.1;.  Note que a
+	  aplicação solicitará algumas informações, em especial onde armazenar
+	  suas chaves públicas e privadas (que em geral tem
+	  o nome <filename>id_rsa</filename> e <filename>id_rsa.pub</filename>
+	  no caso de chaves <literal>rsa</literal>.  Solicitará
+	  também uma <foreignphrase>passphrase</foreignphrase>, que será a
+	  contra-chave para sua chave privada.  Acompanhe o exemplo:</para>
+
+	<example>
+	  <title>Exemplo de criação de chave pública e privada</title>
+
+	  <screen>&prompt.user; ssh-keygen -t rsa
+Generating public/private rsa key pair.
+<userinput>Enter file in which to save the key (/usr/home/usuario/.ssh/id_rsa):</userinput> 
+Created directory '/usr/home/usuario/.ssh'.
+<userinput>Enter passphrase (empty for no passphrase):</userinput>
+<userinput>Enter same passphrase again:</userinput>
+Your identification has been saved in /usr/home/usuario/.ssh/id_rsa.
+Your public key has been saved in /usr/home/usuario/.ssh/id_rsa.pub.
+The key fingerprint is:
+c1:b4:83:97:bb:6e:a7:08:58:76:e5:b1:ba:3e:1a:40 usuario@seu.hostname.domainname</screen>
+	</example>
+
+	<para>Em seguida copie sua chave pública para o servidor BerliOS:</para>
+
+	<screen>&prompt.user; cat ~/.ssh/id_rsa.pub | ssh <replaceable>usuario_no_berlios</replaceable>@shell.berlios.de "cat - >>.ssh/authorized_keys"</screen>
+
+	<para>Agora sempre que necessário, inicie o &man.ssh-agent.1; apenas uma
+	  vez durante sua sessão de trabalho.
+	  Ele cuidará de enviar
+	  seu <foreignphrase>passphrase</foreignphrase> sempre que necessário,
+	  quando já estiver configurado.  Para saber mais sobre o &man.ssh-agent.1;
+	  e como configurá-lo,
+	  consulte a documentação do <application>OpenSSH</application> em
+	  <ulink url="http://openssh.org/">http://openssh.org/</ulink>.</para>
+
+	<para>Se desejar você pode ainda criar uma chave privada
+	  sem <foreignphrase>passphrase</foreignphrase>.  Enquanto isso
+	  diminuirá drásticamente a segurança em potencial
+	  do ambiente, aumentará também a simplicidade.  Se o
+	  <foreignphrase>passphrase</foreignphrase> não for usado, a
+	  autenticação remota se dará apenas com a chave privada, não
+	  sendo necessário jamais entrar a
+	  <foreignphrase>passphrase</foreignphrase> e como consequência,
+	  não sendo necessário o uso do &man.ssh-agent.1;.</para>
+
+	<para>Para gerar uma chave privada sem <foreignphrase>passphrase</foreignphrase>
+	  basta repetir o procedimento citado acima, mas quando o &man.ssh-keygen.1;
+	  solicitar a <foreignphrase>passphrase</foreignphrase> dê apenas um
+	  <literal>ENTER</literal>.  Quando solicitar confirmação do
+	  <foreignphrase>passphrase</foreignphrase> dê apenas um
+	  <literal>ENTER</literal> novamente.</para>
+
+	<warning>
+	  <para>Note que se você criar uma chave privada sem
+	    <foreignphrase>passphrase</foreignphrase>, a autenticação
+	    acontecerá apenas com o uso de sua chave privada.  Portanto
+	    multiplique seus cuidados com o arquivo
+	    <filename>~/.ssh/id_rsa</filename> mil vezes.  Qualquer
+	    pessoa que puder obter uma cópia desse arquivo poderá
+	    acessar o servidor com a chave pública correspondente
+	    à esta chave privada.  No caso da DOC-BR, se alguém copiar
+	    o seu <filename>~/.ssh/id_rsa</filename> poderá acessar
+	    o repositório <acronym>CVS</acronym> com seu usuário, mesmo não sabendo
+	    sua senha.</para>
+
+	  <para>Salvo esta consideração, se você cuidar bem de sua
+	    chave privada pode criá-la sem
+	    <foreignphrase>passphrase</foreignphrase> para uso
+	    no <acronym>CVS</acronym>.</para>
+	</warning>
+
+	<para>Agora ao acessar o servidor <acronym>CVS</acronym> do Projeto DOC-BR basta
+	  antes iniciar o &man.ssh-agent.1;.  Ou se a chave privada não
+	  tem <foreignphrase>passphrase</foreignphrase>, nem isso é
+	  necessário, a autenticação das suas ações se fará
+	  por meio de chave privada, não sendo mais necessário
+	  entrar a senha de seu usuário cada vez que fizer acesso
+	  ao servidor &man.cvs.1;.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="sugestoes-revisao">
+      <title>Sugestões gerais para revisão de documentos</title>
+
+	<orderedlist>
+	  <listitem>
+	    <para>Lembre-se, sistemas, programas e arquivos não
+	      são pessoas então em geral não possuem gênero.
+	      Portanto evite artigos antes dessas expressões
+	      sempre que possível, em especial antes da
+	      palavra &os;.</para>
+
+	    <para>Por exemplo:</para>
+
+	    <example>
+	      <title>Exemplo 1 de expressões com artigo e gênero</title>
+	
+	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
+		da s&amp;eacute;rie 2.X at&amp;eacute; a 4.X para o FreeBSD!</para>
+	    </example>
+
+	    <para>Poderia ser:</para>
+
+	    <example>
+	      <title>Exemplo 2 de expressões com artigo e gênero</title>
+
+	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
+		da s&amp;eacute;rie 2.X at&amp;eacute; 4.X para FreeBSD!</para>
+	    </example>
+
+	    <para>Nesse caso evitamos o artigo quanto à
+	      versão do sistema operacional e o gênero do &os;.
+	      Poderia ser ainda mais simples (em geral, quanto mais
+	      simples melhor):</para>
+
+    	    <example>
+	      <title>Exemplo 3 de expressões com artigo e gênero</title>
+
+	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
+		para as vers&amp;otilde;es 2.X &amp;aacute; 4.X do FreeBSD!</para>
+	    </example>
+
+	    <para>Nesse caso evitamos todos artigos e gêneros
+	      possíveis antes das expressões mencionadas,
+	      tornando o texto mais simples e claro de ser lido.
+	      Mantivemos o que é essencial para o contexto.
+	      As três frases dizem exatamente a mesma coisa.</para>
+	  </listitem>
+	
+	  <listitem>
+	    <para>Depois de separador frasal, use dois espaços e não
+	      apenas um.  Isso ajuda quem utiliza o &emacs; e também
+	      facilita a percepção de término de frase para o
+	      compilador/interpretador que fará as normalizações
+	      e conversões <acronym>SGML</acronym>.  Isso se deve ao fato de
+	      que nem sempre separadores frasais mais comuns, como ponto e
+	      vírgula (<literal>;</literal>) e ponto final (<literal>.</literal>)
+	      aparecem no término de frases.  Por exemplo:</para>
+
+	    <example>
+	      <title>Exemplo de separador frasal fora de término de sentença</title>
+
+	      <para>O criador do UFS é Marshall K.  McKusick.  McKusick
+		projetou também o UFS2 no FreeBSD e participou ativamente
+		da reimplementação deste sistema de arquivos em
+		sua segunda encarnação.</para>
+	    </example>
+
+	    <para>Está claro que o separador frasal ponto (<literal>.</literal>)
+	      nesse caso tem funções completamente distintas em
+	      <quote><emphasis>Marshall K.</emphasis></quote> de
+	      <quote><emphasis>McKusick.</emphasis></quote> ou
+	      <quote><emphasis>encarnação.</emphasis></quote>.  Contudo
+	      para uma máquina essa distinção
+	      não existe.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Acrônimos também não tem gênero.
+	      Por exemplo, não há porque ter dúvidas entre
+	      "a <literal>FAQ</literal>" ou "o <literal>FAQ</literal>";
+	      <literal>FAQ</literal> não é menino nem menina,
+	      portanto é apenas <literal>FAQ</literal>.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Expressões que não podem ser traduzidas mas
+	      não são técnicas devem ser identificadas como
+	      expressão em língua extrangeira, para tal ela deve
+	      ficar entre &lt;foreignphrase&gt;&lt;/foreignphrase&gt;.
+	      Caso a expressão seja um termo consagrado em qualquer
+	      língua como como <literal>kernel</literal>, <literal>FAQ</literal>,
+	      <literal>SPAM</literal> ou <literal>home</literal>, estas devem ser
+	      consideradas literais.  <literal>FAQ</literal>, <literal>SPAM</literal>,
+	      <literal>kernel</literal> ou <literal>home</literal> significam
+	      a mesma coisa em qualquer língua, todos entendem.
+	      Portanto ficam em &lt;literal&gt;&lt;/literal&gt;.</para>
+
+	    <para>Expressões consagradas no Projeto também devem ser
+	      consideradas literais.  Por exemplo, <literal>port</literal>,
+	      <literal>ports</literal>, <literal>Core Team</literal>,
+	      <literal>RELEASE</literal> não são fácilmente
+	      perceptíveis em qualquer língua, mas se o leitor
+	      conhece &os;, em qualquer língua saberá à o
+	      que estas se referem.  Portanto usaremos sempre
+	      &lt;literal&gt;ports&lt;/literal&gt;,
+	      &lt;literal&gt;port&lt;/literal&gt;,
+	      &lt;literal&gt;RELEASE&lt;/literal&gt;, etc.</para>
+	  </listitem>	
+	</orderedlist>
+    </sect1>
+
+    <sect1 id="cuidados-traducoes-expressoes">
+      <title>Cuidados especiais nas traduções de expressões</title>
+
+      <para>Mesmo com essas regras e dicas, ainda é possível
+	cometermos erros sérios, nesse caso apenas o bom senso ou uma boa
+	discussão pode evitar o desastre.  Por exemplo,
+	<quote>port</quote>
+	pode levar ao desastre se traduzido errôneamente, e deve
+	ser traduzido em outras circunst&acirc;ncias.  Digamos, se for o <emphasis>port</emphasis>
+	de uma versão do &os, como <emphasis>port</emphasis> para
+	<literal>Sparc64</literal> não estamos falando de um
+	&lt;literal&gt;port&lt;/literal&gt;, esse se aplica à
+	Coleção de <literal>Ports</literal> do &os;.  Estamos falando de uma
+	conversão do &os;.  Nesse caso <quote>port</quote> deve ser traduzido
+	como conversão, variação, etc.  O que
+	for melhor ao contexto.  <quote>Ports</quote> podem também ser
+	portas, ou pode ser porte.  Porte em português vem de
+	portar ou ter posse, como <quote>porte de armas</quote>
+	ou <quote>porte acionária</quote>.  &Eacute; inaceitável <quote>instalar
+	a porta <filename role="ports">www/apache2</filename></quote> ou
+	<quote>instalar o porte <filename role="ports">www/apache2</filename></quote>.
+	Da mesma forma é inaceitável dizer <quote>verifique se a
+	&lt;literal&gt;port&lt;/literal&gt; 110 está aberta</quote>.</para>
+
+      <para>Outro caso: <foreignphrase>UN*X-like</foreignphrase> é a
+	denominação oficial para qualquer sistema que não pagou
+	para passar na certificação &unix; ou que não paga
+	direitos autorais para uso deste nome.  Ou seja é
+	um <quote>UN*X-similar</quote>.  Melhor não traduzir, deixemos
+	&lt;foreignphrase&gt;UN*X-like&lt;/foreignphrase&gt;.</para>
+
+      <para>Em caso de dúvidas, e se a expressão já não
+	está no glossário, pergunte na lista DOC-BR.
+	Provavelmente a conclusão da discussão promovida
+	será a inclusão da expressão no glossário.</para>
+    </sect1>
+
+    <sect1>
+      <title>Regras gerais para formatação de documentos <acronym>SGML</acronym></title>
+
+      <para>Estas regras são um resumo do &primer;.
+	Para cumpri-las como já vimos existem ferramentas no
+	Projeto DOC-BR que nos auxiliam, mas caso alguém
+	esteja esquecido delas no &primer, aqui estão novamente.</para>
+
+      <orderedlist>
+	<listitem>
+	  <para>Sempre substitua um conjunto de 8 espaços
+	    por um <literal>tab</literal>.  Esta regra do Projeto é
+	    para evitar uso desnecessário de dados.  Regra que existe
+	    em todo o Projeto &os;, desde o sistema em sí
+	    até o <literal>Ports</literal> e <acronym>FDP</acronym>.  O motivo é simples,
+	    8 espaços e um <literal>tab</literal> tem a mesma disposição
+	    textual, mas 8 espaços ocupam 8 <foreignphrase>bytes</foreignphrase>
+	    enquanto um <literal>tab</literal> ocupa 1
+	    <foreignphrase>byte</foreignphrase>.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Utilize sempre dois espaços após cada
+	    separador frasal.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Não utilize espaços depois da
+	    <foreignphrase>tag</foreignphrase> &lt;para&gt; e nem antes
+	    ou depois da <foreignphrase>tag</foreignphrase> &lt;/para&gt;.</para>
+	</listitem>
+
+	<listitem>
+	  <para>O parágrafo começa na mesma linha onde
+	    a <foreignphrase>tag</foreignphrase> &lt;para&gt; foi colocada.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Uma linha deve preferencialmente ter
+	    menos de 70 colunas, e obrigatóriamente menos
+	    de 84 colunas.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Quando um parágrafo for quebrado em várias
+	    linhas, as linhas que terminarem em palavras
+	    normais devem ter um espaço em branco no final,
+	    e as que terminarem em um separador frasal
+	    devem ter dois espaços.</para>
+	</listitem>
+
+	<listitem>
+	  <para>As <foreignphrase>tags</foreignphrase> de mesmo tipo devem
+	    estar sempre no mesmo nível de identação.</para>
+	</listitem>
+      </orderedlist>
+
+	<para>Se as regras 1, 2, 3 e 4 não forem
+	  cumpridas o documento não é aceito no <acronym>CVS</acronym>
+	  do Projeto &os;.  Isso é uma verificação automática.
+	  As outras regras são sujeitas à análise e
+	  revisão humana.</para>
+	
+	<important>
+	  <para>Jamais, sob qualquer circunst&acirc;ncia traduza nada com
+	   tradutores eletrônicos.  Use-os se necessário apenas para
+	   consultas quanto à palavras independentes.  Não
+	   use sequer para traduzir expressões sem antes
+	   consultar o resultado com o restante do time.
+	   Tradutores eletrônico <emphasis>nunca</emphasis>
+	   interpretam textos e contextos.  Não há
+	   qualquer hipótese de seu resultado ser
+	   aceitável.</para>
+
+	  <para>No passado contribuidores da <acronym>DOC-BR</acronym>
+	   chegaram a usar parágrafos inteiros como
+	   traduzidos eletrônicamente.  O resultados é que
+	   estes textos tiveram que ser totalmente rescritos
+	   na revisão, e retraduzidos do inglês pois o
+	   resultado em português raramente podia ser
+	   compreendido dentro do contexto desejado.  Isso
+	   gera retrabalho, desperdiça o tempo
+	   do tradutor e do revisor.</para>
+	</important>
+
+	<para>Qualquer dúvida durante o trabalho, não
+	  pense duas vezes, pergunte ao restante do time na lista.</para>
+    </sect1>
+
+
+</chapter>
+</book>
