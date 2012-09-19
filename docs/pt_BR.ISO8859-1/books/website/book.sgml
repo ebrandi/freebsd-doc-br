@@ -71,14 +71,15 @@
 
       <para>O projeto brasileiro de documentação do FreeBSD
 	é formados por membros do Grupo Brasileiro de Usuários
-	FreeBSD (<ulink url="http://www.fug.com.br">&fug;</ulink>) e tem
-	por objetivo traduzir para a língua portuguesa os
-	documentos produzidos pelo <foreignphrase>FreeBSD Documentation Project
-	(<acronym>FDP</acronym>)</foreignphrase>.</para>
+	FreeBSD (<ulink url="http://www.fug.com.br">&fug;</ulink>) 
+	e tem por objetivo traduzir para a língua portuguesa os
+	documentos produzidos pelo <foreignphrase>FreeBSD D
+	ocumentation Project (<acronym>FDP</acronym>)
+	</foreignphrase>.</para>
 	
       <para>O trabalho de tradução é realizado diretamente nos
-	originais em <acronym>SGML</acronym>, que são mantidos em um
-	repositório Git até que estejam prontos (traduzidos e
+	originais em <acronym>XML</acronym>, que são mantidos em um
+	repositório Subversion até que estejam prontos (traduzidos e
 	revisados) para serem incorporados à árvore Subversion oficial
 	do Projeto FreeBSD.</para>
     </sect1>
@@ -88,28 +89,26 @@
 
       <para>O Projeto&nbsp;Brasileiro&nbsp;de&nbsp;Documentação&nbsp;do&nbsp;FreeBSD
 	(<foreignphrase>FreeBSD&nbsp;Brazilian&nbsp;Portuguese&nbsp;Documentation&nbsp;Project</foreignphrase>),
-	chamado comumente apenas de &adocbr; é composto do
-	esforço voluntário de usuários do sistema, em geral
-	membros da &afug;.  Então por que não
-	juntar-se ao time?</para>
+	chamado comumente apenas de &adocbr; é composto do esforço 
+	voluntário de usuários do sistema, em geral membros do &
+	afug;.  Então por que não juntar-se ao time?</para>
 
       <para>Para fazer parte deste projeto você deve ter um apurado
-	senso de responsabilidade e comprometimento, o que inclui especialmente
-	não assumir mais atribuições do que você
-	é capaz de cumprir, em especial em relação ao
-	tempo disponível para contribuir.
-	Mas note bem, mesmo com pouca disponibilidade sua
-	particiação é valiosa para o time.</para>
+	senso de responsabilidade e comprometimento, o que inclui 
+	especialmente não assumir mais atribuições do que você
+	é capaz de cumprir, em especial em relação ao tempo 
+	disponível para contribuir.  Mas note bem, mesmo com pouca 
+	disponibilidade sua particiação é valiosa para o time.</para>
 
-      <para>&Eacute; necessário boa capacidade de leitura de textos
+      <para>É necessário boa capacidade de leitura de textos
 	técnicos em língua inglesa, ou qualquer outra língua cujo
 	Projeto de Documentação do FreeBSD esteja disponível
 	e mantido em suas últimas revisões, como Francês,
-	Alemão e Japonês.  &Eacute; necessário também
+	Alemão e Japonês.  É necessário também
 	fluência em língua portuguesa escrita e em especial
-	familiaridade com termos técnicos. &Eacute; um trabalho
+	familiaridade com termos técnicos. É um trabalho
 	colaborativo, portanto facilidade para trabalho em equipe é
-	essencial bem, como a correta observ&acirc;ncia de regras,
+	essencial bem, como a correta observância de regras,
 	poi,s além de cumprir com os preceitos originais
 	do <acronym>FDP</acronym>, o &adocbr; ainda
 	faz uso de regras e padrões próprios.</para>
@@ -140,9 +139,9 @@
 	<title>Tradutor 1 (Inglês para Português Brasileiro)</title>
 
 	<listitem>
-	  <para>&Eacute; o mais comum tradutor, que desempenha o maior
+	  <para>É o mais comum tradutor, que desempenha o maior
 	    número de trabalho dentro do projeto.
-	    &Eacute; responsável por traduzir a documentação
+	    É responsável por traduzir a documentação
 	    original do Projeto FreeBSD da língua inglesa para o
 	    português falado no Brasil.  Deve cumprir os requisitos
 	    anteriormente descritos.</para>
@@ -153,7 +152,7 @@
 	<title>Tradutor 2 (Português Brasileiro para Inglês)</title>
 
 	<listitem>
-	  <para>&Eacute; menos comum mas igualmente importante.  Ao ler
+	  <para>É menos comum mas igualmente importante.  Ao ler
 	    o <acronym>FDP</acronym> você soube que
 	    para incluir informações localizadas em
 	    algum documento já existente dentro do Projeto,
@@ -171,7 +170,7 @@
 	    fluente, pois a documentação submetida será
 	    revisada por nativos desta língua, contudo,
 	    não é possível o uso de linguagem coloquial.
-	    &Eacute; através do Tradutor 2 que a comunidade
+	    É através do Tradutor 2 que a comunidade
 	    conseguirá submeter contribuições à
 	    documentação oficial do Projeto FreeBSD.</para>
 	</listitem>
@@ -220,7 +219,7 @@
 	<title>Revisor Ling&uuml;ista</title>
 
 	<listitem>
-	  <para>&Eacute; o responsável por revisar gramática,
+	  <para>É o responsável por revisar gramática,
 	    ortografia e contexto dos documentos traduzidos,
 	    bem como garantir conformidade dos ítens
 	    traduzidos com o Glossário de expressões
@@ -229,7 +228,7 @@
 	  <para>Pode desempenhar função de revisor para
 	    língua inglesa no caso de documentações
 	    inéditas, mas usualmente revisa a tradução
-	    do Inglês para Português Brasileiro.  &Eacute; uma
+	    do Inglês para Português Brasileiro.  É uma
 	    função não raramente desempenhada por
 	    tradutores ao revisar textos de
 	    outros membros do time.</para>
@@ -396,7 +395,7 @@
             url="http://www.yahoo.com">Yahoo!</ulink>, rodam BSD.  O
             servidor FTP mais requisitado do mundo, <ulink
             url="ftp://ftp.cdrom.com/">ftp.cdrom.com</ulink>, usa BSD
-            pra transferir 1.4 TB de dados por dia.  &Eacute; claro, que
+            pra transferir 1.4 TB de dados por dia.  É claro, que
             não se trata de um nicho de mercado:  O BSD é um
             segredo muito bem guardado.</para>
 
@@ -517,11 +516,11 @@
         </title>
 
         <listitem>
-          <para>&Eacute; a principal e mais utilizada referência de
+          <para>É a principal e mais utilizada referência de
             documentação oficial do &os;.  Traz abordagem de
             nível básico à intermediário da
             instalação e administração geral do sistema.
-            &Eacute; um trabalho em constante atualização, e
+            É um trabalho em constante atualização, e
             é parte de um esforço voluntário de
             dezenas de contribuidores.  Trata-se de uma das maiores
             e mais completas referências centralizadas sobre
@@ -547,7 +546,7 @@
         </title>
 
         <listitem>
-          <para>&Eacute; a referência primária para todo indivíduo
+          <para>É a referência primária para todo indivíduo
             que deseje conhecer mais sobre a Coleção de
             <literal>Ports</literal> do FreeBSD, em especial que
             deseje contribuir ativamente, tornando-se um mantenedor de
@@ -693,7 +692,7 @@
           utilizando uma conexão discada com o FreeBSD e o IPFW, e
           especificamente como implementar um firewall de
           filtragem de pacotes em cima de um endereço IP atribuido
-          din&acirc;micamente.  Este documento não aborda a
+          dinâmicamente.  Este documento não aborda a
           configuração da sua conexão
           PPP propriamente dita.</para>
 
@@ -758,7 +757,7 @@
 	    atual formação do time &adocbr;.
 	    O Web site é extremamente volátil, conta com
 	    dezenas de atualizações diárias, e por isso
-	    demanda atenção especial.  &Eacute; o ítem menos
+	    demanda atenção especial.  É o ítem menos
 	    prioritário para o &adocbr;.
 	    Contudo se você deseja e tem disponibilidade
 	    para considerar manter o Web site do Projeto,
@@ -804,7 +803,7 @@
 	    seja a cada novo <literal>RELEASE</literal>, que
 	    ocorre em média de quatro em quatro meses, todas as
 	    páginas de manuais tem que ser revisadas e atualizadas.
-	    &Eacute; um trabalho árduo e que demanda dedicação.</para>
+	    É um trabalho árduo e que demanda dedicação.</para>
 	
 	  <para>Outra característica desse trabalho, é que
 	    o voluntário deve conhecer outras ferramentas
@@ -930,7 +929,7 @@
 	ao menos o básico, é o <application>git</application>.  Nosso
 	projeto faz uso de um repositório
 	<application>git</application> para armazenar e possibilitar o
-	trabalho paralelo das dezenas de membros simult&acirc;neamente.  As
+	trabalho paralelo das dezenas de membros simultâneamente.  As
 	vantagens do Git é ter um controle rígido sobre versões,
 	podendo restaurar um arquivo errôneamente modificado à
 	qualquer momento, e possibilitar trabalho concorrente de
@@ -1011,7 +1010,7 @@
 	  <ulink url="https://github.com/signup/free">
 	  https://github.com/signup/free</ulink>.</para>
 
-	<para>&Eacute; de suma import&acirc;ncia que você consulte a
+	<para>É de suma importância que você consulte a
 	  <ulink url="https://help.github.com/">ajuda do GitHub</ulink>
 	  para obter mais detalhes de seu funcionamento.</para>
       </sect2>
@@ -1065,14 +1064,14 @@
 	        <para>Trata-se da estrutura <acronym>ISO</acronym> de
 	          todos os livros e artigos trabalhados
 	          pelo <acronym>FDP</acronym>, na língua
-	          Português Brasileiro. &Eacute; a estrutura importada
+	          Português Brasileiro. É a estrutura importada
 	          junto ao repositório Subversion oficial do &os; sempre que
 	          cada novo artigo ou livro está pronto.  A
 	          constituição desse documento é rigidamente
 	          disposta no padrão que você leu no &primer;
 	          e que portanto já conhece.
 	          Como não é particular à DOC-BR não será
-	          documentado aqui.  &Eacute; essencial que você
+	          documentado aqui.  É essencial que você
 	          tenha lido o &primer;.</para>
 	      </listitem>
 	      <listitem>
@@ -1141,7 +1140,7 @@
 	    <listitem>
 	    <para>Outro arquivo muito útil do diretório <filename class="directory">tools/</filename>
 	      é o <filename>acentos.sed</filename>.  Ele serve como arquivo de
-	      par&acirc;metro para o &man.sed.1;, e faz a conversão de acentos
+	      parâmetro para o &man.sed.1;, e faz a conversão de acentos
 	      em nosso conjunto de caracteres para acentos
 	      com entidades <acronym>SGML</acronym>.  Uso obrigatório para desenvolvedores
 	      que não trabalham com editores que fazem essa
@@ -1175,7 +1174,7 @@
 	      de acentuar.  O <filename>Readme.txt</filename> é
 	      o arquivo de informações mais completo disponível
 	      pelo DOC-BR no <acronym>CVS</acronym>.  Parte do conteúdo deste
-	      você encontrará aqui também.   &Eacute; leitura obrigatório
+	      você encontrará aqui também.   É leitura obrigatório
 	      se além de contribuir com o DOC-BR
 	      você pensa também em se aprofundar nos
 	      detalhes sobre como a documentação do &os;
@@ -1327,7 +1326,7 @@
 	  que as principais configurações e
 	  informações comuns ao seu ambiente
 	  <acronym>CVS</acronym> sejam definidas em variáveis de ambiente, ao
-	  invés de passá-las frequentemente por par&acirc;metro em
+	  invés de passá-las frequentemente por parâmetro em
 	  linha de comando, como mencionado anteriormente para
 	  acesso anônimo.</para>
 
@@ -1541,7 +1540,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	  <filename>acentos.sed</filename></title>
 
 	<para><filename>acentos.sed</filename> é
-	  usado como arquivo de par&acirc;metros para o &man.sed.1;
+	  usado como arquivo de parâmetros para o &man.sed.1;
 	  (usado com a opção <literal>-f</literal>).  Seu uso é similar
 	  ao <filename>fdp.pl</filename> pois o &man.sed.1; também receberá
 	  o arquivo original como entrada e gerará
@@ -1641,7 +1640,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	  Nesse caso você não precisa continuar lendo esse texto,
 	  pois estará desperdiçando seu tempo, e
 	  potencialmente o nosso.  Usuários sem a
-	  sensibilidade para entender a relev&acirc;ncia
+	  sensibilidade para entender a relevância
 	  do &primer; e dos exercícios nele propostos
 	  não estão áptos à prover ajuda apreciada
 	  pela DOC-BR &mdash; a não ser em casos muito especiais
@@ -1793,7 +1792,7 @@ Total de 2 linha(s) alterada(s) no arquivo exercicio-novo-membro.sgml</screen>
 
 	<para>Se ainda não tem, é um bom momento para criá-la.  Crie
 	  sua chave com o &man.ssh-keygen.1;.  No caso do BerliOS especificamente
-	  a chave deve ser do tipo <literal>rsa</literal>.  Use o par&acirc;metro
+	  a chave deve ser do tipo <literal>rsa</literal>.  Use o parâmetro
 	  <literal>-t rsa</literal> do &man.ssh-keygen.1;.  Note que a
 	  aplicação solicitará algumas informações, em especial onde armazenar
 	  suas chaves públicas e privadas (que em geral tem
@@ -1995,7 +1994,7 @@ c1:b4:83:97:bb:6e:a7:08:58:76:e5:b1:ba:3e:1a:40 usuario@seu.hostname.domainname<
 	discussão pode evitar o desastre.  Por exemplo,
 	<quote>port</quote>
 	pode levar ao desastre se traduzido errôneamente, e deve
-	ser traduzido em outras circunst&acirc;ncias.  Digamos, se for o <emphasis>port</emphasis>
+	ser traduzido em outras circunstâncias.  Digamos, se for o <emphasis>port</emphasis>
 	de uma versão do &os, como <emphasis>port</emphasis> para
 	<literal>Sparc64</literal> não estamos falando de um
 	&lt;literal&gt;port&lt;/literal&gt;, esse se aplica à
@@ -2005,7 +2004,7 @@ c1:b4:83:97:bb:6e:a7:08:58:76:e5:b1:ba:3e:1a:40 usuario@seu.hostname.domainname<
 	for melhor ao contexto.  <quote>Ports</quote> podem também ser
 	portas, ou pode ser porte.  Porte em português vem de
 	portar ou ter posse, como <quote>porte de armas</quote>
-	ou <quote>porte acionária</quote>.  &Eacute; inaceitável <quote>instalar
+	ou <quote>porte acionária</quote>.  É inaceitável <quote>instalar
 	a porta <filename role="ports">www/apache2</filename></quote> ou
 	<quote>instalar o porte <filename role="ports">www/apache2</filename></quote>.
 	Da mesma forma é inaceitável dizer <quote>verifique se a
@@ -2088,7 +2087,7 @@ c1:b4:83:97:bb:6e:a7:08:58:76:e5:b1:ba:3e:1a:40 usuario@seu.hostname.domainname<
 	  revisão humana.</para>
 	
 	<important>
-	  <para>Jamais, sob qualquer circunst&acirc;ncia traduza nada com
+	  <para>Jamais, sob qualquer circunstância traduza nada com
 	   tradutores eletrônicos.  Use-os se necessário apenas para
 	   consultas quanto à palavras independentes.  Não
 	   use sequer para traduzir expressões sem antes
