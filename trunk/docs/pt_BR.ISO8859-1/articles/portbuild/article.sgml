@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r39401
+  Original revision: r39544
 -->
 
 <article lang='pt_br'>
@@ -43,8 +43,9 @@
       &tm-attrib.general;
     </legalnotice>
 
-    <pubdate>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39401 2012-08-20 20:47:14Z linimon $</pubdate>
+    <pubdate>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</pubdate>
 
+    <releaseinfo>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</releaseinfo>
   </articleinfo>
 
   <sect1 id="intro">
@@ -653,7 +654,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	<para><literal>-nodistfiles</literal> - Não coletar os
 	  <literal>distfiles</literal> que passarem no <command>make
 	  checksum</command> para depois fazer o
-	  <literal>upload</literal> para o
+	  <foreignphrase>upload</foreignphrase> para o
 	  <hostid>ftp-master</hostid>.
 	</para>
       </listitem>
@@ -1277,7 +1278,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       dos <literal>releases</literal> recentes podem ser mantidos, enquanto outros
       podem ser jogados fora.</para>
 
-    <para>Uma vez que o upload dos <literal>distfiles</literal> tenha
+    <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos <literal>distfiles</literal> tenha
       sido feito (veja abaixo), o conjunto de pacotes do
       <literal>release</literal>
       final deve ser criado.  Para se assegurar, execute o
@@ -1299,7 +1300,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   </sect1>
 
   <sect1 id="uploading">
-    <title>Upload dos Pacotes</title>
+    <title><foreignphrase>Upload</foreignphrase> dos Pacotes</title>
 
     <para>Uma vez que a compilação tenha terminado, pacotes e/ou
       <literal>distfiles</literal> podem ser transferidos para o
@@ -1325,14 +1326,14 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <command>cdrom.sh</command> manualmente após a finalização do
       <command>dopackages</command>, apenas por segurança.  Execute o
       <literal>script</literal> <command>restricted.sh</command> antes
-      de fazer o upload para o <hostid>ftp-master</hostid>, em
+      de fazer o <foreignphrase>upload</foreignphrase> para o <hostid>ftp-master</hostid>, em
       seguida, execute <command>cdrom.sh</command> antes de preparar o
       conjunto final de pacotes para um
       <literal>release</literal>.</para>
 
-    <para>The package subdirectories are named by whether they are for
-      <literal>release</literal>, <literal>stable</literal>, or
-      <literal>current</literal>.  Examples:</para>
+    <para>Os subdiretórios de pacotes são nomeados de acordo com seu
+      ramo, <literal>release</literal>, <literal>stable</literal>, ou
+      <literal>current</literal>.  Exemplo:</para>
 
     <itemizedlist>
       <listitem>
@@ -1356,8 +1357,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
     </itemizedlist>
 
-    <note><para>Some of the directories on
-      <hostid>ftp-master</hostid> are, in fact, symlinks.  Examples:</para>
+    <note><para>Alguns desses diretórios no
+      <hostid>ftp-master</hostid> são, de fato,
+      <literal>links</literal> simbólicos.  Exemplo:</para>
 
       <itemizedlist>
 	<listitem>
@@ -1369,97 +1371,111 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	</listitem>
       </itemizedlist>
 
-      <para> Be sure
-	you move the new packages directory over the
-	<emphasis>real</emphasis> destination directory, and not
-	one of the symlinks that points to it.</para>
+      <para>Tenha certeza de estar movendo o novo pacote para um
+        diretório de destino <emphasis>real</emphasis>, e não para um
+	dos <literal>links</literal> simbólicos que apontam para
+	ele.</para>
     </note>
 
-    <para>If you are doing a completely new package set (e.g. for
-      a new release), copy packages to the staging area on
-      <hostid>ftp-master</hostid> with something like the following:</para>
+    <para>Se você está fazendo um conjunto de pacotes completamente
+      novo (e.g. para um novo <literal>release</literal>), copie os
+      pacotes para a área de teste no <hostid>ftp-master</hostid> com
+      algo como o seguinte:</para>
 
     <screen>&prompt.root; <userinput>cd /var/portbuild/<replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
 &prompt.root; <userinput>tar cfv - packages/ | ssh portmgr@ftp-master tar xfC - w/ports/<replaceable>${arch}</replaceable>/tmp/<replaceable>${subdir}</replaceable></userinput></screen>
 
-    <para>Then log into <hostid>ftp-master</hostid>, verify that
-      the package set was transferred successfully, remove the
-      package set that the new package set is to replace (in
+    <para>Em seguida, entre no <hostid>ftp-master</hostid> e verifique
+      se o conjunto de pacotes foi transferido com sucesso, remova o
+      conjunto de pacotes que o novo conjunto vai substituir (em
       <filename>~/w/ports/<replaceable>${arch}</replaceable></filename>),
-      and move the new set into place.  (<literal>w/</literal> is
-      merely a shortcut.)</para>
+      e mova o novo conjunto para o local.  (<literal>w/</literal> é
+      apenas um atalho.)</para>
 
-    <para>For incremental builds, packages should be uploaded
-      using <command>rsync</command> so we do not put too much
-      strain on the mirrors.</para>
+    <para>Para compilações incrementais, o
+      <foreignphrase>upload</foreignphrase> deve ser feito usando o
+      <command>rsync</command> para não colocar muita pressão nos
+      espelhos.</para>
 
-    <para><emphasis>ALWAYS</emphasis> use <literal>-n</literal>
-      first with <command>rsync</command> and check the output
-      to make sure it is sane.  If it looks good, re-run the
-      <command>rsync</command> without the <literal>-n</literal>
-      option.
+    <para><emphasis>SEMPRE</emphasis> use <command>rsync</command>
+      primeiro com a opção <literal>-n</literal> e verifique a saída
+      para assegurar-se que não existem problemas.  Se parece estar
+      tudo bem, execute novamente o <command>rsync</command> sem a
+      opção <literal>-n</literal>.
     </para>
 
-    <para>Example <command>rsync</command> command for incremental
-      package upload:</para>
+    <para>Exemplo de comando <command>rsync</command> para o
+      <foreignphrase>upload</foreignphrase> incremental de
+      pacotes:</para>
 
     <screen>&prompt.root; <userinput>rsync -n -r -v -l -t -p --delete packages/ portmgr@ftp-master:w/ports/<replaceable>${arch}</replaceable>/<replaceable>${subdir}</replaceable>/ | tee log</userinput></screen>
 
-    <para>Distfiles should be transferred with the
-      <command>cpdistfiles</command> script:</para>
+    <para><literal>Distfiles</literal> devem ser transferidos com o
+      <literal>script</literal> <command>cpdistfiles</command>:</para>
 
     <screen>&prompt.root; <userinput>/var/portbuild/scripts/cpdistfiles <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-yesreally] | tee log2</userinput></screen>
 
-    <para>Doing it by hand is deprecated.</para>
+    <para>Fazer isso manualmente está obsoleto.</para>
   </sect1>
 
   <sect1 id="expbuilds">
-    <title>Experimental Patches Builds</title>
+    <title>Compilação de <literal>Patches</literal>
+      Experimentais</title>
 
-    <para>Experimental patches builds are run from time to time to
-      new features or bugfixes to the ports infrastructure (i.e.
-      <filename>bsd.port.mk</filename>), or to test large sweeping
-      upgrades.  At any given time there may be several simultaneous
-      experimental patches branches, such as
-      <literal>8-exp</literal> on the amd64
-      architecture.</para>
+    <para>Compilações de <literal>patches</literal> experimentais são
+      executadas de tempos em tempos para novas funções ou correções
+      de defeitos na infraestrutura do <literal>ports</literal> (i.e.
+      <filename>bsd.port.mk</filename>), ou para testar atualizações
+      em grabde escala.  A qualquer momento pode haver vários
+      <literal>patches</literal> de ramos experimentais simultâneos,
+      como o <literal>8-exp</literal> na arquitetura amd64.</para>
 
-    <para>In general, an experimental patches build is run the same
-      way as any other build, except that you should first update the
-      ports tree to the latest version and then apply your patches.
-      To do the former, you can use the following:
+    <para>Geralmente, uma compilação de <literal>patches</literal>
+      experimentais é executada da mesma forma que qualquer outra
+      compilação, exceto que você deve primeiro atualizar a árvore de
+      <literal>ports</literal> para a última versão e, em seguida,
+      aplicar os <literal>patches</literal>.  Para fazer o primeiro,
+      você pode usar o seguinte:
 
       <screen>&prompt.user; <userinput>cvs -R update -dP > update.out</userinput>
 &prompt.user; <userinput>date > cvsdone</userinput></screen>
-      This will most closely simulate what the <literal>dopackages</literal>
-      script does.  (While <filename>cvsdone</filename> is merely
-      informative, it can be a help.)</para>
 
-    <para>You will need to edit <filename>update.out</filename> to look
-      for lines beginning with <literal>^M</literal>, <literal>^C</literal>,
-      or <literal>^?</literal> and then deal with them.</para>
+      Issa é a simulação mais próxima do que o
+      <literal>script</literal> <literal>dopackages</literal> faz.
+      (Enquanto <filename>cvsdone</filename> é meramente informativo,
+      isso pode ajudar.)</para>
 
-    <para>It is always a good idea to save
-      original copies of all changed files, as well as a list of what
-      you are changing.  You can then look back on this list when doing
-      the final commit, to make sure you are committing exactly what you
-      tested.</para>
+    <para>Você precisará editar o <filename>update.out</filename> para
+      procurar por linhas que comecem com <literal>^M</literal>,
+      <literal>^C</literal>, ou <literal>^?</literal> e então
+      corrigi-las.</para>
 
-    <para>Since the machine is shared, someone else may delete your
-      changes by mistake, so keep a copy of them in e.g. your home
-      directory on <hostid>freefall</hostid>.  Do not use
-      <filename>tmp/</filename>; since <hostid>pointyhat</hostid>
-      itself runs some version of <literal>-CURRENT</literal>, you
-      can expect reboots (if nothing else, for updates).</para>
+    <para>É sempre uma boa idéia salvar copias do original de todos os
+      arquivos modificados, como também uma lista do que você está
+      modificando.  Você pode consultar a lista ao fazer o
+      <literal>commit</literal> final, para se certificar que você
+      está realizando o <literal>commit</literal> exatamente daquilo
+      que testou.</para>
 
-    <para>In order to have a good control case with which to compare
-      failures, you should first do a package build of the branch on
-      which the experimental patches branch is based for the &i386;
-      architecture (currently this is <literal>8</literal>).  Then, when
-      preparing for the experimental patches build, checkout a ports
-      tree and a src tree with the same date as was used for the control
-      build.  This will ensure an apples-to-apples comparison
-      later.</para>
+    <para>Pelo fato da máquina ser compartilhada, alguém pode excluir
+      suas alterações por engano, entãi mantenha copias destas no, por
+      exemplo, seu diretório <literal>home</literal>  em
+      <hostid>freefall</hostid>.  Não use o <filename>tmp/</filename>;
+      pois por <hostid>pointyhat</hostid> executar ele mesmo alguma
+      versão do <literal>-CURRENT</literal>, você pode esperar
+      reinicializações (se por nada de mais, para
+      atualizações).</para>
+    
+    <para>Com o objetivo de ter um bom exemplo com o qual comparar
+      falhas, você deve primeiro executar a compilação de pacote do
+      ramo em que os <literal>patches</literal> experimentais sejam
+      baseados para a arquitetura &i386; (atualmente esta é o
+      <literal>8</literal>).  Em seguida, quando preparando para a
+      compilação de <literal>patches</literal> exparimentais, faça o
+      <literal>checkout</literal> da árvore do
+      <literal>ports</literal> e do <literal>src</literal> com a mesma
+      data da que foi usada para a compilação de controle.  Isso vai
+      garantir uma comparação entre as compilações depois.</para>
 
     <!-- XXX MCL currently there is only one build cluster
     <note><para>One build cluster can do the control build while the other
@@ -2790,7 +2806,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
         <para>(Only necessary for old codebase):
 	  Only after the first time a
 	  <application>dopackages</application> has been run for the
-	  arch: add the arch to 
+	  arch: add the arch to
 	  <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
       </listitem>
 
@@ -3035,7 +3051,7 @@ Use smartctl -X to abort test.</screen>
 	  after it finishes:</para>
 
 	<screen># SMART Self-test log structure revision number 1
-# Num  Test_Description    Status                  Remaining 
+# Num  Test_Description    Status                  Remaining
 LifeTime(hours)  LBA_of_first_error
 #   1  Extended offline    Completed: read failure       80%     15252    319286</screen>
 
