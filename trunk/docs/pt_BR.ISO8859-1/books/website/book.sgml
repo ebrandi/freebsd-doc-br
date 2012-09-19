@@ -90,8 +90,8 @@
       <para>O Projeto&nbsp;Brasileiro&nbsp;de&nbsp;Documentação&nbsp;do&nbsp;FreeBSD
 	(<foreignphrase>FreeBSD&nbsp;Brazilian&nbsp;Portuguese&nbsp;Documentation&nbsp;Project</foreignphrase>),
 	chamado comumente apenas de &adocbr; é composto do esforço 
-	voluntário de usuários do sistema, em geral membros do &
-	afug;.  Então por que não juntar-se ao time?</para>
+	voluntário de usuários do sistema, em geral membros do &afug;.  
+	Então por que não juntar-se ao time?</para>
 
       <para>Para fazer parte deste projeto você deve ter um apurado
 	senso de responsabilidade e comprometimento, o que inclui 
@@ -261,11 +261,11 @@
       <sect2 id="books-finalizados">
 
       <title>Livros</title>
-      <itemizedlist>
+      <procedure>
+      <step>
         <title>
           <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/fdp-primer/">FDP Primer &mdash; &a.ptbr.p.fdpp; para novos colaboradores</ulink></title>
 
-        <listitem>
           <para>Este &a.ptbr.p.fdpp; cobre tudo o que você precisa 
 	    saber para começar a contribuir com o Projeto de 
 	    Documentação do FreeBSD, desde as ferramentas e softwares
@@ -276,15 +276,13 @@
           <para>Está em conformidade com a revisão SVN 
 	    <literal>r38826</literal> do documento original em 
 	    Inglês.</para>
-        </listitem>
-      </itemizedlist>
+        </step>
 
-      <itemizedlist>
+      <step>
 	<title>
 	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/books/faq/">FAQ &mdash; Perguntas Frequentes Sobre o FreeBSD</ulink>
 	</title>
 
-	<listitem>
 	  <para>Tratam-se das Perguntas Mais Frequentes sobre o
 	    FreeBSD, é originalmente o primeiro trabalho completo
 	    terminado pelo &adocbr; em um esforço centralizado
@@ -292,26 +290,22 @@
 	    url="http://www.freebsdbrasil.com.b/r">FreeBSD
 	    Brasil</ulink> e revisado pela comunidade.  Foi o pontapé
 	    inicial para o &adocbr;.  Hoje o conteúdo precisa ser
-	    atualizado.</para>
+	    atualizado - É um documento de 2003.</para>
 	    
-	  <para>Está em conformidade com a revisão 
-	    <literal>1.456</literal> do documento original em 
-	    Inglês - Documento de 2003, extremamente 
-	    desatualizado.</para>
-	</listitem>
-      </itemizedlist>
+	</step>
+      </procedure>
       </sect2>
 
       <sect2 id="artigos-finalizados">
       <title>Artigos</title>
-      <itemizedlist>
+      <procedure>
+      <step>
 	<title>
-	  <ulink url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/contributing/">
-	    Contribuindo com o FreeBSD
-	  </ulink>
+	  <ulink 
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/contributing/">Contribuindo 
+	    com o FreeBSD</ulink>
 	</title>
 
-	<listitem>
 	  <para>Artigo escrito por <quote>Jordan K. Hubbard</quote>
 	    aborda as diferentes maneiras como um indivíduo,
 	    organização ou grupo de usuários podem contribuir com o
@@ -320,39 +314,32 @@
 	    <para>Está em conformidade com a revisão
 	    <literal>r38826</literal> do documento original em
 	    Inglês.</para>
-	</listitem>
-      </itemizedlist>
+      </step>
 
-      <itemizedlist>
+      <step>
         <title>
           <ulink
-            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/new-users/">
-            Guia Rápido do FreeBSD para Usuários Linux
-          </ulink>
+            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/new-users/">Guia 
+	    Rápido do FreeBSD para Usuários Linux</ulink>
         </title>
 
-        <listitem>
           <para>Este documento tem por objetivo tentar destacar as
-	    principais
-            diferenças entre os dois sistemas operacionais, indo desde
-            gerenciamento de pacotes, até os métodos de atualização do
-            sistema.</para>
+	    principais diferenças entre os dois sistemas operacionais,
+	    indo desde gerenciamento de pacotes, até os métodos de 
+	    atualização do sistema.</para>
 
           <para>Está em conformidade com a revisão
             <literal>r39170</literal> do documento original em
             Inglês.</para>
-        </listitem>
-      </itemizedlist>
+      </step>
 
-      <itemizedlist>
+      <step>
         <title>
           <ulink
-            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/problem-reports/">
-            Escrevendo relatórios de problema no FreeBSD
-          </ulink>
+            url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/problem-reports/">Escrevendo 
+	    relatórios de problema no FreeBSD</ulink>
         </title>
 
-        <listitem>
           <para>Este artigo descreve qual a melhor forma de formular e
             de submeter um relátorio de problemas para o Projeto
             FreeBSD.</para>
@@ -360,21 +347,17 @@
             <para>Está em conformidade com a revisão
               <literal>r38826</literal> do documento original em
               Inglês.</para>
-        </listitem>
-      </itemizedlist>
+      </step>
 
-      <itemizedlist>
+      <step>
         <title>
           <ulink
-	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/explaining-bsd/">
-            Explicando FreeBSD
-          </ulink>
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/explaining-bsd/">Explicando 
+	    FreeBSD</ulink>
         </title>
 
-        <listitem>
           <para>No mundo do código aberto, a palavra
-	    <quote>Linux</quote>
-            é quase um sinônimo de <quote>Sistema
+	    <quote>Linux</quote> é quase um sinônimo de <quote>Sistema
             Operacional</quote>, mas esse não é o
             único sistema operacional <trademark>UNIX</trademark>
             de código aberto.  De acordo com o <ulink
@@ -399,19 +382,16 @@
             <para>Está em conformidade com a revisão
             <literal>r38826</literal> do documento original em
 	    Inglês.</para>
-        </listitem>
-      </itemizedlist>
+      </step>
 
-      <itemizedlist>
+      <step>
         <title>
           <ulink
-	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/freebsd-questions/">
-            Como obter o melhor resultado para as suas perguntas na
-            lista de discussão FreeBSD-Question
-          </ulink>
+	    url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/freebsd-questions/">Como 
+	    obter o melhor resultado para as suas perguntas na
+            lista de discussão FreeBSD-Question</ulink>
         </title>
 
-        <listitem>
           <para>Este documento prove informações úteis
             para as pessoas que planejam enviar um email para a lista
 	    de
@@ -431,8 +411,8 @@
             <para>Está em conformidade com a revisão
             <literal>r38826</literal> do documento original em
 	    Inglês.</para>
-        </listitem>
-      </itemizedlist>
+      </step>
+      </procedure>
     </sect2>
     </sect1>
 
@@ -448,15 +428,12 @@
     <sect1 id="documentos-em-traducao">
       <title>Em trabalho de tradução</title>
 
-      <itemizedlist>
-	<title>
-	  <ulink
-	    url="http://server06.ebrandi.eti.br/articles/portbuild/">
-	    Procedimentos para Construção de Pacotes
-	  </ulink>
-	</title>
+      <procedure>
+	<step>
+	  <title><ulink
+	    url="/~atpessoa/portbuild/">Procedimentos para 
+	    Construção de Pacotes</ulink></title>
 
-	<listitem>
 	  <para>Este artigo documenta os trabalhos internos do
 	    <literal>cluester</literal> de construção de pacotes, é
 	    ele quem realiza a compilação dos pacotes para oferecer os
@@ -466,27 +443,38 @@
 	  <para>Está em conformidade com a revisão
 	  <literal>r39401</literal> do documento original em
 	  Inglês.</para>
-	</listitem>
-      </itemizedlist>
+	 </step> 
+	 <step>
+	  <title><ulink
+	    url="/~ebrandi/building-products/">Construindo produtos
+	    com o FreeBSD</ulink></title>
+	  
+	  <para>O projeto FreeBSD é um projeto voluntário e
+	    colaborativo de âmbito mundial, o qual desenvolve um 
+	    sistema operacional de alta qualidade, capaz de ser 
+	    utilizado em diferentes arquiteturas computacionais. 
+	    O projeto FreeBSD distribui o código fonte do seu 
+	    produto sob uma licença liberal, com a intenção de 
+	    incentivar o uso de seu código.  Colaborar com o projeto 
+	    FreeBSD pode ajudar sua empresa a
+	    reduzir o tempo necessário para colocar um produto no
+	    mercado, a reduzir seus custos de engenharia e a melhorar
+	    qualidade de seus produtos.</para>
 
-      <itemizedlist>
-	<title>
-	  <ulink
-	    url="http://server06.ebrandi.eti.br/articles/rc-scripting/">
-	    Criando <literal>scripts</literal> rc.d para BSD na
-	    prática</ulink>
-	</title>
+	  <para>Este artigo analisa as questões envolvidas no uso do 
+	    código do FreeBSD em appliances e softwares. Ele também 
+	    destaca as características do FreeBSD, que o tornam uma 
+	    excelente base para o desenvolvimento de produtos. O 
+	    artigo conclui sugerindo um conjunto das 
+	    <quote>melhores práticas</quote> de organizações que 
+	    colaboram com o projeto FreeBSD.</para>
 
-	<listitem>
-	  <para>Este artigo tem por objetivo iniciar o usuário na
-	  criação de <literal>scripts</literal> para o
-	  <literal>framework</literal> <literal>rc.d</literal>.</para>
+	  <para>Está em conformidade com a revisão 
+	    <literal>r39544</literal> do documento original em 
+	    Inglês.</para>
+	  </step>
+	</procedure>
 
-	  <para>Está em conformidade com a revisão
-	  <literal>r38826</literal> do documento original em
-	  Inglês.</para>
-	</listitem>
-      </itemizedlist>
     </sect1>
 
     <sect1 id="objetivos-futuros">
