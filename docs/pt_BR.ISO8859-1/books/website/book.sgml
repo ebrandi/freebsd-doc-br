@@ -967,7 +967,7 @@ trunk/
 	  para que você inicie seus trabalhos no DOC-BR.</para>
 
 	<para>Veja abaixo algumas sugestões de boas práticas no uso do
-	  <application>svn</application> sugerimos que sejam adotadas
+	  <application>svn</application> as sugerimos que sejam adotadas
 	  pelos membros do DOC-BR:</para>
 
 	<procedure>
@@ -989,30 +989,41 @@ trunk/
 	  </step>
 
 	  <step>
-	    <para>Sempre execute o comando 
-	      <command>svn commit</command>
-	      dentro do diretório do documento que você
-	      estiver traduzindo, de forma à diminuir o risco
-	      de sobrescrever cópias desatualizadas em
-	      documentos modificados por outros membros do time.  
+	    <para>Sempre que você parar de traduzir um arquivo, mesmo
+	      que seja temporário, digamos para tomar um lanche ou 
+	      ver TV, faça o envio do trabalho parcial para o
+	      repositório remoto.</para>  
+	      
+	    <para>Para submeter qualquer arquivo que tenha sido 
+	      alterado de volta para o repositório do DOc-BR no 
+	      Google Code, execute o comando:</para>
+
+<screen>&prompt.user; svn commit <userinput>nome-do-arquivo</userinput></screen>
+	    
+	    <para>Se você omitir o nome do arquivo no comando acima, o
+	      svn irá submeter por default todos os arquivos que 
+	      tenham sido alterados no diretorio atual, eem qualquer
+	      subdiretório que exista.</para>
+
+	    <para>Se optar por executar o comando sem especificar o
+	      artigo a ser enviado, recomendamos que você execute o 
+	      <command>svn commit</command> dentro do diretório do
+	      documento que você estiver traduzindo, de forma à 
+	      diminuir o risco de sobrescrever cópias desatualizadas 
+	      em documentos modificados por outros membros do time.  
 	      Mesmo sabendo que trabalhar com <acronym>svn</acronym> 
 	      é um processo seguro, já que ele alerta sobre este
 	      conflito e permite ao usuário corrigi-lo, este
 	      procedimento pode lhe evitar trabalho
 	      desnecessário.</para>
-	  </step>
 
-	  <step>
-	    <para>Sempre que você parar de traduzir um arquivo, mesmo
-	      que seja temporário, digamos para tomar um lanche ou 
-	      ver TV, faça o <literal>commit</literal>.  Com o
-	      <command>svn commit</command> você deixará seus
-	      colegas de time por dentro do que já fez,
+	    <para>O uso frequente do <command>svn commit</command> 
+	      deixará seus colegas de time por dentro do que já fez,
 	      e garantirá <foreignphrase>snapshots</foreignphrase>
 	      atualizados do estado atual da documentação, além
 	      claro de não correr riscos de perder seu trabalho
-	      caso aconteça alguma tragédia no
-	      seu computador neste meio tempo.</para>
+	      caso aconteça alguma tragédia no seu computador neste 
+	      meio tempo.</para>
 	  </step>
 
 	  <step>
@@ -1033,26 +1044,46 @@ trunk/
 	  </step>
 
 	  <step>
-	    <para>Caso queira saber mais sobre o 
-	      <acronym>Subversion</acronym> ou ainda restem dúvidas,
-	      não deixe de ler o documento sobre 
-	      <acronym>SVN</acronym> disponível em <ulink 
-	      url="http://svnbook.red-bean.com/">http://svnbook.red-bean.com/</ulink>.
-	      Mas de maneira geral você não precisará conhecer
-	      mais operações no <acronym>SVN</acronym> do que as mencionadas aqui.</para>
+	    <para>Caso queira saber quais arquivos do seu repositório 
+	      local estão diferentes dos arquivos no repositório
+	      remoto, execute o comando:</para>
+	  
+<screen>&prompt.user; svn status</screen>
+
 	  </step>
 
 	  <step>
-	    <para>Evite ao máximo enviar em um mesmo <literal>commit</literal>
-	      alterações de conteúdo e de formatação <acronym>XML</acronym>.
-	      Isso porquê cada novo <literal>commit</literal> gera uma nova
+	    <para>Evite ao máximo enviar em um mesmo 
+	      <literal>commit</literal>
+	      alterações de conteúdo e de formatação 
+	      <acronym>XML</acronym>.  Isso porquê cada novo 
+	      <literal>commit</literal> gera uma nova
 	      revisão do arquivo, e caso seja necessário restaurar
 	      o arquivo como era antes da formatação ou
 	      antes da alteração de conteúdo, não será possível já que
 	      ambas mudanças foram feitas no mesmo 
 	      <literal>commit</literal>.</para>
 	  </step>
+
+	  <step>
+	    <para>Caso queira saber mais sobre o 
+	      <acronym>Subversion</acronym> ou ainda restem dúvidas,
+	      não deixe de ler o documento sobre 
+	      <acronym>SVN</acronym> disponível em <ulink 
+	      url="http://svnbook.red-bean.com/">http://svnbook.red-bean.com/</ulink>.
+	      Mas de maneira geral você não precisará conhecer
+	      mais operações no <acronym>SVN</acronym> do que as 
+	      mencionadas aqui.  Em caso de duvidas ou de problemas 
+	      no uso do SVN, peça ajuda!</para>
+	  </step>
 	</procedure>
+
+	<para>É recomendado que você assine a lista de e-mail 
+	  <ulink url="https://fug.com.br/mailman/listinfo/doc-svn">doc-svn</ulink>, 
+	  ao se cadastrar nela, você passará a receber por email os 
+	  logs dos commits realizados no repositório Subversion do 
+	  projeto. É uma otima forma de se manter atualizado sobre 
+	  o andamento dos trabalhos.</para> 
       </sect2>
     </sect1>
 
