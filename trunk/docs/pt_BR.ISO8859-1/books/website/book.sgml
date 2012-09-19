@@ -728,9 +728,9 @@
 	<title>Organização do Repositório Subversion</title>
 
 	<para>O código fonte do Projeto de Documentação do FreeBSD
-	  em Português Brasileiro, hospedados no Google Code, foram
-	  divididos em varios subdiretórios, os principais estão
-	  listados abaixo:</para>
+	  em Português Brasileiro, hospedados no Google Code, está 
+	  dividido em varios subdiretórios, a árvore abaixo lista os
+	  principais:</para>
 	  
 <programlisting>
 trunk/
@@ -761,63 +761,34 @@ trunk/
 	<para>A finalidade de cada um deles está descrita a 
 	    seguir:</para>
 
-	<itemizedlist>
+	<sect3 id="docs">
 	  <title>docs</title>
+	      <para>Este é o diretório que contém os fontes em 
+		XML dos artigos originais 
+		(<filename class="directory">en_US.ISO8859-1/</filename>) e os 
+		fontes dos documentos em português brasileiros
+		(<filename class="directory">pt_BR.ISO8859-1/</filename>) que já foram 
+		traduzios e dos que estão em tradução e/ou revisão. 
+		Neste diretorio você também vai encontrar o
+		diretório <filename class="directory">share/</filename>, o qual possui
+		arquivos necessários ao processo de construção da
+		documentação que são comums a todos os idiomas
+		(Makefiles, declaração de entidades, etc). </para>
 
-	  <listitem>
-	      <para>Este é o repositório que contém os fontes em 
-		XML dos artigos e livros para tradução e 
-		revisão.</para>
-	  </listitem>
-	  <listitem>
-	    <itemizedlist>
-	      <title>pt_BR.ISO8859-1/</title>
-
-	      <listitem>
-	        <para>Trata-se da estrutura <acronym>ISO</acronym> de
-	          todos os livros e artigos trabalhados
-	          pelo <acronym>FDP</acronym>, na língua
-	          Português Brasileiro. É a estrutura importada
-	          junto ao repositório Subversion oficial do &os; 
-		  sempre que cada novo artigo ou livro está pronto.  A
-	          constituição desse documento é rigidamente
-	          disposta no padrão que você leu no &primer;
-	          e que portanto já conhece.
-	          Como não é particular à DOC-BR não será
-	          documentado aqui.  É essencial que você
-	          tenha lido o &primer;.</para>
-	      </listitem>
-	      <listitem>
-	        <para>Essa estrutura no sistema é o
-	          <filename class="directory">/usr/doc/pt_BR.ISO8859-1/</filename> quando o
-	          usuário sincronizou a documentação do sistema
-	          através de <application>CSup</application> por exemplo.
-	          O resultado construído dessa estrutura
-	          (documentos criados/compilados) são instalados
-	          sob <filename  class="directory">/usr/share/doc/pt_BR.ISO8859-1/</filename>
-	          em um sistema &os; com documentação
-	          instalada (por <acronym>CD-ROM</acronym> por exemplo).
-	          Note que <filename class="directory">/usr/doc/pt_BR.ISO8859-1/</filename>
-	          é distinto de
-	          <filename class="directory">/usr/share/doc/pt_BR.ISO8859-1</filename>.
-	          O primeiro só está disponível se o usuário
-	          obter via sincronia com repositório &os;,
-	          e trata-se dos <acronym>SGML</acronym>, entidades e <acronym>DTD</acronym>s
-	          (ou seja, o código fonte da documentação),
-	          enquanto o segundo é o resultado pronto
-	          (já compilado) em formato <literal>HTML</literal>,
-	          texto plano, <literal>PDF</literal>, <literal>PostScript</literal>
-	          e outros, que pode ser instalado do <acronym>CD-ROM</acronym> por exemplo.</para>
-	      </listitem>
-	    </itemizedlist>
-	  </listitem>
-	</itemizedlist>
-
-
-	<itemizedlist>
+	      <para>Dentro dos diretórios 
+		<filename class="directory">en_US.ISO8859-1/</filename> e 
+		<filename class="directory">pt_BR.ISO8859-1/</filename>, você irá
+		encontrar subdiretório alguns subdiretórios, um para
+		cada grupo de documentos que compõe a documentação
+		oficial do FreeBSD (Artigos, Livros, Website Oficial)
+		e um subdiretório (share) com os arquivos especificos
+		necessários para construir a documentação em cada um
+		dos respectivos idiomas.</para>
+	   </sect3> 
+	  
+	  <sect3 id="tools">
 	  <title>tools</title>
 
-	  <listitem>
 	    <para>Neste módulo ficam os scripts e arquivos
 	      criados e utilizados pelo DOC-BR.  Ele é
 	      constituído dos subdiretórios
@@ -836,8 +807,6 @@ trunk/
 	      com todas as intruções sobre como configurar
 	      e utilizar esse recurso no &emacs;.</para>
 
-	    </listitem>
-	    <listitem>
 	    <para>O diretório <filename class="directory">scripts/</filename> tem os
 	      <foreignphrase>scripts</foreignphrase> criados e mantidos
 	      pela DOC-BR para colocar os documentos em
@@ -849,8 +818,6 @@ trunk/
 	      o arquivo <acronym>SGML</acronym> e na saída gera o mesmo arquivo
 	      (<literal>stdout</literal>) com as regras do projeto
 	      corrigidas, e com alertas que o tradutor deve estar atento.</para>
-	    </listitem>
-	    <listitem>
 	    <para>Outro arquivo muito útil do diretório <filename class="directory">tools/</filename>
 	      é o <filename>acentos.sed</filename>.  Ele serve como arquivo de
 	      parâmetro para o &man.sed.1;, e faz a conversão de acentos
@@ -858,35 +825,32 @@ trunk/
 	      com entidades <acronym>SGML</acronym>.  Uso obrigatório para desenvolvedores
 	      que não trabalham com editores que fazem essa
 	      conversão automáticamente como &vim; ou &emacs;.</para>
-	    </listitem>
-	    <listitem>
+	    
 	    <para>No diretório <filename class="directory">vim/</filename> você encontrará
 	      o mesmo conteúdo do
 	      <filename class="directory">/usr/doc/share/examples/vim</filename>
 	      em seu sistema após sincronizar a documentação.  São os
 	      arquivos e <foreignphrase>scripts</foreignphrase> usados para configurar a conversão
 	      automática de acentos no &vim;.</para>
-	    </listitem>
-	    <listitem>
+	    
 	    <para>O diretório <filename class="directory">sandbox/</filename> dentro do
 	      módulo <filename class="directory">tools/</filename> é uma área
-	      livre para experiências <acronym>CVS</acronym> de
+	      livre para experiências <acronym>svn</acronym> de
 	      novos usuários.  Todos podem editar
 	      e adicionar novos arquivos dentro deste
 	      diretório, para ficarem mais à vontade
-	      com o <acronym>CVS</acronym>.  Dentro dele você encontrará
+	      com o <acronym>svn</acronym>.  Dentro dele você encontrará
 	      o diretório <filename>exercicios/</filename>
 	      com vários arquivos <acronym>SGML</acronym> com exercícios
 	      propostos pelo <acronym>FDP</acronym> bem como algumas
 	      variações destes.</para>
-	    </listitem>
-	    <listitem>
+	    
 	    <para>Finalmente os arquivos <filename class="directory">palavras.txt</filename>
 	      são palavras as quais os revisores devem se
 	      atentar, pois usualmente os tradutores esquecem
 	      de acentuar.  O <filename>Readme.txt</filename> é
 	      o arquivo de informações mais completo disponível
-	      pelo DOC-BR no <acronym>CVS</acronym>.  Parte do conteúdo deste
+	      pelo DOC-BR no <acronym>svn</acronym>.  Parte do conteúdo deste
 	      você encontrará aqui também.   É leitura obrigatório
 	      se além de contribuir com o DOC-BR
 	      você pensa também em se aprofundar nos
@@ -897,33 +861,30 @@ trunk/
 	      documentos para outros formatos (<literal>PDF</literal>,
 	      <literal>doc</literal>, etc), ou se você
 	      também pretende trabalhar com &emacs;.</para>
-	  </listitem>
-	</itemizedlist>
 
-
-	<itemizedlist>
-	  <title>glossario</title>
-
-	  <listitem>
-	    <para>Trata-se do glossário de palavras e expressões
+	    <para>O diretório <filename
+	    class="directory">glossario</filename> armazerna o 
+	      glossário de palavras e expressões
 	      comuns em inglês, que encontraremos frequentemente
 	      durante o trabalho de tradução.
 	      Como o projeto é constituído de diversos
 	      indivíduos, o glossário também serve
-	      como padronização ling&uuml;ísta, para
-	      garantir que textos distintos traduzidos por pessoas diferentes
-	      sejam traduzidos da mesma forma quando essas expressões
-	      especiais aparecerem, não sendo notadas
+	      como padronização linguísta, para
+	      garantir que textos distintos traduzidos por pessoas 
+	      diferentes sejam traduzidos da mesma forma quando 
+	      essas expressões especiais aparecerem, não sendo notadas
 	      diferenças para o leitor.</para>
 
 	    <para>Dentro desse diretório além do
 	      próprio <filename>glossario.txt</filename> há
-	      também um arquivo <filename>LEIAME.glossario.txt</filename>.
-	      Este serviu de inspiração para os próximos parágrafos.</para>
-	  </listitem>
-	  <listitem>
-	    <para>Todo tradutor deve sempre seguir à
-	      risca as expressões adotadas no glossário.
+	      também um arquivo 
+	      <filename>LEIAME.glossario.txt</filename>.  Este arquivo
+	      traz algumas orientações gerais a respeito do uso do
+	      glossário.</para>
+
+	    <para>Todo tradutor deve seguir sempre que possível
+	      as expressões adotadas no glossário, mas a regra de
+	      ouro é ter bom senso na escolha da melhor tradução.
 	      Quando você se deparar com uma expressão
 	      especial que não tem certeza sobre como traduzi-la,
 	      e esta não estiver no glossário ainda, saiba
@@ -931,35 +892,9 @@ trunk/
 	      para nova entrada no glossário.  Portanto
 	      envie para a lista de discussão DOC-BR
 	      suas dúvidas sobre essa expressão
-	      para que todos membros possam discutir sobre como ela deve ser
-	      colocada no glossário.</para>
-	  </listitem>
-	  <listitem>
-	    <para>Algumas traduções são estranhas mas devemos tentar
-	      seguir a norma oficial do português
-	      brasileiro.  Afinal de contas, quem ler a versão
-	      em português provavelmente estará acostumado
-	      com estes termos traduzidos.  Quem acha muito
-	      estranho (prefere eles em inglês) provavelmente
-	      lerá a versão em inglês de qualquer maneira.</para>
-
-	    <para>Por exemplo, a traduçãoo escolhida pelos especialistas
-	      em teoria da informação para
-	      <quote><foreignphrase>site</foreignphrase></quote>
-	      é <literal>s&amp;&amp;iacute;tio</literal>.  Muitos consideram de
-	      péssimo gosto, mas é o correto, então vamos
-	      nos esforçar para usá-la.  Em casos
-	      especiais podemos usar &lt;literal&gt;Web site&lt;/literal&gt;.</para>
-
-	    <para>Já em casos mais cabulosos, ninguém vai concordar
-	      com os especialistas e traduzir palavras consagradas
-	      como <quote><foreignphrase>kernel</foreignphrase></quote>,
-	      para <emphasis>cerne</emphasis> ou <emphasis>núcleo</emphasis>.
-	      Apesar de correta, a tradução estraga o prazer da leitura.
-	      Nesse caso, opte por usar a expressão original
-	      de forma literal, &lt;literal&gt;kernel&lt;/literal&gt;.</para>
-	  </listitem>
-	  <listitem>
+	      para que todos membros possam discutir sobre como ela 
+	      deve ser colocada no glossário.</para>
+	    
 	    <para>A regra para uso do glossário é simples.
 	      Do lado esquerdo temos a expressão original,
 	      e do lado direito as possibilidades de traduções.
@@ -979,8 +914,7 @@ trunk/
 	    <para>Prefira <quote>reinvidicada</quote> sempre que possível
 	      ou em caso de dúvida.   Se no contexto as outras opções
 	      ficarem melhor, use-as então.</para>
-	  </listitem>
-	</itemizedlist>
+	</sect3>
       </sect2>
     </sect1>
 
@@ -997,124 +931,82 @@ trunk/
 	  para atualização e adição de novos documentos
 	  é necessário um nome de usuário válido no
 	  Google Code.  Você soube anteriormente como criá-lo.
-	  Quando a associação ao projeto DOC-BR for concluida,
+	  Quando sua associação ao projeto DOC-BR for concluida,
 	  será possível acessar o servidor svn com
 	  privilégios de escrita.</para>
 	</note>
 
       <sect2 id="criando-ambiente-trabalho">
-	<title>Criando seu ambiente de trabalho no DOC-BR</title>
+	<title>Preparando seu ambiente de trabalho para DOC-BR</title>
 
-	<para>Para criar seu ambiente de trabalho, aconselhamos fortemente
-	  que as principais configurações e
-	  informações comuns ao seu ambiente
-	  <acronym>CVS</acronym> sejam definidas em variáveis de ambiente, ao
-	  invés de passá-las frequentemente por parâmetro em
-	  linha de comando, como mencionado anteriormente para
-	  acesso anônimo.</para>
+	<para>Para poder converter os documentos que você vai traduzir
+	de forma que possa avaliar o resultado final, você precisará
+	instalar alguns aplicativos em seu FreeBSD.  Felizmente existe
+	um meta port disponibilizado pelo FDP para simplificar este
+	processo.</para>
 
-	<para>As variáveis de ambiente e seus respectivos valores
-	  em um intepretador de comando compatível
-	  com a <application>Bourne Shell</application>
-	  (&man.sh.1;) devem ser criadas da seguinte maneira:</para>
+	<para>Desta forma basta instalar o meta-port 
+	  <filename role="package">textproc/docproj</filename>,
+	  executando os comandos baixo:</para>
 
-	<example>
-	  <title>Variáveis de ambiente para
-	    &man.cvs.1; em <application>Bourne Shell</application></title>
-	
-	<programlisting>CVS_RSH=ssh
-export CVS_RSH
-CVSROOT=:ext:<replaceable>seulogin</replaceable>@cvs.doc-br.berlios.de:/cvsroot/doc-br
-export CVSROOT</programlisting>
-	</example>
+<screen>&prompt.root; <userinput>cd /usr/ports/textproc/docproj</userinput>
+&prompt.root; <userinput>make JADETEX=no install</userinput></screen>
 
-	<!-- XXX ASSIM COMO <screen>, <programlisting> TAMBEM PRECISA QUE
-	  A IDENTACAO FIQUE A EXTREMA ESQUERDA, ENTAO NESSE CASO ELA PODE
-	  SER QUEBRADA -->
+	<para>Agora que você já instalou o conjunto de aplicativos 
+	  necessários para converter os fontes da documentação, 
+	  precisamoscriar uma cópia local do repositório 
+	  <application>svn</application> do DOC-BR, executando o
+	  comando abaixo dentro do seu diretório 
+	  <literal>home</literal> (<filename>~/</filename>):</para>
 
-	<para>Para tornar essa modificação permanente
-	  adicione estas linhas no seu <filename>~/.profile</filename> ou
-	  no profile do sistema.  Substituia
-	 <replaceable>seulogin</replaceable> por seu nome
-	 de usuário.</para>
+<screen>&prompt.user; <userinput>svn checkout https://freebsd-doc-br.googlecode.com/svn/trunk/ freebsd-doc-br --username seulogin-no-googlecode</userinput></screen> 
 
-	<para>No caso do interpretador de comandos ser compatível
-	  <application>C Shell</application> (como &man.csh.1; ou &man.tcsh.1;,
-	  padrão em sistemas <acronym>BSD</acronym>) defina
-	  as variáveis:</para>
+	<para>O comando acima irá criar o diretório 
+	  <filename class="directory">freebsd-doc-br/</filename>, o 
+	  qual irá conter uma cópia de todos os arquivos necessários 
+	  para que você inicie seus trabalhos no DOC-BR.</para>
 
-	<programlisting>setenv CVS_RSH ssh
-setenv CVSROOT :ext:<replaceable>seulogin</replaceable>@cvs.doc-br.berlios.de:/cvsroot/doc-br</programlisting>
-
-	<para>Para tornar estas mudanças permanentes, coloque-as
-	  no <filename>~/.cshrc</filename> ou em
-	  <filename>/etc/csh.cshrc</filename>.  Substitua
-	  <replaceable>seulogin</replaceable>por seu nome
-	  de usuário.</para>
-
-	<para>Agora já é possível acessar o repositório <acronym>CVS</acronym>.
-	  Mas é necessário decidir e customizar seu
-	  ambiente de trabalho.  Para isso seguem algumas
-	  sugestões adotadas no DOC-BR.  Você pode
-	  modificá-las como achar mais conveniente caso
-	  esteja completamente seguro em trabalhar com <acronym>CVS</acronym>.</para>
+	<para>Veja abaixo algumas sugestões de boas práticas no uso do
+	  <application>svn</application> sugerimos que sejam adotadas
+	  pelos membros do DOC-BR:</para>
 
 	<procedure>
 	  <step>
-	    <para>Dentro de seu diretório <literal>home</literal>
-	      (<filename>~/</filename>) crie um diretório
-	      chamado <filename>CVS_ROOT</filename>.  Nele você
-	      assumirá raiz de todo seu trabalho em sistemas <acronym>CVS</acronym>,
-	      mesmo que existam outros além do DOC-BR.
-	      Dentro dele crie o subdiretório
-	      <filename class="directory">doc-br</filename>.  Este sim exclusivo
-	      à nossas atividades.</para>
-	  </step>
+	    <para>Antes de iniciar qualquer trabalho, execute sempre i
+	      o comando <command>svn update</command> dentro da raiz 
+	      do seu repositório local:</para>
 
-	  <step>
-	    <para>Entre neste diretório:</para>
-
-	    <screen>&prompt.user; cd ~/CVS_ROOT/doc-br/</screen>
-	
-	    <para>e nele dê o comando</para>
-
-	    <screen>&prompt.user; cvs checkout pt_BR.ISO8859-1</screen>
-	  </step>
-
-	  <step>
-	    <para>Antes de iniciar qualquer trabalho em um determinado
-	      módulo, sempre execute o comando <command>cvs update</command>
-	      dentro deste módulo:</para>
-
-	    <screen>&prompt.user; cd pt_BR.ISO8859-1/
-&prompt.user; cvs update</screen>
+<screen>&prompt.user; cd ~/freebsd-doc-br/
+&prompt.user; svn update</screen>
 
 	    <para>Dessa maneira qualquer modificação
 	      que um outro membro do time tiver feito nesses arquivos
 	      serão atualizadas na sua máquina local, e
-	      você mantem completa integridade entre o seu módulo
-	      e o módulo remoto, sem a necessidade de obter os arquivos
-	      todos novamente com <command>cvs checkout</command>.</para>
+	      você mantem completa integridade entre o seu repositório
+	      e o repositório remoto, sem a necessidade de obter os 
+	      arquivos todos novamente com o 
+	      <command>svn checkout</command>.</para>
 	  </step>
 
 	  <step>
-	    <para>Sempre execute os comandos <command>cvs commit</command>
-	      dentro do diretório do capítulo que
+	    <para>Sempre execute o comando 
+	      <command>svn commit</command>
+	      dentro do diretório do documento que você
 	      estiver traduzindo, de forma à diminuir o risco
 	      de sobrescrever cópias desatualizadas em
-	      documentos modificados por outros membros do time.  Mesmo
-	      sabendo que trabalhar com <acronym>CVS</acronym> é um
-	      processo seguro, já que ele alerta sobre este
-	      conflito e permite ao usuário corrigi-lo,
-	      ainda assim é um procedimento bom à
-	      se acostumar.</para>
+	      documentos modificados por outros membros do time.  
+	      Mesmo sabendo que trabalhar com <acronym>svn</acronym> 
+	      é um processo seguro, já que ele alerta sobre este
+	      conflito e permite ao usuário corrigi-lo, este
+	      procedimento pode lhe evitar trabalho
+	      desnecessário.</para>
 	  </step>
 
 	  <step>
 	    <para>Sempre que você parar de traduzir um arquivo, mesmo
-	      que seja temporário, digamos para tomar um lanche ou ver TV,
-	      faça o <literal>commit</literal>.  Com o
-	      <command>cvs commit</command> você deixará seus
+	      que seja temporário, digamos para tomar um lanche ou 
+	      ver TV, faça o <literal>commit</literal>.  Com o
+	      <command>svn commit</command> você deixará seus
 	      colegas de time por dentro do que já fez,
 	      e garantirá <foreignphrase>snapshots</foreignphrase>
 	      atualizados do estado atual da documentação, além
@@ -1125,40 +1017,40 @@ setenv CVSROOT :ext:<replaceable>seulogin</replaceable>@cvs.doc-br.berlios.de:/c
 
 	  <step>
 	    <para>Se desejar ler todo o histórico de
-	      <literal>log</literal>s de <literal>commit</literal>s em um
-	      dado arquivo, use o comando:</para>
+	      <literal>log</literal>s de <literal>commit</literal>s 
+	      em um dado arquivo, use o comando:</para>
 
-	    <screen>&prompt.user; cvs log <replaceable>arquivo</replaceable></screen>
+<screen>&prompt.user; svn log <replaceable>nome-do-arquivo</replaceable></screen>
 	  </step>
 
 	  <step>
 	    <para>Se desejar ver o que mudou de uma revisão
 	      para outra, em um dado arquivo, é possível
-	      executar um &man.diff.1; remoto no &man.cvs.1;.  Para isso
-	      dê:</para>
+	      executar um &man.diff.1; remoto no &man.svn.1;.  Para 
+	      isto execute:</para>
 
-	    <screen>&prompt.user; cvs diff -r<replaceable>revisão_atual</replaceable> -r<replaceable>revisão_anterior_desejada</replaceable> <replaceable>nome_do_arquivo</replaceable></screen>
+<screen>&prompt.user; svn diff -r <replaceable>revisão_atual</replaceable>:<replaceable>revisão_anterior_desejada</replaceable> <replaceable>nome_do_arquivo</replaceable></screen>
 	  </step>
 
 	  <step>
-	    <para>Caso queira saber mais sobre <acronym>CVS</acronym> ou ainda restem dúvidas,
-	      não deixe de ler o documento sobre <acronym>CVS</acronym> disponível
-	      em <ulink url="http://cvsbook.red-bean.com/">http://cvsbook.red-bean.com/</ulink>.
+	    <para>Caso queira saber mais sobre o 
+	      <acronym>Subversion</acronym> ou ainda restem dúvidas,
+	      não deixe de ler o documento sobre 
+	      <acronym>SVN</acronym> disponível em <ulink 
+	      url="http://svnbook.red-bean.com/">http://svnbook.red-bean.com/</ulink>.
 	      Mas de maneira geral você não precisará conhecer
-	      mais operações no <acronym>CVS</acronym> do que as mencionadas aqui.</para>
+	      mais operações no <acronym>SVN</acronym> do que as mencionadas aqui.</para>
 	  </step>
 
 	  <step>
 	    <para>Evite ao máximo enviar em um mesmo <literal>commit</literal>
-	      alterações de conteúdo e de formatação <acronym>SGML</acronym>.
+	      alterações de conteúdo e de formatação <acronym>XML</acronym>.
 	      Isso porquê cada novo <literal>commit</literal> gera uma nova
 	      revisão do arquivo, e caso seja necessário restaurar
 	      o arquivo como era antes da formatação ou
-	      antes da alteração de conteúdo, não
-	      será possível já que
-	      ambas mudanças foram feitas
-	      no mesmo <literal>commit</literal>.
-	      Quanto mais <literal>commit</literal>melhor!</para>
+	      antes da alteração de conteúdo, não será possível já que
+	      ambas mudanças foram feitas no mesmo 
+	      <literal>commit</literal>.</para>
 	  </step>
 	</procedure>
       </sect2>
