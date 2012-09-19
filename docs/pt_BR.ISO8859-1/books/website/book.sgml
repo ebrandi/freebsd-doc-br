@@ -1230,8 +1230,8 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	    <example>
 	      <title>Exemplo 1 de expressões com artigo e gênero</title>
 	
-	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
-		da s&amp;eacute;rie 2.X at&amp;eacute; a 4.X para o FreeBSD!</para>
+	      <para>Bem vindo às Perguntas mais frequentes
+		da série 2.X até a 4.X para o FreeBSD!</para>
 	    </example>
 
 	    <para>Poderia ser:</para>
@@ -1239,8 +1239,8 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	    <example>
 	      <title>Exemplo 2 de expressões com artigo e gênero</title>
 
-	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
-		da s&amp;eacute;rie 2.X at&amp;eacute; 4.X para FreeBSD!</para>
+	      <para>Bem vindo às Perguntas mais frequentes
+		da série 2.X até 4.X para FreeBSD!</para>
 	    </example>
 
 	    <para>Nesse caso evitamos o artigo quanto à
@@ -1251,8 +1251,8 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
     	    <example>
 	      <title>Exemplo 3 de expressões com artigo e gênero</title>
 
-	      <para>Bem vindo &amp;agrave;s Perguntas mais freq&amp;uuml;entes
-		para as vers&amp;otilde;es 2.X &amp;aacute; 4.X do FreeBSD!</para>
+	      <para>Bem vindo às Perguntas mais frequentes
+		para as versões 2.X á 4.X do FreeBSD!</para>
 	    </example>
 
 	    <para>Nesse caso evitamos todos artigos e gêneros
