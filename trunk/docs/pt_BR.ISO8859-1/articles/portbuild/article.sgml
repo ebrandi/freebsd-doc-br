@@ -1622,100 +1622,113 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   </sect1>
 
   <sect1 id="new-node">
-    <title>How to configure a new package building node</title>
+    <title>Como configurar um novo nó de compilação de pacote</title>
 
-    <para>Before following these steps, please coordinate with
+    <para>Antes de seguir estes passos, por favor, coordene-se com o
       <literal>portmgr</literal>.
     </para>
 
     <note>
-      <para>Due to some generous donations, <literal>portmgr</literal> is
-	no longer looking for the loan of &i386; or <literal>amd64</literal>
-	systems.  However, we are still interested in borrowing tier-2
-	systems.</para>
+      <para>Devido à algumas doações generosas,
+        <literal>portmgr</literal> não está procurando por emprétimos
+	de sistemas &i386; ou <literal>amd64</literal>.  No entanto,
+	nós estamos interessados no empréstimo de sistemas
+	<literal>tier-2</literal>.</para>
     </note>
 
     <sect2 id="node-requirements">
-      <title>Node requirements</title>
+      <title>Requisitos do nó</title>
 
-      <para><literal>portmgr</literal> is still working on characterizing
-	what a node needs to be generally useful.</para>
+      <para><literal>portmgr</literal> ainda está trabalhando nas
+        características de que um nó necessita para ser útil em
+	geral.</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>CPU capacity: anything less than 500MHz is generally
-	    not useful for package building.</para>
+	  <para>Capacidade de CPU: qualquer coisa abaixo de 500MHz
+	    geralmente não é usável para compilação de pacotes.</para>
 
 	  <note>
-	    <para>We are able to adjust the number of jobs
-	      dispatched to each machine, and we generally tune
-	      the number to use 100% of CPU.</para>
+	    <para>Nós somos capazes de ajustar o número de trabalhos
+	    enviados para cada máquina, e nós geralmente ajustamos o
+	    número para usar 100% de CPU.</para>
 	  </note>
 	</listitem>
 
 	<listitem>
-	  <para>RAM: Less than 2G is not very useful; 8G or more
-	    is preferred.  We have been tuning to one job
-	    per 512M of RAM.</para>
+	  <para>RAM: Menos de 2G não é muito usuável; 8G ou mais é
+	    preferível.  Nós temos ajustado um trabalho para cada
+	    cada 512M de RAM.
 	</listitem>
 
 	<listitem>
-	  <para>disk: at least 20G is needed for filesystem; 32G is
-	    needed for swap.  Best performance will be if multiple
-	    disks are used, and configured as <literal>geom</literal>
-	    stripes.  Performance numbers are also TBA.</para>
+	  <para>Disco: um mínimo de 20G é necessário para o sistema de
+	    arquivos; 32G é necessário para <literal>swap</literal>.
+	    A performance será melhor se multiplos discos forem
+	    usados, e configurados como <literal>geom</literal>
+	    <literal>stripes</literal>.  Números de performance também
+	    estão para serem definidos.</para>
 
 	  <note>
-	    <para>Package building will test disk drives to destruction.
-	      Be aware of what you are signing up for!</para>
+	    <para>A compilação de pacotes irá testar unidades de disco
+	      para destruição.  Esteja consciente do que você está
+	      fazendo!</para>
 	  </note>
 	</listitem>
 
 	<listitem>
-	  <para>network bandwidth: TBA.  However, an 8-job machine
-	    has been shown to saturate a cable modem line.</para>
+	  <para>largura de banda da rede: também está para ser
+	    definido.  No entanto, uma máquina com 8 trabalhos
+	    mostrou ser capaz de saturar uma linha de <literal>cable
+	    modem</literal>.</para>
 	</listitem>
       </itemizedlist>
 
     </sect2>
 
     <sect2 id="node-preparation">
-      <title>Preparation</title>
+      <title>Preparação</title>
 
       <procedure>
 	<step>
-	  <para>Pick a unique hostname.  It does not have to be
-	    a publicly resolvable hostname (it can be a name on
-	    your internal network).</para>
+	  <para>Escolha um <literal>hostname</literal> único.  Ele não
+	    tem que ser um <literal>hostname</literal> resolviveu
+	    publicamente (ele pode ser um nome em sua rede
+	    interna).</para>
 	</step>
 
 	<step>
-	  <para>By default, package building requires the following TCP
-	    ports to be accessible: 22 (<literal>ssh</literal>), 414
-	    (<literal>infoseek</literal>), and 8649
-	    (<literal>ganglia</literal>).  If these are not accessible,
-	    pick others and ensure that an <command>ssh</command> tunnel
-	    is set up (see below).</para>
+	  <para>Por padrão, compilação de pacotes necessita que as
+	    seguintes portas TCP estejam acessíveis: 22
+	    (<literal>ssh</literal>), 414
+	    (<literal>infoseek</literal>), e 8649
+	    (<literal>ganglia</literal>).  Se estas não estiverem
+	    acessíveis, escolha outras e garanta que um túnel
+	    <command>ssh</command> esteja configurado (veja
+	    abaixo).</para>
 
-	  <para>(Note: if you have more than one machine at your site,
-	    you will need an individual TCP port for each service on
-	    each machine, and thus <command>ssh</command> tunnels
-	    will be necessary.  As such, you will probably need to
-	    configure port forwarding on your firewall.)</para>
+	  <para>(Nota: se você tem mais de uma máquina em seu site,
+	    você vai precisar de uma porta TCP individual para cada
+	    serviço em cada máquina, e assim túneis
+	    <command>ssh</command> serão necessários.  Como tal, você
+	    provavelmente precisará configurar o redirecionamento de
+	    portas em seu <literal>firewall</literal>.)</para>
 	</step>
 
 	<step>
-	  <para>Decide if you will be booting natively or via
-	    <literal>pxeboot</literal>.  You will find that it is
-	    easier to keep up with changes to <literal>-current</literal>
-	    with the latter, especially if you have multiple machines
-	    at your site.</para>
+	  <para>Decida se você vai inicializar localmente ou via
+	    <literal>pxeboot</literal>.  Você vai descobrir que é
+	    mais fácil acompanhar as mudanças do
+	    <literal>-current</literal> com a última opção,
+	    especialmente se você tem várias máquinas em seu
+	    site.</para>
 	</step>
 
 	<step>
-	  <para>Pick a directory to hold ports configuration and
-	    <command>chroot</command> subdirectories.  It may be
-	    best to put it this on its own partition.  (Example:
+	  <para>Escolha um diretório para manter as configurações de
+	    <literal>ports</literal> e os subdiretórios do
+	    <command>chroot</command>.  Pode ser melhor colocá-lo em
+	    sua própria partição.  (Exemplo:
 	    <filename>/usr2/</filename>.)</para>
 	</step>
       </procedure>
