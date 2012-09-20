@@ -1,0 +1,41 @@
+Linhas #      Capitulo       #    Responsavel , Data da Atribuição
+##################################################################
+312    # book.sgml           #
+387    # dtrace              #
+580    # bibliography        #
+708    # preface             #
+717    # audit               #
+885    # filesystems         #
+943    # l10n                #
+981    # geom                #
+988    # jails               #
+1034   # users               #
+1048   # introduction        #
+1055   # boot                #
+1296   # vinum               #
+1300   # virtualization      #
+1345   # linuxemu            #
+1347   # desktop             #
+1548   # kernelconfig        #
+1585   # ports               #
+1743   # x11                 #
+1938   # multimedia          #
+2075   # mac                 #
+2142   # eresources          #
+2230   # mail                #
+2716   # basics              #
+2728   # bsdinstall          #
+2931   # serialcomms         #
+3180   # cutting-edge        #
+3243   # ppp-and-slip        #
+3376   # firewalls           #
+3394   # mirrors             #
+3556   # config              #
+4151   # security            #
+4871   # disks               #
+4896   # printing            #
+5011   # install             #
+5909   # network-servers     #
+6493   # advanced-networking #
+##################################################################
+
