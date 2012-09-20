@@ -73,93 +73,107 @@
       Partes do FreeBSD também têm sido utilizadas em softwares 
       comerciais (consulte <xref linkend="freebsd-intro"/>).</para>
 
-    <para>In this article we look at the <ulink
-        url="&url.base;/">FreeBSD project</ulink> as a software
-      engineering resource&mdash;as a collection of building blocks
-      and processes which you can use to build products.</para>
+    <para>Neste artigo, vamos olhar para o <ulink
+      url="&url.base;/">Projeto FreeBSD</ulink> como um recurso de
+      engenharia de software &mdash; como um conjunto de blocos de
+      construção e de processos os quais você pode utilizar para
+      construir produtos.</para>
 
-    <para>While FreeBSD's source is distributed freely to the public,
-      to fully enjoy the benefits of the project's work, organizations
-      need to <emphasis>collaborate</emphasis> with the project.  In
-      subsequent sections of this article we discuss effective means
-      of collaboration with the project and the pitfalls that need to
-      be avoided while doing so.</para>
+    <para>Embora o código fonte do FreeBSD seja distribuído 
+      gratuitamente ao público, para desfrutar plenamente dos 
+      benefícios do trabalho do projeto, as organizações precisam
+      <emphasis>colaborar</emphasis> com o mesmo.  Nas seções
+      subsequentes do presente artigo discutiremos formas eficazes de
+      colaborar com o projeto, bem como os perigos que precisam ser
+      evitados ao fazê-lo.</para>
 
     <formalpara>
-      <title>Caveat Reader</title>
-      <para>The author believes that the characteristics of the FreeBSD
-      	Project listed in this article were substantially true at the
-	time the article was conceived and written (2005).  However, the
-	reader should keep in mind that the practices and processes used
-	by open-source communities can change over time, and that the information
-	in this article should therefore be taken as indicative rather
-	than normative.</para>
+      <title>Advertência ao Leitor</title>
+
+      <para>O autor considera que as características do projeto 
+	FreeBSD mencionadas neste artigo eram substancialmente 
+	verdadeiras no momento em que o artigo foi concebido e 
+	escrito (2005). No entanto, o leitor deve ter em mente que 
+	as práticas e processos utilizados por comunidades de código 
+	aberto podem mudar ao longo do tempo, e que portanto as 
+	informações deste artigo devem ser consideradas apenas como 
+	indicativas e não como verdades absolutas.</para>
     </formalpara>
 
     <sect2>
-      <title>Target Audience</title>
-      <para>This document would be of interest to the following broad
-        groups of people:</para>
+      <title>Público Alvo</title>
+
+      <para>Este documento tem como público alvo os seguintes grupos 
+	de pessoas:</para>
+      
       <itemizedlist>
         <listitem>
-          <simpara>Decision makers in product companies looking at
-            ways to improve their product quality, reduce their time
-            to market and lower engineering costs in the long
-            term.</simpara>
+          <simpara>Tomadores de decisão em empresas que estejam em 
+	    busca de meios para melhorar a qualidade de seus produtos,
+	    de reduzir o tempo necessário para lançá-los no mercado e
+	    de reduzir seus custos de engenharia no longo
+	    prazo.</simpara>
         </listitem>
         <listitem>
-          <simpara>Technology consultants looking for best-practices
-            in leveraging <quote>open-source</quote>.</simpara>
+          <simpara>Consultores de tecnologia procurando as melhores
+	    práticas para alavancar projetos de <quote>código 
+	    aberto</quote>.</simpara>
         </listitem>
         <listitem>
-          <simpara>Industry observers interested in understanding the
-            dynamics of open-source projects.</simpara>
+          <simpara>Observadores da indústria interessados em
+	    compreender a dinâmica dos projetos de <quote>código
+	    aberto</quote>.
+	  </simpara>
         </listitem>
         <listitem>
-          <simpara>Software developers seeking to use FreeBSD and
-            looking for ways to contribute back.</simpara>
+          <simpara>Desenvolvedores de software que utilizam o FreeBSD
+	    e que buscam formas de contribuir com o projeto.</simpara>
         </listitem>
       </itemizedlist>
     </sect2>
 
     <sect2>
-      <title>Article Goals</title>
-      <para>After reading this article you should have:</para>
+      <title>Objetivos do artigo</title>
+      <para>Após a leitura deste artigo, você deve ter:</para>
       <itemizedlist>
         <listitem>
-          <simpara>An understanding of the goals of the FreeBSD
-            Project and its organizational structure.</simpara>
+          <simpara>Uma melhor compreensão dos objetivos do Projeto 
+	    FreeBSD e de sua estrutura organizacional.</simpara>
         </listitem>
         <listitem>
-          <simpara>An overview of the available technology in the
-            project.</simpara>
+          <simpara>Uma visão geral das tecnologias disponíveis no
+	    projeto.</simpara>
         </listitem>
         <listitem>
-          <simpara>An understanding of its development model and
-            release engineering processes.</simpara>
+          <simpara>Uma melhor compreensão do modelo de 
+	    desenvolvimento adotado pelo Projeto FreeBSD e dos 
+	    processos de engenharia envolvidos no lançamento de uma 
+	    nova versão do sistema.</simpara>
         </listitem>
         <listitem>
-          <simpara>An understanding of how conventional corporate
-            software development processes differ from that used in
-            the FreeBSD project.</simpara>
+          <simpara>Uma compreensão de como os processos convencionais
+	    de desenvolvimento de software em uma empresa diferem dos
+	    processos utilizados no projeto FreeBSD.</simpara>
         </listitem>
         <listitem>
-          <simpara>Awareness of the communication channels used by the
-            project and the level of transparency you can
-            expect.</simpara>
+          <simpara>Consciência dos canais de comunicação utilizados 
+	    pelo projeto e do nível de transparência que você pode 
+	    esperar.</simpara>
         </listitem>
         <listitem>
-          <simpara>Awareness of optimal ways of working with the
-            project&mdash;how best to reduce engineering costs,
-            improve time to market, manage security vulnerabilities,
-            and preserve future compatibility with your product as the
-            FreeBSD project evolves.</simpara>
+          <simpara>Consciência das melhores formas de se trabalhar 
+	    com o projeto &mdash; a melhor forma de reduzir os custos
+	    de engenharia, de reduzir o tempo necessário para levar 
+	    seu produto ao mercado, de gerir vulnerabilidades de
+	    segurança, e de preservar a compatibilidade futura com o
+	    seu produto a medida que o Projeto FreeBSD
+	    evolui.</simpara>
         </listitem>
       </itemizedlist>
     </sect2>
 
     <sect2>
-      <title>Article Structure</title>
+      <title>Estrutura do Artigo</title>
       <para>The rest of the article is structured as follows:</para>
       <itemizedlist>
         <listitem>
