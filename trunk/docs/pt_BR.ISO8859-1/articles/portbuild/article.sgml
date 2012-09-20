@@ -1466,13 +1466,13 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       reinicializações (se por nada de mais, para
       atualizações).</para>
     
-    <para>Com o objetivo de ter um bom exemplo com o qual comparar
-      falhas, você deve primeiro executar a compilação de pacote do
-      ramo em que os <literal>patches</literal> experimentais sejam
-      baseados para a arquitetura &i386; (atualmente esta é o
-      <literal>8</literal>).  Em seguida, quando preparando para a
-      compilação de <literal>patches</literal> exparimentais, faça o
-      <literal>checkout</literal> da árvore do
+    <para>Com o objetivo de ter uma compilação de controle a qual
+      comparar falhas, você deve primeiro executar a compilação de
+      pacote no ramo em que os <literal>patches</literal>
+      experimentais sejam baseados para a arquitetura &i386;
+      (atualmente esta é o <literal>8</literal>).  Em seguida, quando
+      preparando para a compilação de <literal>patches</literal>
+      exparimentais, faça o <literal>checkout</literal> da árvore do
       <literal>ports</literal> e do <literal>src</literal> com a mesma
       data da que foi usada para a compilação de controle.  Isso vai
       garantir uma comparação entre as compilações depois.</para>
@@ -1483,6 +1483,12 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       time-saver.</para></note>
     -->
 
+    <para>Uma vez terminada a compilação, compare as falhas da
+      compilação de controle com as da compilação dos
+      <literal>patches</literal> experimentais.  Para facilitar, use
+      os seguintes comandos (assumindo o ramo <literal>8</literal>
+      como ramo de controle, e o <literal>8-exp</literal> como ramo
+      experimental):</para>
     <para>Once the build finishes, compare the control build failures
       to those of the experimental patches build.  Use the following
       commands to facilitate this (this assumes the <literal>8</literal>
@@ -1494,113 +1500,125 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 &prompt.user; <userinput>cd /var/portbuild/i386/8/errors</userinput>
 &prompt.user; <userinput>find . -name \*.log\* | sort > /tmp/8-errs</userinput></screen>
 
-    <note><para>If it has been a long time since one of the builds
-      finished, the logs may have been automatically compressed with
-      bzip2.  In that case, you must use <literal>sort | sed
-      's,\.bz2,,g'</literal> instead.</para></note>
+    <note><para>Se já faz muito tempo desde que a última compilação
+      foi finalizada, os <literal>logs</literal> podem ter sido
+      compactados automaticamente com
+      <application>bzip2</application>.  Nesse caso você deve usar
+      <literal>sort | sed 's,\.bz2,,g'</literal> em seu
+      lugar.</para></note>
 
     <screen>&prompt.user; <userinput>comm -3 /tmp/8-errs /tmp/8-exp-errs | less</userinput></screen>
 
-    <para>This last command will produce a two-column report.  The
-      first column is ports that failed on the control build but not in
-      the experimental patches build; the second column is vice versa.
-      Reasons that the port might be in the first column
-      include:</para>
+    <para>Este último comando vai gerar um relatório com duas colunas.
+      A primeira coluna contém os <literal>ports</literal> que
+      falharam na compilação de controle, mas não na compilação com
+      <literal>patches</literal> experimentais; a segunda é vice
+      versa.  Razões para o <literal>port</literal> estar no primeira
+      coluna incluem:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Port was fixed since the control build was run, or was
-	  upgraded to a newer version that is also broken (thus the
-	  newer version should appear in the second column)
+	<para>O <literal>port</literal> foi corrigido desde que a
+	  compilação de controle foi executada, ou foi atualizado para
+	  uma nova versão que também está quebrada (assim a nova
+	  versão também deve aparecer na segunda coluna)
 	</para>
       </listitem>
 
       <listitem>
-	<para>Port is fixed by the patches in the experimental patches
-	  build
+	<para>O <literal>port</literal> foi corrigido pelos
+	  <literal>patches</literal> experimentais na compilação
+	  experimental
 	</para>
       </listitem>
 
       <listitem>
-	<para>Port did not build under the experimental patches build
-	  due to a dependency failure
+	<para>O <literal>port</literal> não foi compilado na
+	compilação com <literal>patches</literal> experimentais devido
+	à falha de dependência
 	</para>
       </listitem>
     </itemizedlist>
 
-    <para>Reasons for a port appearing in the second column
-      include:</para>
+    <para>Razões para o <literal>port</literal> aparecer na segunda
+      coluna incluem:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Port was broken by the experimental patches [1]</para>
+	<para>O <literal>port</literal> foi quebrado pelos
+	  <literal>patches</literal> experimentais [1]</para>
       </listitem>
 
       <listitem>
-	<para>Port was upgraded since the control build and has become
-	  broken [2]
+	<para>O <literal>port</literal> foi atualizado desde a
+	  compilação de controle e tornou-se quebrado [2]
 	</para>
       </listitem>
 
       <listitem>
-	<para>Port was broken due to a transient error (e.g. FTP site
-	  down, package client error, etc.)
+	<para>O <literal>port</literal> foi quebrado devido a um erro
+	  temporário (e.g. site FTP fora do ar, erro do pacote
+	  cliente, etc.)
 	</para>
       </listitem>
     </itemizedlist>
 
-    <para>Both columns should be investigated and the reason for the
-      errors understood before committing the experimental patches set.
-      To differentiate between [1] and [2] above, you can do a rebuild
-      of the affected packages under the control branch:</para>
+    <para>Ambas as colunas devem ser investigadas e as razões para os
+      erros entendidas antes do <literal>commit</literal> do conjunto
+      de <literal>patches</literal> experimentais.  Para diferenciar
+      entre o [1] e o [2] acima, você recompilar os pacotes afetados
+      sob o ramo de controle:</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/ports</userinput></screen>
 
-    <note><para>Be sure to <literal>cvs update</literal> this tree to the same date as
-      the experimental patches tree.</para></note>
+    <note><para>Certifique-se de atualizar esta árvore com o
+      <literal>cvs update</literal> para a mesma data da árvore dos
+      <literal>patches</literal> experimentais.</para></note>
 
     <!-- XXX MCL fix -->
-    <para>The following command will set up the control branch for
-      the partial build (old codebase):</para>
+    <para>O seguinte comando vai configurar o ramo de controle para a
+      compilação parcial (antigo código base):</para>
 
     <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportscvs -nobuild -nocvs -nofinish</userinput></screen>
 
     <!-- XXX MCL obsolete -->
-    <para>The builds must be performed from the
-      <literal>packages/All</literal> directory.  This directory should
-      initially be empty except for the Makefile symlink.  If this
-      symlink does not exist, it must be created:</para>
+    <para>As compilações devem ser executadas a partir do diretório
+      <literal>packages/All</literal>.  Esse diretório deve estar
+      vázio inicialmente, exceto para o <literal>link</literal>
+      simbólico do Makefile.  Se este <literal>link</literal>
+      simbólico não existir, ele deve ser criado:</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/packages/All</userinput>
 &prompt.user; <userinput>ln -sf ../../Makefile .</userinput>
 &prompt.user; <userinput>make -k -j&lt;#&gt; &lt;list of packages to build&gt;</userinput></screen>
 
-    <note><para>&lt;#&gt; is the concurrency of the build to
-      attempt.  It is usually the sum of the weights listed in
-      <filename>/var/portbuild/i386/mlist</filename> unless you have a
-      reason to run a heavier or lighter build.</para>
+    <note><para>&lt;#&gt; é o número de compilações paralelas para
+      tentar.  Normalmente isso é a soma dos pesos listados em
+      <filename>/var/portbuild/i386/mlist</filename>, a menos que você
+      tenha uma razão para executar uma compilação mais pesada ou
+      leve.</para>
 
-    <para>The list of packages to build should be a list of package
-      names (including versions) as they appear in
-      <filename>INDEX</filename>.  The <literal>PKGSUFFIX</literal>
-      (i.e. .tgz or .tbz) is optional.</para></note>
+    <para>A lista de pacotes para compilar deve ser uma lista do nome
+      do pacote (incluindo as versões) como aparece no
+      <filename>INDEX</filename>.  O <literal>PKGSUFFIX</literal>
+      (i.e. .tgz ou .tbz) é opicional.</para></note>
 
-    <para>This will build only those packages listed as well as all
-      of their dependencies.</para>
+    <para>Isso vai compilar apenas os pacotes listados, assim como
+      todas as suas dependências.</para>
 
-    <para>You can check the progress of this
-      partial build the same way you would a regular build.</para>
+    <para>Você pode verificar o progresso da compilação parcial da
+      mesma forma que você faria com uma compilação normal.</para>
 
-    <para>Once all
-      the errors have been resolved, you can commit the package set.
-      After committing, it is customary to send a <literal>HEADS
-      UP</literal> email to <ulink
-      url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> and
-      copy <ulink
-      url="mailto:ports-developers@FreeBSD.org">ports-developers@FreeBSD.org</ulink>
-      informing people of the changes.  A summary of all changes
-      should also be committed  to
-      <filename>/usr/ports/CHANGES</filename>.</para>
+    <para>Uma vez que todos os erros tenham sido resolvidos, você pode
+      efetuar o <literal>commit</literal> do conjunto de pacotes.
+      Após efetuar o <literal>commit</literal> é de costume enviar um
+      e-mail <literal>HEADS UP</literal> para <ulink
+      url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> e uma
+      cópia para <ulink
+      url="mailto:ports-developers@FreeBSD.org">ports-developers@FreeBSD.org</ulink>,
+      informando as pessoas das mudanças.  Um resumo de todas as
+      mudanças também deve ter o <literal>commit</literal> efetuado
+      para <filename>/usr/ports/CHANGES</filename>.</para>
   </sect1>
 
   <sect1 id="new-node">
