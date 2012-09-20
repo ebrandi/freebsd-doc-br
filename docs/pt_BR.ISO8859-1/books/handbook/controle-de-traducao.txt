@@ -8,7 +8,7 @@ Linhas #      Capitulo       #    Responsavel , Data da Atribuição
 885    # filesystems         #
 943    # l10n                #
 981    # geom                #
-988    # jails               #
+988    # jails               #  Edson Brandi, 20/09/2012
 1034   # users               #
 1048   # introduction        #  Juliana Manczenko, 18/09/2012
 1055   # boot                #
