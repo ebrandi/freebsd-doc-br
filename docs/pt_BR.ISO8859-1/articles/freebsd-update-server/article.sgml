@@ -3,7 +3,7 @@
         "../../../share/sgml/freebsd42.dtd" [
 <!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT" "../../share/sgml/entities.ent">
 %entities;
-<!ENTITY fbus.ap "<application>FreeBSD Update Server</application>">
+<!ENTITY fbus.ap "<application>Servidor de Atualização FreeBSD</application>">
 ]>
 
 <!--
@@ -16,7 +16,7 @@
 
 <article lang="pt_br">
   <articleinfo>
-    <title>Build Your Own &os; Update Server</title>
+    <title>Construa o Seu Proprio Servidor de Atualização &os;</title>
 
     <author>
       <firstname>Jason</firstname>
@@ -46,80 +46,82 @@
   </articleinfo>
 
   <abstract>
-    <para>This article describes building an internal &fbus.ap;.
-      The <ulink
-	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink> software
-      is written by &a.cperciva;, current Security Officer of &os;.
-      For users that think it is convenient to update their systems
-      against an official update server, building their own &fbus.ap; may
-      help to extend its functionality by supporting manually-tweaked
-      &os; releases or by providing a local mirror that will allow faster
-      updates for a number of machines.</para>
+    <para>Este artigo descreve como construir um &fbus.ap;.
+      O software <ulink
+      url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
+      é escrito por &a.cperciva;, atualmente Chefe de Segurança do
+      &os;.  Para usuários que acreditam que é conveniente atualizar
+      seus sistemas a partir de um servidor oficial de atualização,
+      construindo seu próprio &fbus.ap; pode ajudar a estender suas
+      funcionalidades por adicionar ajustes manuais às versões
+      lançadas do &os; ou por prover uma imagem local que permitirá
+      atualizações mais rápidas para suas máquinas</para>
   </abstract>
 
   <sect1 id="acknowledgments">
-    <title>Acknowledgments</title>
-      <para>This article was originally published at <ulink
+    <title>Agradecimentos</title>
+      <para>Este artigo foi originalmente publicado em <ulink
 	  url="http://www.experts-exchange.com/OS/Unix/BSD/FreeBSD/A_1941-Build-Your-Own-FreeBSD-Update-Server.html">Experts Exchange</ulink>,
-	and subsequently printed at <ulink
+	e depois impresso na <ulink
 	  url="http://bsdmag.org/magazine/1021-bsd-as-a-desktop">BSD
 	  Magazine</ulink>.</para>
   </sect1>
 
   <sect1 id="introduction">
-    <title>Introduction</title>
+    <title>Introdução</title>
 
-    <para>Experienced users or administrators are often responsible for
-      several machines or environments.  They understand the difficult
-      demands and challenges of maintaining such an infrastructure.
-      Running a &fbus.ap; makes it easier to deploy security and software
-      patches to selected test machines before rolling them out to
-      production.  It also means a number of systems can be updated from the
-      local network rather than a potentially slower Internet connection.
-      This article outlines the steps involved in creating an internal
-      &fbus.ap;.</para>
+    <para>Frequentemente usuários ou administradores experiêntes são
+    responsáveus por diversas máquinas ou ambientes.  Eles entendem as
+    dificuldades e desafios de manter tal estrutura.  Usando um
+    &fbus.ap; fica mais fácil de implantar patches de segurança e de
+    softwares para máquinas de testes selecionadas antes de implantar
+    em produção.  Isto também significa que um número de sistemas
+    podem ser atualizados a partir da rede local em vez de usar uma
+    conexão de internet potencialmente lenta.  Este artigo descreve as
+    etapas envolvidas na criação de um &fbus.ap;.</para>
   </sect1>
 
   <sect1 id="prerequisites">
-    <title>Prerequisites</title>
+    <title>Pré-Requisitos</title>
 
-    <para>To build an internal &fbus.ap; some requirements should be
-      met.</para>
+    <para>Para construir o seu &fbus.ap; alguns requisitos devem ser
+    cumpridos.</para>
 
     <itemizedlist>
       <listitem>
-	<para>A running &os; system.</para>
+	<para>Um sistema &os; instalado.</para>
 
 	<note>
-	  <para>At a minimum, updates require building on a &os;
-	    release greater than or equal to the target release
-	    version for distribution.</para>
+	  <para>No mínimo, as atualizações precisam ser construidas em
+	  uma versão do &os; maior ou igual a versão alvo a ser
+	  construida para distruibuição.</para>
 	</note>
       </listitem>
 
       <listitem>
-	<para>A user account with at least 4&nbsp;GB of available space.
-	  This will allow the creation of updates for 7.1 and 7.2, but the
-	  exact space requirements may change from version to version.</para>
+        <para>Uma conta de usuário com no mínimo 4&nbsp;GB de espaço
+	livre.  Isto permite a criação de atualizações para as versões
+	7.1 e 7.2, mas o espaço exato requerido pode mudar de versão
+	para versao.</para>
       </listitem>
 
       <listitem>
-	<para>An &man.ssh.1; account on a remote machine to upload
-	  distributed updates.</para>
+        <para>Uma conta &man.ssh.1; em uma máquina remota para enviar
+	as atualizações a serem distribuidas.</para>
       </listitem>
 
       <listitem>
-	<para>A web server, like <ulink
-	    url="&url.books.handbook;/network-apache.html">Apache</ulink>,
-	  with over half of the space required for the build.  For instance,
-	  test builds for 7.1 and 7.2 consume a total amount of 4&nbsp;GB,
-	  and the webserver space needed to distribute these updates is
-	  2.6&nbsp;GB.</para>
+	<para>Um servidor web, como <ulink
+	  url="&url.books.handbook;/network-apache.html">Apache</ulink>,
+          com mais da metade do espaço necessário para a construção.
+	  Por exemplo, construções testes para 7.1 e 7.2 consomem um
+	  espaço total de 4&nbsp;GB, e usam 2.6&nbsp;GB para
+	  distribuir essas atualizações.</para>
       </listitem>
 
       <listitem>
-	<para>Basic knowledge of shell scripting with Bourne shell,
-	  &man.sh.1;.</para>
+        <para>Conhecimento básico de shell script com o Bourne shell,
+	&man.sh.1;</para>
       </listitem>
     </itemizedlist>
   </sect1>
