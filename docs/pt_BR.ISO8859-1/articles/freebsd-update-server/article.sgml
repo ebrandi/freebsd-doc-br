@@ -129,18 +129,18 @@
   <sect1 id="Configuration">
     <title>Configuration: Installation &amp; Setup</title>
 
-    <para>Download the <ulink
+    <para>Faça o download do software <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
-      software as a <ulink
-	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/freebsd-update-server.tar.gz?tarball=1">tar archive</ulink>,
-      or use &man.csup.1; and the <literal>projects-all</literal>
-      collection.</para>
+      no formato <ulink
+	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/freebsd-update-server.tar.gz?tarball=1">arquivo tar</ulink>,
+      ou use &man.csup.1; e o acervo <literal>projects-all</literal>
+      .</para>
 
-    <para>Update <filename>scripts/build.conf</filename> appropriately.
-      It is sourced during all build operations.</para>
+    <para>Atualize o <filename>scripts/build.conf</filename> de forma adequada.
+      Ele é usado durante as operações de construção.</para>
 
-    <para>Here is the default <filename>build.conf</filename>, which should
-      be modified to suit your environment.</para>
+    <para>Aqui está o <filename>build.conf</filename> padrão, que
+    deverá ser modificado para se adequar ao seu ambiente.</para>
 
     <informalexample>
       <programlisting>
@@ -168,65 +168,67 @@ MASTERACCT=builder@wadham.daemonology.net<co id="mstacct-id"/>
 MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
     </informalexample>
 
-    <para>Parameters for consideration would be:</para>
+    <para>Paramentros que devem ser considerados:</para>
 
     <calloutlist>
       <callout arearefs="ftp-id">
-	  <para>This is the location where ISO images are downloaded from (by
-	    the <function>fetchiso()</function> subroutine
-	    of <filename>scripts/build.subr</filename>).  The location
-	    configured is not limited to FTP URIs.  Any URI scheme
-	    supported by standard &man.fetch.1; utility should work
-	    fine.</para>
+        <para>Este é o local de onde serão feito os downloads das
+	imagens ISO (pela sub-rotina <function>fetchiso()</function>
+	do <filename>scripts/build.subr</filename>).  O local a ser
+	configurado não é limitado a URIs de FTP.  Qualquer URI
+	suportada pela ferramenta &man.fetch.1; pode ser
+	usada.</para>
 
-	  <para>Customizations to the <function>fetchiso()</function> code can
-	    be installed by copying the
-	    default <filename>build.subr</filename> script to the release and
-	    architecture-specific area
-	    at <filename>scripts/RELEASE/ARCHITECTURE/build.subr</filename>
-	    and applying local changes.</para>
+        <para>Customizações do código da
+        <function>fetchiso()</function> pode ser feitas por copiar o
+        script padrão <filename>build.subr</filename> para o
+        local da sua versão e arquitetura específica
+        <filename>scripts/VERSÃO/ARQUITETURA/build.subr</filename> e
+        alterando o arquivo.</para>
       </callout>
 
       <callout arearefs="buildhost-id">
-	  <para>The name of the build host.  This information will be
-	    displayed on updated systems when issuing:</para>
+        <para>O nome do computador que fará a construção.  Esta
+	informação será exibida durante a atualização dos
+	sistemas</para>
 
-	  <screen>&prompt.user; <userinput>uname -v</userinput></screen>
+        <screen>&prompt.user; <userinput>uname -v</userinput></screen>
       </callout>
 
       <callout arearefs="sshkey-id">
-	  <para>The <application>SSH</application> key for uploading files to
-	    the update server.  A key pair can be created by
-	    typing <command>ssh-keygen -t dsa</command>.  This parameter is
-	    optional; standard password authentication will be used as a
-	    fallback authentication method when <literal>SSHKEY</literal> is
-	    not defined.</para>
+        <para> A chave <application>SSH</application> para enviar os
+	arquivos para o servidor de atualização.  O par de chaves pode
+	ser criado digitando <command>ssh-keygen -t dsa</command>.
+	Este parametro é opcional; a autenticação por senha será usada
+	como método de autenticação quando <literal>SSHKEY</literal>
+	não for definida.</para>
 
-	  <para>The &man.ssh-keygen.1; manual page has more detailed
-	    information about <application>SSH</application> and the
-	    appropriate steps for creating and using one.</para>
+        <para>A página do manual &man.ssh-keygen.1; tem informações
+	mais detalhadas sobre o <application>SSH</application> e os
+	passos apropriados para criar e usar chaves.</para>
       </callout>
 
       <callout arearefs="mstacct-id">
-	  <para>Account for uploading files to the update
-	    server.</para>
+        <para>Conta para enviar os arquivos para o servidor de
+	atualização.</para>
       </callout>
 
       <callout arearefs="mstdir-id">
-	  <para>Directory on the update server where files are uploaded
-	    to.</para>
+        <para>Diretório do servidor de atualização onde os arquivos
+	serão enviados.</para>
       </callout>
     </calloutlist>
 
-    <para>The default <filename>build.conf</filename> file shipped with
-      the <application>freebsd-update-server</application> sources is
-      suitable for building &arch.i386; releases of &os;.  As an example of
-      building an update server for other architectures, the following steps
-      outline the configuration changes needed for &arch.amd64;:</para>
+    <para>O arquivo padrão <filename>build.conf</filename> distribuido
+    com o fonte do <application>freebsd-update-server</application>
+    está preparado para construir a versão &arch.i386; do &os;.  Como
+    um exemplo para construir um servidor de atualização para outras
+    arquiteturas, as seguintes modificações são necessárias para a
+    arquitetura &arch.amd64;:</para>
 
     <procedure>
       <step>
-	<para>Create a build environment for &arch.amd64;:</para>
+	<para>Crie um ambiente de construção para o &arch.amd64;:</para>
 
 	<informalexample>
 	  <screen>&prompt.user; <userinput>mkdir -p /usr/local/freebsd-update-server/scripts/7.2-RELEASE/amd64</userinput></screen>
@@ -234,10 +236,10 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
       </step>
 
       <step>
-	<para>Install a <filename>build.conf</filename> file in the
-	  newly created build directory.  The build configuration
-	  options for &os; 7.2-RELEASE on &arch.amd64; should be similar
-	  to:</para>
+        <para>Copie o arquivo <filename>build.conf</filename> no
+	diretório recém criado.  As configurações de construção para o
+	&os; 7.2-RELEASE na arquitetura &arch.amd64; devem ser
+	similares a:</para>
 
 	<informalexample>
 	<programlisting># SHA256 hash of RELEASE disc1.iso image.
@@ -256,20 +258,20 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
 
 	<calloutlist>
 	  <callout arearefs="sha256-id">
-	    <para>The &man.sha256.1; hash key for the desired release, is
-	      published within the respective <ulink
-		url="&url.base;/releases/">release announcement</ulink>.</para>
+            <para>A chave hash &man.sha256.1; da versão, é publicada no
+            url="&url.base;/releases/">anuncio da versão</ulink>.</para>
 	  </callout>
 
 	  <callout arearefs="eol-id">
-	  <para>To generate the "End of Life" number for
-	    <filename>build.conf</filename>, refer to the "Estimated
-	    EOL" posted on the <ulink
-	      url="&url.base;/security/security.html">&os;
-	      Security Website</ulink>.  The value
-	    of <literal>EOL</literal> can be derived from the date listed on
-	    the web site, using the &man.date.1; utility, for example:</para>
-	  <screen>&prompt.user; <userinput>date -j -f '%Y%m%d-%H%M%S' '20090401-000000' '+%s'</userinput></screen>
+            <para>Para obter o número "End of Life" (Fim da Vida) para o
+	    <filename>build.conf</filename>, procure por "Estimated
+	    EOL" postado no<ulink
+	    url="&url.base;/security/security.html">
+	    Site de Segurança do &os;</ulink>.  O valor do
+	    <literal>EOL</literal> pode ser obtido a partir da data
+	    listada no site, usando a ferramenta &man.date.1;, por
+	    exemplo:</para>
+            <screen>&prompt.user; <userinput>date -j -f '%Y%m%d-%H%M%S' '20090401-000000' '+%s'</userinput></screen>
 	  </callout>
 	</calloutlist>
       </step>
@@ -277,12 +279,14 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
   </sect1>
 
   <sect1 id="build">
-    <title>Building Update Code</title>
+    <title>Construindo a Atualização</title>
 
-    <para>The first step is to run <filename>scripts/make.sh</filename>.
-      This will build some binaries, create directories, and generate an RSA
-      signing key used for approving builds.  In this step, a passphrase will
-      have to be supplied for the final creation of the signing key.</para>
+    <para>O primeiro passo é executar
+    <filename>scripts/make.sh</filename>.  Isto irá construir alguns
+    binarários, criar diretórios, e gerar uma chave de assinatura RSA
+    usada para aprovar as contruções.  Neste passo, uma senha deverá
+    ser fornecida para terminar a criação da chave de
+    assinatura.</para>
 
     <screen>&prompt.root; <userinput>sh scripts/make.sh</userinput>
 cc -O2 -fno-strict-aliasing -pipe   findstamps.c  -o findstamps
@@ -305,20 +309,19 @@ enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:</screen>
 
     <note>
-      <para>Keep a note of the generated key fingerprint.  This value
-	is required in <filename>/etc/freebsd-update.conf</filename> for
-	binary updates.</para>
+      <para>Deixe anotado a impressão digital gerada da chave.  Ela é
+      necessária no <filename>/etc/freebsd-update.conf</filename> para
+      as atualizações de binários.</para>
     </note>
 
-    <para>At this point, we are ready to stage a build.</para>
+    <para>Neste ponto, nós estamos prontos para a etapa de construção.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
 &prompt.root; <userinput>sh scripts/init.sh <replaceable>amd64 7.2-RELEASE</replaceable></userinput></screen>
     </informalexample>
 
-    <para>What follows is a sample of an <emphasis>initial</emphasis> build
-      run.</para>
+    <para>A seguir está um exemplo de uma execução <emphasis>inicial</emphasis>.</para>
 
     <screen>&prompt.root; <userinput>sh scripts/init.sh amd64 7.2-RELEASE</userinput>
 Mon Aug 24 16:04:36 PDT 2009 Starting fetch for FreeBSD/amd64 7.2-RELEASE
@@ -359,19 +362,21 @@ world|base|/usr/lib/libalias_dummy.a
 world|base|/usr/lib/libalias_ftp.a
 ...</screen>
 
-    <para>Then the build of the world is performed again, with world
-      patches.  A more detailed explanation may be found
-      in <filename>scripts/build.subr</filename>.</para>
+    <para>Então a construção da base do sistema é feita novamente, com
+    os patches.  Uma explicação mais detalhada pode ser encontrada em
+    <filename>scripts/build.subr</filename>.</para>
 
     <warning>
-      <para>During this second build cycle, the network time protocol
-	daemon, &man.ntpd.8;, is turned off.  Per &a.cperciva;, current
-	Security Officer of &os;, "the <ulink
-	  url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
-	build code needs to identify timestamps which are stored in files so
-	that they can be ignored when comparing builds to determine which
-	files need to be updated.  This timestamp-finding works by doing two
-	builds 400 days apart and comparing the results."</para>
+      <para>Durante a segunda construção, o serviço de network time
+      protocol, &man.ntpd.8; é desligado. Por &a.cperciva;, atualmente
+      Chefe de Segurança do &os;, "O código do
+	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
+	precisa identificar a data e hora que são armazenadas nos
+	arquivos de modo que ela pode ser ignorada quando comparando
+	versões para determinar quais arquivos precisam ser
+	atualizados.  Esta procura por data e hora funciona por fazer
+	duas construções 400 dias separados e comparando os
+	resultados."</para>
     </warning>
 
     <screen>Mon Aug 24 17:54:07 PDT 2009 Extracting world+src for FreeBSD/amd64 7.2-RELEASE
@@ -408,7 +413,7 @@ world|base|/usr/lib/libalias_dummy.a
 world|base|/usr/lib/libalias_ftp.a
 ...</screen>
 
-    <para>Finally, the build completes.</para>
+    <para>Finalmente, a construção termina.</para>
 
     <screen>Values of build stamps, excluding library archive headers:
 v1.2 (Aug 25 2009 00:40:36)
@@ -443,12 +448,11 @@ they look sensible, then run
 # sh -e approve.sh amd64 7.2-RELEASE
 to sign the release.</screen>
 
-    <para>Approve the build if everything is correct.  More information on
-      determining this can be found in the distributed source
-      file named <filename>USAGE</filename>.  Execute
-      <filename>scripts/approve.sh</filename>, as directed.  This will sign
-      the release, and move components into a staging area suitable for
-      uploading.</para>
+    <para>Aprove a construção se tudo estiver correto.  Mais
+    informações podem ser encontradas no arquivo do código fonte
+    distribuido <filename>USAGE</filename>.  Execute o
+    <filename>scripts/approve.sh</filename>.  Isto irá assinar a
+    versão, e move-la para uma área preparada para envio.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -462,8 +466,8 @@ Wed Aug 26 12:50:06 PDT 2009 Copying files to upload staging area for FreeBSD/am
 Wed Aug 26 12:50:07 PDT 2009 Updating databases for FreeBSD/amd64 7.2-RELEASE
 Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE</screen>
 
-    <para>After the approval process is complete, the upload procedure may
-      be started.</para>
+    <para>Depois que o processo de aprovação é completado, o
+    procedimento de envio deve começar.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -471,10 +475,10 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </informalexample>
 
     <note>
-      <para>In the event update code needs to be re-uploaded, this may be
-	done by changing to the public distributions directory for the
-	target release and updating attributes of the
-	<emphasis>uploaded</emphasis> file.</para>
+      <para>Caso a versão precise ser re-enviada, isto pode ser feito
+      por entrar no diretório público de distribuição para a versão
+      desejada e atualizando os atributos do arquivo
+      <emphasis>uploaded</emphasis>.</para>
 
       <informalexample>
 	<screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server/pub/<replaceable>7.2-RELEASE/amd64</replaceable></userinput>
@@ -486,13 +490,14 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 	 avoid making the instructions Apache-specific here. -->
 
 <!-- there are specific web instructions in the uploaded code that pertain to Apache. I believe it is worded fine here, now, and if others choose to use another web server, that is their choice to figure out -->
-    <para>The uploaded files will need to be in the
-      document root of the webserver in order for updates
-      to be distributed.  The exact configuration will vary depending on the
-      web server used.  For the <application>Apache</application> web server,
-      please refer to the <ulink
-	url="&url.books.handbook;/network-apache.html">Configuration of
-	Apache servers</ulink> section in the Handbook.</para>
+    <para>Os arquivos enviados precisam ficar na raiz do servidor web
+    para que as atualizações sejam distribuidas.  A exata configuração
+    dependerá do servidor web usado.  Para o servidor web
+    <application>Apache</application>, por favor acesse a sessão do
+    Handbook 
+    <ulink
+    url="&url.books.handbook;/network-apache.html">Configuração do
+    servidor Apache</ulink>.</para>
 
     <!-- This note seems either out of place.  I find it hard to read and it
 	 is a bit difficult to understand why it is related to the rest of
@@ -514,33 +519,33 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </note> -->
 
     <!-- What is a 'KeyPrint'? -->
-    <para>Update client's <literal>KeyPrint</literal> and
-      <literal>ServerName</literal> in
-      <filename>/etc/freebsd-update.conf</filename>, and perform updates as
-      instructed in the <ulink
-	url="&url.books.handbook;/updating-freebsdupdate.html">&os;
-	Update</ulink>
+    <para>Atualize o <literal>KeyPrint</literal> e
+      <literal>ServerName</literal> no arquivo
+      <filename>/etc/freebsd-update.conf</filename>, e faça as
+      atualizações instruidas na sessão do Handbook <ulink
+	url="&url.books.handbook;/updating-freebsdupdate.html">Atualização
+	do &os;</ulink><para>
       <!-- One sentence, two instances of 'in'.  We can probably reword this
 	   part to avoid repetition. -->
       <!-- What about "place client's new keyprint and servername values to
 	   freebsd-update.conf, ..."?  gabor -->
-      section of the Handbook.</para>
 
 <!-- Sorry folks, but I disagree here. I believe it is worded fine. If anything, drop everything after "perform" and change "updates" to "FreeBSD Updates" and link that to the handbook -->
 
     <important>
-      <para>In order for &fbus.ap; to work properly, updates
-	for both the <emphasis>current</emphasis> release and the
-	release <emphasis>one wants to upgrade to</emphasis> need to be
-	built.  This is necessary for determining the differences of
-	files between releases.  For example, when upgrading a &os;
-	system from 7.1-RELEASE to 7.2-RELEASE, updates will need to be built
-	and uploaded to your distribution server for both versions.</para>
+      <para>Para o &fbus.ap; funcionar corretamente, atualizações para
+      a versão <emphasis>atual</emphasis> e para a versão
+      <emphasis>alvo da atualização</emphasis> precisam ser
+      construidas.  Isto é necessário para determinar os arquivos que
+      diferem entre as versões.  Por exemplo, quando atualizar o &os;
+      da versao 7.1-RELEASE para a versão 7.2-RELEASE, as atualizações
+      para as duas versões deverão ser construidas e enviadas para o
+      seu servidor de atualizações.</para>
     </important>
 
-    <para>For reference, the entire run of <ulink
-	url="init.txt"><filename>init.sh</filename></ulink> is
-      attached.</para>
+    <para>Para referencia, a execução completa do <ulink
+    url="init.txt"><filename>init.sh</filename></ulink> está
+    anexada.</para>
   </sect1>
 
   <sect1 id="patch">
