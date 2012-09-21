@@ -15,169 +15,176 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>File Systems Support</title>
+  <title>Suporte a Sistemas de Arquivo</title>
 
   <sect1 id="filesystems-synopsis">
     <title>Synopsis</title>
 
-    <indexterm><primary>File Systems</primary></indexterm>
+    <indexterm><primary>Sistemas de Arquivo</primary></indexterm>
     <indexterm>
-      <primary>File Systems Support</primary>
-      <see>File Systems</see>
+      <primary>Suporte a Sistemas de Arquivo</primary>
+      <see>Sistemas de Arquivo</see>
     </indexterm>
 
-    <para>File systems are an integral part of any operating system.
-      They allow for users to upload and store files, provide access
-      to data, and of course, make hard drives useful.  Different
-      operating systems usually have one major aspect in common, that
-      is their native file system.  On &os; this file system is known
-      as the Fast File System or <acronym>FFS</acronym> which is built
-      on the original Unix&trade; File System, also known as
-      <acronym>UFS</acronym>.  This is the native file system on &os;
-      which is placed on hard disks for access to data.</para>
+    <para>O Sistema de Arquivo é parte integral de qualquer sistema
+      operacional. Ele permite aos usuários o envio e armazenamento
+      de arquivos, provê acesso aos dados e claro, permite o uso do
+      disco rigido. É usado em diferentes sistemas operacionais mas
+      todos mantêm uma caracteristica comum, que é o sistema de
+      arquivo nativo. No &os; o sistema de arquivo é conhecido como
+      Fast File System (Sistema de Arquivo Rápido) ou <acronym>FFS
+      </acronym> que é baseado no sistema de arquivo original do
+      Unix&trade;, também conhecido como <acronym>UFS</acronym>.
+      Este é o sistema de arquivo nativo do &os; ao qual é colocado
+      nos discos rigidos para acesso a dados.</para>
 
-    <para>&os; also supports a multitude of different file systems to
-      provide support for accessing data from other operating systems
-      locally, i.e.,&nbsp;data stored on locally attached
-      <acronym>USB</acronym> storage devices, flash drives, and hard
-      disks.  There is also support for some non-native file systems.
-      These are file systems developed on other
-      operating systems, like the &linux; Extended File System
-      (<acronym>EXT</acronym>), and the &sun; Z File System
-      (<acronym>ZFS</acronym>).</para>
+    <para>&os; também suporta uma variedade de sistemas de arquivo
+      para prover suporte a acesso de dados de outros sistemas
+      operacionais local, por exemplo,&nbsp;dados armazenados em um
+      pendrive <acronym>USB</acronym>, disco flash ou outro disco
+      rigido. Existe também suporte a sistemas de arquivos não nativo,
+      esses sistemas de arquivo são desenvolvidos em outros sistemas
+      operacionais, como o &linux; Extended File System (<acronym>EXT
+      </acronym>), e o &sun; Z File System (<acronym>ZFS</acronym>).
+      </para>
 
-    <para>There are different levels of support for the various file
-      systems in &os;.  Some will require a kernel module to be loaded,
-      others may require a toolset to be installed.  This chapter is
-      designed to help users of &os; access other file systems on their
-      systems, starting with the &sun; Z file
-      system.</para>
+    <para>Existem diferentes niveis de suporte para vários sistemas de
+      arquivo no &os;. Alguns vão requerer a leitura de um modulo do
+      kernel e outros vão requerer a instalação de alguma ferramenta.
+      Este capitulo é orientado a ajudar os usuários do &os; a 
+      acessar outros sistemas de arquivo em seu ambiente, começando
+      com o &sun; Z file system (<acronym>ZFS</acronym>).</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler este capítulo, você irá conhecer:</para>
 
     <itemizedlist>
       <listitem>
-	<para>The difference between native and supported file systems.</para>
+	<para>As diferenças entre um sistema de arquivo nativo e um suportado.</para>
       </listitem>
 
       <listitem>
-	<para>What file systems are supported by &os;.</para>
+	<para>Quais sistemas de arquivo são suportados pelo o &os;.</para>
       </listitem>
 
       <listitem>
-	<para>How to enable, configure, access and make use of
-	  non-native file systems.</para>
+	<para>Como habilitar, configurar acessar e gerenciar o uso de
+      sistemas de arquivo não nativos.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, você precisa:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand &unix; and &os; basics
+	<para>Conhecer o básico de &unix; e &os;
 	  (<xref linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Be familiar with
-	  the basics of kernel configuration/compilation
+	<para>Estar familiarizado com
+	  o básico de configuração/compilação de kernel
 	  (<xref linkend="kernelconfig"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Feel comfortable installing third party software
-	  in &os; (<xref linkend="ports"/>).</para>
+	<para>Estar confortavél em instalar programas de terceiros
+	  no &os; (<xref linkend="ports"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Have some familiarity with disks, storage and
-	  device names in &os; (<xref linkend="disks"/>).</para>
+	<para>Ter alguma familiaridade com discos, storage e nomes de
+      dispositivos no &os; (<xref linkend="disks"/>).</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="filesystems-zfs">
-    <title>The Z File System (ZFS)</title>
+    <title>O Z File System (ZFS)</title>
 
-    <para>The Z&nbsp;file system, developed by &sun;, is a new
-      technology designed to use a pooled storage method.  This means
-      that space is only used as it is needed for data storage.  It
-      has also been designed for maximum data integrity, supporting
-      data snapshots, multiple copies, and data checksums.  A new
-      data replication model, known as <acronym>RAID</acronym>-Z has
-      been added.  The <acronym>RAID</acronym>-Z model is similar
-      to <acronym>RAID</acronym>5 but is designed to prevent data
-      write corruption.</para>
+    <para>O Z&nbsp;file system (Sistema de Arquivo Z), desenvolvido
+      pela &sun;, é uma nova tecnologia desenvolvida para usar um
+      metodo de armazenamento agrupado. Isto significa que o espaço
+      somente é usado quando precisa armazenar dados. Ele também é
+      desenvolvido para manter a maior integridade possivel do dados,
+      suportando o uso de snapshots dos dados, multiplas copias e 
+      checagem de dados (checksum). Um novo modelo de replicação de
+      dados, conhecido como <acronym>RAID</acronym>-Z foi adicionado.
+      O modelo <acronym>RAID</acronym>-Z é similar ao <acronym>RAID
+      </acronym>5 mas é desenvolvido para prevenir a corrumpção de
+      escrita de dados.</para>
 
     <sect2>
-      <title>ZFS Tuning</title>
+      <title>Ajustes no ZFS</title>
 
-      <para>The <acronym>ZFS</acronym> subsystem utilizes much of
-	the system resources, so some tuning may be required to provide
-	maximum efficiency during every-day use.  As an experimental
-	feature in &os; this may change in the near future; however,
-	at this	time, the following steps are recommended.</para>
+      <para>O subsistema do <acronym>ZFS</acronym> utiliza muito dos
+    recursos do sistema, então alguns afinamentos e ajustes são
+    requeridos para prover o máximo de eficiencia durante o uso
+    diario. Como recurso experimental no &os; algumas coisas podem
+    mudar no futuro; entretanto, neste momento, as etapas descritas
+    a seguir são recomendadas.</para>
 
       <sect3>
-	<title>Memory</title>
+	<title>Memoria</title>
 
-	<para>The total system memory should be at least one gigabyte,
-	  with two gigabytes or more recommended.  In all of the
-	  examples here, the system has one gigabyte of memory with
-	  several other tuning mechanisms in place.</para>
+	<para>O total de memória no sistema deve ser de pelo menos um
+      gigabyte, mas o recomendado é que você tenha dois ou mais
+      gigabytes. Em todos os exemplos mostrados aqui, o sistema
+      possui um gigabyte de memória com outros vários mecanismos
+      de ajuste no local.</para>
 
-	<para>Some people have had luck using fewer than one gigabyte
-	  of memory, but with such a limited amount of physical memory,
-	  when the system is under heavy load, it is very plausible
-	  that &os; will panic due to memory exhaustion.</para>
+	<para>Algumas pessoas tiveram sorte de usar menos de um gigabyte
+      de memória, porém com uma quantidade limitada de memória
+      física, quando o sistema está sob uso pesado, é muito plausivél
+      que o &os; terá um panic devido ao uso exaustivel de memória.
+      </para>
       </sect3>
 
       <sect3>
-	<title>Kernel Configuration</title>
+	<title>Configuração de Kernel</title>
 
-	<para>It is recommended that unused drivers and options
-	  be removed from the kernel configuration file.  Since most
-	  devices are available as modules, they may be loaded
-	  using the <filename>/boot/loader.conf</filename> file.</para>
+	<para>É recomendavél remover drivers e opções não usados dois
+      arquivo de configuração do kernel. Visto que a maioria dos
+      dispositivos estão disponiveis como modulos, eles podem ser
+      lidos usando o arquivo <filename>/boot/loader.conf</filename>.
 
-	<para>Users of the &i386; architecture should add the following
-	  option to their kernel configuration file, rebuild their
-	  kernel, and reboot:</para>
+	<para>Usuários da arquitetura &i386; devem adicionar a opção
+      descrita abaixo no arquivo de configuração do kernel,
+      reconstruir o kernel e reinciar o sistema:</para>
 
 	<programlisting>options 	KVA_PAGES=512</programlisting>
 
-	<para>This option will expand the kernel address space, thus
-	  allowing the <varname>vm.kvm_size</varname> tunable to be
-	  pushed beyond the currently imposed limit of 1&nbsp;GB
-	  (2&nbsp;GB for <acronym>PAE</acronym>).  To find the most
-	  suitable value for this option, divide the desired address
-	  space in megabytes by four (4).  In this case, it is
-	  <literal>512</literal> for 2&nbsp;GB.</para>
+	<para>Esta opção vai expandir o espaço do endereço do kernel,
+      permitindo assim que o ajustes <varname>vm.kvm_size</varname>
+      possa ser configurado para além do limite atual imposto de
+      1&nbsp;GB (2&nbsp;GB para <acronym>PAE</acronym>). Para
+      encontrar o valor mais adequado para esta opção, divida o 
+      espaço de endereço desejado em megabytes por quatro (4). Neste
+      caso, é <literal>512</literal> para 2&nbsp;GB.</para>
       </sect3>
 
       <sect3>
-	<title>Loader Tunables</title>
+	<title>Carregando os Ajustes</title>
 
-	<para>The <devicename>kmem</devicename> address space should be
-	  increased on all &os; architectures.  On the test system with
-	  one gigabyte of physical memory, success was achieved with the
-	  following options which should be placed in
-	  the <filename>/boot/loader.conf</filename> file and the system
-	  restarted:</para>
+	<para>O espaço de endereço <devicename>kmem</devicename> pode ser
+      aumentado em todas as arquiteturas do &os;. No sistema de teste
+      com um gigabyte de memória física, para que o sucesso possa ser
+      alcançado, deveremos colocar as opções de ajuste no arquivo de
+      configuração <filename>/boot/loader.conf</filename> e reiniciar
+      o sistema:</para>
 
 	<programlisting>vm.kmem_size="330M"
 vm.kmem_size_max="330M"
 vfs.zfs.arc_max="40M"
 vfs.zfs.vdev.cache.size="5M"</programlisting>
 
-	<para>For a more detailed list of recommendations for ZFS-related
-	  tuning, see
+	<para>Para mais detalhes de uma lista de recomendações
+      relacionadas aos ajustes do ZFS, veja em (em Inglês)
 	  <ulink url="http://wiki.freebsd.org/ZFSTuningGuide"></ulink>.</para>
       </sect3>
     </sect2>
 
     <sect2>
-      <title>Using <acronym>ZFS</acronym></title>
+      <title>Usando <acronym>ZFS</acronym></title>
 
       <para>There is a start up mechanism that allows &os; to
 	mount <acronym>ZFS</acronym> pools during system
