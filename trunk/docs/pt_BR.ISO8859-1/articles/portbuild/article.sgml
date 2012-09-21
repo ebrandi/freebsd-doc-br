@@ -51,15 +51,13 @@
   <sect1 id="intro">
     <title>Introdução</title>
 
-    <para>A fim de proporcionar binários
-      pré-compilados de aplicações de terceiros
-      para o &os;, a Coleção de <literal>Ports</literal>
-      é regularmente compilada em um dos
-      <quote><literal>Clusters</literal> de Construção
-      de Pacotes</quote>.  Atualmente o principal
+    <para>Com o objetivo de disponibilizar binários pré-compilados de
+      aplicações de terceiros para o &os;, a Coleção de
+      <literal>Ports</literal> é regularmente compilada em um dos
+      <quote><literal>Clusters</literal> de Compilação de
+      Pacotes</quote>.  Atualmente o principal
       <literal>cluster</literal> em uso está em <ulink
       url="http://pointyhat.FreeBSD.org"></ulink>.</para>
-
 
     <para>Este artigo documenta os trabalhos internos do
       <literal>cluster</literal></para>
@@ -73,17 +71,14 @@
 
     <sect2 id="codebase">
       <title>O código base</title>
-
-    <para>A maior parte da mágica da construção
-      de pacotes ocorre sob o diretório
-      <filename>/var/portbuild</filename>.  A menos que seja
-      especificado o contrário, todos os caminhos serão
-      relativos à este diretório.
-      <replaceable>${arch}</replaceable> será usado para
-      determinar uma das arquiteturas de pacotes (amd64, &i386;, ia64,
-      powerpc, e &sparc64;), e <replaceable>${branch}</replaceable>
-      será usado para determinar o ramo de
-      compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
+    <para>A maior parte da mágica da compilação de pacotes ocorre sob
+      o diretório <filename>/var/portbuild</filename>.  A menos que
+      seja especificado o contrário, todos os caminhos serão relativos
+      à este diretório.  <replaceable>${arch}</replaceable> será usado
+      para determinar uma das arquiteturas de pacotes (amd64, &i386;,
+      ia64, powerpc, e &sparc64;), e
+      <replaceable>${branch}</replaceable> será usado para determinar
+      o ramo de compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
       10-exp).</para>
 
     <note>
@@ -93,7 +88,7 @@
     </note>
 
     <para>Os <literal>scripts</literal> que controlam tudo
-      estão licalizados em <filename
+      estão localizados em <filename
       class="directory">/var/portbuild/scripts/</filename>.  Estes
       são cópias do <literal>checked-out</literal> do
       repositório Subversion <ulink
@@ -101,11 +96,10 @@
       <filename
       class="directory">base/projects/portbuild/scripts/</filename></ulink>.</para>
 
-    <para>Normalmente são feitas compilações
-      incrementais que usam pacotes anteriores como dependências;
-      isso toma menos tempo, e coloca menos carga nos espelhos.
-      Normalmente são feitas compilações completas
-      apenas quando:</para>
+    <para>Normalmente são feitas compilações incrementais que usam
+      pacotes anteriores como dependências; isso toma menos tempo, e
+      coloca menos carga nos espelhos.  Normalmente são feitas
+      compilações completas apenas quando:</para>
 
     <itemizedlist>
       <listitem><para>depois de um <literal>release</literal>, para o ramo
@@ -164,7 +158,7 @@
 
       <note>
 	<para>Como em dezembro de 2010, <hostid>pointyhat</hostid>
-	  ainda está rodando sobre o antigo código base at´´e que o
+	  ainda está rodando sobre o antigo código base até que o
 	  novo código base seja considerado estável.</para>
       </note>
 
@@ -181,7 +175,7 @@
   </sect1>
 
   <sect1 id="management">
-    <title>Gerenciando a Compilação dos Clientes</title>
+    <title>Configurando Clientes de Compilação</title>
 
     <para>Os clientes &i386; localizados conjuntamente com
       <hostid>pointyhat</hostid> efetuam o <literal>boot</literal> via
@@ -190,11 +184,11 @@
       <replaceable>desconectados</replaceable>) ou são
       <literal>self-hosted</literal> ou efetuam
       <literal>boot</literal> via rede a partir de outro
-      <literal>host pxe</literal>.  Em todos os casos eles definem-se
-      durante o <literal>boot</literal> para se preparar para
-      construir pacotes.</para>
+      <literal>host pxe</literal>.  Em todos os casos eles se
+      configuram durante o <literal>boot</literal> preparando-se
+      para compilar pacotes.</para>
 
-    <para>O <literal>cluster</literal> principal cópia, através do
+    <para>O <literal>cluster</literal> principal copia, através do
       <command>rsync</command>, os dados
       necessários (a árvore de <literal>ports</literal> e dos fontes,
       <literal>bindist tarballs</literal>, <literal>scripts</literal>,
@@ -236,19 +230,19 @@
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
       </para>
 
-    <para>O seguinte comando realiza o <literal>build world</literal>
+    <para>O seguinte comando faz o <literal>build world</literal>
       a partir da árvore de diretórios em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src/</filename>
-      e instala isto em <replaceable>${worlddir}</replaceable>.  A
-      árvore será atualizada primeiro, a menos que
+      e o instala em <replaceable>${worlddir}</replaceable>.  A
+      árvore de diretórios será atualizada primeiro, a menos que
       <literal>-nocvs</literal> seja especificado.</para>
 
     <screen>/var/portbuild&prompt.root; <userinput>scripts/makeworld <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-nocvs]</userinput></screen>
 
     <para>O arquivo <filename>bindist.tar</filename> é criado a partir
-      do <literal>world</literal> instalado previamente pelo
-      <literal>script</literal> <command>mkbindist</command>.  Isso
-      deveria ser executado como <username>root</username> com o
+      do <literal>world</literal>, instalado previamente, pelo
+      <literal>script</literal> <command>mkbindist</command>.  Este
+      deve ser executado como <username>root</username> com o
       seguinte comando:</para>
 
     <screen>/var/portbuild&prompt.root; <userinput>scripts/mkbindist <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable></userinput></screen>
@@ -267,7 +261,7 @@
 
       <para>Para ambos os comandos acima, se
         <replaceable>${buildid}</replaceable> esta definido como
-	<literal>latest</literal>, isso pode ser omitido.</para>
+	<literal>latest</literal>, ele pode ser omitido.</para>
     </sect2>
   </sect1>
 
@@ -296,8 +290,8 @@
       <para>Devido ao fato de cada um dos clientes individuais poderem ter
         seu próprio <filename>make.conf</filename>, o conteúdo do
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>
-	vai ser <emphasis>appended</emphasis> ao
-	<filename>make.conf</filename>, não substituílo, como é feito
+	vai ser <emphasis>adicionado</emphasis> ao
+	<filename>make.conf</filename>, não substituí-lo, como é feito
 	com o
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.server</filename>.
 	</para>
@@ -315,7 +309,7 @@
 	para testar a nova versão padrão do
 	<application>ruby</application></title>
 
-      <para>(Para este caso, os conteúdos são identicos para ambos,
+      <para>(Neste caso, os conteúdos são identicos para ambos,
         servidor e cliente.)</para>
 
       <screen>RUBY_DEFAULT_VER= 1.9</screen>
@@ -326,7 +320,7 @@
         <filename>make.conf.<replaceable>target</replaceable></filename>
 	para compilação do <application>clang</application></title>
 
-      <para>(Para este caso, os conteúdos são indenticos para ambos,
+      <para>(Neste caso, os conteúdos também são indenticos para ambos,
         servidor e cliente.)</para>
 
       <screen>
@@ -637,7 +631,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para><literal>-norestr</literal> - Não tentar compilar
+	<para><literal>-norestr</literal> - Não tenta compilar
 	<literal>ports</literal> marcados como
 	<literal>RESTRICTED</literal>.
 	</para>
@@ -680,7 +674,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <para>A menos que você especifique <literal>-restart</literal>,
       <literal>-continue</literal>, ou <literal>-finish</literal>, os
-      links simbólicos para as compilações existentes serão
+      <literal>links</literal> simbólicos para as compilações existentes serão
       rotacionados.  Isto é, o link simbólico para
       <filename>previous</filename> será removido; a compilação mais
       recente terá seu link modificado para
@@ -715,14 +709,14 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	defeito.)</para>
     </note>
 
-    <para>Verifique se a comoilação de pacotes para a arquitetura 
+    <para>Verifique se a compilação de pacotes para a arquitetura 
       <replaceable>${arch}</replaceable> está executando como
       usuário ports-<replaceable>${arch}</replaceable> ou ele
       apresentará um grande número de erros.</para>
 
     <note><para>Atualmente, a própria compilação de pacotes ocorre em
-      duas fases identicas.  A razão para isso é que, algumas vezes,
-      problemas transitórios (e.g. flahas do NFS, sites FTP
+      duas fases idênticas.  A razão para isso é que, algumas vezes,
+      problemas temporários (e.g. falhas do NFS, sites FTP
       inalcanssaveis, etc.) podem quebrar a compilação.  Realizar o
       processo em duas fases é uma solução alternativa para esse tipo
       de problema.</para></note>
@@ -732,7 +726,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       importante se você está realizando uma compilação com
       <literal>patches</literal> experimentais (-exp).  Se o processo
       de compilação encontrar um diretório vázio, ambas as fases de
-      compilação irão prar rapidamente, e um erro similar ao seguinte
+      compilação irão parar rapidamente, e um erro similar ao seguinte
       será adicionado para
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make.[0|1]</filename>:
     </para>
@@ -763,7 +757,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     </example>
 
     <example>
-      <title>Reinicie um compilação para amd64-8 interrompida sem
+      <title>Reinicie uma compilação para amd64-8 interrompida sem
         atualizar</title>
 
       <para><command>dopackages.8 amd64 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</command></para>
@@ -799,7 +793,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    <replaceable>newid</replaceable> (ou um
 	    <literal>datestamp</literal> se não for especifícado).  Só
-	    é necessário quando da criação de um novo ramo ou uma nova
+	      é necessário quando da criação de um novo ramo ou uma nova
 	      arquitetura.  (À fazer: documentar se
 	      <literal>newid</literal> deve ser especificado como
 	      <literal>latest</literal> no novo código base.)
@@ -936,7 +930,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors</filename>.
     </para>
 
-    <para>Anteriormente a árvore <literal>docs</literal> também era
+    <para>Anteriormente, a árvore <literal>docs</literal> também era
       verificada, no entanto, isso mostrou-se desnecessário.
     </para>
   </sect1>
@@ -967,7 +961,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
   <sect2 id="interrupting">
     <title>Interrompendo uma Compilação</title>
 
-    <para>Interromper uma compilação manualmente é um pouco bagunçado.
+    <para>Interromper uma compilação manualmente é um pouco confuso.
       Primeiro você precisa identificar o <literal>tty</literal> em
       que ela está rodando (ou lembrando-se da saída do &man.tty.1;
       quando você iniciou a compilação, ou usando <command>ps
@@ -1080,7 +1074,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	<listitem>
 	  <para><literal>build list <replaceable>arch</replaceable>
 	    <replaceable>branch</replaceable></literal> - Mostra o
-	    atual conjunto de <literal>ids</literal> de compilações.
+	    conjunto atual de <literal>ids</literal> de compilações.
 	  </para>
 	</listitem>
 
@@ -1111,8 +1105,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       mostra o número de pacotes terminados.</para>
 
     <para>Executar <command>cat /var/portbuild/*/loads/*</command>
-      mostra a carga do cliente e o número de compilações concorrentes
-      em progresso.  Os arquivos que têm sido atualizados recentemento
+      mostra a carga do cliente e o número de compilações simultâneas
+      em progresso.  Os arquivos que têm sido atualizados recentemente
       são dos clientes que estão <literal>online</literal>; os outrss são dos
       clientes <literal>offline</literal>.</para>
 
@@ -1150,7 +1144,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <application>httpd</application> ainda está rodando, e reinicie
       se não estiver.</para>
 
-    <para>Matenha o olho na saída do &man.df.1;.  Se o sistemas de
+    <para>Matenha o olho na saída do &man.df.1;.  Se o sistema de
       arquivos em <filename>/var/portbuild</filename> começar a ficar
       cheio, coisas ruins acontecem.
     </para>
@@ -1171,7 +1165,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para>data do último <literal>latest log</literal></para>
+	<para>data do último <literal>log</literal>
+	  (<literal>latest log</literal>)</para>
       </listitem>
 
       <listitem>
@@ -1179,19 +1174,22 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para>o número atual de <literal>build logs</literal></para>
+	<para>o número atual de <literal>logs</literal> de
+	  compilações (<literal>build logs</literal>)</para>
       </listitem>
 
       <listitem>
-	<para>o número <literal>packages</literal> completos</para>
+	<para>o número pacotes completos
+	  (<literal>packages</literal>)</para>
       </listitem>
 
       <listitem>
-	<para>o número de <literal>errors</literal></para>
+	<para>o número de erros (<literal>errors</literal>)</para>
       </listitem>
 
       <listitem>
-	<para>o número de <literal>ports</literal> ignorados (mostrados como <literal>skipped</literal>)</para>
+	<para>o número de <literal>ports</literal> ignorados
+	  (mostrados como <literal>skipped</literal>)</para>
       </listitem>
 
       <listitem>
@@ -1221,10 +1219,11 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       as falhas atuais e detectar facilmente novas falhas.  Para fazer
       isso, adicione um endereço de e-mail em
       <filename><replaceable>${branch}</replaceable>/portbuild.conf</filename>.
-      You can easily bounce the new ones to maintainers.</para>
+      Você pode facilmente enviar os novos para os
+      mantenedores.</para>
 
     <para>Depois que um <literal>port</literal> aparece quebrado em
-      cadavcombinação de compilação, várias vezes, é hora de marcá-lo
+      cada combinação de compilação, várias vezes, é hora de marcá-lo
       como <literal>BROKEN</literal>.  Notificar os mantenedores
       durante duas semanas parece justo.</para>
 
@@ -1233,7 +1232,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
         <literal>ports</literal> que precisam ser baixados
 	manualmente, coloque os <literal>distfiles</literal> em
 	<filename>~ftp/pub/FreeBSD/distfiles</filename>.  Restrições
-	de cesso garantem que apenas os clientes de compilação podem
+	de acesso garantem que apenas os clientes de compilação possam
 	acessar este diretório.</para>
     </note>
   </sect1>
@@ -1658,7 +1657,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	<listitem>
 	  <para>RAM: Menos de 2G não é muito usuável; 8G ou mais é
 	    preferível.  Nós temos ajustado um trabalho para cada
-	    cada 512M de RAM.
+	    cada 512M de RAM.</para>
 	</listitem>
 
 	<listitem>
@@ -1736,20 +1735,27 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     </sect2>
 
     <sect2 id="node-src">
-      <title>Configuring <literal>src</literal></title>
+      <title>Configurando o <literal>src</literal></title>
 
       <procedure>
 	<step>
-	  <para>Create a directory to contain the latest
-	    <literal>-current</literal> source tree and check it
-	    out.  (Since your machine will likely be asked to build
-	    packages for <literal>-current</literal>, the kernel it
-	    runs should be reasonably up-to-date with the
-	    <literal>bindist</literal> that will be exported
-	    by our scripts.)</para>
+	  <para>Crie um diretório para armazenar a árvore dos fontes
+	    do último <literal>-current</literal> e sincronize ela com
+	    o repositório.  (Uma vez que sua máquina provavelmente
+	    será solicitada para compilar pacotes para o
+	    <literal>-current</literal>, o <literal>kernel</literal>
+	    que ela executa deve estar razoavelmente atualizado com o
+	    <literal>bindist</literal> que será exportado por nossos
+	    <literal>scripts</literal>.)</para>
 	</step>
 
 	<step>
+	  <para>Se você está usando <literal>pxeboot</literal>: crie
+	    um diretório para armazenar os arquivos de instalação.
+	    Você provavelmente vai querer usar um subdiretório do
+	    <filename>/pxeroot</filename>, e.g.,
+	    <filename>/pxeroot/<replaceable>${arch}</replaceable>-<replaceable>${branch}</replaceable></filename>.
+	    Exporte como <makevar>DESTDIR</makevar>.</para>
 	  <para>If you are using <literal>pxeboot</literal>: create a
 	    directory to contain the install bits.  You will probably
 	    want to use a subdirectory of <filename>/pxeroot</filename>,
@@ -1759,27 +1765,31 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	</step>
 
 	<step>
-	  <para>If you are cross-building, export
+	  <para>Se você está realizando uma compilação para outra
+	    plataforma, que não a instalada na máquina
+	    (<foreignphrase>cross-building</foreignphrase>), exporte
 	    <literal>TARGET_ARCH</literal>=<replaceable>${arch}</replaceable>.
 	  </para>
 	  <note>
-	    <para>The procedure for cross-building ports is not yet
-	      defined.</para>
+	    <para>O procedimento para
+	      <foreignphrase>cross-building</foreignphrase> ainda não
+	      está definido.</para>
 	  </note>
 	</step>
 
 	<step>
-	  <para>Generate a kernel config file.  Include
-	    <literal>GENERIC</literal> (or, if you are using more than
-	    3.5G on &i386;, <literal>PAE</literal>).
+	  <para>Gere um arquivo de configuração para o
+	    <literal>kernel</literal>. Inclua o
+	    <literal>GENERIC</literal> (ou, se você está usando mais
+	    que 3.5G em um &i386;, <literal>PAE</literal>).
 	  </para>
 	  <para>
-	    Required options:<screen>
+	    Opção requeridas:<screen>
 options         NULLFS
 options         TMPFS</screen>
 	  </para>
 	  <para>
-	    Suggested options:<screen>
+	    Opções sugeridas:<screen>
 options         GEOM_CONCAT
 options         GEOM_STRIPE
 options         SHMMAXPGS=65536
@@ -1791,15 +1801,17 @@ options         SEMMNU=120
 options         ALT_BREAK_TO_DEBUGGER</screen>
 	  </para>
 
-	  <para>For <literal>PAE</literal>, it is not currently possible
-	    to load modules.  Therefore, if you are running an architecture
-	    that supports Linux emulation, you will need to add:<screen>
+	  <para>Para <literal>PAE</literal>, atualmente não é possível
+	    carregar módulos.  Portanto, se você está executando uma
+	    arquitetura que suporta emulação para Linux, você
+	    precisará adicionar:<screen>
 options         COMPAT_LINUX
 options         LINPROCFS</screen>
 	  </para>
 
-	  <para>Also for <literal>PAE</literal>, as of 20110912 you need
-	    the following.  This needs to be investigated:<screen>
+	  <para>Também para <literal>PAE</literal>, a partir de
+	    12/09/2011 você precisa do seguinte.  Isso precisa ser
+	    investigado:<screen>
 nooption        NFSD                    # New Network Filesystem Server
 options         NFSCLIENT               # Network Filesystem Client
 options         NFSSERVER               # Network Filesystem Server</screen>
@@ -1807,36 +1819,40 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 	</step>
 
 	<step>
-	  <para>As root, do the usual build steps, e.g.:<screen>
+	  <para>Como <username>root</username>, execute os passos
+	    usuais de compilação, e.g.:<screen>
 <userinput>make -j4 buildworld</userinput>
 <userinput>make buildkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
 <userinput>make installkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
 <userinput>make installworld</userinput></screen>
-	    The install steps use <makevar>DESTDIR</makevar>.
+	    Os passos de instalação usam <makevar>DESTDIR</makevar>.
 	  </para>
 	</step>
 
 	<step>
-	  <para>Customize files in <filename>etc/</filename>.
-	    Whether you do this on the client itself, or another
-	    machine, will depend on whether you are using
+	  <para>Personalize os arquivos em <filename>etc/</filename>.
+	    Se você faz isso no próprio cliente, ou em outra máquina,
+	    vai depender se você está usando
 	    <literal>pxeboot</literal>.</para>
 
-	  <para>If you are using <literal>pxeboot</literal>: create
-	    a subdirectory of
+	  <para>Se você está usando <literal>pxeboot</literal>: crie
+	    um subdiretório do
 	    <filename><replaceable>${DESTDIR}</replaceable></filename>
-	    called <filename>conf/</filename>.  Create one subdirectory
-	    <filename>default/etc/</filename>, and (if your site will host
-	    multiple nodes), subdirectories
+	    chamado <filename>conf/</filename>.  Crie um subdiretório
+	    <filename>default/etc/</filename>, e (se seu
+	    <literal>site</literal> vai hospedar vários nós),
+	    subdiretórios
 	    <filename><replaceable>${ip-address}</replaceable>/etc/</filename>
-	    to contain override files for individual hosts.  (You may find
-	    it handy to symlink each of those directories to a hostname.)
-	    Copy the entire contents of
+	    para os arquivos que vão sobreescrever as configurações
+	    para os <literal>hosts</literal> individuais.  (Você pode
+	    achar útil criar um <literal>link</literal> simbólico de
+	    cada um destes diretórios para um
+	    <literal>hostname</literal>.) Copie todo o conteúdo de
 	    <filename><replaceable>${DESTDIR}</replaceable>/etc/</filename>
-	    to <filename>default/etc/</filename>; that is where you will
-	    edit your files.  The by-ip-address
-	    <filename>etc/</filename> directories will probably only need
-	    customized <filename>rc.conf</filename> files.</para>
+	    para <filename>default/etc/</filename>; que é onde você
+	    vai editar seus arquivos.  Os diretórios para cada
+	    endereço IP provavelmente só necessitarão personalizar os
+	    arquivos <filename>rc.conf</filename>.</para>
 
 	  <para>In either case, apply the following steps:</para>
 
