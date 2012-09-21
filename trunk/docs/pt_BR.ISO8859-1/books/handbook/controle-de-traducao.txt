@@ -5,9 +5,9 @@ Linhas #      Capitulo       #    Responsavel , Data da Atribuição
 580    # bibliography        #
 708    # preface             #
 717    # audit               #
-885    # filesystems         #
+885    # filesystems         #  Luiz Gustavo, 21/09/2012
 943    # l10n                #
-981    # geom                #
+981    # geom                #  
 988    # jails               #  Edson Brandi, 20/09/2012
 1034   # users               #
 1048   # introduction        #  Juliana Manczenko, 18/09/2012
