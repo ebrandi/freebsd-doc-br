@@ -28,7 +28,7 @@ Linhas #      Capitulo       #    Responsavel , Data da Atribuição
 2931   # serialcomms         #
 3180   # cutting-edge        #
 3243   # ppp-and-slip        #
-3376   # firewalls           #
+3376   # firewalls           #  Ricardo Ferreira, 21/09/2012
 3394   # mirrors             #
 3556   # config              #
 4151   # security            #
