@@ -33,6 +33,6 @@ if version >= 500
   source $HOME/.vim/edit-sgml.vim
 
   " Iso-8859-1 accents in SGML
-  source $HOME/.vim/accents-sgml.vim
+  "source $HOME/.vim/accents-sgml.vim
 
 endif
