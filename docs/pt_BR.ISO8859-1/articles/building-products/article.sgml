@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+tation>Mon2005</citation><?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!DOCTYPE article PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN"
   "../../../share/sgml/freebsd42.dtd" [
 <!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT" 
@@ -174,88 +174,103 @@
 
     <sect2>
       <title>Estrutura do Artigo</title>
-      <para>The rest of the article is structured as follows:</para>
+      <para>O restante deste artigo está estruturado da seguinte
+	forma:</para>
       <itemizedlist>
         <listitem>
-          <simpara><xref linkend="freebsd-intro"/> introduces the
-            FreeBSD project, explores its organizational structure,
-            key technologies and release engineering
-            processes.</simpara>
+          <simpara>A <xref linkend="freebsd-intro"/> apresenta o
+	    projeto FreeBSD, explora sua estrutura organizacional, as
+	    principais tecnologias e processos de engenharia 
+	    envolvidos no lançamento de uma nova versão do
+	    sistema.</simpara>
         </listitem>
         <listitem>
-          <simpara><xref linkend="freebsd-collaboration"/> describes
-            ways to collaborate with the FreeBSD project.  It examines
-            common pitfalls encountered by corporates working with
-            voluntary projects like FreeBSD.</simpara>
+          <simpara>A <xref linkend="freebsd-collaboration"/>
+	    descreve formas de colaborar com o Projeto FreeBSD.  Esta
+	    seção também aborda as armadilhas que são geralmente
+	    encontradas por empresas que trabalham com projetos
+	    voluntários como o FreeBSD.</simpara>
         </listitem>
         <listitem>
-          <simpara><xref linkend="conclusion"/> concludes.</simpara>
+          <simpara>A <xref linkend="conclusion"/> conclui o
+	    artigo.</simpara>
         </listitem>
       </itemizedlist>
     </sect2>
   </sect1>
 
   <sect1 id="freebsd-intro">
-    <title>FreeBSD as a set of building blocks</title>
+    <title>O FreeBSD como um conjunto de blocos de construção</title>
 
-    <para>FreeBSD makes an excellent foundation on which to build
-      products:</para>
-
+    <para>O FreeBSD fornece uma excelente base sobre a qual podemos
+      construir produtos:</para>
+    
     <itemizedlist>
       <listitem>
-        <simpara>FreeBSD source code is distributed under a liberal
-          BSD license facilitating its adoption in commercial products
-          <citation>Mon2005</citation> with minimum hassle.</simpara>
+        <simpara>O código fonte do FreeBSD é distribuido sob uma
+	  licença BSD liberal, o que facilita sua adoção em produtos
+	  comerciais com um mínimo de preocupações. 
+	  <citation>Mon2005</citation></simpara>
       </listitem>
       <listitem>
-        <simpara>The FreeBSD project has excellent engineering
-          practices that can be leveraged.</simpara>
+        <simpara>O Projeto FreeBSD possui excelentes práticas de
+	  engenharia as quais podem ser aproveitadas.</simpara>
       </listitem>
       <listitem>
-        <simpara>The project offers exceptional transparency into its
-          workings, allowing organizations using its code to plan
-          effectively for the future.</simpara>
+        <simpara>O projeto oferece uma transparência excepcional em
+	  seu funcionamento, permitindo que as empresas que utilizam o
+	  seu código se planejem de forma eficaz para o
+	  futuro.</simpara>
       </listitem>
       <listitem>
-        <simpara>The culture of the FreeBSD project, carried over from
-          the Computer Science Research Group at The University of
-          California, Berkeley <citation>McKu1999-1</citation>,
-          fosters high-quality work. Some features in FreeBSD define
-          the state of the art.</simpara>
+        <simpara>A cultura do projeto FreeBSD, herdada do
+	  <foreignphrase>Computer Science Research 
+	  Group (CSRG)</foreignphrase> da Universidade da Califórnia
+	  em Berkley <citation>McKu1999-1</citation>, fomenta
+	  trabalhos de alta qualidade.  Algumas funcionalidades do
+	  FreeBSD definem o estado da arte.</simpara>
       </listitem>
     </itemizedlist>
 
-    <simpara><citation>GoldGab2005</citation> examines the business
-      reasons for using open-source in greater detail.  For
-      organizations, the benefits of using FreeBSD components in their
-      products include a shorter time to market, lower development
-      costs and lower development risks. </simpara>
-
+    <simpara>O <citation>GoldGab2005</citation> analisa em maior
+      profundidade os motivos comerciais para se utilizar código fonte
+      aberto.  Para as organizações, os benefícios do uso de
+      componentes do FreeBSD em seus produtos incluem a redução do
+      tempo necessário para lançar novos produtos no mercado,
+      menores custos e menores riscos de desenvolvimento.</simpara>
+      
     <sect2>
-      <title>Building with FreeBSD</title>
+      <title>Construindo com o FreeBSD</title>
 
-      <simpara>Here are a few ways organizations have used
-        FreeBSD:</simpara>
+      <simpara>Aqui estão alguns exemplos de como as empresas estão
+	utilizando o FreeBSD:</simpara>
 
       <itemizedlist>
         <listitem>
-          <simpara>As an upstream source for tested code for libraries
-            and utilities.</simpara>
-          <simpara>By being <quote>downstream</quote> of the project,
-            organizations leverage the new features, bug fixes and
-            testing that the upstream code receives.</simpara>
+          <simpara>Como um provedor (<foreignphrase>upstream
+	    source</foreignphrase>) de códigos testados para 
+	    bibliotecas e utilitários.</simpara>
+	  
+          <simpara>Sendo o <foreignphrase>downstream</foreignphrase>
+	    do projeto, as organizações se aproveitam das novas
+	    funcionalidades, das correções de bugs e dos testes que o
+	    código fonte do projeto FreeBSD recebe.</simpara>
         </listitem>
         <listitem>
-          <simpara>As an embedded OS (for example, for an OEM router
-            and firewall device).  In this model, organizations use a
-            customized FreeBSD kernel and application program set
-            along with a proprietary management layer for their
-            device. OEMs benefit from new hardware support being added
-            by the FreeBSD project upstream, and from the testing that
-            the base system receives.</simpara>
-          <simpara>FreeBSD ships with a self-hosting development
-            environment that allows easy creation of such
-            configurations.</simpara>
+          <simpara>Como sistema operacional integrado (por exemplo, em
+	    um roteador OEM e ou em um dispositivo de firewall).  
+	    Neste modelo, as empresas utilizam uma versão customizada
+	    do kernel e do conjunto de aplicativos do FreeBSD, 
+	    juntamente com uma camada proprietária de gestão para os 
+	    seus dispositivos.  Os fabricantes de equipamentos 
+	    originais (OEMs) se beneficiam da adição por parte do
+	    FreeBSD de suporte a novos componentes de hardware, bem
+	    como se beneficia dos testes que o sistema base 
+	    recebe.</simpara>
+	  
+          <simpara>O FreeBSD é distribuido com ambiente de
+	    desenvolvimento auto-hospedado o qual permite a fácil
+	    crriação de tais configurações.</simpara>
         </listitem>
         <listitem>
           <simpara>As a Unix compatible environment for the management
