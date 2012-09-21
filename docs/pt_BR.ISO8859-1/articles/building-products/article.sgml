@@ -268,68 +268,81 @@
 	    como se beneficia dos testes que o sistema base 
 	    recebe.</simpara>
 	  
-          <simpara>O FreeBSD é distribuido com ambiente de
+          <simpara>O FreeBSD é distribuido com um ambiente de
 	    desenvolvimento auto-hospedado o qual permite a fácil
 	    crriação de tais configurações.</simpara>
         </listitem>
         <listitem>
-          <simpara>As a Unix compatible environment for the management
-            functions of high-end storage and networking devices,
-            running on a separate processor <quote>blade</quote>.</simpara>
-          <simpara>FreeBSD provides the tools for creating dedicated
-            OS and application program images.  Its implementation of
-            a BSD unix API is mature and tested.  FreeBSD can also
-            provide a stable cross-development environment for the
-            other components of the high-end device.</simpara>
+          <simpara>Como um ambiente Unix compatível para as funções de
+	    gerenciamento em dispositivos de armazenamento high-end e
+	    em dispositivos de rede, executando em uma lâmina 
+	    separada.</simpara>
+          
+	  <simpara>O FreeBSD fornece ferramentas para a criação de 
+	    imagens do sistema operacional dedicadas a executar uma 
+	    função específica. Sua implementação da API unix BSD é 
+	    madura e testada.  O FreeBSD também pode proporcionar um 
+	    ambiente de desenvolvimento cruzado estável para os outros
+	    componentes de dispositivos topo de linha.</simpara>
         </listitem>
         <listitem>
-          <simpara>As a vehicle to get widespread testing and support
-            from a worldwide team of developers for non-critical
-            <quote>intellectual property</quote>.</simpara>
-          <simpara>In this model, organizations contribute useful
-            infrastructural frameworks to the FreeBSD project (for
-            example, see &man.netgraph.3;).  The widespread
-            exposure that the code gets helps to quickly identify
-            performance issues and bugs.  The involvement of
-            top-notch developers also leads to useful extensions to
-            the infrastructure that the contributing organization also
-            benefits from.</simpara>
+          <simpara>Como um veículo para obter suporte e testes 
+	    amplos de uma equipe mundial de desenvolvedores para a sua
+	    <quote>propriedade intelectual</quote> 
+	    não-crítica.</simpara>
+
+          <simpara>Neste modelo, as organizações contribuem com 
+	    frameworks de infra-estrutura úteis ao projeto FreeBSD 
+	    (por exemplo, veja o &man.netgraph.3;).   A ampla 
+	    exposição que o código obtém ajuda na rápida 
+	    identificação de bugs e de problemas de desempenho.  O 
+	    envolvimento de desenvolvedores de alta qualidade também
+	    resulta no desenvovimento de extensões úteis para a
+	    infra-estrutura do sistema, e das quais a empresa que está
+	    contribuindo com o projeto também se beneficia.</simpara>
         </listitem>
 
         <listitem>
-          <simpara>As a development environment supporting
-            cross-development for embedded OSes like <ulink
-              url="http://www.rtems.com/">RTEMS</ulink> and <ulink
-              url="http://ecos.sourceware.org/">eCOS</ulink>.</simpara>
-          <simpara>There are many full-fledged development environments
-            in the &os.numports;-strong collection of applications ported and
-            packaged with FreeBSD.</simpara>
+          <simpara>Como um ambiente de desenvolvimento apoiando
+	    desenvolvimento cruzado para sistemas operacionais
+	    embarcados como <ulink
+	    url="http://www.rtems.com/">RTEMS</ulink> e o <ulink
+	    url="http://ecos.sourceware.org/">eCOS</ulink>.</simpara>
+	  
+          <simpara>Existem muitos ambientes de desenvolvimento 
+	    completos na forte coleção de mais de &os.numports; 
+	    aplicativos portados e empacotados para o 
+	    FreeBSD.</simpara>
         </listitem>
 
         <listitem>
-          <simpara>As a way to support a Unix-like API in an otherwise
-            proprietary OS, increasing its palatability for
-            application developers.</simpara>
-          <simpara>Here parts of FreeBSD's kernel and application
-            programs are <quote>ported</quote> to run alongside
-            other tasks in the proprietary OS.  The availability of a
-            stable and well tested <trademark>Unix</trademark> API
-            implementation can reduce the effort needed to port
-            popular applications to the proprietary OS.  As FreeBSD
-            ships with high-quality documentation for its internals
-            and has effective vulnerability management and release
-            engineering processes, the costs of keeping upto-date are
-            kept low.</simpara>
+          <simpara>Como forma de suportar uma API estilo Unix em um 
+	    sistema operacional que de outro modo seria proprietário,
+	    aumentando a sua palatabilidade para os desenvolvedores de
+	    aplicativos.</simpara>
+	  
+          <simpara>Aqui as partes do kernel do FreeBSD e as aplicações
+	    são <quote>portadas</quote> para serem executadas 
+	    juntamente com outras tarefas no sistema operacional 
+	    proprietário.  A disponibilidade de uma implementação 
+	    estável e bem testada da API <trademark>Unix</trademark> 
+	    pode reduzir o esforço necessário para portar aplicações 
+	    populares para um sistema operacional proprietário.  Como
+	    o FreeBSD é distribuido acompanhado de uma documentação de
+	    alta qualidade sobre a sua estrutura interna, e possui
+	    processos eficazes de engenharia para gerenciamento de
+	    vulnerabilidades e para lançamento de novas versões, os
+	    custos para mantê-lo atualizado são baixos.</simpara>
         </listitem>
       </itemizedlist>
     </sect2>
 
     <sect2 id="freebsd-technologies">
-      <title>Technologies</title>
+      <title>Tecnologias</title>
 
-      <para>There are a large number of technologies supported by the
-        FreeBSD project.  A selection of these are listed
-        below:</para>
+      <para>Existe um grande número de tecnologias suportadas pelo 
+	projeto FreeBSD.  Abaixo você encontra uma lista com alguma
+	delas:</para>
 
       <itemizedlist>
         <listitem>
