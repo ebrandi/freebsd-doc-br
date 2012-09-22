@@ -73,8 +73,8 @@
 	é formados por membros do Grupo Brasileiro de Usuários
 	FreeBSD (<ulink url="http://www.fug.com.br">&fug;</ulink>) 
 	e tem por objetivo traduzir para a língua portuguesa os
-	documentos produzidos pelo <foreignphrase>FreeBSD D
-	ocumentation Project (<acronym>FDP</acronym>)
+	documentos produzidos pelo <foreignphrase>FreeBSD
+	Documentation Project (<acronym>FDP</acronym>)
 	</foreignphrase>.</para>
 	
       <para>O trabalho de tradução é realizado diretamente nos
@@ -98,7 +98,7 @@
 	especialmente não assumir mais atribuições do que você
 	é capaz de cumprir, em especial em relação ao tempo 
 	disponível para contribuir.  Mas note bem, mesmo com pouca 
-	disponibilidade sua particiação é valiosa para o time.</para>
+	disponibilidade sua participação é valiosa para o time.</para>
 
       <para>É necessário boa capacidade de leitura de textos
 	técnicos em língua inglesa, além de fluência em língua 
@@ -150,7 +150,7 @@
 	    dentro do Projeto, o time de localização deve antes 
 	    submetê-las à documentação original, em inglês.  Isso
 	    é para garantir integridade de conteúdo em qualquer 
-	    língua.  Complementarmente qualquer contribução completa 
+	    língua.  Complementarmente qualquer contribuição completa 
 	    (livro ou artigo) que desejemos criar oficialmente, tem 
 	    antes que ser aprovada em língua inglesa.  Aqui
 	    entra o Tradutor 2.</para>
@@ -208,7 +208,7 @@
 	<listitem>
 	  <para>É o responsável por revisar gramática,
 	    ortografia e contexto dos documentos traduzidos,
-	    bem como garantir conformidade dos ítens
+	    bem como garantir conformidade dos itens
 	    traduzidos com o Glossário de expressões
 	    comuns usados pelo &adocbr;.</para>
 
@@ -540,7 +540,7 @@
 	  <para>Como o Web site do Projeto é intimamente
 	    conectado com os artigos e livros que constituem
 	    a documentação oficial do &os;, o
-	    voluntário deve necessáriamente conhecer
+	    voluntário deve necessariamente conhecer
 	    os procedimentos relacionados à
 	    manutenção destes documentos.  Ou seja, já
 	    ter sido parte dos outros esforços do
@@ -560,7 +560,7 @@
 	    criam ou atualizam as aplicações ou recursos
 	    do <literal>kernel</literal>, bem como aplicações
 	    da <literal>userland</literal>, bibliotecas, e outros
-	    ítens relacionados ao sistema operacional.  A
+	    itens relacionados ao sistema operacional.  A
 	    revisão e melhoria dessas páginas de manuais, bem
 	    como devida formatação das mesmas é função
 	    do <acronym>FDP</acronym>.  Contudo, quando esse
@@ -635,7 +635,7 @@
       <para>O Projeto de Documentação em Português Brasileiro
 	do FreeBSD dispõe de scripts e arquivos de
 	configurações para auxiliar o trabalho do
-	tradutor.  Portanto seja qual for sua opção
+	tradutor.  Portanto seja qual for sua opção de
 	editor de texto, terá ferramentas para auxiliá-lo.
 	Complementarmente o time criou também um script
 	em linguagem <application>Perl</application> que analisa
@@ -659,9 +659,9 @@
 	(<application>svn</application>).  Nosso projeto faz uso de 
 	um repositório <application>svn</application> para armazenar 
 	e possibilitar o trabalho paralelo das dezenas de membros 
-	simultâneamente.  As vantagens do uso do svn é ter um 
+	simultaneamente.  As vantagens do uso do svn é ter um 
 	controle rígido sobre versões, podendo restaurar um arquivo 
-	errôneamente modificado à qualquer momento, e possibilitar 
+	erroneamente modificado à qualquer momento, e possibilitar 
 	trabalho concorrente de diversos indivíduos.  A desvantagem 
 	é que é algo mais à se aprender, caso você não tenha 
 	familiaridade com essa ferramenta.</para>
@@ -681,7 +681,7 @@
         de trabalho do esforço de tradução para Português Brasileiro 
 	da documentação oficial do FreeBSD.</para>
 
-      <para>Outras converas sobre metodologia e decisões práticas de
+      <para>Outras conversas sobre metodologia e decisões práticas de
         traduções, interpretações de texto, grafia, gramática e
         conformidade/atualização do glossário de expressões comuns às
         traduções também se passam na lista.</para>
@@ -726,7 +726,7 @@
 	  anônima.  Mas para contribuir de forma ativa, enviando seus 
 	  <foreignphrase>commits</foreignphrase>
 	  diretamente para o repositório, você irá precisar de uma
-	  conta no google (a sua conta no gmail por exemplo).</para>
+	  conta no Google (a sua conta no Gmail por exemplo).</para>
 	  
 	<para>É de suma importância que você consulte a
 	  <ulink
@@ -746,7 +746,7 @@
 	  <screen>&prompt.user; <userinput>svn checkout http://freebsd-doc-br.googlecode.com/svn/trunk/ freebsd-doc-br-read-only</userinput></screen> 
 	
 	<para>A partir desse momento você tem o repositório completo
-	do &adocbr; disponívei localmente em sua maquina.</para>
+	do &adocbr; disponível localmente em sua máquina.</para>
 
 	<para>Para saber mais sobre os módulos disponíveis leia a
 	próxima seção.</para>
@@ -757,7 +757,7 @@
 
 	<para>O código fonte do Projeto de Documentação do FreeBSD
 	  em Português Brasileiro, hospedados no Google Code, está 
-	  dividido em varios subdiretórios, a árvore abaixo lista os
+	  dividido em vários subdiretórios, a árvore abaixo lista os
 	  principais:</para>
 	  
 <programlisting>
@@ -796,20 +796,20 @@ trunk/
 		(<filename class="directory">en_US.ISO8859-1/</filename>) e os 
 		fontes dos documentos em português brasileiros
 		(<filename class="directory">pt_BR.ISO8859-1/</filename>) que já foram 
-		traduzios e dos que estão em tradução e/ou revisão. 
-		Neste diretorio você também vai encontrar o
+		traduzidos e dos que estão em tradução e/ou revisão. 
+		Neste diretório você também vai encontrar o
 		diretório <filename class="directory">share/</filename>, o qual possui
 		arquivos necessários ao processo de construção da
-		documentação que são comums a todos os idiomas
+		documentação que são comuns a todos os idiomas
 		(Makefiles, declaração de entidades, etc). </para>
 
 	      <para>Dentro dos diretórios 
 		<filename class="directory">en_US.ISO8859-1/</filename> e 
 		<filename class="directory">pt_BR.ISO8859-1/</filename>, você irá
-		encontrar subdiretório alguns subdiretórios, um para
+		encontrar alguns subdiretórios, um para
 		cada grupo de documentos que compõe a documentação
 		oficial do FreeBSD (Artigos, Livros, Website Oficial)
-		e um subdiretório (share) com os arquivos especificos
+		e um subdiretório (share) com os arquivos específicos
 		necessários para construir a documentação em cada um
 		dos respectivos idiomas.</para>
 	   </sect3> 
@@ -832,7 +832,7 @@ trunk/
 	      As traduções devem ser usadas apenas como referência
 	      e jamais ser usadas integralmente no contexto do documento
 	      traduzido.  O diretório tem um arquivo <filename>Readme.txt</filename>
-	      com todas as intruções sobre como configurar
+	      com todas as instruções sobre como configurar
 	      e utilizar esse recurso no &emacs;.</para>
 
 	    <para>O diretório <filename class="directory">scripts/</filename> tem os
@@ -841,7 +841,7 @@ trunk/
 	      conformidade com as regras do <acronym>FDP</acronym>.  Ao menos um
 	      <foreignphrase>script</foreignphrase> deve ser sempre
 	      utilizado por todos membros do DOC-BR, trata-se do
-	      <filename>fdp.pl</filename>, escript por
+	      <filename>fdp.pl</filename>, escrito por
 	      <quote>Diego Linke</quote>.  Ele recebe como entrada
 	      o arquivo <acronym>SGML</acronym> e na saída gera o mesmo arquivo
 	      (<literal>stdout</literal>) com as regras do projeto
@@ -852,7 +852,7 @@ trunk/
 	      em nosso conjunto de caracteres para acentos
 	      com entidades <acronym>SGML</acronym>.  Uso obrigatório para desenvolvedores
 	      que não trabalham com editores que fazem essa
-	      conversão automáticamente como &vim; ou &emacs;.</para>
+	      conversão automaticamente como &vim; ou &emacs;.</para>
 	    
 	    <para>No diretório <filename class="directory">vim/</filename> você encontrará
 	      o mesmo conteúdo do
@@ -891,13 +891,13 @@ trunk/
 	      também pretende trabalhar com &emacs;.</para>
 
 	    <para>O diretório <filename
-	    class="directory">glossario</filename> armazerna o 
+	    class="directory">glossario</filename> armazena o 
 	      glossário de palavras e expressões
 	      comuns em inglês, que encontraremos frequentemente
 	      durante o trabalho de tradução.
 	      Como o projeto é constituído de diversos
 	      indivíduos, o glossário também serve
-	      como padronização linguísta, para
+	      como padronização linguista, para
 	      garantir que textos distintos traduzidos por pessoas 
 	      diferentes sejam traduzidos da mesma forma quando 
 	      essas expressões especiais aparecerem, não sendo notadas
@@ -920,8 +920,8 @@ trunk/
 	      para nova entrada no glossário.  Portanto
 	      envie para a lista de discussão DOC-BR
 	      suas dúvidas sobre essa expressão
-	      para que todos membros possam discutir sobre como ela 
-	      deve ser colocada no glossário.</para>
+	      para que todos os membros possam discutir sobre como
+	      ela deve ser colocada no glossário.</para>
 	    
 	    <para>A regra para uso do glossário é simples.
 	      Do lado esquerdo temos a expressão original,
@@ -936,10 +936,10 @@ trunk/
 	    <example>
 	      <title>Trecho do arquivo <filename>glossario.txt</filename></title>
 
-	      <programlisting>claimed -> reinvidicada|reclamada|exigida|invocada</programlisting>
+	      <programlisting>claimed -> reivindicada|reclamada|exigida|invocada</programlisting>
 	    </example>
 
-	    <para>Prefira <quote>reinvidicada</quote> sempre que possível
+	    <para>Prefira <quote>reivindicada</quote> sempre que possível
 	      ou em caso de dúvida.   Se no contexto as outras opções
 	      ficarem melhor, use-as então.</para>
 	</sect3>
@@ -959,7 +959,7 @@ trunk/
 	  para atualização e adição de novos documentos
 	  é necessário um nome de usuário válido no
 	  Google Code.  Você soube anteriormente como criá-lo.
-	  Quando sua associação ao projeto DOC-BR for concluida,
+	  Quando sua associação ao projeto DOC-BR for concluída,
 	  será possível acessar o servidor svn com
 	  privilégios de escrita.</para>
 	</note>
@@ -982,7 +982,7 @@ trunk/
 
 	<para>Agora que você já instalou o conjunto de aplicativos 
 	  necessários para converter os fontes da documentação, 
-	  precisamoscriar uma cópia local do repositório 
+	  precisamos criar uma cópia local do repositório 
 	  <application>svn</application> do DOC-BR, executando o
 	  comando abaixo dentro do seu diretório 
 	  <literal>home</literal> (<filename>~/</filename>):</para>
@@ -995,12 +995,12 @@ trunk/
 	  para que você inicie seus trabalhos no DOC-BR.</para>
 
 	<para>Veja abaixo algumas sugestões de boas práticas no uso do
-	  <application>svn</application> as sugerimos que sejam adotadas
+	  <application>svn</application>, sugerimos que sejam adotadas
 	  pelos membros do DOC-BR:</para>
 
 	<procedure>
 	  <step>
-	    <para>Antes de iniciar qualquer trabalho, execute sempre i
+	    <para>Antes de iniciar qualquer trabalho, execute sempre
 	      o comando <command>svn update</command> dentro da raiz 
 	      do seu repositório local:</para>
 
@@ -1023,14 +1023,14 @@ trunk/
 	      repositório remoto.</para>  
 	      
 	    <para>Para submeter qualquer arquivo que tenha sido 
-	      alterado de volta para o repositório do DOc-BR no 
+	      alterado de volta para o repositório do DOC-BR no 
 	      Google Code, execute o comando:</para>
 
 <screen>&prompt.user; svn commit <userinput>nome-do-arquivo</userinput></screen>
 	    
 	    <para>Se você omitir o nome do arquivo no comando acima, o
 	      svn irá submeter por default todos os arquivos que 
-	      tenham sido alterados no diretorio atual, eem qualquer
+	      tenham sido alterados no diretório atual, em qualquer
 	      subdiretório que exista.</para>
 
 	    <para>Se optar por executar o comando sem especificar o
@@ -1056,7 +1056,7 @@ trunk/
 
 	  <step>
 	   <para><emphasis>Não faça <literal>commit</literal> sem
-          <literal>log</literal>s!</emphasis>.  Os logs
+          <literal>log</literal>s!</emphasis>  Os logs
           não precisam ser detalhados, mas ao menos mencione
           o que foi feito.  Por exemplo, <literal>log</literal>s ruins seriam:</para>
 
@@ -1159,7 +1159,7 @@ trunk/
 	  <ulink url="https://fug.com.br/mailman/listinfo/doc-svn">doc-svn</ulink>, 
 	  ao se cadastrar nela, você passará a receber por email os 
 	  logs dos commits realizados no repositório Subversion do 
-	  projeto. É uma otima forma de se manter atualizado sobre 
+	  projeto. É uma ótima forma de se manter atualizado sobre 
 	  o andamento dos trabalhos.</para> 
       </sect2>
     </sect1>
@@ -1231,7 +1231,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	<para>Os outros arquivos, <filename>grep.sh</filename>,
 	  <filename>man.sh</filename>, <filename>unman.sh</filename> e
 	  <filename>space2tab.sh</filename> são rotinas
-	  para verificar e corrigir os ítens
+	  para verificar e corrigir os itens
 	  das regras do <acronym>FDP</acronym>, mas separados, para análises
 	  independentes.  Normalmente são usados apenas
 	  por revisores mais minuciosos, já que
@@ -1283,7 +1283,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 		para as versões 2.X á 4.X do FreeBSD!</para>
 	    </example>
 
-	    <para>Nesse caso evitamos todos artigos e gêneros
+	    <para>Nesse caso evitamos todos os artigos e gêneros
 	      possíveis antes das expressões mencionadas,
 	      tornando o texto mais simples e claro de ser lido.
 	      Mantivemos o que é essencial para o contexto.
@@ -1329,10 +1329,10 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	  <listitem>
 	    <para>Expressões que não podem ser traduzidas mas
 	      não são técnicas devem ser identificadas como
-	      expressão em língua extrangeira, para tal ela deve
+	      expressão em língua estrangeira, para tal ela deve
 	      ficar entre &lt;foreignphrase&gt;&lt;/foreignphrase&gt;.
 	      Caso a expressão seja um termo consagrado em qualquer
-	      língua como como <literal>kernel</literal>, <literal>FAQ</literal>,
+	      língua como <literal>kernel</literal>, <literal>FAQ</literal>,
 	      <literal>SPAM</literal> ou <literal>home</literal>, estas devem ser
 	      consideradas literais.  <literal>FAQ</literal>, <literal>SPAM</literal>,
 	      <literal>kernel</literal> ou <literal>home</literal> significam
@@ -1360,7 +1360,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 	cometermos erros sérios, nesse caso apenas o bom senso ou uma boa
 	discussão pode evitar o desastre.  Por exemplo,
 	<quote>port</quote>
-	pode levar ao desastre se traduzido errôneamente, e deve
+	pode levar ao desastre se traduzido erroneamente, e deve
 	ser traduzido em outras circunstâncias.  Digamos, se for o <emphasis>port</emphasis>
 	de uma versão do &os, como <emphasis>port</emphasis> para
 	<literal>Sparc64</literal> não estamos falando de um
@@ -1380,7 +1380,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
       <para>Outro caso: <foreignphrase>UN*X-like</foreignphrase> é a
 	denominação oficial para qualquer sistema que não pagou
 	para passar na certificação &unix; ou que não paga
-	direitos autorais para uso deste nome.  Ou seja é
+	direitos autorais para uso deste nome.  Ou seja, é
 	um <quote>UN*X-similar</quote>.  Melhor não traduzir, deixemos
 	&lt;foreignphrase&gt;UN*X-like&lt;/foreignphrase&gt;.</para>
 
@@ -1429,7 +1429,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 
 	<listitem>
 	  <para>Uma linha deve preferencialmente ter
-	    menos de 70 colunas, e obrigatóriamente menos
+	    menos de 70 colunas, e obrigatoriamente menos
 	    de 84 colunas.</para>
 	</listitem>
 
@@ -1443,7 +1443,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 
 	<listitem>
 	  <para>As <foreignphrase>tags</foreignphrase> de mesmo tipo devem
-	    estar sempre no mesmo nível de identação.</para>
+	    estar sempre no mesmo nível de indentação.</para>
 	</listitem>
       </orderedlist>
 
@@ -1466,7 +1466,7 @@ Total de 9 linha(s) alterada(s) no arquivo book.sgml
 
 	  <para>No passado contribuidores da <acronym>DOC-BR</acronym>
 	   chegaram a usar parágrafos inteiros como
-	   traduzidos eletrônicamente.  O resultados é que
+	   traduzidos eletronicamente.  O resultados é que
 	   estes textos tiveram que ser totalmente rescritos
 	   na revisão, e retraduzidos do inglês pois o
 	   resultado em português raramente podia ser
