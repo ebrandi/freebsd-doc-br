@@ -474,7 +474,7 @@
 	regras e responsabilidades que se aplicam aos
 	<literal>committers</literal>.</para>
 	
-      <para>O modelo do projeto do FreeBSD é examinado em detalhes no
+      <para>O modelo do projeto FreeBSD é examinado em detalhes no
         <citation>Nik2005</citation>.</para>
     </sect2>
 
@@ -482,34 +482,36 @@
       <title>Processos de Engenharia para liberação de novas versões
 	do FreeBSD.</title>
 
-      <para>FreeBSD's release engineering processes play a major role
-        in ensuring that its released versions are of a high quality.
-        At any point of time, FreeBSD's volunteers support multiple
-        code lines (<xref linkend="fig-freebsd-branches"/>):</para>
-
+      <para>O processo de engenharia para a liberação de uma nova
+	versão do FreeBSD desempenha um papel importante para
+	assegurar que as suas novas versões sejam de alta qualidade.
+	Em qualquer ponto do tempo, os voluntários do FreeBSD suportam
+	multiplas versões do código sistema (<xref
+	linkend="fig-freebsd-branches"/>):</para>
+      
       <itemizedlist>
         <listitem>
-          <simpara>New features and disruptive code enters on the
-            development branch, also known as the
-            <firstterm>-CURRENT</firstterm> branch.</simpara>
+          <simpara>As novas funcionalidades e os códigos disruptivos
+	    entram no ramo de desenvolvimento, também conhecido como
+	    ramo <firstterm>-CURRENT</firstterm>.</simpara>
         </listitem>
         <listitem>
-          <simpara><firstterm>-STABLE</firstterm> branches are code
-            lines that are branched from HEAD at regular intervals.
-            Only tested code is allowed onto a -STABLE branch.  New
-            features are allowed once they have been tested and
-            stabilized in the -CURRENT branch.</simpara>
+          <simpara>O ramo <firstterm>-STABLE</firstterm> contém
+	  linhas de código que são ramificadas a partir do HEAD em
+	  intervalos regulares.  Apenas código devidamente testado é
+	  permitido no ramo -STABLE.  Novas funcionalidades são
+	  permitidas após terem sido testadas e estabilizadas no ramo
+	  -CURRENT.</simpara>
         </listitem>
         <listitem>
-          <simpara><firstterm>-RELEASE</firstterm> branches are
-            maintained by the FreeBSD security team.  Only bug fixes
-            for critical issues are permitted onto -RELEASE
-            branches.</simpara>
+          <simpara>O ramo <firstterm>-RELEASE</firstterm> é mantido
+	    pela equipe de segurança do FreeBSD.  Somente correções de
+	    bugs críticos são permitidos no ramo -RELEASE.</simpara>
         </listitem>
       </itemizedlist>
 
       <figure id="fig-freebsd-branches">
-        <title>FreeBSD Release Branches</title>
+        <title>Ramos de versões do FreeBSD</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="freebsd-branches" format="EPS"/>
@@ -517,34 +519,37 @@
         </mediaobject>
       </figure>
 
-      <para>Code lines are kept alive for as long as there is user and
-        developer interest in them.</para>
-
-      <para>Machine architectures are grouped into
-        <quote>tiers</quote>; <firstterm>Tier 1</firstterm>
-        architectures are fully supported by the project's release
-        engineering and security teams, <firstterm>Tier 2</firstterm>
-        architectures are supported on a best effort basis, and
-        experimental architectures comprise <firstterm>Tier
-          3</firstterm>.  The list of <ulink
-          url="&url.articles.committers-guide;/archs.html">supported
-          architectures</ulink> is part of the FreeBSD documentation
-        collection.</para>
-
-      <para>The release engineering team publishes a <ulink
-          url="&url.base;/releng/">road map</ulink> for future
-        releases of FreeBSD on the project's web site.  The dates laid
-        down in the road map are not deadlines; FreeBSD is released
-        when its code and documentation are ready.</para>
-
-      <para>FreeBSD's release engineering processes are described in
-        <citation>RelEngDoc</citation>.</para>
+      <para>As linhas de código são mantidas vivas enquanto houver 
+	interesse dos usuários e dos desenvolvedores nelas.</para>
+      
+      <para>As arquiteturas de máquina estão agrupadas em
+	<quote>tiers</quote>;  As arquiteturas <firstterm>Tier
+	1</firstterm> são totalmente suportadas pelas equipes de
+	engenharia de lançamento e de segurança, as arquiteturas
+	<firstterm>Tier 2</firstterm> são suportadas em regime de
+	<quote>melhores esforços</quote>, e as arquiteturas
+	experimentais compreendem o <firstterm>Tier 3</firstterm>.  A
+	lista das  <ulink
+	url="&url.articles.committers-guide;/archs.html">arquiteturas
+	suportadas</ulink> é parte da coleção de documentos do
+	FreeBSD.</para>
+      
+      <para>A equipe de engenharia de lançamentos publica um <ulink
+	url="&url.base;/releng/"><literal>road map</literal></ulink>
+	para as versões futuras do FreeBSD no web site do projeto.  As
+	datas indicadas no <literal>road map</literal> não são prazos;
+	As novas versões do FreeBSD são liberadas apenas quando o seu
+	código e documentação estão prontos.</para>
+	
+      <para>O processo de engenharia para a liberação de novas versões
+	do FreeBSD é descrito em detalhes no 
+	<citation>RelEngDoc</citation>.</para>
 
     </sect2>
   </sect1>
 
   <sect1 id="freebsd-collaboration">
-    <title>Collaborating with FreeBSD</title>
+    <title>Colaborando com o FreeBSD</title>
 
     <para>Open-source projects like FreeBSD offer finished code of a
       very high quality <citation>Cov2005</citation>.  Previous
