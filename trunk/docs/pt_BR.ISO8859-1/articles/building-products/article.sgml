@@ -861,36 +861,42 @@ bde         2005-10-29 16:34:50 UTC
         <varlistentry>
           <term>Divulge o seu envolvimento</term>
           <listitem>
-            <simpara>You are not required to publicize your use of
-              FreeBSD, but doing so helps both your effort as well as
-              that of the project.</simpara>
-            <simpara>Letting the FreeBSD community know that your
-              company uses FreeBSD helps improve your chances of
-              attracting high quality talent.  A large roster of
-              support for FreeBSD also means more mind share for it
-              among developers.  This in turn yields a healthier
-              foundation for your future.</simpara>
+            <simpara>Você não é obrigado a divulgar que faz uso do
+	      FreeBSD, mas ao fazê-lo você estará ajudando ambos os
+	      esforços, o seu e o do projeto.</simpara>
+	    
+            <simpara>Dar visibilidade para a comunidade FreeBSD de que
+	      a sua empresa utiliza o sistema ajuda a melhorar as suas
+	      chances de atrair talentos de alta qualidade.  Quanto
+	      maior for a lista de organizações que apoiam o FreeBSD
+	      maior será a presença do sistema na cabeça 
+	      (<literal>mind share</literal>) dos desenvolvedores.  
+	      Ao contribuir para aumentar o numero de desenvolvedores 
+	      interessados no FreeBSD, você estará gerando uma base 
+	      saudável para o seu futuro.</simpara>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Support FreeBSD developers</term>
+          <term>Suporte os desenvolvedores do FreeBSD</term>
           <listitem>
-            <simpara>Sometimes the most direct way to get a desired
-              feature into FreeBSD is to support a developer who is
-              already looking at a related problem.  Help can range
-              from hardware donations to direct financial assistance.
-              In some countries, donations to the FreeBSD project
-              enjoy tax benefits. The project has a dedicated <ulink
-                url="&url.base;/donations/">donations liaison</ulink>
-              to assist donors.  The project also maintains a web page
-              where developers <ulink
-                url="&url.base;/donations/wantlist.html">list their
-                needs</ulink>.
-            </simpara>
-            <simpara>As a policy the FreeBSD project <ulink
-                url="&url.articles.contributors;">acknowledges</ulink>
-              all contributions received on its web site.</simpara>
+            <simpara>Às vezes, o caminho mais direto para ver uma
+	      funcionalidade que você deseja implementada no FreeBSD é
+	      suportar um desenvolvedor que já esteja olhando um
+	      problema relacionado.  A ajuda pode variar de uma doação
+	      de hardware até uma assistência financeira direta.  Em
+	      alguns paises, as doações para o projeto FreeBSD
+	      usufruem de benefícios fiscais.  O projeto possui um
+	      <ulink url="&url.base;/donations/">canal de comunicação
+	      dedicado</ulink> para assuntos relacionados a doações e
+	      para ajudar os doadores.  O projeto também mantém uma
+	      página web na qual os desenvolvedores podem  <ulink
+	      url="&url.base;/donations/wantlist.html">listar suas
+	      necessidades</ulink>.</simpara>
+            <simpara>Por uma política do projeto, o FreeBSD <ulink
+	      url="&url.articles.contributors;">reconhece</ulink> 
+	      todas as contribuições recebidas em seu site 
+	      web.</simpara>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -899,18 +905,19 @@ bde         2005-10-29 16:34:50 UTC
 
   <sect1 id="conclusion">
     <title>Conclusão</title>
-    <para>The FreeBSD project's goals are to create and give away the
-      source code for a high-quality operating system.  By working
-      with the FreeBSD project you can reduce development costs and
-      improve your time to market in a number of product development
-      scenarios.</para>
-    <para>We examined the characteristics of the FreeBSD project that
-      make it an excellent choice for being part of an organization's
-      product strategy.  We then looked at the prevailing culture of
-      the project and examined effective ways of interacting with its
-      developers.  The article concluded with a list of best-practices
-      that could help organizations collaborating with the
-      project.</para>
+    <para>O Objetivo do projeto FreeBSD é criar e distribuir o código
+      fonte de um sistema operacional de alta qualidade.  Ao trabalhar
+      com o projeto FreeBSD você pode reduzir os seus custos de
+      desenvolvimento e melhorar o tempo necessário para lançar seus
+      novos produtos no mercado em vários cenários de desenvolvimentoi
+      de produtos.</para>
+    <para>Foram examinadas as características do FreeBSD que o tornam
+      uma excelente opção na estratégia de produto de uma organização.
+      Em seguida, abordamos os aspectos predominantes da cultura do
+      projeto e examinamos formas eficazes de interagir com os seus
+      desenvolvedores.  O artigo finaliza com uma lista das melhores
+      práticas que podem ajudar na colaboração da iniciativa privada 
+      com o projeto FreeBSD.</para>
   </sect1>
 
   <bibliography>
