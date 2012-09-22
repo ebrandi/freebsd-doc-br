@@ -727,27 +727,30 @@ bde         2005-10-29 16:34:50 UTC
 	      desenvolvimento do FreeBSD.  Por exemplo:</para>
             <formalpara>
               <title>Acompanhe o código fonte do FreeBSD</title>
-              <para>The project makes it easy to mirror its CVS
-                repository using <ulink
-                  url="&url.articles.cvsup-advanced;"><!--
-                  --><application>CVSup</application></ulink>. Having
-                the complete history of the source is useful when
-                debugging complex problems and offers valuable insight
-                into the intentions of the original developers.  Use a
-                capable source control system that allows you to
-                easily merge changes between the upstream FreeBSD code
-                base and your own in-house code.</para>
+		<para>O projeto facilita o espelhamento do seu
+		repositório CVS usando o <ulink
+		url="&url.articles.cvsup-advanced;">CVSup</ulink>. Ter
+		o histórico completo do código fonte é util quando se
+		está debugando problemas complexos e oferece 
+		informações valiosas sobre as intenções dos 
+		desenvolvedores originais.  Utilize um sistema de 
+		controle de código que lhe permita mesclar facilmente
+		as alterações entre o código original do FreeBSD e o 
+		seu próprio código.</para>
             </formalpara>
-            <para><xref linkend="fig-cvs-annotate"/> shows a portion of
-              an annotated listing of the file referenced by the
-              change log in <xref linkend="fig-change-log"/>.  The
-              ancestry of each line of the source is clearly visible.
-              Annotated listings showing the history of every file
-              that is part of FreeBSD are <ulink
-                url="http://cvsweb.freebsd.org/">available on the
-                web</ulink>.</para>
+            <para>A <xref linkend="fig-cvs-annotate"/> mostra as
+	      anotações em uma parte do arquivo referenciado pelo log
+	      de alterações da <xref linkend="fig-change-log"/>.  A
+	      ascendência de cada linha de código é claramente 
+	      visível.  Listagens com as anotações mostrando a 
+	      história de cada arquivo que faz parte do FreeBSD 
+	      estão <ulink 
+	      url="http://cvsweb.freebsd.org/">disponíveis na 
+	      web</ulink>.</para>
             <figure id="fig-cvs-annotate">
-              <title>An annotated source listing generated using <command>cvs annotate</command></title>
+              <title>Código fonte exibindo a listagem de anotações
+		gerada utilizando o <command>cvs annotate</command>
+		</title>
               <programlisting>
 <![CDATA[
 #LINE #REV         #WHO      #DATE       #TEXT
@@ -781,76 +784,82 @@ bde         2005-10-29 16:34:50 UTC
             </figure>
 
             <formalpara>
-              <title>Use a gatekeeper</title>
-              <para>Appoint a <firstterm>gatekeeper</firstterm> to
-                monitor FreeBSD development, to keep an eye out for
-                changes that could potentially impact your
-                products.</para>
+              <title>Nomeie um guardião</title>
+              <para>Nomeie um guardião
+		(<firstterm>gatekeeper</firstterm>) para monitorar o
+		desenvolvimento do FreeBSD, para manter-se atento a
+		mudanças que poderiam potencialmente afetar os seus 
+		produtos.</para>
             </formalpara>
             <formalpara>
-              <title>Report bugs upstream</title>
-              <para>If you notice bug in the FreeBSD code that you are
-                using, file a <ulink url="&url.base;/send-pr.html">bug
-                  report</ulink>.  This step helps ensure that you do
-                not have to fix the bug the next time you take a code
-                drop from upstream.</para>
+              <title>Comunique os erros que encontrar de volta para o
+		projeto</title>
+              <para>Se você encontrar um bug no código do FreeBSD que
+		você está utilizando, envie um <ulink
+		url="&url.base;/send-pr.html">relatório de
+		problema</ulink>.  Este procedimento simples irá 
+		ajudar a garantir que você não precisará corrigir o 
+		erro novamente da próxima vez que precisar importar
+		novamente do código base do FreeBSD.</para>
             </formalpara>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Leverage FreeBSD's release engineering efforts</term>
+          <term>Se alavanque nos esforços de engenharia do FreeBSD
+	    para lançamento de novas versões.</term>
           <listitem>
-            <simpara>Use code from a -STABLE development branch of
-              FreeBSD.  These development branches are formally
-              supported by FreeBSD's release engineering and security
-              teams and comprise of tested code.
-            </simpara>
+            <simpara>Utilize código do ramo de desenvolvimento -STABLE
+	      do FreeBSD.  Este ramo de desenvolvimento é formalmente
+	      suportado pelas equipes de engenharia de lançamento e de
+	      segurança, e é formada apenas por código
+	      testado.</simpara>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Donate code to reduce costs</term>
+          <term>Doe código para reduzir seus custos</term>
           <listitem>
-            <simpara>A major proportion of the costs associated with
-              developing products is that of doing maintenance. By
-              donating non-critical code to the project, you benefit
-              by having your code see much wider exposure than it
-              would otherwise get.  This in turn leads to more bugs
-              and security vulnerabilities being flushed out and
-              performance anomalies being identified and fixed.
-            </simpara>
+            <simpara>Uma parte significativa dos custos relacionados
+	      ao desenvolvimento de um produto é o de realizar a sua
+	      manutenção.  Ao doar partes não criticas do seu código
+	      para o projeto, você se beneficia por ter o seu código
+	      exposto de uma forma ampla, exposição que ele não teria
+	      de outra forma. Esta exposição por sua vez leva 
+	      eliminação de um maior numero de bugs e de 
+	      vulnerabilidades de segurança, e permite que anomalias 
+	      de desempenho sejam identificadas e 
+	      corrigidas.</simpara>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Get support effectively</term>
+          <term>Obtenha suporte efetivo</term>
           <listitem>
-            <simpara>For products with tight deadlines, it is
-              recommended that you hire or enter into a consulting
-              agreement with a developer or firm with FreeBSD
-              experience.  The &a.jobs; is a useful communication
-              channel to find talent. The FreeBSD project maintains a
-              <ulink
-                url="&url.base;/commercial/consult_bycat.html">gallery
-                of consultants and consulting firms</ulink>
-              undertaking FreeBSD work. The <ulink
-                url="http://www.bsdcertification.org/">BSD
-                Certification Group</ulink> offers certification for
-              all the major BSD derived OSes.</simpara>
+            <simpara>Para produtos com prazos apertados, é recomendado
+	      que você contrate o suporte ou consultoria de um
+	      desenvolvedor ou empresa com experiência em FreeBSD. A
+	      &a.jobs; é um canal de comunicação muito útil para se
+	      encontrar talentos.  O projeto FreeBSD mantém uma <ulink
+	      url="&url.base;/commercial/consult_bycat.html">galeria
+	      de consultores e empresas de consultoria</ulink> que
+	      trabalham com FreeBSD. O <ulink
+	      url="http://www.bsdcertification.org/">Grupo de
+	      Certificação BSD</ulink> oferece certificação para todos
+	      os principais sistemas operacionais derivados do
+	      BSD.</simpara>
 
-            <simpara>For less critical needs, you can ask for help on
-              the <ulink
-                url="http://lists.FreeBSD.org/mailman/listinfo">project
-                mailing lists</ulink>.  A useful guide to follow when
-              asking for help is given in
-              <citation>Ray2004</citation>.
-            </simpara>
+            <simpara>Para as necessidades menos importantes, você pode
+	      pedir ajuda nas <ulink
+	      url="http://lists.FreeBSD.org/mailman/listinfo">listas 
+	      de discussão do projeto</ulink>.  Um guia útil para 
+	      seguir quando precisar pedir está listado em 
+	      <citation>Ray2004</citation>.</simpara>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Publicize your involvement</term>
+          <term>Divulge o seu envolvimento</term>
           <listitem>
             <simpara>You are not required to publicize your use of
               FreeBSD, but doing so helps both your effort as well as
