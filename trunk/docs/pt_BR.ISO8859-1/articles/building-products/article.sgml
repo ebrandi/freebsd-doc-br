@@ -432,25 +432,27 @@
     </sect2>
 
     <sect2>
-      <title>Organizational Structure</title>
-      <para>FreeBSD's organizational structure is
-        non-hierarchical.</para>
-
-      <para>There are essentially two kinds of contributors to
-        FreeBSD, general users of FreeBSD, and developers with write
-        access (known as <firstterm>committers</firstterm> in the
-        jargon) to the source base.</para>
-
-      <para>There are many thousands of contributors in the first
-        group; the vast majority of contributions to FreeBSD come from
-        individuals in this group.  Commit rights (write access) to
-        the repository are granted to individuals who contribute
-        consistently to the project.  Commit rights come with
-        additional responsibilities, and new committers are assigned
-        mentors to help them learn the ropes.</para>
+      <title>Estrutura Organizacional</title>
+      <para>A estrutura organizacional do FreeBSD não é
+	hierárquica</para>
+      
+      <para>Existem basicamente dois tipos de colaboradores no projeto
+	FreeBSD, os usuários em geral e os desenvolvedores com acesso
+	de escrita (conhecidos como <firstterm>committers</firstterm>
+	no jargão) ao repositório de código fonte.</para>
+	
+      <para>Existem muitos milhares de colaboradores no primeiro
+	grupo, a grande maioria das contribuições para o FreeBSD vêm 
+	de indivíduos desse grupo;  A permissão de
+	<literal>commit</literal> (acesso de escrita) no repositório é
+	concedida a pessoas que contribuem de forma consistente para o
+	projeto.  O direito de <literal>commit</literal> vem 
+	acompanhado de responsabilidades adicionais, e para facilitar
+	o aprendizado das mesmas, um mentor é atribuido a todos os 
+	novos <literal>committers</literal>.</para>
 
       <figure>
-        <title>FreeBSD Organization</title>
+        <title>Organização do FreeBSD</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="freebsd-organization" format="PIC"/>
@@ -458,23 +460,27 @@
         </mediaobject>
       </figure>
 
-      <para>Conflict resolution is performed by a nine member
-        <quote>Core Team</quote> that is elected from the group of
-        committers.</para>
+      <para>A resolução de conflitos é realizada por um
+	<quote><literal>Core Team</literal></quote> de 9 pessoas, o
+	qual é eleito a partir do grupo de
+	<literal>committers</literal>.</para>
 
-      <para>FreeBSD does not have <quote>corporate</quote> committers.
-        Individual committers are required to take responsibility for
-        the changes they introduce to the code.  The <ulink
-          url="&url.articles.committers-guide;">FreeBSD Committer's
-          guide</ulink> <citation>ComGuide</citation> documents the
-        rules and responsibilities for committers.</para>
-
-      <para>FreeBSD's project model is examined in detail in
+      <para>O FreeBSD não tem <literal>committers</literal>
+      	corporativos.  Os <literal>committers</literal> são obrigados
+	a assumir de forma individual a responsabilidade pelas
+	mudanças que introduzem no código. O  <ulink
+	url="&url.articles.committers-guide;">FreeBSD Committer's
+	Guide</ulink> <citation>ComGuide</citation> documenta as
+	regras e responsabilidades que se aplicam aos
+	<literal>committers</literal>.</para>
+	
+      <para>O modelo do projeto do FreeBSD é examinado em detalhes no
         <citation>Nik2005</citation>.</para>
     </sect2>
 
     <sect2>
-      <title>FreeBSD Release Engineering Processes</title>
+      <title>Processos de Engenharia para liberação de novas versões
+	do FreeBSD.</title>
 
       <para>FreeBSD's release engineering processes play a major role
         in ensuring that its released versions are of a high quality.
