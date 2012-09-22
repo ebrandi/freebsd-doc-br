@@ -223,12 +223,12 @@
 	  futuro.</simpara>
       </listitem>
       <listitem>
-        <simpara>A cultura do projeto FreeBSD, herdada do
-	  <foreignphrase>Computer Science Research 
-	  Group (CSRG)</foreignphrase> da Universidade da Califórnia
-	  em Berkley <citation>McKu1999-1</citation>, fomenta
-	  trabalhos de alta qualidade.  Algumas funcionalidades do
-	  FreeBSD definem o estado da arte.</simpara>
+        <simpara>A cultura do projeto FreeBSD, herdada do Grupo de 
+	  Pesquisa de Ciências da Computação da Universidade da 
+	  Califórnia em Berkeley <citation>McKu1999-1</citation>, 
+	  fomenta trabalhos de alta qualidade.  Algumas 
+	  funcionalidades do FreeBSD definem o estado da 
+	  arte.</simpara>
       </listitem>
     </itemizedlist>
 
@@ -551,121 +551,128 @@
   <sect1 id="freebsd-collaboration">
     <title>Colaborando com o FreeBSD</title>
 
-    <para>Open-source projects like FreeBSD offer finished code of a
-      very high quality <citation>Cov2005</citation>.  Previous
-      studies have examined the effect of source code availability on
-      software development <citation>Com2004</citation>.</para>
+    <para>Projetos <literal>open-source</literal> como o FreeBSD
+      oferecem códigos finalizados de altíssima qualidade
+      <citation>Cov2005</citation>.  Estudos anteriores examinaram o
+      efeito da disponibilidade do código fonte no desenvolvimento de
+      software <citation>Com2004</citation>.</para>
 
-    <para>While access to quality source code can reduce the cost of
-      initial development, in the long-term the costs of managing
-      change begin to dominate. As computing environments change over
-      the years and new security vulnerabilities are discovered, your
-      product too needs to change and adapt. Using open-source code is
-      best viewed not as a one-off activity, but as an
-      <emphasis>ongoing process</emphasis>. The best projects to
-      collaborate with are the ones that are
-      <emphasis>live</emphasis>; i.e., with an active community, clear
-      goals and a transparent working style.</para>
-
+    <para>Embora o acesso a um código fonte de qualidade possa reduzir
+      o custo inicial de desenvolvimento, a longo prazo, os custos com
+      o gerenciamento de mudanças começam a dominar.  A medida que os
+      ambientes computacionais mudam ao longo dos anos e novas
+      vulnerabilidades de segurança são descobertas, o seu produto
+      também precisará mudar e se adaptar.  O uso de código 
+      open-source não deve ser encarado como uma atividade pontual, 
+      mas sim como um <emphasis>processo contínuo</emphasis>.  Os 
+      melhores projetos para se colaborar são os que estão 
+      <emphasis>vivos</emphasis>, ou seja, aqueles com uma 
+      comunidade ativa, que tenha objetivos claros e que possua um 
+      estilo de trabalho transparente.</para>
+    
     <itemizedlist>
       <listitem>
-        <simpara>FreeBSD has an active developer community around it.
-          At the time of writing there are many thousands of
-          contributors from every populated continent in the world and
-          over 300 individuals with write access to the project's
-          source repositories.</simpara>
+        <simpara>o FreeBSD tem uma comunidade de desenvolvimento ativa
+	  em torno dele.  No momento em que este artigo foi escrito,
+	  existiam milhares de colaboradores com representantes de
+	  praticamente todos os continentes povoados do munto, e mais
+	  de 300 indivíduos com acesso de escrita aos repositórios
+	  projeto.</simpara>
       </listitem>
       <listitem>
-        <simpara>The goals of the FreeBSD project are
-          <citation>Hub1994</citation>:</simpara>
+        <simpara>Os objetivos do projeto FreeBSD são
+	<citation>Hub1994</citation>:</simpara>
         <itemizedlist spacing="compact">
           <listitem>
-            <simpara>To develop a high-quality operating system for
-              popular computer hardware, and,</simpara>
+            <simpara>Desenvolver um sistema operacional de alta
+	    qualidade para o hardware de computadores populares,
+	    e,</simpara> 
           </listitem>
           <listitem>
-            <simpara>To make our work available to all under a liberal
-              license.</simpara>
+            <simpara>Tornar o nosso trabalho disponível para todos
+	    sob uma licença liberal.</simpara>
           </listitem>
         </itemizedlist>
       </listitem>
       <listitem>
-        <simpara>FreeBSD enjoys an open and transparent working
-          culture.  Nearly all discussion in the project happens by
-          email, on <ulink url="&a.mailman.listinfo;">public mailing
-            lists</ulink> that are also archived for posterity. The
-          project's policies are <ulink
-            url="&url.base;/internal/policies.html">documented</ulink>
-          and maintained under revision control. Participation in the
-          project is open to all.</simpara>
+        <simpara>O FreeBSD desfruta de uma cultura aberta e
+	  transparente de trabalho.  Quase todas as discussões no
+	  projeto ocorrem por e-mail, em <ulink
+	  url="&a.mailman.listinfo;">listas publicas de
+	  discussão</ulink>, que também são arquivadas para a
+	  posteridade.  As políticas do projeto são  <ulink
+	  url="&url.base;/internal/policies.html">documentadas</ulink>
+	  e mantidas sob controle de revisão.  A participação no 
+	  projeto é aberta a todos.</simpara>
       </listitem>
     </itemizedlist>
 
     <sect2 id="freebsd-org">
-      <title>Understanding FreeBSD culture</title>
+      <title>Compreendendo a cultura do FreeBSD</title>
 
-      <para>To be able to work effectively with the FreeBSD project,
-        you need to understand the project's culture.</para>
+      <para>Para ser capaz de trabalhar de forma eficaz com o projeto
+	FreeBSD, você precisa entender a cultura do projeto.</para>
 
-      <para>Volunteer driven projects operate under different rules
-        than for-profit corporates.  A common mistake that companies
-        make when venturing into the open-source world is that of
-        underplaying these differences.</para>
-
-      <!-- XXX using <formalpara> constructs is clunky, but I like using
-           <variablelist> even less -->
+      <para>As regras que regem a operação de um projeto voluntário
+	são diferentes das que regem a operação de uma empresa com 
+	fins lucrativos.  Um erro comum que as empresas cometem ao se
+	aventurar no mundo open-source é o de desvalorizar essas 
+	diferenças.</para>
+      
       <formalpara>
-        <title>Motivation</title>
+        <title>Motivação</title>
 
-        <para>Most contributions to FreeBSD are done voluntarily
-          without monetary rewards entering the picture.  The factors
-          that motivate individuals are complex, ranging from
-          altruism, to an interest in solving the kinds of problems
-          that FreeBSD attempts to solve.  In this environment,
-          <quote>elegance is never optional</quote>
-          <citation>Nor1993</citation>.</para>
+        <para>A maioria das contribuições feitas para o FreeBSD são
+	  feitas voluntariamente, sem que nenhuma recompensa 
+	  financeira esteja envolvida.  Os fatores que motivam as 
+	  pessoas são complexos, e vão desde o puro altruísmo até o 
+	  interesse comum em resolver algum tipo de problema que o 
+	  FreeBSD esteja tentando resolver. Neste tipo de ambiente, 
+	  a <quote>elegância jamais é opcional</quote>
+	  <citation>Nor1993</citation>.</para>
       </formalpara>
 
       <formalpara>
-        <title>The Long Term View</title>
-        <para>FreeBSD traces its roots back nearly twenty years to the
-          work of the Computer Science Research Group at the
-          University of California Berkeley.<footnote>
-            <simpara>FreeBSD's <ulink
-                url="http://cvsweb.freebsd.org/">source
-                repository</ulink> contains a history of the project
-              since its inception, and there are <ulink
-                url="http://www.mckusick.com/csrg/">CDROMs
-                available</ulink> that contain earlier code from the
-              CSRG.</simpara>
-          </footnote>  A number of the original CSRG developers remain
-          associated with the project.</para>
+        <title>Visão de longo prazo</title>
+        <para>O FreeBSD tem raízes de quase 20 anos para com o
+	  trabalho do Grupo de Pesquisa de Ciências da Computação da
+	  Universidade da Califórnia, Berkeley.<footnote>
+	    <simpara>O <ulink url="http://cvsweb.freebsd.org/">repositório
+	    de código fonte</ulink> do FreeBSD contém a história do
+	    projeto desde a sua concepção, e existem <ulink
+	    url="http://www.mckusick.com/csrg/">CDROMs
+	    disponíveis</ulink> que contém o código anterior do
+	    CSRG.</simpara>
+	  </footnote> Alguns dos desenvolvedores originais do CSRG 
+	  permanecem associados com o projeto.</para>
       </formalpara>
 
-      <para>The project values long-term perspectives
-        <citation>Nor2001</citation>.  A frequent acronym encountered
-        in the project is <acronym>DTRT</acronym>, which stands for
-        <quote>Do The Right Thing</quote>.</para>
-
+      <para>O projeto valoriza perspectivas de longo prazo
+	<citation>Nor2001</citation>.  Uma sigla encontrada com
+	frequência no projeto é <acronym>DTRT</acronym>, a qual
+	significa <quote>Faça a Coise Certa</quote> (<literal>Do The
+	Right Thing</literal>).</para>
+      
       <formalpara>
-        <title>Development Processes</title>
-        <para>Computer programs are tools for communication: at one
-          level programmers communicate their intentions using a
-          precise notation to a tool (a compiler) that translates
-          their instructions to executable code.  At another level,
-          the same notation is used for communication of intent
-          between two programmers.</para>
+        <title>Processo de Desenvolvimento</title>
+        <para>Programas de computador são ferramentas de comunicacão:
+	em um nível os programadores comunicam as suas intenções
+	usando uma notação precisa para uma ferramenta (um compilador)
+	que traduz as suas instruções para um código executável.  Em
+	outro nível, a mesma notação é usada para a comunicação das
+	intenções entre dois programadores.</para>
       </formalpara>
 
-      <para>Formal specifications and design documents are seldom used
-        in the project.  Clear and well-written code and well-written
-        change logs (<xref linkend="fig-change-log"/>) are used in
-        their place.  FreeBSD development happens by <quote>rough
-          consensus and running code</quote>
-        <citation>Carp1996</citation>.</para>
+      <para>Especificações formais e documentos de design raramente
+	são utilizados no projeto.  Código claro e bem escrito,
+	acompanhado de logs bem escritos para as alteraçõesdas
+	(<xref linkend="fig-change-log"/>), são usados em seu 
+	lugar.  O desenvolvimento do FreeBSD acontece por 
+	<quote>consenso áspero e por código sendo executado</quote>
+	<citation>Carp1996</citation>.</para>
 
       <figure id="fig-change-log">
-        <title>A sample change log entry</title>
+        <title>Um exemplo de entrada no log de alteração</title>
         <programlisting>
 bde         2005-10-29 16:34:50 UTC
 
@@ -692,32 +699,34 @@ bde         2005-10-29 16:34:50 UTC
         </programlisting>
       </figure>
 
-      <simpara>Communication between programmers is enhanced by the
-        use of a common coding standard &man.style.9;.</simpara>
-
+      <simpara>A comunicação entre os programadores é reforçada pelo
+	uso de um &man.style.9; padrão de codificação, comum entre
+	eles.</simpara>
+      
       <formalpara>
-        <title>Communication Channels</title>
-        <para>FreeBSD's contributors are spread across the world.
-          Email (and to a lesser extent, IRC) is the preferred means
-          of communication in the project.</para>
+        <title>Canais de Comunicação</title>
+        <para>Os colaboradores do FreeBSD estão espalhados por todo o
+	mundo.  O email (e em menor extensão, o IRC) é o meio de
+	comunicação preferido no projeto.</para>
       </formalpara>
     </sect2>
 
     <sect2>
-      <title>Best Practices for collaborating with the FreeBSD
-        project</title>
+      <title>Melhores práticas para colaborar com o projeto
+	FreeBSD.</title>
 
-      <para>We now look at a few best practices for making the best
-        use of FreeBSD in product development.</para>
-
+      <para>Agora iremos examinar algumas das melhores práticas para
+	se fazer um melhor uso do FreeBSD no desenvolvimento de
+	produtos.</para>
+      
       <variablelist>
         <varlistentry>
-          <term>Plan for the long term</term>
+          <term>Se planeje para o longo prazo</term>
           <listitem>
-            <para>Setup processes that help in tracking the development of
-              FreeBSD.  For example:</para>
+            <para>Implante processos que o ajudem a monitorar o
+	      desenvolvimento do FreeBSD.  Por exemplo:</para>
             <formalpara>
-              <title>Track FreeBSD source code</title>
+              <title>Acompanhe o código fonte do FreeBSD</title>
               <para>The project makes it easy to mirror its CVS
                 repository using <ulink
                   url="&url.articles.cvsup-advanced;"><!--
@@ -880,7 +889,7 @@ bde         2005-10-29 16:34:50 UTC
   </sect1>
 
   <sect1 id="conclusion">
-    <title>Conclusion</title>
+    <title>Conclusão</title>
     <para>The FreeBSD project's goals are to create and give away the
       source code for a high-quality operating system.  By working
       with the FreeBSD project you can reduce development costs and
