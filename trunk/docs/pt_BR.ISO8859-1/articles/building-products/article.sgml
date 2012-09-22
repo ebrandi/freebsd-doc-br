@@ -395,36 +395,38 @@
 	    <trademark>POSIX</trademark> like.</simpara>
         </listitem>
         <listitem>
-          <simpara>Advanced security features: Mandatory Access
-            Control (&man.mac.9;), jails (&man.jail.2;),
-            <acronym>ACL</acronym>s, and in-kernel
-            cryptographic device support.</simpara>
+          <simpara>Funcionalidades avançadas de segurança: Controle 
+	    de Acesso Obrigatório (&man.mac.9;), jails (&man.jail.2;),
+	    <acronym>ACL</acronym>s,e suporte no kernel a dispositivos
+	    de criptografia.</simpara>
         </listitem>
         <listitem>
-          <simpara>Advanced networking features: firewall-ing, QoS
-            management, high-performance TCP/IP networking with
-            support for many advanced features.</simpara>
-          <simpara>FreeBSD's in-kernel Netgraph  (&man.netgraph.4;)
-            framework allows kernel networking modules to be connected
-            together in flexible ways.</simpara>
+          <simpara>Funcionalidades avançadas de rede: firewalls,
+	    gerenciamento de QoS, rede TCP/IP de alta performance com
+	    suporte a muitos recursos avançados.</simpara>
+          <simpara>O framework Netgraph (&man.netgraph.4;) presente no
+	    kernel do FreeBSD, permite que os módulos de rede possam
+	    ser conectados entre si de formas flexíveis.</simpara>
         </listitem>
         <listitem>
-          <simpara>Support for advanced storage technologies: Fibre
-            Channel,  <acronym>SCSI</acronym>, software and hardware
-            RAID, <acronym>ATA</acronym> and
-            <acronym>SATA</acronym>.</simpara>
-          <simpara>FreeBSD supports a number of filesystems, and its
-            native UFS2 filesystem supports soft updates, snapshots and
-            very large filesystem sizes (16TB per filesystem)
-            <citation>McKu1999</citation>.</simpara>
-          <simpara>FreeBSD's in-kernel <acronym>GEOM</acronym> (&man.geom.4;)
-            framework allows kernel storage modules to be
-            composed in flexible ways.</simpara>
+          <simpara>Suporte para tecnologias avançadas de armazenamento
+	     Fibre Channel,  <acronym>SCSI</acronym>, RAID por
+	     software e hardware, <acronym>ATA</acronym> e
+	     <acronym>SATA</acronym>.</simpara>
+          <simpara>O FreeBSD suporta um grande numero de sistemas de
+	    arquivos, e o seu sistema de arquivos nativo UFS2 suporta
+	    <literal>soft updates</literal>,
+	    <literal>snapshots</literal> e sistemas de arquivos de
+	    tamanho muito grandes (até 16 TB por sistema de arquivos)
+	    <citation>McKu1999</citation>.</simpara>
+          <simpara>O framework <acronym>GEOM</acronym> (&man.geom.4;)
+	    presente no kernel do FreeBSD permite que módulos de
+	    armazenamento sejam compostos de forma flexível.</simpara>
         </listitem>
         <listitem>
-          <simpara>Over &os.numports; ported applications, both commercial
-            and open-source, managed via the FreeBSD ports
-            collection.</simpara>
+          <simpara>Mais de &os.numports; aplicativos portados, tanto 
+	    comerciais quanto de código aberto, gerenciados através da
+	    coleção de ports do FreeBSD.</simpara>
         </listitem>
       </itemizedlist>
     </sect2>
