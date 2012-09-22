@@ -93,7 +93,7 @@
       <para>O autor considera que as características do projeto 
 	FreeBSD mencionadas neste artigo eram substancialmente 
 	verdadeiras no momento em que o artigo foi concebido e 
-	escrito (2005). No entanto, o leitor deve ter em mente que 
+	escrito (2005).  No entanto, o leitor deve ter em mente que 
 	as práticas e processos utilizados por comunidades de código 
 	aberto podem mudar ao longo do tempo, e que portanto as 
 	informações deste artigo devem ser consideradas apenas como 
@@ -207,7 +207,7 @@
     
     <itemizedlist>
       <listitem>
-        <simpara>O código fonte do FreeBSD é distribuido sob uma
+        <simpara>O código fonte do FreeBSD é distribuído sob uma
 	  licença BSD liberal, o que facilita sua adoção em produtos
 	  comerciais com um mínimo de preocupações. 
 	  <citation>Mon2005</citation></simpara>
@@ -268,9 +268,9 @@
 	    como se beneficia dos testes que o sistema base 
 	    recebe.</simpara>
 	  
-          <simpara>O FreeBSD é distribuido com um ambiente de
+          <simpara>O FreeBSD é distribuído com um ambiente de
 	    desenvolvimento auto-hospedado o qual permite a fácil
-	    crriação de tais configurações.</simpara>
+	    criação de tais configurações.</simpara>
         </listitem>
         <listitem>
           <simpara>Como um ambiente Unix compatível para as funções de
@@ -280,7 +280,7 @@
           
 	  <simpara>O FreeBSD fornece ferramentas para a criação de 
 	    imagens do sistema operacional dedicadas a executar uma 
-	    função específica. Sua implementação da API unix BSD é 
+	    função específica.  Sua implementação da API unix BSD é 
 	    madura e testada.  O FreeBSD também pode proporcionar um 
 	    ambiente de desenvolvimento cruzado estável para os outros
 	    componentes de dispositivos topo de linha.</simpara>
@@ -297,7 +297,7 @@
 	    exposição que o código obtém ajuda na rápida 
 	    identificação de bugs e de problemas de desempenho.  O 
 	    envolvimento de desenvolvedores de alta qualidade também
-	    resulta no desenvovimento de extensões úteis para a
+	    resulta no desenvolvimento de extensões úteis para a
 	    infra-estrutura do sistema, e das quais a empresa que está
 	    contribuindo com o projeto também se beneficia.</simpara>
         </listitem>
@@ -328,7 +328,7 @@
 	    estável e bem testada da API <trademark>Unix</trademark> 
 	    pode reduzir o esforço necessário para portar aplicações 
 	    populares para um sistema operacional proprietário.  Como
-	    o FreeBSD é distribuido acompanhado de uma documentação de
+	    o FreeBSD é distribuído acompanhado de uma documentação de
 	    alta qualidade sobre a sua estrutura interna, e possui
 	    processos eficazes de engenharia para gerenciamento de
 	    vulnerabilidades e para lançamento de novas versões, os
@@ -448,7 +448,7 @@
 	concedida a pessoas que contribuem de forma consistente para o
 	projeto.  O direito de <literal>commit</literal> vem 
 	acompanhado de responsabilidades adicionais, e para facilitar
-	o aprendizado das mesmas, um mentor é atribuido a todos os 
+	o aprendizado das mesmas, um mentor é atribuído a todos os 
 	novos <literal>committers</literal>.</para>
 
       <figure>
@@ -468,7 +468,7 @@
       <para>O FreeBSD não tem <literal>committers</literal>
       	corporativos.  Os <literal>committers</literal> são obrigados
 	a assumir de forma individual a responsabilidade pelas
-	mudanças que introduzem no código. O  <ulink
+	mudanças que introduzem no código.  O <ulink
 	url="&url.articles.committers-guide;">FreeBSD Committer's
 	Guide</ulink> <citation>ComGuide</citation> documenta as
 	regras e responsabilidades que se aplicam aos
@@ -486,7 +486,7 @@
 	versão do FreeBSD desempenha um papel importante para
 	assegurar que as suas novas versões sejam de alta qualidade.
 	Em qualquer ponto do tempo, os voluntários do FreeBSD suportam
-	multiplas versões do código sistema (<xref
+	múltiplas versões do código sistema (<xref
 	linkend="fig-freebsd-branches"/>):</para>
       
       <itemizedlist>
@@ -575,9 +575,9 @@
         <simpara>o FreeBSD tem uma comunidade de desenvolvimento ativa
 	  em torno dele.  No momento em que este artigo foi escrito,
 	  existiam milhares de colaboradores com representantes de
-	  praticamente todos os continentes povoados do munto, e mais
+	  praticamente todos os continentes povoados do mundo, e mais
 	  de 300 indivíduos com acesso de escrita aos repositórios
-	  projeto.</simpara>
+	  do projeto.</simpara>
       </listitem>
       <listitem>
         <simpara>Os objetivos do projeto FreeBSD são
@@ -627,7 +627,7 @@
 	  financeira esteja envolvida.  Os fatores que motivam as 
 	  pessoas são complexos, e vão desde o puro altruísmo até o 
 	  interesse comum em resolver algum tipo de problema que o 
-	  FreeBSD esteja tentando resolver. Neste tipo de ambiente, 
+	  FreeBSD esteja tentando resolver.  Neste tipo de ambiente, 
 	  a <quote>elegância jamais é opcional</quote>
 	  <citation>Nor1993</citation>.</para>
       </formalpara>
@@ -650,7 +650,7 @@
       <para>O projeto valoriza perspectivas de longo prazo
 	<citation>Nor2001</citation>.  Uma sigla encontrada com
 	frequência no projeto é <acronym>DTRT</acronym>, a qual
-	significa <quote>Faça a Coise Certa</quote> (<literal>Do The
+	significa <quote>Faça a Coisa Certa</quote> (<literal>Do The
 	Right Thing</literal>).</para>
       
       <formalpara>
@@ -665,7 +665,7 @@
 
       <para>Especificações formais e documentos de design raramente
 	são utilizados no projeto.  Código claro e bem escrito,
-	acompanhado de logs bem escritos para as alteraçõesdas
+	acompanhado de logs bem escritos para as alterações das
 	(<xref linkend="fig-change-log"/>), são usados em seu 
 	lugar.  O desenvolvimento do FreeBSD acontece por 
 	<quote>consenso áspero e por código sendo executado</quote>
@@ -729,9 +729,9 @@ bde         2005-10-29 16:34:50 UTC
               <title>Acompanhe o código fonte do FreeBSD</title>
 		<para>O projeto facilita o espelhamento do seu
 		repositório CVS usando o <ulink
-		url="&url.articles.cvsup-advanced;">CVSup</ulink>. Ter
-		o histórico completo do código fonte é util quando se
-		está debugando problemas complexos e oferece 
+		url="&url.articles.cvsup-advanced;">CVSup</ulink>.
+		Ter o histórico completo do código fonte é útil quando
+		se está debugando problemas complexos e oferece 
 		informações valiosas sobre as intenções dos 
 		desenvolvedores originais.  Utilize um sistema de 
 		controle de código que lhe permita mesclar facilmente
@@ -825,7 +825,7 @@ bde         2005-10-29 16:34:50 UTC
 	      manutenção.  Ao doar partes não criticas do seu código
 	      para o projeto, você se beneficia por ter o seu código
 	      exposto de uma forma ampla, exposição que ele não teria
-	      de outra forma. Esta exposição por sua vez leva 
+	      de outra forma.  Esta exposição por sua vez leva 
 	      eliminação de um maior numero de bugs e de 
 	      vulnerabilidades de segurança, e permite que anomalias 
 	      de desempenho sejam identificadas e 
@@ -838,12 +838,12 @@ bde         2005-10-29 16:34:50 UTC
           <listitem>
             <simpara>Para produtos com prazos apertados, é recomendado
 	      que você contrate o suporte ou consultoria de um
-	      desenvolvedor ou empresa com experiência em FreeBSD. A
+	      desenvolvedor ou empresa com experiência em FreeBSD.  A
 	      &a.jobs; é um canal de comunicação muito útil para se
 	      encontrar talentos.  O projeto FreeBSD mantém uma <ulink
 	      url="&url.base;/commercial/consult_bycat.html">galeria
 	      de consultores e empresas de consultoria</ulink> que
-	      trabalham com FreeBSD. O <ulink
+	      trabalham com FreeBSD.  O <ulink
 	      url="http://www.bsdcertification.org/">Grupo de
 	      Certificação BSD</ulink> oferece certificação para todos
 	      os principais sistemas operacionais derivados do
@@ -859,7 +859,7 @@ bde         2005-10-29 16:34:50 UTC
         </varlistentry>
 
         <varlistentry>
-          <term>Divulge o seu envolvimento</term>
+          <term>Divulgue o seu envolvimento</term>
           <listitem>
             <simpara>Você não é obrigado a divulgar que faz uso do
 	      FreeBSD, mas ao fazê-lo você estará ajudando ambos os
@@ -885,7 +885,7 @@ bde         2005-10-29 16:34:50 UTC
 	      suportar um desenvolvedor que já esteja olhando um
 	      problema relacionado.  A ajuda pode variar de uma doação
 	      de hardware até uma assistência financeira direta.  Em
-	      alguns paises, as doações para o projeto FreeBSD
+	      alguns países, as doações para o projeto FreeBSD
 	      usufruem de benefícios fiscais.  O projeto possui um
 	      <ulink url="&url.base;/donations/">canal de comunicação
 	      dedicado</ulink> para assuntos relacionados a doações e
@@ -909,7 +909,7 @@ bde         2005-10-29 16:34:50 UTC
       fonte de um sistema operacional de alta qualidade.  Ao trabalhar
       com o projeto FreeBSD você pode reduzir os seus custos de
       desenvolvimento e melhorar o tempo necessário para lançar seus
-      novos produtos no mercado em vários cenários de desenvolvimentoi
+      novos produtos no mercado em vários cenários de desenvolvimento
       de produtos.</para>
     <para>Foram examinadas as características do FreeBSD que o tornam
       uma excelente opção na estratégia de produto de uma organização.
