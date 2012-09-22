@@ -346,13 +346,14 @@
 
       <itemizedlist>
         <listitem>
-          <simpara>A complete system that can cross-host itself for
-            the following architectures: alpha (up to &os; version 6.X), amd64, ia64, i386,
-            sparc64, powerpc (see &man.build.7;).</simpara>
+          <simpara>Um sistema completo que pode compilar a si mesmo
+	    de forma cruzada para as seguintes arquiteturas:  alpha 
+	    (até o &os; versão 6.X), amd64, ia64, i386, sparc64, 
+	    powerpc (veja &man.build.7;).</simpara>
         </listitem>
         <listitem>
-          <simpara>Support for the following technologies, protocols
-            and standards: <!-- Keyword soup. Urk. -->
+          <simpara>Suporte para as seguintes tecnologias, protocolos e
+	    padrões: <!-- Keyword soup. Urk. -->
             <acronym>ATA</acronym>, <acronym>ATAPI</acronym>,
             <acronym>ATM</acronym>, <trademark>Bluetooth</trademark>,
             <acronym>CAM</acronym>, <trademark>CardBus</trademark>,
@@ -375,22 +376,23 @@
             <trademark>WebNFS</trademark>.</simpara>
         </listitem>
         <listitem>
-          <simpara>A modular symmetric multiprocessing capable kernel,
-            with loadable kernel modules and a flexible and easy to
-            use configuration system.</simpara>
+          <simpara>Um kernel modular capaz de multiprocessamento 
+	    simétrico, com módulos de kernel carregáveis e um 
+	    sistema de configuração flexível e fácil de 
+	    usar.</simpara>
         </listitem>
         <listitem>
-          <simpara>Support for emulation of
-            <trademark>Linux</trademark> and SVR4 binaries at near
-            machine speeds.  Support for binary
-            <trademark>Windows</trademark> (<acronym>NDIS</acronym>)
-            network drivers.</simpara>
+          <simpara>Suporta a emulação de binários do Linux e do SVR4 
+	    com velocidades próximas as que você obtém executando os
+	    aplicativos de forma nativa.  Suporte para os binários dos
+	    drivers de rede do <trademark>Windows</trademark>
+	    (<acronym>NDIS</acronym>).</simpara>
         </listitem>
         <listitem>
-          <simpara>Libraries for many programming tasks: archivers,
-            FTP and HTTP support, thread support, in addition to a
-            full <trademark>POSIX</trademark> like programming
-            environment.</simpara>
+          <simpara>Bibliotecas para muitas tarefas de programação: 
+	    arquivos, suporte a FTP e HTTP, suporte a threads, além 
+	    de um ambiente completo de programação
+	    <trademark>POSIX</trademark> like.</simpara>
         </listitem>
         <listitem>
           <simpara>Advanced security features: Mandatory Access
