@@ -846,20 +846,14 @@ trunk/
 	      o arquivo <acronym>SGML</acronym> e na saída gera o mesmo arquivo
 	      (<literal>stdout</literal>) com as regras do projeto
 	      corrigidas, e com alertas que o tradutor deve estar atento.</para>
-	    <para>Outro arquivo muito útil do diretório <filename class="directory">tools/</filename>
-	      é o <filename>acentos.sed</filename>.  Ele serve como arquivo de
-	      parâmetro para o &man.sed.1;, e faz a conversão de acentos
-	      em nosso conjunto de caracteres para acentos
-	      com entidades <acronym>SGML</acronym>.  Uso obrigatório para desenvolvedores
-	      que não trabalham com editores que fazem essa
-	      conversão automaticamente como &vim; ou &emacs;.</para>
 	    
 	    <para>No diretório <filename class="directory">vim/</filename> você encontrará
 	      o mesmo conteúdo do
 	      <filename class="directory">/usr/doc/share/examples/vim</filename>
 	      em seu sistema após sincronizar a documentação.  São os
-	      arquivos e <foreignphrase>scripts</foreignphrase> usados para configurar a conversão
-	      automática de acentos no &vim;.</para>
+	      arquivos e <foreignphrase>scripts</foreignphrase> usados para configurar
+	      a indentação automatica no &vim;, mas sem a conversão de
+	      acentos automática, que não é mais nacessária.</para>
 	    
 	    <para>O diretório <filename class="directory">sandbox/</filename> dentro do
 	      módulo <filename class="directory">tools/</filename> é uma área
