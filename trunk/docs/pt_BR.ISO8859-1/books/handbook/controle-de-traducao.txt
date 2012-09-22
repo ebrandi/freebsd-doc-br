@@ -7,7 +7,7 @@ Linhas #      Capitulo       #    Responsavel , Data da Atribuição
 717    # audit               #
 885    # filesystems         #  Luiz Gustavo, 21/09/2012
 943    # l10n                #
-981    # geom                #  
+981    # geom                #  Jonas Ferreira, 21/09/2012 
 988    # jails               #  Edson Brandi, 20/09/2012
 1034   # users               #
 1048   # introduction        #  Juliana Manczenko, 18/09/2012
