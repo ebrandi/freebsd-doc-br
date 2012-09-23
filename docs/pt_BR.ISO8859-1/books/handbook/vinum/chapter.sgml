@@ -7,7 +7,12 @@
 	and Tom Rhodes <trhodes@FreeBSD.org>
 
 	For the FreeBSD Documentation Project
-	$FreeBSD$
+
+  The FreeBSD Brazilian Portuguese Documentation Project
+
+  Original revision: r39544
+
+  $FreeBSD$
 -->
 
 <chapter id="vinum-vinum">

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!--
-     The FreeBSD Documentation Project
-     $FreeBSD$
+  The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
+
+  Original revision: r39544
+
+  $FreeBSD$
 -->
 
 <chapter id="mac">
