@@ -1,10 +1,13 @@
+# The FreeBSD Documentation Project
+# The FreeBSD Brazilian Portuguese Documentation Project
 #
 # $FreeBSD$
 #
+# Original revision: r39537
+#
 # Build the FreeBSD Handbook.
 #
-
-# ------------------------------------------------------------------------
+#---------------------------------------------------------------------
 #
 # Handbook-specific variables
 #
@@ -22,14 +25,14 @@
 #                       public keyring of FreeBSD developers that can
 #                       easily be imported into PGP/GPG.
 #
-# ------------------------------------------------------------------------
+# --------------------------------------------------------------------
 #
 # To add a new chapter to the Handbook:
 #
 # - Update this Makefile, chapters.ent and book.sgml
 # - Add a descriptive entry for the new chapter in preface/preface.sgml
 #
-# ------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
 .PATH: ${.CURDIR}/../../share/sgml/glossary
 

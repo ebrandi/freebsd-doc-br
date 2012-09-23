@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!--
-     Creates entities for each chapter in the FreeBSD Handbook. Each entity
-     is named chap.foo, where foo is the value of the id attribute on that
-     chapter, and corresponds to the name of the directory in which that
-     chapter's .sgml file is stored.
+	Creates entities for each chapter in the FreeBSD Handbook. Each entity
+	is named chap.foo, where foo is the value of the id attribute on that
+	chapter, and corresponds to the name of the directory in which that
+	chapter's .sgml file is stored.
 
-     Chapters should be listed in the order in which they are referenced.
+	Chapters should be listed in the order in which they are referenced.
 
-     $FreeBSD: head/en_US.ISO8859-1/books/handbook/chapters.ent 39534 2012-09-14 12:11:19Z gabor $
+	The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
+
+  Original revision: r39534
+
+  $FreeBSD$
 -->
 
 <!ENTITY % not.published "INCLUDE">

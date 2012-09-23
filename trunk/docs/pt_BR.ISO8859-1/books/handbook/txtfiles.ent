@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!--
-     Creates entities for each .txt screenshot that is included in the
-     Handbook.
+	Creates entities for each .txt screenshot that is included in the
+	Handbook.
 
-     Each entity is named txt.dir.foo, where dir is the directory in
-     which it is stored, and foo is its filename, without the '.txt'
-     extension.
+	Each entity is named txt.dir.foo, where dir is the directory in
+  which it is stored, and foo is its filename, without the '.txt'
+  extension.
 
-     Entities should be listed in alphabetical order.
+  Entities should be listed in alphabetical order.
 
-     $FreeBSD: head/en_US.ISO8859-1/books/handbook/txtfiles.ent 39534 2012-09-14 12:11:19Z gabor $
+  The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
+
+  Original revision: r39534
+
+  $FreeBSD$
 -->
 
 <!ENTITY txt.install.adduser1	 	SYSTEM "install/adduser1.txt">

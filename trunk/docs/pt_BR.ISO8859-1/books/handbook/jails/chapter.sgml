@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!--
-    The FreeBSD Documentation Project
+  The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
 
-    $FreeBSD$
+  Original revision: r39566
+
+  $FreeBSD$
 -->
+
 <chapter id="jails">
   <chapterinfo>
     <authorgroup>
       <author>
 	<firstname>Matteo</firstname>
 	<surname>Riondato</surname>
-	<contrib>Contributed by </contrib>
+	<contrib>Contribuição de</contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -20,7 +24,7 @@
   <indexterm><primary>jails</primary></indexterm>
 
   <sect1 id="jails-synopsis">
-    <title>Synopsis</title>
+    <title>Sumário</title>
 
     <para>This chapter will provide an explanation of what &os; jails
       are and how to use them.  Jails, sometimes referred to as an
