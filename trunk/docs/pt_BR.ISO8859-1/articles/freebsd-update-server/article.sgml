@@ -259,7 +259,7 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
 	<calloutlist>
 	  <callout arearefs="sha256-id">
             <para>A chave hash &man.sha256.1; da versão, é publicada no
-            url="&url.base;/releases/">anuncio da versão</ulink>.</para>
+            <ulink url="&url.base;/releases/">anuncio da versão</ulink>.</para>
 	  </callout>
 
 	  <callout arearefs="eol-id">
@@ -369,7 +369,7 @@ world|base|/usr/lib/libalias_ftp.a
     <warning>
       <para>Durante a segunda construção, o serviço de network time
       protocol, &man.ntpd.8; é desligado. Por &a.cperciva;, atualmente
-      Chefe de Segurança do &os;, "O código do
+      Chefe de Segurança do &os;, "O código do <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
 	precisa identificar a data e hora que são armazenadas nos
 	arquivos de modo que ela pode ser ignorada quando comparando
@@ -524,7 +524,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       <filename>/etc/freebsd-update.conf</filename>, e faça as
       atualizações instruidas na sessão do Handbook <ulink
 	url="&url.books.handbook;/updating-freebsdupdate.html">Atualização
-	do &os;</ulink><para>
+	do &os;</ulink></para>
       <!-- One sentence, two instances of 'in'.  We can probably reword this
 	   part to avoid repetition. -->
       <!-- What about "place client's new keyprint and servername values to
@@ -555,7 +555,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 	url="&url.base;/security/advisories.html">aviso de segurança</ulink>
       ou uma <ulink url="&url.base;/security/notices.html">nota de
       segurança</ulink> é anunciada, uma atualização pode ser
-      construída.<para>
+      construída.</para>
 
     <para>Para este exemplo, a versão 7.1-RELEASE será usada.</para>
 
@@ -586,7 +586,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     aviso,  obtenha o arquivo necessário do <ulink 
 	url="&url.base;/security/advisories.html">Aviso de Segurança
 	do &os;</ulink>.  Mais informaçoes sobre interpretar os
-	avisos, podem ser encontradas no <ulink>
+	avisos, podem ser encontradas no <ulink
 	url="&url.books.handbook;/security-advisories.html">Handbook do &os;</ulink>.</para>
 
     <para>Na <ulink
@@ -776,7 +776,7 @@ the new builds.</screen>
     <itemizedlist>
       <listitem>
 	<para>Se uma versão personalizada for construída usando o
-	    url="&url.articles.releng;/release-build.html">procedimento</ulink>
+	  <ulink  url="&url.articles.releng;/release-build.html">procedimento</ulink>
 	  nativo do <command>make release</command>, o código do
 	  <application>freebsd-update-server</application> irá
 	  funcionar a partir da sua versão.  Por exemplo, uma versão
