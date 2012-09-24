@@ -16,7 +16,7 @@
 
 <article lang="pt_br">
   <articleinfo>
-    <title>Construa o Seu Proprio Servidor de Atualização &os;</title>
+    <title>Construa Seu Proprio Servidor de Atualização &os;</title>
 
     <author>
       <firstname>Jason</firstname>
@@ -52,7 +52,7 @@
       é escrito por &a.cperciva;, atualmente Chefe de Segurança do
       &os;.  Para usuários que acreditam que é conveniente atualizar
       seus sistemas a partir de um servidor oficial de atualização,
-      construindo seu próprio &fbus.ap; pode ajudar a estender suas
+      construir seu próprio &fbus.ap; pode ajudar a estender suas
       funcionalidades por adicionar ajustes manuais às versões
       lançadas do &os; ou por prover uma imagem local que permitirá
       atualizações mais rápidas para suas máquinas</para>
@@ -70,8 +70,8 @@
   <sect1 id="introduction">
     <title>Introdução</title>
 
-    <para>Frequentemente usuários ou administradores experiêntes são
-    responsáveus por diversas máquinas ou ambientes.  Eles entendem as
+    <para>Frequentemente usuários ou administradores experientes são
+    responsáveis por diversas máquinas ou ambientes.  Eles entendem as
     dificuldades e desafios de manter tal estrutura.  Usando um
     &fbus.ap; fica mais fácil de implantar patches de segurança e de
     softwares para máquinas de testes selecionadas antes de implantar
@@ -92,9 +92,9 @@
 	<para>Um sistema &os; instalado.</para>
 
 	<note>
-	  <para>No mínimo, as atualizações precisam ser construidas em
+	  <para>No mínimo, as atualizações precisam ser construídas em
 	  uma versão do &os; maior ou igual a versão alvo a ser
-	  construida para distruibuição.</para>
+	  construída para distribuição.</para>
 	</note>
       </listitem>
 
@@ -102,12 +102,12 @@
         <para>Uma conta de usuário com no mínimo 4&nbsp;GB de espaço
 	livre.  Isto permite a criação de atualizações para as versões
 	7.1 e 7.2, mas o espaço exato requerido pode mudar de versão
-	para versao.</para>
+	para versão.</para>
       </listitem>
 
       <listitem>
         <para>Uma conta &man.ssh.1; em uma máquina remota para enviar
-	as atualizações a serem distribuidas.</para>
+	as atualizações a serem distribuídas.</para>
       </listitem>
 
       <listitem>
@@ -127,14 +127,14 @@
   </sect1>
 
   <sect1 id="Configuration">
-    <title>Configuration: Installation &amp; Setup</title>
+    <title>Instalação &amp; Configuração</title>
 
     <para>Faça o download do software <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
       no formato <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/freebsd-update-server.tar.gz?tarball=1">arquivo tar</ulink>,
-      ou use &man.csup.1; e o acervo <literal>projects-all</literal>
-      .</para>
+      ou use &man.csup.1; e o acervo
+      <literal>projects-all</literal>.</para>
 
     <para>Atualize o <filename>scripts/build.conf</filename> de forma adequada.
       Ele é usado durante as operações de construção.</para>
@@ -180,7 +180,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
 	usada.</para>
 
         <para>Customizações do código da
-        <function>fetchiso()</function> pode ser feitas por copiar o
+        <function>fetchiso()</function> podem ser feitas por copiar o
         script padrão <filename>build.subr</filename> para o
         local da sua versão e arquitetura específica
         <filename>scripts/VERSÃO/ARQUITETURA/build.subr</filename> e
@@ -190,7 +190,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
       <callout arearefs="buildhost-id">
         <para>O nome do computador que fará a construção.  Esta
 	informação será exibida durante a atualização dos
-	sistemas</para>
+	sistemas:</para>
 
         <screen>&prompt.user; <userinput>uname -v</userinput></screen>
       </callout>
@@ -199,7 +199,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
         <para> A chave <application>SSH</application> para enviar os
 	arquivos para o servidor de atualização.  O par de chaves pode
 	ser criado digitando <command>ssh-keygen -t dsa</command>.
-	Este parametro é opcional; a autenticação por senha será usada
+	Este parâmetro é opcional; a autenticação por senha será usada
 	como método de autenticação quando <literal>SSHKEY</literal>
 	não for definida.</para>
 
@@ -219,7 +219,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
       </callout>
     </calloutlist>
 
-    <para>O arquivo padrão <filename>build.conf</filename> distribuido
+    <para>O arquivo padrão <filename>build.conf</filename> distribuído
     com o fonte do <application>freebsd-update-server</application>
     está preparado para construir a versão &arch.i386; do &os;.  Como
     um exemplo para construir um servidor de atualização para outras
@@ -284,7 +284,7 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
     <para>O primeiro passo é executar
     <filename>scripts/make.sh</filename>.  Isto irá construir alguns
     binarários, criar diretórios, e gerar uma chave de assinatura RSA
-    usada para aprovar as contruções.  Neste passo, uma senha deverá
+    usada para aprovar as construções.  Neste passo, uma senha deverá
     ser fornecida para terminar a criação da chave de
     assinatura.</para>
 
@@ -309,9 +309,10 @@ enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:</screen>
 
     <note>
-      <para>Deixe anotado a impressão digital gerada da chave.  Ela é
-      necessária no <filename>/etc/freebsd-update.conf</filename> para
-      as atualizações de binários.</para>
+      <para>Deixe anotado a impressão digital (fingerprint) gerada da
+      chave.  Ela é necessária no
+      <filename>/etc/freebsd-update.conf</filename> para as
+      atualizações de binários.</para>
     </note>
 
     <para>Neste ponto, nós estamos prontos para a etapa de construção.</para>
@@ -450,7 +451,7 @@ to sign the release.</screen>
 
     <para>Aprove a construção se tudo estiver correto.  Mais
     informações podem ser encontradas no arquivo do código fonte
-    distribuido <filename>USAGE</filename>.  Execute o
+    distribuído <filename>USAGE</filename>.  Execute o
     <filename>scripts/approve.sh</filename>.  Isto irá assinar a
     versão, e move-la para uma área preparada para envio.</para>
 
@@ -475,7 +476,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </informalexample>
 
     <note>
-      <para>Caso a versão precise ser re-enviada, isto pode ser feito
+      <para>Caso a versão precise ser reenviada, isto pode ser feito
       por entrar no diretório público de distribuição para a versão
       desejada e atualizando os atributos do arquivo
       <emphasis>uploaded</emphasis>.</para>
@@ -491,7 +492,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 
 <!-- there are specific web instructions in the uploaded code that pertain to Apache. I believe it is worded fine here, now, and if others choose to use another web server, that is their choice to figure out -->
     <para>Os arquivos enviados precisam ficar na raiz do servidor web
-    para que as atualizações sejam distribuidas.  A exata configuração
+    para que as atualizações sejam distribuídas.  A exata configuração
     dependerá do servidor web usado.  Para o servidor web
     <application>Apache</application>, por favor acesse a sessão do
     Handbook 
@@ -522,7 +523,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     <para>Atualize o <literal>KeyPrint</literal> e
       <literal>ServerName</literal> no arquivo
       <filename>/etc/freebsd-update.conf</filename>, e faça as
-      atualizações instruidas na sessão do Handbook <ulink
+      atualizações instruídas na sessão do Handbook <ulink
 	url="&url.books.handbook;/updating-freebsdupdate.html">Atualização
 	do &os;</ulink></para>
       <!-- One sentence, two instances of 'in'.  We can probably reword this
@@ -536,10 +537,10 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       <para>Para o &fbus.ap; funcionar corretamente, atualizações para
       a versão <emphasis>atual</emphasis> e para a versão
       <emphasis>alvo da atualização</emphasis> precisam ser
-      construidas.  Isto é necessário para determinar os arquivos que
+      construídas.  Isto é necessário para determinar os arquivos que
       diferem entre as versões.  Por exemplo, quando atualizar o &os;
       da versao 7.1-RELEASE para a versão 7.2-RELEASE, as atualizações
-      para as duas versões deverão ser construidas e enviadas para o
+      para as duas versões deverão ser construídas e enviadas para o
       seu servidor de atualizações.</para>
     </important>
 
@@ -585,14 +586,14 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     <para>Como exemplo, pegue o patch para &man.named.8;.  Leia o
     aviso,  obtenha o arquivo necessário do <ulink 
 	url="&url.base;/security/advisories.html">Aviso de Segurança
-	do &os;</ulink>.  Mais informaçoes sobre interpretar os
+	do &os;</ulink>.  Mais informações sobre interpretar os
 	avisos, podem ser encontradas no <ulink
 	url="&url.books.handbook;/security-advisories.html">Handbook do &os;</ulink>.</para>
 
     <para>Na <ulink
 	url="http://security.freebsd.org/advisories/FreeBSD-SA-09:12.bind.asc">nota de segurança</ulink>,
       este aviso é chamado de <literal>SA-09:12.bind</literal>.
-      Depois de fazer o download do arquio, é necessário renomeá-lo
+      Depois de fazer o download do arquivo, é necessário renomeá-lo
       para o nível correto do patch.  É recomendado manter
       consistência com os níveis oficiais de patch do &os;, mas o nome
       pode ser escolhido livremente.  Para esta construção, vamos
@@ -614,7 +615,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </note>
 
     <warning>
-      <para>É da responsabilidade do administrador do &fbus.ap; para
+      <para>É da responsabilidade do administrador do &fbus.ap;
       tomar as devidas ações para verificar a autenticidade de cada
       patch.</para>
     </warning>
@@ -725,7 +726,7 @@ files to confirm that they look sensible, then run
 to sign the build.</screen>
 
     <para>Siga o mesmo processo observado anteriormente para aprovar a
-    construção</para>
+    construção:</para>
 
     <screen>&prompt.root; <userinput>sh -e scripts/approve.sh amd64 7.1-RELEASE</userinput>
 Wed Aug 26 12:50:06 PDT 2009 Signing build for FreeBSD/amd64 7.1-RELEASE
@@ -754,7 +755,7 @@ the new builds.</screen>
   </sect1>
 
   <sect1 id="tips">
-    <title>Tips</title>
+    <title>Dicas</title>
 
     <!-- These are nice tips, but there are only a few of them and they need a
 	 bit of rewording to make sense.  I'd like to see something that
@@ -782,8 +783,8 @@ the new builds.</screen>
 	  funcionar a partir da sua versão.  Por exemplo, uma versão
 	  sem o ports ou a documentação pode ser construída por limpar
 	  as funcionalidades pertencentes às subrotinas de
-	  documentação <function>findextradocs ()</function>,
-	  <function>addextradocs ()</function> e por alterar o local de
+	  documentação <function>findextradocs()</function>,
+	  <function>addextradocs()</function> e por alterar o local de
 	  download na <function>fetchiso ()</function>,
 	  respectivamente, em <filename>scripts/build.subr</filename>.
 	  Em um último passo, mude o hash &man.sha256.1; em
