@@ -55,7 +55,7 @@
       construir seu próprio &fbus.ap; pode ajudar a estender suas
       funcionalidades por adicionar ajustes manuais às versões
       lançadas do &os; ou por prover uma imagem local que permitirá
-      atualizações mais rápidas para suas máquinas</para>
+      atualizações mais rápidas para suas máquinas.</para>
   </abstract>
 
   <sect1 id="acknowledgments">
@@ -70,7 +70,7 @@
   <sect1 id="introduction">
     <title>Introdução</title>
 
-    <para>Frequentemente usuários ou administradores experientes são
+    <para>Frequentemente usuários experientes ou administradores são
       responsáveis por diversas máquinas ou ambientes.  Eles entendem as
       dificuldades e desafios de manter tal estrutura.  Usando um
       &fbus.ap; fica mais fácil de implantar patches de segurança e de
@@ -92,9 +92,9 @@
 	<para>Um sistema &os; instalado.</para>
 
 	<note>
-	  <para>No mínimo, as atualizações precisam ser construídas em
+	  <para>No mínimo, as atualizações precisam ser compiladas em
 	    uma versão do &os; maior ou igual a versão alvo a ser
-	    construída para distribuição.</para>
+	    distribuída.</para>
 	</note>
       </listitem>
 
@@ -113,8 +113,8 @@
       <listitem>
 	<para>Um servidor web, como <ulink
 	  url="&url.books.handbook;/network-apache.html">Apache</ulink>,
-          com mais da metade do espaço necessário para a construção.
-	  Por exemplo, construções testes para 7.1 e 7.2 consomem um
+          com mais da metade do espaço necessário para a compialação.
+	  Por exemplo, compilações testes para 7.1 e 7.2 consomem um
 	  espaço total de 4&nbsp;GB, e usam 2.6&nbsp;GB para
 	  distribuir essas atualizações.</para>
       </listitem>
@@ -131,14 +131,14 @@
 
     <para>Faça o download do software <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
-      no formato <ulink
+      como um <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/freebsd-update-server.tar.gz?tarball=1">arquivo tar</ulink>,
       ou use &man.csup.1; e o acervo
       <literal>projects-all</literal>.</para>
 
     <para>Atualize o <filename>scripts/build.conf</filename> de forma
       adequada.  Ele é usado durante as operações de
-      construção.</para>
+      compilação.</para>
 
     <para>Aqui está o <filename>build.conf</filename> padrão, que
       deverá ser modificado para se adequar ao seu ambiente.</para>
@@ -169,11 +169,11 @@ MASTERACCT=builder@wadham.daemonology.net<co id="mstacct-id"/>
 MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
     </informalexample>
 
-    <para>Paramentros que devem ser considerados:</para>
+    <para>Parâmentros que devem ser considerados:</para>
 
     <calloutlist>
       <callout arearefs="ftp-id">
-        <para>Este é o local de onde serão feito os downloads das
+        <para>Este é o local de onde serão feitos os downloads das
 	  imagens ISO (pela sub-rotina <function>fetchiso()</function>
 	  do <filename>scripts/build.subr</filename>).  O local a ser
 	  configurado não é limitado a URIs de FTP.  Qualquer URI
@@ -181,15 +181,15 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
 	  usada.</para>
 
         <para>Customizações do código da
-          <function>fetchiso()</function> podem ser feitas por copiar
+          <function>fetchiso()</function> podem ser feitas copiando
           o script padrão <filename>build.subr</filename> para o
           local da sua versão e arquitetura específica
-          <filename>scripts/VERSÃO/ARQUITETURA/build.subr</filename> e
+          <filename>scripts/RELEASE/ARCHITECTURE/build.subr</filename> e
           alterando o arquivo.</para>
       </callout>
 
       <callout arearefs="buildhost-id">
-        <para>O nome do computador que fará a construção.  Esta
+        <para>O nome do computador que fará a compilação.  Esta
 	  informação será exibida durante a atualização dos
 	  sistemas:</para>
 
@@ -222,14 +222,14 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
 
     <para>O arquivo padrão <filename>build.conf</filename> distribuído
       com o fonte do <application>freebsd-update-server</application>
-      está preparado para construir a versão &arch.i386; do &os;.
-      Como um exemplo para construir um servidor de atualização para
+      está preparado para compilar a versão &arch.i386; do &os;.
+      Como um exemplo para compilar um servidor de atualização para
       outras arquiteturas, as seguintes modificações são necessárias
       para a arquitetura &arch.amd64;:</para>
 
     <procedure>
       <step>
-	<para>Crie um ambiente de construção para o
+	<para>Crie um ambiente de compilação para o
 	  &arch.amd64;:</para>
 
 	<informalexample>
@@ -239,7 +239,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
 
       <step>
         <para>Copie o arquivo <filename>build.conf</filename> no
-	  diretório recém criado.  As configurações de construção para
+	  diretório recém criado.  As configurações de compilação para
 	  o &os; 7.2-RELEASE na arquitetura &arch.amd64; devem ser
 	  similares a:</para>
 
@@ -262,7 +262,7 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
 	  <callout arearefs="sha256-id">
             <para>A chave hash &man.sha256.1; da versão, é publicada
               no <ulink
-		url="&url.base;/releases/">anuncio da versão</ulink>.</para>
+		url="&url.base;/releases/">anúncio da versão</ulink>.</para>
 	  </callout>
 
 	  <callout arearefs="eol-id">
@@ -285,9 +285,9 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
     <title>Construindo a Atualização</title>
 
     <para>O primeiro passo é executar
-      <filename>scripts/make.sh</filename>.  Isto irá construir alguns
-      binarários, criar diretórios, e gerar uma chave de assinatura
-      RSA usada para aprovar as construções.  Neste passo, uma senha
+      <filename>scripts/make.sh</filename>.  Isto irá compilar alguns
+      binários, criar diretórios, e gerar uma chave de assinatura
+      RSA usada para aprovar as compilações.  Neste passo, uma senha
       deverá ser fornecida para terminar a criação da chave de
       assinatura.</para>
 
@@ -312,14 +312,14 @@ enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:</screen>
 
     <note>
-      <para>Deixe anotado a impressão digital (fingerprint) gerada da
+      <para>Deixe anotada a impressão digital (fingerprint) gerada da
         chave.  Ela é necessária no
         <filename>/etc/freebsd-update.conf</filename> para as
         atualizações de binários.</para>
     </note>
 
     <para>Neste ponto, nós estamos prontos para a etapa de
-      construção.</para>
+      compilação.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -368,20 +368,22 @@ world|base|/usr/lib/libalias_dummy.a
 world|base|/usr/lib/libalias_ftp.a
 ...</screen>
 
-    <para>Então a construção da base do sistema é feita novamente, com
+    <para>Então a compilação da base do sistema é feita novamente, com
       os patches.  Uma explicação mais detalhada pode ser encontrada
       em <filename>scripts/build.subr</filename>.</para>
 
     <warning>
-      <para>Durante a segunda construção, o serviço de network time
-        protocol, &man.ntpd.8; é desligado.  Por &a.cperciva;, a
-	atualmente Chefe de Segurança do &os;, "O código do <ulink
+      <para>Durante a segunda compilação, o serviço de network time
+        protocol, &man.ntpd.8; é desligado.  Por &a.cperciva;,
+	atualmente Chefe de Segurança do &os;, "o <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
-	precisa identificar a data e hora que são armazenadas nos
-	arquivos de modo que ela pode ser ignorada quando comparando
-	versões para determinar quais arquivos precisam ser
-	atualizados.  Esta procura por data e hora funciona por fazer
-	duas construções 400 dias separados e comparando os
+	compila códigos necessários para identificar os
+	<literal>timestamps</literal> que são armazenadas em arquivos,
+	de modo que estes últimos podem ser ignorados quando
+	comparando compilações para determinar quais arquivos precisam
+	ser atualizados.  Esta procura por
+	<literal>timestamp</literal> funciona realizando duas
+	compilações separadas por 400 dias e comparando os
 	resultados."</para>
     </warning>
 
@@ -419,7 +421,7 @@ world|base|/usr/lib/libalias_dummy.a
 world|base|/usr/lib/libalias_ftp.a
 ...</screen>
 
-    <para>Finalmente, a construção termina.</para>
+    <para>Finalmente, a compilação termina.</para>
 
     <screen>Values of build stamps, excluding library archive headers:
 v1.2 (Aug 25 2009 00:40:36)
@@ -454,11 +456,12 @@ they look sensible, then run
 # sh -e approve.sh amd64 7.2-RELEASE
 to sign the release.</screen>
 
-    <para>Aprove a construção se tudo estiver correto.  Mais
-      informações podem ser encontradas no arquivo do código fonte
-      distribuído <filename>USAGE</filename>.  Execute o
+    <para>Aprove a compilação se tudo estiver correto.  Mais
+      informações sobre como determinar isso podem ser encontradas no
+      arquivo chamado <filename>USAGE</filename>, distribuído com o
+      código fonte.  Execute o
       <filename>scripts/approve.sh</filename>.  Isto irá assinar a
-      versão, e move-la para uma área preparada para envio.</para>
+      versão, e movê-la para uma área preparada para envio.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -482,7 +485,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 
     <note>
       <para>Caso a versão precise ser reenviada, isto pode ser feito
-	por entrar no diretório público de distribuição para a versão
+	entrando no diretório público de distribuição para a versão
         desejada e atualizando os atributos do arquivo
         <emphasis>uploaded</emphasis>.</para>
 
@@ -499,7 +502,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     <para>Os arquivos enviados precisam ficar na raiz do servidor web
       para que as atualizações sejam distribuídas.  A exata configuração
       dependerá do servidor web usado.  Para o servidor web
-      <application>Apache</application>, por favor acesse a sessão do
+      <application>Apache</application>, por favor, acesse a sessão do
       Handbook <ulink
 	url="&url.books.handbook;/network-apache.html">Configuração do
       servidor Apache</ulink>.</para>
@@ -541,10 +544,10 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       <para>Para o &fbus.ap; funcionar corretamente, atualizações para
         a versão <emphasis>atual</emphasis> e para a versão
         <emphasis>alvo da atualização</emphasis> precisam ser
-        construídas.  Isto é necessário para determinar os arquivos
+        compiladas.  Isto é necessário para determinar os arquivos
 	que diferem entre as versões.  Por exemplo, quando atualizar o
-	&os; da versao 7.1-RELEASE para a versão 7.2-RELEASE, as
-	atualizações para as duas versões deverão ser construídas e
+	&os; da versão 7.1-RELEASE para a versão 7.2-RELEASE, as
+	atualizações para as duas versões deverão ser compiladas e
 	enviadas para o seu servidor de atualizações.</para>
     </important>
 
@@ -554,27 +557,27 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
   </sect1>
 
   <sect1 id="patch">
-    <title>Construindo um Patch</title>
+    <title>Compilando um Patch</title>
 
     <para>Toda vez que um <ulink
 	url="&url.base;/security/advisories.html">aviso de segurança</ulink>
       ou uma <ulink url="&url.base;/security/notices.html">nota de
       segurança</ulink> é anunciada, uma atualização pode ser
-      construída.</para>
+      compilada.</para>
 
     <para>Para este exemplo, a versão 7.1-RELEASE será usada.</para>
 
-    <para>Algumas suposições são feitas para a construção de uma
+    <para>Algumas suposições são feitas para a compilação de uma
       versão diferente:</para>
 
     <itemizedlist>
       <listitem>
-        <para>Crie a estrutura correta de diretório para a construção
+        <para>Crie a estrutura correta de diretório para a compilação
 	  inicial.</para>
       </listitem>
 
       <listitem>
-	<para>Faça a construção inicial para a 7.1-RELEASE</para>
+	<para>Faça a compilação inicial para a 7.1-RELEASE</para>
       </listitem>
     </itemizedlist>
 
@@ -600,8 +603,8 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       Depois de fazer o download do arquivo, é necessário renomeá-lo
       para o nível correto do patch.  É recomendado manter
       consistência com os níveis oficiais de patch do &os;, mas o nome
-      pode ser escolhido livremente.  Para esta construção, vamos
-      seguir a pratica atual do &os; e chamá-lo de
+      pode ser escolhido livremente.  Para esta compilação, vamos
+      seguir a prática atual do &os; e chamá-lo de
       <literal>p7</literal>.  Renomeie o arquivo:</para>
 
     <informalexample>
@@ -609,13 +612,14 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </informalexample>
 
     <note>
-      <para>Quando executando uma construção de nível de patch, é
-	assumido que os patches anteriores estão no lugar.
-        Quando uma construção de patch é executada, ela vai executar
+      <para>Quando executando uma compilação de nível de patch, é
+	assumido que os patches anteriores estão no lugar mesmo.
+        Quando uma compilação de patch é executada, ela vai executar
         todos os patches contidos no diretório do patch.</para>
 
-      <para>Pode ser adicionados patches personalizados na construção.
-        Use o número zero, ou qualquer outro número.</para>
+      <para>Podem ser adicionados patches personalizados na
+        Compilação.  Use o número zero, ou qualquer outro
+	número.</para>
     </note>
 
     <warning>
@@ -634,8 +638,8 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 &prompt.root; <userinput>sh scripts/diff.sh <replaceable>amd64 7.1-RELEASE 7</replaceable></userinput></screen>
     </informalexample>
 
-    <para>O que segue é um exemplo de uma construção
-      <emphasis>diferencial</emphasis> executada.</para>
+    <para>O que segue é um exemplo da execução de uma compilação
+      <emphasis>diferencial</emphasis>.</para>
 
     <screen>&prompt.root; <userinput>sh -e scripts/diff.sh amd64 7.1-RELEASE 7</userinput>
 Wed Aug 26 10:09:59 PDT 2009 Extracting world+src for FreeBSD/amd64 7.1-RELEASE-p7
@@ -730,7 +734,7 @@ files to confirm that they look sensible, then run
 to sign the build.</screen>
 
     <para>Siga o mesmo processo observado anteriormente para aprovar a
-      construção:</para>
+      compilação:</para>
 
     <screen>&prompt.root; <userinput>sh -e scripts/approve.sh amd64 7.1-RELEASE</userinput>
 Wed Aug 26 12:50:06 PDT 2009 Signing build for FreeBSD/amd64 7.1-RELEASE
@@ -745,7 +749,7 @@ ready to be uploaded.  Remember to run
 to unmount the decrypted key once you have finished signing all
 the new builds.</screen>
 
-    <para>Depois de aprovar a construção, faça o envio do
+    <para>Depois de aprovar a compilação, faça o envio do
       software:</para>
 
     <informalexample>
@@ -780,20 +784,20 @@ the new builds.</screen>
 <!-- this tip will allow you to maintain a custom release and custom kernel, and update it like any other binary update -->
     <itemizedlist>
       <listitem>
-	<para>Se uma versão personalizada for construída usando o
+	<para>Se uma versão personalizada for compilada usando o
 	  <ulink url="&url.articles.releng;/release-build.html">procedimento</ulink>
 	  nativo do <command>make release</command>, o código do
 	  <application>freebsd-update-server</application> irá
 	  funcionar a partir da sua versão.  Por exemplo, uma versão
-	  sem o ports ou a documentação pode ser construída por limpar
-	  as funcionalidades pertencentes às subrotinas de
-	  documentação <function>findextradocs()</function>,
-	  <function>addextradocs()</function> e por alterar o local de
+	  sem o ports ou a documentação pode ser compilada limpando
+	  as funcionalidades pertencentes às sub-rotinas de
+	  documentação <function>findextradocs ()</function>,
+	  <function>addextradocs ()</function> e por alterar o local de
 	  download na <function>fetchiso ()</function>,
 	  respectivamente, em <filename>scripts/build.subr</filename>.
 	  Em um último passo, mude o hash &man.sha256.1; em
 	  <filename>build.conf</filename> na sua respectiva versão e
-	  arquitetura e então você está pronto para construir sua
+	  arquitetura e então você está pronto para compilar sua
 	  versão personalizada.</para>
 
 	<screen># Compare ${WORKDIR}/release and ${WORKDIR}/$1, identify which parts
@@ -816,7 +820,7 @@ the new builds.</screen>
 	  <filename>scripts/build.subr</filename> pode acelerar o
 	  processo dependendo do hardware usado, entretanto não é
 	  necessário.  Usar essa opção em outras etapas não é
-	  recomendado, pois pode fazer a construção ficar
+	  recomendado, pois pode fazer a compilação ficar
 	  instável.</para>
 
 	<screen>               # Build the world
