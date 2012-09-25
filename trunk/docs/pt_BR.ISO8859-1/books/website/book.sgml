@@ -462,6 +462,26 @@
 	código do FreeBSD em appliances e softwares. Ele também 
 	destaca as características do FreeBSD, que o tornam uma 
 	excelente base para o desenvolvimento de produtos.</para>
+
+      <para>Está em conformidade com a revisão
+      <literal>r39544</literal>  do documento original em
+      Inglês.</para>
+
+      </step>
+
+      <step>
+	<title><ulink
+	url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/freebsd-update-server/">Construa
+	Seu Próprio Servidor de Atualização do FreeBSD</ulink></title>
+	
+	<para>Este artigo descreve como construir um Servidor de
+	  atualização do FreeBSD para uso interno na sua
+	  organização.</para>
+	
+	<para>Está em conformidade com a revisão
+	<literal>r39544</literal>  do documento original em
+	Inglês.</para>
+
       </step>
 
       </procedure>
