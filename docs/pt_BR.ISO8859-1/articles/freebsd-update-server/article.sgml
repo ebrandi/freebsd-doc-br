@@ -3,7 +3,7 @@
         "../../../share/sgml/freebsd42.dtd" [
 <!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT" "../../share/sgml/entities.ent">
 %entities;
-<!ENTITY fbus.ap "<application>Servidor de Atualização FreeBSD</application>">
+<!ENTITY fbus.ap "<application>Servidor de Atualização do FreeBSD</application>">
 ]>
 
 <!--
@@ -16,7 +16,7 @@
 
 <article lang="pt_br">
   <articleinfo>
-    <title>Construa Seu Proprio Servidor de Atualização &os;</title>
+    <title>Construa Seu Próprio Servidor de Atualização do &os;</title>
 
     <author>
       <firstname>Jason</firstname>
@@ -46,39 +46,42 @@
   </articleinfo>
 
   <abstract>
-    <para>Este artigo descreve como construir um &fbus.ap;.
-      O software <ulink
+    <para>Este artigo descreve como construir um &fbus.ap; para uso
+      interno na sua organização.  O software <ulink
       url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
-      é escrito por &a.cperciva;, atualmente Chefe de Segurança do
+      foi escrito pelo &a.cperciva;, atualmente Chefe de Segurança do
       &os;.  Para usuários que acreditam que é conveniente atualizar
       seus sistemas a partir de um servidor oficial de atualização,
-      construir seu próprio &fbus.ap; pode ajudar a estender suas
-      funcionalidades por adicionar ajustes manuais às versões
-      lançadas do &os; ou por prover uma imagem local que permitirá
-      atualizações mais rápidas para suas máquinas.</para>
+      construir o seu próprio &fbus.ap; pode ajudá-lo a estender suas
+      funcionalidades, seja por adicionar suporte a versões 
+      customizadas do &os; ou por viabilizar a criação de um servidor
+      local o qual permitirá atualizações mais rápidas caso você 
+      possua muitos servidores para atualizar.</para>
   </abstract>
 
   <sect1 id="acknowledgments">
     <title>Agradecimentos</title>
-      <para>Este artigo foi originalmente publicado em <ulink
-	  url="http://www.experts-exchange.com/OS/Unix/BSD/FreeBSD/A_1941-Build-Your-Own-FreeBSD-Update-Server.html">Experts Exchange</ulink>,
-	e depois impresso na <ulink
-	  url="http://bsdmag.org/magazine/1021-bsd-as-a-desktop">BSD
-	  Magazine</ulink>.</para>
+      <para>Este artigo foi originalmente publicado na <ulink
+	url="http://www.experts-exchange.com/OS/Unix/BSD/FreeBSD/A_1941-Build-Your-Own-FreeBSD-Update-Server.html">Experts 
+	Exchange</ulink>, e posteriormente impresso na <ulink
+	url="http://bsdmag.org/magazine/1021-bsd-as-a-desktop">BSD
+	Magazine</ulink>.</para>
   </sect1>
 
   <sect1 id="introduction">
     <title>Introdução</title>
 
-    <para>Frequentemente usuários experientes ou administradores são
-      responsáveis por diversas máquinas ou ambientes.  Eles entendem as
-      dificuldades e desafios de manter tal estrutura.  Usando um
-      &fbus.ap; fica mais fácil de implantar patches de segurança e de
-      softwares para máquinas de testes selecionadas antes de implantar
-      em produção.  Isto também significa que um número de sistemas
-      podem ser atualizados a partir da rede local em vez de usar uma
-      conexão de internet potencialmente lenta.  Este artigo descreve as
-      etapas envolvidas na criação de um &fbus.ap;.</para>
+    <para>Usuários experientes ou administradores são frequentemente
+      responsáveis por diversas máquinas ou ambientes.  Eles entendem
+      as dificuldades e os desafios de manter tal estrutura.  A
+      utilização de um &fbus.ap; torna mais fácil a tarefa de 
+      implantar patches de segurança e de softwares nas máquinas 
+      selecionadas para testá-los antes proceder com o seu deploy no 
+      ambiente de produção.  Isto também significa que seus servidores
+      poderão ser atualizados a partir da rede local em vez de 
+      utilizarem sua conexão de internet, o que torna o processo muito
+      mais rápido.  Este artigo descreve as etapas envolvidas na 
+      criação de um &fbus.ap; para uso interno.</para>
   </sect1>
 
   <sect1 id="prerequisites">
@@ -89,7 +92,7 @@
 
     <itemizedlist>
       <listitem>
-	<para>Um sistema &os; instalado.</para>
+	<para>Estar executando o &os;.</para>
 
 	<note>
 	  <para>No mínimo, as atualizações precisam ser compiladas em
@@ -99,19 +102,20 @@
       </listitem>
 
       <listitem>
-        <para>Uma conta de usuário com no mínimo 4&nbsp;GB de espaço
-	  livre.  Isto permite a criação de atualizações para as versões
-	  7.1 e 7.2, mas o espaço exato requerido pode mudar de versão
-	  para versão.</para>
+        <para>Ter acesso a uma conta de usuário com no mínimo 
+	  4&nbsp;GB de espaço livre.  Isto permite a criação de 
+	  atualizações para as versões 7.1 e 7.2, mas o espaço exato 
+	  requerido pode mudar de versão para versão.</para>
       </listitem>
 
       <listitem>
-        <para>Uma conta &man.ssh.1; em uma máquina remota para enviar
-	  as atualizações a serem distribuídas.</para>
+        <para>Ter acesso a uma conta &man.ssh.1; em uma máquina 
+	  remota para enviar as atualizações a serem 
+	  distribuídas.</para>
       </listitem>
 
       <listitem>
-	<para>Um servidor web, como <ulink
+	<para>Possuir um servidor web, como <ulink
 	  url="&url.books.handbook;/network-apache.html">Apache</ulink>,
           com mais da metade do espaço necessário para a compialação.
 	  Por exemplo, compilações testes para 7.1 e 7.2 consomem um
@@ -120,8 +124,8 @@
       </listitem>
 
       <listitem>
-        <para>Conhecimento básico de shell script com o Bourne shell,
-	  &man.sh.1;</para>
+        <para>Ter conhecimento básico de shell script com o Bourne 
+	  shell, &man.sh.1;</para>
       </listitem>
     </itemizedlist>
   </sect1>
