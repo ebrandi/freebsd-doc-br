@@ -9,52 +9,54 @@
 -->
 
 <chapter id="boot">
-  <title>The FreeBSD Booting Process</title>
+  <title>O Processo de Inicialização do FreeBSD</title>
 
   <sect1 id="boot-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
     <indexterm><primary>booting</primary></indexterm>
     <indexterm><primary>bootstrap</primary></indexterm>
 
-    <para>The process of starting a computer and loading the operating
-      system is referred to as <quote>the bootstrap process</quote>,
-      or simply <quote>booting</quote>.  FreeBSD's boot process
-      provides a great deal of flexibility in customizing what happens
-      when you start the system, allowing you to select from different
-      operating systems installed on the same computer, or even
-      different versions of the same operating system or installed
-      kernel.</para>
+    <para>O processo de iniciar um computador e seu sistema
+      operacional é referido como <quote>o processo de
+      inicialização</quote>, ou simplesmente
+      <quote>inicialização</quote>.  O processo de inicialização do
+      FreeBSD oferece uma grande flexibilidade na personalização do
+      que acontece quando você inicia o sistema, permitindo você
+      selecionar diferentes sistemas operacionais instalados no mesmo
+      computador, ou mesmo versões diferentes do mesmo sistema
+      operacional ou kernel instalado.</para>
 
-    <para>This chapter details the configuration options you can set
-      and how to customize the FreeBSD boot process.  This includes
-      everything that happens until the FreeBSD kernel has started,
-      probed for devices, and started &man.init.8;.  If you are not
-      quite sure when this happens, it occurs when the text color
-      changes from bright white to grey.</para>
+    <para>Este capítulo detalha as opções de configurações que você
+      pode configurar e como personalizar o processo de inicialização
+      do FreeBSD.  Isso inclui tudo o que acontece até que o kernel do
+      FreeBSD tenha iniciado, procurado por dispositivos e iniciado o
+      &man.init.8;.  Se você não tem certeza de quando isso acontece,
+      isso ocorre quando a cor do texto muda de branco brilhante para
+      cinza.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Depois de ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>What the components of the FreeBSD bootstrap system are,
-	  and how they interact.</para>
+	<para>O que são os componentes de inicialização do FreeBSD, e
+	  como eles interagem.</para>
       </listitem>
 
       <listitem>
-	<para>The options you can give to the components in the
-	  FreeBSD bootstrap to control the boot process.</para>
+	<para>As opções que você pode passar para os componentes na
+	  inicialização do FreeBSD para controlar o processo.</para>
       </listitem>
 
       <listitem>
-	<para>The basics of &man.device.hints.5;.</para>
+	<para>Os princípios do &man.device.hints.5;.</para>
       </listitem>
     </itemizedlist>
 
     <note>
-      <title>x86 Only</title>
+      <title>Apenas para x86</title>
 
-      <para>This chapter only describes the boot process for FreeBSD
-	running on Intel x86 systems.</para>
+      <para>Este capítulo descreve apenas o processo de inicialização
+	para o FreeBSD rodando em sistemas x86 da Intel.</para>
     </note>
   </sect1>
 
