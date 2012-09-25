@@ -205,8 +205,9 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
 	  arquivos para o servidor de atualização.  O par de chaves
 	  pode ser criado digitando <command>ssh-keygen -t
 	  dsa</command>.  Este parâmetro é opcional; a autenticação
-	  por senha será usada como método de autenticação quando
-	  <literal>SSHKEY</literal> não for definida.</para>
+	  por senha será usada como método de autenticação quando a
+	  variável <literal>SSHKEY</literal> não estiver
+	  definida.</para>
 
         <para>A página do manual &man.ssh-keygen.1; tem informações
 	  mais detalhadas sobre o <application>SSH</application> e os
@@ -219,17 +220,17 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
       </callout>
 
       <callout arearefs="mstdir-id">
-        <para>Diretório do servidor de atualização onde os arquivos
-	  serão enviados.</para>
+        <para>Diretório do servidor de atualização para o qual os 
+	  arquivos serão enviados.</para>
       </callout>
     </calloutlist>
 
-    <para>O arquivo padrão <filename>build.conf</filename> distribuído
-      com o fonte do <application>freebsd-update-server</application>
+    <para>O arquivo <filename>build.conf</filename> padrão, distribuído
+      com o fonte do <application>freebsd-update-server</application>,
       está preparado para compilar a versão &arch.i386; do &os;.
-      Como um exemplo para compilar um servidor de atualização para
-      outras arquiteturas, as seguintes modificações são necessárias
-      para a arquitetura &arch.amd64;:</para>
+      A titulo de exemplo sobre como compilar de um servidor de 
+      atualização para outras arquiteturas, as seguintes modificações
+      são necessárias para a arquitetura &arch.amd64;:</para>
 
     <procedure>
       <step>
@@ -242,7 +243,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
       </step>
 
       <step>
-        <para>Copie o arquivo <filename>build.conf</filename> no
+        <para>Copie o arquivo <filename>build.conf</filename> para o
 	  diretório recém criado.  As configurações de compilação para
 	  o &os; 7.2-RELEASE na arquitetura &arch.amd64; devem ser
 	  similares a:</para>
@@ -264,20 +265,20 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
 
 	<calloutlist>
 	  <callout arearefs="sha256-id">
-            <para>A chave hash &man.sha256.1; da versão, é publicada
-              no <ulink
-		url="&url.base;/releases/">anúncio da versão</ulink>.</para>
+            <para>A chave hash &man.sha256.1; da versão desejada, 
+	      ela é publicada no <ulink 
+	      url="&url.base;/releases/">anúncio da versão</ulink>.</para>
 	  </callout>
 
 	  <callout arearefs="eol-id">
-            <para>Para obter o número "End of Life" (Fim da Vida) para
-	      o <filename>build.conf</filename>, procure por
-	      "Estimated EOL" postado no <ulink
-	      url="&url.base;/security/security.html">
-	      Site de Segurança do &os;</ulink>.  O valor do
-	      <literal>EOL</literal> pode ser obtido a partir da data
-	      listada no site, usando a ferramenta &man.date.1;, por
-	      exemplo:</para>
+            <para>Para gerar o número "End of Life" (Fim da Vida) para
+	      o <filename>build.conf</filename>, consulte a informação
+	      sobre o "Estimated EOL" publicada no <ulink
+	      url="&url.base;/security/security.html">Site de 
+	      Segurança do &os;</ulink>.  O valor do
+	      <literal>EOL</literal> pode ser derivado a partir da 
+	      data listada no site, usando a ferramenta &man.date.1;,
+	      por exemplo:</para>
             <screen>&prompt.user; <userinput>date -j -f '%Y%m%d-%H%M%S' '20090401-000000' '+%s'</userinput></screen>
 	  </callout>
 	</calloutlist>
