@@ -452,6 +452,18 @@
 	<literal>r39544</literal>  do documento original em 
 	Inglês.</para>
       </step>
+
+      <step>
+	<title><ulink
+	  url="http://www.freebsd.org/doc/pt_BR.ISO8859-1/articles/building-products/">Construindo
+	  Produtos com o FreeBSD</ulink></title>
+
+      <para>Este artigo analisa as questões envolvidas no uso do
+	código do FreeBSD em appliances e softwares. Ele também 
+	destaca as características do FreeBSD, que o tornam uma 
+	excelente base para o desenvolvimento de produtos.</para>
+      </step>
+
       </procedure>
     </sect2>
     </sect1>
