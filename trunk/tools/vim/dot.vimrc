@@ -35,4 +35,8 @@ if version >= 500
   " Iso-8859-1 accents in SGML
   "source $HOME/.vim/accents-sgml.vim
 
+  "Habilita a verificacao de ortografia
+  set spell spelllang=en_us,pt
+
+
 endif
