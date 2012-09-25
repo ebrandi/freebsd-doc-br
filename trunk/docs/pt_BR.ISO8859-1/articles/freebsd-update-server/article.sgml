@@ -228,7 +228,7 @@ MASTERDIR=update-master.freebsd.org<co id="mstdir-id"/></programlisting>
     <para>O arquivo <filename>build.conf</filename> padrão, distribuído
       com o fonte do <application>freebsd-update-server</application>,
       está preparado para compilar a versão &arch.i386; do &os;.
-      A titulo de exemplo sobre como compilar de um servidor de 
+      A titulo de exemplo sobre como compilar um servidor de 
       atualização para outras arquiteturas, as seguintes modificações
       são necessárias para a arquitetura &arch.amd64;:</para>
 
@@ -287,9 +287,9 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
   </sect1>
 
   <sect1 id="build">
-    <title>Construindo a Atualização</title>
+    <title>Preparando a atualização de código</title>
 
-    <para>O primeiro passo é executar
+    <para>O primeiro passo é executar o
       <filename>scripts/make.sh</filename>.  Isto irá compilar alguns
       binários, criar diretórios, e gerar uma chave de assinatura
       RSA usada para aprovar as compilações.  Neste passo, uma senha
@@ -317,8 +317,8 @@ enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:</screen>
 
     <note>
-      <para>Deixe anotada a impressão digital (fingerprint) gerada da
-        chave.  Ela é necessária no
+      <para>Anote a impressão digital (fingerprint) da chave gerada.  
+	Ela é necessária no
         <filename>/etc/freebsd-update.conf</filename> para as
         atualizações de binários.</para>
     </note>
@@ -373,20 +373,20 @@ world|base|/usr/lib/libalias_dummy.a
 world|base|/usr/lib/libalias_ftp.a
 ...</screen>
 
-    <para>Então a compilação da base do sistema é feita novamente, com
-      os patches.  Uma explicação mais detalhada pode ser encontrada
-      em <filename>scripts/build.subr</filename>.</para>
+    <para>Em seguida, a compilação da base do sistema será feita 
+      novamente, com os patches.  Uma explicação mais detalhada pode 
+      ser encontrada em <filename>scripts/build.subr</filename>.</para>
 
     <warning>
       <para>Durante a segunda compilação, o serviço de network time
-        protocol, &man.ntpd.8; é desligado.  Por &a.cperciva;,
-	atualmente Chefe de Segurança do &os;, "o <ulink
+        protocol, &man.ntpd.8; será desligado.  De acordo com 
+	&a.cperciva;, atualmente Chefe de Segurança do &os;, "o <ulink
 	url="&url.base;/cgi/cvsweb.cgi/projects/freebsd-update-server/">freebsd-update-server</ulink>
 	compila códigos necessários para identificar os
-	<literal>timestamps</literal> que são armazenadas em arquivos,
-	de modo que estes últimos podem ser ignorados quando
-	comparando compilações para determinar quais arquivos precisam
-	ser atualizados.  Esta procura por
+	<literal>timestamps</literal>, os quais são armazenadas em 
+	arquivos, de modo que estes últimos podem ser ignorados quando
+	estivermos comparando compilações diferentes para determinar 
+	quais arquivos precisam ser atualizados.  Esta procura por
 	<literal>timestamp</literal> funciona realizando duas
 	compilações separadas por 400 dias e comparando os
 	resultados."</para>
@@ -461,12 +461,14 @@ they look sensible, then run
 # sh -e approve.sh amd64 7.2-RELEASE
 to sign the release.</screen>
 
-    <para>Aprove a compilação se tudo estiver correto.  Mais
-      informações sobre como determinar isso podem ser encontradas no
-      arquivo chamado <filename>USAGE</filename>, distribuído com o
-      código fonte.  Execute o
-      <filename>scripts/approve.sh</filename>.  Isto irá assinar a
-      versão, e movê-la para uma área preparada para envio.</para>
+    <para>Se tudo estiver correto, aprove a compilação.  Maiores
+      informações sobre como determinar se o processo finalizou com 
+      sucesso podem ser encontradas no arquivo chamado 
+      <filename>USAGE</filename>, distribuído com o código fonte.  
+      Execute o <filename>scripts/approve.sh</filename>.  Isto irá 
+      assinar a versão, e mover os seus componentes para uma área de 
+      preparo adequada para a transferência para o servidor de
+      distribuição.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -480,8 +482,8 @@ Wed Aug 26 12:50:06 PDT 2009 Copying files to upload staging area for FreeBSD/am
 Wed Aug 26 12:50:07 PDT 2009 Updating databases for FreeBSD/amd64 7.2-RELEASE
 Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE</screen>
 
-    <para>Depois que o processo de aprovação é completado, o
-      procedimento de envio deve começar.</para>
+    <para>Depois que o processo de aprovação tiver sido finalizado,
+      o processo de transferência pode ser iniciado.</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
@@ -489,9 +491,10 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </informalexample>
 
     <note>
-      <para>Caso a versão precise ser reenviada, isto pode ser feito
-	entrando no diretório público de distribuição para a versão
-        desejada e atualizando os atributos do arquivo
+      <para>No caso do código de atualização precisar ser transferido
+	novamente para o servidor de distribuição, isto poderá ser
+	feito entrando-se no diretório público de distribuição da
+	versão desejada e atualizando os atributos do arquivo
         <emphasis>uploaded</emphasis>.</para>
 
       <informalexample>
@@ -500,65 +503,38 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       </informalexample>
     </note>
 
-    <!-- If freebsd-update works with other http servers too, we should
-	 avoid making the instructions Apache-specific here. -->
+    <para>Os arquivos transferidos precisam ficar na raiz do servidor 
+      web para que as atualizações sejam distribuídas.  A exata 
+      configuração dependerá do servidor web utilizado.  Para o 
+      servidor web <application>Apache</application>, por favor, 
+      consulte a seção <ulink 
+      url="&url.books.handbook;/network-apache.html">Configuração do
+      servidor Apache</ulink> do Handbook.</para>
 
-<!-- there are specific web instructions in the uploaded code that pertain to Apache. I believe it is worded fine here, now, and if others choose to use another web server, that is their choice to figure out -->
-    <para>Os arquivos enviados precisam ficar na raiz do servidor web
-      para que as atualizações sejam distribuídas.  A exata configuração
-      dependerá do servidor web usado.  Para o servidor web
-      <application>Apache</application>, por favor, acesse a sessão do
-      Handbook <ulink
-	url="&url.books.handbook;/network-apache.html">Configuração do
-      servidor Apache</ulink>.</para>
-
-    <!-- This note seems either out of place.  I find it hard to read and it
-	 is a bit difficult to understand why it is related to the rest of
-	 this section.  It looks like something that would fit nicely in an
-	 introductory section about the way a freebsd-update server works. -->
-    <!-- Agreed, it does not suite very well here.  But it is now included
-         above.  I think it can be removed now.  gabor -->
-    <!-- Taken out until we decide what to do with it -->
-
-<!-- Agreed. However, I believe the placement of this works fine as it is.
-    <note>
-      <para>Updates for the current release of the &os; system you are
-	updating, and what you want to upgrade <emphasis>to</emphasis> need
-	to be built in order for &os; Update Server to work properly.  This
-	is necessary for merging of files between releases.  For example, if
-	you are updating a system from &os; 7.1 to &os; 7.2, you will need
-	to have update code built for &os; 7.1-RELEASE and
-	&os; 7.2-RELEASE.</para>
-    </note> -->
-
-    <!-- What is a 'KeyPrint'? -->
-    <para>Atualize o <literal>KeyPrint</literal> e
+    <para>Atualize o <literal>KeyPrint</literal> e o
       <literal>ServerName</literal> no arquivo
-      <filename>/etc/freebsd-update.conf</filename>, e faça as
-      atualizações instruídas na sessão do Handbook <ulink
-	url="&url.books.handbook;/updating-freebsdupdate.html">Atualização
-	do &os;</ulink></para>
-      <!-- One sentence, two instances of 'in'.  We can probably reword this
-	   part to avoid repetition. -->
-      <!-- What about "place client's new keyprint and servername values to
-	   freebsd-update.conf, ..."?  gabor -->
-
-<!-- Sorry folks, but I disagree here. I believe it is worded fine. If anything, drop everything after "perform" and change "updates" to "FreeBSD Updates" and link that to the handbook -->
+      <filename>/etc/freebsd-update.conf</filename>, e efetue as
+      atualizações de acordo com os procedimentos descritos na seção 
+      <ulink 
+      url="&url.books.handbook;/updating-freebsdupdate.html">Atualização 
+      do &os;</ulink> do Handbook.</para>
 
     <important>
-      <para>Para o &fbus.ap; funcionar corretamente, atualizações para
-        a versão <emphasis>atual</emphasis> e para a versão
-        <emphasis>alvo da atualização</emphasis> precisam ser
-        compiladas.  Isto é necessário para determinar os arquivos
-	que diferem entre as versões.  Por exemplo, quando atualizar o
-	&os; da versão 7.1-RELEASE para a versão 7.2-RELEASE, as
-	atualizações para as duas versões deverão ser compiladas e
-	enviadas para o seu servidor de atualizações.</para>
+      <para>Para o &fbus.ap; funcionar corretamente, é preciso que 
+	estejam compiladas a versão <emphasis>atual</emphasis> e 
+	a versão <emphasis>alvo</emphasis>  para a qual você deseja
+	se atualizar.  Isto é necessário para que o sistema determine 
+	quais são os arquivos que diferem entre as versões.  Por 
+	exemplo, para atualizar o &os; da versão 7.1-RELEASE 
+	para a versão 7.2-RELEASE, será necessário que você compile e
+	transfira os arquivos de ambas as versões para o seu servidor
+	de atualização.</para>
     </important>
 
-    <para>Para referencia, a execução completa do <ulink
-      url="init.txt"><filename>init.sh</filename></ulink> está
-      anexada.</para>
+    <para>Para referência, segue um exemplo de log completo da 
+      execução do 
+      <ulink url="init.txt"><filename>init.sh</filename></ulink>
+      .</para>
   </sect1>
 
   <sect1 id="patch">
