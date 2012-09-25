@@ -1854,66 +1854,74 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 	    endereço IP provavelmente só necessitarão personalizar os
 	    arquivos <filename>rc.conf</filename>.</para>
 
-	  <para>In either case, apply the following steps:</para>
+	  <para>Em qualquer caso, aplique os seguintes passos:</para>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para>Create a
-		<literal>ports-<replaceable>${arch}</replaceable></literal>
-		user and group.  Add it to the <literal>wheel</literal>
-		group.  It can have the <literal>'*'</literal> password.</para>
+	      <para>Crie um usuário e grupo
+	        <literal>ports-<replaceable>${arch}</replaceable></literal>.
+		Adicione o usuário para o grupo
+		<literal>wheel</literal>.  Ele pode ter um
+		<literal>'*'</literal> no lugar da senha.</para>
 
-	      <para>Create
-		<filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
-		and populate <filename>authorized_keys</filename>.  </para>
+	      <para>Crie o
+	        <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
+		e adicione a sua chave ao
+		<filename>authorized_keys</filename>.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Also add the following users:<screen>
+	      <para>Adicione também os seguintes usuários:<screen>
 squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
 ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	      </para>
-	      <para>Add them to <filename>etc/group</filename> as well.</para>
+	      <para>Adicioná-los ao <filename>etc/group</filename>
+	        também.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Create the appropriate files in
-		<filename>etc/.ssh/</filename>.</para>
+	      <para>Crie os arquivos apropriados em
+	        <filename>etc/.ssh/</filename>.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>In <filename>etc/crontab</filename>: add
+	      <para>Em <filename>etc/crontab</filename> adicione o
+	        seguinte:
 		<screen>*       *       *       *       *       root    /var/portbuild/scripts/client-metrics</screen>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Create the appropriate
-		<filename>etc/fstab</filename>.  (If you have multiple,
-		  different, machines, you will need to put those in
-		  the override directories.)</para>
+	      <para>Crie o <filename>etc/fstab</filename>
+	        apropriadmente.  (Se você tem várias máquinas
+		diferentes, você precisará colocar este arquivo nos
+		diretórios que sobreescreverão está
+		configuração.)</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>In <filename>etc/inetd.conf</filename>: add
+	      <para>Em <filename>etc/inetd.conf</filename> adicione o
+	        seguinte:
 		<screen>infoseek        stream  tcp     nowait  nobody  /var/portbuild/scripts/reportload</screen>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>We run the cluster on UTC:
+	      <para>Nós rodamos o <literal>cluster</literal> em
+	        horário <acronym>UTC</acronym>:
 		<screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Create the appropriate
-		<filename>etc/rc.conf</filename>.  (If you are using
-		  <literal>pxeboot</literal>, and have multiple,
-		  different, machines, you will need to put those in
-		  the override directories.)</para>
+	      <para>Crie o <filename>etc/rc.conf</filename>
+	        apropriadamente.  (Se você está usando
+		<literal>pxeboot</literal>, e tem várias máquinas
+		diferentes, você precisará colocar este arquivo nos
+		diretórios que sobreescreverão está
+		configuração.)</para>
 
-	      <para>Recommended entries for physical nodes:<screen>
+	      <para>Entradas recomendadas para nós físicos:<screen>
 hostname="<replaceable>${hostname}</replaceable>"
 inetd_enable="YES"
 linux_enable="YES"
@@ -1932,13 +1940,15 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
 </screen>
 	      </para>
 
-	      <para>Required entries for VMWare-based nodes:<screen>
+	      <para>Entradas requeridas para nós baseados no
+		VMWare:<screen>
 vmware_guest_vmmemctl_enable="YES"
 vmware_guest_guestd_enable="YES"
 </screen>
 	      </para>
 
-	      <para>Recommended entries for VMWare-based nodes:<screen>
+	      <para>Entradas recomendadas para nós baseados no
+	        VMWare:<screen>
 hostname=""
 ifconfig_em0="DHCP"
 fsck_y_enable="YES"
@@ -1957,26 +1967,27 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
 </screen>
 	      </para>
 
-	      <para>&man.ntpd.8; should <emphasis>not</emphasis>
-		be enabled for VMWare instances.</para>
+	      <para>O &man.ntpd.8; <emphasis>não</emphasis> deve ser
+	        habilitado para instâncias no VMWare.</para>
 
-	      <para>Also, it may be possible to leave
-		<application>squid</application> disabled by default
-		so as to not have
+	      <para>Além disso, pode ser possível deixar o
+	        <application>squid</application> desabilitado por
+		padrão de modo a não ter o
 		<filename>/<replaceable>usr2</replaceable></filename>
-		persistent (which should save instantiation time.)
-		Work is still ongoing.
+		persistente (o que deve economizar tempo na criação da
+		instância.)  O trabalho ainda está em andamento.
 	      </para>
 
 	    </listitem>
 
 	    <listitem>
-	      <para>Create <filename>etc/resolv.conf</filename>, if
-		necessary.</para>
+	      <para>Crie o <filename>etc/resolv.conf</filename>, se
+	        necessário.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Modify <filename>etc/sysctl.conf</filename>:<screen>
+	      <para>Modifique o
+	        <filename>etc/sysctl.conf</filename>:<screen>	
 9a10,30
 > kern.corefile=<filename>/<replaceable>usr2</replaceable>/%N.core</filename>
 > kern.sugid_coredump=1
@@ -2003,8 +2014,9 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
 	    </listitem>
 
 	    <listitem>
-	      <para>If desired, modify <filename>etc/syslog.conf</filename>
-		to change the logging destinations to
+	      <para>Se desejar, modifique
+	        <filename>etc/syslog.conf</filename> para mudar o
+		destino do <literal>log</literal> para
 		<literal>@pointyhat.freebsd.org</literal>.</para>
 	    </listitem>
 	  </itemizedlist>
@@ -2016,11 +2028,11 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
     </sect2>
 
     <sect2 id="node-ports">
-      <title>Configuring <literal>ports</literal></title>
+      <title>Configurando os <literal>ports</literal></title>
 
       <procedure>
 	<step>
-	  <para>Install the following ports:<screen>
+	  <para>Instale os seguintes <literal>ports</literal>:<screen>
 net/rsync
 security/openssh-portable (with HPN on)
 security/sudo
@@ -2028,30 +2040,32 @@ sysutils/ganglia-monitor-core (with GMETAD off)
 www/squid (with SQUID_AUFS on)</screen>
 	  </para>
 
-	  <para>There is a WIP to create a meta-port, but it is not yet
-	    complete.
+	  <para>Existe um trabalho em andamento para criar um
+	    <literal>meta-port</literal>, mas ainda não está
+	    completo.
 	  </para>
 	</step>
 
 	<step>
-	  <para>Customize files in <filename>usr/local/etc/</filename>.
-	    Whether you do this on the client itself, or another
-	    machine, will depend on whether you are using
-	    <literal>pxeboot</literal>.</para>
+	  <para>Customizar os arquivos em
+	    <filename>usr/local/etc/</filename>.  Se você faz isso no
+	    próprio cliente, ou em outra máquina, dependerá de você
+	    estar usando <literal>pxeboot</literal>.</para>
 
 	  <note>
-	    <para>The trick of using <filename>conf</filename>
-	      override subdirectories is less effective here, because
-	      you would need to copy over all subdirectories of
-	      <filename>usr/</filename>.  This is an implementation
-	      detail of how the pxeboot works.</para>
+	    <para>O truque de usar subdiretórios para sobreescrever
+	      <filename>conf</filename> é menos eficaz aqui, pois você
+	      precisa copiar todos os subdiretórios do
+	      <filename>usr/</filename>.  Este é um detalhe da
+	      implementação de como o <literal>pxeboot</literal>
+	      funciona.</para>
 	  </note>
 
-	  <para>Apply the following steps:</para>
+	  <para>Aplique os seguintes passos:</para>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para>Modify
+	      <para>Modifique o
 		 <filename>usr/local/etc/gmond.conf</filename>:<screen>
 21,22c21,22
 &lt;   name = "unspecified"
@@ -2066,17 +2080,19 @@ www/squid (with SQUID_AUFS on)</screen>
 	      </para>
 
 	      <!-- XXX MCL adapted literally from krismail; I do not understand it -->
-	      <para>If there are machines from more than one cluster in the
-		same multicast domain (basically = LAN) then change the
-		multicast groups to different values (.71, .72, etc).</para>
+	      <para>Se existem máquinas de mais de um
+	        <literal>cluster</literal> no mesmo domínio
+		<literal>multicast</literal> (basicamente = LAN),
+		então altere os grupos de <literal>multicast</literal>
+		para valores diferentes (.71, .72, etc).</para>
 	    </listitem>
 
 	    <listitem>
 	      <!-- XXX MCL get latest patches from narutos -->
-	      <para>Create
-		 <filename>usr/local/etc/rc.d/portbuild.sh</filename>,
-		 using the appropriate value for
-		 <literal>scratchdir</literal>:<screen>
+	      <para>Crie o
+	        <filename>usr/local/etc/rc.d/portbuild.sh</filename>,
+		usando um valor apropriado par
+		<literal>scratchdir</literal>:<screen>
 #!/bin/sh
 #
 # Configure a package build system post-boot
@@ -2099,7 +2115,7 @@ touch /tmp/.boot_finished</screen>
 	    </listitem>
 
 	    <listitem>
-	      <para>Modify
+	      <para>Modifique o
 		 <filename>usr/local/etc/squid/squid.conf</filename>:<screen>
 288,290c288,290
 &lt; #auth_param basic children 5
@@ -2119,9 +2135,10 @@ touch /tmp/.boot_finished</screen>
 &gt; negative_ttl 0 minutes</screen>
 	      </para>
 
-	      <para>Also, change <filename>usr/local</filename>
-		to <filename><replaceable>usr2</replaceable></filename> in
-		<literal>cache_dir</literal>,
+	      <para>Modifique também o <filename>usr/local</filename>
+		para
+		<filename><replaceable>usr2</replaceable></filename>
+		em <literal>cache_dir</literal>,
 		<literal>access_log</literal>,
 		<literal>cache_log</literal>,
 		<literal>cache_store_log</literal>,
@@ -2130,22 +2147,23 @@ touch /tmp/.boot_finished</screen>
 		<literal>coredump_dir</literal>.
 	      </para>
 
-	      <para>Finally, change the <literal>cache_dir</literal>
-		storage scheme from <literal>ufs</literal> to
-		<literal>aufs</literal> (offers better performance).
+	      <para>Finalmente, mude o esquema de armazenamento do
+		<literal>cache_dir</literal>, de
+		<literal>ufs</literal> para <literal>aufs</literal>
+		(oferece uma melhor performance).
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Configure <command>ssh</command>: copy
-		<filename>/etc/ssh</filename> to
-		<filename>/usr/local/etc/ssh</filename> and add
-		<literal>NoneEnabled yes</literal> to
+	      <para>Configure o <command>ssh</command>: copie
+	        <filename>/etc/ssh</filename> para
+		<filename>/usr/local/etc/ssh</filename> e adicione
+		<literal>NoneEnabled yes</literal> para o
 		<filename>sshd_config</filename>.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Modify
+	      <para>Modifique o
 		 <filename>usr/local/etc/sudoers</filename>:<screen>
 38a39,42
 >
@@ -2161,18 +2179,18 @@ touch /tmp/.boot_finished</screen>
     </sect2>
 
     <sect2 id="node-configuration">
-      <title>Configuration on the client itself</title>
+      <title>Configuração no próprio cliente</title>
 
       <procedure>
 	<step>
-	  <para>Change into the port/package directory you picked
-	    above, e.g.,
+	  <para>Entre no diretório <literal>port/package</literal> que
+	    você escolheu acima, e.g., 
 	    <command>cd <filename>/<replaceable>usr2</replaceable></filename></command>.
 	  </para>
 	</step>
 
 	<step>
-	  <para>As root:<screen>
+	  <para>Execute como root:<screen>
 <userinput>mkdir portbuild</userinput>
 <userinput>chown ports-<replaceable>${arch}</replaceable>:ports-<replaceable>${arch}</replaceable> portbuild</userinput>
 <userinput>mkdir pkgbuild</userinput>
@@ -2186,22 +2204,26 @@ touch /tmp/.boot_finished</screen>
 
 	<!-- XXX MCL adapted literally from krismail; I do not understand it -->
 	<step>
-	  <para>If clients preserve <filename>/var/portbuild</filename>
-	    between boots then they must either preserve their
-	    <filename>/tmp</filename>, or revalidate their available
-	    builds at boot time (see the script on the <literal>amd64</literal>
-	    machines).  They must also clean up stale chroots from previous
-	    builds before creating <filename>/tmp/.boot_finished</filename>.
+	  <para>Se os clientes preservam o conteúdo de
+	    <filename>/var/portbuild</filename> entre as
+	    inicializações, então eles devem preservar seu
+	    <filename>/tmp</filename>, ou revalidar suas compilações
+	    disponíveis em tempo de inicialização (veja o
+	    <literal>script</literal> nas máquinas
+	    <literal>amd64</literal>).  Eles também devem limpar
+	    <literal>chroots</literal> obsoletos de compilações
+	    anteriores antes de cria o
+	    <filename>/tmp/.boot_finished</filename>.
 	  </para>
 	</step>
 
 	<step>
-	  <para>Boot the client.</para>
+	  <para>Inicialize o cliente.</para>
 	</step>
 
 	<step>
-	  <para>As root, initialize the <command>squid</command>
-	    directories:
+	  <para>Como root, crie a estrutura de diretórios do
+	    <command>squid</command>:
 	    <screen><userinput>squid -z</userinput></screen></para>
 	</step>
       </procedure>
@@ -2209,27 +2231,29 @@ touch /tmp/.boot_finished</screen>
     </sect2>
 
     <sect2 id="pointyhat-configuration">
-      <title>Configuration on <literal>pointyhat</literal></title>
+      <title>Configuração no <literal>pointyhat</literal></title>
 
-      <para>These steps need to be taken by a <literal>portmgr</literal>
-	acting as <literal>ports-<replaceable>${arch}</replaceable></literal>
-	on <hostid>pointyhat</hostid>.
+      <para>Estes passos precisam ser feitos por um
+        <literal>portmgr</literal><literal>portmgr</literal>,
+	autenticado como o usuário
+	<literal>ports-<replaceable>${arch}</replaceable></literal> em
+	<hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>If any of the default TCP ports is not available (see
-	    above), you will need to create an <command>ssh</command>
-	    tunnel for it and include it in the
+	  <para>Se qualquer das portas <acronym>TCP</acronym> não
+	    estiver disponível (veja acima), você precisará criar um
+	    túnel <command>ssh</command> para isso e inclui-lo no
 	    <filename>crontab</filename>.</para>
 	</step>
 
 	<step>
-	  <para>Add an entry to
+	  <para>Adicione uma entrada em
 	    <filename>/home/ports-<replaceable>${arch}</replaceable>/.ssh/config</filename>
-	    to specify the public IP address, TCP port for
-	    <command>ssh</command>, username, and any other necessary
-	    information.</para>
+	    para especificar o endereço IP público, porta TCP para o
+	    <command>ssh</command>, usuário, e qualquer outra
+	    informação necessária.</para>
 	</step>
 
 	<step>
