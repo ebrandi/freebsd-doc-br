@@ -287,7 +287,7 @@ export EOL=1275289200<co id="eol-id"/></programlisting>
   </sect1>
 
   <sect1 id="build">
-    <title>Preparando a atualização de código</title>
+    <title>Preparando a atualização</title>
 
     <para>O primeiro passo é executar o
       <filename>scripts/make.sh</filename>.  Isto irá compilar alguns
@@ -538,7 +538,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
   </sect1>
 
   <sect1 id="patch">
-    <title>Compilando um Patch</title>
+    <title>Compilando um patch</title>
 
     <para>Toda vez que um <ulink
 	url="&url.base;/security/advisories.html">aviso de segurança</ulink>
@@ -558,11 +558,11 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
       </listitem>
 
       <listitem>
-	<para>Faça a compilação inicial para a 7.1-RELEASE</para>
+	<para>Faça a compilação inicial da 7.1-RELEASE</para>
       </listitem>
     </itemizedlist>
 
-    <para>Crie o diretório do patch para a versão em
+    <para>Crie o diretório do patch para a respectiva versão em
       <filename
 	class="directory">/usr/local/freebsd-update-server/patches/</filename>.</para>
 
@@ -571,15 +571,16 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 &prompt.user; <userinput>cd /usr/local/freebsd-update-server/patches/7.1-RELEASE</userinput></screen>
     </informalexample>
 
-    <para>Como exemplo, pegue o patch para &man.named.8;.  Leia o
+    <para>Como exemplo, pegue o patch para o &man.named.8;.  Leia o
       aviso,  obtenha o arquivo necessário do <ulink 
-	url="&url.base;/security/advisories.html">Aviso de Segurança
-	do &os;</ulink>.  Mais informações sobre interpretar os
-      avisos, podem ser encontradas no <ulink
-	url="&url.books.handbook;/security-advisories.html">Handbook do &os;</ulink>.</para>
+      url="&url.base;/security/advisories.html">Aviso de Segurança 
+      do &os;</ulink>.  Mais informações sobre como interpretar os
+      avisos, podem ser encontradas no <ulink 
+      url="&url.books.handbook;/security-advisories.html">Handbook do 
+      &os;</ulink>.</para>
 
     <para>Na <ulink
-	url="http://security.freebsd.org/advisories/FreeBSD-SA-09:12.bind.asc">nota de segurança</ulink>,
+      url="http://security.freebsd.org/advisories/FreeBSD-SA-09:12.bind.asc">nota de segurança</ulink>,
       este aviso é chamado de <literal>SA-09:12.bind</literal>.
       Depois de fazer o download do arquivo, é necessário renomeá-lo
       para o nível correto do patch.  É recomendado manter
@@ -593,9 +594,9 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </informalexample>
 
     <note>
-      <para>Quando executando uma compilação de nível de patch, é
-	assumido que os patches anteriores estão no lugar mesmo.
-        Quando uma compilação de patch é executada, ela vai executar
+      <para>Ao executar uma compilação de nível de patch, é
+	assumido que os patches anteriores estarão no mesmo lugar.
+        Quando uma compilação de patch é executada, ela vai aplicar 
         todos os patches contidos no diretório do patch.</para>
 
       <para>Podem ser adicionados patches personalizados na
@@ -610,7 +611,7 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
     </warning>
 
     <para>Neste ponto, um <emphasis>diff</emphasis> está pronto para
-      ser construído.  O software primeiro checa se um
+      ser construído.  O software primeiro irá verificar se o 
       <filename>scripts/init.sh</filename> foi executado na respectiva
       versão antes de executar a construção do diff.</para>
 
@@ -619,8 +620,8 @@ Wed Aug 26 12:50:07 PDT 2009 Cleaning staging area for FreeBSD/amd64 7.2-RELEASE
 &prompt.root; <userinput>sh scripts/diff.sh <replaceable>amd64 7.1-RELEASE 7</replaceable></userinput></screen>
     </informalexample>
 
-    <para>O que segue é um exemplo da execução de uma compilação
-      <emphasis>diferencial</emphasis>.</para>
+    <para>O que segue abaixo é um exemplo do log da execução de uma 
+      compilação <emphasis>diferencial</emphasis>.</para>
 
     <screen>&prompt.root; <userinput>sh -e scripts/diff.sh amd64 7.1-RELEASE 7</userinput>
 Wed Aug 26 10:09:59 PDT 2009 Extracting world+src for FreeBSD/amd64 7.1-RELEASE-p7
@@ -714,7 +715,7 @@ files to confirm that they look sensible, then run
 # sh -e approve.sh amd64 7.1-RELEASE
 to sign the build.</screen>
 
-    <para>Siga o mesmo processo observado anteriormente para aprovar a
+    <para>Siga o mesmo processo descrito anteriormente para aprovar a
       compilação:</para>
 
     <screen>&prompt.root; <userinput>sh -e scripts/approve.sh amd64 7.1-RELEASE</userinput>
@@ -730,120 +731,96 @@ ready to be uploaded.  Remember to run
 to unmount the decrypted key once you have finished signing all
 the new builds.</screen>
 
-    <para>Depois de aprovar a compilação, faça o envio do
-      software:</para>
+    <para>Depois de aprovar a compilação, faça a transferência do
+      software para o servidor de distribuição:</para>
 
     <informalexample>
       <screen>&prompt.root; <userinput>cd /usr/local/freebsd-update-server</userinput>
 &prompt.root; <userinput>sh scripts/upload.sh <replaceable>amd64 7.1-RELEASE</replaceable></userinput></screen>
     </informalexample>
 
-    <para>Para referência, a execução completa do
-      <ulink url="diff.txt"><filename>diff.sh</filename></ulink>
-      está anexada.</para>
+    <para>Para referência, segue o log de uma execução completa do
+      <ulink url="diff.txt"><filename>diff.sh</filename></ulink>.</para>
   </sect1>
 
   <sect1 id="tips">
     <title>Dicas</title>
 
-    <!-- These are nice tips, but there are only a few of them and they need a
-	 bit of rewording to make sense.  I'd like to see something that
-	 explains at least the following for every tip:
-
-	 * Why is this tip necessary?  What is the original problem it tries
-	   to solve?
-	 * How to install the changes of the tip, preferably in a <procedure>
-	   element, with clearly separated steps.
-	 * How to check that the changes of the tip had a measurable and
-	   noticeable effect.
-
-	 We can do this in a followup commit.  It doesn't have to be completed
-	 *before* we commit this to CVS. -->
-
-<!-- thank you, i just learned these in the process, and thought I would share. They are "tips" and not necessary, so I do see your point, and I would suggest maybe even renaming the section to something more appropriate. Nothing really comes to mind now, though. -->
-
-<!-- this tip will allow you to maintain a custom release and custom kernel, and update it like any other binary update -->
     <itemizedlist>
       <listitem>
-	<para>Se uma versão personalizada for compilada usando o
-	  <ulink url="&url.articles.releng;/release-build.html">procedimento</ulink>
+	<para>Se uma versão personalizada tiver sido compilada usando
+	  o <ulink url="&url.articles.releng;/release-build.html">procedimento</ulink>
 	  nativo do <command>make release</command>, o código do
 	  <application>freebsd-update-server</application> irá
 	  funcionar a partir da sua versão.  Por exemplo, uma versão
-	  sem o ports ou a documentação pode ser compilada limpando
-	  as funcionalidades pertencentes às sub-rotinas de
-	  documentação <function>findextradocs ()</function>,
-	  <function>addextradocs ()</function> e por alterar o local de
-	  download na <function>fetchiso ()</function>,
-	  respectivamente, em <filename>scripts/build.subr</filename>.
+	  sem o ports ou sem a documentação pode ser compilada 
+	  limpando-se as funcionalidades pertencentes às sub-rotinas 
+	  de documentação <function>findextradocs()</function>,
+	  <function>addextradocs()</function> e alterando o local de
+	  download na <function>fetchiso()</function>,
+	  respectivamente, no <filename>scripts/build.subr</filename>.
 	  Em um último passo, mude o hash &man.sha256.1; em
 	  <filename>build.conf</filename> na sua respectiva versão e
 	  arquitetura e então você está pronto para compilar sua
 	  versão personalizada.</para>
 
 	<screen># Compare ${WORKDIR}/release and ${WORKDIR}/$1, identify which parts
-	# of the world|doc subcomponent are missing from the latter, and
-	# build a tarball out of them.
-	findextradocs () {
-	}
+# of the world|doc subcomponent are missing from the latter, and
+# build a tarball out of them.
+findextradocs () {
+}
 
-	# Add extra docs to ${WORKDIR}/$1
-	addextradocs () {
-	}
-	</screen>
+# Add extra docs to ${WORKDIR}/$1
+addextradocs () {
+}
+</screen>
       </listitem>
-	<!-- this tip will speed up your build process, however it is not necessary -->
       <listitem>
 	<para>Adicionando a opção <option>-j
 	  <replaceable>NÚMERO</replaceable></option> nas etapas
 	  <maketarget>buildworld</maketarget> e
 	  <maketarget>obj</maketarget> no script
 	  <filename>scripts/build.subr</filename> pode acelerar o
-	  processo dependendo do hardware usado, entretanto não é
-	  necessário.  Usar essa opção em outras etapas não é
+	  processo dependendo do hardware usado, entretanto isto não é
+	  necessário.  Usar esta opção em outras etapas não é
 	  recomendado, pois pode fazer a compilação ficar
 	  instável.</para>
 
-	<screen>               # Build the world
-		   log "Building world"
-		   cd /usr/src &&
-		   make -j 2 ${COMPATFLAGS} buildworld 2>&1
+	<screen>#Build the world
+log "Building world"
+cd /usr/src &&
+make -j 2 ${COMPATFLAGS} buildworld 2>&1
 
-		# Distribute the world
-		   log "Distributing world"
-		   cd /usr/src/release &&
-		   make -j 2 obj &&
-		   make ${COMPATFLAGS} release.1 release.2 2>&1</screen>
+# Distribute the world
+log "Distributing world"
+cd /usr/src/release &&
+make -j 2 obj &&
+  make ${COMPATFLAGS} release.1 release.2 2>&1</screen>
       </listitem>
 
       <listitem>
-<!-- Parse error.  I don't understand what this paragraph suggests or
-     recommends.  Also, why do we need to block RSTs?  I don't really
-     like gratuitous blocking of RST, ICMP or other packets.  Our
-     kernel can rate-limit most of the "strange" packets alredy. -->
 
-<!-- there is a bug in earlier versions of the software that get the updates, and not blocking them will result in failure to update systems -->
-
-	<para>Crie uma regra de <ulink
-	    url="&url.books.handbook;/firewalls.html">firewall</ulink>
-	  para bloquear os pacotes RST que saem.  Devido a um problema
-	  observado <ulink
-	    url="http://lists.freebsd.org/pipermail/freebsd-stable/2009-April/049578.html">em uma discussão</ulink>
-	  na &a.stable; em Abril de 2009, pode haver alguns problemas
-	  de tempo esgotado e falhas ao atualizar o sistema</para>
+	<para>Crie uma regra de <ulink 
+	  url="&url.books.handbook;/firewalls.html">firewall</ulink>
+	  para bloquear os pacotes RST saintes.  Devido a um problema
+	  observado <ulink 
+	  url="http://lists.freebsd.org/pipermail/freebsd-stable/2009-April/049578.html">em uma discussão</ulink>
+	  na &a.stable; em Abril de 2009, podem ocorrer alguns 
+	  problema de timeouts e falhas ao atualizar o sistema</para>
       </listitem>
 
-	<!-- this tip is not necessary, however if you wish to retain mirrors and redundancy, this tip will help you. -->
       <listitem>
-	<para>Crie uma entrada SRV apropriada de <ulink
+	<para>Crie uma entrada SRV apropriada no <ulink
 	    url="&url.books.handbook;/network-dns.html">DNS</ulink>
 	  para o servidor de atualização, e coloque outros servidores
-	  com pesos variados.  Usando este recurso irá fornecer
-	  espelhos para a atualização.</para>
+	  com pesos variados.  Usar este recurso irá permitir que você
+	  distribua a carga do processo de atualização entre vários
+	  servidores.</para>
 
-	<screen> _http._tcp.update.myserver.com.                  IN SRV   0 2 80   host1.myserver.com.
-							     SRV   0 1 80   host2.myserver.com.
-							     SRV   0 0 80   host3.myserver.com.</screen>
+	<screen> 
+	_http._tcp.update.myserver.com.                  IN SRV   0 2 80   host1.myserver.com.
+							    SRV   0 1 80   host2.myserver.com.
+							    SRV   0 0 80   host3.myserver.com.</screen>
       </listitem>
     </itemizedlist>
   </sect1>
