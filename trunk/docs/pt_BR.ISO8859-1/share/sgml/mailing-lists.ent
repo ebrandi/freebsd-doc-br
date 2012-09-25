@@ -5,7 +5,7 @@
      The FreeBSD Brazilian Portuguese Documentation Project
 
      Original revision: r38826
-     $FreeBSD: head/pt_BR.ISO8859-1/share/sgml/mailing-lists.ent 39582 2012-09-19 20:12:25Z ebrandi $
+     $FreeBSD: head/pt_BR.ISO8859-1/share/sgml/mailing-lists.ent 39610 2012-09-24 10:30:54Z ebrandi $
 -->
 
 <!ENTITY a.mailman.listinfo "http://lists.FreeBSD.org/mailman/listinfo">
@@ -297,9 +297,10 @@
   [English Content/Conteúdo em Inglês]
   <email>freebsd-sparc@FreeBSD.org</email>">
 
-<!ENTITY a.stable "lista de discussão FreeBSD-STABLE
-  [English Content/Conteúdo em Inglês]
-  <email>freebsd-stable@FreeBSD.org</email>">
+<!ENTITY a.stable.url "&a.mailman.listinfo;/freebsd-stable">
+<!ENTITY a.stable "<ulink url='&a.stable.url;'>lista de discussão 
+  &os.stable;</ulink>">
+<!ENTITY a.stable.name "<ulink url='&a.stable.url;'>freebsd-stable</ulink>"
 
 <!ENTITY a.standards "lista de discussão FreeBSD de
   adequação à padrões C99 e POSIX
