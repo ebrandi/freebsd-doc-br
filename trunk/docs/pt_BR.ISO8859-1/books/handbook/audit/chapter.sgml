@@ -30,14 +30,14 @@ requirements. -->
     </authorgroup>
   </chapterinfo>
 
-  <title>Security Event Auditing</title>
+  <title>Evento de Segurança e Auditoria</title>
 
   <sect1 id="audit-synopsis">
     <title>Synopsis</title>
 
     <indexterm><primary>AUDIT</primary></indexterm>
     <indexterm>
-      <primary>Security Event Auditing</primary>
+      <primary>Evento de Segurança e Auditoria</primary>
       <see>MAC</see>
     </indexterm>
 
@@ -51,54 +51,57 @@ requirements. -->
       <acronym>BSM</acronym> API and file format, and is interoperable with
       both &sun;'s &solaris; and &apple;'s &macos; X audit implementations.</para>
 
-    <para>This chapter focuses on the installation and configuration of
-      Event Auditing.  It explains audit policies, and provides an example
-      audit configuration.</para>
+    <para>Este capítulo foca na instalação e configuração dos Eventos de Auditoria,
+      explica sobre as suas politicas e fornece exemplos de configuração.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler este capítulo você irá saber:</para>
 
     <itemizedlist>
       <listitem>
-        <para>What Event Auditing is and how it works.</para>
+        <para>O que e como auditoria de eventos funciona.</para>
       </listitem>
 
       <listitem>
-	<para>How to configure Event Auditing on &os; for users
-	  and processes.</para>
+	<para>Como configurar Eventos de Auditoria para usuários e processos no &os;.</para>
       </listitem>
 
       <listitem>
-	<para>How to review the audit trail using the audit reduction and
-	  review tools.</para>
+	<para>Como revisar os rastros de auditoria utilizando as ferramentas de redução e revisão.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo você deveria:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand &unix; and &os; basics
+	<para>Entender o básico de &unix; e &os;
 	  (<xref linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Be familiar with the basics of kernel
-	  configuration/compilation
-	  (<xref linkend="kernelconfig"/>).</para>
+	<para>Estar familiarizado com o básico sobre configuração/compilação(<xref linkend="kernelconfig"/>) de kernel.</para>
       </listitem>
 
       <listitem>
-	<para>Have some familiarity with security and how it
-	  pertains to &os; (<xref linkend="security"/>).</para>
+	<para>Ter alguma familiaridade com segurança e o seu funcionamento no &os; (<xref linkend="security"/>).</para>
       </listitem>
     </itemizedlist>
 
     <warning>
-      <para>The audit facility has some known limitations which include
-	that not all security-relevant system events are currently auditable,
-	and that some login mechanisms, such as X11-based display managers
-	and third party daemons, do not properly configure auditing for user
-	login sessions.</para>
+      <para>O serviço de auditoria tem algumas limitações conhecidas
+  tal qual nem todos os eventos relevantes de segurança podem ser
+  auditaveis, alguns mecanismos de autenticação como os baseados no
+  gerenciamento de telas x11 e outros daemons de terceiros não 
+  configuram propriamente o serviço de auditoria nas sessões de 
+  autenticação dos usuários.</para>
+
+      <para>O evento de auditoria e segurança é capaz de gerar logs 
+  detalhados das atividades do sistema: em um sistema movimentado dados 
+  referente ai rastreio de um arquivo pode se tornar muito grande quando 
+  configurado com muitos detalhes excedendo gigabytes em uma semana em 
+  algumas configurações. Administradores devem considerar os requerimentos 
+  de espaço em disco associados ao alto volume de dados gerados devido ao 
+  tipo de configuração de auditoria.
 
       <para>The security event auditing facility is able to generate very
 	detailed logs of system activity: on a busy system, trail file
@@ -114,10 +117,10 @@ requirements. -->
   </sect1>
 
   <sect1 id="audit-inline-glossary">
-    <title>Key Terms in This Chapter</title>
+    <title>Termos chave neste capítulo</title>
 
-    <para>Before reading this chapter, a few key audit-related terms must be
-      explained:</para>
+    <para>Antes de ler este capítulo alguns termos chave relacionados com 
+      auditoria precisam ser explicados:</para>
 
     <itemizedlist>
       <listitem>
@@ -683,8 +686,7 @@ trailer,133</programlisting>
 
       <programlisting>0     */12       *       *       *       root    /usr/sbin/audit -n</programlisting>
 
-      <para>The change will take effect once you have saved the
-	new <filename>/etc/crontab</filename>.</para>
+      <para>As alterações terão efeito assim que você salvar o novo <filename>/etc/crontab</filename>.</para>
 
       <para>Automatic rotation of the audit trail file based on file size is
 	possible via the <option>filesz</option> option in
