@@ -4,7 +4,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 387    # dtrace              # r39544  #
 580    # bibliography        # r39544  #
 708    # preface             # r39544  #
-717    # audit               # r39544  #
+717    # audit               # r39544  # Leandro Silva, 25/09/2012
 885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
 943    # l10n                # r39544  #
 981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
