@@ -27,7 +27,7 @@ $ok = 1;
 while ($linha = <FILE>) {
   $lc++;
 
-  $ok = 0 if (($linha =~ /<screen>/) || ($linha =~ /<programlisting>/));
+  $ok = 0 if (($linha =~ /<screen>/) || ($linha =~ /<programlisting>/) || ($linha =~ /$FreeBSD:/));
 
   $linha =~ s/(\n|\r)//g;
   if ($ok == 1) {
