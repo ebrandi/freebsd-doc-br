@@ -101,58 +101,70 @@
   sobre a criação de clusters com o FreeBSD</ulink>">
 <!ENTITY a.cluster.name "<ulink url='&a.cluster.url;'>freebsd-cluster</ulink>">
 
-<!ENTITY a.committers "FreeBSD committer's mailing list">
+<!ENTITY a.committers "lista de discussão dos committers do FreeBSD">
 <!ENTITY a.committers.name "cvs-committers">
 
 <!ENTITY a.core "FreeBSD core team">
 <!ENTITY a.core.name "freebsd-core">
 
 <!ENTITY a.current.url "&a.mailman.listinfo;/freebsd-current">
-<!ENTITY a.current "<ulink url='&a.current.url;'>&os.current; mailing list</ulink>">
+<!ENTITY a.current "<ulink url='&a.current.url;'>lista de discussão 
+  do &os.current;</ulink>">
 <!ENTITY a.current.name "<ulink url='&a.current.url;'>freebsd-current</ulink>">
 
 <!ENTITY a.ctm-announce.url "&a.mailman.listinfo;/ctm-announce">
-<!ENTITY a.ctm-announce "<ulink url='&a.ctm-announce.url;'>CTM announcements</ulink>">
+<!ENTITY a.ctm-announce "<ulink url='&a.ctm-announce.url;'>anúncios 
+  CTM</ulink>">
 <!ENTITY a.ctm-announce.name "<ulink url='&a.ctm-announce.url;'>ctm-announce</ulink>">
 
 <!ENTITY a.ctm-cvs-cur.url "&a.mailman.listinfo;/ctm-cvs-cur">
-<!ENTITY a.ctm-cvs-cur "<ulink url='&a.ctm-cvs-cur.url;'>CTM distribution of CVS files</ulink>">
+<!ENTITY a.ctm-cvs-cur "<ulink url='&a.ctm-cvs-cur.url;'>distribuição
+  CTM dos arquivos do CVS</ulink>">
 <!ENTITY a.ctm-cvs-cur.name "<ulink url='&a.ctm-cvs-cur.url;'>ctm-cvs-cur</ulink>">
 
 <!ENTITY a.ctm-src-4.url "&a.mailman.listinfo;/ctm-src-4">
-<!ENTITY a.ctm-src-4 "<ulink url='&a.ctm-src-4.url;'>CTM 4-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-4 "<ulink url='&a.ctm-src-4.url;'>lista de 
+  distribuição CTM do branch 4-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-4.name "<ulink url='&a.ctm-src-4.url;'>ctm-src-4</ulink>">
 
 <!ENTITY a.ctm-src-5.url "&a.mailman.listinfo;/ctm-src-5">
-<!ENTITY a.ctm-src-5 "<ulink url='&a.ctm-src-5.url;'>CTM 5-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-5 "<ulink url='&a.ctm-src-5.url;'>lista de 
+  distribuição CTM do branch 5-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-5.name "<ulink url='&a.ctm-src-5.url;'>ctm-src-5</ulink>">
 
 <!ENTITY a.ctm-src-6.url "&a.mailman.listinfo;/ctm-src-6">
-<!ENTITY a.ctm-src-6 "<ulink url='&a.ctm-src-6.url;'>CTM 6-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-6 "<ulink url='&a.ctm-src-6.url;'>lista de
+  distribuição CTM do branch 6-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-6.name "<ulink url='&a.ctm-src-6.url;'>ctm-src-6</ulink>">
 
 <!ENTITY a.ctm-src-7.url "&a.mailman.listinfo;/ctm-src-7">
-<!ENTITY a.ctm-src-7 "<ulink url='&a.ctm-src-7.url;'>CTM 7-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-7 "<ulink url='&a.ctm-src-7.url;'>lista de
+  distribuição CTM do branch 7-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-7.name "<ulink url='&a.ctm-src-7.url;'>ctm-src-7</ulink>">
 
 <!ENTITY a.ctm-src-8.url "&a.mailman.listinfo;/ctm-src-8">
-<!ENTITY a.ctm-src-8 "<ulink url='&a.ctm-src-8.url;'>CTM 8-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-8 "<ulink url='&a.ctm-src-8.url;'>lista de
+  distribuição CTM do branch 8-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-8.name "<ulink url='&a.ctm-src-8.url;'>ctm-src-8</ulink>">
 
 <!ENTITY a.ctm-src-9.url "&a.mailman.listinfo;/ctm-src-9">
-<!ENTITY a.ctm-src-9 "<ulink url='&a.ctm-src-9.url;'>CTM 9-STABLE src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-9 "<ulink url='&a.ctm-src-9.url;'>lista de
+  distribuição CTM do branch 9-STABLE do src</ulink>">
 <!ENTITY a.ctm-src-9.name "<ulink url='&a.ctm-src-9.url;'>ctm-src-9</ulink>">
 
 <!ENTITY a.ctm-src-cur.url "&a.mailman.listinfo;/ctm-src-cur">
-<!ENTITY a.ctm-src-cur "<ulink url='&a.ctm-src-cur.url;'>CTM -CURRENT src branch distribution mailing list</ulink>">
+<!ENTITY a.ctm-src-cur "<ulink url='&a.ctm-src-cur.url;'>lista de
+  distribuição CTM do branch -CURRENT do src</ulink>">
 <!ENTITY a.ctm-src-cur.name "<ulink url='&a.ctm-src-cur.url;'>ctm-src-cur</ulink>">
 
 <!ENTITY a.ctm-users.url "&a.mailman.listinfo;/ctm-users">
-<!ENTITY a.ctm-users "<ulink url='&a.ctm-users.url;'>CTM user discussion mailing list</ulink>">
+<!ENTITY a.ctm-users "<ulink url='&a.ctm-users.url;'>lista de
+  discussão dos usuários do CTM</ulink>">
 <!ENTITY a.ctm-users.name "<ulink url='&a.ctm-users.url;'>ctm-users</ulink>">
 
 <!ENTITY a.cvsall.url "&a.mailman.listinfo;/cvs-all">
-<!ENTITY a.cvsall "<ulink url='&a.cvsall.url;'>FreeBSD CVS commit message mailing list</ulink>">
+<!ENTITY a.cvsall "<ulink url='&a.cvsall.url;'>lista de distribuição 
+  de todas as mensagens de commit no CVS do FreeBSD</ulink>">
 <!ENTITY a.cvsall.name "<ulink url='&a.cvsall.url;'>cvs-all</ulink>">
 
 <!ENTITY a.cvs-doc.url "&a.mailman.listinfo;/cvs-doc">
@@ -172,36 +184,42 @@
 <!ENTITY a.cvs-src.name "<ulink url='&a.cvs-src.url;'>cvs-src</ulink>">
 
 <!ENTITY a.cvsweb.url "&a.mailman.listinfo;/freebsd-cvsweb">
-<!ENTITY a.cvsweb "<ulink url='&a.cvsweb.url;'>FreeBSD CVSweb maintenance mailing list</ulink>">
+<!ENTITY a.cvsweb "<ulink url='&a.cvsweb.url;'>lista de discussão 
+  sobre o CVSweb</ulink>">
 <!ENTITY a.cvsweb.name "<ulink url='&a.cvsweb.url;'>freebsd-cvsweb</ulink>">
 
 <!ENTITY a.database.url "&a.mailman.listinfo;/freebsd-database">
-<!ENTITY a.database "<ulink url='&a.database.url;'>FreeBSD based Databases mailing list</ulink>">
+<!ENTITY a.database "<ulink url='&a.database.url;'>lista de discussão
+  sobre o uso e desenvolvimento de bancos de dados no FreeBSD</ulink>">
 <!ENTITY a.database.name "<ulink url='&a.database.url;'>freebsd-database</ulink>">
 
 <!ENTITY a.desktop.url "&a.mailman.listinfo;/freebsd-desktop">
-<!ENTITY a.desktop "<ulink url='&a.desktop.url;'>Using and improving &os; on the desktop</ulink>">
+<!ENTITY a.desktop "<ulink url='&a.desktop.url;'>lista de discussão 
+  sobre o uso do FreeBSD no desktop</ulink>">
 <!ENTITY a.desktop.name "<ulink url='&a.desktop.url;'>freebsd-desktop</ulink>">
 
-<!ENTITY a.developers "FreeBSD developers mailing list">
+<!ENTITY a.developers "lista de discussão dos desenvolvedores do FreeBSD">
 <!ENTITY a.developers.name "freebsd-developers">
 
 <!ENTITY a.doc.url "&a.mailman.listinfo;/freebsd-doc">
-<!ENTITY a.doc "<ulink url='&a.doc.url;'>FreeBSD documentation project mailing list</ulink>">
+<!ENTITY a.doc "<ulink url='&a.doc.url;'>lista de discussão do projeto
+  de documentação do FreeBSD/ulink>">
 <!ENTITY a.doc.name "<ulink url='&a.doc.url;'>freebsd-doc</ulink>">
 
-<!ENTITY a.doc-committers "FreeBSD doc/ committer's mailing list">
+<!ENTITY a.doc-committers "lista de discussão dos committers do doc/">
 <!ENTITY a.doc-committers.name "doc-committers">
 
-<!ENTITY a.doc-developers "FreeBSD doc/ developers mailing list">
+<!ENTITY a.doc-developers "lista de discussão dos desenvolvedores do doc/">
 <!ENTITY a.doc-developers.name "doc-developers">
 
 <!ENTITY a.drivers.url "&a.mailman.listinfo;/freebsd-drivers">
-<!ENTITY a.drivers "<ulink url='&a.drivers.url;'>Writing device drivers for FreeBSD</ulink>">
+<!ENTITY a.drivers "<ulink url='&a.drivers.url;'>lista de discussão
+  sobre a criação de drivers de dispositivo para o FreeBSD</ulink>">
 <!ENTITY a.drivers.name "<ulink url='&a.drivers.url;'>freebsd-drivers</ulink>">
 
 <!ENTITY a.eclipse.url "&a.mailman.listinfo;/freebsd-eclipse">
-<!ENTITY a.eclipse "<ulink url='&a.eclipse.url;'>FreeBSD users of Eclipse IDE, tools, rich client applications and ports</ulink>">
+<!ENTITY a.eclipse "<ulink url='&a.eclipse.url;'>lista de discussão
+  para usuários FreeBSD que utilizam o IDE Eclipse</ulink>">
 <!ENTITY a.eclipse.name "<ulink url='&a.eclipse.url;'>freebsd-eclipse</ulink>">
 
 <!ENTITY a.embedded.url "&a.mailman.listinfo;/freebsd-embedded">
