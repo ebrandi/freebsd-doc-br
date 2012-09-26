@@ -72,8 +72,9 @@
       operacional está no disco rígido, como o sistema operacional é
       iniciado?</para>
 
-<!-- Este 'para' esta realmente muito ruim. Gostaria de opinioes nele -->
-    <para>Esse problema é similar ao problema no livro <citetile>As
+<!-- Este 'para' esta realmente muito ruim.
+       Gostaria de opinioes nele -->
+    <para>Esse problema é similar ao problema no livro <citetitle>As
       aventuras do Barão Munchausen</citetitle>.  Um personagem caiu
       no fundo de um poço de inspeção, e puxou a si mesmo para fora
       agarrando suas botas, e se içando.  Nos primórdios da
@@ -90,12 +91,12 @@
     <para>Em hardware x86 o sistema básico de entrada e saída (BIOS,
       sigla em inglês) é responsável por iniciar o sistema
       operacional.  Para fazer isso, o BIOS procura no disco rígido
-      pelo Registro Mestre de Inicialização (MBR, sigla em inglês), que
-      deve estar localizado em um lugar específico do disco rígido.  O
-      BIOS tem conhecimento suficiente do hardware para obter e
-      executar o MBR, e assume que o MBR pode se encarregar das tarefas
-      restantes necessárias para iniciar o sistema operacional,
-      possivelmente com a ajuda do BIOS.</para>
+      pelo Registro Mestre de Inicialização (MBR, sigla em inglês),
+      que deve estar localizado em um lugar específico do disco
+      rígido.  O BIOS tem conhecimento suficiente do hardware para
+      obter e executar o MBR, e assume que o MBR pode se encarregar
+      das tarefas restantes necessárias para iniciar o sistema
+      operacional, possivelmente com a ajuda do BIOS.</para>
 
     <indexterm><primary>Master Boot Record (MBR)</primary></indexterm>
 
@@ -146,15 +147,15 @@ boot loader -->
       limites no tamanho do programa que pode ser executado nas etapas
       um e dois.  Dividindo as tarefas em etapas permite que o FreeBSD
       tenha um inicializador mais flexível.</para>
-      
+
     <indexterm><primary>kernel</primary></indexterm>
     <indexterm><primary><command>init</command></primary></indexterm>
 
     <para>O kernel é então iniciado e começa a procurar por
-      dispositivos e inicializá-los para uso. Uma vez que o processo
+      dispositivos e inicializá-los para uso.  Uma vez que o processo
       de inicialização do kernel termina, o kernel passa o controle
       para o processo do usuário &man.init.8;, que então verifica se
-      os discos estão em um estado utilizável. Em seguida o
+      os discos estão em um estado utilizável.  Em seguida o
       &man.init.8; inicia a configuração de recursos no nível do
       usuário que monta sistemas de arquivos, inicia placas de rede
       para se comunicar na rede, e geralmente inicia todos os
@@ -352,7 +353,7 @@ boot:</screen>
 
 	<para>Finally, by default, the loader issues a 10 second wait
 	  for key presses, and boots the kernel if it is not
-	  interrupted. If interrupted, the user is presented with a
+	  interrupted.  If interrupted, the user is presented with a
 	  prompt which understands the easy-to-use command set, where
 	  the user may adjust variables, unload all modules, load
 	  modules, and then finally boot or reboot.</para>
@@ -834,7 +835,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 <!--    <sect2 id="boot-kernel-userconfig">
       <title>UserConfig: the Boot-time Kernel Configurator</title>
 
-      <para> </para>
+      <para></para>
     </sect2> -->
   </sect1>
 
