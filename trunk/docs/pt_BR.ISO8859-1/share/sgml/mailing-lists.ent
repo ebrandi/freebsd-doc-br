@@ -223,87 +223,111 @@
 <!ENTITY a.eclipse.name "<ulink url='&a.eclipse.url;'>freebsd-eclipse</ulink>">
 
 <!ENTITY a.embedded.url "&a.mailman.listinfo;/freebsd-embedded">
-<!ENTITY a.embedded "<ulink url='&a.embedded.url;'>FreeBSD-embedded mailing list</ulink>">
+<!ENTITY a.embedded "<ulink url='&a.embedded.url;'>lista de discussão
+  sobre o uso do FreeBSD em sistemas embarcados</ulink>">
 <!ENTITY a.embedded.name "<ulink url='&a.embedded.url;'>freebsd-embedded</ulink>">
 
 <!ENTITY a.emulation.url "&a.mailman.listinfo;/freebsd-emulation">
-<!ENTITY a.emulation "<ulink url='&a.emulation.url;'>FreeBSD-emulation mailing list</ulink>">
+<!ENTITY a.emulation "<ulink url='&a.emulation.url;'>lista de 
+  discussão sobre a emulação de outros sistemas operacionais no 
+  FreeBSD</ulink>">
 <!ENTITY a.emulation.name "<ulink url='&a.emulation.url;'>freebsd-emulation</ulink>">
 
 <!ENTITY a.eol.url "&a.mailman.listinfo;/freebsd-eol">
-<!ENTITY a.eol "<ulink url='&a.eol.url;'>FreeBSD-eol mailing list</ulink>">
+<!ENTITY a.eol "<ulink url='&a.eol.url;'>lista de discussão 
+  FreeBSD-eol</ulink>">
 <!ENTITY a.eol.name "<ulink url='&a.eol.url;'>freebsd-eol</ulink>">
 
 <!ENTITY a.firewire.url "&a.mailman.listinfo;/freebsd-firewire">
-<!ENTITY a.firewire "<ulink url='&a.firewire.url;'>FreeBSD FireWire (IEEE 1394) discussion mailing list</ulink>">
+<!ENTITY a.firewire "<ulink url='&a.firewire.url;'>lista de discussão
+  sobre o uso de FireWire (IEEE 1394) no FreeBSD</ulink>">
 <!ENTITY a.firewire.name "<ulink url='&a.firewire.url;'>freebsd-firewire</ulink>">
 
 <!ENTITY a.fs.url "&a.mailman.listinfo;/freebsd-fs">
-<!ENTITY a.fs "<ulink url='&a.fs.url;'>FreeBSD file system project mailing list</ulink>">
+<!ENTITY a.fs "<ulink url='&a.fs.url;'>lista de discussão sobre os 
+  sistemas de arquivos suportados pelo FreeBSD</ulink>">
 <!ENTITY a.fs.name "<ulink url='&a.fs.url;'>freebsd-fs</ulink>">
 
 <!ENTITY a.gecko.url "&a.mailman.listinfo;/freebsd-gecko">
-<!ENTITY a.gecko "<ulink url='&a.gecko.url;'>FreeBSD gecko mailing list</ulink>">
+<!ENTITY a.gecko "<ulink url='&a.gecko.url;'>lista de discussão sobre
+  o uso de aplicações gecko no FreeBSD</ulink>">
 <!ENTITY a.gecko.name "<ulink url='&a.gecko.url;'>freebsd-gecko</ulink>">
 
 <!ENTITY a.geom.url "&a.mailman.listinfo;/freebsd-geom">
-<!ENTITY a.geom "<ulink url='&a.geom.url;'>FreeBSD GEOM mailing list</ulink>">
+<!ENTITY a.geom "<ulink url='&a.geom.url;'>lista de discussão sobre o
+framework GEOM</ulink>">
 <!ENTITY a.geom.name "<ulink url='&a.geom.url;'>freebsd-geom</ulink>">
 
 <!ENTITY a.gnome.url "&a.mailman.listinfo;/freebsd-gnome">
-<!ENTITY a.gnome "<ulink url='&a.gnome.url;'>FreeBSD GNOME and GNOME applications mailing list</ulink>">
+<!ENTITY a.gnome "<ulink url='&a.gnome.url;'>lista de discussão sobre 
+  o <foreignphrase>port</foreignphrase> do gnome para o FreeBSD</ulink>">
 <!ENTITY a.gnome.name "<ulink url='&a.gnome.url;'>freebsd-gnome</ulink>">
 
 <!ENTITY a.hackers.url "&a.mailman.listinfo;/freebsd-hackers">
-<!ENTITY a.hackers "<ulink url='&a.hackers.url;'>FreeBSD technical discussions mailing list</ulink>">
+<!ENTITY a.hackers "<ulink url='&a.hackers.url;'>lista de discussão
+  de assuntos técnicos relacionados ao FreeBSD</ulink>">
 <!ENTITY a.hackers.name "<ulink url='&a.hackers.url;'>freebsd-hackers</ulink>">
 
 <!ENTITY a.hardware.url "&a.mailman.listinfo;/freebsd-hardware">
-<!ENTITY a.hardware "<ulink url='&a.hardware.url;'>FreeBSD hardware and equipment mailing list</ulink>">
+<!ENTITY a.hardware "<ulink url='&a.hardware.url;'>lista de discussão
+  sobre hardware para o FreeBSD</ulink>">
 <!ENTITY a.hardware.name "<ulink url='&a.hardware.url;'>freebsd-hardware</ulink>">
 
 <!ENTITY a.hubs.url "&a.mailman.listinfo;/freebsd-hubs">
-<!ENTITY a.hubs "<ulink url='&a.hubs.url;'>FreeBSD mirror sites mailing lists</ulink>">
+<!ENTITY a.hubs "<ulink url='&a.hubs.url;'>lista de discussão
+  sobre sites espelhos do FreeBSD</ulink>">
 <!ENTITY a.hubs.name "<ulink url='&a.hubs.url;'>freebsd-hubs</ulink>">
 
 <!ENTITY a.i18n.url "&a.mailman.listinfo;/freebsd-i18n">
-<!ENTITY a.i18n "<ulink url='&a.i18n.url;'>FreeBSD internationalization mailing list</ulink>">
+<!ENTITY a.i18n "<ulink url='&a.i18n.url;'>lista de discussão sobre 
+  a internacionalização do FReeBSD.</ulink>">
 <!ENTITY a.i18n.name "<ulink url='&a.i18n.url;'>freebsd-i18n</ulink>">
 
 <!ENTITY a.i386.url "&a.mailman.listinfo;/freebsd-i386">
-<!ENTITY a.i386 "<ulink url='&a.i386.url;'>FreeBSD i386-specific issues mailing list</ulink>">
+<!ENTITY a.i386 "<ulink url='&a.i386.url;'>lista de discussão 
+  de temas específicos ao uso do FreeBSD na plataforma i386</ulink>">
 <!ENTITY a.i386.name "<ulink url='&a.i386.url;'>freebsd-i386</ulink>">
 
 <!ENTITY a.ia32.url "&a.mailman.listinfo;/freebsd-ia32">
-<!ENTITY a.ia32 "<ulink url='&a.ia32.url;'>FreeBSD IA32 porting mailing list</ulink>">
+<!ENTITY a.ia32 "<ulink url='&a.ia32.url;'>lista de discussão
+  sobre o <foreignphrase>port</foreignphrase> do FreeBSD para a
+  plataforma IA32</ulink>">
 <!ENTITY a.ia32.name "<ulink url='&a.ia32.url;'>freebsd-ia32</ulink>">
 
 <!ENTITY a.ia64.url "&a.mailman.listinfo;/freebsd-ia64">
-<!ENTITY a.ia64 "<ulink url='&a.ia64.url;'>FreeBSD IA64 porting mailing list</ulink>">
+<!ENTITY a.ia64 "<ulink url='&a.ia64.url;'>lista de discussão
+  sobre o <foreignphrase>port</foreignphrase> do FreeBSD para a
+  plataforma IA64</ulink>">
 <!ENTITY a.ia64.name "<ulink url='&a.ia64.url;'>freebsd-ia64</ulink>">
 
 <!ENTITY a.ipfw.url "&a.mailman.listinfo;/freebsd-ipfw">
-<!ENTITY a.ipfw "<ulink url='&a.ipfw.url;'>FreeBSD IPFW code mailing list</ulink>">
+<!ENTITY a.ipfw "<ulink url='&a.ipfw.url;'>lista de discussão sobre 
+  o código do IPFW no FreeBSD</ulink>">
 <!ENTITY a.ipfw.name "<ulink url='&a.ipfw.url;'>freebsd-ipfw</ulink>">
 
 <!ENTITY a.isdn.url "&a.mailman.listinfo;/freebsd-isdn">
-<!ENTITY a.isdn "<ulink url='&a.isdn.url;'>FreeBSD ISDN mailing list</ulink>">
+<!ENTITY a.isdn "<ulink url='&a.isdn.url;'>lista de discussão sobre o uso de ISDN no FreeBSD</ulink>">
 <!ENTITY a.isdn.name "<ulink url='&a.isdn.url;'>freebsd-isdn</ulink>">
 
 <!ENTITY a.isp.url "&a.mailman.listinfo;/freebsd-isp">
-<!ENTITY a.isp "<ulink url='&a.isp.url;'>FreeBSD Internet service provider's mailing list</ulink>">
+<!ENTITY a.isp "<ulink url='&a.isp.url;'>lista de discussão sobre o 
+  uso do FreeBSD em Provedores de Serviço Internet (ISPs)</ulink>">
 <!ENTITY a.isp.name "<ulink url='&a.isp.url;'>freebsd-isp</ulink>">
 
 <!ENTITY a.jail.url "&a.mailman.listinfo;/freebsd-jail">
-<!ENTITY a.jail "<ulink url='&a.jail.url;'>FreeBSD jails mailing list</ulink>">
+<!ENTITY a.jail "<ulink url='&a.jail.url;'>lista de discussão sobre o
+  uso de jails no FreeBSD</ulink>">
 <!ENTITY a.jail.name "<ulink url='&a.jail.url;'>freebsd-jail</ulink>">
 
 <!ENTITY a.java.url "&a.mailman.listinfo;/freebsd-java">
-<!ENTITY a.java "<ulink url='&a.java.url;'>FreeBSD Java Language mailing list</ulink>">
+<!ENTITY a.java "<ulink url='&a.java.url;'>lista de discussão
+  sobre o uso da linguagem java na criação de aplicativos para o 
+  FreeBSD</ulink>">
 <!ENTITY a.java.name "<ulink url='&a.java.url;'>freebsd-java</ulink>">
 
 <!ENTITY a.jobs.url "&a.mailman.listinfo;/freebsd-jobs">
-<!ENTITY a.jobs "<ulink url='&a.jobs.url;'>FreeBSD related employment mailing list</ulink>">
+<!ENTITY a.jobs "<ulink url='&a.jobs.url;'>lista de discussão sobre
+  empregos relacionados ao FreeBSD</ulink>">
 <!ENTITY a.jobs.name "<ulink url='&a.jobs.url;'>freebsd-jobs</ulink>">
 
 <!ENTITY a.kde.url "https://mail.kde.org/mailman/listinfo/kde-freebsd">
