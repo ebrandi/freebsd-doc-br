@@ -331,55 +331,72 @@ framework GEOM</ulink>">
 <!ENTITY a.jobs.name "<ulink url='&a.jobs.url;'>freebsd-jobs</ulink>">
 
 <!ENTITY a.kde.url "https://mail.kde.org/mailman/listinfo/kde-freebsd">
-<!ENTITY a.kde "<ulink url='&a.kde.url;'>FreeBSD KDE/Qt and KDE applications mailing list</ulink>">
+<!ENTITY a.kde "<ulink url='&a.kde.url;'>lista de discussão sobre o
+  uso do KDE/Qt e demais aplicativos do KDE no FreeBSD>">
 <!ENTITY a.kde.name "<ulink url='&a.kde.url;'>freebsd-kde</ulink>">
 
 <!ENTITY a.lfs.url "&a.mailman.listinfo;/freebsd-lfs">
-<!ENTITY a.lfs "<ulink url='&a.lfs.url;'>FreeBSD LFS porting mailing list</ulink>">
+<!ENTITY a.lfs "<ulink url='&a.lfs.url;'>lista de discussão sobre o 
+  <foreignphrase>port</foreignphrase> do LFS para o FreeBSD</ulink>">
 <!ENTITY a.lfs.name "<ulink url='&a.lfs.url;'>freebsd-lfs</ulink>">
 
 <!ENTITY a.mips.url "&a.mailman.listinfo;/freebsd-mips">
-<!ENTITY a.mips "<ulink url='&a.mips.url;'>FreeBSD MIPS porting mailing list</ulink>">
+<!ENTITY a.mips "<ulink url='&a.mips.url;'>lista de discussão sobre o
+<foreignphrase>port</foreignphrase> do MIPS para o FreeBSD</ulink>"
 <!ENTITY a.mips.name "<ulink url='&a.mips.url;'>freebsd-mips</ulink>">
 
 <!ENTITY a.mirror-announce.url "&a.mailman.listinfo;/mirror-announce">
-<!ENTITY a.mirror-announce "<ulink url='&a.mirror-announce.url;'>FreeBSD mirror site administrators</ulink>">
+<!ENTITY a.mirror-announce "<ulink url='&a.mirror-announce.url;'>lista
+  de discussão dos administradores dos sites epelhos do
+  FreeBSD</ulink>">
 <!ENTITY a.mirror-announce.name "<ulink url='&a.mirror-announce.url;'>mirror-announce</ulink>">
 
 <!ENTITY a.mobile.url "&a.mailman.listinfo;/freebsd-mobile">
-<!ENTITY a.mobile "<ulink url='&a.mobile.url;'>FreeBSD laptop computer mailing list</ulink>">
+<!ENTITY a.mobile "<ulink url='&a.mobile.url;'>lista de discussão de 
+  temas especificos ao uso do FreeBSD em notebooks e demais 
+  equipamentos móveis.</link>">
 <!ENTITY a.mobile.name "<ulink url='&a.mobile.url;'>freebsd-mobile</ulink>">
 
 <!ENTITY a.mono.url "&a.mailman.listinfo;/freebsd-mono">
-<!ENTITY a.mono "<ulink url='&a.mono.url;'>Mono and C# applications on FreeBSD</ulink>">
+<!ENTITY a.mono "<ulink url='&a.mono.url;'>lista de discussão sobre
+  o <foreignphrase>port</foreignphrase> de aplicações Mono C# para o
+  freebsd</ulink>">
 <!ENTITY a.mono.name "<ulink url='&a.mono.url;'>freebsd-mono</ulink>">
 
 <!ENTITY a.mozilla.url "&a.mailman.listinfo;/freebsd-mozilla">
-<!ENTITY a.mozilla "<ulink url='&a.mozilla.url;'>FreeBSD port of the Mozilla browser mailing list</ulink>">
+<!ENTITY a.mozilla "<ulink url='&a.mozilla.url;'>lista de discussão 
+  sobre o <foreignphrase>port</foreignphrase> do navegador Mozilla 
+  para o FreeBSD</ulink>">
 <!ENTITY a.mozilla.name "<ulink url='&a.mozilla.url;'>freebsd-mozilla</ulink>">
 
 <!ENTITY a.multimedia.url "&a.mailman.listinfo;/freebsd-multimedia">
-<!ENTITY a.multimedia "<ulink url='&a.multimedia.url;'>FreeBSD multimedia mailing list</ulink>">
+<!ENTITY a.multimedia "<ulink url='&a.multimedia.url;'>lista de
+  discussão sobre o uso de aplicativos multimedia no FreeBSD</ulink>">
 <!ENTITY a.multimedia.name "<ulink url='&a.multimedia.url;'>freebsd-multimedia</ulink>">
 
 <!ENTITY a.net.url "&a.mailman.listinfo;/freebsd-net">
-<!ENTITY a.net "<ulink url='&a.net.url;'>FreeBSD networking mailing list</ulink>">
+<!ENTITY a.net "<ulink url='&a.net.url;'>lista de discussão sobre 
+  redes e TCP/IP no FreeBSD</ulink>">
 <!ENTITY a.net.name "<ulink url='&a.net.url;'>freebsd-net</ulink>">
 
 <!ENTITY a.newbies.url "&a.mailman.listinfo;/freebsd-newbies">
-<!ENTITY a.newbies "<ulink url='&a.newbies.url;'>FreeBSD new users mailing list</ulink>">
+<!ENTITY a.newbies "<ulink url='&a.newbies.url;'>lista de discussão 
+  para usuários novatos do FreeBSD</ulink>">
 <!ENTITY a.newbies.name "<ulink url='&a.newbies.url;'>freebsd-newbies</ulink>">
 
 <!ENTITY a.newbus.url "&a.mailman.listinfo;/freebsd-new-bus">
-<!ENTITY a.newbus "<ulink url='&a.newbus.url;'>FreeBSD new-bus mailing list</ulink>">
+<!ENTITY a.newbus "<ulink url='&a.newbus.url;'>lista de discussão 
+  sobre a arquitetura New Bus no FreeBSD</ulink>">
 <!ENTITY a.newbus.name "<ulink url='&a.newbus.url;'>freebsd-new-bus</ulink>">
 
 <!ENTITY a.numerics.url "&a.mailman.listinfo;/freebsd-numerics">
-<!ENTITY a.numerics "<ulink url='&a.numerics.url;'>Discussions of high quality implementation of libm functions</ulink>">
+<!ENTITY a.numerics "<ulink url='&a.numerics.url;'>Discussões sobre a
+  implementação de alta qualidade das funções libm</ulink>">
 <!ENTITY a.numerics.name "<ulink url='&a.numerics.url;'>freebsd-numerics</ulink>">
 
 <!ENTITY a.office.url "&a.mailman.listinfo;/freebsd-office">
-<!ENTITY a.office "<ulink url='&a.office.url;'>Office applications on FreeBSD</ulink>">
+<!ENTITY a.office "<ulink url='&a.office.url;'>lista de discussão 
+  sobre o uso de aplicações de escritório no FreeBSD</ulink>">
 <!ENTITY a.office.name "<ulink url='&a.office.url;'>freebsd-office</ulink>">
 
 <!ENTITY a.performance.url "&a.mailman.listinfo;/freebsd-performance">
