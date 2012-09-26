@@ -12,7 +12,12 @@
                  builds for the other languages, and we will poke fun of you
                  in public.
 
-     $FreeBSD: head/en_US.ISO8859-1/share/sgml/teams.ent 38826 2012-05-17 19:12:14Z hrs $
+     The FreeBSD Documentation Project
+     The FreeBSD Brazilian Portuguese Documentation Project
+
+     Original revision: r38826
+
+     $FreeBSD$
 -->
 
 <!ENTITY a.admins "FreeBSD Administrators <email>admins@FreeBSD.org</email>">
