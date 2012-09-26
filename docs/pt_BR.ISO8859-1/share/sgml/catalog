@@ -19,6 +19,9 @@ PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT"
 PUBLIC "-//FreeBSD//DOCUMENT DocBook Stylesheet//EN"
 	"freebsd.dsl"
 
+PUBLIC "-//FreeBSD//ENTITIES DocBook Glossary Entities//PT"
+	"glossary.ent"
+
 PUBLIC "-//FreeBSD//ENTITIES DocBook Mailing List Entities//PT"
         "mailing-lists.ent"
 

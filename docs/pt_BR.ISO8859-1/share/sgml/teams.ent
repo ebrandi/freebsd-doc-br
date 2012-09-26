@@ -1,6 +1,6 @@
 <!--
      Names and email address of teams of people working on specified
-     tasks. Usally they're just mail aliases set up at hub.FreeBSD.org
+     tasks. Usually they're just mail aliases set up at hub.FreeBSD.org
 
      Use these entities when referencing appropriate teams.
 
@@ -12,45 +12,43 @@
                  builds for the other languages, and we will poke fun of you
                  in public.
 
-     The FreeBSD Documentation Project
-     The FreeBSD Brazilian Portuguese Documentation Project
-
-     Original revision: 1.10
-
-     $FreeBSD: head/pt_BR.ISO8859-1/share/sgml/teams.ent 39534 2012-09-14 12:11:19Z gabor $
+     $FreeBSD: head/en_US.ISO8859-1/share/sgml/teams.ent 38826 2012-05-17 19:12:14Z hrs $
 -->
 
-<!ENTITY a.core-secretary "Secretário do Grupo Central
-  (<literal>Core Team</literal>) <email>core-secretary@FreeBSD.org</email>">
+<!ENTITY a.admins "FreeBSD Administrators <email>admins@FreeBSD.org</email>">
 
-<!ENTITY a.cvs "Responsáveis pelo Repositório CVS
-  (<literal>Repository Meisters</literal>) <email>cvs@FreeBSD.org</email>">
+<!ENTITY a.bugmeister "Problem Report Database administrators <email>bugmeister@FreeBSD.org</email>">
 
-<!ENTITY a.cvsup-master "Coordenador de Sítio Espelho CVSup
-  <email>cvsup-master@FreeBSD.org</email>">
+<!ENTITY a.core-secretary "Core Team Secretary <email>core-secretary@FreeBSD.org</email>">
 
-<!ENTITY a.doceng "Equipe de Engenharia de
-  Documentação<email>doceng@FreeBSD.org</email>">
+<!ENTITY a.cvsadm "CVS Repository Meisters <email>cvsadm@FreeBSD.org</email>">
 
-<!ENTITY a.donations "Escritório de relacionamento para
-  doa&ccecil;ões <email>donations@FreeBSD.org</email>">
+<!ENTITY a.cvsup-master "CVSup Mirror Site Coordinator <email>cvsup-master@FreeBSD.org</email>">
 
-<!ENTITY a.faq "Responsável pelo <literal>FAQ</literal>
-  <email>faq@FreeBSD.org</email>">
+<!ENTITY a.dcvs "CVS doc Repository Meisters <email>dcvs@FreeBSD.org</email>">
 
-<!ENTITY a.ftp-master "Coordenador de Sítio Espelho FTP
-  <email>ftp-master@FreeBSD.org</email>">
+<!ENTITY a.doceng "Documentation Engineering Team <email>doceng@FreeBSD.org</email>">
 
-<!ENTITY a.portmgr "Equipe de Gerênciamento de <literal>Ports</literal>
-  <email>portmgr@FreeBSD.org</email>">
+<!ENTITY a.donations "Donations Liaison Office <email>donations@FreeBSD.org</email>">
 
-<!ENTITY a.re "Equipe de Engenharia de Lançamento
-  <email>re@FreeBSD.org</email>">
+<!ENTITY a.faq "FAQ Maintainer <email>faq@FreeBSD.org</email>">
 
-<!ENTITY a.security-officer "Equipe de Oficiais de Segurança
-  <email>security-officer@FreeBSD.org</email>">
+<!ENTITY a.ftp-master "FTP Mirror Site Coordinator <email>ftp-master@FreeBSD.org</email>">
 
-<!ENTITY a.www "Lista de discussão dos Responsáveis
-  pelo Sítio WWW FreeBSD
-  (<foreignphrase>webmaster</foreignphrase)
-  <email>www@FreeBSD.org</email>">
+<!ENTITY a.mirror-admin "FTP/WWW Mirror Site Coordinator <email>mirror-admin@FreeBSD.org</email>">
+
+<!ENTITY a.ncvs "CVS src Repository Meisters <email>ncvs@FreeBSD.org</email>">
+
+<!ENTITY a.perforce-admin "Perforce Repository Meisters <email>perforce-admin@FreeBSD.org</email>">
+
+<!ENTITY a.pcvs "CVS ports Repository Meisters <email>pcvs@FreeBSD.org</email>">
+
+<!ENTITY a.portmgr "Ports Management Team <email>portmgr@FreeBSD.org</email>">
+
+<!ENTITY a.portmgr-secretary "Ports Management Team Secretary <email>portmgr-secretary@FreeBSD.org</email>">
+
+<!ENTITY a.projcvs "CVS Third-Party Projects Repository Meisters <email>projcvs@FreeBSD.org</email>">
+
+<!ENTITY a.re "Release Engineering Team <email>re@FreeBSD.org</email>">
+
+<!ENTITY a.security-officer "Security Officer Team <email>security-officer@FreeBSD.org</email>">

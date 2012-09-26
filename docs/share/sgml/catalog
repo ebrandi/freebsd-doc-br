@@ -23,19 +23,19 @@ PUBLIC "-//FreeBSD//DOCUMENT DocBook Language Neutral Stylesheet//EN"
 PUBLIC "-//FreeBSD//DOCUMENT DocBook HTML Stylesheet//EN"
 	"freebsd-html.dsl"
 
-PUBLIC "-//FreeBSD//DOCUMENT DocBook HTML Lanugage Neutral Stylesheet//EN"
+PUBLIC "-//FreeBSD//DOCUMENT DocBook HTML Language Neutral Stylesheet//EN"
 	"freebsd-html.dsl"
 
 PUBLIC "-//FreeBSD//DOCUMENT DocBook Print Stylesheet//EN"
 	"freebsd-print.dsl"
 
-PUBLIC "-//FreeBSD//DOCUMENT DocBook Print Lanugage Neutral Stylesheet//EN"
+PUBLIC "-//FreeBSD//DOCUMENT DocBook Print Language Neutral Stylesheet//EN"
 	"freebsd-print.dsl"
 
 PUBLIC "-//FreeBSD//DOCUMENT DocBook Common Stylesheet//EN"
 	"freebsd-common.dsl"
 
-PUBLIC "-//FreeBSD//DOCUMENT DocBook Common Lanugage Neutral Stylesheet//EN"
+PUBLIC "-//FreeBSD//DOCUMENT DocBook Common Language Neutral Stylesheet//EN"
 	"freebsd-common.dsl"
 
 PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//EN"
