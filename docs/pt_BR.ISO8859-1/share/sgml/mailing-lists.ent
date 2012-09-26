@@ -1,7 +1,12 @@
 <!--
-     Names of FreeBSD mailing lists and related software.
+    Names of FreeBSD mailing lists and related software.
 
-     $FreeBSD: head/en_US.ISO8859-1/share/sgml/mailing-lists.ent 39281 2012-07-29 17:35:46Z wblock $
+    The FreeBSD Documentation Project
+    The FreeBSD Brazilian Portuguese Documentation Project
+
+    Original revision: r39281
+
+    $FreeBSD$
 -->
 
 <!ENTITY a.mailman.listinfo "http://lists.FreeBSD.org/mailman/listinfo">
