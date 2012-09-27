@@ -32,7 +32,7 @@ IMPORTANT:  If you delete names from this file you *must* ensure that
 <!ENTITY a.cvsadm "Responsáveis pelo Repositório CVS 
   <email>cvsadm@FreeBSD.org</email>">
 
-<!ENTITY a.cvsup-master "Coordenador de sites espelhos CVSup 
+<!ENTITY a.cvsup-master "Coordenador de sites espelho CVSup 
   <email>cvsup-master@FreeBSD.org</email>">
 
 <!ENTITY a.dcvs "Responsáveis pelo Repositório CVS doc
@@ -47,10 +47,10 @@ IMPORTANT:  If you delete names from this file you *must* ensure that
 <!ENTITY a.faq "Responsável pelo <literal>FAQ</literal>
   <email>faq@FreeBSD.org</email>">
 
-<!ENTITY a.ftp-master "Coordenador de sites espelhos FTP
+<!ENTITY a.ftp-master "Coordenador de sites espelho FTP
   <email>ftp-master@FreeBSD.org</email>">
 
-<!ENTITY a.mirror-admin "Coordenador de sites espelhos FTP/WWW
+<!ENTITY a.mirror-admin "Coordenador de sites espelho FTP/WWW
   <email>mirror-admin@FreeBSD.org</email>">
 
 <!ENTITY a.ncvs "Responsáveis pelo Repositório CVS src
@@ -59,8 +59,8 @@ IMPORTANT:  If you delete names from this file you *must* ensure that
 <!ENTITY a.perforce-admin "Responsáveis pelo Repositório Perforce
   <email>perforce-admin@FreeBSD.org</email>">
 
-<!ENTITY a.pcvs "Responsáveis pelo Repositório CVS ports
-  <email>pcvs@FreeBSD.org</email>">
+<!ENTITY a.pcvs "Responsáveis pelo Repositório CVS
+  <literal>ports</literal> <email>pcvs@FreeBSD.org</email>">
 
 <!ENTITY a.portmgr "Equipe de Gerênciamento do <literal>Ports</literal>
   <email>portmgr@FreeBSD.org</email>">
