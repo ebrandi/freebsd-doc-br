@@ -29,68 +29,68 @@
       <see>Sistemas de Arquivo</see>
     </indexterm>
 
-    <para>O Sistema de Arquivo √© parte integral de qualquer sistema
-      operacional. Ele permite aos usu√°rios o envio e armazenamento
-      de arquivos, prov√™ acesso aos dados e claro, permite o uso do
-      disco rigido. √â usado em diferentes sistemas operacionais mas
-      todos mant√™m uma caracteristica comum, que √© o sistema de
-      arquivo nativo. No &os; o sistema de arquivo √© conhecido como
-      Fast File System (Sistema de Arquivo R√°pido) ou <acronym>FFS
-      </acronym> que √© baseado no sistema de arquivo original do
-      Unix&trade;, tamb√©m conhecido como <acronym>UFS</acronym>.
-      Este √© o sistema de arquivo nativo do &os; ao qual √© colocado
+    <para>O Sistema de Arquivo È parte integral de qualquer sistema
+      operacional. Ele permite aos usu·rios o envio e armazenamento
+      de arquivos, provÍ acesso aos dados e claro, permite o uso do
+      disco rigido. … usado em diferentes sistemas operacionais mas
+      todos mantÍm uma caracteristica comum, que È o sistema de
+      arquivo nativo. No &os; o sistema de arquivo È conhecido como
+      Fast File System (Sistema de Arquivo R·pido) ou <acronym>FFS
+      </acronym> que È baseado no sistema de arquivo original do
+      Unix&trade;, tambÈm conhecido como <acronym>UFS</acronym>.
+      Este È o sistema de arquivo nativo do &os; ao qual È colocado
       nos discos rigidos para acesso a dados.</para>
 
-    <para>&os; tamb√©m suporta uma variedade de sistemas de arquivo
+    <para>&os; tambÈm suporta uma variedade de sistemas de arquivo
       para prover suporte a acesso de dados de outros sistemas
       operacionais local, por exemplo,&nbsp;dados armazenados em um
       pendrive <acronym>USB</acronym>, disco flash ou outro disco
-      rigido. Existe tamb√©m suporte a sistemas de arquivos n√£o nativo,
-      esses sistemas de arquivo s√£o desenvolvidos em outros sistemas
+      rigido. Existe tambÈm suporte a sistemas de arquivos n„o nativo,
+      esses sistemas de arquivo s„o desenvolvidos em outros sistemas
       operacionais, como o &linux; Extended File System (<acronym>EXT
       </acronym>), e o &sun; Z File System (<acronym>ZFS</acronym>).
       </para>
 
-    <para>Existem diferentes niveis de suporte para v√°rios sistemas de
-      arquivo no &os;. Alguns v√£o requerer a leitura de um modulo do
-      kernel e outros v√£o requerer a instala√ß√£o de alguma ferramenta.
-      Este capitulo √© orientado a ajudar os usu√°rios do &os; a 
-      acessar outros sistemas de arquivo em seu ambiente, come√ßando
+    <para>Existem diferentes niveis de suporte para v·rios sistemas de
+      arquivo no &os;. Alguns v„o requerer a leitura de um modulo do
+      kernel e outros v„o requerer a instalaÁ„o de alguma ferramenta.
+      Este capitulo È orientado a ajudar os usu·rios do &os; a 
+      acessar outros sistemas de arquivo em seu ambiente, comeÁando
       com o &sun; Z file system (<acronym>ZFS</acronym>).</para>
 
-    <para>Ap√≥s ler este cap√≠tulo, voc√™ ir√° conhecer:</para>
+    <para>ApÛs ler este capÌtulo, vocÍ ir· conhecer:</para>
 
     <itemizedlist>
       <listitem>
-	<para>As diferen√ßas entre um sistema de arquivo nativo e um suportado.</para>
+	<para>As diferenÁas entre um sistema de arquivo nativo e um suportado.</para>
       </listitem>
 
       <listitem>
-	<para>Quais sistemas de arquivo s√£o suportados pelo o &os;.</para>
+	<para>Quais sistemas de arquivo s„o suportados pelo o &os;.</para>
       </listitem>
 
       <listitem>
 	<para>Como habilitar, configurar acessar e gerenciar o uso de
-      sistemas de arquivo n√£o nativos.</para>
+      sistemas de arquivo n„o nativos.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Antes de ler este cap√≠tulo, voc√™ precisa:</para>
+    <para>Antes de ler este capÌtulo, vocÍ precisa:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Conhecer o b√°sico de &unix; e &os;
+	<para>Conhecer o b·sico de &unix; e &os;
 	  (<xref linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
 	<para>Estar familiarizado com
-	  o b√°sico de configura√ß√£o/compila√ß√£o de kernel
+	  o b·sico de configuraÁ„o/compilaÁ„o de kernel
 	  (<xref linkend="kernelconfig"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Estar confortav√©l em instalar programas de terceiros
+	<para>Estar confortavÈl em instalar programas de terceiros
 	  no &os; (<xref linkend="ports"/>).</para>
       </listitem>
 
@@ -105,75 +105,75 @@
     <title>O Z File System (ZFS)</title>
 
     <para>O Z&nbsp;file system (Sistema de Arquivo Z), desenvolvido
-      pela &sun;, √© uma nova tecnologia desenvolvida para usar um
-      metodo de armazenamento agrupado. Isto significa que o espa√ßo
-      somente √© usado quando precisa armazenar dados. Ele tamb√©m √©
+      pela &sun;, È uma nova tecnologia desenvolvida para usar um
+      metodo de armazenamento agrupado. Isto significa que o espaÁo
+      somente È usado quando precisa armazenar dados. Ele tambÈm È
       desenvolvido para manter a maior integridade possivel do dados,
       suportando o uso de snapshots dos dados, multiplas copias e 
-      checagem de dados (checksum). Um novo modelo de replica√ß√£o de
+      checagem de dados (checksum). Um novo modelo de replicaÁ„o de
       dados, conhecido como <acronym>RAID</acronym>-Z foi adicionado.
-      O modelo <acronym>RAID</acronym>-Z √© similar ao <acronym>RAID
-      </acronym>5 mas √© desenvolvido para prevenir a corrump√ß√£o de
+      O modelo <acronym>RAID</acronym>-Z È similar ao <acronym>RAID
+      </acronym>5 mas È desenvolvido para prevenir a corrumpÁ„o de
       escrita de dados.</para>
 
     <sect2>
       <title>Ajustes no ZFS</title>
 
       <para>O subsistema do <acronym>ZFS</acronym> utiliza muito dos
-        recursos do sistema, ent√£o alguns afinamentos e ajustes s√£o
-        requeridos para prover o m√°ximo de eficiencia durante o uso
+        recursos do sistema, ent„o alguns afinamentos e ajustes s„o
+        requeridos para prover o m·ximo de eficiencia durante o uso
         diario. Como recurso experimental no &os; algumas coisas podem
         mudar no futuro; entretanto, neste momento, as etapas
-        descritas a seguir s√£o recomendadas.</para>
+        descritas a seguir s„o recomendadas.</para>
 
       <sect3>
 	<title>Memoria</title>
 
-	<para>O total de mem√≥ria no sistema deve ser de pelo menos um
-      gigabyte, mas o recomendado √© que voc√™ tenha dois ou mais
+	<para>O total de memÛria no sistema deve ser de pelo menos um
+      gigabyte, mas o recomendado È que vocÍ tenha dois ou mais
       gigabytes. Em todos os exemplos mostrados aqui, o sistema
-      possui um gigabyte de mem√≥ria com outros v√°rios mecanismos
+      possui um gigabyte de memÛria com outros v·rios mecanismos
       de ajuste no local.</para>
 
 	<para>Algumas pessoas tiveram sorte de usar menos de um gigabyte
-      de mem√≥ria, por√©m com uma quantidade limitada de mem√≥ria
-      f√≠sica, quando o sistema est√° sob uso pesado, √© muito plausiv√©l
-      que o &os; ter√° um panic devido ao uso exaustivel de mem√≥ria.
+      de memÛria, porÈm com uma quantidade limitada de memÛria
+      fÌsica, quando o sistema est· sob uso pesado, È muito plausivÈl
+      que o &os; ter· um panic devido ao uso exaustivel de memÛria.
     </para>
       </sect3>
 
       <sect3>
-	<title>Configura√ß√£o de Kernel</title>
+	<title>ConfiguraÁ„o de Kernel</title>
 
-	<para>√â recomendav√©l remover drivers e op√ß√µes n√£o usados dois
-      arquivo de configura√ß√£o do kernel. Visto que a maioria dos
-      dispositivos est√£o disponiveis como modulos, eles podem ser
+	<para>… recomendavÈl remover drivers e opÁıes n„o usados dois
+      arquivo de configuraÁ„o do kernel. Visto que a maioria dos
+      dispositivos est„o disponiveis como modulos, eles podem ser
       lidos usando o arquivo <filename>/boot/loader.conf</filename>
     </para>
 
-	<para>Usu√°rios da arquitetura &i386; devem adicionar a op√ß√£o
-      descrita abaixo no arquivo de configura√ß√£o do kernel,
+	<para>Usu·rios da arquitetura &i386; devem adicionar a opÁ„o
+      descrita abaixo no arquivo de configuraÁ„o do kernel,
       reconstruir o kernel e reinciar o sistema:</para>
 
 	<programlisting>options 	KVA_PAGES=512</programlisting>
 
-	<para>Esta op√ß√£o vai expandir o espa√ßo do endere√ßo do kernel,
+	<para>Esta opÁ„o vai expandir o espaÁo do endereÁo do kernel,
       permitindo assim que o ajustes <varname>vm.kvm_size</varname>
-      possa ser configurado para al√©m do limite atual imposto de
+      possa ser configurado para alÈm do limite atual imposto de
       1&nbsp;GB (2&nbsp;GB para <acronym>PAE</acronym>). Para
-      encontrar o valor mais adequado para esta op√ß√£o, divida o
-      espa√ßo de endere√ßo desejado em megabytes por quatro (4). Neste
-      caso, √© <literal>512</literal> para 2&nbsp;GB.</para>
+      encontrar o valor mais adequado para esta opÁ„o, divida o
+      espaÁo de endereÁo desejado em megabytes por quatro (4). Neste
+      caso, È <literal>512</literal> para 2&nbsp;GB.</para>
       </sect3>
 
       <sect3>
 	<title>Carregando os Ajustes</title>
 
-	<para>O espa√ßo de endere√ßo <devicename>kmem</devicename> pode ser
+	<para>O espaÁo de endereÁo <devicename>kmem</devicename> pode ser
       aumentado em todas as arquiteturas do &os;. No sistema de teste
-      com um gigabyte de mem√≥ria f√≠sica, para que o sucesso possa ser
-      alcan√ßado, deveremos colocar as op√ß√µes de ajuste no arquivo de
-      configura√ß√£o <filename>/boot/loader.conf</filename> e reiniciar
+      com um gigabyte de memÛria fÌsica, para que o sucesso possa ser
+      alcanÁado, deveremos colocar as opÁıes de ajuste no arquivo de
+      configuraÁ„o <filename>/boot/loader.conf</filename> e reiniciar
       o sistema:</para>
 
 	<programlisting>vm.kmem_size="330M"
@@ -181,8 +181,8 @@ vm.kmem_size_max="330M"
 vfs.zfs.arc_max="40M"
 vfs.zfs.vdev.cache.size="5M"</programlisting>
 
-	<para>Para mais detalhes de uma lista de recomenda√ß√µes
-      relacionadas aos ajustes do ZFS, veja em (em Ingl√™s)
+	<para>Para mais detalhes de uma lista de recomendaÁıes
+      relacionadas aos ajustes do ZFS, veja em (em InglÍs)
 	  <ulink url="http://wiki.freebsd.org/ZFSTuningGuide"></ulink>.</para>
       </sect3>
     </sect2>
