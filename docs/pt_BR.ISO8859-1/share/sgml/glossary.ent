@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!--
-    FreeBSD Glossary Terms
-	Please keep this file sorted alphabetically/ASCIIly by glossterm.
+  FreeBSD Glossary Terms
+  Please keep this file sorted alphabetically/ASCIIly by glossterm.
 
-	glossterms that are acronyms should have two entries - one for
-	the expanded acronym and another for the acronym itself.  The
-	second of these should reference the entry for the expanded acronym
-	via a glosssee element.  For example:
+   glossterms that are acronyms should have two entries - one for
+   the expanded acronym and another for the acronym itself.  The
+   second of these should reference the entry for the expanded acronym
+   via a glosssee element.  For example:
 
-	<glossentry>
-	  <glossterm>FUBAR</glossterm>
-	  <glosssee otherterm="fubar-glossary">
-	</glossentry>
+      <glossentry>
+	<glossterm>FUBAR</glossterm>
+	<glosssee otherterm="fubar-glossary">
+      </glossentry>
 
-	<glossentry id="fubar-glossary">
-	  <glossterm>Fuc... Up Beyond All Recognition</glossterm>
-	  <acronym>FUBAR</acronym>
-	  <glossdef>
-	    <para>Broken.</para>
-	  </glossdef>
-	</glossentry>
+      <glossentry id="fubar-glossary">
+	<glossterm>Fuc... Up Beyond All Recognition</glossterm>
+	<acronym>FUBAR</acronym>
+	<glossdef>
+	  <para>Broken.</para>
+	</glossdef>
+      </glossentry>
 
-	Note that in this instance, the expanded acronym sorts below the
-	unexpanded acronym.  That's OK.
+  Note that in this instance, the expanded acronym sorts below the
+  unexpanded acronym.  That's OK.
 
-	Finally, id attribute values should end in the string
-	"-glossary" to avoid conflicting with id attribute values in
-	the main text.
+  Finally, id attribute values should end in the string
+  "-glossary" to avoid conflicting with id attribute values in
+  the main text.
 
-     The FreeBSD Documentation Project
-     The FreeBSD Brazilian Portuguese Documentation Project
+  The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
 
-     Original revision: r39534
+  Original revision: r39534
 
-     $FreeBSD$
+  $FreeBSD$
 -->
 
 <!ENTITY freebsd-glossary '
