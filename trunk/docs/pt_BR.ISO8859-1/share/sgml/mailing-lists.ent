@@ -168,19 +168,25 @@
 <!ENTITY a.cvsall.name "<ulink url='&a.cvsall.url;'>cvs-all</ulink>">
 
 <!ENTITY a.cvs-doc.url "&a.mailman.listinfo;/cvs-doc">
-<!ENTITY a.cvs-doc "<ulink url='&a.cvs-doc.url;'>FreeBSD CVS doc commit list</ulink>">
+<!ENTITY a.cvs-doc "<ulink url='&a.cvs-doc.url;'>lista de distribuição
+  das mensagens de commit do doc no CVS do FreeBSD</ulink>">
 <!ENTITY a.cvs-doc.name "<ulink url='&a.cvs-doc.url;'>cvs-doc</ulink>">
 
 <!ENTITY a.cvs-ports.url "&a.mailman.listinfo;/cvs-ports">
-<!ENTITY a.cvs-ports "<ulink url='&a.cvs-ports.url;'>FreeBSD CVS ports commit list</ulink>">
+<!ENTITY a.cvs-ports "<ulink url='&a.cvs-ports.url;'>lista de distribuição
+  das mensagens de commit do <foreignphrase>ports</foreignphrase>
+  no CVS do FreeBSD</ulink>">
 <!ENTITY a.cvs-ports.name "<ulink url='&a.cvs-ports.url;'>cvs-ports</ulink>">
 
 <!ENTITY a.cvs-projects.url "&a.mailman.listinfo;/cvs-projects">
-<!ENTITY a.cvs-projects "<ulink url='&a.cvs-projects.url;'>FreeBSD CVS projects commit list</ulink>">
+<!ENTITY a.cvs-projects "<ulink url='&a.cvs-projects.url;'>lista de distribuição
+  das mensagens de commit do <foreignphrase>projects</foreignphrase>
+  no CVS do FreeBSD</ulink>">
 <!ENTITY a.cvs-projects.name "<ulink url='&a.cvs-projects.url;'>cvs-projects</ulink>">
 
 <!ENTITY a.cvs-src.url "&a.mailman.listinfo;/cvs-src">
-<!ENTITY a.cvs-src "<ulink url='&a.cvs-src.url;'>FreeBSD CVS src commit list</ulink>">
+<!ENTITY a.cvs-src "<ulink url='&a.cvs-src.url;'>lista de distribução
+  das mensagens de commit do src no CVS do FreeBSD</ulink>">
 <!ENTITY a.cvs-src.name "<ulink url='&a.cvs-src.url;'>cvs-src</ulink>">
 
 <!ENTITY a.cvsweb.url "&a.mailman.listinfo;/freebsd-cvsweb">
@@ -321,7 +327,7 @@ framework GEOM</ulink>">
 
 <!ENTITY a.java.url "&a.mailman.listinfo;/freebsd-java">
 <!ENTITY a.java "<ulink url='&a.java.url;'>lista de discussão
-  sobre o uso da linguagem java na criação de aplicativos para o 
+  sobre o uso da linguagem Java na criação de aplicativos para o 
   FreeBSD</ulink>">
 <!ENTITY a.java.name "<ulink url='&a.java.url;'>freebsd-java</ulink>">
 
@@ -347,20 +353,20 @@ framework GEOM</ulink>">
 
 <!ENTITY a.mirror-announce.url "&a.mailman.listinfo;/mirror-announce">
 <!ENTITY a.mirror-announce "<ulink url='&a.mirror-announce.url;'>lista
-  de discussão dos administradores dos sites epelhos do
+  de discussão dos administradores dos sites espelhos do
   FreeBSD</ulink>">
 <!ENTITY a.mirror-announce.name "<ulink url='&a.mirror-announce.url;'>mirror-announce</ulink>">
 
 <!ENTITY a.mobile.url "&a.mailman.listinfo;/freebsd-mobile">
 <!ENTITY a.mobile "<ulink url='&a.mobile.url;'>lista de discussão de 
-  temas especificos ao uso do FreeBSD em notebooks e demais 
+  temas específicos ao uso do FreeBSD em notebooks e demais 
   equipamentos móveis.</ulink>">
 <!ENTITY a.mobile.name "<ulink url='&a.mobile.url;'>freebsd-mobile</ulink>">
 
 <!ENTITY a.mono.url "&a.mailman.listinfo;/freebsd-mono">
 <!ENTITY a.mono "<ulink url='&a.mono.url;'>lista de discussão sobre
   o <foreignphrase>port</foreignphrase> de aplicações Mono C# para o
-  freebsd</ulink>">
+  FreeBSD</ulink>">
 <!ENTITY a.mono.name "<ulink url='&a.mono.url;'>freebsd-mono</ulink>">
 
 <!ENTITY a.mozilla.url "&a.mailman.listinfo;/freebsd-mozilla">
@@ -371,7 +377,7 @@ framework GEOM</ulink>">
 
 <!ENTITY a.multimedia.url "&a.mailman.listinfo;/freebsd-multimedia">
 <!ENTITY a.multimedia "<ulink url='&a.multimedia.url;'>lista de
-  discussão sobre o uso de aplicativos multimedia no FreeBSD</ulink>">
+  discussão sobre o uso de aplicativos multimídia no FreeBSD</ulink>">
 <!ENTITY a.multimedia.name "<ulink url='&a.multimedia.url;'>freebsd-multimedia</ulink>">
 
 <!ENTITY a.net.url "&a.mailman.listinfo;/freebsd-net">
@@ -390,8 +396,8 @@ framework GEOM</ulink>">
 <!ENTITY a.newbus.name "<ulink url='&a.newbus.url;'>freebsd-new-bus</ulink>">
 
 <!ENTITY a.numerics.url "&a.mailman.listinfo;/freebsd-numerics">
-<!ENTITY a.numerics "<ulink url='&a.numerics.url;'>Discussões sobre a
-  implementação de alta qualidade das funções libm</ulink>">
+<!ENTITY a.numerics "<ulink url='&a.numerics.url;'>lista de discussão
+  sobre a implementação de alta qualidade das funções libm</ulink>">
 <!ENTITY a.numerics.name "<ulink url='&a.numerics.url;'>freebsd-numerics</ulink>">
 
 <!ENTITY a.office.url "&a.mailman.listinfo;/freebsd-office">
@@ -441,7 +447,7 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 <!ENTITY a.ports-committers.name "ports-committers">
 
 <!ENTITY a.ports-developers "lista de discussão dos desenvolvedores da
-  coleção de <foreignphrase>ports</foreignphrase> do FreeBSD ports">
+  coleção de <foreignphrase>ports</foreignphrase> do FreeBSD">
 <!ENTITY a.ports-developers.name "ports-developers">
 
 <!ENTITY a.ppc.url "&a.mailman.listinfo;/freebsd-ppc">
@@ -451,7 +457,8 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 <!ENTITY a.ppc.name "<ulink url='&a.ppc.url;'>freebsd-ppc</ulink>">
 
 <!ENTITY a.proliant.url "&a.mailman.listinfo;/freebsd-proliant">
-<!ENTITY a.proliant "<ulink url='&a.proliant.url;'>lista de discussão	técnica sobre o uso do FreeBSD em servidores HP ProLiant</ulink>">
+<!ENTITY a.proliant "<ulink url='&a.proliant.url;'>lista de discussão
+  técnica sobre o uso do FreeBSD em servidores HP ProLiant</ulink>">
 <!ENTITY a.proliant.name "<ulink url='&a.proliant.url;'>freebsd-proliant</ulink>">
 
 <!ENTITY a.python.url "&a.mailman.listinfo;/freebsd-python">
@@ -471,7 +478,8 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 <!ENTITY a.rc.name "<ulink url='&a.rc.url;'>freebsd-rc</ulink>">
 
 <!ENTITY a.realtime.url "&a.mailman.listinfo;/freebsd-realtime">
-<!ENTITY a.realtime "<ulink url='&a.realtime.url;'>lista de discussão	sobre extensões de tempo real no FreeBSD</ulink>">
+<!ENTITY a.realtime "<ulink url='&a.realtime.url;'>lista de discussão
+  sobre extensões de tempo real no FreeBSD</ulink>">
 <!ENTITY a.realtime.name "<ulink url='&a.realtime.url;'>freebsd-realtime</ulink>">
 
 <!ENTITY a.ruby.url "&a.mailman.listinfo;/freebsd-ruby">
@@ -682,7 +690,7 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 <!ENTITY a.toolchain.url "&a.mailman.listinfo;/freebsd-toolchain">
 <!ENTITY a.toolchain "<ulink url='&a.toolchain.url;'>lista de
   discussão sobre a manutenção do
-  <foreignphrase>toolchain</foreignphrase> distribuido com o
+  <foreignphrase>toolchain</foreignphrase> distribuído com o
   FreeBSD</ulink>">
 <!ENTITY a.toolchain.name "<ulink url='&a.toolchain.url;'>freebsd-toolchain</ulink>">
 
@@ -731,7 +739,7 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 
 <!ENTITY a.x11.url "&a.mailman.listinfo;/freebsd-x11">
 <!ENTITY a.x11 "<ulink url='&a.x11.url;'>lista de discussão sobre a 
-  manutenção dos ports relacionados com o X11 </ulink>">
+  manutenção dos <foreignphrase>ports</foreignphrase> relacionados com o X11 </ulink>">
 <!ENTITY a.x11.name "<ulink url='&a.x11.url;'>freebsd-x11</ulink>">
 
 <!ENTITY a.xen.url "&a.mailman.listinfo;/freebsd-xen">
@@ -762,7 +770,7 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 
 <!ENTITY a.alpha.url "&a.mailman.listinfo;/freebsd-alpha">
 <!ENTITY a.alpha "<ulink url='&a.alpha.url;'>lista de discussão sobre
-  o <foreignphrase>port</foreignphrase> do FreeBSD ipara a plataforma
+  o <foreignphrase>port</foreignphrase> do FreeBSD para a plataforma
   Alpha</ulink>">
 <!ENTITY a.alpha.name "<ulink url='&a.alpha.url;'>freebsd-alpha</ulink>">
 
