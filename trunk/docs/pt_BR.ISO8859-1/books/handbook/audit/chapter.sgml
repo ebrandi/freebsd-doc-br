@@ -30,113 +30,113 @@ requirements. -->
     </authorgroup>
   </chapterinfo>
 
-  <title>Evento de Seguran√ßa e Auditoria</title>
+  <title>Evento de SeguranÁa e Auditoria</title>
 
   <sect1 id="audit-synopsis">
     <title>Sinopse</title>
 
     <indexterm><primary>AUDIT</primary></indexterm>
     <indexterm>
-      <primary>Evento de Seguran√ßa e Auditoria</primary>
+      <primary>Evento de SeguranÁa e Auditoria</primary>
       <see>MAC</see>
     </indexterm>
 
-    <para>O sistema operacional &os; inclue suporte √† ajuste fino nos 
-      evento de seguran√ßa e auditoria. Event auditing allows the reliable,
-      fine-grained, and configurable logging of a variety of
-      security-relevant system events, including logins, configuration
-      changes, and file and network access.  These log records can be
-      invaluable for live system monitoring, intrusion detection, and
-      postmortem analysis.  &os; implements &sun;'s published
-      <acronym>BSM</acronym> API and file format, and is interoperable with
-      both &sun;'s &solaris; and &apple;'s &macos; X audit implementations.</para>
+    <para>O sistema operacional &os; inclue suporte ‡ ajuste fino nos 
+      eventos de seguranÁa e auditoria. Eventos de auditoria permite 
+      ajuste fino, confi·vel e configur·vel de registro de uma variedade 
+      de eventos do sistema relevantes a seguranÁa, incluindo logins, 
+      alteraÁıes de configuraÁ„o e arquivos, bem como acesso a rede.
+      Estes registros de log podem ser inestim·veis aos sistemas de 
+      monitoramento online, de detecÁ„o de intrus„o e an·lises de postmortem.
+      &os; implementa a API e formato de arquivo <acronym>BSM</acronym> 
+      publicados pela &sun; e È interoper·vel com ambas implementaÁıes
+      de auditoria X dos sistemas &solaris; da &sun; e &macos; da &apple;.</para>
 
-    <para>Este cap√≠tulo foca na instala√ß√£o e configura√ß√£o dos Eventos de Auditoria,
-      explica sobre as suas politicas e fornece exemplos de configura√ß√£o.</para>
+    <para>Este capÌtulo foca na instalaÁ„o e configuraÁ„o dos Eventos de Auditoria, explica sobre as suas politicas e fornece exemplos de configuraÁ„o.</para>
 
-    <para>Ap√≥s ler este cap√≠tulo voc√™ ir√° saber:</para>
+    <para>ApÛs ler este capÌtulo vocÍ ir· saber:</para>
 
     <itemizedlist>
       <listitem>
-        <para>O que e como auditoria de eventos funciona.</para>
+        <para>O que È e como a auditoria de eventos funciona.</para>
       </listitem>
 
       <listitem>
-	<para>Como configurar Eventos de Auditoria para usu√°rios e processos no &os;.</para>
+	<para>Como configurar Eventos de Auditoria para usu·rios e processos no &os;.</para>
       </listitem>
 
       <listitem>
-	<para>Como revisar os rastros de auditoria utilizando as ferramentas de redu√ß√£o e revis√£o.</para>
+	<para>Como revisar os rastros de auditoria utilizando as ferramentas de reduÁ„o e revis„o.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Antes de ler este cap√≠tulo voc√™ deveria:</para>
+    <para>Antes de ler este capÌtulo vocÍ deveria:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Entender o b√°sico de &unix; e &os;
+	<para>Entender o b·sico de &unix; e &os;
 	  (<xref linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Estar familiarizado com o b√°sico sobre configura√ß√£o/compila√ß√£o(<xref linkend="kernelconfig"/>) de kernel.</para>
+	<para>Estar familiarizado com o b·sico sobre configuraÁ„o/compilaÁ„o(<xref linkend="kernelconfig"/>) de kernel.</para>
       </listitem>
 
       <listitem>
-	<para>Ter alguma familiaridade com seguran√ßa e o seu funcionamento no &os; (<xref linkend="security"/>).</para>
+	<para>Ter alguma familiaridade com seguranÁa e o seu funcionamento no &os; (<xref linkend="security"/>).</para>
       </listitem>
     </itemizedlist>
 
     <warning>
-      <para>O servi√ßo de auditoria tem algumas limita√ß√µes conhecidas
-  tal qual nem todos os eventos relevantes de seguran√ßa podem ser
-  auditaveis, alguns mecanismos de autentica√ß√£o como os baseados no
-  gerenciamento de telas x11 e outros daemons de terceiros n√£o 
-  configuram propriamente o servi√ßo de auditoria nas sess√µes de 
-  autentica√ß√£o dos usu√°rios.</para>
+      <para>O serviÁo de auditoria tem algumas limitaÁıes conhecidas
+  tal qual nem todos os eventos relevantes de seguranÁa podem ser
+  auditaveis, alguns mecanismos de autenticaÁ„o como os baseados no
+  gerenciamento de telas x11 e outros daemons de terceiros n„o 
+  configuram propriamente o serviÁo de auditoria nas sessıes de 
+  autenticaÁ„o dos usu·rios.</para>
 
-      <para>O evento de auditoria e seguran√ßa √© capaz de gerar logs 
+      <para>O evento de auditoria e seguranÁaa s„o capaz de gerar logs 
   detalhados das atividades do sistema: em um sistema movimentado dados 
-  referente ai rastreio de um arquivo pode se tornar muito grande quando 
+  referente ao rastreio de um arquivo pode se tornar muito grande quando 
   configurado com muitos detalhes excedendo gigabytes em uma semana em 
-  algumas configura√ß√µes. Administradores devem considerar os requerimentos 
-  de espa√ßo em disco associados ao alto volume de dados gerados devido ao 
-  tipo de configura√ß√£o de auditoria. Por exemplo, √© desej√°vel que se dedique
-  um file system √† arvore <filename>/var/audit</filename>, dessa
-  maneira outros file systems n√£o s√£o afetados caso o file system de 
+  algumas configuralÁıes. Administradores devem considerar os requerimentos 
+  de espaÁo em disco associados ao alto volume de dados gerados devido ao 
+  tipo de configuraÁ„o de auditoria. Por exemplo, È desej·vel que se dedique
+  um file system ‡ arvore <filename>/var/audit</filename>, dessa
+  maneira outros file systems n„o s„o afetados caso o file system de 
   auditoria fique cheio.</para>
     </warning>
 
   </sect1>
 
   <sect1 id="audit-inline-glossary">
-    <title>Termos chave neste cap√≠tulo</title>
+    <title>Termos chave neste capÌtulo</title>
 
-    <para>Antes de ler este cap√≠tulo alguns termos chave relacionados a 
+    <para>Antes de ler este capÌtulo alguns termos chave relacionados a 
       auditoria precisam ser explicados:</para>
 
     <itemizedlist>
       <listitem>
-	<para><emphasis>evento</emphasis>: Um evento auditavel √© qualquer
+	<para><emphasis>evento</emphasis>: Um evento auditavel È qualquer
     evento que possa ser logado utilizando o subsistema de auditoria.
 
-    Exemplos relevantes de eventos de seguran√ßa incluem a cria√ß√£o de
-    um arquivo, criar uma conex√£o de rede ou o login de um usu√°rio.
+    Exemplos relevantes de eventos de seguranÁa incluem a criaÁ„o de
+    um arquivo, criar uma conex„o de rede ou o login de um usu·rio.
 
-    Eventos podem ser <quote>atribu√≠veis</quote>, o que significa
-	  poder ser rastreado a um usu√°rio autenticado ou 
-	  <quote>n√£o atribu√≠veis</quote> significando que n√£o podem.
+    Eventos podem ser <quote>atribuÌveis</quote>, o que significa
+	  poder ser rastreado a um usu·rio autenticado ou 
+	  <quote>n„o atribuÌveis</quote> significando que n„o podem.
 
-    Exemplos de eventos n√£o atribu√≠veis s√£o aqueles que ocorrem
-    antes da autentica√ß√£o no processo de login, tal qual tentativas
+    Exemplos de eventos n„o atribuÌveis s„o aqueles que ocorrem
+    antes da autenticaÁ„o no processo de login, tal qual tentativas
     invalidas de senha.</para>
       </listitem>
 
       <listitem>
-        <para><emphasis>classe</emphasis>: Classes de evento s√£o 
-    conjuntos de nomes de eventos relacionados e s√£o utilizados 
-    nas express√µes de sele√ß√£o.
-    Classes de evento geralmente utilizadas s√£o <quote>file creation</quote>
+        <para><emphasis>classe</emphasis>: Classes de evento s„o 
+    conjuntos de nomes de eventos relacionados e s„o utilizados 
+    nas expressıes de seleÁ„o.
+    Classes de evento geralmente utilizadas s„o <quote>file creation</quote>
     (fc), <quote>exec</quote> (ex) e <quote>login_logout</quote> (lo).</para>
       </listitem>
 
