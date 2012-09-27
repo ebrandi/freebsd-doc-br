@@ -37,5 +37,6 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 5011   # install             # r39550  #
 5909   # network-servers     # r39544  #
 6493   # advanced-networking # r39544  #
+2039   # glossary.ent        # r39534  #
 ##################################################################
 
