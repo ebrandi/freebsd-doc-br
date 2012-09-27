@@ -33,7 +33,7 @@ requirements. -->
   <title>Evento de Segurança e Auditoria</title>
 
   <sect1 id="audit-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>AUDIT</primary></indexterm>
     <indexterm>
@@ -41,8 +41,8 @@ requirements. -->
       <see>MAC</see>
     </indexterm>
 
-    <para>The &os; operating system includes support for fine-grained
-      security event auditing.  Event auditing allows the reliable,
+    <para>O sistema operacional &os; inclue suporte à ajuste fino nos 
+      evento de segurança e auditoria. Event auditing allows the reliable,
       fine-grained, and configurable logging of a variety of
       security-relevant system events, including logins, configuration
       changes, and file and network access.  These log records can be
@@ -101,17 +101,10 @@ requirements. -->
   configurado com muitos detalhes excedendo gigabytes em uma semana em 
   algumas configurações. Administradores devem considerar os requerimentos 
   de espaço em disco associados ao alto volume de dados gerados devido ao 
-  tipo de configuração de auditoria.
-
-      <para>The security event auditing facility is able to generate very
-	detailed logs of system activity: on a busy system, trail file
-	data can be very large when configured for high detail, exceeding
-	gigabytes a week in some configurations.  Administrators should take
-	into account disk space requirements associated with high volume
-	audit configurations.  For example, it may be desirable to dedicate
-	a file system to the <filename>/var/audit</filename> tree so that
-	other file systems are not affected if the audit file system becomes
-	full.</para>
+  tipo de configuração de auditoria. Por exemplo, é desejável que se dedique
+  um file system à arvore <filename>/var/audit</filename>, dessa
+  maneira outros file systems não são afetados caso o file system de 
+  auditoria fique cheio.</para>
     </warning>
 
   </sect1>
@@ -119,33 +112,36 @@ requirements. -->
   <sect1 id="audit-inline-glossary">
     <title>Termos chave neste capítulo</title>
 
-    <para>Antes de ler este capítulo alguns termos chave relacionados com 
+    <para>Antes de ler este capítulo alguns termos chave relacionados a 
       auditoria precisam ser explicados:</para>
 
     <itemizedlist>
       <listitem>
-	<para><emphasis>event</emphasis>: An auditable event is any event
-	  that can be logged using the audit subsystem.
-	  Examples of security-relevant events include the creation of
-	  a file, the building of a network connection, or a user logging in.
-	  Events are either <quote>attributable</quote>,
-	  meaning that they can be traced to an authenticated user, or
-	  <quote>non-attributable</quote> if they cannot be.
-	  Examples of non-attributable events are any events that occur
-	  before authentication in the login process, such as bad password
-	  attempts.</para>
+	<para><emphasis>evento</emphasis>: Um evento auditavel é qualquer
+    evento que possa ser logado utilizando o subsistema de auditoria.
+
+    Exemplos relevantes de eventos de segurança incluem a criação de
+    um arquivo, criar uma conexão de rede ou o login de um usuário.
+
+    Eventos podem ser <quote>atribuíveis</quote>, o que significa
+	  poder ser rastreado a um usuário autenticado ou 
+	  <quote>não atribuíveis</quote> significando que não podem.
+
+    Exemplos de eventos não atribuíveis são aqueles que ocorrem
+    antes da autenticação no processo de login, tal qual tentativas
+    invalidas de senha.</para>
       </listitem>
 
       <listitem>
-        <para><emphasis>class</emphasis>: Event classes are named sets of
-	  related events, and are used in selection expressions.  Commonly
-	  used classes of events include <quote>file creation</quote> (fc),
-	  <quote>exec</quote> (ex) and <quote>login_logout</quote>
-	  (lo).</para>
+        <para><emphasis>classe</emphasis>: Classes de evento são 
+    conjuntos de nomes de eventos relacionados e são utilizados 
+    nas expressões de seleção.
+    Classes de evento geralmente utilizadas são <quote>file creation</quote>
+    (fc), <quote>exec</quote> (ex) e <quote>login_logout</quote> (lo).</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>record</emphasis>: A record is an audit log entry
+	<para><emphasis>registro</emphasis>: A record is an audit log entry
 	  describing a security event.  Records contain a record event type,
 	  information on the subject (user) performing the action,
 	  date and time information, information on any objects or
@@ -212,63 +208,71 @@ requirements. -->
 
     <programlisting>auditd_enable="YES"</programlisting>
 
-    <para>Audit support must then be started by a reboot, or by manually
-      starting the audit daemon:</para>
+    <para>O suporte de Auditoria deve ser iniciado pela reinicialização do
+      sistema ou manualmente iniciando o daemon de auditoria:</para>
 
     <programlisting>/etc/rc.d/auditd start</programlisting>
   </sect1>
 
   <sect1 id="audit-config">
-    <title>Audit Configuration</title>
+    <title>Configuração de Auditoria</title>
 
-    <para>All configuration files for security audit are found in
-      <filename class="directory">/etc/security</filename>.  The following
-      files must be present before the audit daemon is started:</para>
+    <para>Todos os arquivos de configuração para auditoria de segurança são
+      encontrados em <filename class="directory">/etc/security</filename>.
+      Os seguintes arquivos precisam estar presentes antes que o daemon de 
+      auditoria seja iniciado:</para>
 
     <itemizedlist>
       <listitem>
-	<para><filename>audit_class</filename> - Contains the
-	  definitions of the audit classes.</para>
+	<para><filename>audit_class</filename> - Contem as definições
+	  das classes de auditoria.</para>
       </listitem>
 
       <listitem>
-	<para><filename>audit_control</filename> - Controls aspects
-	  of the audit subsystem, such as default audit classes,
-	  minimum disk space to leave on the audit log volume,
-	  maximum audit trail size, etc.</para>
+	<para><filename>audit_control</filename> - Controla os aspectos
+	  do subsistema de auditoria, como as classes padrão,
+    quantidade minima de espaço em disco para se deixar no
+    volume de log de auditoria, quantidade maxima do 
+    tamanho dos rastros de auditoria, etc.</para>
       </listitem>
 
       <listitem>
-	<para><filename>audit_event</filename> - Textual names and
-	  descriptions of system audit events, as well as a list of which
-	  classes each event is in.</para>
+	<para><filename>audit_event</filename> - Nomes textuais e 
+	  descrições dos eventos de auditoria, bem como a lista de
+    qual classe cada evento faz parte.</para>
       </listitem>
 
       <listitem>
-	<para><filename>audit_user</filename> - User-specific audit
-	  requirements, which are combined with the global defaults at
-	  login.</para>
+	<para><filename>audit_user</filename> - Requerimentos de
+    auditoria especificos de usuário que são combinados com o
+    padrão global no momento de login.</para>
       </listitem>
 
       <listitem>
-	<para><filename>audit_warn</filename> - A customizable shell script
-	  used by <application>auditd</application> to generate warning messages in exceptional
-	  situations, such as when space for audit records is running low or
-	  when the audit trail file has been rotated.</para>
+	<para><filename>audit_warn</filename> - Um shell script
+    customizado utilizado por <application>auditd</application> para
+    gerar mensagens de alerta em situações excepcionais, tais como
+    quando o espaço para armazenar os registros de auditoria estiver baixo
+    ou quando o arquivo de rastros de auditoria for rotacionado.</para>
       </listitem>
     </itemizedlist>
 
     <warning>
-      <para>Audit configuration files should be edited and maintained
-	carefully, as errors in configuration may result in improper
-	logging of events.</para>
+      <para>Os arquivos de configuração de auditoria devem ser editados e 
+  mantidos cuidadosamente, ja que erros de configuração podem resultar no
+  registro impróprio dos eventos.</para>
     </warning>
 
     <sect2>
-      <title>Event Selection Expressions</title>
+      <title>Expressões de seleção de eventos</title>
 
-      <para>Selection expressions are used in a number of places in the
+      <para>Expressões de seleção são utilizados em diversos lugares
+  na configuração de auditoria para determinar quais eventos devem ser
+  auditados.
+
+ Selection expressions are used in a number of places in the
 	audit configuration to determine which events should be audited.
+  
 	Expressions contain a list of event classes to match, each with
 	a prefix indicating whether matching records should be accepted
 	or ignored, and optionally to indicate if the entry is intended
@@ -276,8 +280,8 @@ requirements. -->
 	are evaluated from left to right, and two expressions are
 	combined by appending one onto the other.</para>
 
-      <para>The following list contains the default audit event classes
-	present in <filename>audit_class</filename>:</para>
+      <para>A seguinte lista contem as classes de evento de
+  auditoria padrão presentes no <filename>audit_class</filename>:</para>
 
       <itemizedlist>
 	<listitem>
