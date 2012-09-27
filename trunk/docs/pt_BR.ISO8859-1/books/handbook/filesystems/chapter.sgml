@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!--
-     The FreeBSD Documentation Project
-     $FreeBSD$
--->
+       The FreeBSD Documentation Project
+       The FreeBSD Brazilian Portuguese Documentation Project
 
+       Original revision: 39566
+
+       $FreeBSD$
+- -->
 <chapter id="filesystems">
   <chapterinfo>
     <authorgroup>
@@ -117,11 +120,11 @@
       <title>Ajustes no ZFS</title>
 
       <para>O subsistema do <acronym>ZFS</acronym> utiliza muito dos
-    recursos do sistema, então alguns afinamentos e ajustes são
-    requeridos para prover o máximo de eficiencia durante o uso
-    diario. Como recurso experimental no &os; algumas coisas podem
-    mudar no futuro; entretanto, neste momento, as etapas descritas
-    a seguir são recomendadas.</para>
+        recursos do sistema, então alguns afinamentos e ajustes são
+        requeridos para prover o máximo de eficiencia durante o uso
+        diario. Como recurso experimental no &os; algumas coisas podem
+        mudar no futuro; entretanto, neste momento, as etapas
+        descritas a seguir são recomendadas.</para>
 
       <sect3>
 	<title>Memoria</title>
@@ -136,7 +139,7 @@
       de memória, porém com uma quantidade limitada de memória
       física, quando o sistema está sob uso pesado, é muito plausivél
       que o &os; terá um panic devido ao uso exaustivel de memória.
-      </para>
+    </para>
       </sect3>
 
       <sect3>
@@ -145,7 +148,8 @@
 	<para>É recomendavél remover drivers e opções não usados dois
       arquivo de configuração do kernel. Visto que a maioria dos
       dispositivos estão disponiveis como modulos, eles podem ser
-      lidos usando o arquivo <filename>/boot/loader.conf</filename>.
+      lidos usando o arquivo <filename>/boot/loader.conf</filename>
+    </para>
 
 	<para>Usuários da arquitetura &i386; devem adicionar a opção
       descrita abaixo no arquivo de configuração do kernel,
@@ -157,7 +161,7 @@
       permitindo assim que o ajustes <varname>vm.kvm_size</varname>
       possa ser configurado para além do limite atual imposto de
       1&nbsp;GB (2&nbsp;GB para <acronym>PAE</acronym>). Para
-      encontrar o valor mais adequado para esta opção, divida o 
+      encontrar o valor mais adequado para esta opção, divida o
       espaço de endereço desejado em megabytes por quatro (4). Neste
       caso, é <literal>512</literal> para 2&nbsp;GB.</para>
       </sect3>
