@@ -354,7 +354,7 @@ framework GEOM</ulink>">
 <!ENTITY a.mobile.url "&a.mailman.listinfo;/freebsd-mobile">
 <!ENTITY a.mobile "<ulink url='&a.mobile.url;'>lista de discussão de 
   temas especificos ao uso do FreeBSD em notebooks e demais 
-  equipamentos móveis.</link>">
+  equipamentos móveis.</ulink>">
 <!ENTITY a.mobile.name "<ulink url='&a.mobile.url;'>freebsd-mobile</ulink>">
 
 <!ENTITY a.mono.url "&a.mailman.listinfo;/freebsd-mono">
@@ -642,84 +642,110 @@ a coleção de <foreignphrase>ports</foreignphrase> do FreeBSD</ulink>">
 <!ENTITY a.svn-src-svnadmin.name "<ulink url='&a.svn-src-svnadmin.url;'>svn-src-svnadmin</ulink>">
 
 <!ENTITY a.svn-src-user.url "&a.mailman.listinfo;/svn-src-user">
-<!ENTITY a.svn-src-user "<ulink url='&a.svn-src-user.url;'>SVN commit messages for the experimental <quote>user</quote> src tree</ulink>">
+<!ENTITY a.svn-src-user "<ulink url='&a.svn-src-user.url;'>mensagens
+  de commit no repositório SVN para a área experimental
+  <quote>user</quote> da árvore src</ulink>">
 <!ENTITY a.svn-src-user.name "<ulink url='&a.svn-src-user.url;'>svn-src-user</ulink>">
 
 <!ENTITY a.svn-src-vendor.url "&a.mailman.listinfo;/svn-src-vendor">
-<!ENTITY a.svn-src-vendor "<ulink url='&a.svn-src-vendor.url;'>SVN commit messages for the vendor work area tree</ulink>">
+<!ENTITY a.svn-src-vendor "<ulink url='&a.svn-src-vendor.url;'>mensagens
+   de commit no repositório SVN para a área de trabalho dos
+   vendors</ulink>">
 <!ENTITY a.svn-src-vendor.name "<ulink url='&a.svn-src-vendor.url;'>svn-src-vendor</ulink>">
 
 <!ENTITY a.sysinstall.url "&a.mailman.listinfo;/freebsd-sysinstall">
-<!ENTITY a.sysinstall "<ulink url='&a.sysinstall.url;'>Sysinstall development mailing list</ulink>">
+<!ENTITY a.sysinstall "<ulink url='&a.sysinstall.url;'>lista de 
+  discussão sobre o desenvolvimento do Sysinstall</ulink>">
 <!ENTITY a.sysinstall.name "<ulink url='&a.sysinstall.url;'>freebsd-sysinstall</ulink>">
 
 <!ENTITY a.test.url "&a.mailman.listinfo;/freebsd-test">
-<!ENTITY a.test "<ulink url='&a.test.url;'>FreeBSD test mailing list</ulink>">
+<!ENTITY a.test "<ulink url='&a.test.url;'>lista de discussão para
+  testes de envio de emails</ulink>">
 <!ENTITY a.test.name "<ulink url='&a.test.url;'>freebsd-test</ulink>">
 
 <!ENTITY a.threads.url "&a.mailman.listinfo;/freebsd-threads">
-<!ENTITY a.threads "<ulink url='&a.threads.url;'>FreeBSD threads mailing list</ulink>">
+<!ENTITY a.threads "<ulink url='&a.threads.url;'>lista de discussão
+  sobre o design e implementação de threads no FreeBSD</ulink>">
 <!ENTITY a.threads.name "<ulink url='&a.threads.url;'>freebsd-threads</ulink>">
 
 <!ENTITY a.tilera.url "&a.mailman.listinfo;/freebsd-tilera">
-<!ENTITY a.tilera "<ulink url='&a.tilera.url;'>Porting FreeBSD to the Tilera family of CPUs</ulink>">
+<!ENTITY a.tilera "<ulink url='&a.tilera.url;'>lista de discussão 
+  sobre o <foreignphrase>port</foreignphrase> do FreeBSD para a 
+  família de CPUs Tilera</ulink>">
 <!ENTITY a.tilera.name "<ulink url='&a.tilera.url;'>freebsd-tilera</ulink>">
 
 <!ENTITY a.tokenring.url "&a.mailman.listinfo;/freebsd-tokenring">
-<!ENTITY a.tokenring "<ulink url='&a.tokenring.url;'>FreeBSD tokenring mailing list</ulink>">
+<!ENTITY a.tokenring "<ulink url='&a.tokenring.url;'>lista de 
+  discussão sobre o uso de tokenring no FreeBSD</ulink>">
 <!ENTITY a.tokenring.name "<ulink url='&a.tokenring.url;'>freebsd-tokenring</ulink>">
 
 <!ENTITY a.toolchain.url "&a.mailman.listinfo;/freebsd-toolchain">
-<!ENTITY a.toolchain "<ulink url='&a.toolchain.url;'>FreeBSD integrated toolchain mailing list</ulink>">
+<!ENTITY a.toolchain "<ulink url='&a.toolchain.url;'>lista de
+  discussão sobre a manutenção do
+  <foreignphrase>toolchain</foreignphrase> distribuido com o
+  FreeBSD</ulink>">
 <!ENTITY a.toolchain.name "<ulink url='&a.toolchain.url;'>freebsd-toolchain</ulink>">
 
 <!ENTITY a.usb.url "&a.mailman.listinfo;/freebsd-usb">
-<!ENTITY a.usb "<ulink url='&a.usb.url;'>FreeBSD USB mailing list</ulink>">
+<!ENTITY a.usb "<ulink url='&a.usb.url;'>lista de discussão sobre o 
+  suporte USB do FreeBSD</ulink>">
 <!ENTITY a.usb.name "<ulink url='&a.usb.url;'>freebsd-usb</ulink>">
 
 <!ENTITY a.usergroups.url "&a.mailman.listinfo;/freebsd-user-groups">
-<!ENTITY a.usergroups "<ulink url='&a.usergroups.url;'>FreeBSD user group coordination mailing list</ulink>">
+<!ENTITY a.usergroups "<ulink url='&a.usergroups.url;'>lista de 
+  discussão destinada a coordenação dos grupos de usuários do 
+  FreeBSD</ulink>">
 <!ENTITY a.usergroups.name "<ulink url='&a.usergroups.url;'>freebsd-user-groups</ulink>">
 
 <!ENTITY a.vendors.url "&a.mailman.listinfo;/freebsd-vendors">
-<!ENTITY a.vendors "<ulink url='&a.vendors.url;'>FreeBSD vendors pre-release coordination mailing list</ulink>">
+<!ENTITY a.vendors "<ulink url='&a.vendors.url;'>lista de discussão
+  destinada a coordenar com os vendors as pré-releases</ulink>">
 <!ENTITY a.vendors.name "<ulink url='&a.vendors.url;'>freebsd-vendors</ulink>">
 
 <!ENTITY a.virtualization.url "&a.mailman.listinfo;/freebsd-virtualization">
-<!ENTITY a.virtualization "<ulink url='&a.virtualization.url;'>Discussion of various virtualization techniques supported by FreeBSD</ulink>">
+<!ENTITY a.virtualization "<ulink url='&a.virtualization.url;'>lista
+  de discussão das várias técnicas de virtualização suportadas pelo
+  FreeBSD</ulink>">
 <!ENTITY a.virtualization.name "<ulink url='&a.virtualization.url;'>freebsd-virtualization</ulink>">
 
 <!ENTITY a.vuxml.url "&a.mailman.listinfo;/freebsd-vuxml">
-<!ENTITY a.vuxml "<ulink url='&a.vuxml.url;'>Discussion on the VuXML
-infrastructure</ulink>">
+<!ENTITY a.vuxml "<ulink url='&a.vuxml.url;'>lista de discussão sobre
+  a infraestrutura VuXML<ulink>">
 <!ENTITY a.vuxml.name "<ulink url='&a.vuxml.url;'>freebsd-vuxml</ulink>">
 
 <!ENTITY a.wip-status.url "&a.mailman.listinfo;/freebsd-wip-status">
-<!ENTITY a.wip-status "<ulink url='&a.wip-status.url;'>FreeBSD Work-In-Progress Status</ulink>">
+<!ENTITY a.wip-status "<ulink url='&a.wip-status.url;'>Status dos 
+  trabalhos em andamento no FreeBSD</ulink>">
 <!ENTITY a.wip-status.name "<ulink url='&a.wip-status.url;'>freebsd-wip-status</ulink>">
 
 <!ENTITY a.wireless.url "&a.mailman.listinfo;/freebsd-wireless">
-<!ENTITY a.wireless "<ulink url='&a.wireless.url;'>Discussions of 802.11 stack, tools, device driver development</ulink>">
+<!ENTITY a.wireless "<ulink url='&a.wireless.url;'>lista de discussão
+  sobre o stack 802.11, suas ferramentas, e o desenvolvimento de 
+  drivers de dispositivo.</ulink>">
 <!ENTITY a.wireless.name "<ulink url='&a.wireless.url;'>freebsd-wireless</ulink>">
 
 <!ENTITY a.www.url "&a.mailman.listinfo;/freebsd-www">
-<!ENTITY a.www "<ulink url='&a.www.url;'>FreeBSD Webmaster mailing list</ulink>">
+<!ENTITY a.www "<ulink url='&a.www.url;'>lista de discussão dos 
+  webmasters do FreeBSD</ulink>">
 <!ENTITY a.www.name "<ulink url='&a.www.url;'>freebsd-www</ulink>">
 
 <!ENTITY a.x11.url "&a.mailman.listinfo;/freebsd-x11">
-<!ENTITY a.x11 "<ulink url='&a.x11.url;'>FreeBSD X11 mailing list</ulink>">
+<!ENTITY a.x11 "<ulink url='&a.x11.url;'>lista de discussão sobre a 
+  manutenção dos ports relacionados com o X11 </ulink>">
 <!ENTITY a.x11.name "<ulink url='&a.x11.url;'>freebsd-x11</ulink>">
 
 <!ENTITY a.xen.url "&a.mailman.listinfo;/freebsd-xen">
-<!ENTITY a.xen "<ulink url='&a.xen.url;'>FreeBSD port to Xen mailing list</ulink>">
+<!ENTITY a.xen "<ulink url='&a.xen.url;'>lista de discussão sobre o 
+  <foreignphrase>port</foreignphrase> do FreeBSD para o Xen</ulink>">
 <!ENTITY a.xen.name "<ulink url='&a.xen.url;'>freebsd-xen</ulink>">
 
 <!ENTITY a.xfce.url "&a.mailman.listinfo;/freebsd-xfce">
-<!ENTITY a.xfce "<ulink url='&a.xfce.url;'>XFCE for FreeBSD mailing list</ulink>">
+<!ENTITY a.xfce "<ulink url='&a.xfce.url;'>lista de discussão sobre o uso do XFCE no FreeBSD</ulink>">
 <!ENTITY a.xfce.name "<ulink url='&a.xfce.url;'>freebsd-xfce</ulink>">
 
 <!ENTITY a.zope.url "&a.mailman.listinfo;/freebsd-zope">
-<!ENTITY a.zope "<ulink url='&a.zope.url;'>Zope for FreeBSD mailing list</ulink>">
+<!ENTITY a.zope "<ulink url='&a.zope.url;'>lista de discussão sobre 
+  o uso do Zope no FreeBSD</ulink>">
 <!ENTITY a.zope.name "<ulink url='&a.zope.url;'>freebsd-zope</ulink>">
 
 <!-- Not really proper mailing lists -->
@@ -735,13 +761,17 @@ infrastructure</ulink>">
 -->
 
 <!ENTITY a.alpha.url "&a.mailman.listinfo;/freebsd-alpha">
-<!ENTITY a.alpha "<ulink url='&a.alpha.url;'>FreeBSD Alpha porting mailing list</ulink>">
+<!ENTITY a.alpha "<ulink url='&a.alpha.url;'>lista de discussão sobre
+  o <foreignphrase>port</foreignphrase> do FreeBSD ipara a plataforma
+  Alpha</ulink>">
 <!ENTITY a.alpha.name "<ulink url='&a.alpha.url;'>freebsd-alpha</ulink>">
 
 <!ENTITY a.qa.url "&a.mailman.listinfo;/freebsd-qa">
-<!ENTITY a.qa "<ulink url='&a.qa.url;'>FreeBSD Quality Assurance mailing list</ulink>">
+<!ENTITY a.qa "<ulink url='&a.qa.url;'>lista de discussão sobre a 
+  garantia de qualidade do FreeBSD</ulink>">
 <!ENTITY a.qa.name "<ulink url='&a.qa.url;'>freebsd-qa</ulink>">
 
 <!ENTITY a.smp.url "&a.mailman.listinfo;/freebsd-smp">
-<!ENTITY a.smp "<ulink url='&a.smp.url;'>FreeBSD symmetric multiprocessing mailing list</ulink>">
+<!ENTITY a.smp "<ulink url='&a.smp.url;'>lista de discussão sobre 
+  multi processamento simétrico no FreeBSD</ulink>">
 <!ENTITY a.smp.name "<ulink url='&a.smp.url;'>freebsd-smp</ulink>">
