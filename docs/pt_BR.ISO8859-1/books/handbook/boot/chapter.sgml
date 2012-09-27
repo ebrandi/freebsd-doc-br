@@ -141,7 +141,7 @@ boot loader -->
       etapas.  A primeira etapa é executada pelo MBR, que sabe apenas
       o suficiente para deixar o computador em um estado específico e
       executar a segunda etapa.  A segunda etapa pode fazer um pouco
-      mais, antes de executar a terciera etapa.  A terceira etapa
+      mais, antes de executar a terceira etapa.  A terceira etapa
       finaliza a tarefa de carregar o sistema operacional.  O trabalho
       é dividido nestas três etapas porque o padrão do PC coloca
       limites no tamanho do programa que pode ser executado nas etapas
@@ -164,40 +164,42 @@ boot loader -->
   </sect1>
 
   <sect1 id="boot-blocks">
-    <title>The Boot Manager and Boot Stages</title>
+    <title>O Gerenciador de Inicialização e As Etapas da
+      Inicialização</title>
 
     <indexterm><primary>Boot Manager</primary></indexterm>
 
     <sect2 id="boot-boot0">
-      <title>The Boot Manager</title>
+      <title>O Gerenciador de Inicialização</title>
       <indexterm><primary>Master Boot Record
 	  (MBR)</primary></indexterm>
 
-      <para>The code in the MBR or boot manager is sometimes referred
-	to as <emphasis>stage zero</emphasis> of the boot process.
-	This subsection discusses two of the boot managers previously
-	mentioned: <application>boot0</application> and
+      <para>O código no MBR ou o gerenciador de inicialização é
+	referido algumas vezes como a <emphasis>etapa zero</emphasis> do
+	processo de inicialização.  Essa subseção discute dois dos
+	gerenciadores de inicialização mencionados anteriormente:
+	<application>boot0</application> e
 	<application>LILO</application>.</para>
 
       <formalpara>
-	<title>The <application>boot0</application> Boot
-	  Manager:</title>
+	<title>O Gerenciador de Inicialização
+	<application>boot0</application>:</title>
 
-	<para>The MBR installed by FreeBSD's installer or
-	  &man.boot0cfg.8;, by default, is based on
-	  <filename>/boot/boot0</filename>.  (The
-	  <application>boot0</application> program is very simple,
-	  since the program in the <abbrev>MBR</abbrev> can only be
-	  446 bytes long because of the slice table and
-	  <literal>0x55AA</literal> identifier at the end of the MBR.)
-	  If you have installed <application>boot0</application> and
-	  multiple operating systems on your hard disks, then you will
-	  see a display similar to this one at boot
-	  time:</para>
+	<para>O MBR instalado pelo instalador do FreeBSD ou seja o
+	  &man.boot0cfg.8;, por padrão, é baseado no
+	  <filename>/boot/boot0</filename>.  (O programa
+	  <application>boot0</application> é muito simples, pois o
+	  programa no <abbrev>MBR</abbrev> pode ter apenas 446 bytes
+	  de tamanho devido à tabela de divisão do disco rígido e ao
+	  identificador <literal>0x55AA</literal> que existe no fim do
+	  MBR.) Se você instalou o <application>boot0</application> e
+	  possui vários sistemas operacionais nos seus discos rígidos,
+	  então você verá algo parecido com a tela abaixo no momento
+	  da inicialização:</para>
       </formalpara>
 
       <example id="boot-boot0-example">
-	<title><filename>boot0</filename> Screenshot</title>
+	<title>Imagem de tela do <filename>boot0</filename></title>
 
 	<screen>F1 DOS
 F2 FreeBSD
@@ -208,27 +210,29 @@ F5 Drive 1
 Default: F2</screen>
       </example>
 
-      <para>Other operating systems, in particular &windows;, have
-	been known to overwrite an existing MBR with their own.  If
-	this happens to you, or you want to replace your existing MBR
-	with the FreeBSD MBR then use the following command:</para>
+      <para>É conhecido que outros sistemas operacionais, em
+	particular o &windows;, sobrescrevem o MBR.  Se isso acontecer,
+	ou se você quiser substituir o MBR existente pelo o MBR do
+        FreeBSD então use o seguinte comando:</para>
 
-      <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>device</replaceable></userinput></screen>
+      <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>dispositivo</replaceable></userinput></screen>
 
-      <para>where <replaceable>device</replaceable> is the device that
-	you boot from, such as <devicename>ad0</devicename> for the
-	first IDE disk, <devicename>ad2</devicename> for the first IDE
-	disk on a second IDE controller, <devicename>da0</devicename>
-	for the first SCSI disk, and so on.  Or, if you want a custom
-	configuration of the MBR, use &man.boot0cfg.8;.</para>
+      <para>Onde <replaceable>dispositivo</replaceable> é o
+	dispositivo do qual você inicializa o seu computador, tal como
+	<devicename>ad0</devicename> para o primeiro disco rígido IDE,
+	<devicename>ad2</devicename> para o primeiro disco rígido na
+	segunda controladora IDE, <devicename>da0</devicename> para o
+	primeiro disco rígido SCSI, e assim por diante.  Ou, se você
+	preferir uma configuração personalizada do MBR, use
+	&man.boot0cfg.8;.</para>
 
       <formalpara>
-	<title>The LILO Boot Manager:</title>
+	<title>O Gerenciador de Inicialização LILO:</title>
 
-	<para>To install this boot manager so it will also boot
-	  FreeBSD, first start Linux and add the following to your
-	  existing <filename>/etc/lilo.conf</filename> configuration
-	  file:</para>
+	<para>Para que esse gerenciador de inicialização possa iniciar
+	  o FreeBSD, primeiro inicie o Linux e adicione a seguinte
+	  configuração no arquivo
+	  <filename>/etc/lilo.conf</filename>:</para>
       </formalpara>
 
       <programlisting>other=/dev/hdXY
@@ -236,18 +240,20 @@ table=/dev/hdX
 loader=/boot/chain.b
 label=FreeBSD</programlisting>
 
-      <para>In the above, specify FreeBSD's primary partition and
-	drive using Linux specifiers, replacing
-	<replaceable>X</replaceable> with the Linux drive letter and
-	<replaceable>Y</replaceable> with the Linux primary partition
-	number.  If you are using a <acronym>SCSI</acronym> drive, you
-	will need to change <replaceable>/dev/hd</replaceable> to read
-	something similar to <replaceable>/dev/sd</replaceable>.  The
-	<option>loader=/boot/chain.b</option> line can be omitted if
-	you have both operating systems on the same drive.  Now run
-	<command>/sbin/lilo&nbsp;-v</command> to commit your new
-	changes to the system; this should be verified by checking its
-	screen messages.</para>
+      <para>Na configuração acima, especifique a partição primária do
+	FreeBSD usando as especificações do Linux, substituindo
+	<replaceable>X</replaceable> pela letra que representa o disco
+	rígido no Linux e <replaceable>Y</replaceable> pelo número que
+	representa a partição primária no Linux.  Se você está usando
+	um disco rígido <acronym>SCSI</acronym>, você precisará mudar
+	<replaceable>/dev/hd</replaceable> por algo parecido com
+	<replaceable>/dev/sd</replaceable>.  A linha
+	<option>loader=/boot/chain.b</option> pode ser omitida caso
+	você tenha os dois sistemas operacionais no mesmo disco
+	rígido.  Agora execute o comando
+	<command>/sbin/lilo&nbsp;-v</command> para gravar suas
+	mudanças no sistema; você deve verificar isso checando as
+	mensagens na tela.</para>
     </sect2>
 
     <sect2 id="boot-boot1">
