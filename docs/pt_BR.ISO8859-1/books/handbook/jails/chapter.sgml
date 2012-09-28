@@ -96,63 +96,71 @@
   <sect1 id="jails-terms">
     <title>Termos Relacionados ao Jails</title>
 
-    <para>To facilitate better understanding of parts of the &os; system
-      related to jails, their internals and the way they interact with
-      the rest of &os;, the following terms are used further in this
-      chapter:</para>
+    <para>Para proporcionar uma melhor compreensão dos componentes do 
+      sistema &os; relacionados ao jails, dos seus componentes 
+      internos e da forma como eles interagem com o restante do &os;, 
+      os seguintes termos são utilizados ao longo deste
+      capítulo:</para>
 
     <variablelist>
       <varlistentry>
-        <term>&man.chroot.8; (command)</term>
+        <term>&man.chroot.8; (comando)</term>
         <listitem>
-	  <para>Utility, which uses &man.chroot.2; &os; system call to change
-	    the root directory of a process and all its descendants.</para>
+	  <para>Utilitário, que utiliza a chamada de sistema
+	    &man.chroot.2; do &os; para alterar o diretório raiz de um
+	    processo e de todos os seus descendentes.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>&man.chroot.2; (environment)</term>
+        <term>&man.chroot.2; (ambiente)</term>
         <listitem>
-	  <para>The environment of processes running in
-	    a <quote>chroot</quote>.  This includes resources such as the part
-	    of the file system which is visible, user and group IDs which are
-	    available, network interfaces and other IPC mechanisms,
-	    etc.</para>
+	  <para>É o ambiente dos processos em execução sob o
+	    <quote>chroot</quote>. O qual inclui recursos tais como a
+	    área do sistema de arquivos que é visível para o usuário,
+	    os IDs dos usuários e dos grupo que estão disponíveis, as
+	    interfaces de rede e outros mecanismos IPC, etc.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>&man.jail.8; (command)</term>
+        <term>&man.jail.8; (comando)</term>
         <listitem>
-	  <para>The system administration utility which allows launching of
-	    processes within a jail environment.</para>
+	  <para>O utilitário de administração do sistema que nos
+	    permite inicializar um processo dentro de um ambiente
+	    jail.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>host (system, process, user, etc.)</term>
+        <term>host (sistema, processo, usuário, etc.)</term>
         <listitem>
-	  <para>The controlling system of a jail environment.  The host system
-	    has access to all the hardware resources available, and can
-	    control processes both outside of and inside a jail environment.
-	    One of the important differences of the host system from a jail is
-	    that the limitations which apply to superuser processes inside a
-	    jail are not enforced for processes of the host system.</para>
+	  <para>É o sistema que hospeda e controla um ambiente jails.
+	    O sistema hospedeiro (<literal>host</literal>) tem acesso
+	    a todos os recursos de hardware disponíveis, e pode 
+	    controlar tanto os processos em execução fora quanto os 
+	    que estão em execução dentro de um ambiente jails.  Uma 
+	    das principais diferenças do sistema de hospedeiro em 
+	    relação ao ambiente jail é que as restrições que se 
+	    aplicam aos processos do superusuário dentro de um jail 
+	    não se aplicam aos processos em execução no sistema 
+	    hospedeiro.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>hosted (system, process, user, etc.)</term>
+        <term>hosted (sistema, processo, usuário, etc.)</term>
         <listitem>
-	  <para>A process, user or other entity, whose access to resources is
-	    restricted by a &os; jail.</para>
+	  <para>É um processo, usuário ou qualquer outra entidade, 
+	    cujo acesso aos recursos está restrito por um jail do 
+	    &os;.</para>
 	</listitem>
       </varlistentry>
     </variablelist>
   </sect1>
 
   <sect1 id="jails-intro">
-    <title>Introduction</title>
+    <title>Introdução</title>
 
     <para>Since system administration is a difficult and perplexing
       task, many powerful tools were developed to make life easier for
