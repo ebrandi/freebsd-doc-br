@@ -20,18 +20,18 @@
     <!-- Mar 2007 -->
   </chapterinfo>
 
-  <title>Virtualization</title>
+  <title>Virtualiza&ccedil;&atilde;o</title>
 
   <sect1 id="virtualization-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
-    <para>Virtualization software allows multiple operating systems
-      to run simultaneously on the same computer.  Such software
-      systems for PCs often involve a host operating system which runs
-      the virtualization software and supports any number of guest
-      operating systems.</para>
+    <para>Softwares de virtualiza&ccedil;&atilde;o permitem que v&aacute;rios sistemas operacionais
+      sejam executados ao mesmo tempo em um mesmo computador. Este tipo 
+      de softarew para PCs algumas vezes possuem um sistema operacional hospedeiro que executa
+      o software de virtualiza&ccedil;&atilde;o e suporte diveros sistemas
+      operacionais convidados.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Ap&oacute;s ler este cap&iacute;tulo, voc&ecirc; saber&aacute;:</para>
 
     <itemizedlist>
       <listitem>
