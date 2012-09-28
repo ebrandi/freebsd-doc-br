@@ -14,7 +14,7 @@
       <author>
 	<firstname>Matteo</firstname>
 	<surname>Riondato</surname>
-	<contrib>Contribuição de</contrib>
+	<contrib>Contribuição de </contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -26,70 +26,75 @@
   <sect1 id="jails-synopsis">
     <title>Sumário</title>
 
-    <para>This chapter will provide an explanation of what &os; jails
-      are and how to use them.  Jails, sometimes referred to as an
-      enhanced replacement of <emphasis>chroot environments</emphasis>,
-      are a very powerful tool for system administrators, but their basic
-      usage can also be useful for advanced users.</para>
+    <para>Este capítulo irá fornecer uma explicação sobre o que são 
+      <literal>jails</literal> &os; e sobre como utilizá-los.  Os
+      <literal>jails</literal>, muitas vezes referenciados como
+      sendo substitutos melhorados do <emphasis>ambiente 
+      chroot</emphasis>, são uma ferramenta muito poderosa para os 
+      administradores de sistema, mas o seu uso básico também pode 
+      ser útil para usuários avançados.</para>
 
     <important>
-      <para>Jails are a powerful tool, but they are not a security
-	panacea.  It is particularly important to note that while it
-	is not possible for a jailed process to break out on its own,
-	there are several ways in which an unprivileged user outside
-	the jail can cooperate with a privileged user inside the jail
-	and thereby obtain elevated privileges in the host
-	environment.</para>
-
-      <para>Most of these attacks can be mitigated by ensuring that
-	the jail root is not accessible to unprivileged users in the
-	host environment.  Regardless, as a general rule, untrusted
-	users with privileged access to a jail should not be given
-	access to the host environment.</para>
+      <para>O jails é uma ferramenta poderosa, mas ele não é um
+	<quote>remédio para todos os males</quote> de segurança.  É
+	particularmente importante observar que, embora não seja
+	possível que um processo preso saia por conta própria, existem
+	várias maneiras pelas quais um usuário sem privilégios fora do
+	jail pode cooperar com um usuário privilegiado dentro do jail,
+	para desta forma obter privilégios elevados no host que o
+	hospeda.</para>
+      
+      <para>A maioria destes ataques podem ser mitigados
+       	assegurando-se que a raiz do jail não esteja acessível para
+	usuários sem privilégios no servidor no qual o jail está sendo
+	executado.  Independentemente disso, como regra geral, os
+	usuários não confiáveis que tenham acesso privilegiado a um 
+	jail não devem ter acesso ao ambiente que os hospeda.</para>
     </important>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após a leitura deste capítulo, você vai saber:</para>
 
     <itemizedlist>
       <listitem>
-	<para>What a jail is, and what purpose it may serve in &os;
-	  installations.</para>
+	<para>O que é um jail, e para quais finalidades ele pode ser
+	  utilizado em instalações do &os;</para>
       </listitem>
 
       <listitem>
-	<para>How to build, start, and stop a jail.</para>
+	<para>Como construir, iniciar e parar um jail.</para>
       </listitem>
 
       <listitem>
-	<para>The basics of jail administration, both from inside
-	  and outside the jail.</para>
+	<para>Como realizar a administração básica de um jail, tanto 
+	  de dentro quanto de fora dele.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Other sources of useful information about jails are:</para>
+    <para>Outras fontes de informações úteis sobre jails são:</para>
 
     <itemizedlist>
       <listitem>
-	<para>The &man.jail.8; manual page.  This is the full reference
-	  of the <command>jail</command> utility &mdash; the
-	  administrative tool which can be used in &os; to start, stop,
-	  and control &os; jails.</para>
+	<para>A página de manual do &man.jail.8;.  Esta é a referência
+	  completa para o utilitário <command>jail</command>
+	  &mdash; a ferramenta administrativa que deve ser utilizada
+	  para iniciar, parar e controlar um jail no &os;</para>
       </listitem>
 
       <listitem>
-	<para>The mailing lists and their archives.  The archives of the
-	  &a.questions; and other mailing lists hosted by the
-	  &a.mailman.lists; already contain a wealth of material for
-	  jails.  It should always be engaging to search the archives,
-	  or post a new question to the &a.questions.name; mailing
-	  list.</para>
+	<para>As listas de discussão e o seu histórico.  O
+	  histórico da &a.questions; e das demais listas de discussão 
+	  hospedadas pelo &a.mailman.lists; já contêm uma grande 
+	  variedade de informações sobre jails.  Sempre que possível 
+	  consulte o histórico, caso não encontre a informação que
+	  procura envie uma nova pergunta para a lista de discussão
+	  &a.questions.name;</para>
       </listitem>
     </itemizedlist>
 
   </sect1>
 
   <sect1 id="jails-terms">
-    <title>Terms Related to Jails</title>
+    <title>Termos Relacionados ao Jails</title>
 
     <para>To facilitate better understanding of parts of the &os; system
       related to jails, their internals and the way they interact with
