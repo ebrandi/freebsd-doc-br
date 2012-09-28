@@ -65,53 +65,53 @@
 
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, voce deverá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand the basics of &unix; and &os; (<xref
+	<para>Conhecer o básico de &unix; e &os; (<xref
 	    linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Know how to install &os; (<xref
+	<para>Saber instalar o &os; (<xref
 	    linkend="install"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Know how to set up your network connection (<xref
+	<para>Saber configurar uma conexão de rede (<xref
 	    linkend="advanced-networking"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Know how to install additional third-party
-	  software (<xref linkend="ports"/>).</para>
+	<para>Saber instalar softwares adicionais de
+	  terceiros (<xref linkend="ports"/>).</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="virtualization-guest">
-    <title>&os; como SO Confidado</title>
+    <title>&os; como SO Convidado</title>
 
     <sect2 id="virtualization-guest-parallels">
       <title>Parallels on MacOS</title>
 
-      <para><application>Parallels Desktop</application> for &mac; is
-	a commercial software product available for &intel; based
-	&apple; &mac; computers running &macos; 10.4.6 or higher.
-	&os; is a fully supported guest operating system.  Once
-	<application>Parallels</application> has been installed on
-	&macos; X, the user must configure a virtual machine and then
-	install the desired guest operating system.</para>
+      <para><application>Parallels Desktop</application> para &mac; é
+	um software comercial disponível para computadores &intel;
+	&apple; &mac; rodando &macos; 10.4.6 ou superior.
+	O &os; possui suporte total como sistema operacional convidado. Após
+	<application>Parallels</application> ser instalado no
+	&macos; X, o usuário precisa configurar uma máquina virtual e depois 
+	instalar o sistema operacional convidado que desejar.</para>
 
       <sect3 id="virtualization-guest-parallels-install">
 	<title>Installing &os; on Parallels/&macos; X</title>
 
-	<para>The first step in installing &os; on &macos;
-	  X/<application>Parallels</application> is to create a new
-	  virtual machine for installing &os;.  Select
-	  <guimenuitem>&os;</guimenuitem> as the <guimenu>Guest OS
-	    Type</guimenu> when prompted:</para>
+	<para>O primeiro passo para instalar &os; no &macos;
+	  X/<application>Parallels</application> é criar uma nova
+	  máquina virtual para a instalação do &os;.  Selecione
+	  <guimenuitem>&os;</guimenuitem> como <guimenu>Guest OS
+	    Type (Tipo do SO Convidado)</guimenu> quando solicitado:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -119,10 +119,10 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>And choose a reasonable amount of disk and memory
-	  depending on your plans for this virtual &os; instance.
-	  4GB of disk space and 512MB of RAM work well for most uses
-	  of &os; under <application>Parallels</application>:</para>
+	<para>E escolha uma quantidade razoável de disco e memória
+	  dependendo de deus planos para esta instância virtual do &os;.
+	  4GB de espaço em disco e 512MB de memória RAM funcionam bem para 
+	  utilizar o &os; sob o <application>Parallels</application>:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -148,8 +148,7 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>Select the type of networking and a network
-	  interface:</para>
+	<para>Escolha o tipo de rede e a interface de rede:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -163,7 +162,7 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>Save and finish the configuration:</para>
+	<para>Save e finalize a configuracão:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -177,16 +176,16 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>After your &os; virtual machine has been created, you
-	  will need to install &os; on it.  This is best done with an
-	  official &os; CDROM or with an ISO image downloaded from an
-	  official FTP site.  When you have the appropriate ISO image
-	  on your local &mac; filesystem or a CDROM in your &mac;'s CD
-	  drive, click on the disc icon in the bottom right corner of
-	  your &os; <application>Parallels</application> window.  This
-	  will bring up a window that allows you to associate the
-	  CDROM drive in your virtual machine with an ISO file on disk
-	  or with your real CDROM drive.</para>
+	<para>Após crar sua máquina virtual &os;, você
+	  precisará instalar o &os; nela.  A melhor forma de fazer isto é com 
+	  o CDROM oficial do &os; ou com uma imagem ISO baixada de um
+	  site FTP oficial. Quando você tiver com a imagem ISO apropriada
+	  no sistema de arquivos local de seu &mac; ou com o CDROM no drive de CD de
+          seu &mac;'s, clique no ícone de disco no canto inferior à direita
+	  da janela do &os; <application>Parallels</application>.  Isto
+	  abrirá uma janela que permitirá que você associe o 
+	  drive de CDROM à sua máquina virtual com uma imagem ISO no disco
+	  ou com o CD de seu drive de CDROM.</para>
 
 	<mediaobject>
 	  <imageobject>
