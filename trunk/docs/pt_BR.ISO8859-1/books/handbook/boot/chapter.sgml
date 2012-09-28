@@ -73,7 +73,7 @@
       iniciado?</para>
 
 <!-- Este 'para' esta realmente muito ruim.
-       Gostaria de opinioes nele -->
+       Gostaria de opiniões nele -->
     <para>Esse problema é similar ao problema no livro <citetitle>As
       aventuras do Barão Munchausen</citetitle>.  Um personagem caiu
       no fundo de um poço de inspeção, e puxou a si mesmo para fora
@@ -211,9 +211,9 @@ Default: F2</screen>
       </example>
 
       <para>É conhecido que outros sistemas operacionais, em
-	particular o &windows;, sobrescrevem o MBR.  Se isso acontecer,
-	ou se você quiser substituir o MBR existente pelo o MBR do
-        FreeBSD então use o seguinte comando:</para>
+	particular o &windows;, sobrescrevem o MBR.  Se isso
+	acontecer, ou se você quiser substituir o MBR existente pelo o
+	MBR do FreeBSD então use o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>dispositivo</replaceable></userinput></screen>
 
@@ -257,146 +257,150 @@ label=FreeBSD</programlisting>
     </sect2>
 
     <sect2 id="boot-boot1">
-      <title>Stage One, <filename>/boot/boot1</filename>, and Stage
-	Two, <filename>/boot/boot2</filename></title>
+      <title>Primeira Etapa, <filename>/boot/boot1</filename>, e
+	Segunda Etapa, <filename>/boot/boot2</filename></title>
 
-      <para>Conceptually the first and second stages are part of the
-	same program, on the same area of the disk.  Because of space
-	constraints they have been split into two, but you would
-	always install them together.  They are copied from the
-	combined file <filename>/boot/boot</filename> by the installer
-	or <application>bsdlabel</application> (see below).</para>
+      <para>No conceito a primeira e segunda etapa são partes do mesmo
+	programa, na mesma área do disco rígido.  Essa divisão é
+	devida a limitações de espaço, mas você sempre deve
+	instalá-las juntas.  As duas etapas são copiadas do arquivo
+	combinado <filename>/boot/boot</filename> pelo instalador ou
+	<application>bsdlabel</application> (veja abaixo).</para>
 
-      <para>They are located outside file systems, in the first track
-	of the boot slice, starting with the first sector.  This is
-	where <link linkend="boot-boot0">boot0</link>, or any other
-	boot manager, expects to find a program to run which will
-	continue the boot process.  The number of sectors used is
-	easily determined from the size of
-	<filename>/boot/boot</filename>.</para>
+      <para>Elas ficam armazenadas fora do sistema de arquivos, na
+	primeira trilha da divisão de inicialização do disco rígido, a
+	partir do primeiro setor.  Esse é o local onde o <link
+	linkend="boot-boot0">boot0</link>, ou qualquer outro
+	gerenciador de boot, espera encontrar o programa que será
+	executado para continuar o processo de inicialização.  O
+	número de setores usados é facilmente determinado pelo tamanho
+	do <filename>/boot/boot</filename>.</para>
 
-      <para><filename>boot1</filename> is very simple, since it can
-	only be 512 bytes in size, and knows just enough about the
-	FreeBSD <firstterm>bsdlabel</firstterm>, which stores
-	information about the slice, to find and execute
-	<filename>boot2</filename>.</para>
+      <para>O <filename>boot1</filename> é muito simples, pois ele
+	pode ter apenas o tamanho de 512 bytes, e ele conhece o
+	suficiente sobre o <firstterm>bsdlabel</firstterm> do FreeBSD,
+	o qual tem informações sobre a divisão do disco rígido, para
+	encontrar e executar o <filename>boot2</filename>.</para>
 
-      <para><filename>boot2</filename> is slightly more sophisticated,
-	and understands the FreeBSD file system enough to find files
-	on it, and can provide a simple interface to choose the kernel
-	or loader to run.</para>
+      <para>O <filename>boot2</filename> é ligeiramente mais
+	 sofisticado, e conhece o sistema de arquivos do FreeBSD o
+	 suficiente para encontrar arquivos, e pode fornecer uma
+	 interface simples para escolher o arquivo do kernel para
+	 carregar e executar.</para>
 
-      <para>Since the <link linkend="boot-loader">loader</link> is
-	much more sophisticated, and provides a nice easy-to-use
-	boot configuration, <filename>boot2</filename> usually runs
-	it, but previously it
-	was tasked to run the kernel directly.</para>
+      <para>O <link linkend="boot-loader">carregador</link> é muito
+	mais sofisticado, e fornece uma configuração de inicialização
+	fácil de usar, o <filename>boot2</filename> executa o
+	carregador, mas anteriormente ele era encarregado de executar
+	o kernel diretamente.</para>
 
       <example id="boot-boot2-example">
-	<title><filename>boot2</filename> Screenshot</title>
+	<title>Imagem de tela do <filename>boot2</filename></title>
 
 	<screen>&gt;&gt; FreeBSD/i386 BOOT
 Default: 0:ad(0,a)/boot/loader
 boot:</screen>
       </example>
 
-      <para>If you ever need to replace the installed
-	<filename>boot1</filename> and <filename>boot2</filename> use
-	&man.bsdlabel.8;:</para>
+      <para>Se você precisar substituir o <filename>boot1</filename> e
+	o <filename>boot2</filename> use o &man.bsdlabel.8;:</para>
 
-      <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>diskslice</replaceable></userinput></screen>
+      <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>discodivisão</replaceable></userinput></screen>
 
-      <para>where <replaceable>diskslice</replaceable> is the disk and
-	slice you boot from, such as <devicename>ad0s1</devicename>
-	for the first slice on the first IDE disk.</para>
+      <para>Onde <replaceable>discodivisão</replaceable> é o disco
+	rígido e a divisão da qual você quer iniciar, tal como
+	<devicename>ad0s1</devicename> para a primeira divisão no
+	primeiro disco rígido IDE.</para>
 
       <warning>
-	<title>Dangerously Dedicated Mode</title>
+	<title>Modo Dedicado Arriscado:</title>
 
-	<para>If you use just the disk name, such as
-	  <devicename>ad0</devicename>, in the &man.bsdlabel.8;
-	  command you will create a dangerously dedicated disk,
-	  without slices.  This is almost certainly not what you want
-	  to do, so make sure you double check the &man.bsdlabel.8;
-	  command before you press <keycap>Return</keycap>.</para>
+	<para>Se você usar apenas o nome do disco rígido, tal como
+	  <devicename>ad0</devicename>, no comando
+	  &man.bsdlabel.8; você irá criar um disco dedicado, sem
+	  divisões do disco rígido. É quase certo que não é isso que
+	  você quer fazer, então tenha certeza que você verificou o
+	  comando &man.bsdlabel.8; antes de apertar Enter.</para>
       </warning>
     </sect2>
 
     <sect2 id="boot-loader">
-      <title>Stage Three, <filename>/boot/loader</filename></title>
+      <title>Etapa Três, <filename>/boot/loader</filename></title>
 
       <indexterm><primary>boot-loader</primary></indexterm>
 
-      <para>The loader is the final stage of the three-stage
-	bootstrap, and is located on the file system, usually as
-	<filename>/boot/loader</filename>.</para>
+      <para>O carregador é a etapa final das três etapas da 
+        inicialização, está localizado no sistema de arquivos,
+	geralmente como <filename>/boot/loader</filename>.</para>
 
-      <para>The loader is intended as a user-friendly method for
-	configuration, using an easy-to-use built-in command set,
-	backed up by a more powerful interpreter, with a more complex
-	command set.</para>
+      <para>O carregador é usado como um método amigável para
+        configuração, usando um conjunto de comandos próprios fáceis
+        de usar, apoiado por um interpretador mais poderoso, com um
+        conjunto de comandos mais complexos.</para>
 
       <sect3 id="boot-loader-flow">
-	<title>Loader Program Flow</title>
+	<title>Fluxo do Programa Carregador</title>
 
-	<para>During initialization, the loader will probe for a
-	  console and for disks, and figure out what disk it is
-	  booting from.  It will set variables accordingly, and an
-	  interpreter is started where user commands can be passed
-	  from a script or interactively.</para>
+	<para>Durante a inicialização, o carregador irá procurar por
+	  um console e por discos, e descobrir a partir de qual disco
+	  ele está iniciando.  Ele definirá variáveis necessárias, e
+	  um interpretador será iniciado por onde comandos do usuário
+	  podem ser passados de um script ou interativamente.</para>
 
 	<indexterm><primary>loader</primary></indexterm>
 	<indexterm><primary>loader configuration</primary></indexterm>
 
-	<para>The loader will then read
-	  <filename>/boot/loader.rc</filename>, which by default reads
-	  in <filename>/boot/defaults/loader.conf</filename> which
-	  sets reasonable defaults for variables and reads
-	  <filename>/boot/loader.conf</filename> for local changes to
-	  those variables.  <filename>loader.rc</filename> then acts
-	  on these variables, loading whichever modules and kernel are
-	  selected.</para>
+	<para>O carregador irá ler o
+	  <filename>/boot/loader.rc</filename>, que por padrão lê o
+	  <filename>/boot/defaults/loader.conf</filename> que define
+	  valores padrões para variáveis e então lê o
+	  <filename>/boot/loader.conf</filename> para definições do
+	  usuário para essas variáveis. O
+	  <filename>loader.rc</filename> então age conforme essas
+	  variáveis, carregando os módulos e o kernel que foram
+	  selecionados.</para>
 
-	<para>Finally, by default, the loader issues a 10 second wait
-	  for key presses, and boots the kernel if it is not
-	  interrupted.  If interrupted, the user is presented with a
-	  prompt which understands the easy-to-use command set, where
-	  the user may adjust variables, unload all modules, load
-	  modules, and then finally boot or reboot.</para>
+	<para>Finalmente, por padrão, o carregador espera por 10
+	  segundos para uma tecla ser pressionada, após isso inicia o
+	  kernel.  Se interrompido, será exibido para o usuário um
+	  prompt que entende um conjunto de comandos de uso fácil,
+	  onde o usuário pode ajustar variáveis, descarregar todos os
+	  módulos, carregar módulos, e então finalmente iniciar ou
+	  reiniciar.</para>
       </sect3>
 
       <sect3 id="boot-loader-commands">
-	<title>Loader Built-In Commands</title>
+	<title>Comandos Próprios do Carregador</title>
 
-	<para>These are the most commonly used loader commands.  For a
-	  complete discussion of all available commands, please see
-	  &man.loader.8;.</para>
+	<para>Estes são os comandos mais comuns usados no carregador.
+	  Para uma explicação completa de todos os comandos
+	  disponíveis, por favor olhe o &man.loader.8;.</para>
 
 	<variablelist>
 	  <varlistentry>
-	    <term>autoboot <replaceable>seconds</replaceable></term>
+	    <term>autoboot <replaceable>segundos</replaceable></term>
 
 	    <listitem>
-	      <para>Proceeds to boot the kernel if not interrupted
-		within the time span given, in seconds.  It displays a
-		countdown, and the default time span is 10
-		seconds.</para>
+	      <para>Prossegue com a inicialização do kernel se não for
+		interrompido no tempo especificado, em segundos.
+		Exibe uma contagem regressiva, o valor padrão é 10
+		segundos.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
 	    <term>boot
-	      <optional><replaceable>-options</replaceable></optional>
-	      <optional><replaceable>kernelname</replaceable></optional></term>
+	      <optional><replaceable>-opções</replaceable></optional>
+	      <optional><replaceable>nomedokernel</replaceable></optional></term>
 
 	    <listitem>
-	      <para>Immediately proceeds to boot the kernel, with the
-		given options, if any, and with the kernel name given,
-		if it is.  Providing a kernel name on the command-line
-		is only applicable after an
-		<emphasis>unload</emphasis> command has been issued,
-		otherwise the previously-loaded kernel will be
-		used.</para>
+	      <para>Prossegue imediatamente com a inicialização do
+		kernel, com as opções especificadas, se existir
+		alguma, e com o nome do kernel especificado, se for
+		especificado.  Somente é possível especificar o nome
+		do kernel no prompt depois que o comando
+		<emphasis>unload</emphasis> for usado, senão o kernel
+		carregado anteriormente será usado.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -404,11 +408,12 @@ boot:</screen>
 	    <term>boot-conf</term>
 
 	    <listitem>
-	      <para>Goes through the same automatic configuration of
-		modules based on variables as what happens at boot.
-		This only makes sense if you use
-		<command>unload</command> first, and change some
-		variables, most commonly <envar>kernel</envar>.</para>
+	      <para>Passa pela mesma configuração automática dos
+		módulos baseando-se nas variáveis do mesmo modo que
+		acontece na inicialização.  Isso somente faz sentido
+		se você primeiramente usar o comando
+		<command>unload</command>, e mudar algumas variáveis,
+		mais comumente o <envar>kernel</envar>.</para>
 	    </listitem>
 	  </varlistentry>
 
