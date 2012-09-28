@@ -120,7 +120,7 @@
 	</mediaobject>
 
 	<para>E escolha uma quantidade razoável de disco e memória
-	  dependendo de deus planos para esta instância virtual do &os;.
+	  dependendo de seus planos para esta instância virtual do &os;.
 	  4GB de espaço em disco e 512MB de memória RAM funcionam bem para 
 	  utilizar o &os; sob o <application>Parallels</application>:</para>
 
@@ -181,7 +181,7 @@
 	  o CDROM oficial do &os; ou com uma imagem ISO baixada de um
 	  site FTP oficial. Quando você tiver com a imagem ISO apropriada
 	  no sistema de arquivos local de seu &mac; ou com o CDROM no drive de CD de
-          seu &mac;'s, clique no ícone de disco no canto inferior à direita
+          seu &mac;, clique no ícone de disco no canto inferior à direita
 	  da janela do &os; <application>Parallels</application>.  Isto
 	  abrirá uma janela que permitirá que você associe o 
 	  drive de CDROM à sua máquina virtual com uma imagem ISO no disco
