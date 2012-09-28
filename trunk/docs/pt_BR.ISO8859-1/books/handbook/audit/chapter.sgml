@@ -41,10 +41,10 @@ requirements. -->
       <see>MAC</see>
     </indexterm>
 
-    <para>O sistema operacional &os; inclue suporte à ajuste fino nos 
-      eventos de segurança e auditoria. Eventos de auditoria permite 
+    <para>O sistema operacional &os; inclui suporte à ajuste fino nos 
+      eventos de segurança e auditoria. Eventos de auditoria permitem 
       ajuste fino, confiável e configurável de registro de uma variedade 
-      de eventos do sistema relevantes a segurança, incluindo logins, 
+      de eventos do sistema relevantes à segurança, incluindo logins, 
       alterações de configuração e arquivos, bem como acesso a rede.
       Estes registros de log podem ser inestimáveis aos sistemas de 
       monitoramento online, de detecção de intrusão e análises de postmortem.
@@ -95,7 +95,7 @@ requirements. -->
   configuram propriamente o serviço de auditoria nas sessões de 
   autenticação dos usuários.</para>
 
-      <para>O evento de auditoria e segurançaa são capaz de gerar logs 
+      <para>O evento de auditoria e segurança são capazes de gerar logs 
   detalhados das atividades do sistema: em um sistema movimentado dados 
   referente ao rastreio de um arquivo pode se tornar muito grande quando 
   configurado com muitos detalhes excedendo gigabytes em uma semana em 
