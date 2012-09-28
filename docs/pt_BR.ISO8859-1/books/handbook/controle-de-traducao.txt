@@ -13,7 +13,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 1048   # introduction        # r39576  # Juliana Manczenko, 18/09/2012
 1055   # boot                # r39544  # Marcelo Rossi, 24/09/2012
 1296   # vinum               # r39544  #
-1300   # virtualization      # r39595  #
+1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
 1345   # linuxemu            # r39544  #
 1347   # desktop             # r39544  #
 1548   # kernelconfig        # r39544  #
