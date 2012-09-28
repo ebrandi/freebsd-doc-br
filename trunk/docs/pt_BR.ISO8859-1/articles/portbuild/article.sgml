@@ -2257,26 +2257,27 @@ touch /tmp/.boot_finished</screen>
 	</step>
 
 	<step>
-	  <para>Create
-<filename>/var/portbuild/<replaceable>${arch}</replaceable>/clients/bindist-<replaceable>${hostname}</replaceable>.tar</filename>.
+	  <para>Crie o
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/clients/bindist-<replaceable>${hostname}</replaceable>.tar</filename>.
 	  </para>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para>Copy one of the existing ones as a template and unpack it
-		in a temporary directory.</para>
+	      <para>Copie um dos existentes como modelo e
+	        descompacte-o em um diretório tenporario.</para>
 	    </listitem>
 	    <listitem>
-	      <para>Customize <filename>etc/resolv.conf</filename>
-	      for the local site.</para>
+	      <para>Personalize o <filename>etc/resolv.conf</filename>
+	        para o site local.</para>
 	    </listitem>
 	    <listitem>
-	      <para>Customize <filename>etc/make.conf</filename> for
-	      FTP fetches for the local site.  Note: the nulling-out
-	      of <makevar>MASTER_SITE_BACKUP</makevar> must be common
-	      to all nodes, but the first entry in
-	      <makevar>MASTER_SITE_OVERRIDE</makevar> should be the
-	      nearest local FTP mirror.  Example:<screen><command>
+	      <para>Personalize o <filename>etc/make.conf</filename>
+	        para a busca de arquivo no FTP local.  Nota: a
+		anulação da variável
+		<makevar>MASTER_SITE_BACKUP</makevar> deve ser comum
+		para todos os nós, mas a primeira entrada em
+		<makevar>MASTER_SITE_OVERRIDE</makevar> deve ser o
+		espelho FTP mais próximo.  Exemplo:<screen><command>
 .if defined(FETCH_ORIGINAL)
 MASTER_SITE_BACKUP=
 .else
@@ -2287,26 +2288,26 @@ MASTER_SITE_OVERRIDE= \
 	      </para>
 	    </listitem>
 	    <listitem>
-	      <para><command>tar</command> it up and move it to the right
-		location.</para>
+	      <para>Arquive com <command>tar</command> e mova para o
+	        local correto.</para>
 	    </listitem>
 	  </itemizedlist>
 
-	  <para>Hint: you will need one of these for each machine;
-	    however, if you have multiple machines at one site, you
-	    should create a site-specific one (e.g. in
-	    <filename>/var/portbuild/conf/clients/</filename>)
-	    and symlink to it.</para>
+	  <para>Dica: você precisará de um desses para cada máquina;
+	   no entanto, se você tem várias máquinas no mesmo site, você
+	   deve criar um local específico para este site (e.g. em
+	   <filename>/var/portbuild/conf/clients/</filename>) e criar
+	   um <literal>link</literal> simbólico para ele.</para>
 	</step>
 
 	<step>
-	  <para>Create
-<filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild-<replaceable>${hostname}</replaceable></filename>
-	    using one of the existing ones as a guide.  This
-	    file contains overrides to
-<filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild.conf</filename>.</para>
+	  <para>Crie o
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild-<replaceable>${hostname}</replaceable></filename>
+	    utilizando um dos existentes como guia.  O conteúdo deste
+	    arquivop sobreescreve as configurações de
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild.conf</filename>.</para>
 
-	  <para>Suggested values:<screen>
+	  <para>Sugestão de valores:<screen>
 disconnected=1
 http_proxy="http://localhost:3128/"
 squid_dir=<filename>/<replaceable>usr2</replaceable>/squid</filename>
@@ -2319,7 +2320,7 @@ infoseek_host=localhost
 infoseek_port=<replaceable>${tunelled-tcp-port}</replaceable></screen>
 	  </para>
 
-	  <para>Possible other values:<screen>
+	  <para>Outros valores possíveis:<screen>
 use_md_swap=1
 md_size=9g
 use_zfs=1
@@ -2330,25 +2331,28 @@ ssh_cmd="/usr/local/bin/ssh"
 	</step>
       </procedure>
 
-      <para>These steps need to be taken by a <literal>portmgr</literal>
-	acting as <literal>root</literal> on <hostid>pointyhat</hostid>.
+      <para>Esses passos precisam ser feitos por um
+	<literal>portmgr</literal> autenticado como
+        <literal>root</literal> em <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Add the public IP address to
-	    <filename>/etc/hosts.allow</filename>.  (Remember, multiple
-	    machines can be on the same IP address.)</para>
+	  <para>Adicione o endereço IP público em
+	    <filename>/etc/hosts.allow</filename>.  (Lembre-se, várias
+	    máquinas podem estar sob o mesmo endereço IP.)</para>
 	</step>
 
 	<step>
-	  <para>Add an appropriate <literal>data_source</literal> entry to
+	  <para>Adicione uma entrada <literal>data_source</literal>
+	    para
 	    <filename>/usr/local/etc/gmetad.conf</filename>:</para>
 	  <para>
 	    <literal>data_source "<replaceable>arch</replaceable>/<replaceable>location</replaceable> Package Build Cluster" 30 <replaceable>hostname</replaceable></literal>
 	  </para>
 
-	  <para>You will need to restart <filename>gmetad</filename>.
+	  <para>Você precisará reiniciar o
+	    <filename>gmetad</filename>.
 	  </para>
 	</step>
       </procedure>
@@ -2356,25 +2360,31 @@ ssh_cmd="/usr/local/bin/ssh"
     </sect2>
 
     <sect2 id="node-enabling">
-      <title>Enabling the node</title>
+      <title>Habilitando o nó</title>
 
-      <para>These steps need to be taken by a <literal>portmgr</literal>
-	acting as <literal>ports-<replaceable>arch</replaceable></literal>
-	on <hostid>pointyhat</hostid>.
+      <para>Esses passos precisam ser feitos por um
+        <literal>portmgr</literal> autenticado como
+	<literal>ports-<replaceable>arch</replaceable></literal> em
+	<hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Ensure that <literal>ssh</literal> is working by executing
-	    <command>ssh <replaceable>hostname</replaceable></command>.
+	  <para>Cerifique-se que o
+	    <literal>ssh</literal><literal>ssh</literal> está
+	    funcionando executando <command>ssh
+	    <replaceable>hostname</replaceable></command>.
 	  </para>
 	</step>
 
 	<step>
-	  <para>Populate <filename>/var/portbuild/scripts/</filename>
-	    by something like
-	    <command>/var/portbuild/scripts/dosetupnode <replaceable>arch</replaceable> <replaceable>major</replaceable> latest <replaceable>hostname</replaceable></command>.
-	    Verify that you now have files in that directory.
+	  <para>Crie os arquivos em
+	    <filename>/var/portbuild/scripts/</filename> executando
+	    algo como <command>/var/portbuild/scripts/dosetupnode
+	    <replaceable>arch</replaceable>
+	    <replaceable>major</replaceable> latest
+	    <replaceable>hostname</replaceable></command>.  Verifique
+	    se os arquivos foram criados no diretório.
 	  </para>
 	</step>
 
