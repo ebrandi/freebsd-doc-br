@@ -14,34 +14,34 @@
       <author>
 	<firstname>Murray</firstname>
 	<surname>Stokely</surname>
-	<contrib>Contributed by </contrib>
+	<contrib>Contribuído por </contrib>
       </author>
     </authorgroup>
     <!-- Mar 2007 -->
   </chapterinfo>
 
-  <title>Virtualiza&ccedil;&atilde;o</title>
+  <title>Virtualização</title>
 
   <sect1 id="virtualization-synopsis">
     <title>Sinopse</title>
 
-    <para>Softwares de virtualiza&ccedil;&atilde;o permitem que v&aacute;rios sistemas operacionais
+    <para>Softwares de virtualização permitem que vários sistemas operacionais
       sejam executados ao mesmo tempo em um mesmo computador. Este tipo 
-      de softarew para PCs algumas vezes possuem um sistema operacional hospedeiro que executa
-      o software de virtualiza&ccedil;&atilde;o e suporte diveros sistemas
+      de software para PCs costuma possuir um sistema operacional hospedeiro que executa
+      o software de virtualização e suporte a diversos sistemas
       operacionais convidados.</para>
 
-    <para>Ap&oacute;s ler este cap&iacute;tulo, voc&ecirc; saber&aacute;:</para>
+    <para>Após ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>The difference between a host operating system and a
-	  guest operating system.</para>
+	<para>A diferença entre o sistema operacional hospedeiro e
+          um sistema operacional convidado.</para>
       </listitem>
 
       <listitem>
-	<para>How to install &os; on an &intel;-based &apple;
-	  &macintosh; computer.</para>
+	<para>Como instalar &os; em um computador &intel;-based &apple;
+	  &macintosh;.</para>
       </listitem>
 
 <!--
@@ -49,18 +49,18 @@
          Hide all information regarding Xen under FreeBSD.
 
       <listitem>
-	<para>How to install &os; on Linux with
+	<para>Como instalar &os; no Linux com
 	  <application>&xen;</application>.</para>
       </listitem>
 -->
       <listitem>
-	<para>How to install &os; on &microsoft.windows; with
+	<para>Como instalar &os; no &microsoft.windows; com o
 	  <application>Virtual PC</application>.</para>
       </listitem>
 
       <listitem>
-	<para>How to tune a &os; system for best performance under
-	  virtualization.</para>
+	<para>Como ajustar um sistema &os; para melhor performance 
+              em virtualização.</para>
       </listitem>
 
     </itemizedlist>
@@ -91,7 +91,7 @@
   </sect1>
 
   <sect1 id="virtualization-guest">
-    <title>&os; as a Guest OS</title>
+    <title>&os; como SO Confidado</title>
 
     <sect2 id="virtualization-guest-parallels">
       <title>Parallels on MacOS</title>
@@ -1110,7 +1110,7 @@ EndSection</programlisting>
   </sect1>
 
   <sect1 id="virtualization-host">
-    <title>&os; as a Host OS</title>
+    <title>&os; como SO Hospedeiro</title>
 
     <para>For a number of years, &os; was not officially supported as
       a host OS by any of the available virtualization solutions.
