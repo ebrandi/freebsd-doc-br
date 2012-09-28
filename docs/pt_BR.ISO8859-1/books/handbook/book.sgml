@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN"
 	"../../../share/sgml/freebsd42.dtd" [
-<!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//EN" "../../share/sgml/entities.ent">
+<!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT" "../../share/sgml/entities.ent">
 %entities;
 
 <!--
@@ -19,7 +19,7 @@
 %txtfiles;
 ]>
 
-<book lang='en'>
+<book lang='pt_br'>
   <bookinfo>
     <title>FreeBSD Handbook</title>
 
