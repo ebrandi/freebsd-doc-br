@@ -162,45 +162,51 @@
   <sect1 id="jails-intro">
     <title>Introdução</title>
 
-    <para>uma vez que a administração de sistemas is a difficult and perplexing
-      task, many powerful tools were developed to make life easier for
-      the administrator.  These tools mostly provide enhancements of some sort
-      to the way systems are installed, configured and maintained.
-      Part of the tasks which an administrator is
-      expected to do is to properly configure the security of a system,
-      so that it can continue serving its real purpose, without allowing
-      security violations.</para>
-
-    <para>One of the tools which can be used to enhance the security of
-      a &os; system are <emphasis>jails</emphasis>.  Jails were
-      introduced in &os;&nbsp;4.X by &a.phk;, but were greatly improved in
-      &os;&nbsp;5.X to make them a powerful and flexible subsystem.  Their
-      development still goes on, enhancing their usefulness, performance, reliability,
-      and security.</para>
-
+    <para>Uma vez que a administração de sistemas é uma tarefa difícil
+      e complicada, muitas ferramentas poderosas foram desenvolvidas
+      para tornar a vida do administrador mais fácil.  Estas
+      ferramentas em sua grande maiora implementam melhorias na forma
+      como um sistema é instalado, configurado e mantido.  Uma das
+      atividades que um administrador deve realizar é a configuração
+      da segurança do sistema, de modo que ele possa continuar
+      desempenhando seu propósito real, sem permitir violações de
+      segurança.</para>
+      
+    <para>Uma das ferramentas que podem ser utilizadas para melhorar a
+      segurança de um sistema &os; são os <emphasis>jails</emphasis>.
+      Os jails foram introduzidos na série 4.X do &os; pelo &a.phk;,
+      mas eles foram consideravelmente melhorados na série 5.x do 
+      &os; para que se tornassem um subsistema poderoso e flexível.  
+      Seu desenvolvimento continua ativo para aumentar suas
+      funcionalidades, desempenho, confiabilidade e segurança.</para>
+    
     <sect2 id="jails-what">
-      <title>What is a Jail</title>
+      <title>O que é um Jail</title>
 
-      <para>BSD-like operating systems have had &man.chroot.2; since the
-	time of 4.2BSD.  The &man.chroot.8; utility can be used to
-	change the root directory
-	of a set of processes, creating a safe environment, separate
-	from the rest of the system.  Processes created in the chrooted
-	environment can not access files or resources outside of it.
-	For that reason, compromising a service running in a chrooted
-	environment should not allow the attacker to compromise the
-	entire system.  The &man.chroot.8; utility is good for easy
-	tasks, which do not require a lot of flexibility or complex and
-	advanced features.  Since the inception of the
-	chroot concept, however, many ways have been found to escape from a
-	chrooted environment and, although they have been fixed in
-	modern versions of the &os; kernel, it was clear that
-	&man.chroot.2; was not the ideal solution for securing services.
-	A new subsystem had to be implemented.</para>
-
-      <para>This is one of the main reasons why
-	<emphasis>jails</emphasis> were developed.</para>
-
+      <para>
+	Os sistemas operacionais derivados do BSD possuem o
+	&man.chroot.2; desde a época do 4.2BSD.  O utilitário
+	&man.chroot.8; pode ser utilizado para mudar o diretório raiz
+	de um conjunto de processos, criando um ambiente seguro,
+	separado do restante do sistema.  Os processos criados em um
+	ambiente <literal>chrooted</literal> não podem acessar
+	arquivos ou recursos fora dele.  Por esta razão, o
+	comprometimento de um serviço que está sendo executado em um
+	ambiente <literal>chrooted</literal> não irá permitir que o
+	atacante comprometa o sistema inteiro.  O utilitário
+	&man.chroot.8; é bom para tarefas simples, as quais não
+	requerem muita flexibilidade ou funcionalidades avançadas e
+	complexas.  No entanto, desde a concepção do conceito do
+	<literal>chroot</literal>, foram encontradas muitas formas de
+	se escapar deste tipo de ambiente, e apesar destas falhas
+	terem sido corrigidas nas versões mais modernas do kernel do
+	&os; ficou claro que o &man.chroot.2; não era a solução ideal
+	para assegurar a segurança de um serviço.  Um novo subsistema
+	tinha que ser implementado.</para>
+      
+      <para>Esta é uma das principais razões pela qual os
+	<emphasis>jails</emphasis> foram desenvolvidos.</para>
+      
       <para>Jails improve on the concept of the traditional
 	&man.chroot.2; environment, in several ways.  In a traditional
 	&man.chroot.2; environment, processes are only limited in the
