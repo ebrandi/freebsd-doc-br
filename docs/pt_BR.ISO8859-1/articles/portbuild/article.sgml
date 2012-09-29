@@ -2389,23 +2389,27 @@ ssh_cmd="/usr/local/bin/ssh"
 	</step>
 
 	<step>
-	  <para>Test the other TCP ports by executing
-	    <command>telnet <replaceable>hostname</replaceable> <replaceable>portnumber</replaceable></command>.
-	    <literal>414</literal> (or its tunnel) should give you a few lines of status
-	    information including <literal>arch</literal> and
-	    <literal>osversion</literal>; <literal>8649</literal> should
-	    give you an <literal>XML</literal> response from
+	  <para>Teste as outras portas TCP executando <command>telnet
+	    <replaceable>hostname</replaceable>
+	    <replaceable>portnumber</replaceable></command>.
+	    <literal>414</literal> (ou seu túnel) deve dar-lhe algumas
+	    linhas de informação sobre seu status, incluindo
+	    <literal>arch</literal> e <literal>osversion</literal>;
+	    <literal>8649</literal> deve dar-lhe uma resposta em
+	    <literal>XML</literal> de
 	    <literal>ganglia</literal>.</para>
 	</step>
       </procedure>
 
-      <para>This step needs to be taken by a <literal>portmgr</literal>
-	acting as <literal>root</literal> on <hostid>pointyhat</hostid>.
+      <para>Esses passos passos precisam ser feitos por um
+        <literal>portmgr</literal> autenticado como
+	<literal>root</literal> em <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Tell <filename>qmanager</filename> about the node.  Example:
+	  <para>Informe <filename>qmanager</filename> sobre o nó.
+	    Exemplo:
 	  </para>
 
 	  <para><command>python <replaceable>path</replaceable>/qmanager/qclient add
@@ -2426,95 +2430,100 @@ ssh_cmd="/usr/local/bin/ssh"
   </sect1>
 
   <sect1 id="new-branch">
-    <title>How to configure a new &os; branch</title>
+    <title>Como configurar um novo <literal>branch</literal> do
+      &os;</title>
 
-    <para>When a new branch is created, some work needs to
-      be done to specify that the previous branch is no longer
-      equivalent to <literal>HEAD</literal>.  The following
-      instructions apply to the <emphasis>previous</emphasis>
-      branch number:</para>
+    <para>Quando um novo <literal>branch</literal> é criado, algum
+      trabalho precisa ser feito para especificar que o
+      <literal>branch</literal> anterior não mais corresponde ao
+      <literal>HEAD</literal>.  As seguintes instruções se aplicam ao
+      número do <literal>branch</literal>
+      <emphasis>anterior</emphasis>:</para>
 
     <itemizedlist>
       <listitem>
-	<para>(new codebase) Edit <filename>/var/portbuild/conf/server.conf</filename>
-	  with the following changes:</para>
+	<para>(novo código base) Edite o
+	  <filename>/var/portbuild/conf/server.conf</filename>
+	  e faça as seguintes alterações:</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Add <replaceable>new-branch</replaceable> to
-	      <makevar>SRC_BRANCHES</makevar>.</para>
+	    <para>Adicione <replaceable>new-branch</replaceable> para
+	      a variável <makevar>SRC_BRANCHES</makevar>.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>For what was previously head, change
-	      <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar> to
+	    <para>Para o <literal>branch</literal> que anteriormente
+	      foi o <literal>head</literal>, mude
+	      <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
+	      para
 	      <literal>RELENG_<replaceable>branch</replaceable>_0</literal>.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>Add
-	      <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar>
-	      <literal>=.</literal> (literal period).</para>
+	    <para>Adicione
+	      <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
+	      (o ponto é literal).</para>
 	  </listitem>
 	</itemizedlist>
       </listitem>
 
       <listitem>
-	<para>(new codebase) Run <command>
-/var/portbuild/updatesnap</command> manually.</para>
+	<para>(novo código base) Execute <command>
+/var/portbuild/updatesnap</command> manualmente.</para>
       </listitem>
 
       <listitem>
-	<para>(Only for old codebase)
-	  Create a new <application>zfs</application> filesystem
-	  for sources:
+	<para>(Apenas para o antigo código base) Crie um novo sistema
+	  de arquivos <application>zfs</application> para os fontes:
 	  <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
 	</para>
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase):
-	  Checkout a <literal>src</literal> tree in the new filesystem:
+	  <para>(Necessário apenas para o antigo código base):
+	  Sincronize a árvore <literal>src</literal> localmente no
+	  novo sistema de arquivos:
 	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
 	</para>
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase):
-	  Edit the master copy of
+	<para>(Necessário apenas para o antigo código base): Edite a
+	  cópia principal do
 	  <filename>Tools/portbuild/portbuild.conf</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase):
-	  For each arch, edit its copy of the above in
+	<para>(Necessário apenas para o antigo código base): Edite a
+	cópia do arquivo acima para cada uma das arquiteturas em
 	  <filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase):
-	  Edit <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+	<para>(Necessário apenas para o antigo código base): Edite o
+	  <filename>/var/portbuild/scripts/buildenv</filename>.</para>
       </listitem>
 
       <listitem>
-        <para>(Only necessary for old codebase):
-	  Add a link from
-	  <filename>/var/portbuild/scripts/dopackages</filename> to
+	<para>(Necessário apenas para o antigo código base): adicione
+	  um <literal>link</literal> de 
+	  <filename>/var/portbuild/scripts/dopackages</filename> para
 	  <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
 	</para>  
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase):
-	  Modify <makevar>HEAD_BRANCH</makevar> and
-	  <makevar>NON_HEAD_BRANCHES</makevar> in
+	<para>(Necessário apenas para o antigo código base): Modifique
+	  as variáveis <makevar>HEAD_BRANCH</makevar> e
+	  <makevar>NON_HEAD_BRANCHES</makevar> em
 	  <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
       </listitem>
 
       <listitem>
 	<!-- XXX MCL writeup for new codebase -->
-        <para>(Only necessary for old codebase):
-	  Add the <literal>snap</literal> directory to
+	<para>(Necessário apenas para o antigo código base): Adicione
+	  o diretório <literal>snap</literal> no arquivo
 	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
       </listitem>
 
