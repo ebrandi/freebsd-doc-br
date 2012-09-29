@@ -207,69 +207,84 @@
       <para>Esta é uma das principais razões pela qual os
 	<emphasis>jails</emphasis> foram desenvolvidos.</para>
       
-      <para>Jails improve on the concept of the traditional
-	&man.chroot.2; environment, in several ways.  In a traditional
-	&man.chroot.2; environment, processes are only limited in the
-	part of the file system they can access.  The rest of the system
-	resources (like the set of system users, the running processes,
-	or the networking subsystem) are shared by the chrooted
-	processes and the processes of the host system.  Jails expand
-	this model by virtualizing not only access to the file system,
-	but also the set of users, the networking subsystem of the &os;
-	kernel and a few other things.  A more complete set of
-	fine-grained controls available for tuning the access of a
-	jailed environment is described in <xref
-	  linkend="jails-tuning"/>.</para>
+      <para>O jail melhora o conceito tradicional do ambiente
+	&man.chroot.2; de várias maneiras.  Em um ambiente
+	&man.chroot.2; tradicional, os processos são limitados apenas
+	em relação a área do sistema de arquivos a qual eles podem
+	acessar.  O restante dos recursos do sistema (tais como o
+	conjunto de usuários do sistema, os processos em execução, ou
+	o subsistema de rede) são compartilhados pelos processos
+	<literal>chrooted</literal> e os processos do sistema
+	hospedeiro.  O jail expande este modelo por meio da
+	virtualização não só do acesso ao sistema de arquivos, mas
+	também do conjunto de usuários, do subsistema de rede do
+	kernel do &os; e de mais algumas coisas.  Uma listagem 
+	completa das opções disponíveis para se realizar o ajuste 
+	fino de um ambiente jail está descrito na
+	<xref linkend="jails-tuning"/>.</para>
 
-      <para>A jail is characterized by four elements:</para>
+      <para>Um <literal>jail</literal> é caracterizado por quatro
+     	elementos:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>A directory subtree &mdash; the starting point from
-	    which a jail is entered.  Once inside the jail, a process
-	    is not permitted to escape outside of this subtree.
-	    Traditional security issues which plagued the original
-	    &man.chroot.2; design will not affect &os; jails.</para>
+	  <para>Uma subárvore de diretórios &mdash; o ponto de partida
+	    a partir do qual o <literal>jail</literal> é iniciado.
+	    Uma vez dentro do <literal>jail</literal>, um processo não
+	    terá permissão para sair desta subárvore.  Os problemas 
+	    de segurança que afetam o design original do 
+	    &man.chroot.2; não irão afetar um jail do &os;</para>
 	</listitem>
 
 	<listitem>
-	  <para>A hostname &mdash; the hostname which will be used
-	    within the jail.  Jails are mainly used for hosting network
-	    services, therefore having a descriptive hostname for each
-	    jail can really help the system administrator.</para>
+	  <para>Um nome de máquina (hostname) &mdash; o nome de
+	    máquina que será utilizado dentro do
+	    <literal>jail</literal>.  Um dos principais usos dos
+	    <literal>jails</literal> é na hospedagem de serviços de
+	    rede, logo ter um nome de máquina associado à cada
+	    <literal>jail</literal> pode realmente ajudar o
+	    administrador do sistema.</para>
 	</listitem>
 
 	<listitem>
-	  <para>An <acronym>IP</acronym> address &mdash; this will be
-	    assigned to the jail and cannot be changed in any way during
-	    the jail's life span.  The IP address of a jail is usually an alias address
-	    for an existing network interface, but this is not strictly necessary.</para>
+	  <para>Um endereço <acronym>IP</acronym> &mdash; este será
+	    atribuido ao <literal>jail</literal> e não poderá ser
+	    alterado de nenhuma forma durante todo o periodo em que o
+	    <literal>jail</literal> estiver em execução.  O endereço
+	    <acronym>IP</acronym> de um <literal>jail</literal> é
+	    normalmente um endereço <literal>alias</literal> de uma 
+	    interface de rede existente, mas isto não é estritamente
+	    necessário.</para>
 	</listitem>
 
 	<listitem>
-	  <para>A command &mdash; the path name of an executable to run
-	    inside the jail.  This is relative to the root directory of
-	    the jail environment, and may vary a lot, depending on the
-	    type of the specific jail environment.</para>
+	  <para>Um comando &mdash; o caminho de um executável para ser
+	    executado dentro do <literal>jail</literal>.  Este caminho
+	    é relativo ao diretório raiz do ambiente 
+	    <literal>jail</literal>, e pode variar muito, dependendo
+	    do tipo de ambiente específico do
+	    <literal>jail</literal>.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>Apart from these, jails can have their own set of users and
-	their own <username>root</username> user.  Naturally, the powers
-	of the <username>root</username> user are limited within the
-	jail environment and, from the point of view of the host system,
-	the jail <username>root</username> user is not an omnipotent user.
-	In addition, the <username>root</username> user of a jail is not
-	allowed to perform critical operations to the system outside of
-	the associated &man.jail.8; environment.  More information
-	about capabilities and restrictions of the
-	<username>root</username> user will be discussed in <xref
-	  linkend="jails-tuning"/> below.</para>
+      <para>Além destes elementos, um <literal>jail</literal> pode ter
+	o seu próprio conjunto de usuários e o seu próprio usuário
+	<username>root</username>.  Naturalmente os poderes deste
+	usuário <username>root</username> são limitados ao ambiente do
+	<literal>jail</literal>, e do ponto de vista do sistema
+	hospedeiro, o usuário <username>root</username> do ambiente
+	<literal>jail</literal> não é um usuário com poderes
+	ilimitados.  Além disso, não é permitido ao usuário
+	<username>root</username> do  <literal>jail</literal> executar
+	nenhuma operação crítica para o sistema fora do ambiente
+	&man.jail.8; associado.  A <xref linkend="jails-tuning"/> irá
+	abordar com mais detalhes os recursos e as restrições do
+	usuário <username>root</username>.</para>
     </sect2>
   </sect1>
 
   <sect1 id="jails-build">
-    <title>Creating and Controlling Jails</title>
+    <title>Criando e Controlando Jails</title>
 
     <para>Some administrators divide jails into the following two types:
       <quote>complete</quote> jails, which resemble a real &os; system,
