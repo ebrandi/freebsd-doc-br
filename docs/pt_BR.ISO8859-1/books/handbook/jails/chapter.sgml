@@ -162,7 +162,7 @@
   <sect1 id="jails-intro">
     <title>Introdução</title>
 
-    <para>Since system administration is a difficult and perplexing
+    <para>uma vez que system administration is a difficult and perplexing
       task, many powerful tools were developed to make life easier for
       the administrator.  These tools mostly provide enhancements of some sort
       to the way systems are installed, configured and maintained.
