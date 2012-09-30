@@ -341,25 +341,30 @@
       </callout>
 
       <callout arearefs="jaildistrib">
-	<para>The <maketarget>distribution</maketarget> target for
-	  <application>make</application> installs every needed
-	  configuration file.  In simple words, it installs every installable file of
-	  <filename class="directory">/usr/src/etc/</filename> to the
-	  <filename class="directory">/etc</filename> directory of the jail
-	  environment:
-	  <filename class="directory">$D/etc/</filename>.</para>
+	<para>Ao executar o <application>make</application> com 
+	  o parâmetro <maketarget>distribution</maketarget>,
+	  você irá instalar todos os arquivos de configuração 
+	  necessários.  Ou seja, este comando instala todos os 
+	  arquivos existentes no 
+	  <filename class="directory">/usr/src/etc/</filename> no
+	  diretório <filename class="directory">/etc</filename> do
+	  ambiente do <literal>jail</literal>: <filename
+	  class="directory">$D/etc/</filename>.</para>
       </callout>
 
       <callout arearefs="jaildevfs">
-	<para>Mounting the &man.devfs.8; file system inside a jail is
-	  not required.  On the other hand, any, or almost any
-	  application requires access to at least one device, depending
-	  on the purpose of the given application.  It is very important
-	  to control access to devices from inside a jail, as improper
-	  settings could permit an attacker to do nasty things in the
-	  jail.  Control over &man.devfs.8; is managed through rulesets
-	  which are described in the &man.devfs.8; and
-	  &man.devfs.conf.5; manual pages.</para>
+	<para>Não é necessário montar o sistema de arquivos 
+	  &man.devfs.8; dentro de um <literal>jail</literal>.  
+	  Por outro lado, dependendo da finalidade, todas ou 
+	  praticamente todas as aplicações necessitam de acesso a 
+	  pelo menos um dispositivo.  É muito importante controlar 
+	  o acesso aos dispositivos de dentro de um 
+	  <literal>jail</literal>, uma vez que configurações 
+	  inadequadas podem permitir que um atacante
+	  faça coisas desagradáveis lá dentro.  O controle sobre o
+	  &man.devfs.8; é realizado através de um conjunto de regras
+	  as quais estão descritas nas páginas de manual do
+	  &man.devfs.8; e do &man.devfs.conf.5;.</para>
       </callout>
     </calloutlist>
 
