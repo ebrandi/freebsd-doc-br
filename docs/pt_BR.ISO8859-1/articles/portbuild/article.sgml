@@ -2528,9 +2528,10 @@ ssh_cmd="/usr/local/bin/ssh"
       </listitem>
 
       <listitem>
-        <para>(Only necessary for old codebase):
-	  In the <filename>/var/portbuild/errorlogs/</filename>
-	  directory, create links for the webserver:<screen>
+	<para>(Necessário apenas para o antigo código base): Crie
+	  <literal>links</literal> simbólicos para o servidor web no
+	  diretório
+	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
@@ -2541,36 +2542,39 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
       </listitem>
 
       <listitem>
-	<para>Kick-start the build for the branch with
+	<para>Inicie a compilação para o <literal>branch</literal> com
 	  <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
 	</para>  
       </listitem>
 
       <listitem>
-	<para><link linkend="setup">Create <filename>bindist.tar</filename>
+	<para><link linkend="setup">Crie o <filename>bindist.tar</filename>
 	  </link>.</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="old-branch">
-    <title>How to delete an unsupported &os; branch</title>
+    <title>Como excluir um <literal>branch</literal> não suportado do
+      &os;</title>
 
-    <para>When an old branch goes out of support, there are some
-      things to garbage-collect.</para>
+    <para>Quando um <literal>branch</literal> antigo deixa de ser
+      suportado, existem algumas a serem feitas para que o lixo seja
+      recolhido.</para>
 
     <itemizedlist>
       <listitem>
-	<para>(new codebase) Edit <filename>/var/portbuild/conf/server.conf</filename>
-	  with the following changes:</para>
+	<para>(novo código base) Edite o
+	  <filename>/var/portbuild/conf/server.conf</filename> e faça
+	  as seguintes mudanças:</para>
 	  <itemizedlist>
 	    <listitem>
-	      <para>Delete <replaceable>old-branch</replaceable> from
-		<makevar>SRC_BRANCHES</makevar>.</para>
+	      <para>Remova <replaceable>old-branch</replaceable> da
+		variável <makevar>SRC_BRANCHES</makevar>.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Delete
+	      <para>Remova
 		<makevar>SRC_BRANCH_<replaceable>old-branch</replaceable>_TAG</makevar>
 		<literal>=<replaceable>whatever</replaceable></literal></para>
 	    </listitem>
@@ -2578,7 +2582,7 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
       </listitem>
 
       <listitem>
-	<para>(both):
+	<para>(novo e antigo código base):
 <command>umount a/snap/src-<replaceable>old-branch</replaceable>/src;
 umount a/snap/src-<replaceable>old-branch</replaceable>;
 zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
@@ -2587,30 +2591,31 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 
     <itemizedlist>
       <listitem>
-	<para>(both) You will probably find that the following files and
-	  symlinks in <filename>/var/portbuild/errorlogs/</filename>
-	  can be removed:</para>
+	<para>(novo e antigo código base) Provavelmente você
+	  encontrará os seguintes arquivos e <literal>links</literal>
+	  simbólicos em <filename>/var/portbuild/errorlogs/</filename>
+	  que podem ser removidos:</para>
 	  <itemizedlist>
 	    <listitem>
-	      <para>Files named
+	      <para>Arquivos chamados
 		<filename>*-<replaceable>old_branch</replaceable>-failure.html</filename>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Files named
+	      <para>Arquivos chamados
 		<filename>buildlogs_*-<replaceable>old_branch</replaceable>-*-logs.txt</filename>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Symlinks named
+	      <para><literal>Links</literal> simbólicos chamados
 		<filename>*-<replaceable>old_branch</replaceable>-previous*</filename>
 	      </para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Symlinks named
+	      <para><literal>Links</literal> simbólicos chamados
 		<filename>*-<replaceable>old_branch</replaceable>-latest*</filename>
 	      </para>
 	    </listitem>
