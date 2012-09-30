@@ -440,28 +440,31 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
     </procedure>
 
     <para>O script <filename>/etc/rc.d/jail</filename> pode ser
-      utilizado para iniciar ou para parar manualmente um
-      <literal>jail</literal>, se existir uma entrada para ele no
-      <filename>rc.conf</filename>:</para>
+      utilizado para iniciar ou para encerrar manualmente um
+      <literal>jail</literal>, desde que exista uma entrada para ele 
+      no <filename>rc.conf</filename>:</para>
     
     <screen>&prompt.root; <userinput>/etc/rc.d/jail start <replaceable>www</replaceable></userinput>
 &prompt.root; <userinput>/etc/rc.d/jail stop <replaceable>www</replaceable></userinput></screen>
 
-    <para>A clean way to shut down a &man.jail.8; is not available at
-      the moment.  This is because commands normally used to accomplish
-      a clean system shutdown cannot be used inside a jail.  The best
-      way to shut down a jail is to run the following command from
-      within the jail itself or using the &man.jexec.8; utility from
-      outside the jail:</para>
+    <para>Até o presente momento não existe uma forma 
+      <quote>limpa</quote> de se encerrar um &man.jail.8;.  O motivo 
+      para isto é que os comandos utilizados para se realizar um 
+      desligamento <quote>limpo</quote> dosistema não podem ser 
+      utilizados dentro de um <literal>jail</literal>.  A melhor 
+      forma de encerrar um <literal>jail</literal> é executar comando 
+      abaixo dentro dele ou então através do utilitário &man.jexec.8;
+      de fora do <literal>jail</literal>.</para>
 
     <screen>&prompt.root; <userinput>sh /etc/rc.shutdown</userinput></screen>
 
-    <para>More information about this can be found in the &man.jail.8;
-      manual page.</para>
+    <para>Consulte a página de manual do &man.jail.8; para maiores 
+      informações sobre isto.</para>
   </sect1>
 
   <sect1 id="jails-tuning">
-    <title>Fine Tuning and Administration</title>
+    <title>Administração e ajuste fino (<literal>fine
+      tuning)</literal></title>
 
     <para>There are several options which can be set for any jail, and
       various ways of combining a host &os; system with jails, to produce
