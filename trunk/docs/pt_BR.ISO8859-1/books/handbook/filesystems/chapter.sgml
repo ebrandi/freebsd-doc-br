@@ -473,21 +473,23 @@ storage/home  26320512       0 26320512     0%    /home</screen>
       <sect3>
 	<title>Recuperando um <acronym>RAID</acronym>-Z</title>
 
-	<para>Every software <acronym>RAID</acronym> has a method of
-	  monitoring their <literal>state</literal>.
-	  <acronym>ZFS</acronym> is no exception.  The status of
-	  <acronym>RAID</acronym>-Z devices may be viewed with the
-	  following command:</para>
+	<para>Cada software de <acronym>RAID</acronym> tem um metodo
+	  de monitorar o <literal>estado</literal> dos dispositivos.
+	  <acronym>ZFS</acronym> não é uma excessão. O estado dos
+	  dispositivos do <acronym>RAID</acronym>-Z podem ser
+	  visualizados com o comando abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zpool status -x</userinput></screen>
 
-	<para>If all pools are healthy and everything is normal, the
-	  following message will be returned:</para>
+	<para>Se todos os conjuntos (pools) estão saudaveis e tudo
+	  esta normal, uma mensagem semelhante a seguir, será
+	  mostrada:</para>
 
 	<screen>all pools are healthy</screen>
 
-	<para>If there is an issue, perhaps a disk has gone offline,
-	  the pool state will be returned and look similar to:</para>
+	<para>Se existir algum problem, um disco desligado, o estado
+	  do conjunto (pool) será semelhante ao que podemos ver
+	  abaixo:</para>
 
 	<screen>  pool: storage
  state: DEGRADED
@@ -508,23 +510,24 @@ config:
 
 errors: No known data errors</screen>
 
-	<para>This states that the device was taken offline by the
-	  administrator.  This is true for this particular example.
-	  To take the disk offline, the following command was
-	  used:</para>
+	<para>O estado do dispositivo mostra que o mesmo está
+	  desligado pelo o Administrador. Na verdade, isto é
+	  particular do nosso exemplo. Para desligar-mos um disco,
+	  vamos executar o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool offline storage da1</userinput></screen>
 
-	<para>It is now possible to replace the
-	  <devicename>da1</devicename> after the system has been
-	  powered down.  When the system is back online, the following
-	  command may issued to replace the disk:</para>
+	<para>Veja que agora é possivel substituir-mos o dispositivo
+	  <devicename>da1</devicename> após desligar-mos o sistema
+	  operacional. Assim que o sistema operacional voltar a ficar
+	  ligado, poderemos fazer a substituição do disco com o
+	  seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool replace storage da1</userinput></screen>
 
-	<para>From here, the status may be checked again, this time
-	  without the <option>-x</option> flag to get state
-	  information:</para>
+	<para>A partir daqui, o estado pode ser checado novamente,
+	  nteste momento sem a opção <option>-x</option> para
+	  pegar-mos a informação de estado:</para>
 
 	<screen>&prompt.root; <userinput>zpool status storage</userinput>
  pool: storage
@@ -541,38 +544,40 @@ config:
 
 errors: No known data errors</screen>
 
-	<para>As shown from this example, everything appears to be
-	  normal.</para>
+	<para>Como visto neste exemplo, tudo parece normal.</para>
       </sect3>
 
       <sect3>
-	<title>Data Verification</title>
+	<title>Verificação de dados</title>
 
-	<para>As previously mentioned, <acronym>ZFS</acronym> uses
-	  <literal>checksums</literal> to verify the integrity of
-	  stored data.  They are enabled automatically upon creation
-	  of file systems and may be disabled using the following
-	  command:</para>
+	<para>Como mencionado anteriormente, <acronym>ZFS</acronym>
+	  usa <literal>checagens</literal> para verificar a
+	  integridade dos dados armazenados. to verify the integrity of
+	  stored data. Eles são ativados automaticamente no momento da
+	  criação do sistema de arquivo e podem ser desabilitados com
+	  o comando abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zfs set checksum=off storage/home</userinput></screen>
 
-	<para>This is not a wise idea, however, as checksums take
-	  very little storage space and are more useful when enabled.  There
-	  also appears to be no noticeable costs in having them enabled.
-	  While enabled, it is possible to have <acronym>ZFS</acronym>
-	  check data integrity using checksum verification.  This
-	  process is known as <quote>scrubbing.</quote>  To verify the
-	  data integrity of the <literal>storage</literal> pool, issue
-	  the following command:</para>
+	<para>Mas isso não é uma boa ideia, contudo, como a checagem
+	  consome muito pouco espaço é mais interessante que possa-mos
+	  deixa-la habilitada. Aparentemente não teremos custos muito
+	  visiveis em deixar esta opção habilitada. Enquanto
+	  habilitada, é possivel ter o <acronym>ZFS</acronym>
+	  checando a integridade dados usando verificação
+	  <literal>checksum</literal>. Este processo é conhecido
+	  como <quote>scrubbing.</quote> Para verificar a integridade
+	  dos dados do conjunto (pool) <literal>storage</literal>,
+	  execute o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool scrub storage</userinput></screen>
 
-	<para>This process may take considerable time depending on
-	  the amount of data stored.  It is also very
-	  <acronym>I/O</acronym> intensive, so much that only one
-	  of these operations may be run at any given time.  After
-	  the scrub has completed, the status is updated and may be
-	  viewed by issuing a status request:</para>
+	<para>Este processo pode demorar um tempo consideravel,
+	  dependendo do volume de dados armazenado. Ele faz uso
+	  intensivo de <acronym>I/O</acronym>, de tal forma que
+	  somente uma operação pode ser executada por vez. Após o scrub
+	  tenha terminado, o estado é atualizado e poderá ser visto
+	  através do comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool status storage</userinput>
  pool: storage
@@ -589,111 +594,117 @@ config:
 
 errors: No known data errors</screen>
 
-	<para>The completion time is in plain view in this example.
-	  This feature helps to ensure data integrity over a long
-	  period of time.</para>
+	<para>A hora do termino do processo é mostrado conforme visto
+	  no exemplo. Este recurso ajuda a medir o tempo que leva para
+	  o processo ser executado.</para>
 
-	<para>There are many more options for the Z&nbsp;file system,
-	  see the &man.zfs.8; and &man.zpool.8; manual
-	  pages.</para>
+	<para>Esta e muita outras opções para o sistema de arquivo Z
+	  podem ser vistas na página de manual em &man.zfs.8; e
+	  &man.zpool.8;.</para>
       </sect3>
 
       <sect3>
-		<title>ZFS Quotas</title>
+		<title>Uso de Cotas no ZFS</title>
 
-		<para>ZFS supports different types of quotas; the refquota, the
-		  general quota, the user quota, and the group quota.  This
-		  section will explain the basics of each one, and include some
-		  usage instructions.</para>
+		<para>O ZFS suporta diferentes tipos de cota;
+		  refquota, cota geral (general quota), cota por
+		  usuário e cota por grupo. Esta sessão irá explicar
+		  o básico de cada uma e irá incluir algumas
+		  instruções de uso.</para>
 
-		<para>Quotas limit the amount of space that a dataset and its
-		  descendants can consume, and enforce a limit on the amount of
-		  space used by filesystems and snapshots for the descendants.
-		  In terms of users, quotas are useful to limit the amount of
-		  space a particular user can use.</para>
+		<para>Limite de cota é a quantidade de espaço que um
+		  conjunto de dados e seus descendentes podem
+		  consumir e forçar um limite de uso do espaço do
+		  sistema de arquivo e snapshots para os descendentes.
+		  Em termos de usuários, cotas são úteis para limitar
+		  a quantidade de espaço que um usuário pode usar.
+		  </para>
 
 		<note>
-	  	  <para>Quotas cannot be set on volumes, as the
-	  	    <literal>volsize</literal> property acts as an implicit
-	  	    quota.</para>
+	  	  <para>As cotas não podem ser configuradas nos
+		    volumes, dessa forma, a propriedade <literal>volsize</literal>
+		    atua de forma implicita à cota.</para>
 		</note>
 
-		<para>The refquota,
-		  <literal>refquota=<replaceable>size</replaceable></literal>,
-		  limits the amount of space a dataset can consume by enforcing
-		  a hard limit on the space used.  However, this hard limit does
-		  not include space used by descendants, such as file systems or
-		  snapshots.</para>
+		<para>A opção refquota, <literal>refquota=<replaceable>size</replaceable></literal>,
+		  limita a quantidade de espaço que um conjunto de
+		  dados pode consumir forçando um limite rigido de
+		  espaço usado. Contudo, este limite rígido não inclui
+		  o espaço usado pelo os descendentes, como um sistema
+		  de arquivo ou snapshots.</para>
 
-		<para>To enforce a general quota of 10&nbsp;GB for
-		  <filename>storage/home/bob</filename>, use the
-		  following:</para>
+		<para>Para forçar uma cota geral de 10&nbsp;GB para
+		  <filename>storage/home/bob</filename>, use o
+		  comando abaixo:</para>
 
 		<screen>&prompt.root; <userinput>zfs set quota=10G storage/home/bob</userinput></screen>
 
-		<para>User quotas limit the amount of space that can be used by
-		  the specified user.  The general format is
-		  <literal>userquota@<replaceable>user</replaceable>=<replaceable>size</replaceable></literal>,
-		  and the user's name must be in one of the following
-		  formats:</para>
+		<para>Limite de cota de usuário é a quantidade de
+		  espaço que pode ser usada por um usuário especifico.
+		  O formato geral é
+		  <literal>userquota@<replaceable>usuário</replaceable>=<replaceable>tamanho</replaceable></literal>,
+		  e o nome de usuário pode estar nos seguintes
+		  formatos:</para>
 
 		<itemizedlist>
 	  	  <listitem>
 	    	<para><acronym
 	    	  role="Portable Operating System Interface">POSIX</acronym>
-	    	  compatible name (e.g., <replaceable>joe</replaceable>).</para>
+	    	  nome compativel (ex:, <replaceable>jose</replaceable>).</para>
 	  	  </listitem>
 	  	  <listitem>
 	    	<para><acronym
 	    	  role="Portable Operating System Interface">POSIX</acronym>
-	    	  numeric ID (e.g., <replaceable>789</replaceable>).</para>
+	    	  número ID (ex:, <replaceable>789</replaceable>).</para>
 	  	  </listitem>
 	  	  <listitem>
 	    	<para><acronym
 	    	  role="System Identifier">SID</acronym>
-	    	  name (e.g.,
-	    	  <replaceable>joe.bloggs@example.com</replaceable>).</para>
+	    	  nome (ex:,
+	    	  <replaceable>jose.manuel@exemplo.com.br</replaceable>).</para>
 	  	  </listitem>
 	  	  <listitem>
 	    	<para><acronym role="System Identifier">SID</acronym>
-	    	  numeric ID (e.g.,
+	    	  ID númerico (ex:.,
 	    	  <replaceable>S-1-123-456-789</replaceable>).</para>
 	  	  </listitem>
 		</itemizedlist>
 
-		<para>For example, to enforce a quota of 50&nbsp;GB for a user
-		  named <replaceable>joe</replaceable>, use the
-		  following:</para>
+		<para>Por exemplo, para forçar a cota de 50&nbsp;GB
+		  para um usuário com nome de <replaceable>jose</replaceable>,
+		  use o comando abaixo:</para>
 
-		<screen>&prompt.root; <userinput>zfs set userquota@joe=50G</userinput></screen>
+		<screen>&prompt.root; <userinput>zfs set userquota@jose=50G</userinput></screen>
 
-		<para>To remove the quota or make sure that one is not
-		  set, instead use:</para>
+		<para>Para remover a cota ou marcar como não
+		  configurado, use o comando assim:</para>
 
-		<screen>&prompt.root; <userinput>zfs set userquota@joe=none</userinput></screen>
+		<screen>&prompt.root; <userinput>zfs set userquota@jose=none</userinput></screen>
 
-		<para>User quota properties are not displayed by
-		  <command>zfs get all</command>. Non-<username>root</username>
-		  users can only see their own quotas unless they have been
-		  granted the <literal>userquota</literal> privilege.  Users
-		  with this privilege are able to view and set everyone's
-		  quota.</para>
+		<para>As propriedades de cota de usuário não são
+		  visualizadas com o comando <command>zfs get all</command>.
+		  Usuários não-<username>root</username> somente
+		  podem ver suas próprias cotas se elas forem
+		  configuradas com os previlegios do <literal>userquota</literal>.
+		  Usuários com previlegio, podem ver e configura cotas
+		  para todo mundo no sistema de arquivo.</para>
 
-		<para>The group quota limits the amount of space that a
-		  specified user group can consume.  The general format is
-		  <literal>groupquota@<replaceable>group</replaceable>=<replaceable>size</replaceable></literal>.</para>
+		<para>A cota de grupo é a quantidade de espaço que um
+		  grupo especifico pode consumir. O formato geral é
+		  <literal>groupquota@<replaceable>grupo</replaceable>=<replaceable>tamanho</replaceable></literal>.
+		  </para>
 
-		<para>To set the quota for the group
-		  <replaceable>firstgroup</replaceable> to 50&nbsp;GB,
-		  use:</para>
+		<para>Para configurar a cota do grupo
+		  <replaceable>primeiro_grupo</replaceable> para
+		  50&nbsp;GB, use:</para>
 
-		<screen>&prompt.root; <userinput>zfs set groupquota@firstgroup=50G</userinput></screen>
+		<screen>&prompt.root; <userinput>zfs set groupquota@primeiro_grupo=50G</userinput></screen>
 
-		<para>To remove the quota for the group
-		  <replaceable>firstgroup</replaceable>, or make sure that one
-		  is not set, instead use:</para>
+		<para>Para remover a cota do grupo
+		  <replaceable>primeiro_grupo</replaceable>, ou
+		  configurar que o grupo não vai ter cota, use:</para>
 
-		<screen>&prompt.root; <userinput>zfs set groupquota@firstgroup=none</userinput></screen>
+		<screen>&prompt.root; <userinput>zfs set groupquota@primeiro_grupo=none</userinput></screen>
 
 		<para>As with the user quota property,
 		  non-<username>root</username> users can only see the quotas
