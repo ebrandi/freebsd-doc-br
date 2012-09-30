@@ -31,7 +31,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 3376   # firewalls           # r39544  # Ricardo Ferreira, 21/09/2012
 3394   # mirrors             # r39575  #
 3556   # config              # r39544  #
-4151   # security            # r39576  #
+4151   # security            # r39576  # Rafael Aquino, 30/09/2012
 4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
 4896   # printing            # r39544  #
 5011   # install             # r39550  #
