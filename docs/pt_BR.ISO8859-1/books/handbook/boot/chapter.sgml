@@ -370,7 +370,7 @@ boot:</screen>
       </sect3>
 
       <sect3 id="boot-loader-commands">
-	<title>Comandos Próprios do Carregador</title>
+	<title>Comandos Internos do Carregador</title>
 
 	<para>Estes são os comandos mais comuns usados no carregador.
 	  Para uma explicação completa de todos os comandos
@@ -419,48 +419,50 @@ boot:</screen>
 
 	  <varlistentry>
 	    <term>help
-	      <optional><replaceable>topic</replaceable></optional></term>
+	      <optional><replaceable>tópico</replaceable></optional></term>
 
 	    <listitem>
-	      <para>Shows help messages read from
-		<filename>/boot/loader.help</filename>.  If the topic
-		given is <literal>index</literal>, then the list of
-		available topics is given.</para>
+	      <para>Exibe texto de ajuda contido no
+		<filename>/boot/loader.help</filename>.  Se o tópico
+		for <literal>index</literal>, então a lista de tópicos
+		disponíveis é exibida.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
-	    <term>include <replaceable>filename</replaceable>
+	    <term>include <replaceable>arquivo</replaceable>
 	      &hellip;</term>
 
 	    <listitem>
-	      <para>Processes the file with the given filename.  The
-		file is read in, and interpreted line by line.  An
-		error immediately stops the include command.</para>
+	      <para>Processa o arquivo com o nome dado.  O arquivo é
+		lido, e interpretado linha por linha.  Quando um erro
+		é encontrado, o comando para imediatamente.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
 	    <term>load <optional><option>-t</option>
-	      <replaceable>type</replaceable></optional>
-	      <replaceable>filename</replaceable></term>
+	      <replaceable>tipo</replaceable></optional>
+	      <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Loads the kernel, kernel module, or file of the
-		type given, with the filename given.  Any arguments
-		after filename are passed to the file.</para>
+	      <para>Carrega o kernel, módulo do kernel, ou arquivo do
+		tipo e nome especificado.  Qualquer argumento
+		após o nome do arquivo é passado para o
+		arquivo.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
 	    <term>ls <optional><option>-l</option></optional>
-	      <optional><replaceable>path</replaceable></optional></term>
+	      <optional><replaceable>caminho</replaceable></optional></term>
 
 	    <listitem>
-	      <para>Displays a listing of files in the given path, or
-		the root directory, if the path is not specified.  If
-		<option>-l</option> is specified, file sizes will be
-		shown too.</para>
+	      <para>Exibe uma lista de arquivos no caminho
+		especificado, ou do diretório raiz, se um caminho não
+		for especificado.  Se <option>-l</option> é
+		especificada, o tamanho dos arquivos é exibido
+		também.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -469,9 +471,9 @@ boot:</screen>
 	      <optional><option>-v</option></optional></term>
 
 	    <listitem>
-	      <para>Lists all of the devices from which it may be
-		possible to load modules.  If <option>-v</option> is
-		specified, more details are printed.</para>
+	      <para>Lista todos os dispositivos dos quais pode ser
+		possível carregar módulos.  Se <option>-v</option> é
+		especificada, mais detalhes são exibidos.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -480,17 +482,18 @@ boot:</screen>
 	      <optional><option>-v</option></optional></term>
 
 	    <listitem>
-	      <para>Displays loaded modules.  If <option>-v</option>
-		is specified, more details are shown.</para>
+	      <para>Exibe os módulos carregados.  Se
+		<option>-v</option> é especificada, mais detalhes são
+		exibidos.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
-	    <term>more <replaceable>filename</replaceable></term>
+	    <term>more <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Displays the files specified, with a pause at each
-		<varname>LINES</varname> displayed.</para>
+	      <para>Exibe o arquivo especificado, com uma pausa a cada
+		 <varname>LINES</varname> linhas exibidas.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -498,17 +501,17 @@ boot:</screen>
 	    <term>reboot</term>
 
 	    <listitem>
-	      <para>Immediately reboots the system.</para>
+	      <para>Reinicia imediatamente o sistema.</para>
 	    </listitem>
 	  </varlistentry>
 
 	  <varlistentry>
-	    <term>set <replaceable>variable</replaceable></term>
+	    <term>set <replaceable>variável</replaceable></term>
 	    <term>set
-	      <replaceable>variable</replaceable>=<replaceable>value</replaceable></term>
+	      <replaceable>variável</replaceable>=<replaceable>valor</replaceable></term>
 
 	    <listitem>
-	      <para>Sets the loader's environment variables.</para>
+	      <para>Define os valores das variáveis de ambiente.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -516,30 +519,32 @@ boot:</screen>
 	    <term>unload</term>
 
 	    <listitem>
-	      <para>Removes all loaded modules.</para>
+	      <para>Remove todos os módulos carregados.</para>
 	    </listitem>
 	  </varlistentry>
 	</variablelist>
       </sect3>
 
       <sect3 id="boot-loader-examples">
-	<title>Loader Examples</title>
+	<title>Exemplos do Carregador</title>
 
-	<para>Here are some practical examples of loader usage:</para>
+	<para>Aqui tem alguns exemplos de uso do carregador na
+	  prática:</para>
 
 	<itemizedlist>
 	  <indexterm><primary>single-user mode</primary></indexterm>
 
 	  <listitem>
-	    <para>To boot your usual kernel, but in single-user
-	      mode:</para>
+	    <para>Para iniciar seu kernel habitual, mas em modo
+	      mono-usuário:</para>
 
 	    <screen><userinput>boot -s</userinput></screen>
 	  </listitem>
 
 	  <listitem>
-	    <para>To unload your usual kernel and modules, and then
-	      load just your old (or another) kernel:</para>
+	    <para>Para descarregar o seu kernel habitual e os módulos,
+	      e então carregar o seu kernel antigo (ou qualquer
+	      outro):</para>
 
 	    <indexterm>
 	      <primary><filename>kernel.old</filename></primary>
@@ -548,15 +553,15 @@ boot:</screen>
 	    <screen><userinput>unload</userinput>
 <userinput>load <replaceable>kernel.old</replaceable></userinput></screen>
 
-	    <para>You can use <filename>kernel.GENERIC</filename> to
-	      refer to the generic kernel that comes on the install
-	      disk, or <filename>kernel.old</filename> to refer to
-	      your previously installed kernel (when you have upgraded
-	      or configured your own kernel, for example).</para>
+	    <para>Você pode usar <filename>kernel.GENERIC</filename>
+	      para se referir ao kernel genérico que vem com o disco
+	      de instalação, ou <filename>kernel.old</filename> para
+	      se referir ao seu kernel anterior (isto é, quando você
+	      atualizou ou configurou o seu próprio kernel).</para>
 
 	    <note>
-	      <para>Use the following to load your usual modules with
-		another kernel:</para>
+	      <para>Use o seguinte para carregar seus módulos
+		habituais com outro kernel:</para>
 
 	      <screen><userinput>unload</userinput>
 <userinput>set kernel="<replaceable>kernel.old</replaceable>"</userinput>
@@ -564,9 +569,10 @@ boot:</screen>
 	  </listitem>
 
 	  <listitem>
-	    <para>To load a kernel configuration script (an automated
-	      script which does the things you would normally do in
-	      the kernel boot-time configurator):</para>
+	    <para>Para carregar um script de configuração do kernel
+	      (um script automatizado para fazer o que você
+	      normalmente faria no configurador de
+	      inicialização):</para>
 
 	    <screen><userinput>load -t userconfig_script <replaceable>/boot/kernel.conf</replaceable></userinput></screen>
 	  </listitem>
@@ -584,170 +590,174 @@ boot:</screen>
 	  </authorgroup>
 	</sect3info>
 
-	<title>Boot Time Splash Screens</title>
+	<title>Telas de Abertura da Inicialização</title>
 
-	<para>The splash screen creates a more visually appealing boot
-	  screen compared to the original boot messages.  This screen
-	  will be displayed until a console login prompt or an X
-	  display manager offers a login prompt.</para>
+	<para>A tela de abertura cria uma tela de inicialização mais
+	  atraente em comparação com as mensagens de inicialização
+	  originais.  Essa tela será exibida até que o console ou um
+	  gerenciador gráfico exiba um prompt de login.</para>
 
-	<para>There are two basic environments available in &os;.  The
-	  first is the default legacy virtual console command line
-	  environment.  After the system finishes booting, a console
-	  login prompt is presented.  The second environment is the
-	  X11 Desktop graphical environment.  After
-	  <link linkend="x-install">X11</link> and one of the
-	  graphical
-	  <link linkend="x11-wm">desktop environments</link>, such as
-	  <application>GNOME</application>,
-	  <application>KDE</application>, or
-	  <application>XFce</application> are installed, the X11
-	  desktop can be launched by using the
-	  <command>startx</command> command.</para>
+	<para>Existem dois ambientes básicos disponíveis no &os;.  O
+	  primeiro é o ambiente de linha de comando legado do console
+	  virtual padrão.  Depois que o sistema termina de iniciar, um
+	  prompt de login é exibido no console.  O segundo ambiente é
+	  o ambiente de trabalho gráfico X11.  Depois que o <link
+	  linkend="x-install">X11</link> e um dos ambientes gráficos,
+	  como <application>GNOME</application>,
+	  <application>KDE</application>, ou
+	  <application>XFce</application> forem instalados, o ambiente
+	  gráfico X11 pode ser iniciado usando o comando
+	  <command>startx</command>.</para>
 
-	<para>Some users prefer the X11 graphical login screen over
-	  the traditional text based login prompt.  Display managers
-	  like <application>XDM</application> for &xorg;,
-	  <application>gdm</application> for
-	  <application>GNOME</application>, and
-	  <application>kdm</application> for
-	  <application>KDE</application> (and any other from the Ports
-	  Collection) provide a graphical login screen in
-	  place of the console login prompt.  After a successful
-	  login, they present the user with a graphical
-	  desktop.</para>
+	<para>Alguns usuários preferem a tela de login gráfica X11 do
+	  que o tradicional prompt de login no modo texto.
+	  Gerenciadores gráficos como <application>XDM</application>
+	  para o &xorg;, <application>gdm</application> para o
+	  <application>GNOME</application>, e
+	  <application>kdm</application> para o
+	  <application>KDE</application> (e qualquer um outro da
+	  coleção do Ports) fornecem uma tela de login gráfico no
+	  lugar do prompt de login no console.  Após um login bem
+	  sucedido, eles apresentam ao usuário um
+	  <foreignphrase>desktop</foreignphrase> gráfico.</para>
 
-	<para>In the command line environment, the splash screen would
-	  hide all the boot probe messages and task startup messages
-	  before displaying the login prompt.  In X11 environment, the
-	  users would get a visually clearer system start up
-	  experience resembling something closer to what a
-	  (&microsoft; &windows; or non-unix type system) user would
-	  experience.</para>
+	<para>No ambiente de linha de comando, a tela de abertura
+	  deveria esconder todas as mensagens do processo de
+	  inicialização e das tarefas de inicialização antes de exibir
+	  o prompt de login.  No ambiente X11, os usuários podem
+	  visualizar uma inicialização mais limpa semelhante a algo
+	  mais próximo que um usuário do &microsoft; &windows; ou de
+	  um sistema não-unix poderia ter.</para>
 
 	<sect4 id="boot-splash-function">
-	  <title>Splash Screen Function</title>
+	  <title>Função da Tela de Abertura</title>
 
-	  <para>The splash screen function supports 256-color
-	    bitmap (<filename>.bmp</filename>), ZSoft
-	    <acronym>PCX</acronym> (<filename>.pcx</filename>), or
-	    TheDraw (<filename>.bin</filename>) files.
-	    In addition, the splash image files must have a resolution
-	    of 320 by 200 pixels or less to work on standard VGA
-	    adapters.</para>
+	  <para>A função da tela de abertura suporta arquivos de
+	    imagens bitmap de 256 cores (<filename>.bmp</filename>),
+	    ZSoft <acronym>PCX</acronym> (<filename>.pcx</filename>),
+	    ou TheDraw (<filename>.bin</filename>).  Além disso, o
+	    arquivo da imagem de abertura deve ter uma resolução de
+	    320 por 200 pixels ou menos para funcionar nos adaptadores
+	    de vídeo VGA padrão.</para>
+	
+	  <para>Para usar imagens maiores, até do tamanho máximo de
+	    resolução de 1024 por 768 pixels, ative o suporte
+	    <acronym>VESA</acronym> incluído no &os;.  Isso pode ser
+	    habilitado por carregar o módulo <acronym>VESA</acronym>
+	    durante a inicialização do sistema, ou por adicionar a
+	    opção <literal>VESA</literal> na configuração do kernel e
+	    compilar um kernel customizado (veja <xref
+	    linkend="kernelconfig"/>).  O suporte ao
+	    <acronym>VESA</acronym> dá ao usuário a capacidade de
+	    exibir uma imagem de abertura que preenche toda a
+	    tela.</para>
 
-	  <para>To use larger images, up to the maximum resolution of
-	    1024 by 768 pixels, activate the <acronym>VESA</acronym>
-	    support included in &os;.  This can be enabled by loading
-	    the <acronym>VESA</acronym> module during system boot, or
-	    adding a <literal>VESA</literal> kernel configuration
-	    option and building a custom kernel (see <xref
-	      linkend="kernelconfig"/>).  The <acronym>VESA</acronym>
-	    support gives users the ability to display a splash screen
-	    image that fills the whole display screen.</para>
+	  <para>Enquanto a tela de abertura está sendo exibida durante
+	    o processo de inicialização, ela pode ser desligada a
+	    qualquer momento pressionando qualquer tecla do
+	    teclado.</para>
 
-	  <para>While the splash screen is being displayed during the
-	    booting process, it can be turned off any time by hitting
-	    any key on the keyboard.</para>
+	  <para>A tela de abertura também é por padrão um protetor de
+	    tela quando fora do ambiente gráfico.  Depois de um
+	    período de tempo sem usar o computador a tela irá mudar
+	    para a tela de abertura e percorrer passos mudando a
+	    intensidade da imagem, de brilhante para muito escuro e
+	    começando novamente.  Esse comportamento padrão da tela de
+	    abertura (protetor de tela) pode ser sobrescrito
+	    adicionando a linha <literal>saver=</literal> no arquivo
+	    <filename>/etc/rc.conf</filename>.  A opção
+	    <literal>saver=</literal> tem vários protetores de telas
+	    embutidos para escolher, a lista completa pode ser
+	    encontrada na página do manual &man.splash.4;.  Note que a
+	    opção <literal>saver=</literal> especificada no arquivo
+	    <filename>/etc/rc.conf</filename> somente se aplica nos
+	    consoles virtuais.  Ela não tem efeito nos gerenciadores
+	    gráficos X11.</para>
 
-	  <para>The splash screen also defaults to being a screen
-	    saver outside of X11.  After a time period of non-use the
-	    screen will change to the splash screen and cycle through
-	    steps of changing intensity of the image, from bright to a
-	    very dark and over again.  This default splash screen
-	    (screen saver) behavior could be overridden by adding a
-	    <literal>saver=</literal> line to
-	    <filename>/etc/rc.conf</filename>.  Option
-	    <literal>saver=</literal> has several built-in screen
-	    savers to choose from, the full list can be found in the
-	    &man.splash.4; manual page.  The default screen saver is
-	    called <quote>warp</quote>.  Note that the
-	    <literal>saver=</literal> option specified in
-	    <filename>/etc/rc.conf</filename> only applies to virtual
-	    consoles.  It has no effect on X11 display
-	    managers.</para>
+	  <para>Algumas mensagens de inicialização, incluindo o menu
+	    de opções e o contador de tempo de espera são exibidas
+	    durante a inicialização, mesmo quando a tela de abertura
+	    está habilitada.</para>
 
-	  <para>A few boot loader messages, including the boot options
-	    menu and a timed wait count down prompt are displayed at
-	    boot time, even when the splash screen is enabled.</para>
-
-	  <para>Sample splash screen files can be downloaded from the
-	    gallery at <ulink
-	      url="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</ulink>.
-	    By installing the <filename
-	      role="package">sysutils/bsd-splash-changer</filename>
-	    port, splash images can be chosen from a collection
-	    randomly at each boot.</para>
+	  <para>Arquivos de exemplo de tela de abertura podem ser
+	    baixados da galeria em <ulink
+	    url="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</ulink>.
+	    Ao instalar o port <filename
+	    role="package">sysutils/bsd-splash-changer</filename>,
+	    imagens aleatórias podem ser escolhidas a cada
+	    inicialização a partir de uma coleção de imagens.</para>
 	</sect4>
 
 	<sect4 id="boot-splash-enable">
-	  <title>Enabling the Splash Screen Function</title>
+	  <title>Habilitando a Função de Tela de Abertura</title>
 
-	  <para>The splash screen (<filename>.bmp</filename>,
-	    <filename>.pcx</filename>, or <filename>.bin</filename>)
-	    file has to be placed on the root partition, for example
-	    in the <filename class="directory">/boot</filename>
-	    directory.</para>
+	  <para>O arquivo da tela de abertura
+	    (<filename>.bmp</filename>, <filename>.pcx</filename>, ou
+	    <filename>.bin</filename>) tem que ser colocado na
+	    partição raiz, por exemplo no diretório <filename
+	    class="directory">/boot</filename>.</para>
 
-	  <para>For default boot display resolution (256-color, 320 by
-	    200 pixels, or less), edit
-	    <filename>/boot/loader.conf</filename>, so it contains the
-	    following:</para>
+	  <para>Para a resolução padrão da inicialização (256 cores,
+	    320 por 200 pixels, ou menos), edite o
+	    <filename>/boot/loader.conf</filename>, para conter o
+	    seguinte:</para>
 
 	  <programlisting>splash_bmp_load="YES"
 bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bmp</replaceable>"</programlisting>
 
-	  <para>For larger video resolutions up to the maximum of 1024
-	    by 768 pixels, edit
-	    <filename>/boot/loader.conf</filename>, so it contains the
-	    following:</para>
+	  <para>Para resoluções de vídeo maiores até o máximo de 1024
+	    por 768 pixels, edite o
+	    <filename>/boot/loader.conf</filename>, para conter o
+	    seguinte:</para>
 
 	  <programlisting>vesa_load="YES"
 splash_bmp_load="YES"
 bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bmp</replaceable>"</programlisting>
 
-	  <para>The above assumes that
+	  <para>As linhas acima assumem que o
 	    <filename><replaceable>/boot/splash.bmp</replaceable></filename>
-	    is used for splash screen.  When a <acronym>PCX</acronym>
-	    file is desired, use the following statements, plus the
-	    <literal>vesa_load="YES"</literal> line depending on the
-	    resolution.</para>
+	    é usado para tela de abertura.  Quando um arquivo
+	    <acronym>PCX</acronym> for desejado, use a seguinte
+	    configuração, adicionando a linha
+	    <literal>vesa_load="YES"</literal> dependendo da
+	    resolução.</para>
 
 	  <programlisting>splash_pcx_load="YES"
 bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.pcx</replaceable>"</programlisting>
 
-	  <para>In version 8.3 another option is to use ascii art in
-	    <ulink url="https://en.wikipedia.org/wiki/TheDraw">TheDraw</ulink>
-	    format.</para>
+	  <para>Na versão 8.3 há uma outra opção para usar arte ascii
+	    no formato <ulink
+	    url="https://en.wikipedia.org/wiki/TheDraw">TheDraw</ulink>.</para>
 
 	  <programlisting>splash_txt="YES"
 bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
-	  <para>The file name is not restricted to <quote>splash</quote>
-	    as shown in the above example.  It can be anything as long
-	    as it is one of the above types such as,
+	  <para>O nome do arquivo não está restrito a
+	    <quote>splash</quote> como mostrado no exemplo acima.  Ele
+	    pode ser qualquer coisa desde que seja um dos tipos
+	    referidos acima tal como,
 	    <filename><replaceable>splash_640x400</replaceable>.bmp</filename>
-	    or
+	    ou
 	    <filename><replaceable>bluewave</replaceable>.pcx</filename>.</para>
 
-	  <para>Some other interesting
-	    <filename>loader.conf</filename> options:</para>
+	  <para>Algumas outras opções interessantes do
+	  <filename>loader.conf</filename>:</para>
 
 	  <variablelist>
 	    <varlistentry>
 	      <term><literal>beastie_disable="YES"</literal></term>
 
 	      <listitem>
-		<para>This will stop the boot options menu from being
-		  displayed, but the timed wait count down prompt will
-		  still be present.  Even with the display of the boot
-		  options menu disabled, entering an option selection
-		  at the timed wait count down prompt will enact the
-		  corresponding boot option.</para>
+		<para>Isso fará com que o menu de opções da
+		  inicialização não seja exibido, mas a contagem
+		  regressiva estará presente.  Mesmo com a exibição do
+		  menu desativada, digitando uma opção de seleção
+		  durante a contagem regressiva irá executar a opção
+		  correspondente.</para>
 	      </listitem>
 	    </varlistentry>
 
@@ -755,16 +765,17 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	      <term><literal>loader_logo="beastie"</literal></term>
 
 	      <listitem>
-		<para>This will replace the default words
-		  <quote>&os;</quote>, which are displayed to the
-		  right of the boot options menu with the colored
-		  beastie logo like releases in the past had.</para>
+		<para>Isso irá substituir as palavras padrões
+		  <quote>&os;</quote>, que são exibidas na direita do
+		  menu de inicialização por uma logo colorida do
+		  beastie como havia em versões passadas.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 
-	  <para>For more information, please see the &man.splash.4;,
-	    &man.loader.conf.5;, and &man.vga.4; manual pages.</para>
+	  <para>Para mais informações, por favor veja as páginas do
+	    manual &man.splash.4;, &man.loader.conf.5;, e
+	    &man.vga.4;.</para>
 	</sect4>
       </sect3>
     </sect2>
