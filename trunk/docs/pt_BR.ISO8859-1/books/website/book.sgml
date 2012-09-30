@@ -738,10 +738,16 @@
         anteriormente, o <acronym>CVS</acronym>, o Subversion tem
         uma série de vantagens.</para>
 	
-      <para>Assim como o <acronym>CVS</acronym>, o Subversion está
-        incluído na instalação padrão do FreeBSD e você não precisará
-        instalar nenhum software adicional para ter acesso ao 
+      <para>Ao contrário do <acronym>CVS</acronym>, o Subversion não
+	está incluido na instalação padrão do FreeBSD, e você
+	precisará instalá-lo a partir do ports para ter acesso ao
 	repositório da DOC-BR localmente.</para>
+
+      <para>Para instalá-lo execute:</para>
+
+<screen>&prompt.root; <userinput>cd /usr/ports/devel/subversion</userinput>
+<userinput>&prompt.root; make install clean distclean</userinput>
+</screen>
 
       <sect2 id="svn-googlecode">
 	<title>Hospedagem do Repositório no Google Code</title>
