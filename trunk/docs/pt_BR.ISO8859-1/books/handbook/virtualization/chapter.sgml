@@ -176,7 +176,7 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>Após crar sua máquina virtual &os;, você
+	<para>Após crar sua máquina virtual para o &os;, você
 	  precisará instalar o &os; nela.  A melhor forma de fazer isto é com 
 	  o CDROM oficial do &os; ou com uma imagem ISO baixada de um
 	  site FTP oficial. Quando você tiver com a imagem ISO apropriada
@@ -231,7 +231,7 @@
 	<para>Após o &os; ser instalado com sucesso no &macos;
 	  X com o <application>Parallels</application>, há algumas
           configurações que podem ser feitas para otimizar o sistema
-          para funcionar no modo virtualizado.</para>
+          para um melhor funcionamento no modo virtualizado.</para>
 
 	<procedure>
 	  <step>
@@ -247,13 +247,12 @@
 
 	    <para>Sem este ajuste, um SO &os; convidado rodando no 
 	      <application>Parallels</application> irá utilizar em torno 
-              de 15% de CPU de um único processador &imac;.
+              de 15% de CPU de um &imac; com um processador.
 	      Após esta alteração o uso será de aproximadamente 5%.</para>
 	  </step>
 
 	  <step>
 	    <title>Criar um Novo Arquivo de Kernel</title>
-
 	    <para>Você pode remover todos os drivers de SCSI e de 
               dispositivos FireWire e USB. O <application>Parallels</application>
 	      fornece um adaptador de rede virtual utilizado pelo driver
@@ -672,18 +671,18 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>After your &os; virtual machine has been created, you
-	  will need to install &os; on it.  This is best done with an
-	  official &os; CDROM or with an ISO image downloaded from an
-	  official FTP site.  When you have the appropriate ISO image
-	  on your local &windows; filesystem or a CDROM in your CD
-	  drive, double click on your &os; virtual machine to boot.
-	  Then, click <guimenu>CD</guimenu> and choose
-	  <guimenu>Capture ISO Image...</guimenu> on
-	  <application>Virtual PC</application> window.  This will
-	  bring up a window that allows you to associate the CDROM
-	  drive in your virtual machine with an ISO file on disk or
-	  with your real CDROM drive.</para>
+	<para>Após crar sua máquina virtual para o &os;, você
+	  precisará instalar o &os; nela.  A melhor forma de fazer isto é com 
+	  o CDROM oficial do &os; ou com uma imagem ISO baixada de um
+	  site FTP oficial. Quando você tiver com a imagem ISO apropriada
+	  no sistema de arquivos local de seu &windows; ou com o CDROM no drive de CD de
+          seu &windows;, dê um duplo clique na sua máquina virtual para o &os;
+	  para iniciá-la. Depois, clique <guimenu>CD</guimenu> e escolha
+	  <guimenu>Capture ISO Image...</guimenu> na janela do 
+	  <application>Virtual PC</application>. Isto
+	  abrirá uma janela que permitirá que você associe o 
+	  drive de CDROM à sua máquina virtual com uma imagem ISO no disco
+	  ou com o CD de seu drive de CDROM.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -697,13 +696,11 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Once you have made this association with your CDROM
-	  source, reboot your &os; virtual machine as normal by
-	  clicking the <guimenu>Action</guimenu> and
-	  <guimenu>Reset</guimenu>.
-	  <application>Virtual PC</application> will reboot with a
-	  special BIOS that first checks if you have a CDROM just as a
-	  normal BIOS would do.</para>
+	<para>Após efetuar a associação com a origem do CDROM,
+	  reinicie a máquina virtual do &os; clicando em 
+	  <guimenu>Action</guimenu> e depois <guimenu>Reset</guimenu>.
+	  O <application>Virtual PC</application> irá reiniciar com uma BIOS
+	  especial que irá verificar se você tem um CDROM, como uma BIOS normal faria.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -711,11 +708,10 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>In this case it will find the &os; installation media
-	  and begin a normal <application>sysinstall</application>
-	  based installation as described in <xref linkend="install"/>.
-	  You may install, but do not attempt to configure X11 at this
-	  time.</para>
+	<para>Neste caso irá encontrar uma mídia de instalação do &os;
+	  e iniciar uma instalação básica com o <application>sysinstall</application>
+	  conforme descrito em <xref linkend="install"/>.  Você poderá então instalar, 
+          mas não tente configurar a interface gráfica X11 neste momento.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -723,9 +719,9 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>When you have finished the installation, remember to
-	  eject CDROM or release ISO image.  Finally, reboot into your
-	  newly installed &os; virtual machine.</para>
+	<para>Quando você terminar a instalação, lembre de ejetar o CDROM
+          ou liberar a imagem ISO. Depos, reinicie sua máquina
+          virtual com seu &os; recém instalado.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -735,56 +731,51 @@ xenbr1          8000.feffffffffff   no                  vif0.1
       </sect3>
 
       <sect3 id="virtualization-guest-virtualpc-configure">
-	<title>Configuring &os; on &microsoft.windows;/Virtual
+	<title>Configurando o &os; no &microsoft.windows;/Virtual
 	  PC</title>
 
-	<para>After &os; has been successfully installed on
-	  &microsoft.windows; with <application>Virtual PC
-	  </application>, there are a number of configuration
-	  steps that can be taken to optimize the system for
-	  virtualized operation.</para>
+	<para>Após o &os; ser instalado com sucesso no &microsoft.windows;
+	  com o <application>Virtual PC</application>, há algumas
+          configurações que podem ser feitas para otimizar o sistema
+          para um melhor funcionanento no modo virtualizado.</para>
 
 	<procedure>
 	  <step>
-	    <title>Set Boot Loader Variables</title>
+	    <title>Ajustar as variáveis do Boot Loader</title>
 
-	    <para>The most important step is to reduce the
-	      <option>kern.hz</option> tunable to reduce the CPU
-	      utilization of &os; under the
-	      <application>Virtual PC</application> environment.
-	      This is accomplished by adding the following line to
-	      <filename> /boot/loader.conf</filename>:</para>
+	    <para>O passo mais importante é reduzir a variável
+	      <option>kern.hz</option> para  reduzir a utilização de CPU
+	      do &os; sob o ambiente do <application>Virtual PC
+	      </application>.  Para isto, adicione a seguinte linha no arquivo
+	      <filename>/boot/loader.conf</filename>:</para>
 
 	      <programlisting>kern.hz=100</programlisting>
 
-	    <para>Without this setting, an idle &os;
-	      <application>Virtual PC</application> guest OS will
-	      use roughly 40% of the CPU of a single processor
-	      computer.  After this change the usage will be
-	      closer to a mere 3%.</para>
+	    <para>Sem este ajuste, um SO &os; convidado rodando no 
+	      <application>Virtual PC</application> irá utilizar em torno 
+              de 40% de CPU de um computador com um processador.
+	      Após esta alteração o uso será de aproximadamente 3%.</para>
 	  </step>
 
 	  <step>
-	    <title>Create a New Kernel Configuration File</title>
+	    <title>Criar um Novo Arquivo de Kernel</title>
 
-	    <para>You can remove all of the SCSI, FireWire, and USB
-	      device drivers.  <application>Virtual PC</application>
-	      provides a virtual network adapter used by the
-	      &man.de.4; driver, so all other network devices except
-	      for &man.de.4; and &man.miibus.4; can be removed from
-	      the kernel.</para>
+	    <para>Você pode remover todos os drivers de SCSI e de 
+              dispositivos FireWire e USB. O <application>Virtual PC</application>
+	      fornece um adaptador de rede virtual utilizado pelo driver
+	      &man.de.4; driver, portanto todos os outros dispositivos de rede, 
+              exceto o &man.de.4; e o &man.miibus.4;, podem ser removidos do kernel.</para>
 	  </step>
 
 	  <step>
-	    <title>Configure Networking</title>
+	    <title>Configurar a Rede</title>
 
-	    <para>The most basic networking setup involves simply
-	      using DHCP to connect your virtual machine to the same
-	      local area network as your host &microsoft.windows;.
-	      This can be accomplished by adding
-	      <literal>ifconfig_de0="DHCP"</literal> to
-	      <filename>/etc/rc.conf</filename>.  More advanced
-	      networking setups are described in
+	    <para>Uma configuração de rede simples utiliza DHCP
+              para conectar sua máquina virtual na mesma rede local
+	      de seu &microsoft.windows;. Para isso, adicionel
+	      <literal>ifconfig_de0="DHCP"</literal> no
+	      <filename>/etc/rc.conf</filename>.  Confirurações de rede
+              mais avançadas estão descritas no 
 	      <xref linkend="advanced-networking"/>.</para>
 	  </step>
 	</procedure>
