@@ -466,26 +466,30 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
     <title>Administração e ajuste fino (<literal>fine
       tuning)</literal></title>
 
-    <para>There are several options which can be set for any jail, and
-      various ways of combining a host &os; system with jails, to produce
-      higher level applications.  This section presents:</para>
+    <para>Existem várias opções que podem ser configuradas para 
+      qualquer <literal>jail</literal>, e várias formas de combinar 
+      um sistema &os; hospedeiro com os <literal>jails</literal>, 
+      para produzir aplicações de alto nível. Esta seção irá
+      apresentar:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Some of the options available for tuning the behavior and
-	  security restrictions implemented by a jail
-	  installation.</para>
+	<para>Algumas das opções disponíveis para ajustar o 
+	  comportamento e as restrições de segurança implementadas 
+	  em uma instalação <literal>jail</literal>.</para>
       </listitem>
 
       <listitem>
-	<para>Some of the high-level applications for jail management,
-	  which are available through the &os; Ports Collection, and can
-	  be used to implement overall jail-based solutions.</para>
+	<para>Algumas das aplicações de alto nível para gerenciamento
+	  do <literal>jail</literal>, os quais estão disponíveis 
+	  através da coleção de <literal>Ports</literal> do &os;, e 
+	  que podem ser utilizados para implementar soluções 
+	  completas baseadas no <literal>jail</literal>.</para>
       </listitem>
     </itemizedlist>
 
     <sect2 id="jails-tuning-utilities">
-      <title>System Tools for Jail Tuning in &os;</title>
+      <title>Ferramentas de Sistema para Ajuste do <literal>Jail</literal> no &os;</title>
 
       <para>Fine tuning of a jail's configuration is mostly done by
 	setting &man.sysctl.8; variables.  A special subtree of sysctl
