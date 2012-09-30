@@ -109,7 +109,7 @@
       metodo de armazenamento agrupado. Isto significa que o espaço
       somente é usado quando precisa armazenar dados. Ele também é
       desenvolvido para manter a maior integridade possivel do dados,
-      suportando o uso de snapshots dos dados, multiplas copias e 
+      suportando o uso de snapshots dos dados, multiplas copias e
       checagem de dados (checksum). Um novo modelo de replicação de
       dados, conhecido como <acronym>RAID</acronym>-Z foi adicionado.
       O modelo <acronym>RAID</acronym>-Z é similar ao <acronym>RAID
@@ -145,9 +145,9 @@
       <sect3>
 	<title>Configuração de Kernel</title>
 
-	<para>É recomendavél remover drivers e opções não usados dois
+	<para>É recomendável remover drivers e opções não usados dois
       arquivo de configuração do kernel. Visto que a maioria dos
-      dispositivos estão disponiveis como modulos, eles podem ser
+      dispositivos estão disponíveis como módulos, eles podem ser
       lidos usando o arquivo <filename>/boot/loader.conf</filename>
     </para>
 
@@ -190,32 +190,34 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
     <sect2>
       <title>Usando <acronym>ZFS</acronym></title>
 
-      <para>There is a start up mechanism that allows &os; to
-	mount <acronym>ZFS</acronym> pools during system
-	initialization.  To set it, issue the following
-	commands:</para>
+      <para>Existe um mecanismo de inicialização que permite ao &os;
+        montar os conjuntos do <acronym>ZFS</acronym> durante a
+	inicialização do sistema. Para isso, é preciso configura-lo
+	através dos seguintes comandos:</para>
 
 	<screen>&prompt.root; <userinput>echo 'zfs_enable="YES"' &gt;&gt; /etc/rc.conf</userinput>
 &prompt.root; <userinput>/etc/rc.d/zfs start</userinput></screen>
 
-	<para>The remainder of this document assumes three
-	  <acronym>SCSI</acronym> disks are available, and their device names
-	  are <devicename><replaceable>da0</replaceable></devicename>,
+	<para>Vale lembrar que este documento assume o uso de três
+	  discos <acronym>SCSI</acronym>, e que o nome dos
+	  dispositivos são <devicename><replaceable>da0</replaceable></devicename>,
 	  <devicename><replaceable>da1</replaceable></devicename>
-	  and <devicename><replaceable>da2</replaceable></devicename>.
-	  Users of <acronym>IDE</acronym> hardware may use the
-	  <devicename><replaceable>ad</replaceable></devicename>
-	  devices in place of <acronym>SCSI</acronym> hardware.</para>
+	  e <devicename><replaceable>da2</replaceable></devicename>.
+	  Usuários de interface <acronym>IDE</acronym> talvez tenham
+	  disponiveis o seguinte nome <devicename><replaceable>ad</replaceable></devicename>
+	  ao invés do dispositivo <acronym>SCSI</acronym>.</para>
 
       <sect3>
-	<title>Single Disk Pool</title>
+	<title>Conjunto (Pool) em Disco Único</title>
 
-	<para>To create a simple, non-redundant <acronym>ZFS</acronym> pool using a
-	  single disk device, use the <command>zpool</command> command:</para>
+	<para>Para criar um simples e não reduntante conjunto
+	  <acronym>ZFS</acronym> usando somente um dispositivo de
+	  disco, basta usar o comando <command>zpool</command>:
+	  </para>
 
-	<screen>&prompt.root; <userinput>zpool create example /dev/da0</userinput></screen>
+	<screen>&prompt.root; <userinput>zpool create exemplo /dev/da0</userinput></screen>
 
-	<para>To view the new pool, review the output of
+	<para>Para ver o novo conjunto, veja a saida do comando
 	  <command>df</command>:</para>
 
 	<screen>&prompt.root; <userinput>df</userinput>
@@ -223,118 +225,128 @@ Filesystem  1K-blocks    Used    Avail Capacity  Mounted on
 /dev/ad0s1a   2026030  235230  1628718    13%    /
 devfs               1       1        0   100%    /dev
 /dev/ad0s1d  54098308 1032846 48737598     2%    /usr
-example      17547136       0 17547136     0%    /example</screen>
+example      17547136       0 17547136     0%    /exemplo</screen>
 
-	<para>This output clearly shows the <literal>example</literal>
-	  pool has not only been created but
-	  <emphasis>mounted</emphasis> as well.  It is also accessible
-	  just like a normal file system, files may be created on it
-	  and users are able to browse it as in the
-	  following example:</para>
+	<para>Veja que a saída do comando mostra claramente o conjunto
+	  <literal>examplo</literal> e ele não somente criou o
+	  conjunto como também já montou ele no sistema. Ele também é
+	  acessivel como um sistema de arquivo normal, arquivos podem
+	  ser criados e usuários podem navegar como mostrado no
+	  exemplo abaixo:</para>
 
-	<screen>&prompt.root; <userinput>cd /example</userinput>
+	<screen>&prompt.root; <userinput>cd /exemplo</userinput>
 &prompt.root; <userinput>ls</userinput>
-&prompt.root; <userinput>touch testfile</userinput>
+&prompt.root; <userinput>touch arquivo_teste</userinput>
 &prompt.root; <userinput>ls -al</userinput>
 total 4
 drwxr-xr-x   2 root  wheel    3 Aug 29 23:15 .
 drwxr-xr-x  21 root  wheel  512 Aug 29 23:12 ..
--rw-r--r--   1 root  wheel    0 Aug 29 23:15 testfile</screen>
+-rw-r--r--   1 root  wheel    0 Aug 29 23:15 arquivo_teste</screen>
 
-	<para>Unfortunately this pool is not taking advantage of
-	  any <acronym>ZFS</acronym> features.  Create a file system
-	  on this pool, and enable compression on it:</para>
+	<para>Infelizmente este conjunto (pool) não tem nenhuma
+	  vantagem em relação ao uso das funções do <acronym>ZFS</acronym>
+	  Crie um sistema de arquivo neste conjunto (pool) e habilite
+	  a compressão nele:</para>
 
-	<screen>&prompt.root; <userinput>zfs create example/compressed</userinput>
-&prompt.root; <userinput>zfs set compression=gzip example/compressed</userinput></screen>
+	<screen>&prompt.root; <userinput>zfs create exemplo/comprimido</userinput>
+&prompt.root; <userinput>zfs set compression=gzip exemplo/comprimido</userinput></screen>
 
-	<para>The <literal>example/compressed</literal> is now a
-	  <acronym>ZFS</acronym> compressed file system.  Try copying
-	  some large files to it by copying them to
-	  <filename class="directory">/example/compressed</filename>.</para>
+	<para>O <literal>exemplo/comprimido</literal> agora é um
+	  sistema de arquivo <acronym>ZFS</acronym> comprimido. Tente
+	  copiar algums arquivos grandes para o diretorio 
+	  <filename class="directory">/exemplo/comprimido</filename>.</para>
 
-	<para>The compression may now be disabled with:</para>
+	<para>A compressão pode ser desabilitada agora com o comando:</para>
 
-	<screen>&prompt.root; <userinput>zfs set compression=off example/compressed</userinput></screen>
+	<screen>&prompt.root; <userinput>zfs set compression=off exemplo/comprimido</userinput></screen>
 
-	<para>To unmount the file system, issue the following command
-	  and then verify by using the <command>df</command>
-	  utility:</para>
+	<para>Para desmontar o sistema de arquivo, primeiro execute o
+	  comando abaixo e confirme se o mesmo foi desmontado com o
+	  comando <command>df</command>:</para>
 
-	<screen>&prompt.root; <userinput>zfs umount example/compressed</userinput>
+	<screen>&prompt.root; <userinput>zfs umount exemplo/comprimido</userinput>
 &prompt.root; <userinput>df</userinput>
 Filesystem  1K-blocks    Used    Avail Capacity  Mounted on
 /dev/ad0s1a   2026030  235232  1628716    13%    /
 devfs               1       1        0   100%    /dev
 /dev/ad0s1d  54098308 1032864 48737580     2%    /usr
-example      17547008       0 17547008     0%    /example</screen>
+example      17547008       0 17547008     0%    /exemplo</screen>
 
-	<para>Re-mount the file system to make it accessible
-	  again, and verify with <command>df</command>:</para>
+	<para>Remonte o sistema de arquivo para permitir o acesso e
+	  novamente verifique com o comando <command>df</command>:
+	  </para>
 
-	<screen>&prompt.root; <userinput>zfs mount example/compressed</userinput>
+	<screen>&prompt.root; <userinput>zfs mount exemplo/comprimido</userinput>
 &prompt.root; <userinput>df</userinput>
 Filesystem         1K-blocks    Used    Avail Capacity  Mounted on
 /dev/ad0s1a          2026030  235234  1628714    13%    /
 devfs                      1       1        0   100%    /dev
 /dev/ad0s1d         54098308 1032864 48737580     2%    /usr
-example             17547008       0 17547008     0%    /example
-example/compressed  17547008       0 17547008     0%    /example/compressed</screen>
+example             17547008       0 17547008     0%    /exemplo
+example/compressed  17547008       0 17547008     0%    /exemplo/comprimido</screen>
 
-	<para>The pool and file system may also be observed by viewing
-	  the output from <command>mount</command>:</para>
+	<para>O conjunto (pool) e o sistema de arquivo podem ser
+	  observados na saida do comando <command>mount</command>:
+	  </para>
 
 	<screen>&prompt.root; <userinput>mount</userinput>
 /dev/ad0s1a on / (ufs, local)
 devfs on /dev (devfs, local)
 /dev/ad0s1d on /usr (ufs, local, soft-updates)
-example on /example (zfs, local)
-example/data on /example/data (zfs, local)
-example/compressed on /example/compressed (zfs, local)</screen>
+exemplo on /example (zfs, local)
+exemplo/dados on /exemplo/dados (zfs, local)
+exemplo/comprimido on /exemplo/comprimido (zfs, local)</screen>
 
-	<para>As observed, <acronym>ZFS</acronym> file systems, after
-	  creation, may be used like ordinary file systems; however,
-	  many other features are also available.  In the following
-	  example, a new file system, <literal>data</literal> is
-	  created.  Important files will be stored here, so the file
-	  system is set to keep two copies of each data block:</para>
+	<para>Como observado, o sistema de arquivo <acronym>ZFS</acronym>
+	  após ser criado, já pode ser usado como um sistema de
+	  arquivo, entretanto, muitas funções estão disponiveis para
+	  configuração. No exemplo mostrado, um novo sistema de
+	  arquivo, <literal>dados</literal> foi criado. Arquivos
+	  importantes serão armazenados ali, dessa forma, o sistema de
+	  arquivo mantém duas cópias de cada bloco de dados:</para>
 
-	<screen>&prompt.root; <userinput>zfs create example/data</userinput>
-&prompt.root; <userinput>zfs set copies=2 example/data</userinput></screen>
+	<screen>&prompt.root; <userinput>zfs create examplo/dados</userinput>
+&prompt.root; <userinput>zfs set copies=2 examplo/dados</userinput></screen>
 
-	<para>It is now possible to see the data and space utilization
-	  by issuing <command>df</command> again:</para>
+	<para>Vejamos agora o ponto de montagem <literal>dados</literal>
+	  e o espaço utilizado por ele, novamente com o comando
+	  <command>df</command>:</para>
 
 	<screen>&prompt.root; <userinput>df</userinput>
 Filesystem         1K-blocks    Used    Avail Capacity  Mounted on
 /dev/ad0s1a          2026030  235234  1628714    13%    /
 devfs                      1       1        0   100%    /dev
 /dev/ad0s1d         54098308 1032864 48737580     2%    /usr
-example             17547008       0 17547008     0%    /example
-example/compressed  17547008       0 17547008     0%    /example/compressed
-example/data        17547008       0 17547008     0%    /example/data</screen>
+exemplo             17547008       0 17547008     0%    /exemplo
+exemplo/comprimido  17547008       0 17547008     0%    /exemplo/comprimido
+exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
-	<para>Notice that each file system on the pool has the same
-	  amount of available space.  This is the reason for using
-	  <command>df</command> through these examples, to show
-	  that the file systems are using only the amount of space
-	  they need and will all draw from the same pool.
-	  The <acronym>ZFS</acronym> file system does away with concepts
+	<para>Observer que cada sistema de arquivo dentro do conjunto
+	  (pool) têm o mesmo espaço disponivel. Notice that each file system on the pool has the same
+	  amount of available space.  Essa é a razão de utilizar-mos
+	  o comando <command>df</command> em nossos exemplos, para
+	  mostrar a quantidade de espaço utilizada apenas pelo o
+	  sistema de arquivo, que é uma soma total disponivel no
+	  conjunto (pool).
+	  O sistema de arquivo <acronym>ZFS</acronym> acaba com
+	  alguns conceitos como volumes e partições e permite o uso
+	  de vários sistemas de arquivo no mesmo conjunto (pool) file system does away with concepts
 	  such as volumes and partitions, and allows for several file
-	  systems to occupy the same pool.  Destroy the file systems,
-	  and then destroy the pool as they are no longer
-	  needed:</para>
+	  systems to occupy the same pool. Vamos destruir o sistema de
+	  arquivo e destruir o conjunto (pool) já que não vamos mais
+	  precisar dele:</para>
 
-	<screen>&prompt.root; <userinput>zfs destroy example/compressed</userinput>
-&prompt.root; <userinput>zfs destroy example/data</userinput>
-&prompt.root; <userinput>zpool destroy example</userinput></screen>
+	<screen>&prompt.root; <userinput>zfs destroy exemplo/comprimido</userinput>
+&prompt.root; <userinput>zfs destroy exemplo/dados</userinput>
+&prompt.root; <userinput>zpool destroy exemplo</userinput></screen>
 
-	<para>Disks go bad and fail, an unavoidable trait.  When
-	  this disk goes bad, the data will be lost.  One method of
-	  avoiding data loss due to a failed hard disk is to implement
-	  a <acronym>RAID</acronym>.  <acronym>ZFS</acronym> supports
-	  this feature in its pool design which is covered in
-	  the next section.</para>
+	<para>Discos podem ser ruins e falharem, ks go bad and fail,
+	  é uma caracteristica inevitável. Quando o disco vai mal, os
+	  dados podem ser perdidos. Um método para evitar essa perda
+	  de dados é a implementação de um <acronym>RAID</acronym>.
+	  <acronym>ZFS</acronym> suporta este recurso no ambiente de
+	  conjunto (pool) e é o que nós vamos abordar na próxima
+	  sessão.</para>
       </sect3>
 
       <sect3>
