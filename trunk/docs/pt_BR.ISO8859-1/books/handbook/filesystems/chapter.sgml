@@ -706,80 +706,94 @@ errors: No known data errors</screen>
 
 		<screen>&prompt.root; <userinput>zfs set groupquota@primeiro_grupo=none</userinput></screen>
 
-		<para>As with the user quota property,
-		  non-<username>root</username> users can only see the quotas
-		  associated with the user groups that they belong to, however
-		  a <username>root</username> user or a user with the
-		  <literal>groupquota</literal> privilege can view and set all
-		  quotas for all groups.</para>
+		<para>Como nas propriedadse de cota de usuário,
+		  usuários não-<username>root</username> somente
+		  podem ver a cota de grupos ao qual ele esta
+		  associado, contudo, o usuário<username>root</username>
+		  ou um usuário com previlegio de <literal>groupquota</literal>
+		  poderá visualizar e configurar cotas para todos os
+		  grupos.</para>
 
-		<para>The <command>zfs userspace</command> subcommand displays
-		  the amount of space consumed by each user on the specified
-		  filesystem or snapshot, along with any specified quotas.
-		  The <command>zfs groupspace</command> subcommand does the
-		  same for groups.  For more information about supported
-		  options, or only displaying specific options, see
-		  &man.zfs.1;.</para>
+		<para>O subcomando <command>zfs userspace</command>
+		  mostra a quantidade de espaço consumida por cada
+		  usuário em um sistema de arquivo ou snapshot
+		  especifico especificadas por uma configuração de
+		  cota. O subcomando <command>zfs groupspace</command>
+		  faz o mesmo para os grupos. Para mais informações
+		  sobre as opções suportadas ou mostrar opções
+		  especificas, veja a página de manual &man.zfs.1;.
+		  </para>
 
-		<para>To list the quota for
-		  <filename>storage/home/bob</filename>, if you have the
-		  correct privileges or are <username>root</username>,
-		  use the following:</para>
+		<para>Para listar a cota de
+		  <filename>storage/home/bob</filename>, tendo os
+		  previlegios corretos ou sendo <username>root</username>,
+		  use o seguinte comando:</para>
 
 		<screen>&prompt.root; <userinput>zfs get quota storage/home/bob</userinput></screen>
       </sect3>
 
       <sect3>
-		<title>ZFS Reservations</title>
+		<title>Reservas no ZFS</title>
 
-		<para>ZFS supports two types of space reservations.  This
-		  section will explain the basics of each one, and include
-		  some usage instructions.</para>
+		<para>O ZFS suporta dois tipos de reserva de espaço.
+		  Esta sessão irá explicar o básico de cada uma e vai
+		  incluir algumas instruções de uso.</para>
 
-		<para>The <literal>reservation</literal> property makes it
-		  possible to reserve a minimum amount of space guaranteed for a
-		  dataset and its descendants.  This means that if a 10&nbsp;GB
-		  reservation is set on <filename>storage/home/bob</filename>,
-		  if disk space gets low, at least 10&nbsp;GB of space is
-		  reserved for this dataset.  The
-		  <literal>refreservation</literal> property sets or indicates
-		  the minimum amount of space guaranteed to a dataset excluding
-		  descendants, such as snapshots.  As an example, if a snapshot
-		  was taken of <filename>storage/home/bob</filename>, enough
-		  disk space would have to exist outside of the
-		  <literal>refreservation</literal> amount for the operation to
-		  succeed because descendants of the main data set are not
-		  counted by the <literal>refreservation</literal> amount and
-		  so do not encroach on the space set.</para>
+		<para>A propriedade <literal>reservation</literal>
+		  configura se possivel uma reserva uma quantidade de
+		  espaço minima garantida para um conjunto de dados e
+		  seus descendentes. Isto significa que se fizer-mos
+		  uma reserva de 10&nbsp;GB para
+		  <filename>storage/home/bob</filename>, e se
+		  existir espaço minimo para isso, os 10&nbsp;GB de
+		  espaço serão reservados para o conjunto de dados.
+		  A propriedade <literal>refreservation</literal>
+		  configura ou indica a quantidade de espaço minima
+		  garantida para um conjunto de dados, mas exclui os
+		  descendentes desta configuração, como os snapshots.
+		  Como no exemplo, se um snapshot for feito em cima do
+		  <filename>storage/home/bob</filename>, deverá haver
+		  espaço em disco suficiente para esta operação, já
+		  que ele estará fora da configuração de
+		  <literal>refreservation</literal>, dessa forma os
+		  descendentes não irão utilizar a reserva de espaço
+		  configurada pela a propriedade
+		  <literal>refreservation</literal> no conjunto de
+		  dados principal.</para>
 
-		<para>Reservations of any sort are useful in many situations,
-		  for example planning and testing the suitability of disk space
-		  allocation in a new system, or ensuring that enough space is
-		  available on file systems for system recovery procedures and
-		  files.</para>
+		<para>As configurações de reserva de espaço em
+		  qualquer situação são uteis de várias maneiras, por
+		  exemplo, se você faz um planejamento e teste de
+		  alocação de uso de espaço em um novo sistema ou
+		  software ou se precisa de espaço suficiente no
+		  sistema para possiveis procedimentos de recuperação
+		  de arquivos.</para>
 
-		<para>The general format of the <literal>reservation</literal>
-		  property is
-		  <literal>reservation=<replaceable>size</replaceable></literal>,
-		  so to set a reservation of 10&nbsp;GB on
-		  <filename>storage/home/bob</filename>the below command is
-		  used:</para>
+		<para>O formato geral da propriedade
+		  <literal>reservation</literal> é
+		  <literal>reservation=<replaceable>tamanho</replaceable></literal>,
+		  então, para configurar um reserva de 10&nbsp;GB em
+		  <filename>storage/home/bob</filename> o comando
+		  abaixo deve ser usado:</para>
 
 		<screen>&prompt.root; <userinput>zfs set reservation=10G storage/home/bob</userinput></screen>
 
-		<para>To make sure that no reservation is set, or to remove a
-		  reservation, instead use:</para>
+		<para>Para marcar uma configuração de não reserva ou
+		  remover uma reserva existente, use o comando abaixo:
+		  </para>
 
 		<screen>&prompt.root; <userinput>zfs set reservation=none storage/home/bob</userinput></screen>
 
-		<para>The same principle can be applied to the
-		  <literal>refreservation</literal> property for setting a
-		  refreservation, with the general format
-		  <literal>refreservation=<replaceable>size</replaceable></literal>.</para>
+		<para>O mesmo principio pode ser aplicado na
+		  propriedade <literal>refreservation</literal> para
+		  configurar uma reserva do tipo refreservation,
+		  com um formato geral dessa forma: 
+		  <literal>refreservation=<replaceable>tamanho</replaceable></literal>.</para>
 
-		<para>To check if any reservations or refreservations exist on
-		  <filename>storage/home/bob</filename>, execute one of the
-		  following commands:</para>
+		<para>Para checar a existencia de qualquer
+		  configuração da propriedade reservations ou
+		  refreservations em <filename>storage/home/bob</filename>,
+		  execute o comando abaixo:</para>
 
 		<screen>&prompt.root; <userinput>zfs get reservation storage/home/bob</userinput>
 &prompt.root; <userinput>zfs get refreservation storage/home/bob</userinput></screen>
