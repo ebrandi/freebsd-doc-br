@@ -305,8 +305,8 @@ exemplo/comprimido on /exemplo/comprimido (zfs, local)</screen>
 	  importantes serão armazenados ali, dessa forma, o sistema de
 	  arquivo mantém duas cópias de cada bloco de dados:</para>
 
-	<screen>&prompt.root; <userinput>zfs create examplo/dados</userinput>
-&prompt.root; <userinput>zfs set copies=2 examplo/dados</userinput></screen>
+	<screen>&prompt.root; <userinput>zfs create exemplo/dados</userinput>
+&prompt.root; <userinput>zfs set copies=2 exemplo/dados</userinput></screen>
 
 	<para>Vejamos agora o ponto de montagem <literal>dados</literal>
 	  e o espaço utilizado por ele, novamente com o comando
@@ -352,95 +352,100 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
       <sect3>
 	<title><acronym>ZFS</acronym> RAID-Z</title>
 
-	<para>As previously noted, this section will assume that
-	  three <acronym>SCSI</acronym> disks exist as devices
-	  <devicename>da0</devicename>, <devicename>da1</devicename>
-	  and <devicename>da2</devicename> (or <devicename>ad0</devicename>
-	  and beyond in case IDE disks are being used).  To create a
-	  <acronym>RAID</acronym>-Z pool, issue the following
-	  command:</para>
+	<para>Como observado anteriormente, esta sessão assume a
+	  existencia de três discos <acronym>SCSI</acronym> como
+	  dispositivos <devicename>da0</devicename>, <devicename>da1</devicename>
+	  e <devicename>da2</devicename> (ou <devicename>ad0</devicename>
+	  e outros discos IDE no caso de serem usados). Para criar um
+	  conjunto (pool) <acronym>RAID</acronym>-Z, execute o
+	  seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool create storage raidz da0 da1 da2</userinput></screen>
 
-	<note><para>&sun; recommends that the amount of devices used in a
-	  <acronym>RAID</acronym>-Z configuration is between three and nine.  If your needs
-	  call for a single pool to consist of 10 disks or more, consider
-	  breaking it up into smaller <acronym>RAID</acronym>-Z groups.  If
-	  you only have two disks and still require redundancy, consider using
-	  a <acronym>ZFS</acronym> mirror instead.  See the &man.zpool.8;
-	  manual page for more details.</para></note>
+	<note><para>A &sun; recomenda que a quantidade de
+	  dispositivos utilizados em uma configuração <acronym>RAID</acronym>-Z
+	  esteja entre três e nove. Se você necessita usar 10 ou mais
+	  discos em um conjunto (pool) simples, pare e pense em usar
+	  grupos de <acronym>RAID</acronym>-Z. Se você somente
+	  possuir dois discos e necessitar de redundancia, considere
+	  usar o espelhamento (mirror) em <acronym>ZFS</acronym>.
+	  Veja as páginas de manual (&man.zpool.8;) para maiores
+	  detalhes.</para></note>
 
-	<para>The <literal>storage</literal> zpool should have been
-	  created.  This may be verified by using the &man.mount.8; and
-	  &man.df.1; commands as before.  More disk devices may have
-	  been allocated by adding them to the end of the list above.
-	  Make a new file system in the pool, called
-	  <literal>home</literal>, where user files will eventually be
-	  placed:</para>
+	<para>O zpool <literal>storage</literal> foi criado com
+	  sucesso. Isto pode ser verificado utilizando o comando
+	  &man.mount.8; e o comando &man.df.1; conforme visto
+	  anteriormente. Mais dispositivos de disco podem ser
+	  alocados adicionando-os no final da lista acima. Crie um
+	  novo sistema de arquivo neste conjunto (pool), chamado
+	  <literal>home</literal>, local onde podem ser colocado
+	  arquivos eventuais de usuários:</para>
 
 	<screen>&prompt.root; <userinput>zfs create storage/home</userinput></screen>
 
-	<para>It is now possible to enable compression and keep extra
-	  copies of the user's home directories and files.  This may
-	  be accomplished just as before using the following
-	  commands:</para>
+	<para>Veja que agora é possivel habilitar a compressão e
+	  manter cópias extras dos diretórios e arquivos dos usuários.
+	  Isto pode ser configurado, conforme mostramos anteriormente
+	  com os comandos descritos abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zfs set copies=2 storage/home</userinput>
 &prompt.root; <userinput>zfs set compression=gzip storage/home</userinput></screen>
 
-	<para>To make this the new home directory for users, copy the
-	  user data to this directory, and create the appropriate
-	  symbolic links:</para>
+	<para>Para configurar este ponto de montagem como novo home
+	  dos usuários, copie os dados dos usuários para este
+	  diretório e crie os links simbolicos necessários:</para>
 
 	<screen>&prompt.root; <userinput>cp -rp /home/* /storage/home</userinput>
 &prompt.root; <userinput>rm -rf /home /usr/home</userinput>
 &prompt.root; <userinput>ln -s /storage/home /home</userinput>
 &prompt.root; <userinput>ln -s /storage/home /usr/home</userinput></screen>
 
-	<para>Users should now have their data stored on the freshly
-	  created <filename class="directory">/storage/home</filename>
-	  file system.  Test by adding a new user and logging in as
-	  that user.</para>
+	<para>Os usuários agora podem armazenar dados no sistema de
+	  arquivo <filename class="directory">/storage/home</filename>
+	  criado recentemente. Faça um teste adicionando um novo
+	  usuário no sistema e logue-se como ele.</para>
 
-	<para>Try creating a snapshot which may be rolled back
-	  later:</para>
+	<para>Tente criar um instantâneo (snapshot) do sistema de
+	  arquivo, para que possa ser recuperado mais tarde:</para>
 
 	<screen>&prompt.root; <userinput>zfs snapshot storage/home@08-30-08</userinput></screen>
 
-	<para>Note that the snapshot option will only capture a real
-	  file system, not a home directory or a file.  The
-	  <literal>@</literal> character is a delimiter used between
-	  the file system name or the volume name.  When a user's
-	  home directory gets trashed, restore it with:</para>
+	<para>Observe que a opção de snapshot somente capturou o
+	  sistema de arquivo real, não um diretório home ou um
+	  arquivo. O caracter <literal>@</literal> é um delimitador
+	  usado entre o nome do sistema de arquivo e o nome do volume.
+	  Quando um home de usuário for enviado para a lixeira,
+	  podemos recupera-lo com o comando:</para>
 
 	<screen>&prompt.root; <userinput>zfs rollback storage/home@08-30-08</userinput></screen>
 
-	<para>To get a list of all available snapshots, run
-	  <command>ls</command> in the file system's
-	  <filename class="directory">.zfs/snapshot</filename>
-	  directory.  For example, to see the previously taken
-	  snapshot, perform the following command:</para>
+	<para>Para listar todos os snapshots disponiveis, execute
+	  <command>ls</command> no diretorio de sistema de arquivo
+	  <filename class="directory">.zfs/snapshot</filename>.
+	  Por exemplo, para visualizar um possivel snapshot anterior,
+	  execute o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>ls /storage/home/.zfs/snapshot</userinput></screen>
 
-	<para>It is possible to write a script to perform monthly
-	  snapshots on user data; however, over time, snapshots
-	  may consume a great deal of disk space.  The previous
-	  snapshot may be removed using the following command:</para>
+	<para>É possivel escrever um script para que mensalmente possa
+	  criar snapshots dos dados dos usuários, entretanto, a cada
+	  vez, os snapshots podem consumir uma quantidade de espaço
+	  consideravél do disco. Os snapshots antigos nesse caso,
+	  podem ser removidos com o comando descrito abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zfs destroy storage/home@08-30-08</userinput></screen>
 
-	<para>After all of this testing, there is no reason we should
-	  keep <filename class="directory">/storage/home</filename>
-	  around in its present state.  Make it the real
-	  <filename class="directory">/home</filename> file
-	  system:</para>
+	<para>Após todos esses testes, não ha razão para manter-mos
+	  o diretório <filename class="directory">/storage/home</filename>
+	  neste ponto de montagem. Configure o
+	  <filename class="directory">/home</filename> de forma real
+	  como um sistema de arquivo:</para>
 
 	<screen>&prompt.root; <userinput>zfs set mountpoint=/home storage/home</userinput></screen>
 
-	<para>Issuing the <command>df</command> and
-	  <command>mount</command> commands will show that the system
-	  now treats our file system as the real
+	<para>Execute o comando <command>df</command> e o comando
+	  <command>mount</command> para mostrar como o sistema irá
+	  tratar nosso sistema de arquivo como 
 	  <filename class="directory">/home</filename>:</para>
 
 	<screen>&prompt.root; <userinput>mount</userinput>
@@ -457,16 +462,16 @@ devfs                1       1        0   100%    /dev
 storage       26320512       0 26320512     0%    /storage
 storage/home  26320512       0 26320512     0%    /home</screen>
 
-	<para>This completes the <acronym>RAID</acronym>-Z
-	  configuration.  To get status updates about the file systems
-	  created during the nightly &man.periodic.8; runs, issue the
-	  following command:</para>
+	<para>Esta é uma configuração completa do <acronym>RAID</acronym>-Z
+	  Para capturar o status e as atualizações do sistema de
+	  arquivo criado, pelo o &man.periodic.8; que roda a noite,
+	  execute o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>echo 'daily_status_zfs_enable="YES"' &gt;&gt; /etc/periodic.conf</userinput></screen>
       </sect3>
 
       <sect3>
-	<title>Recovering <acronym>RAID</acronym>-Z</title>
+	<title>Recuperando um <acronym>RAID</acronym>-Z</title>
 
 	<para>Every software <acronym>RAID</acronym> has a method of
 	  monitoring their <literal>state</literal>.
