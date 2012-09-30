@@ -145,7 +145,7 @@
       <sect3>
 	<title>Configuração de Kernel</title>
 
-	<para>É recomendável remover drivers e opções não usados dois
+	<para>É recomendável remover drivers e opções não usados no
       arquivo de configuração do kernel. Visto que a maioria dos
       dispositivos estão disponíveis como módulos, eles podem ser
       lidos usando o arquivo <filename>/boot/loader.conf</filename>
@@ -158,7 +158,7 @@
 	<programlisting>options 	KVA_PAGES=512</programlisting>
 
 	<para>Esta opção vai expandir o espaço do endereço do kernel,
-      permitindo assim que o ajustes <varname>vm.kvm_size</varname>
+      permitindo assim que o ajuste <varname>vm.kvm_size</varname>
       possa ser configurado para além do limite atual imposto de
       1&nbsp;GB (2&nbsp;GB para <acronym>PAE</acronym>). Para
       encontrar o valor mais adequado para esta opção, divida o
@@ -191,8 +191,8 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
       <title>Usando <acronym>ZFS</acronym></title>
 
       <para>Existe um mecanismo de inicialização que permite ao &os;
-        montar os conjuntos do <acronym>ZFS</acronym> durante a
-	inicialização do sistema. Para isso, é preciso configura-lo
+        montar os conjuntos (pools) do <acronym>ZFS</acronym> durante
+	a inicialização do sistema. Para isso, é preciso configura-lo
 	através dos seguintes comandos:</para>
 
 	<screen>&prompt.root; <userinput>echo 'zfs_enable="YES"' &gt;&gt; /etc/rc.conf</userinput>
@@ -210,14 +210,14 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
       <sect3>
 	<title>Conjunto (Pool) em Disco Único</title>
 
-	<para>Para criar um simples e não reduntante conjunto
+	<para>Para criar um simples e não reduntante conjunto (pool)
 	  <acronym>ZFS</acronym> usando somente um dispositivo de
 	  disco, basta usar o comando <command>zpool</command>:
 	  </para>
 
 	<screen>&prompt.root; <userinput>zpool create exemplo /dev/da0</userinput></screen>
 
-	<para>Para ver o novo conjunto, veja a saida do comando
+	<para>Para ver o novo conjunto (pool), veja a saida do comando
 	  <command>df</command>:</para>
 
 	<screen>&prompt.root; <userinput>df</userinput>
@@ -228,7 +228,7 @@ devfs               1       1        0   100%    /dev
 example      17547136       0 17547136     0%    /exemplo</screen>
 
 	<para>Veja que a saída do comando mostra claramente o conjunto
-	  <literal>examplo</literal> e ele não somente criou o
+	  <literal>exemplo</literal> e ele não somente criou o
 	  conjunto como também já montou ele no sistema. Ele também é
 	  acessivel como um sistema de arquivo normal, arquivos podem
 	  ser criados e usuários podem navegar como mostrado no
