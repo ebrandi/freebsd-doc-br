@@ -23,7 +23,7 @@
   <title>Virtualização</title>
 
   <sect1 id="virtualization-synopsis">
-    <title>Sinopse</title>
+    <title>Sumário</title>
 
     <para>Softwares de virtualização permitem que vários sistemas operacionais
       sejam executados ao mesmo tempo em um mesmo computador. Este tipo 
@@ -105,7 +105,7 @@
 	instalar o sistema operacional convidado que desejar.</para>
 
       <sect3 id="virtualization-guest-parallels-install">
-	<title>Installing &os; on Parallels/&macos; X</title>
+	<title>Instalando o &os; no Parallels/&macos; X</title>
 
 	<para>O primeiro passo para instalar &os; no &macos;
 	  X/<application>Parallels</application> é criar uma nova
@@ -162,7 +162,7 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>Save e finalize a configuracão:</para>
+	<para>Salve e finalize a configuracão:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -193,12 +193,10 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>Once you have made this association with your CDROM
-	  source, reboot your &os; virtual machine as normal by
-	  clicking the reboot icon.
-	  <application>Parallels</application> will reboot with a
-	  special BIOS that first checks if you have a CDROM just as a
-	  normal BIOS would do.</para>
+	<para>Após efetuar a associação com a origem do CDROM,
+	  reinicie a máquina virtual do &os; clicando no ícone reboot (Reiniciar).
+	  <application>O Parallels</application> irá reiniciar com uma BIOS
+	  especial que irá verificar se você tem um CDROM, como uma BIOS normal faria.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -206,11 +204,10 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>In this case it will find the &os; installation media
-	  and begin a normal <application>sysinstall</application>
-	  based installation as described in <xref
-	    linkend="install"/>.  You may install, but do not attempt
-	  to configure X11 at this time.</para>
+	<para>Neste caso irá encontrar uma mídia de instalação do &os;
+	  e iniciar uma instalação básica com o <application>sysinstall</application>
+	  conforme descrito em <xref linkend="install"/>.  Você poderá então instalar, 
+          mas não tente configurar a interface gráfica X11 neste momento.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -218,8 +215,8 @@
 	  </imageobject>
 	</mediaobject>
 
-	<para>When you have finished the installation, reboot into
-	  your newly installed &os; virtual machine.</para>
+	<para>Quando você terminar a instalação, reinicie sua máquina
+          virtual com seu &os; recém instalado.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -229,55 +226,50 @@
       </sect3>
 
       <sect3 id="virtualization-guest-parallels-configure">
-	<title>Configuring &os; on &macos; X/Parallels</title>
+	<title>COnfigurando o &os; no &macos; X/Parallels</title>
 
-	<para>After &os; has been successfully installed on &macos;
-	  X with <application>Parallels</application>, there are a
-	  number of configuration steps that can be taken to
-	  optimize the system for virtualized operation.</para>
+	<para>Após o &os; ser instalado com sucesso no &macos;
+	  X com o <application>Parallels</application>, há algumas
+          configurações que podem ser feitas para otimizar o sistema
+          para funcionar no modo virtualizado.</para>
 
 	<procedure>
 	  <step>
-	    <title>Set Boot Loader Variables</title>
+	    <title>Ajustar as variáveis do Boot Loader</title>
 
-	    <para>The most important step is to reduce the
-	      <option>kern.hz</option> tunable to reduce the CPU
-	      utilization of &os; under the <application>Parallels
-	      </application> environment.  This is accomplished by
-	      adding the following line to <filename>
-	      /boot/loader.conf</filename>:</para>
+	    <para>O passo mais importante é reduzir a variável
+	      <option>kern.hz</option> para  reduzir a utilização de CPU
+	      do &os; sob o ambiente do <application>Parallels
+	      </application>.  Para isto, adicione a seguinte linha no arquivo
+	      <filename>/boot/loader.conf</filename>:</para>
 
 	    <programlisting>kern.hz=100</programlisting>
 
-	    <para>Without this setting, an idle &os;
-	      <application>Parallels</application> guest
-	      OS will use roughly 15% of the CPU of a single
-	      processor &imac;.  After this change the usage will be
-	      closer to a mere 5%.</para>
+	    <para>Sem este ajuste, um SO &os; convidado rodando no 
+	      <application>Parallels</application> irá utilizar em torno 
+              de 15% de CPU de um único processador &imac;.
+	      Após esta alteração o uso será de aproximadamente 5%.</para>
 	  </step>
 
 	  <step>
-	    <title>Create a New Kernel Configuration File</title>
+	    <title>Criar um Novo Arquivo de Kernel</title>
 
-	    <para>You can remove all of the SCSI, FireWire, and USB
-	      device drivers.  <application>Parallels</application>
-	      provides a virtual network
-	      adapter used by the &man.ed.4; driver, so
-	      all other network devices except for
-	      &man.ed.4; and &man.miibus.4; can be
-	      removed from the kernel.</para>
+	    <para>Você pode remover todos os drivers de SCSI e de 
+              dispositivos FireWire e USB. O <application>Parallels</application>
+	      fornece um adaptador de rede virtual utilizado pelo driver
+	      &man.ed.4; driver, portanto todos os outros dispositivos de rede, 
+              exceto o &man.ed.4; e o &man.miibus.4;, podem ser removidos do kernel.</para>
 	  </step>
 
 	  <step>
-	    <title>Configure Networking</title>
+	    <title>Configurar a Rede</title>
 
-	    <para>The most basic networking setup involves simply
-	      using DHCP to connect your virtual machine to the same
-	      local area network as your host &mac;.  This can be
-	      accomplished by adding
-	      <literal>ifconfig_ed0="DHCP"</literal> to
-	      <filename>/etc/rc.conf</filename>.  More advanced
-	      networking setups are described in
+	    <para>Uma configuração de rede simples utiliza DHCP
+              para conectar sua máquina virtual na mesma rede local
+	      de seu &mac;. Para isso, adicionel
+	      <literal>ifconfig_ed0="DHCP"</literal> no
+	      <filename>/etc/rc.conf</filename>.  Confirurações de rede
+              mais avançadas estão descritas no 
 	      <xref linkend="advanced-networking"/>.</para>
 	  </step>
 	</procedure>
@@ -594,26 +586,28 @@ xenbr1          8000.feffffffffff   no                  vif0.1
       </sect2>
 -->
     <sect2 id="virtualization-guest-virtualpc">
-      <title>Virtual PC on &windows;</title>
+      <title>Virtual PC para &windows;</title>
 
-      <para><application>Virtual PC</application> for &windows; is a
-	&microsoft; software product available for free download.
-	See <ulink
+      <para><application>Virtual PC</application> para &windows; é um 
+	produto da &microsoft; disponibilizado gratuitamente para download.
+	Consulte <ulink
 	  url="http://www.microsoft.com/windows/downloads/virtualpc/sysreq.mspx">
-	system requirements</ulink>.  Once <application> Virtual PC
-	</application> has been installed on &microsoft.windows;,
+	requisitos de sistema</ulink>.  Após instalar o <application> Virtual PC
+	</application> no &microsoft.windows;,
 	the user must configure a virtual machine and then install
-	the desired guest operating system.</para>
+	o usuário deverá configurar uma máquina virtual e então instalar o 
+	sistema operacional convidade que desejar.</para>
 
       <sect3 id="virtualization-guest-virtualpc-install">
-	<title>Installing &os; on Virtual
+	<title>Instalando o &os; no Virtual
 	  PC/&microsoft.windows;</title>
 
-	<para>The first step in installing &os; on
-	  &microsoft.windows; /<application>Virtual PC
-	  </application> is to create a new virtual machine for
-	  installing &os;.  Select <guimenuitem>Create a virtual
-	    machine</guimenuitem> when prompted:</para>
+	<para>O primeiro passo para instalar o &os; no 
+	  &microsoft.windows; <application>Virtual PC
+	  </application> é criar uma nova
+	  máquina virtual para a instalação do &os;.  Selecione
+	  <guimenuitem>Create a virtual machine (Criar uma máquna virtual)</guimenuitem> 
+	    quando solicitado:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -627,9 +621,9 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>And select <guimenuitem>Other</guimenuitem> as the
-	  <guimenuitem>Operating system</guimenuitem> when
-	  prompted:</para>
+	<para>E selecione <guimenuitem>Other (Outros)</guimenuitem> para
+	  <guimenuitem>Operating system</guimenuitem> quando
+	  solicitado:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -637,11 +631,10 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Then, choose a reasonable amount of disk and memory
-	  depending on your plans for this virtual &os;
-	  instance.  4GB of disk space and 512MB of RAM work well
-	  for most uses of &os; under
-	  <application>Virtual PC</application>:</para>
+	<para>E escolha uma quantidade razoável de disco e memória
+	  dependendo de seus planos para esta instância virtual do &os;.
+	  4GB de espaço em disco e 512MB de memória RAM funcionam bem para 
+	  utilizar o &os; sob o <application>Virtual PC</application>:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -655,7 +648,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Save and finish the configuration:</para>
+	<para>Salve e finalize a configuração:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -663,9 +656,9 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Select your &os; virtual machine and click
-	  <guimenu>Settings</guimenu>, then set the type of networking
-	  and a network interface:</para>
+	<para>Selecione a máquina virtual &os; e clique em
+	  <guimenu>Settings (Ajustes)</guimenu>, depois escolha o tipo de rede
+	  e a interface de rede:</para>
 
 	<mediaobject>
 	  <imageobject>
