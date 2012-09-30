@@ -777,29 +777,30 @@ errors: No known data errors</screen>
   </sect1>
 
   <sect1 id="filesystems-linux">
-    <title>&linux; Filesystems</title>
+    <title>Sistemas de Arquivo &linux;</title>
 
-    <para>This section will describe some of the &linux; filesystems
-      supported by &os;.</para>
+    <para>Esta sessão irá descrever o uso de alguns sistemas de
+      arquivos do &linux; suportados pelo o &os;.</para>
 
     <sect2>
       <title>Ext2FS</title>
 
-      <para>The &man.ext2fs.5; file system kernel implementation was
-	written by Godmar Back, and the driver first appeared in
-	&os; 2.2.  In &os; 8 and earlier, the code is licensed under
-	the <acronym>GNU</acronym> Public License, however under &os; 9,
-	the code has been rewritten and it is now licensed under the
-	<acronym>BSD</acronym> license.</para>
+      <para>A implementação de kernel do sistema de arquivo &man.ext2fs.5;
+        foi escrita por Godmar Back, e o primeiro driver foi
+	disponivel a partir do &os; 2.2. No &os; 8 e anteriores, o código
+	é licenciado sob uma licença <acronym>GNU</acronym> Public
+	License, entretanto, no &os; 9, o código foi reescrito e agora
+	esta sob a licença <acronym>BSD</acronym>.</para>
 
-      <para>The &man.ext2fs.5; driver will allow the &os; kernel
-	to both read and write to <acronym>ext2</acronym> file systems.</para>
+      <para>O driver &man.ext2fs.5; permite ao kernel do &os; ler e
+        escrever em sistemas de arquivos no formato <acronym>ext2</acronym>.
+	</para>
 
-      <para>First, load the kernel loadable module:</para>
+      <para>Antes, carregue o modulo no kernel:</para>
 
       <screen>&prompt.root; <userinput>kldload ext2fs</userinput></screen>
 
-      <para>Then, to mount an &man.ext2fs.5; volume located on
+      <para>E então, monte um volume &man.ext2fs.5; localizado em
 	<filename>/dev/ad1s1</filename>:</para>
 
       <screen>&prompt.root; <userinput>mount -t ext2fs /dev/ad1s1 /mnt</userinput></screen>
@@ -807,58 +808,62 @@ errors: No known data errors</screen>
     <sect2>
       <title>XFS</title>
 
-      <para>The X file system, <acronym>XFS</acronym>, was originally
-	written by <acronym>SGI</acronym> for the
-	<acronym>IRIX</acronym> operating system, and they ported it
-	to &linux;.  The source code has been released under the
-	<acronym>GNU</acronym> Public License.  See
-	<ulink url="http://oss.sgi.com/projects/xfs">this page</ulink>
-	for more details.  The &os; port was started by Russel
-	Cattelan, &a.kan;, and &a.rodrigc;.</para>
+      <para>O sistema de arquivo X, <acronym>XFS</acronym>, foi
+        originalmente escrito pela a <acronym>SGI</acronym> para o
+	sistema operacional <acronym>IRIX</acronym>, e então foi
+	portado para o &linux;. O código fonte foi relançado sob a
+	licença	<acronym>GNU</acronym> Public License. Veja
+	<ulink url="http://oss.sgi.com/projects/xfs">nesta página</ulink>
+	mais detalhes sobre isso. O port para o &os; foi iniciado por
+	Russel Cattelan, &a.kan; e &a.rodrigc;.</para>
 
-      <para>To load <acronym>XFS</acronym> as a kernel-loadable
-	module:</para>
+      <para>Para carregar o <acronym>XFS</acronym> como modulo no
+        kernel, execute o comando:</para>
 
       <screen>&prompt.root; <userinput>kldload xfs</userinput></screen>
 
-      <para>The &man.xfs.5; driver lets the &os; kernel access
-	XFS filesystems.  However, at present only read-only
-	access is supported.  Writing to a volume is not
-	possible.</para>
+      <para>O driver &man.xfs.5; permite ao kernel do &os; acessar
+        sistemas de arquivos no formato XFS, entretando, até o
+	presente momento, somente o acesso a leitura é suportado.
+	A escrita no volume ainda não é possivel.</para>
 
-      <para>To mount a &man.xfs.5; volume located on
-	<filename>/dev/ad1s1</filename>, do the following:</para>
+      <para>Para montar um volume &man.xfs.5; localizado em
+	<filename>/dev/ad1s1</filename>, execute o seguinte comando:
+	</para>
 
       <screen>&prompt.root; <userinput>mount -t xfs /dev/as1s1 /mnt</userinput></screen>
 
-      <para>Also useful to note is that the
-	<filename role="package">sysutils/xfsprogs</filename> port
-	contains the <command>mkfs.xfs</command> utility which enables
-	creation of <acronym>XFS</acronym> filesystems, plus utilities
-	for analysing and repairing them.</para>
+      <para>Também é util notar que o port
+	<filename role="package">sysutils/xfsprogs</filename> contém
+	o utilitario <command>mkfs.xfs</command> que permite a
+	criação de sistemas de arquivos no formato <acronym>XFS</acronym>
+	outros utilitários estão disponiveis nesse port para
+	manipulação do sistema de arquivo <acronym>XFS</acronym>.
+	</para>
 
-      <para>The <literal>-p</literal> flag to
-	<command>mkfs.xfs</command> can be used to create an
-	&man.xfs.5; filesystem which is populated with files and other
-	metadata.  This can be used to quickly create a read-only
-	filesystem which can be tested on &os;.</para>
+      <para>A opção <literal>-p</literal> do comando
+        <command>mkfs.xfs</command> pode ser usada para criar um
+	sistema de arquivo &man.xfs.5; e preenche-lo com arquivos e
+	outros metadados. Isto é útil para rapidamente criar-mos um
+	sistema de arquivo somente leitura para ser testado no &os;.
+	</para>
     </sect2>
     <sect2>
       <title>ReiserFS</title>
 
-      <para>The Reiser file system, ReiserFS, was ported to
-	&os; by &a.dumbbell;, and has been released under the
+      <para>O sistema de arquivo Reiser, ReiserFS, foi portado para o
+        &os; por &a.dumbbell;, e foi lançado sob a licença
 	<acronym>GNU</acronym> Public License.</para>
 
-      <para>The ReiserFS driver will permit the &os; kernel to
-	access ReiserFS file systems and read their contents, but not
-	write to them, currently.</para>
+      <para>O driver do ReiserFS permite ao kernel do &os; acessar um
+        sistema de arquivo ReiserFS e ler o conteúdo do mesmo, mas até
+	o momento, não é permitida a escrita de dados no mesmo.</para>
 
-      <para>First, the kernel-loadable module needs to be loaded:</para>
+      <para>Antes, é necessário carregar o modulo no kernel:</para>
 
       <screen>&prompt.root; <userinput>kldload reiserfs</userinput></screen>
 
-      <para>Then, to mount a ReiserFS volume located on
+      <para>Então, para montar um volume ReiserFS localizado em
 	<filename>/dev/ad1s1</filename>:</para>
 
       <screen>&prompt.root; <userinput>mount -t reiserfs /dev/ad1s1 /mnt</userinput></screen>
