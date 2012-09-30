@@ -286,13 +286,16 @@
   <sect1 id="jails-build">
     <title>Criando e Controlando Jails</title>
 
-    <para>Some administrators divide jails into the following two types:
-      <quote>complete</quote> jails, which resemble a real &os; system,
-      and <quote>service</quote> jails, dedicated to one application or
-      service, possibly running with privileges.  This is only a
-      conceptual division and the process of building a jail is not
-      affected by it.  The &man.jail.8; manual page is quite clear about
-      the procedure for building a jail:</para>
+    <para>Alguns administradores dividem os <literal>jails</literal> 
+      em dois grupos:  <literal>jails</literal> 
+      <quote>completos</quote>, que se assemelham a um sistema &os; 
+      real, e <literal>jails</literal> de <quote>serviços</quote>, 
+      dedicados a uma aplicação ou serviço, possivelmente sendo 
+      executado com privilégios.  Esta é apenas uma divisão 
+      conceitual, e o processo de construção de um 
+      <literal>jail</literal> não é afetado por ela.  A página de 
+      manual do &man.jail.8; é bastante clara sobre o procedimento 
+      para a construção de um <literal>jail</literal>:</para>
 
       <screen>&prompt.root; <userinput>setenv D <replaceable>/here/is/the/jail</replaceable></userinput>
 &prompt.root; <userinput>mkdir -p $D</userinput> <co id="jailpath"/>
@@ -304,29 +307,37 @@
 
     <calloutlist>
       <callout arearefs="jailpath">
-	<para>Selecting a location for a jail is the best starting point.
-	  This is where the jail will physically reside within the file system of the jail's host.
-	  A good choice can be <filename
-	    class="directory">/usr/jail/<replaceable>jailname</replaceable></filename>,
-	  where <replaceable>jailname</replaceable> is the hostname
-	  identifying the jail.  The <filename
-	    class="directory">/usr/</filename> file system usually has
-	  enough space for the jail file system, which for <quote>complete</quote> jails is, essentially,
-	  a replication of every file present in a default installation
-	  of the &os; base system.</para>
+	<para>A seleção de um local para o <literal>jail</literal> é o
+	  melhor ponto de partida.  Este é o local no qual o
+	  <literal>jail</literal> irá residir fisicamente no sistema
+	  de arquivos do sistema hospedeiro.  Uma boa escolha pode ser
+	  <filename
+	  class="directory">/usr/jail/<replaceable>jailname</replaceable></filename>,
+	  onde <replaceable>jailname</replaceable> é o nome de máquina
+	  que identifica o <literal>jail</literal>.  O sistema de
+	  arquivos <filename class="directory">/usr/</filename>
+	  geralmente tem espaço suficiente para o sistema de arquivos
+	  do <literal>jail</literal>, que no caso dos
+	  <literal>jails</literal> <quote>completos</quote> é,
+	  essencialmente, uma replica de todos os arquivos presentes
+	  em uma instalação padrão do sistema base do &os;.</para>
       </callout>
 
       <callout arearefs="jailbuildworld">
-	<para>If you have already rebuilt your userland using
-	  <command>make world</command> or <command>make buildworld</command>,
-	  you can skip this step and install your existing userland into the
-	  new jail.</para>
+	<para>Se você já reconstruiu o seu <literal>userland</literal>
+	  (espaço de usuário) usando <command>make
+	  world</command> ou <command>make buildworld</command>,
+	  você pode pular este passo e instalar o 
+	  <literal>userland</literal> existente no novo 
+	  <literal>jail</literal>.</para>
       </callout>
 
       <callout arearefs="jailinstallworld">
-	<para>This command will populate the directory subtree chosen
-	  as jail's physical location on the file system with the
-	  necessary binaries, libraries, manual pages and so on.</para>
+	<para>Este comando irá preencher a subárvore de diretório
+	  escolhida para ser a localização física do
+	  <literal>jail</literal> no sistema hospedeiro, com os
+	  arquivos necessários tais como binários, bibliotecas, 
+	  páginas de manual e assim por diante.</para>
       </callout>
 
       <callout arearefs="jaildistrib">
