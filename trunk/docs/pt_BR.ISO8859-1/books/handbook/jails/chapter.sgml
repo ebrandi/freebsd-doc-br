@@ -491,15 +491,17 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
     <sect2 id="jails-tuning-utilities">
       <title>Ferramentas de Sistema para Ajuste do <literal>Jail</literal> no &os;</title>
 
-      <para>Fine tuning of a jail's configuration is mostly done by
-	setting &man.sysctl.8; variables.  A special subtree of sysctl
-	exists as a basis for organizing all the relevant options: the
-	<varname>security.jail.*</varname> hierarchy of &os; kernel
-	options.  Here is a list of the main jail-related sysctls,
-	complete with their default value.  Names should be
-	self-explanatory, but for more information about them, please
-	refer to the &man.jail.8; and &man.sysctl.8; manual
-	pages.</para>
+      <para>O ajuste fino da configuração de um <literal>jail</literal>
+	é feito basicamente através da configuração de váriaveis do
+	&man.sysctl.8;.  Existe uma sub-árvore especial do sysctl para
+	agrupar e organizar todas as opções relevantes: a hierarquia
+	<varname>security.jail.*</varname> de opções do kernel do
+	&os;.  Abaixo você encontra uma lista com as principais
+	váriaveis do sysctl relacionadas ao subsistema de
+	<literal>jails</literal>, acompanhadas dos seus valores
+	padrões.  Os nomes devem ser auto-explicativos, mas para
+	maiores informações sobre estas variáves, consulte as páginas
+	de manual do &man.jail.8; e do &man.sysctl.8;.</para>
 
       <itemizedlist>
 	<listitem>
@@ -537,40 +539,48 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 	</listitem>
       </itemizedlist>
 
-      <para>These variables can be used by the system administrator of
-	the <emphasis>host system</emphasis> to add or remove some of
-	the limitations imposed by default on the
-	<username>root</username> user.  Note that there are some
-	limitations which cannot be removed.  The
-	<username>root</username> user is not allowed to mount or
-	unmount file systems from within a &man.jail.8;.  The
-	<username>root</username> inside a jail may not load or unload
-	&man.devfs.8; rulesets, set firewall rules, or do many other
-	administrative tasks which require modifications of in-kernel
-	data, such as setting the <varname>securelevel</varname> of the
-	kernel.</para>
+      <para>Estas variáveis podem ser usadas pelo administrador do
+	<emphasis>sistema hospedeiro</emphasis> para adicionar ou
+	remover algumas das limitações impostas por padrão ao usuário
+	<username>root</username> do ambiente <literal>jail</literal>.
+	Observe que existem algumas limitações que não podem ser
+	removidas. O usuário <username>root</username> não tem
+	permissão para montar ou desmontar sistemas de arquivos de
+	dentro de um <literal>jail</literal>.  O usuário
+	<username>root</username> de um ambiente
+	<literal>jail</literal> não pode carregar e nem descarregar
+	conjuntos de regras para o &man.devfs.8;, definir regras de
+	firewall, ou realizar qualquer outra tarefa administrativa que
+	envolva a modificação de dados do kernel, como por exemplo
+	configurar o <varname>securelevel</varname> do kernel.</para>
 
-      <para>The base system of &os; contains a basic set of tools for
-	viewing information about the active jails, and attaching to a
-	jail to run administrative commands.  The &man.jls.8; and
-	&man.jexec.8; commands are part of the base &os; system, and can be used
-	to perform the following simple tasks:</para>
-
+      <para>A base do sistema &os; possui um conjunto básico de
+	ferramentas para exibir informações sobre os
+	<literal>jails</literal> ativos, e para se ligar a eles para 
+	executar comandos administrativos.  Os comandos &man.jls.8; e
+	&man.jexec.8; fazem parte da base do &os; e podem ser
+	utilizados para realizar as seguintes tarefas simples:</para>
+      
       <itemizedlist>
 	<listitem>
-	  <para>Print a list of active jails and their corresponding
-	    jail identifier (<acronym>JID</acronym>),
-	    <acronym>IP</acronym> address, hostname and path.</para>
+	  <para>Imprimir uma lista dos <literal>jails</literal> ativos
+	    e a sua identificação <literal>jail</literal> 
+	    correspondente (<acronym>JID</acronym>), seu endereço
+	    <acronym>IP</acronym>, seu nome da máquina e caminho de
+	    diretório.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Attach to a running jail, from its host system, and run
-	    a command inside the jail or perform administrative tasks inside the
-	    jail itself.  This is especially useful when the
-	    <username>root</username> user wants to cleanly shut down a
-	    jail.  The &man.jexec.8; utility can also be used to start a
-	    shell in a jail to do administration in it; for
-	    example:</para>
+	  <para> Ligar-se a um <literal>jail</literal> em execução, a
+	    partir do sistema hospedeiro, para executar um comando ou
+	    para realizar tarefas administrativas dentro dele.  Isto é
+	    especialmente útil quando o usuário
+	    <username>root</username> quer desligar de forma correta
+	    um <literal>jail</literal>.  O utilitário &man.jexec.8;
+	    também pode ser utilizado para iniciar um
+	    <literal>shell</literal> dentro de um
+	    <literal>jail</literal> para fazer a sua administração;
+	    por exemplo:</para>
 
 	  <screen>&prompt.root; <userinput>jexec <replaceable>1</replaceable> tcsh</userinput></screen>
 	</listitem>
@@ -578,19 +588,21 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
     </sect2>
 
     <sect2 id="jails-tuning-admintools">
-      <title>High-Level Administrative Tools in the &os; Ports
-	Collection</title>
+      <title>Ferramentas Administrativas de Alto Nível presentes na
+	Coleção de <literal>Ports</literal> do &os;</title>
 
-    <para>Among the many third-party utilities for jail administration,
-      one of the most complete and useful is <filename
-	role="package">sysutils/jailutils</filename>.  It is a set of
-      small applications that contribute to &man.jail.8; management.
-      Please refer to its web page for more information.</para>
+    <para>Dentre os muitos aplicativos de terceiros existentes para a
+      administração de um ambiente <literal>jail</literal>, um dos
+      mais completos e útil é o <filename
+      role="package">sysutils/jailutils</filename>.  Ele é formado por
+      um conjunto de pequenos aplicativos que contribuem para o
+      gerenciamento do &man.jail.8;.  Por favor consulte a sua página
+      web para obter maiores informações.</para>
     </sect2>
   </sect1>
 
   <sect1 id="jails-application">
-    <title>Application of Jails</title>
+    <title>Utilização do <literal>Jail</literal></title>
 
     <sect2 id="jails-service-jails">
       <sect2info>
@@ -604,7 +616,7 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 	</authorgroup>
       </sect2info>
 
-      <title>Service Jails</title>
+      <title><literal>Jails</literal> de Serviço</title>
 
       <para>This section is based upon an idea originally presented by
 	&a.simon; at <ulink
