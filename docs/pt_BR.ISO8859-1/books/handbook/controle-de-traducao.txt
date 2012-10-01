@@ -1,42 +1,73 @@
+#              Part 0  -  Basic Skeleton                         # 
+##################################################################
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 312    # book.sgml           # r39544  #
-387    # dtrace              # r39544  #
-580    # bibliography        # r39544  #
 708    # preface             # r39544  #
-717    # audit               # r39544  # Leandro Silva, 25/09/2012
-885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
-943    # l10n                # r39544  #
-981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
-988    # jails               # r39566  # Edson Brandi, 20/09/2012
-1034   # users               # r39544  #
-1048   # introduction        # r39576  # Juliana Manczenko, 18/09/2012
-1055   # boot                # r39544  # Marcelo Rossi, 24/09/2012
-1296   # vinum               # r39544  #
-1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
-1345   # linuxemu            # r39544  #
-1347   # desktop             # r39544  #
-1548   # kernelconfig        # r39544  #
-1585   # ports               # r39544  #
-1743   # x11                 # r39595  #
-1938   # multimedia          # r39544  #
-2075   # mac                 # r39544  #
-2142   # eresources          # r39544  #
-2230   # mail                # r39544  #
-2716   # basics              # r39544  #
-2728   # bsdinstall          # r39550  #
-2931   # serialcomms         # r39553  #
-3180   # cutting-edge        # r39544  #
-3243   # ppp-and-slip        # r39544  #
-3376   # firewalls           # r39544  # Ricardo Ferreira, 21/09/2012
 3394   # mirrors             # r39575  #
-3556   # config              # r39544  #
-4151   # security            # r39576  # Rafael Aquino, 30/09/2012
-4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
-4896   # printing            # r39544  #
-5011   # install             # r39550  #
-5909   # network-servers     # r39544  #
-6493   # advanced-networking # r39544  #
+580    # bibliography        # r39544  #
+2142   # eresources          # r39544  #
+40     # pgpkeys             # r39631  #
 2039   # glossary.ent        # r39534  #
 ##################################################################
+9215 Linhas
 
+#              Part I  - Getting Started                         # 
+##################################################################
+Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
+##################################################################
+1048   # introduction        # r39576  # Juliana Manczenko, 18/09/2012
+5011   # install             # r39550  #  
+2731   # bsdinstall          # r39550  #
+2716   # basics              # r39544  #
+1585   # ports               # r39544  #
+1743   # x11                 # r39595  #
+##################################################################
+14.834 Linhas
+ 
+#              Part II - Common Tasks                            # 
+##################################################################
+Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
+##################################################################
+1347   # desktop             # r39544  #
+1938   # multimedia          # r39544  #
+1548   # kernelconfig        # r39544  #
+4896   # printing            # r39544  #
+1345   # linuxemu            # r39544  #
+##################################################################
+11.074 Linhas
+
+#              Part III  - System Administration                 #
+##################################################################
+Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
+##################################################################
+3556   # config              # r39544  #
+1055   # boot                # r39544  # Marcelo Rossi, 24/09/2012
+1034   # users               # r39544  #
+4151   # security            # r39576  # Rafael Aquino, 30/09/2012
+988    # jails               # r39566  # Edson Brandi, 20/09/2012
+2075   # mac                 # r39544  #
+717    # audit               # r39544  # Leandro Silva, 25/09/2012
+4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
+981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
+885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
+1296   # vinum               # r39544  #
+1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
+943    # l10n                # r39544  #
+3180   # cutting-edge        # r39544  #
+387    # dtrace              # r39544  #
+##################################################################
+27.419 Linhas
+
+#              Part IV  -  Network Communication                 #
+##################################################################
+Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
+##################################################################
+2931   # serialcomms         # r39553  #
+3243   # ppp-and-slip        # r39544  #
+2230   # mail                # r39544  #
+5909   # network-servers     # r39544  #
+3376   # firewalls           # r39544  # Ricardo Ferreira, 21/09/2012
+6493   # advanced-networking # r39544  #
+##################################################################
+24.182 Linhas
