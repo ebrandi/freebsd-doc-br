@@ -972,54 +972,55 @@ jail_www_devfs_enable="YES"</programlisting>
 	    <screen>&prompt.root; <userinput>mkdir /home/j/ns /home/j/mail /home/j/www</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Install the read-write template into each jail.  Note
-	      the use of <filename
-		role="package">sysutils/cpdup</filename>, which helps to
-	      ensure that a correct copy is done of each
-	      directory:</para>
-	    <!-- keramida: Why is cpdup required here?  Doesn't cpio(1)
-	     already include adequate functionality for performing this
-	     job *and* have the advantage of being part of the base
-	     system of FreeBSD? -->
-
+	    <para>Instale o modelo de sistema de arquivo de leitura e
+	      escrita em cada <literal>jail</literal>.  Observe o uso
+	      do <filename role="package">sysutils/cpdup</filename>, o
+	      qual ajuda a garantir que será feita uma cópia correta
+	      de cada diretório:</para>
+	    
 	    <screen>&prompt.root; <userinput>mkdir /home/js</userinput>
 &prompt.root; <userinput>cpdup /home/j/skel /home/js/ns</userinput>
 &prompt.root; <userinput>cpdup /home/j/skel /home/js/mail</userinput>
 &prompt.root; <userinput>cpdup /home/j/skel /home/js/www</userinput></screen>
 	  </step>
 	  <step>
-	    <para>In this phase, the jails are built and prepared to
-	      run.  First, mount the required file systems for each
-	      jail, and then start them using the
-	      <filename>/etc/rc.d/jail</filename> script:</para>
+	    <para>Nesta fase, os <literal>jails</literal> estão 
+	      prontos e preparados para serem iniciados.  Primeiro, 
+	      monte o sistema de arquivo necessário para cada
+	      <literal>jail</literal>, e depois utilize o script
+	      <filename>/etc/rc.d/jail</filename> para
+	      iniciá-los:</para>
 
 	    <screen>&prompt.root; <userinput>mount -a</userinput>
 &prompt.root; <userinput>/etc/rc.d/jail start</userinput></screen>
 	  </step>
 	</procedure>
 
-	<para>The jails should be running now.  To check if they have
-	  started correctly, use the &man.jls.8; command.  Its output
-	  should be similar to the following:</para>
-
+	<para>Os <literal>jails</literal> devem estar em execução
+	  agora.  Para verificar se eles iniciaram corretamente, use o
+	  comando &man.jls.8;.  Ao executá-lo você deverá ver um
+	  resultado na tela semelhante ao que se segue:</para>
+	
 	<screen>&prompt.root; <userinput>jls</userinput>
    JID  IP Address      Hostname                      Path
      3  192.168.3.17    ns.example.org                /home/j/ns
      2  192.168.3.18    mail.example.org              /home/j/mail
      1  62.123.43.14    www.example.org               /home/j/www</screen>
 
-	<para>At this point, it should be possible to log onto each
-	  jail, add new users or configure daemons.  The
-	  <literal>JID</literal> column indicates the jail
-	  identification number of each running jail.  Use the
-	  following command in order to perform administrative tasks in
-	  the jail whose <literal>JID</literal> is 3:</para>
+	<para>Neste ponto, você já deve ser capaz de efetuar o login 
+	  em cada um dos jails, de adicionar novos usuários ou de
+	  configurar seus serviços.  A coluna <literal>JID</literal>
+	  indica o numero de identificação de cada
+	  <literal>jail</literal> em execução.  Por exemplo, utilize o
+	  seguinte comando para executar tarefas administrativas
+	  dentro do <literal>jail</literal> cujo
+	  <literal>JID</literal> é 3:</para>
 
 	<screen>&prompt.root; <userinput>jexec 3 tcsh</userinput></screen>
       </sect3>
 
       <sect3 id="jails-service-jails-upgrading">
-	<title>Upgrading</title>
+	<title>Atualização</title>
 
 	<para>In time, there will be a need to upgrade the system to a
 	  newer version of &os;, either because of a security issue, or
