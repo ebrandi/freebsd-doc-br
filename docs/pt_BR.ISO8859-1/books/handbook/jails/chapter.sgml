@@ -884,19 +884,22 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
       <sect3 id="jails-service-jails-creating">
 	<title>Criando <literal>Jails</literal></title>
 
-	<para>Now that we have a complete &os; jail template, we can
-	  setup and configure the jails in
-	  <filename>/etc/rc.conf</filename>.  This example demonstrates
-	  the creation of 3 jails: <quote>NS</quote>,
-	  <quote>MAIL</quote> and <quote>WWW</quote>.</para>
-
+	<para>Agora que temos um modelo de <literal>jail</literal>
+	  contendo uma versão completa do &os;, nós já podemos
+	  instalar e configurar os <literal>jails</literal> no
+	  <filename>/etc/rc.conf</filename>.  Este exemplo demonstra a
+	  criação de 3 <literal>jails</literal>: <quote>NS</quote>,
+	  <quote>MAIL</quote> e <quote>WWW</quote>.</para>
+	
 	<procedure>
 	  <step>
-	    <para>Put the following lines into the
-	      <filename>/etc/fstab</filename> file, so that the
-	      read-only template for the jails and the read-write space
-	      will be available in the respective jails:</para>
-
+	    <para>Coloque as linhas abaixo no arquivo
+	      <filename>/etc/fstab</filename>, para que as áreas de
+	      leitura e escrita e as áreas apenas de leitura,
+	      previstas no modelo e preparadas acima, fiquem 
+	      disponíveis nos respectivos 
+	      <literal>jails</literal>:</para>
+	    
 	    <programlisting>/home/j/mroot   /home/j/ns     nullfs  ro  0   0
 /home/j/mroot   /home/j/mail   nullfs  ro  0   0
 /home/j/mroot   /home/j/www    nullfs  ro  0   0
@@ -905,20 +908,23 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 /home/js/www    /home/j/www/s  nullfs  rw  0   0</programlisting>
 
 	    <note>
-	      <para>Partitions marked with a 0 pass number are not
-		checked by &man.fsck.8; during boot, and partitions
-		marked with a 0 dump number are not backed up by
-		&man.dump.8;.  We do not want
-		<application>fsck</application> to check
-		<application>nullfs</application> mounts or
-		<application>dump</application> to back up the read-only
-		nullfs mounts of the jails.  This is why they are marked
-		with <quote>0&nbsp;0</quote> in the last two columns of
-		each <filename>fstab</filename> entry above.</para>
+	      <para>As partições marcadas com um <literal>pass
+		number</literal> igual a 0 não são verificadas pelo
+		&man.fsck.8; durante a inicialização do sistema, e o
+		&man.dump.8; não faz backup das partições marcadas com
+		um <literal>dump number</literal> igual a 0.  Nós não
+		queremos que o <application>fsck</application>
+		verifique as áreas <application>nullfs</application>
+		ou que o <application>dump</application> faça backup
+		das áreas dos jails que são somente de leitura.  Este
+		é o motivo pelo qual eles estão marcados com
+		<quote>0&nbsp;0</quote> nas duas últimas colunas de
+		cada registro do <filename>fstab</filename>
+		acima.</para>
 	    </note>
 	  </step>
 	  <step>
-	    <para>Configure the jails in
+	    <para>Configure os <literal>jails </literal> no
 	      <filename>/etc/rc.conf</filename>:</para>
 
 	    <programlisting>jail_enable="YES"
@@ -938,28 +944,31 @@ jail_www_rootdir="/usr/home/j/www"
 jail_www_devfs_enable="YES"</programlisting>
 
 	    <warning>
-	      <para>The reason why the
+	      <para>
+		A razão pela qual a variável
 		<varname>jail_<replaceable>name</replaceable>_rootdir</varname>
-		variable is set to <filename
-		  class="directory">/usr/home</filename> instead of
-		<filename class="directory">/home</filename> is that the
-		physical path of the <filename
-		  class="directory">/home</filename> directory on a
-		default &os; installation is <filename
-		  class="directory">/usr/home</filename>.  The
+		está definida para <filename
+		class="directory">/usr/home</filename> em vez de
+		<filename class="directory">/home</filename> é que
+		este é o caminho físico do diretório <filename
+		class="directory">/home</filename> em uma instalação
+		padrão do &os;.  A variável
 		<varname>jail_<replaceable>name</replaceable>_rootdir</varname>
-		variable must <emphasis>not</emphasis> be set to a path
-		which includes a symbolic link, otherwise the jails will
-		refuse to start.  Use the &man.realpath.1; utility to
-		determine a value which should be set to this variable.
-		Please see the &os;-SA-07:01.jail Security Advisory for
-		more information.</para>
+		<emphasis>não</emphasis> deve ser configurada
+		apontando para um caminho que inclua um link 
+		simbólico, caso contrário você não irá conseguir 
+		iniciar os <literal>jails</literal>.  Utilize o 
+		utilitário &man.realpath.1; para determinar o valor 
+		que deve ser configurado nesta variável.  Por favor, 
+		consulte o boletim de segurança &os;-SA-07:01.jail 
+		para maiores informações.</para>
 	    </warning>
 	  </step>
 	  <step>
-	    <para>Create the required mount points for the read-only
-	      file system of each jail:</para>
-
+	    <para>Crie os pontos de montagem necessários para o
+	      sistema de arquivo de cada jail, os quais serão 
+	      acessados apenas em modo de leitura:</para>
+	    
 	    <screen>&prompt.root; <userinput>mkdir /home/j/ns /home/j/mail /home/j/www</userinput></screen>
 	  </step>
 	  <step>
