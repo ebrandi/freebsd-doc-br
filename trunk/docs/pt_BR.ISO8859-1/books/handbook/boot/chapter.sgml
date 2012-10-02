@@ -782,35 +782,38 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
   </sect1>
 
   <sect1 id="boot-kernel">
-    <title>Kernel Interaction During Boot</title>
+    <title>Interação com o Kernel durante a Inicialização</title>
     <indexterm>
       <primary>kernel</primary>
       <secondary>boot interaction</secondary>
     </indexterm>
 
-    <para>Once the kernel is loaded by either <link
-	linkend="boot-loader">loader</link> (as usual) or <link
-	linkend="boot-boot1">boot2</link> (bypassing the loader), it
-      examines its boot flags, if any, and adjusts its behavior as
-      necessary.</para>
+    <para>Quando o kernel termina de ser carregado pelo <link
+      linkend="boot-loader">carregador</link> (em situações normais)
+      ou pelo <link linkend="boot-boot1">boot2</link> (ignorando o
+      carregador), o kernel analisa seus parâmetros de inicialização,
+      se existirem, e ajusta seu comportamento conforme for
+      necessário.</para>
 
     <sect2 id="boot-kernel-bootflags">
-      <title>Kernel Boot Flags</title>
+      <title>Parâmetros de Inicialização do Kernel</title>
 
       <indexterm>
 	<primary>kernel</primary>
 	<secondary>bootflags</secondary>
       </indexterm>
 
-      <para>Here are the more common boot flags:</para>
+      <para>Aqui estão os parâmetros mais comuns de
+	inicialização:</para>
 
       <variablelist id="boot-kernel-bootflags-list">
 	<varlistentry>
 	  <term><option>-a</option></term>
 
 	  <listitem>
-	    <para>during kernel initialization, ask for the device
-	      to mount as the root file system.</para>
+	    <para>durante a inicialização do kernel, pergunta por um
+	      dispositivo para montar como o sistema de arquivos
+	      raiz.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -818,7 +821,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-C</option></term>
 
 	  <listitem>
-	    <para>boot from CDROM.</para>
+	    <para>inicia a partir do CDROM.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -826,8 +829,8 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-c</option></term>
 
 	  <listitem>
-	    <para>run UserConfig, the boot-time kernel
-	      configurator</para>
+	    <para>executa o UserConfig, o configurador do kernel
+	      usado durante a inicialização.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -835,7 +838,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-s</option></term>
 
 	  <listitem>
-	    <para>boot into single-user mode</para>
+	    <para>inicia em modo mono-usuário.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -843,14 +846,15 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-v</option></term>
 
 	  <listitem>
-	    <para>be more verbose during kernel startup</para>
+	    <para>é mais verboso durante a inicialização do
+	      kernel.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
 
       <note>
-	<para>There are other boot flags, read &man.boot.8; for more
-	  information on them.</para>
+        <para>Há outros parâmetros de inicialização, leia o
+	  &man.boot.8; para mais informações sobre eles.</para>
       </note>
     </sect2>
 
@@ -873,139 +877,147 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       <!-- 18 OCT 2002 -->
     </sect1info>
 
-    <title>Device Hints</title>
+    <title>Ajustes dos Dispositivos</title>
 
     <indexterm>
       <primary>device.hints</primary>
     </indexterm>
 
-    <para>During initial system startup, the boot &man.loader.8; will
-      read the &man.device.hints.5; file.  This file stores kernel
-      boot information known as variables, sometimes referred to as
-      <quote>device hints</quote>.  These <quote>device hints</quote>
-      are used by device drivers for device configuration.</para>
+    <para>Durante a inicialização do sistema, o carregador
+      (&man.loader.8;) lerá o arquivo &man.device.hints.5;.  Esse
+      arquivo armazena informações da inicialização conhecidas como
+      variáveis, algumas vezes referidas por <quote>ajustes dos
+      dispositivos</quote>, ou <literal>device hints</literal>.
+      Estes <quote>ajustes dos dispositivos</quote> são usados pelos
+      <literal>drivers</literal> dos dispositivos para configurar os
+      dispositivos.</para>
 
-    <para>Device hints may also be specified at the
-      <link linkend="boot-loader">
-      Stage 3 boot loader</link> prompt.  Variables can be added using
-      <command>set</command>, removed with <command>unset</command>,
-      and viewed with the <command>show</command> commands.  Variables
-      set in the <filename>/boot/device.hints</filename> file can be
-      overridden here also.  Device hints entered at the boot loader
-      are not permanent and will be forgotten on the next
-      reboot.</para>
+    <para>Os ajustes dos dispositivos podem ser especificados também
+      no prompt da <link linkend="boot-loader">Etapa 3 da
+      inicialização</link>.  Variáveis podem ser adicionadas usando o
+      commando <command>set</command>, removidas com o comando
+      <command>unset</command>. e visualizadas com o comando
+      <command>show</command>.  Variáveis definidas no arquivo
+      <filename>/boot/device.hints</filename> também podem ser
+      sobrescritas no prompt.  Ajustes dos dispositivos definidos no
+      carregador de inicialização não são permanentes e serão
+      esquecidos na próxima reinicialização.</para>
 
-    <para>Once the system is booted, the &man.kenv.1; command can be
-      used to dump all of the variables.</para>
+    <para>Depois que o sistema é iniciado, o comando &man.kenv.1; pode
+      ser usado para exibir todas as variáveis.</para>
 
-    <para>The syntax for the <filename>/boot/device.hints</filename>
-      file is one variable per line, using the standard hash
-      <quote>#</quote> as comment markers.  Lines are constructed as
-      follows:</para>
+    <para>A sintaxe do arquivo <filename>/boot/device.hints</filename>
+      é uma variável por linha, usando o caractere padrão cerquilha
+      <quote>#</quote> como indicador de comentário.  As linhas são
+      feitas como a seguir:</para>
 
-    <screen><userinput>hint.driver.unit.keyword="<replaceable>value</replaceable>"</userinput></screen>
+    <screen><userinput>hint.driver.unidade.palavrachave="<replaceable>valor</replaceable>"</userinput></screen>
 
-    <para>The syntax for the Stage 3 boot loader is:</para>
+    <para>A sintaxe para a Etapa 3 da inicialização é:</para>
 
-    <screen><userinput>set hint.driver.unit.keyword=<replaceable>value</replaceable></userinput></screen>
+    <screen><userinput>set hint.driver.unidade.palavrachave=<replaceable>valor</replaceable></userinput></screen>
 
-    <para><literal>driver</literal> is the device driver name,
-      <literal>unit</literal> is the device driver unit number, and
-      <literal>keyword</literal> is the hint keyword.  The keyword may
-      consist of the following options:</para>
+    <para><literal>driver</literal> é o nome do
+      <literal>driver</literal> do dispositivo,
+      <literal>unidade</literal> é o número da unidade do
+      <literal>driver</literal> do dispositivo, e
+      <literal>palavrachave</literal> é a palavra chave de ajuste.  A
+      palavra chave deve ser uma das seguintes opções:</para>
 
     <itemizedlist>
       <listitem>
-	<para><literal>at</literal>: specifies the bus which the
-	  device is attached to.</para>
+	<para><literal>at</literal>: especifica o barramento a qual o
+	  dispositivo está ligado.</para>
       </listitem>
 
       <listitem>
-	<para><literal>port</literal>: specifies the start address of
-	  the <acronym>I/O</acronym> to be used.</para>
+	<para><literal>port</literal>: especifica o endereço inicial
+	  de <acronym>E/S</acronym> a ser usado.</para>
       </listitem>
 
       <listitem>
-	<para><literal>irq</literal>: specifies the interrupt request
-	  number to be used.</para>
+	<para><literal>irq</literal>: especifica o número da
+	  interrupção a ser usado.</para>
       </listitem>
 
       <listitem>
-	<para><literal>drq</literal>: specifies the DMA channel
-	  number.</para>
+	<para><literal>drq</literal>: especifica o número do canal
+	  DMA. </para>
       </listitem>
 
       <listitem>
-	<para><literal>maddr</literal>: specifies the physical memory
-	  address occupied by the device.</para>
+	<para><literal>maddr</literal>: especifica o endereço físico
+	  de memória que o dispositivo ocupa.</para>
       </listitem>
 
       <listitem>
-	<para><literal>flags</literal>: sets various flag bits for the
-	  device.</para>
+	<para><literal>flags</literal>: define vários parâmetros para
+	  o dispositivo.</para>
       </listitem>
 
       <listitem>
-	<para><literal>disabled</literal>: if set to
-	  <literal>1</literal> the device is disabled.</para>
+	<para><literal>disabled</literal>: se for definido para
+	  <literal>1</literal> o dispositivo é desabilitado.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Device drivers may accept (or require) more hints not listed
-      here, viewing their manual page is recommended.  For more
-      information, consult the &man.device.hints.5;, &man.kenv.1;,
-      &man.loader.conf.5;, and &man.loader.8; manual pages.</para>
+    <para>Drivers de dispositivos podem aceitar (ou precisar) mais
+      ajustes que não estão listados aqui, é recomendado consultar a
+      página do manual deles.  Para mais informações, consulte as
+      páginas do manual &man.device.hints.5;, &man.kenv.1;,
+      &man.loader.conf.5;, e &man.loader.8;.</para>
   </sect1>
 
   <sect1 id="boot-init">
-    <title>Init: Process Control Initialization</title>
+    <title>Init: Processo de Controle da Inicialização</title>
 
     <indexterm>
       <primary><command>init</command></primary>
     </indexterm>
 
-    <para>Once the kernel has finished booting, it passes control to
-      the user process &man.init.8;, which is located at
-      <filename>/sbin/init</filename>, or the program path specified
-      in the <envar>init_path</envar> variable in
-      <command>loader</command>.</para>
+    <para>Quando o kernel termina a inicialização, ele passa o
+      controle para o processo &man.init.8; do usuário, que está
+      localizado em <filename>/sbin/init</filename>, ou no caminho
+      definido na variável <envar>init_path</envar> no
+      <command>carregador</command>.</para>
 
     <sect2 id="boot-autoreboot">
-      <title>Automatic Reboot Sequence</title>
+      <title>Sequência Automática de Reinicialização</title>
 
-      <para>The automatic reboot sequence makes sure that the file
-	systems available on the system are consistent.  If they are
-	not, and &man.fsck.8; cannot fix the inconsistencies,
-	&man.init.8; drops the system into
-	<link linkend="boot-singleuser">single-user mode</link> for
-	the system administrator to take care of the problems
-	directly.</para>
+      <para>A sequência automática de reinicialização assegura que os
+	sistemas de arquivos disponíveis no sistema estão
+	consistentes.  Se eles não estiverem, e o &man.fsck.8; não
+	consertar as inconsistências, o &man.init.8; põe o sistema no
+	<link linkend="boot-singleuser">modo mono-usuário</link> para
+	que o administrador do sistema tome as devidas
+	providências.</para>
     </sect2>
 
     <sect2 id="boot-singleuser">
-      <title>Single-User Mode</title>
+      <title>Modo Mono-Usuário</title>
       <indexterm><primary>single-user mode</primary></indexterm>
       <indexterm><primary>console</primary></indexterm>
 
-      <para>This mode can be reached through the
-	<link linkend="boot-autoreboot">automatic reboot
-	  sequence</link>, or by the user booting with the
-	<option>-s</option> option or setting the
-	<envar>boot_single</envar> variable in
-	<command>loader</command>.</para>
+      <para>Esse modo pode ser alcançado através da <link
+      	linkend="boot-autoreboot">sequência automática de
+	reinicialização</link>, ou pelo usuário iniciando com o
+	parâmetro <option>-s</option> ou definindo a variável
+	<envar>boot_single</envar> no
+	<command>carregador</command>.</para>
 
-      <para>It can also be reached by calling &man.shutdown.8; without
-	the reboot (<option>-r</option>) or halt (<option>-h</option>)
-	options, from <link linkend="boot-multiuser">multi-user
-	  mode</link>.</para>
+      <para>Ele também pode ser alcançado por chamar &man.shutdown.8;
+	sem os parâmetros reiniciar (<option>-r</option>) ou desligar
+	(<option>-h</option>), no modo <link
+	linkend="boot-multiuser">multi-usuário</link>.</para>
 
-      <para>If the system <literal>console</literal> is set to
-	<literal>insecure</literal> in <filename>/etc/ttys</filename>,
-	then the system prompts for the <username>root</username>
-	password before initiating single-user mode.</para>
+      <para>Se o <literal>console</literal> do sistema está definido
+	como <literal>insecure</literal> no arquivo
+	<filename>/etc/ttys</filename>, então o sistema pede pela
+	senha do <username>root</username> antes de iniciar o modo
+	mono-usuário.</para>
 
       <example id="boot-insecure-console">
-	<title>An Insecure Console in
+	<title>Console Inseguro em
 	  <filename>/etc/ttys</filename></title>
 
 	<programlisting># name  getty                           type    status          comments
@@ -1016,78 +1028,79 @@ console none                            unknown off insecure</programlisting>
       </example>
 
       <note>
-	<para>An <literal>insecure</literal> console means that you
-	  consider your physical security to the console to be
-	  insecure, and want to make sure only someone who knows the
-	  <username>root</username> password may use single-user mode,
-	  and it does not mean that you want to run your console
-	  insecurely.  Thus, if you want security, choose
-	  <literal>insecure</literal>, not
+	<para>Console <literal>insecure</literal> significa que você
+	  considera insegura a segurança física do console, e quer
+	  assegurar que apenas quem conhece a senha do
+	  <username>root</username> pode usar o modo mono-usuário, e
+	  não significa que você quer executar o seu console de forma
+	  insegura.  Portanto, se você quer segurança, escolha
+	  <literal>insecure</literal>, ao invés de
 	  <literal>secure</literal>.</para>
       </note>
     </sect2>
 
     <sect2 id="boot-multiuser">
-      <title>Multi-User Mode</title>
+      <title>Modo Multi-Usuário</title>
       <indexterm><primary>multi-user mode</primary></indexterm>
 
-      <para>If &man.init.8; finds your file systems to be in order, or
-	once the user has finished in <link
-	  linkend="boot-singleuser">single-user mode</link>, the
-	system enters multi-user mode, in which it starts the
-	resource configuration of the system.</para>
+      <para>Se o &man.init.8; considerar que o seu sistema de arquivos
+	está em ordem, ou assim que o usuário sair do <link
+	linkend="boot-singleuser">modo mono-usuário</link>, o sistema
+	entra no modo multi-usuário, no qual ele inicia a configuração
+	de recursos do sistema.</para>
 
       <sect3 id="boot-rc">
-	<title>Resource Configuration (rc)</title>
+	<title>Configuração de Recursos (rc)</title>
 
 	<indexterm><primary>rc files</primary></indexterm>
 
-	<para>The resource configuration system reads in
-	  configuration defaults from
-	  <filename>/etc/defaults/rc.conf</filename>, and
-	  system-specific details from
-	  <filename>/etc/rc.conf</filename>, and then proceeds to
-	  mount the system file systems mentioned in
-	  <filename>/etc/fstab</filename>, start up networking
-	  services, start up miscellaneous system daemons, and
-	  finally runs the startup scripts of locally installed
-	  packages.</para>
+	<para>A configuração de recursos do sistema le as
+	  configurações padrões do
+	  <filename>/etc/defaults/rc.conf</filename>, e os detalhes
+	  específicos do sistema do <filename>/etc/rc.conf</filename>,
+	  e então prossegue para montar os sistemas de arquivos
+	  mencionados no <filename>/etc/fstab</filename>, inicia os
+	  serviços de rede, inicia vários
+	  <foreignphrase>daemons</foreignphrase> do sistema, e
+	  finalmente executa os scripts de inicialização dos pacotes
+	  instalados.</para>
 
-	<para>The &man.rc.8; manual page is a good reference to the
-	  resource configuration system, as is examining the scripts
-	  themselves.</para>
+	<para>A página do manual do &man.rc.8; é uma boa referência
+	  para a configuração de recursos do sistema, assim como
+	  também examinar os scripts dos recursos.</para>
       </sect3>
     </sect2>
   </sect1>
 
   <sect1 id="boot-shutdown">
-    <title>Shutdown Sequence</title>
+    <title>Sequência de Encerramento</title>
 
     <indexterm>
       <primary><command>shutdown</command></primary>
     </indexterm>
 
-    <para>Upon controlled shutdown, via &man.shutdown.8;,
-      &man.init.8; will attempt to run the script
-      <filename>/etc/rc.shutdown</filename>, and then proceed to send
-      all processes the <literal>TERM</literal> signal, and
-      subsequently the <literal>KILL</literal> signal to any that do
-      not terminate timely.</para>
+    <para>Durante um encerramento controlado, via &man.shutdown.8;, o
+      &man.init.8; tentará executar o script
+      <filename>/etc/rc.shutdown</filename>, e então prosseguir
+      enviando para todos os processos o sinal
+      <literal>TERM</literal>, e posteriormente o sinal
+      <literal>KILL</literal> para todo processo que não terminar a
+      tempo.</para>
 
-    <para>To power down a FreeBSD machine on architectures and systems
-      that support power management, use the command
-      <command>shutdown -p now</command> to turn the power off
-      immediately.  To just reboot a FreeBSD system, just use
-      <command>shutdown -r now</command>.  You need to be
-      <username>root</username> or a member of
-      <groupname>operator</groupname> group to run &man.shutdown.8;.
-      The &man.halt.8; and &man.reboot.8; commands can also be used,
-      please refer to their manual pages and to &man.shutdown.8;'s one
-      for more information.</para>
+    <para>Para desligar uma máquina FreeBSD em arquiteturas e sistemas
+      que suportam gerenciamento de energia, use o comando
+      <command>shutdown -p now</command> para desligar a energia
+      imediatamente.  Para reiniciar o sistema FreeBSD, use o comando
+      <command>shutdown -r now</command>.  Você precisa ser
+      <username>root</username> ou membro do grupo
+      <groupname>operator</groupname> para executar &man.shutdown.8;.
+      Os comandos &man.halt.8; e &man.reboot.8; também podem ser
+      usados, por favor consulte as páginas deles do manual e também
+      a página do &man.shutdown.8; para mais informações.</para>
 
     <note>
-      <para>Power management requires &man.acpi.4; support in the
-	kernel or loaded as module for.</para>
+      <para>O gerenciamento de energia precisa do suporte &man.acpi.4;
+	no kernel ou carregado como módulo.</para>
     </note>
   </sect1>
 </chapter>
