@@ -707,61 +707,70 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 	  </listitem>
 	</itemizedlist>
 
-	<para>As it has been already mentioned, this design relies
-	  heavily on having a single master template which is read-only
-	  (known as <application>nullfs</application>) mounted into each
-	  jail and one read-write device per jail.  A device can be a
-	  separate physical disc, a partition, or a vnode backed
-	  &man.md.4; device.  In this example, we will use read-write
-	  <application>nullfs</application> mounts.</para>
+	<para>Como já foi mencionado, este projeto baseia-se 
+	  fortemente em ter um único modelo mestre o qual é montado 
+	  somente em modo de leitura (<literal>read-only</literal>) 
+	  dentro de cada <literal>jail</literal> (conhecido como
+	  <application>nullfs</application>) e um dispositivo montado
+	  em modo de leitura e de escrita por <literal>jail</literal>.
+	  Um dispositivo pode ser um disco físico separado, uma
+	  partição ou vnode suportado por um dispositivo &man.md.4;.
+	  Neste exemplo, iremos utilizar montagens
+	  <application>nullfs</application> em modo de leitura e
+	  escrita.</para>
 
-	<para>The file system layout is described in the following
-	  list:</para>
+	<para>Organização do sistema de arquivos é descrito na lista a
+	  seguir:</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Each jail will be mounted under the <filename
-	      class="directory">/home/j</filename> directory.</para>
+	    <para>Cada <literal>jail</literal> será montado sob o
+	      diretório <filename
+	      class="directory">/home/j</filename>.</para>
 	  </listitem>
 	  <listitem>
-	    <para><filename class="directory">/home/j/mroot</filename> is
-	      the template for each jail and the read-only partition for
-	      all of the jails.</para>
+	    <para>O <filename
+	      class="directory">/home/j/mroot</filename> é o modelo 
+	      para cada <literal>jail</literal> e a partição montada 
+	      em modo somente de leitura para todos os 
+	      <literal>jails</literal>.</para>
 	  </listitem>
 	  <listitem>
-	    <para>A blank directory will be created for each jail under
-	      the  <filename class="directory">/home/j</filename>
-	      directory.</para>
+	    <para>Um diretório vazio será criado para cada 
+	      <literal>jail</literal> sob o diretório <filename
+	      class="directory">/home/j</filename>.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Each jail will have a <filename
-		class="directory">/s</filename> directory, that will be
-	      linked to the read-write portion of the system.</para>
+	    <para>Cada <literal>jail</literal> terá um diretório
+	      <filename class="directory">/s</filename>, o qual estará
+	      ligado à área de leitura e escrita do sistema.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Each jail shall have its own read-write system that is
-	      based upon <filename
-		class="directory">/home/j/skel</filename>.</para>
+	    <para>Cada <literal>jail</literal> deverá ter seu proprio
+	      sistema de leitura e escrita, que é baseado em <filename
+	      class="directory">/home/j/skel</filename>.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Each jailspace (read-write portion of each jail) shall
-	      be created in <filename
-		class="directory">/home/js</filename>.</para>
+	    <para>Cada <literal>jailspace</literal> (área de leitura e
+	      escrita de cada <literal>jail</literal>) deverá ser 
+	      criado sob o diretório <filename 
+	      class="directory">/home/js</filename>.</para>
 	  </listitem>
 	</itemizedlist>
 
 	<note>
-	  <para>This assumes that the jails are based under the
-	    <filename class="directory">/home</filename> partition.  This
-	    can, of course, be changed to anything else, but this change
-	    will have to be reflected in each of the examples
-	    below.</para>
+	  <para>A lista acima assume que os <literal>jails</literal> 
+	    estão baseados na partição <filename
+	    class="directory">/home</filename>.  Evidentemente esta
+	    localização pode ser alterada para qualquer outra coisa,
+	    se optar por usar outra localização lembre-se que a 
+	    mudança terá que ser refletida em cada um dos
+	    exemplos abaixo.</para>
 	</note>
-	<!-- Insert an image or drawing here to illustrate the example. -->
       </sect3>
 
       <sect3 id="jails-service-jails-template">
-	<title>Creating the Template</title>
+	<title>Criando o Modelo</title>
 
 	<para>This section will describe the steps needed to create the
 	  master template that will be the read-only portion for the
