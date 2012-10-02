@@ -42,7 +42,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 3556   # config              # r39544  #
-1055   # boot                # r39544  # Marcelo Rossi, 24/09/2012
+1055   # boot                # r39544  # Pronto para revisão
 1034   # users               # r39544  #
 4151   # security            # r39576  # Rafael Aquino, 30/09/2012
 988    # jails               # r39566  # Edson Brandi, 20/09/2012
