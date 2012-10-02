@@ -610,7 +610,7 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 	  <author>
 	    <firstname>Daniel</firstname>
 	    <surname>Gerzo</surname>
-	    <contrib>Contributed by </contrib>
+	    <contrib>Contribuído por </contrib>
 	    <!-- 15. May 2007 -->
 	  </author>
 	</authorgroup>
@@ -618,79 +618,92 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 
       <title><literal>Jails</literal> de Serviço</title>
 
-      <para>This section is based upon an idea originally presented by
-	&a.simon; at <ulink
-	url="http://simon.nitro.dk/service-jails.html"></ulink>, and an
-	updated article written by Ken Tom
-	<email>locals@gmail.com</email>.  This section illustrates how
-	to set up a &os; system that adds an additional layer of
-	security, using the &man.jail.8; feature.  It is also assumed
-	that the given system is at least running RELENG_6_0 and the
-	information provided earlier in this chapter has been well
-	understood.</para>
-
+      <para>Esta seção é baseada em uma idéia apresentada 
+	originalmente por &a.simon; em <ulink
+	url="http://simon.nitro.dk/service-jails.html"></ulink> e em
+	um artigo atualizado escrito por by Ken Tom
+	<email>locals@gmail.com</email>.  Esta seção demonstra como
+	utilizar o &man.jail.8; para adicionar uma camada adicional de
+	segurança a um servidor &os;.  Esta seção assume como premissa
+	que você está executando pelo menos a RELENG_6_0 e que as
+	informações disponibilizadas anteriormente neste capítulo
+	foram bem compreendidas.</para>
+      
       <sect3 id="jails-service-jails-design">
-       <title>Design</title>
+       <title>Projeto</title>
 
-	<para>One of the major problems with jails is the management of
-	  their upgrade process.  This tends to be a problem because
-	  every jail has to be rebuilt from scratch whenever it is
-	  updated.  This is usually not a problem for a single jail,
-	  since the update process is fairly simple, but can be quite
-	  time consuming and tedious if a lot of jails are
-	  created.</para>
-
+	<para>Um dos principais problemas dos <literal>jails</literal>
+	  é a gestão do seu processo de atualização.  Esta atividade 
+	  tende a ser um problema pois todo <literal>jail</literal> 
+	  precisa ser reconstruido do zero sempre que tem que ser
+	  atualizado.  Normalmente isto não é um problema para um
+	  único <literal>jail</literal>, uma vez que o processo de
+	  atualização é bastante simples, mas pode consumir  muito
+	  tempo e ser tedioso se você tiver muitos
+	  <literal>jails</literal> para atualizar.</para>
+	
 	<warning>
-	  <para>This setup requires advanced experience with &os; and
-	    usage of its features.  If the presented steps below look
-	    too complicated, it is advised to take a look at a simpler
-	    system such as <filename
-	      role="package">sysutils/ezjail</filename>, which provides
-	    an easier method of administering &os; jails and is not as
-	    sophisticated as this setup.</para>
+	  <para>Esta instalação requer experiência avançada com o &os;
+	    e com o uso dos seus recursos.  Se os passos apresentados
+	    abaixo lhe parecem muito complicados, é aconselhável que
+	    você considere o uso de um sistema mais simples, como por
+	    exemplo o <filename
+	    role="package">sysutils/ezjail</filename>, o qual oferece
+	    um método mais fácil de se administrar um
+	    <literal>jail</literal> &os; e que não é tão sofisticado
+	    quanto este.</para>
 	</warning>
 
-	<para>This idea has been presented to resolve such issues by
-	  sharing as much as is possible between jails, in a safe way
-	  &mdash; using read-only &man.mount.nullfs.8; mounts, so that
-	  updating will be simpler, and putting single services into
-	  individual jails will become more attractive.  Additionally,
-	  it provides a simple way to add or remove jails as well as a
-	  way to upgrade them.</para>
-
+	<para>Esta idéia foi apresentada para resolver essas questões
+	  através do compartilhamento seguro de tudo que é possível de
+	  ser compartilhado entre diferentes <literal>jails</literal>
+	  &mdash; através da utilização de pontos de montagem
+	  &man.mount.nullfs.8; setados apenas para leitura, de forma
+	  que a atualização seja mais simples, e a instalação de
+	  serviços individuais em <literal>jails</literal> individuais
+	  seja mais atraente.  Além disso, ele proporciona uma maneira
+	  simples de adicionar ou remover um <literal>jail</literal>,
+	  bem como uma forma de atualizá-los.</para>
+	
 	<note>
-	  <para>Examples of services in this context are: an
-	  <acronym>HTTP</acronym> server, a <acronym>DNS</acronym>
-	  server, a <acronym>SMTP</acronym> server, and so forth.</para>
+	  <para>Exemplos de serviços neste contexto são: um servidor
+	    <acronym>HTTP</acronym>, um servidor
+	    <acronym>DNS</acronym>, um servidor
+	    <acronym>SMTP</acronym>, e assim por diante.</para>
 	</note>
 
-	<para>The goals of the setup described in this section
-	  are:</para>
+	<para>Os objetivos da configuração descrita nesta seção
+	  são:</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Create a simple and easy to understand jail structure.
-	      This implies <emphasis>not</emphasis> having to run a full
-	      installworld on each and every jail.</para>
+	    <para>Criar uma estrutura de <literal>jail</literal>
+	      simples e fácil de entender. Isto implica em
+	      <emphasis>não</emphasis> ter que executar um 
+	      installworld completo para cada 
+	      <literal>jail</literal>.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Make it easy to add new jails or remove existing
-	      ones.</para>
+	    <para>Tornar mais fácil o processo para se adicionar um
+	      novo <literal>jail</literal> ou para se remover os já
+	      existentes.</para> 
 	  </listitem>
 	  <listitem>
-	    <para>Make it easy to update or upgrade existing
-	      jails.</para>
+	    <para>Tornar mais fácil o processo de atualização de um
+	      <literal>jail</literal> existente.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Make it possible to run a customized &os;
-	      branch.</para>
+	    <para>Tornar possível a execução de um ramo
+	      (<literal>branch</literal>) personalizado do 
+	      &os;.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Be paranoid about security, reducing as much as
-	      possible the possibility of compromise.</para>
+	    <para>Ser paranóico com a segurança, reduzindo ao máximo a
+	      possibilidade de ser comprometido.</para>
 	  </listitem>
 	  <listitem>
-	    <para>Save space and inodes, as much as possible.</para>
+	    <para>Poupar espaço e inodes, tanto quanto 
+	      possível.</para>
 	  </listitem>
 	</itemizedlist>
 
