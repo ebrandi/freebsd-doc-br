@@ -772,47 +772,56 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
       <sect3 id="jails-service-jails-template">
 	<title>Criando o Modelo</title>
 
-	<para>This section will describe the steps needed to create the
-	  master template that will be the read-only portion for the
-	  jails to use.</para>
-
-	<para>It is always a good idea to update the &os; system to the
-	  latest -RELEASE branch.  Check the corresponding Handbook
-	  <ulink url="&url.books.handbook;/makeworld.html">Chapter</ulink>
-	  to accomplish this task.  In the case the update is not
-	  feasible, the buildworld will be required in order to be able
-	  to proceed.  Additionally, the <filename
-	    role="package">sysutils/cpdup</filename> package will be
-	  required.  We will use the &man.portsnap.8; utility to
-	  download the &os; Ports Collection.  The Handbook <ulink
-	    url="&url.books.handbook;/portsnap.html">Portsnap Chapter</ulink>
-	  is always good reading for newcomers.</para>
-
+	<para>Esta seção irá descrever os passos necessários para 
+	  criar o modelo mestre o qual vai ser montado em modo somente
+	  de leitura para os <literal>jails</literal> 
+	  utilizarem.</para>
+	
+	<para>É sempre uma boa idéia atualizar o sistema &os; para o
+	  ultimo ramo (<literal>branch</literal>) -RELEASE.  Consulte
+	  o <ulink
+	  url="&url.books.handbook;/makeworld.html">capítulo</ulink>
+	  correspondente do Handbook para realizar esta tarefa.  Caso
+	  a atualização não seja viável, será necessário realizar um
+	  <literal>buildworld</literal> a fim de que possamos
+	  prosseguir.  Também iremos precisar do pacote <filename
+	  role="package">sysutils/cpdup</filename>.  Nós iremos
+	  utilizar o aplicativo &man.portsnap.8; para efetuar o
+	  download da Coleção de <literal>Ports</literal> do &os;.  O
+	  <ulink url="&url.books.handbook;/portsnap.html">capítulo
+	  sobre Portsnap</ulink> do Handbook é sempre uma boa leitura
+	  para os usuários novatos.</para>
+	
 	<procedure>
 	  <step>
-	    <para>First, create a directory structure for the read-only
-	      file system which will contain the &os; binaries for our
-	      jails, then change directory to the &os; source tree and
-	      install the read-only file system to the jail
-	      template:</para>
+	    <para>Primeiro, crie a estrutura de diretórios para o 
+	      sistema de arquivos a qual irá conter os binários do 
+	      &os; dos nossos <literal>jails</literal>, depois vá para
+	      o diretório no qual você mantém o código fonte do &os; e
+	      proceda com a sua instalação tendo como alvo a estrutura
+	      de diretórios que você acabou de criar e que será a area
+	      modelo para todos os <literal>jails</literal>:</para>
 
 	    <screen>&prompt.root; <userinput>mkdir /home/j /home/j/mroot</userinput>
 &prompt.root; <userinput>cd /usr/src</userinput>
 &prompt.root; <userinput>make installworld DESTDIR=/home/j/mroot</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Next, prepare a &os; Ports Collection for the jails as
-	      well as a &os; source tree, which is required for
+	    <para>Em seguida, prepare uma cópia da Coleção de
+	      <literal>Ports</literal> para os
+	      <literal>jails</literal>, bem como uma cópia da árvore
+	      de diretórios que contém o código fonte do &os, ela será
+	      necessária para o
 	      <application>mergemaster</application>:</para>
-
+	    
 	    <screen>&prompt.root; <userinput>cd /home/j/mroot</userinput>
 &prompt.root; <userinput>mkdir usr/ports</userinput>
 &prompt.root; <userinput>portsnap -p /home/j/mroot/usr/ports fetch extract</userinput>
 &prompt.root; <userinput>cpdup /usr/src /home/j/mroot/usr/src</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Create a skeleton for the read-write portion of the
-	      system:</para>
+	    <para>Crie o esqueleto da área de leiura e escrita do
+	      sistema:</para>
 
 	    <screen>&prompt.root; <userinput>mkdir /home/j/skel /home/j/skel/home /home/j/skel/usr-X11R6 /home/j/skel/distfiles</userinput>
 &prompt.root; <userinput>mv etc /home/j/skel</userinput>
@@ -822,22 +831,23 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 &prompt.root; <userinput>mv root /home/j/skel</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Use <application>mergemaster</application> to install
-	      missing configuration files.  Then get rid of the extra
-	      directories that <application>mergemaster</application>
-	      creates:</para>
-
+	    <para>Utilize o <application>mergemaster</application> 
+	      para instalar os arquivos de configuração que estão 
+	      faltando.  E em seguida, livre-se dos diretórios extras
+	      que ele irá criar:</para>
+	    
 	    <screen>&prompt.root; <userinput>mergemaster -t /home/j/skel/var/tmp/temproot -D /home/j/skel -i</userinput>
 &prompt.root; <userinput>cd /home/j/skel</userinput>
 &prompt.root; <userinput>rm -R bin boot lib libexec mnt proc rescue sbin sys usr dev</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Now, symlink the read-write file system to the
-	      read-only file system.  Please make sure that the symlinks
-	      are created in the correct <filename
-		class="directory">s/</filename> locations.  Real
-	      directories or the creation of directories in the wrong
-	      locations will cause the installation to  fail.</para>
+	    <para>Agora, crie os links simbólicos ligando o sistema de
+	      arquivos de escrita e leitura ao sistema de arquivos
+	      somente de leitura.  Por favor certifique-se de que os
+	      links simbólicos sejam criados no local correto, ou seja
+	      dentro do <filename class="directory">s/</filename>.  O
+	      uso de diretórios reais ou a criação dos diretórios nos
+	      locais errados fará com que a instalação falhe:</para>
 
 	    <screen>&prompt.root; <userinput>cd /home/j/mroot</userinput>
 &prompt.root; <userinput>mkdir s</userinput>
@@ -851,25 +861,28 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
 &prompt.root; <userinput>ln -s s/var var</userinput></screen>
 	  </step>
 	  <step>
-	    <para>As a last step, create a generic
-	      <filename>/home/j/skel/etc/make.conf</filename> with its
-	      contents as shown below:</para>
+	    <para>Como último passo, crie um arquivo
+	      <filename>/home/j/skel/etc/make.conf</filename> genérico
+	      contendo o conteúdo mostrado abaixo:</para>
 
 	      <programlisting>WRKDIRPREFIX?=  /s/portbuild</programlisting>
 
-
-	      <para>Having <literal>WRKDIRPREFIX</literal> set up this
-	      way will make it possible to compile &os; ports inside
-	      each jail.  Remember that the ports directory is part of
-	      the read-only system.  The custom path for
-	      <literal>WRKDIRPREFIX</literal> allows builds to be done
-	      in the read-write portion of every jail.</para>
+	      <para>Ao configurar o <literal>WRKDIRPREFIX</literal> 
+		desta forma, será possivel compilar aplicativos da 
+		Coleção de <literal>Ports</literal> do &os; dentro de
+		cada <literal>jail</literal>.  Lembre-se que o 
+		diretório de <literal>ports</literal> está localizado
+		na área do sistema montada apenas para leitura.  A
+		utilização de um caminho customizado para o
+		<literal>WRKDIRPREFIX</literal> vai permitir que as
+		compilações ocorram na área de escrita e leitura de
+		cada <literal>jail</literal>.</para>
 	  </step>
 	</procedure>
       </sect3>
 
       <sect3 id="jails-service-jails-creating">
-	<title>Creating Jails</title>
+	<title>Criando <literal>Jails</literal></title>
 
 	<para>Now that we have a complete &os; jail template, we can
 	  setup and configure the jails in
