@@ -119,48 +119,51 @@
 	na <ulink url="http://www.freebsdmall.com/">FreeBSD 
 	Mall</ulink>.  Você também pode querer <ulink
 	url="&url.base;/search/index.html">realizar uma busca</ulink>
-	no conteudo no Handbook.</para>
+	no conteúdo no Handbook.</para>
     </abstract>
   </bookinfo>
 
   &chap.preface;
 
   <part id="getting-started">
-    <title>Getting Started</title>
+    <title>Primeiros Passos</title>
 
     <partintro>
-      <para>This part of the FreeBSD Handbook is for users and
-	administrators who are new to FreeBSD.  These chapters:</para>
+      <para>Esta parte do Handbook do &os; é destinada aos usuários e
+	administradores que estão que são novatos no sistema.  Estes
+	capítulos irão:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>Introduce you to FreeBSD.</para>
+	  <para>Apresentá-lo ao FreeBSD.<para>
 	</listitem>
 
 	<listitem>
-	  <para>Guide you through the installation process.</para>
+	  <para>Guiá-lo através do processo de instalação.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Teach you &unix; basics and fundamentals.</para>
+	  <para>Lhe ensinar os fundamentos e principios básicos do
+	    &unix;.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Show you how to install the wealth of third party
-	    applications available for FreeBSD.</para>
+	  <para>Lhe mostrar como instalar as inúmeras aplicações
+	    de terceiros disponíveis para o FreeBSD.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Introduce you to X, the &unix; windowing system, and
-	    detail how to configure a desktop environment that makes
-	    you more productive.</para>
+	  <para>Apresentá-lo ao X, o sistema de janelas &unix;, e lhe
+	    ensinar como configurar o seu ambiente de trabalho para
+	    torná-lo mais produtivo.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>We have tried to keep the number of forward references in
-	the text to a minimum so that you can read this section of the
-	Handbook from front to back with the minimum page flipping
-	required.</para>
+      <para>Nós tentamos reduzir ao máximo o número de referências no
+	texto à temas que serão abordados nas seções seguintes, para
+	que você possa ler esta seção do Handbook do começo ao fim,
+	sem ter que ficar interrompendo sua leitura para consultar
+	outras seções.</para>
     </partintro>
 
     &chap.introduction;
@@ -172,7 +175,7 @@
   </part>
 
   <part id="common-tasks">
-    <title>Common Tasks</title>
+    <title>Tarefas Comuns</title>
 
     <partintro>
       <para>Now that the basics have been covered, this part of the
