@@ -226,7 +226,7 @@
       </sect3>
 
       <sect3 id="virtualization-guest-parallels-configure">
-	<title>COnfigurando o &os; no &macos; X/Parallels</title>
+	<title>Configurando o &os; no &macos; X/Parallels</title>
 
 	<para>Após o &os; ser instalado com sucesso no &macos;
 	  X com o <application>Parallels</application>, há algumas
@@ -235,7 +235,7 @@
 
 	<procedure>
 	  <step>
-	    <title>Ajustar as variáveis do Boot Loader</title>
+	    <title>Configurar as variáveis do Boot Loader</title>
 
 	    <para>O passo mais importante é reduzir a variável
 	      <option>kern.hz</option> para  reduzir a utilização de CPU
@@ -593,7 +593,6 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  url="http://www.microsoft.com/windows/downloads/virtualpc/sysreq.mspx">
 	requisitos de sistema</ulink>.  Após instalar o <application> Virtual PC
 	</application> no &microsoft.windows;,
-	the user must configure a virtual machine and then install
 	o usuário deverá configurar uma máquina virtual e então instalar o 
 	sistema operacional convidade que desejar.</para>
 
@@ -741,7 +740,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 
 	<procedure>
 	  <step>
-	    <title>Ajustar as variáveis do Boot Loader</title>
+	    <title>Configurar as variáveis do Boot Loader</title>
 
 	    <para>O passo mais importante é reduzir a variável
 	      <option>kern.hz</option> para  reduzir a utilização de CPU
@@ -783,23 +782,22 @@ xenbr1          8000.feffffffffff   no                  vif0.1
     </sect2>
 
     <sect2 id="virtualization-guest-vmware">
-      <title>VMware on MacOS</title>
+      <title>VMware no MacOS</title>
 
-      <para><application>VMware Fusion</application> for &mac; is a
-	commercial software product available for &intel; based
-	&apple; &mac; computers running &macos; 10.4.9 or higher.
-	&os; is a fully supported guest operating system.  Once
-	<application>VMware Fusion</application> has been
-	installed on &macos; X, the user must configure a virtual
-	machine and then install the desired guest operating
-	system.</para>
+      <para><application>VMware Fusion</application> para &mac; é um
+        software comercial diponível para computadores &apple; &mac;
+        &intel; rodando o &macos; 10.4.9 ou superior.
+	O &os; possui suporte total como sistema operacional convidado. Após
+	<application>VMWare Fusion</application> ser instalado no
+	&macos; X, o usuário precisa configurar uma máquina virtual e depois 
+	instalar o sistema operacional convidado que desejar.</para>
 
       <sect3 id="virtualization-guest-vmware-install">
 	<title>Installing &os; on VMware/&macos; X</title>
 
-	<para>The first step is to start VMware Fusion, the Virtual
-	  Machine Library will load.  Click "New" to create the
-	  VM:</para>
+	<para>O primeiro passo é iniciar o VMWare Fusion, que irá carregar
+          a Biblioteca de Máquina Virtual. Depois clique em "New" para cirar
+          a VM:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -807,8 +805,8 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>This will load the New Virtual Machine Assistant to help
-	  you create the VM, click Continue to proceed:</para>
+	<para>Isto irá carregar o Assistente para Nova Máquina virtual
+         para ajudá-lo a criar a VM. Clique Continue para prosseguir:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -816,12 +814,11 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Select <guimenuitem>Other</guimenuitem> as the
-	  <guimenuitem>Operating System</guimenuitem> and
-	  <guimenuitem>&os;</guimenuitem> or
-	  <guimenuitem>&os; 64-bit</guimenuitem>, depending on if
-	  you want 64-bit support, as the <guimenu>Version</guimenu>
-	  when prompted:</para>
+	<para>Selecione <guimenuitem>Other (Outros)</guimenuitem> como 
+	  <guimenuitem>Operating System</guimenuitem> e a versão
+	  <guimenuitem>&os;</guimenuitem> ou
+	  <guimenuitem>&os; 64-bit</guimenuitem>, se você quiser suporte a 64-bit, 
+          quando solicitado:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -829,8 +826,8 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Choose the Name of the VM Image and the Directory where
-	  you would like it saved:</para>
+	<para>Escolha o nome da imagem e o diretório onde você 
+          quer salvar sua VM:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -838,8 +835,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Choose the size of the Virtual Hard Disk for the
-	  VM:</para>
+	<para>Escolha o tamanho do Disco Virtual da VM:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -847,8 +843,8 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Choose the method you would like to install the VM,
-	  either from an ISO image or from a CD:</para>
+	<para>Escolha o método de instalação da VM, que poderá ser uma
+          imagem ISO ou a partir de um CD:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -856,7 +852,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Once you click Finish, the VM will boot:</para>
+	<para>Após clicar FInish (Finalizar), a VM irá reiniciar:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -864,8 +860,8 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Install &os; like you normally would, or by following
-	  the directions in <xref linkend="install"/>:</para>
+	<para>Instale o  &os; como desejar, ou seguindo as instruções
+	  em <xref linkend="install"/>:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -873,12 +869,12 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Once the install is complete you can modify the settings
-	  of the VM, such as Memory Usage:</para>
+	<para>Após completar a instalação você poderá alterar as
+          configurações da VM, como utilização da Memória:</para>
 
 	<note>
-	  <para>The System Hardware settings of the VM cannot be
-	    modified while the VM is running.</para>
+	  <para>Os ajustes de Harwdare do Sistema da VM não podem
+            ser modificados enquanto a VM estiver rodadndo.</para>
 	</note>
 
 	<mediaobject>
@@ -888,6 +884,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	</mediaobject>
 
 	<para>The number of CPUs the VM will have access to:</para>
+	<para>O número de CPUs que a VM terá acesso:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -895,9 +892,8 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>The status of the CD-Rom Device.  Normally you can
-	  disconnect the CD-Rom/ISO from the VM if you will not be
-	  needing it anymore.</para>
+	<para>O status do drive de CD-Rom. Você poderá desconectar 
+          o CD-Rom/ISO da VM se você não for mais usá-lo.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -905,14 +901,13 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>The last thing to change is how the VM will connect to
-	  the Network.  If you want to allow connections to the VM
-	  from other machines besides the Host, make sure you choose
-	  the <guimenuitem>Connect directly to the physical network
-	  (Bridged)</guimenuitem>.  Otherwise <guimenuitem>Share the
-	    host's internet connection (NAT)</guimenuitem> is
-	  preferred so that the VM can have access to the Internet,
-	  but the network cannot access the VM.</para>
+	<para>A última alteração a ser feita é como a VM irá conectar-se na rede.
+          Se você quiser habilitar conexões à VM a partir de outros equipamentos
+          além do Hospedeiro, escolha <guimenuitem>Connect directly 
+          to the physical network (Bridged)</guimenuitem>.  Senão, recomenta-se
+          <guimenuitem>Share the host's internet connection (NAT)</guimenuitem>,
+	  para a VM poder acessar a Internet sem permitir que a rede
+          acesse a VM.</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -920,66 +915,64 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>After you have finished modifying the settings, boot the
-	  newly installed &os; virtual machine.</para>
+	<para>Após terminar de modificar as configurações, reinicie a 
+          máquina virtual com o &os; instalado.</para>
       </sect3>
 
       <sect3 id="virtualization-guest-vmware-configure">
-	<title>Configuring &os; on &macos; X/VMware</title>
+	<title>Configurar o &os; no &macos; X/VMware</title>
 
-	<para>After &os; has been successfully installed on &macos; X
-	  with <application>VMware</application>, there are a number
-	  of configuration steps that can be taken to optimize the
-	  system for virtualized operation.</para>
+	<para>Após o &os; ser instalado com sucesso no &macos;
+	  X com o <application>VMWare</application>, há algumas
+          configurações que podem ser feitas para otimizar o sistema
+          para um melhor funcionamento no modo virtualizado.</para>
 
 	<procedure>
 	  <step>
-	    <title>Set Boot Loader Variables</title>
+	    <title>Configurar as varíaveis do Boot Loader</title>
 
-	    <para>The most important step is to reduce the
-	      <option>kern.hz</option> tunable to reduce the CPU
-	      utilization of &os; under the
-	      <application>VMware</application> environment.  This is
-	      accomplished by adding the following line to
+	    <para>O passo mais importante é reduzir a variável
+	      <option>kern.hz</option> para  reduzir a utilização de CPU
+	      do &os; sob o ambiente do <application>VMWare
+	      </application>.  Para isto, adicione a seguinte linha no arquivo
 	      <filename>/boot/loader.conf</filename>:</para>
 
 	    <programlisting>kern.hz=100</programlisting>
 
-	    <para>Without this setting, an idle &os;
-	      <application>VMware</application> guest
-	      OS will use roughly 15% of the CPU of a single
-	      processor &imac;.  After this change the usage will be
-	      closer to a mere 5%.</para>
+	    <para>Sem este ajuste, um SO &os; convidado rodando no 
+	      <application>VMWare</application> irá utilizar em torno 
+              de 15% de CPU de um &imac; com um processador.
+	      Após esta alteração o uso será de aproximadamente 5%.</para>
 	  </step>
 
 	  <step>
-	    <title>Create a New Kernel Configuration File</title>
+	    <title>Criar um Novo Arquivo de Kernel</title>
+	    <para>Você pode remover todos os dispositivos FireWire e USB. 
+              O <application>VMWare</application>
+	      fornece um adaptador de rede virtual utilizado pelo driver
+	      &man.em.4; driver, portanto todos os outros dispositivos de rede, 
+              exceto o &man.em.4; e o &man.miibus.4;, podem ser removidos do kernel.</para>
 
-	    <para>You can remove all of the FireWire, and USB device
-	      drivers.  <application>VMware</application> provides a
-	      virtual network adapter used by the &man.em.4; driver,
-	      so all other network devices except for &man.em.4; can
-	      be removed from the kernel.</para>
 	  </step>
 
 	  <step>
-	    <title>Configure Networking</title>
+	    <title>Configurar a Rede</title>
 
-	    <para>The most basic networking setup involves simply
-	      using DHCP to connect your virtual machine to the
-	      same local area network as your host &mac;.  This
-	      can be accomplished by adding
-	      <literal>ifconfig_em0="DHCP"</literal> to
-	      <filename>/etc/rc.conf</filename>.  More advanced
-	      networking setups are described in
+	    <para>Uma configuração de rede simples utiliza DHCP
+              para conectar sua máquina virtual na mesma rede local
+	      de seu &mac;. Para isso, adicionel
+	      <literal>ifconfig_em0="DHCP"</literal> no
+	      <filename>/etc/rc.conf</filename>.  Confirurações de rede
+              mais avançadas estão descritas no 
 	      <xref linkend="advanced-networking"/>.</para>
+
 	  </step>
 	</procedure>
       </sect3>
     </sect2>
 
     <sect2 id="virtualization-guest-virtualbox-guest-additions">
-      <title>&virtualbox; Guest Additions on a &os; Guest</title>
+      <title>Aplicativos Adicionais de Convidados do &virtualbox; em um &os; Convidado</title>
 
       <para>The <application>&virtualbox;</application> guest
 	additions provide support for:</para>
