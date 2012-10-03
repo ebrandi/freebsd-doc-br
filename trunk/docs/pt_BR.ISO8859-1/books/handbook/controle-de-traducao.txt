@@ -20,7 +20,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 5011   # install             # r39550  #  
 2731   # bsdinstall          # r39550  #
 2716   # basics              # r39544  #
-1585   # ports               # r39544  #
+1623   # ports               # r39642  #
 1743   # x11                 # r39595  #
 ##################################################################
 14.834 Linhas
