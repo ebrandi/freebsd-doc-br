@@ -9,6 +9,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 2142   # eresources          # r39544  #
 40     # pgpkeys             # r39631  #
 2039   # glossary.ent        # r39534  #
+25     # colophon.sgml       # r39631  #
 ##################################################################
 9215 Linhas
 
