@@ -3,7 +3,7 @@
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 312    # book.sgml           # r39544  # Edson Brandi, 02/10/2012
-708    # preface             # r39544  #
+708    # preface             # r39544  # Rafael Aquino, 03/10/2012
 3394   # mirrors             # r39575  #
 580    # bibliography        # r39544  #
 2142   # eresources          # r39544  #
@@ -44,7 +44,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 3556   # config              # r39544  #
 1055   # boot                # r39544  # Pronto para revisão
 1034   # users               # r39544  #
-4151   # security            # r39576  # Rafael Aquino, 30/09/2012
+4151   # security            # r39576  # 
 988    # jails               # r39566  # Liberado para Revisão
 2075   # mac                 # r39544  #
 717    # audit               # r39544  # Leandro Silva, 25/09/2012
