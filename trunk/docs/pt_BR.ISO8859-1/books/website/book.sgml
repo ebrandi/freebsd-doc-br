@@ -518,32 +518,25 @@
 	 </step> 
 	 <step>
 	  <title><ulink
-	    url="/~ebrandi/building-products/">Construindo produtos
-	    com o FreeBSD</ulink></title>
+	    url="/pt_BR.ISO8859-1/books/handbook/">Handbook do
+	    FreeBSD</ulink></title>
 	  
-	  <para>O projeto FreeBSD é um projeto voluntário e
-	    colaborativo de âmbito mundial, o qual desenvolve um 
-	    sistema operacional de alta qualidade, capaz de ser 
-	    utilizado em diferentes arquiteturas computacionais. 
-	    O projeto FreeBSD distribui o código fonte do seu 
-	    produto sob uma licença liberal, com a intenção de 
-	    incentivar o uso de seu código.  Colaborar com o projeto 
-	    FreeBSD pode ajudar sua empresa a
-	    reduzir o tempo necessário para colocar um produto no
-	    mercado, a reduzir seus custos de engenharia e a melhorar
-	    qualidade de seus produtos.</para>
+	  <para>É a principal e mais utilizada referência de 
+	    documentação oficial do &os;.  Traz abordagem de nível
+	    básico à intermediário da instalação e administração 
+	    geral do sistema.  É um trabalho em constante atualização,
+	    e é parte de um esforço voluntário de dezenas de
+	    contribuidores.  Trata-se de uma das maiores e mais
+	    completas referências centralizadas sobre um sistema de
+	    Código Aberto conhecidas. Deve ser cuidadosamente lido por
+	    novos usuários do FreeBSD e constantemente revistos por
+	    usuários mais experientes, pois está em constante
+	    melhoria.</para>
 
-	  <para>Este artigo analisa as questões envolvidas no uso do 
-	    código do FreeBSD em appliances e softwares. Ele também 
-	    destaca as características do FreeBSD, que o tornam uma 
-	    excelente base para o desenvolvimento de produtos. O 
-	    artigo conclui sugerindo um conjunto das 
-	    <quote>melhores práticas</quote> de organizações que 
-	    colaboram com o projeto FreeBSD.</para>
+	  <para>O projeto de tradução deste livro está previsto para
+	    durar alguns meses, são mais de 87.000 linhas para serem
+	    traduzidas.</para>
 
-	  <para>Está em conformidade com a revisão 
-	    <literal>r39544</literal> do documento original em 
-	    Inglês.</para>
 	  </step>
 	</procedure>
 
