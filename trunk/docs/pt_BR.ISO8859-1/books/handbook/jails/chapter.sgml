@@ -1022,21 +1022,28 @@ jail_www_devfs_enable="YES"</programlisting>
       <sect3 id="jails-service-jails-upgrading">
 	<title>Atualização</title>
 
-	<para>In time, there will be a need to upgrade the system to a
-	  newer version of &os;, either because of a security issue, or
-	  because new features have been implemented which are useful
-	  for the existing jails.  The design of this setup provides an
-	  easy way to upgrade existing jails.  Additionally, it
-	  minimizes their downtime, as the jails will be brought down
-	  only in the very last minute.  Also, it provides a way to roll
-	  back to the older versions should any problems occur.</para>
-
+	<para>Com o tempo, irá surgir a necessidade de atualizar o 
+	  sistema para uma nova versão do &os;, seja por causa de um 
+	  probema de segurança, ou seja porque foram implementadas 
+	  novas funcionalidades as quais são úteis para os
+	  <literal>jails</literal> existentes.  A concepção desta
+	  configuração previu uma maneira fácil de atualizar os
+	  <literal>jails</literal> existentes.  Além disso, o processo
+	  sugerido minimiza o seu tempo de inatividade
+	  (<literal>downtime</literal>), uma vez que os
+	  <literal>jails</literal> serão desligados apenas no último
+	  minuto.  Ele também preve a possibilidade de reverter seu
+	  sistema para uma uma versão mais antiga
+	  (<literal>rollback</literal>), caso ocorra algum problema na
+	  atualização.</para>
+	
 	<procedure>
 	  <step>
-	    <para>The first step is to upgrade the host system in the
-	      usual manner.  Then create a new temporary read-only
-	      template in <filename
-		class="directory">/home/j/mroot2</filename>.</para>
+	    <para>O primeiro passo é atualizar o sistema hospedeiro da
+	      forma usual. Em seguida, você deverá criar um novo
+	      modelo temporário, localizado em <filename
+	      class="directory">/home/j/mroot2</filename>, para a área
+	      que é disponibilizada apenas em modo de leitura.</para>
 
 	    <screen>&prompt.root; <userinput>mkdir /home/j/mroot2</userinput>
 &prompt.root; <userinput>cd /usr/src</userinput>
@@ -1045,16 +1052,16 @@ jail_www_devfs_enable="YES"</programlisting>
 &prompt.root; <userinput>cpdup /usr/src usr/src</userinput>
 &prompt.root; <userinput>mkdir s</userinput></screen>
 
-	    <para>The <maketarget>installworld</maketarget> run creates
-	      a few unnecessary directories, which should be
-	      removed:</para>
-
+	    <para>A execução do <maketarget>installworld</maketarget>
+	      irá criar alguns diretórios que são desnecessários e os
+	      quais devem ser removidos:</para>
+	    
 	    <screen>&prompt.root; <userinput>chflags -R 0 var</userinput>
 &prompt.root; <userinput>rm -R etc var root usr/local tmp</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Recreate the read-write symlinks for the master file
-	      system:</para>
+	    <para>Recrie os links simbólicos para as áreas de leitura
+	      e escrita do sistema de arquivos principal:</para>
 
 	    <screen>&prompt.root; <userinput>ln -s s/etc etc</userinput>
 &prompt.root; <userinput>ln -s s/root root</userinput>
@@ -1065,15 +1072,13 @@ jail_www_devfs_enable="YES"</programlisting>
 &prompt.root; <userinput>ln -s s/var var</userinput></screen>
 	  </step>
 	  <step>
-	    <para>The right time to stop the jails is now:</para>
+	    <para>O momento certo para parar os
+	      <literal>jails</literal> é agora:</para>
 
 	    <screen>&prompt.root; <userinput>/etc/rc.d/jail stop</userinput></screen>
 	  </step>
 	  <step>
-	    <para>Unmount the original file systems:</para>
-	    <!-- keramida: Shouldn't we suggest a short script-based
-	     loop here, instead of tediously copying the same commands
-	     multiple times? -->
+	    <para>Desmonte o sistema de arquivos original:</para>
 
 	    <screen>&prompt.root; <userinput>umount /home/j/ns/s</userinput>
 &prompt.root; <userinput>umount /home/j/ns</userinput>
@@ -1083,39 +1088,47 @@ jail_www_devfs_enable="YES"</programlisting>
 &prompt.root; <userinput>umount /home/j/www</userinput></screen>
 
 	    <note>
-	      <para>The read-write systems are attached to the read-only
-		system (<filename class="directory">/s</filename>) and
-		must be unmounted first.</para>
+	      <para>Os sistemas disponibilizados em modo de leitura e
+		escrita estão ligados as áreas do sistema
+		disponibilizados apenas em modo de leitura (<filename
+		class="directory">/s</filename>), e devem ser
+		desmontados primeiro.</para>
 	    </note>
 	  </step>
 	  <step>
-	    <para>Move the old read-only file system and replace it with
-	      the new one.  This will serve as a backup and archive of the
-	      old read-only file system should something go wrong.  The
-	      naming convention used here corresponds to when a new
-	      read-only file system has been created.  Move the original
-	      &os; Ports Collection over to the new file system to save
-	      some space and inodes:</para>
-
+	    <para>Mova o antigo sistema de arquivos que estava
+	      disponibilizado apenas em modo de leitura e o substitua
+	      pelo novo.  O antigo sistema servirá como backup para o
+	      caso de algo dar errado na atualização.  Os nomes de
+	      diretório utilizados abaixo refletem os nomes usados nas
+	      etapas anteriores deste exemplo, quando criamos a nova
+	      área modelo.  Mova a Coleção de <literal>Ports</literal>
+	      do &os; da área original para o novo sistema de arquivos
+	      para economizar espaço e inodes:</para>
+	    
 	    <screen>&prompt.root; <userinput>cd /home/j</userinput>
 &prompt.root; <userinput>mv mroot mroot.20060601</userinput>
 &prompt.root; <userinput>mv mroot2 mroot</userinput>
 &prompt.root; <userinput>mv mroot.20060601/usr/ports mroot/usr</userinput></screen>
 	  </step>
 	  <step>
-	    <para>At this point the new read-only template is ready, so
-	      the only remaining task is to remount the file systems and
-	      start the jails:</para>
-
+	    <para>Neste ponto, o modelo atualizado da área que é
+	      disponibilizada apenas em modo de leitura está pronto,
+	      para finalizarmos o processo de atualização basta
+	      remontarmos o sistema de arquivos e iniciarmos os
+	      <literal>jails</literal>:</para>
+	    
 	    <screen>&prompt.root; <userinput>mount -a</userinput>
 &prompt.root; <userinput>/etc/rc.d/jail start</userinput></screen>
 	  </step>
 	</procedure>
 
-	<para>Use &man.jls.8; to check if the jails started correctly.
-	  Do not forget to run mergemaster in each jail.  The
-	  configuration files will need to be updated as well as the
-	  rc.d scripts.</para>
+	<para>Utilize o &man.jls.8; para verificar se os
+	  <literal>jails</literal> iniciaram corretamente.  Não se
+	  esqueça de executar o mergemaster em cada um dos
+	  <literal>jails</literal>.  Os arquivos de configuração,
+	  assim como os scripts rc.d, também precisam ser
+	  atualizados.</para>
       </sect3>
     </sect2>
   </sect1>
