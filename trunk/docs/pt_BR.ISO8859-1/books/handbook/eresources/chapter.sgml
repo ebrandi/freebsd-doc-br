@@ -3,7 +3,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r39544
+  Original revision: r39651
 
   $FreeBSD$
 -->
@@ -212,11 +212,6 @@
 	    <row>
 	      <entry>&a.atm.name;</entry>
 	      <entry>Using ATM networking with FreeBSD</entry>
-	    </row>
-
-	    <row>
-	      <entry>&a.binup.name;</entry>
-	      <entry>Design and development of the binary update system</entry>
 	    </row>
 
 	    <row>
@@ -959,21 +954,6 @@
 		<para>How to write a network driver.</para>
 	      </listitem>
 	    </itemizedlist>
-	  </listitem>
-	</varlistentry>
-
-	<varlistentry>
-	  <term>&a.binup.name;</term>
-
-	  <listitem>
-	    <para><emphasis>FreeBSD Binary Update Project</emphasis></para>
-
-	    <para>This list exists to provide discussion for the binary
-	      update system, or <application>binup</application>.
-	      Design issues, implementation details,
-	      patches, bug reports, status reports, feature requests, commit
-	      logs, and all other things related to
-	      <application>binup</application> are fair game.</para>
 	  </listitem>
 	</varlistentry>
 
