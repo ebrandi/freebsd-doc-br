@@ -74,21 +74,21 @@
 
 <!-- Este 'para' esta realmente muito ruim.
        Gostaria de opiniões nele -->
-    <para>Esse problema é similar ao problema no livro <citetitle>As
-      aventuras do Barão Munchausen</citetitle>.  Um personagem caiu
-      no fundo de um poço de inspeção, e puxou a si mesmo para fora
-      agarrando suas botas, e se içando.  Nos primórdios da
-      computação o termo <firstterm>bootstrap</firstterm> (em inglês)
-      foi empregado para o mecanismo usado para carregar o sistema
-      operacional, e então o termo foi encurtado para
-      <quote>boot</quote> (em inglês).</para>
+    <para>Esse problema é similar ao apresentado no livro
+      <citetitle>As aventuras do Barão Munchausen</citetitle>.  Um
+      personagem caiu no fundo de um poço de inspeção, e puxou a si
+      mesmo para fora agarrando suas botas, e se içando.  Nos
+      primórdios da computação o termo
+      <firstterm>bootstrap</firstterm> (em inglês) foi empregado para
+      o mecanismo usado para carregar o sistema operacional, e então o
+      termo foi encurtado para <quote>boot</quote> (em inglês).</para>
 
     <indexterm><primary>BIOS</primary></indexterm>
 
     <indexterm><primary>Basic Input/Output
 	System</primary><see>BIOS</see></indexterm>
 
-    <para>Em hardware x86 o sistema básico de entrada e saída (BIOS,
+    <para>Em hardware x86 o Sistema Básico de Entrada e Saída (BIOS,
       sigla em inglês) é responsável por iniciar o sistema
       operacional.  Para fazer isso, o BIOS procura no disco rígido
       pelo Registro Mestre de Inicialização (MBR, sigla em inglês),
@@ -107,20 +107,21 @@
 <!-- Gostaria de deixar mais claro a diferença entre boot manager e
 boot loader -->
     <para>O código dentro do MBR é normalmente referido por
-      <emphasis>gerenciador de inicialização</emphasis>, especialmente
+      <emphasis>gerenciador de inicialização</emphasis>
+      (<literal>boot manager</literal>, em inglês), especialmente
       quando ele interage com o usuário.  Geralmente nesse caso o
       gerenciador de inicialização possui mais código na primeira
       <emphasis>trilha</emphasis> do disco rígido ou dentro de algum
       sistema de arquivos do sistema operacional.  (Um gerenciador de
       inicialização é chamado algumas vezes de <emphasis>carregador de
-      inicialização</emphasis>, entretanto o FreeBSD usa este termo
-      para um estágio posterior da inicialização.) Os gerenciadores de
-      inicialização mais populares são
-      <application>boot0</application> (também conhecido como
-      <application>Boot Easy</application>, o gerenciador de
-      inicialização padrão do &os;), <application>Grub</application>,
-      <application>GAG</application>, e
-      <application>LILO</application>.  (Somente o
+      inicialização</emphasis> (<literal>boot loader</literal>, em
+      inglês), entretanto o FreeBSD usa este termo para um estágio
+      posterior da inicialização.) Os gerenciadores de inicialização
+      mais populares são <application>boot0</application> (também
+      conhecido como <application>Boot Easy</application>, o
+      gerenciador de inicialização padrão do &os;),
+      <application>Grub</application>, <application>GAG</application>,
+      e <application>LILO</application>.  (Somente o
       <application>boot0</application> cabe no MBR.)</para>
 
     <para>Se você tem apenas um sistema operacional instalado nos seus
@@ -241,12 +242,12 @@ loader=/boot/chain.b
 label=FreeBSD</programlisting>
 
       <para>Na configuração acima, especifique a partição primária do
-	FreeBSD usando as especificações do Linux, substituindo
+	FreeBSD usando as especificações do Linux, substituindo o
 	<replaceable>X</replaceable> pela letra que representa o disco
-	rígido no Linux e <replaceable>Y</replaceable> pelo número que
-	representa a partição primária no Linux.  Se você está usando
-	um disco rígido <acronym>SCSI</acronym>, você precisará mudar
-	<replaceable>/dev/hd</replaceable> por algo parecido com
+	rígido no Linux e o <replaceable>Y</replaceable> pelo número
+	que representa a partição primária no Linux.  Se você está
+	usando um disco rígido <acronym>SCSI</acronym>, você precisará
+	mudar <replaceable>/dev/hd</replaceable> por algo parecido com
 	<replaceable>/dev/sd</replaceable>.  A linha
 	<option>loader=/boot/chain.b</option> pode ser omitida caso
 	você tenha os dois sistemas operacionais no mesmo disco
@@ -313,12 +314,12 @@ boot:</screen>
 	primeiro disco rígido IDE.</para>
 
       <warning>
-	<title>Modo Dedicado Arriscado:</title>
+	<title>Modo Dedicado Arriscado</title>
 
 	<para>Se você usar apenas o nome do disco rígido, tal como
 	  <devicename>ad0</devicename>, no comando
 	  &man.bsdlabel.8; você irá criar um disco dedicado, sem
-	  divisões do disco rígido. É quase certo que não é isso que
+	  divisões do disco rígido.  É quase certo que não é isso que
 	  você quer fazer, então tenha certeza que você verificou o
 	  comando &man.bsdlabel.8; antes de apertar Enter.</para>
       </warning>
@@ -355,7 +356,7 @@ boot:</screen>
 	  <filename>/boot/defaults/loader.conf</filename> que define
 	  valores padrões para variáveis e então lê o
 	  <filename>/boot/loader.conf</filename> para definições do
-	  usuário para essas variáveis. O
+	  usuário para essas variáveis.  O
 	  <filename>loader.rc</filename> então age conforme essas
 	  variáveis, carregando os módulos e o kernel que foram
 	  selecionados.</para>
@@ -536,7 +537,7 @@ boot:</screen>
 
 	  <listitem>
 	    <para>Para iniciar seu kernel habitual, mas em modo
-	      mono-usuário:</para>
+	      monousuário:</para>
 
 	    <screen><userinput>boot -s</userinput></screen>
 	  </listitem>
@@ -585,7 +586,7 @@ boot:</screen>
 	    <author>
 	      <firstname>Joseph J.</firstname>
 	      <surname>Barbish</surname>
-	      <contrib>Contributed by </contrib>
+	      <contrib>Contribuição de </contrib>
 	    </author>
 	  </authorgroup>
 	</sect3info>
@@ -773,7 +774,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	    </varlistentry>
 	  </variablelist>
 
-	  <para>Para mais informações, por favor veja as páginas do
+	  <para>Para mais informações, por favor, veja as páginas do
 	    manual &man.splash.4;, &man.loader.conf.5;, e
 	    &man.vga.4;.</para>
 	</sect4>
@@ -838,7 +839,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-s</option></term>
 
 	  <listitem>
-	    <para>inicia em modo mono-usuário.</para>
+	    <para>inicia em modo monousuário.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -871,7 +872,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	<author>
 	  <firstname>Tom</firstname>
 	  <surname>Rhodes</surname>
-	  <contrib>Contributed by </contrib>
+	  <contrib>Contribuição de </contrib>
 	</author>
       </authorgroup>
       <!-- 18 OCT 2002 -->
@@ -895,8 +896,8 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
     <para>Os ajustes dos dispositivos podem ser especificados também
       no prompt da <link linkend="boot-loader">Etapa 3 da
       inicialização</link>.  Variáveis podem ser adicionadas usando o
-      commando <command>set</command>, removidas com o comando
-      <command>unset</command>. e visualizadas com o comando
+      comando <command>set</command>, removidas com o comando
+      <command>unset</command> e visualizadas com o comando
       <command>show</command>.  Variáveis definidas no arquivo
       <filename>/boot/device.hints</filename> também podem ser
       sobrescritas no prompt.  Ajustes dos dispositivos definidos no
@@ -988,7 +989,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	sistemas de arquivos disponíveis no sistema estão
 	consistentes.  Se eles não estiverem, e o &man.fsck.8; não
 	consertar as inconsistências, o &man.init.8; põe o sistema no
-	<link linkend="boot-singleuser">modo mono-usuário</link> para
+	<link linkend="boot-singleuser">modo monousuário</link> para
 	que o administrador do sistema tome as devidas
 	providências.</para>
     </sect2>
@@ -1008,13 +1009,13 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       <para>Ele também pode ser alcançado por chamar &man.shutdown.8;
 	sem os parâmetros reiniciar (<option>-r</option>) ou desligar
 	(<option>-h</option>), no modo <link
-	linkend="boot-multiuser">multi-usuário</link>.</para>
+	linkend="boot-multiuser">multiusuário</link>.</para>
 
       <para>Se o <literal>console</literal> do sistema está definido
 	como <literal>insecure</literal> no arquivo
 	<filename>/etc/ttys</filename>, então o sistema pede pela
 	senha do <username>root</username> antes de iniciar o modo
-	mono-usuário.</para>
+	monousuário.</para>
 
       <example id="boot-insecure-console">
 	<title>Console Inseguro em
@@ -1031,7 +1032,7 @@ console none                            unknown off insecure</programlisting>
 	<para>Console <literal>insecure</literal> significa que você
 	  considera insegura a segurança física do console, e quer
 	  assegurar que apenas quem conhece a senha do
-	  <username>root</username> pode usar o modo mono-usuário, e
+	  <username>root</username> pode usar o modo monousuário, e
 	  não significa que você quer executar o seu console de forma
 	  insegura.  Portanto, se você quer segurança, escolha
 	  <literal>insecure</literal>, ao invés de
@@ -1040,13 +1041,13 @@ console none                            unknown off insecure</programlisting>
     </sect2>
 
     <sect2 id="boot-multiuser">
-      <title>Modo Multi-Usuário</title>
+      <title>Modo Multiusuário</title>
       <indexterm><primary>multi-user mode</primary></indexterm>
 
       <para>Se o &man.init.8; considerar que o seu sistema de arquivos
 	está em ordem, ou assim que o usuário sair do <link
-	linkend="boot-singleuser">modo mono-usuário</link>, o sistema
-	entra no modo multi-usuário, no qual ele inicia a configuração
+	linkend="boot-singleuser">modo monousuário</link>, o sistema
+	entra no modo multiusuário, no qual ele inicia a configuração
 	de recursos do sistema.</para>
 
       <sect3 id="boot-rc">
@@ -1054,7 +1055,7 @@ console none                            unknown off insecure</programlisting>
 
 	<indexterm><primary>rc files</primary></indexterm>
 
-	<para>A configuração de recursos do sistema le as
+	<para>A configuração de recursos do sistema e as
 	  configurações padrões do
 	  <filename>/etc/defaults/rc.conf</filename>, e os detalhes
 	  específicos do sistema do <filename>/etc/rc.conf</filename>,
