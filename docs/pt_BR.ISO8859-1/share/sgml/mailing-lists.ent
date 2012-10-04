@@ -66,11 +66,6 @@
   redes ATM no FreeBSD</ulink>">
 <!ENTITY a.atm.name "<ulink url='&a.atm.url;'>freebsd-atm</ulink>">
 
-<!ENTITY a.binup.url "&a.mailman.listinfo;/freebsd-binup">
-<!ENTITY a.binup "<ulink url='&a.binup.url;'>lista de discussão 
-  sobre o sistema de atualização binária do FreeBSD</ulink>">
-<!ENTITY a.binup.name "<ulink url='&a.binup.url;'>freebsd-binup</ulink>">
-
 <!ENTITY a.bluetooth.url "&a.mailman.listinfo;/freebsd-bluetooth">
 <!ENTITY a.bluetooth "<ulink url='&a.bluetooth.url;'>lista de
   discussão sobre o suporte à Bluetooth no FreeBSD</ulink>">
