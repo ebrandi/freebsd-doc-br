@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: head/share/pgpkeys/pgpkeys.ent 39561 2012-09-16 05:23:35Z peterj $ -->
+<!-- $FreeBSD: head/share/pgpkeys/pgpkeys.ent 39636 2012-10-02 08:07:19Z kato $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -184,6 +184,7 @@
 <!ENTITY pgpkey.jsa SYSTEM "jsa.key">
 <!ENTITY pgpkey.jylefort SYSTEM "jylefort.key">
 <!ENTITY pgpkey.kaiw SYSTEM "kaiw.key">
+<!ENTITY pgpkey.kato SYSTEM "kato.key">
 <!ENTITY pgpkey.ken SYSTEM "ken.key">
 <!ENTITY pgpkey.kensmith SYSTEM "kensmith.key">
 <!ENTITY pgpkey.keramida SYSTEM "keramida.key">
@@ -394,6 +395,6 @@
 <!ENTITY pgpkey.zi SYSTEM "zi.key">
 <!ENTITY pgpkey.zml SYSTEM "zml.key">
 <!ENTITY pgpkey.zont SYSTEM "zont.key">
-<!ENTITY section.pgpkeys-core		SYSTEM "pgpkeys-core.sgml">
-<!ENTITY section.pgpkeys-developers	SYSTEM "pgpkeys-developers.sgml">
-<!ENTITY section.pgpkeys-officers	SYSTEM "pgpkeys-officers.sgml">
+<!ENTITY section.pgpkeys-core		SYSTEM "pgpkeys-core.xml">
+<!ENTITY section.pgpkeys-developers	SYSTEM "pgpkeys-developers.xml">
+<!ENTITY section.pgpkeys-officers	SYSTEM "pgpkeys-officers.xml">
