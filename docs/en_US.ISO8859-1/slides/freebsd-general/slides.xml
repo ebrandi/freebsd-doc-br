@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 
 <!-- $FreeBSD$ -->
 
 <!DOCTYPE slides SYSTEM
 "/usr/local/share/xsl/slides/schema/dtd/slides.dtd" [
-<!ENTITY % freebsd SYSTEM "../../../share/sgml/freebsd.ent">
+<!ENTITY % freebsd SYSTEM "../../../share/xml/freebsd.ent">
 %freebsd;
 <!ENTITY slides.what-is-freebsd SYSTEM "../common/what-is-freebsd.xml">
 <!ENTITY slides.freebsd-users SYSTEM "../common/freebsd-users.xml">

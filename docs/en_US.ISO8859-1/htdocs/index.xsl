@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="iso-8859-1" ?>
 <!DOCTYPE xsl:stylesheet PUBLIC "-//FreeBSD//DTD FreeBSD XSLT 1.0 DTD//EN"
-				"http://www.FreeBSD.org/XML/www/share/sgml/xslt10-freebsd.dtd" [
+				"http://www.FreeBSD.org/XML/www/share/xml/xslt10-freebsd.dtd" [
 <!ENTITY title "The FreeBSD Project">
 ]>
 
@@ -10,8 +10,8 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns="http://www.w3.org/1999/xhtml">
 
-  <xsl:import href="http://www.FreeBSD.org/XML/www/lang/share/sgml/libcommon.xsl"/>
-  <xsl:import href="http://www.FreeBSD.org/XML/www/share/sgml/xhtml.xsl"/>
+  <xsl:import href="http://www.FreeBSD.org/XML/www/lang/share/xml/libcommon.xsl"/>
+  <xsl:import href="http://www.FreeBSD.org/XML/www/share/xml/xhtml.xsl"/>
 
   <!-- these params should be externally bound. The values
        here are not used actually -->
@@ -126,6 +126,9 @@
 				  <li>
 					<a href="&base;/nl/" title="Dutch">nl</a>
 				  </li>
+          <li>
+          <a href="&base;/pt_BR/" title="Brazilian Portuguese">pt_BR</a>
+          </li>
 				  <li>
 					<a href="&base;/ru/" title="Russian">ru</a>
 				  </li>

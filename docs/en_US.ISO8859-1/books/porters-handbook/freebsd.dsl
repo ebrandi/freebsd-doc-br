@@ -1,11 +1,11 @@
-<!-- $FreeBSD: head/en_US.ISO8859-1/books/porters-handbook/freebsd.dsl 38826 2012-05-17 19:12:14Z hrs $ -->
+<!-- $FreeBSD: head/en_US.ISO8859-1/books/porters-handbook/freebsd.dsl 39632 2012-10-01 11:56:00Z gabor $ -->
 
 <!-- Local DSSSL file for the Porter's Handbook.  This is so we can include
      a link to the -ports mailing list at the bottom of the HTML files, 
      rather than the -questions mailing list. -->
 
 <!DOCTYPE style-sheet PUBLIC "-//James Clark//DTD DSSSL Style Sheet//EN" [
-<!ENTITY freebsd.dsl SYSTEM "../../share/sgml/freebsd.dsl" CDATA DSSSL>
+<!ENTITY freebsd.dsl SYSTEM "../../share/xml/freebsd.dsl" CDATA DSSSL>
 <!ENTITY % output.html  "IGNORE"> 
 ]>
 

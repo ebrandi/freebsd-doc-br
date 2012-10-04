@@ -9,23 +9,22 @@
 
 # These are turned into validated, normalized HTML files.
 
-DOCS=  about.sgml
-DOCS+= administration.sgml
-DOCS+= applications.sgml
-DOCS+= art.sgml
-DOCS+= availability.sgml
-DOCS+= docs.sgml
-DOCS+= features.sgml
-DOCS+= internet.sgml
-DOCS+= logo.sgml
-DOCS+= mailto.sgml
-DOCS+= privacy.sgml
-DOCS+= publish.sgml
-DOCS+= relnotes.sgml
-DOCS+= send-pr.sgml
-DOCS+= support.sgml
-DOCS+= where.sgml
-DOCS+= y2kbug.sgml
+DOCS=  about.xml
+DOCS+= administration.xml
+DOCS+= applications.xml
+DOCS+= art.xml
+DOCS+= availability.xml
+DOCS+= docs.xml
+DOCS+= features.xml
+DOCS+= internet.xml
+DOCS+= logo.xml
+DOCS+= mailto.xml
+DOCS+= privacy.xml
+DOCS+= publish.xml
+DOCS+= relnotes.xml
+DOCS+= send-pr.xml
+DOCS+= support.xml
+DOCS+= where.xml
 
 XMLDOCS=	index:xsl:${XML_NEWS_NEWS}:
 DEPENDSET.index=transtable mirrors news press events \
@@ -63,7 +62,6 @@ SUBDIR+= handbook
 SUBDIR+= internal
 SUBDIR+= ipv6
 SUBDIR+= java
-SUBDIR+= kse
 SUBDIR+= marketing
 SUBDIR+= multimedia
 SUBDIR+= news
@@ -75,7 +73,6 @@ SUBDIR+= releases
 SUBDIR+= releng
 SUBDIR+= search
 SUBDIR+= security
-SUBDIR+= smp
 SUBDIR+= snapshots
 SUBDIR+= support
 SUBDIR+= tutorials
@@ -94,20 +91,7 @@ SUBDIR+= layout
 SUBDIR+= logo
 
 .if !defined(WEB_LANG) || empty(WEB_LANG)
-WEB_LANG=	da_DK.ISO8859-1 \
-		de_DE.ISO8859-1 \
-		el_GR.ISO8859-7 \
-		es_ES.ISO8859-1 \
-		fr_FR.ISO8859-1 \
-		hu_HU.ISO8859-2 \
-		it_IT.ISO8859-15 \
-		ja_JP.eucJP \
-		mn_MN.UTF-8 \
-		nl_NL.ISO8859-1 \
-		pt_BR.ISO8859-1 \
-		ru_RU.KOI8-R \
-		zh_CN.GB2312 \
-		zh_TW.Big5
+WEB_LANG=	pt_BR.ISO8859-1 
 .endif
 .if !defined(ENGLISH_ONLY) || empty(ENGLISH_ONLY)
 .for _D in ${WEB_LANG}

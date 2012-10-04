@@ -47,11 +47,11 @@ Compiling status reports - best practices
 5) After the a couple iterations of the above, wrap the whole thing in a
    report template:
 
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="iso-8859-1" ?>
 <!DOCTYPE report PUBLIC "-//FreeBSD//DTD FreeBSD XML Database for Status
 Report//EN"
-"http://www.FreeBSD.org/XML/www/share/sgml/statusreport.dtd">
-<!-- $FreeBSD: head/en_US.ISO8859-1/htdocs/news/status/README 38826 2012-05-17 19:12:14Z hrs $ -->
+"http://www.FreeBSD.org/XML/www/share/xml/statusreport.dtd">
+<!-- $FreeBSD: head/en_US.ISO8859-1/htdocs/news/status/README 39632 2012-10-01 11:56:00Z gabor $ -->
 <report>
   <date>
     <month>July-September</month>
@@ -144,7 +144,7 @@ Report//EN"
     start.
   - Commit.  Also update the next due date in status.sgml and link to the
     new report.
-  - Add a news entry to www/share/sgml/news.xml.  Template:
+  - Add a news entry to www/share/xml/news.xml.  Template:
 	 <event>
 	   <title>June-October, 2006 Status Report</title>
 
