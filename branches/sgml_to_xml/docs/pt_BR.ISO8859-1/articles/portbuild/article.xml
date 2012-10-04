@@ -1,0 +1,3162 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!DOCTYPE article PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN"
+  "../../../share/xml/freebsd42.dtd" [
+  <!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT"
+  "../../share/xml/entities.ent">
+  %entities;
+]>
+
+<!--
+  The FreeBSD Documentation Project
+  The FreeBSD Brazilian Portuguese Documentation Project
+
+  Original revision: r39590
+-->
+
+<article lang='pt_br'>
+  <articleinfo>
+    <title>Procedimentos para Construção de Pacotes</title>
+
+    <authorgroup>
+      <corpauthor>The &os; Ports Management Team</corpauthor>
+    </authorgroup>
+
+    <copyright>
+      <year>2003</year>
+      <year>2004</year>
+      <year>2005</year>
+      <year>2006</year>
+      <year>2007</year>
+      <year>2008</year>
+      <year>2009</year>
+      <year>2010</year>
+      <year>2011</year>
+      <year>2012</year>
+      <holder role="mailto:portmgr@FreeBSD.org">The &os; Ports
+	Management Team</holder>
+    </copyright>
+
+    <legalnotice id="trademarks" role="trademarks">
+      &tm-attrib.freebsd;
+      &tm-attrib.intel;
+      &tm-attrib.sparc;
+      &tm-attrib.general;
+    </legalnotice>
+
+    <pubdate>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</pubdate>
+
+    <releaseinfo>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</releaseinfo>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Introdução</title>
+
+    <para>Com o objetivo de disponibilizar binários pré-compilados de
+      aplicações de terceiros para o &os;, a Coleção de
+      <literal>Ports</literal> é regularmente compilada em um dos
+      <quote><literal>Clusters</literal> de Compilação de
+      Pacotes</quote>.  Atualmente o principal
+      <literal>cluster</literal> em uso está em <ulink
+      url="http://pointyhat.FreeBSD.org"></ulink>.</para>
+
+    <para>Este artigo documenta os trabalhos internos do
+      <literal>cluster</literal></para>
+
+    <note>
+      <para>Muitos dos detalhes neste artigo serão do
+	interesse apenas para aqueles no time de <ulink
+	url="&url.base/portmgr">Gestao de
+	<literal>Ports</literal></ulink></para>
+    </note>
+
+    <sect2 id="codebase">
+      <title>O código base</title>
+    <para>A maior parte da mágica da compilação de pacotes ocorre sob
+      o diretório <filename>/var/portbuild</filename>.  A menos que
+      seja especificado o contrário, todos os caminhos serão relativos
+      à este diretório.  <replaceable>${arch}</replaceable> será usado
+      para determinar uma das arquiteturas de pacotes (amd64, &i386;,
+      ia64, powerpc, e &sparc64;), e
+      <replaceable>${branch}</replaceable> será usado para determinar
+      o ramo de compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
+      10-exp).</para>
+
+    <note>
+      <para>Não são mais compilados pacotes para os
+	<literal>releases</literal> 4, 5 ou 6, e para a arquitetura
+	alpha</para>
+    </note>
+
+    <para>Os <literal>scripts</literal> que controlam tudo
+      estão localizados em <filename
+      class="directory">/var/portbuild/scripts/</filename>.  Estes
+      são cópias do <literal>checked-out</literal> do
+      repositório Subversion <ulink
+      url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">
+      <filename
+      class="directory">base/projects/portbuild/scripts/</filename></ulink>.</para>
+
+    <para>Normalmente são feitas compilações incrementais que usam
+      pacotes anteriores como dependências; isso toma menos tempo, e
+      coloca menos carga nos espelhos.  Normalmente são feitas
+      compilações completas apenas quando:</para>
+
+    <itemizedlist>
+      <listitem><para>depois de um <literal>release</literal>, para o ramo
+        <literal>-STABLE</literal></para></listitem>
+
+      <listitem><para>periodicamente, para testar mudanças
+	para o <literal>-CURRENT</literal></para></listitem>
+
+      <listitem><para>para compilações
+	experimentais</para></listitem>
+    </itemizedlist>
+
+    </sect2>
+
+    <sect2 id="codebase-notes">
+      <title>Notas sobre o código base</title>
+
+      <para>Até meados de 2010, os <literal>scripts</literal>
+	apontavam especificamente para
+	<hostid>pointyhat</hostid> como o nó principal
+	(dispatch).  Durante o verão de 2010, mudanças
+	significativas foram feitas a fim de aceitar outros
+	<literal>hosts</literal> como nós principais.  Entre
+	essas mudanças estão:</para>
+
+      <itemizedlist>
+	<listitem><para>remoção da <literal>string</literal>
+	  <literal>pointyhat</literal> embutida no
+	  código</para></listitem>
+
+	<listitem><para>refazer todas as constantes de configuração
+	  (que antes estavam espalhadas por todo o código) em
+	  arquivos de configuração (veja <link
+	  linkend="new-head-node">abaixo</link>)</para></listitem>
+
+	<listitem><para>adicionar o <literal>hostname</literal> aos
+	  diretórios especificados pelo <literal>buildid</literal>
+	  (isso vai impedir que diretórios sejam ambíguos quando
+	  copiados entre máquinas.)</para></listitem>
+
+	<listitem><para>tornar os <literal>scripts</literal> mais
+	  robustos em termos de criação de diretórios e
+	  <literal>links</literal> simbólicos</para></listitem>
+
+	<listitem><para>quando necessário, mudar as chamadas dos
+	  <literal>scripts</literal> para facilitar seu
+	  uso</para></listitem>
+
+      </itemizedlist>
+
+      <para>Este documento foi escrito originalmente antes das
+        mudanças serem feitas.  Onde alguma coisa foi modificada,
+	como nas chamadas de <literal>scripts</literal>, elas são
+	indicadas como <literal>novo código base:</literal> em oposição à
+	<literal>antigo código base:</literal>.</para>
+
+      <note>
+	<para>Como em dezembro de 2010, <hostid>pointyhat</hostid>
+	  ainda está rodando sobre o antigo código base até que o
+	  novo código base seja considerado estável.</para>
+      </note>
+
+      <note>
+	<para>Também durante esse processo, o código base foi migrado
+	  para o <ulink
+	  url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">
+	  repositório Subversion</ulink>.  Para referência, a versão
+	  anterior ainda pode ser <ulink
+	  url="http://www.freebsd.org/cgi/cvsweb.cgi/ports/Tools/portbuild/scripts/Attic/">
+	  encontrada no CVS</ulink>.</para>
+      </note>
+    </sect2>
+  </sect1>
+
+  <sect1 id="management">
+    <title>Configurando Clientes de Compilação</title>
+
+    <para>Os clientes &i386; localizados conjuntamente com
+      <hostid>pointyhat</hostid> efetuam o <literal>boot</literal> via
+      rede a partir dele (nós <replaceable>conectados</replaceable>);
+      todos os outros clientes (nós
+      <replaceable>desconectados</replaceable>) ou são
+      <literal>self-hosted</literal> ou efetuam
+      <literal>boot</literal> via rede a partir de outro
+      <literal>host pxe</literal>.  Em todos os casos eles se
+      configuram durante o <literal>boot</literal> preparando-se
+      para compilar pacotes.</para>
+
+    <para>O <literal>cluster</literal> principal copia, através do
+      <command>rsync</command>, os dados
+      necessários (a árvore de <literal>ports</literal> e dos fontes,
+      <literal>bindist tarballs</literal>, <literal>scripts</literal>,
+      etc.) para os nós desconectados durante a fase de cofiguração dos nós.
+      Em seguida, o diretório <literal>portbuild</literal>
+      desconectado é montado como <literal>nullfs</literal> para
+      compilações em <literal>chroot</literal>.</para>
+
+    <para>O usuário
+      <username>ports-<replaceable>${arch}</replaceable></username>
+      pode acessar os nós clientes através do &man.ssh.1; para
+      monitorá-los.  Usar o <command>sudo</command> e verificar o
+      <hostid>portbuild.<replaceable>hostname</replaceable>.conf</hostid>
+      para o usuário e detalhes do acesso.</para>
+
+    <para>O <literal>script</literal>
+      <command>scripts/allgohans</command> pode ser usado para
+      executar um comando em todos os clientes
+      <replaceable>${arch}</replaceable>.</para>
+
+    <para>O <literal>script</literal>
+      <command>scripts/checkmachines</command> é usado para monitorar
+      a carga em todos os nós do <literal>cluster</literal> de
+      compilação, e agendar quais nós compilarão quais
+      <literal>ports</literal>.  Este <literal>script</literal> não é
+      muito robusto e tem uma tendência a morrer.  É melhor iniciar
+      este <literal>script</literal> no nó principal (e.g.
+      <hostid>pointyhat</hostid>) depois do <literal>boot</literal>
+      usando um <literal>loop</literal> com &man.while.1;.</para>
+  </sect1>
+
+  <sect1 id="setup">
+    <title>Configuração do Ambiente de Compilação em Chroot</title>
+
+    <para>A compilação de pacotes é realizada em um ambiente
+      <literal>chroot</literal> populado pelo
+      <literal>script</literal> <filename>portbuild</filename> usando
+      o arquivo
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
+      </para>
+
+    <para>O seguinte comando faz o <literal>build world</literal>
+      a partir da árvore de diretórios em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src/</filename>
+      e o instala em <replaceable>${worlddir}</replaceable>.  A
+      árvore de diretórios será atualizada primeiro, a menos que
+      <literal>-nocvs</literal> seja especificado.</para>
+
+    <screen>/var/portbuild&prompt.root; <userinput>scripts/makeworld <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-nocvs]</userinput></screen>
+
+    <para>O arquivo <filename>bindist.tar</filename> é criado a partir
+      do <literal>world</literal>, instalado previamente, pelo
+      <literal>script</literal> <command>mkbindist</command>.  Este
+      deve ser executado como <username>root</username> com o
+      seguinte comando:</para>
+
+    <screen>/var/portbuild&prompt.root; <userinput>scripts/mkbindist <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable></userinput></screen>
+
+    <para>Os arquivos <literal>tar</literal> de cada máquina estão
+      localizados em
+      <filename><replaceable>${arch}</replaceable>/clients</filename>.</para>
+
+    <para>O arquivo <filename>bindist.tar</filename> é extraido para
+      cada cliente durante a inicialização deles, e no início de cada
+      passagem do <literal>script</literal>
+      <command>dopackages</command>.</para>
+
+    <sect2>
+      <title>Novo Código Base</title>
+
+      <para>Para ambos os comandos acima, se
+        <replaceable>${buildid}</replaceable> esta definido como
+	<literal>latest</literal>, ele pode ser omitido.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="customizing">
+    <title>Customizando Sua Compilação</title>
+
+    <para>(O trecho a seguir aplica-se apenas para o novo código
+      base.)</para>
+
+    <para>Você pode customizar sua compilação providenciando versões
+      locais do <filename>make.conf</filename> e/ou
+      <filename>src.conf</filename>, localizados em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.server</filename>
+      e
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src.conf.server</filename>,
+      respectivamente.  Esses serão usados, em vez dos arquivos que
+      estão no lado do servidor.</para>
+
+    <para>Da mesma forma, se você quiser afetar o
+      <filename>make.conf</filename> no <emphasis>lado do
+      cliente</emphasis>, você pode usar o
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>.
+    </para>
+
+    <note>
+      <para>Devido ao fato de cada um dos clientes individuais poderem ter
+        seu próprio <filename>make.conf</filename>, o conteúdo do
+	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>
+	vai ser <emphasis>adicionado</emphasis> ao
+	<filename>make.conf</filename>, não substituí-lo, como é feito
+	com o
+	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.server</filename>.
+	</para>
+    </note>
+
+    <note>
+      <para>Não existe nenhuma funcionalidade semelhante para
+        <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src.conf.client</filename>
+	(e que efeito teria?).</para>
+    </note>
+
+    <example>
+      <title>Exemplo de
+        <filename>make.conf.<replaceable>target</replaceable></filename>
+	para testar a nova versão padrão do
+	<application>ruby</application></title>
+
+      <para>(Neste caso, os conteúdos são identicos para ambos,
+        servidor e cliente.)</para>
+
+      <screen>RUBY_DEFAULT_VER= 1.9</screen>
+    </example>
+
+    <example>
+      <title>Exemplo de
+        <filename>make.conf.<replaceable>target</replaceable></filename>
+	para compilação do <application>clang</application></title>
+
+      <para>(Neste caso, os conteúdos também são indenticos para ambos,
+        servidor e cliente.)</para>
+
+      <screen>
+.if !defined(CC) || ${CC} == "cc"
+CC=clang
+.endif
+.if !defined(CXX) || ${CXX} == "c++"
+CXX=clang++
+.endif
+.if !defined(CPP) || ${CPP} == "cpp"
+CPP=clang-cpp
+.endif
+# Don't die on warnings
+NO_WERROR=
+WERROR=
+</screen>
+    </example>
+
+    <example>
+      <title>Exemplo de <filename>make.conf.server</filename> para
+        <application>pkgng</application></title>
+
+      <screen>WITH_PKGNG=yes
+PKG_BIN=/usr/local/sbin/pkg</screen>
+    </example>
+
+    <example>
+      <title>Exemplo de <filename>make.conf.client</filename> para
+	<application>pkgng</application></title>
+
+      <screen>WITH_PKGNG=yes</screen>
+    </example>
+
+    <example>
+      <title>Exemplo de <filename>src.conf.server</filename> para
+	testar uma versão nova do código base do
+	<application>sort</application></title>
+
+      <screen>WITH_BSD_SORT=yes</screen>
+    </example>
+  </sect1>
+
+  <sect1 id="starting">
+    <title>Iniciando a Compilação</title>
+
+    <para>Várias compilações separadas para cada arquitetura -
+      a combinação de ramos é suportada.  Todos os dados privados para
+      uma compilação (árvore de <literal>ports</literal>, árvore do
+      <literal>src</literal>, pacotes, <literal>distfiles</literal>,
+      arquivos de <literal>log</literal>, <literal>bindist</literal>,
+      <literal>Makefile</literal>, etc) estão localizados sob
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable></filename>.
+      Alternativamente, a última compilação pode ser referenciada sob
+      o <literal>buildid</literal> <literal>latest</literal>, e a
+      anterior a esta é chamada <literal>previous</literal>.</para>
+
+    <para>Novas compilações são clonadas a partir da
+      <literal>latest</literal>, o que é rápido, desde que se use
+      ZFS.</para>
+
+    <sect2 id="build-dopackages">
+      <title><literal>Scripts</literal>
+        <command>dopackages</command></title>
+
+    <para>Os <literal>scripts</literal>
+      <filename>scripts/dopackages</filename> são usados para executar
+      as compilações.</para>
+
+    <sect3>
+      <title>Código base antigo</title>
+      <para>Os mais úteis para o código base antigo são:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para><command>dopackages.7</command> - Executa a compilação
+	  para a série 7.X
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.7-exp</command> - Executa a
+	  compilação para a série 7.X com <literal>patches</literal>
+	  experimentais (ramo 7-exp)
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.8</command> - Executa a
+	  compilação para a série 8.X.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.8-exp</command> - Executa a
+	  compilação para a série 8.X com <literal>patches</literal>
+	  experimentais (ramo 8-exp)
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.9</command> - Executa a
+	  compilação para a série 9.X.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.9-exp</command> - Executa a
+	  compilação para a série 9.X com <literal>patches</literal>
+	  experimentais (ramo 9-exp)
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.10</command> - Executa a
+	  compilação para a série 10.X.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><command>dopackages.10-exp</command> - Executa a
+	  compilação para a série 10.X com <literal>patches</literal>
+	  experimentais (ramo 10-exp)
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>These are wrappers around <command>dopackages</command>,
+      and are all symlinked to <command>dopackages.wrapper</command>.
+      New branch wrapper scripts can be created by symlinking
+      <command>dopackages.${branch}</command> to
+      <command>dopackages.wrapper</command>.  These scripts
+      take a number of arguments.  For example:</para>
+
+    <screen><command>dopackages.7 <replaceable>${arch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></command></screen>
+
+    </sect3>
+
+    <sect3>
+      <title>Novo código base</title>
+      <para>Você pode usar o <command>dopackages.wrapper</command>
+        diretamente, ao invés dos <literal>links</literal> simbólicos.
+	Por exemplo:</para>
+
+    <screen><command>dopackages.wrapper <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></command></screen>
+
+    </sect3>
+
+    <sect3>
+      <title>Either codebase</title>
+
+    <para>Frequetemente você usará <literal>latest</literal> como
+      valor para o <replaceable>buildid</replaceable>.</para>
+
+    <para><literal>[-options]</literal> pode ser uma, ou mais, das
+      opções seguintes:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para><literal>-keep</literal> - Não remove esta compilação no
+	  futuro, quando normalmente seria removido como parte do
+	  ciclo <literal>latest</literal> -
+	  <literal>previous</literal>.  Não se esqueça de limpar isso
+	  manualmente quando não for mais necessário.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nofinish</literal> - Não executa o
+	  pós-processamento uma vez que a compilação estiver completa.
+	  Útil se você espera que a compilação precise ser reiniciada
+	  depois de concluída.  Se você usar esta opção, não se esqueça
+	  de limpar os clientes quando você não precisar mais da
+	  compilação.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-finish</literal> - Executa apenas o
+	  pós-processamento.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nocleanup</literal> - Por padrão, quando o
+	  estágio <literal>-finish</literal> da compilação é
+	  completado, os dados da compilação serão removidos dos
+	  clientes.  Esta opção vai evitar a remoção dos
+	  dados.</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-restart</literal> - Reinicia uma compilação
+	  interrompida (ou não-<literal>finish</literal>) a partir do
+	  começo.  <literal>Ports</literal> que falharam na compilação
+	  anterior serão recompilados.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-continue</literal> - Reinicia uma compilação
+	  interrompida (ou não-<literal>finish</literal>).
+	  <literal>Ports</literal> que falharam na compilação anterior
+	  não serão recompilados.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-incremental</literal> - Compara os campos
+	  importantes do novo <literal>INDEX</literal> com a versão
+	  anterior, remove pacotes e arquivos de
+	  <literal>log</literal> dos <literal>ports</literal> antigos
+	  que foram alterados, e recompila o resto.  Isso reduz o
+	  tempo de compilação substancialmente, pois os
+	  <literal>ports</literal> inalterados não serão recompilados
+	  toda vez.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-cdrom</literal> - O empacotamento desta
+	  compilação será usado em um CD-ROM, então os pacotes
+	  marcados como <literal>NO_CDROM</literal> e os
+	  <literal>disfiles</literal> deverão ser removidos no
+	  pós-processamento.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nobuild</literal> - executa todas as etapas do
+	  pré-processamento, mas não a compilação dos pacotes.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-noindex</literal> - Não reconstrói o
+	  <filename>INDEX</filename> durante o pré-processamento.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-noduds</literal> - Não reconstrói o arquivo
+	  <filename>duds</filename> (<literal>ports</literal> que
+	  nunca são compilados, e.g. aqueles marcados com
+	  <literal>IGNORE</literal>, <literal>NO_PACKAGE</literal>,
+	  etc.) durante o pré-processamento.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nochecksubdirs</literal> - Não verifica o
+	  <makevar>SUBDIRS</makevar> para os <literal>ports</literal>
+	  que não estão ligados à compilação.  (Apenas para a nova
+	  base de código).
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-trybroken</literal> - Tenta compilar
+	  <literal>ports</literal> marcados como
+	  <literal>BROKEN</literal> (desativado por padrão, pois os
+	  <literal>clusters</literal> amd64/&i386; agora são suficientemente rápidos
+	  do que quando fazem compilações incrementais, muito tempo era
+	  gasto recompilando coisas que irião falhar de qualquer
+	  maneira.  Por outro lado, os outros
+	  <literal>clusters</literal> são bastante lentos, o que
+	  seria um desperdício de tempo tentar compilar
+	  <literal>ports</literal> marcados como
+	  <literal>BROKEN</literal>).
+	</para>
+	<note>
+	  <para>Com <literal>-trybroken</literal>, provavelmente você
+	    também vai querer usar <literal>-fetch-original</literal>
+	    (e, no novo código base,
+	    <literal>-unlimited-errors</literal>).</para>
+	</note>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nosrc</literal> -  Não atualiza a árvore do
+	  <literal>src</literal> a partir do
+	  <literal>snapshot</literal> do ZFS, mantendo a árvore da
+	  compilação anterior.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-srccvs</literal> - Não atualiza a árvore do
+	  <literal>src</literal> a partir do
+	  <literal>snapshot</literal> do ZFS, em vez disso ela é
+	  atualizada com o <literal>cvs update</literal>.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-noports</literal> - Não atualiza a árvore de
+	  <literal>ports</literal> a partir do
+	  <literal>snapshot</literal> do ZFS, mantendo a árvore da
+	  compilação anterior.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-portscvs</literal> - Não atualiza a árvore de
+	  <literal>ports</literal> a partir do
+	  <literal>snapshot</literal> do ZFS, em vez disso ela é
+	  atualizada com o <literal>cvs update</literal>.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-norestr</literal> - Não tenta compilar
+	<literal>ports</literal> marcados como
+	<literal>RESTRICTED</literal>.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-noplistcheck</literal> - Não considera como
+	  erro <literal>ports</literal> deixarem arquivos para trás
+	  depois que for desinstalado.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-nodistfiles</literal> - Não coletar os
+	  <literal>distfiles</literal> que passarem no <command>make
+	  checksum</command> para depois fazer o
+	  <foreignphrase>upload</foreignphrase> para o
+	  <hostid>ftp-master</hostid>.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-fetch-original</literal> - Baixa o
+	  <literal>distfile</literal> a partir do
+	  <literal>MASTER_SITES</literal> original, em vez do
+	  <hostid>ftp-master</hostid>.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>-unlimited-errors</literal> (apenas novo
+	  código) - anula a verificação do "qmanager threshhold" para
+	  compilações descontroladas.  Você pode querer isso
+	  principalmente quando usar <literal>-restart</literal> em
+	  uma compilação que provavelmente vai falhar, ou talvez
+	  quando executar <literal>-trybroken</literal>.  O
+	  <literal>threshhold</literal> é realizado por padrão.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>A menos que você especifique <literal>-restart</literal>,
+      <literal>-continue</literal>, ou <literal>-finish</literal>, os
+      <literal>links</literal> simbólicos para as compilações existentes serão
+      rotacionados.  Isto é, o link simbólico para
+      <filename>previous</filename> será removido; a compilação mais
+      recente terá seu link modificado para
+      <filename>previous/</filename>; e a nova compilação será criada
+      e linkada em <filename>latest/</filename>.
+    </para>
+
+    <para>Se a última compilação foi finalizada de forma limpa, você
+      não precisa remover nada.  Se ela foi interrompida, ou você usou
+      a opção <literal>-nocleanup</literal>, você precisa limpar os
+      clientes executando
+    </para>
+
+    <para><command>build cleanup <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> -full</command></para>
+
+    <para><filename>errors/</filename>, <filename>logs/</filename>,
+      <filename>packages/</filename>, e assim por diante, são limpos
+      pelos <literal>scripts</literal>.  Se você está com pouco
+      espaço, também pode limpar o
+      <filename>ports/distfiles/</filename>.  Não altere o diretório
+      <filename>latest/</filename>; ele é um link simbólico para o
+      servidor web.</para>
+
+    <note>
+      <para><literal>dosetupnodes</literal> supostamente é executado
+	pelo <literal>script</literal> <literal>dopackages</literal>
+	no caso de <literal>-restart</literal>, mas pode ser uma boa
+	idéia executa-lo manualmente e depois verificar se todos os
+	clientes tem a carga de trabalho esperada.  Algumas vezes
+	<literal>dosetupnode</literal> não pode limpar uma compilação
+	e você precisará fazer isso manualmente.  (Isso é um
+	defeito.)</para>
+    </note>
+
+    <para>Verifique se a compilação de pacotes para a arquitetura 
+      <replaceable>${arch}</replaceable> está executando como
+      usuário ports-<replaceable>${arch}</replaceable> ou ele
+      apresentará um grande número de erros.</para>
+
+    <note><para>Atualmente, a própria compilação de pacotes ocorre em
+      duas fases idênticas.  A razão para isso é que, algumas vezes,
+      problemas temporários (e.g. falhas do NFS, sites FTP
+      inalcanssaveis, etc.) podem quebrar a compilação.  Realizar o
+      processo em duas fases é uma solução alternativa para esse tipo
+      de problema.</para></note>
+
+    <para>Seja cuidadoso com <filename>ports/Makefile</filename> para
+      não especificar qualquer diretório vázio.  Isso é especialmente
+      importante se você está realizando uma compilação com
+      <literal>patches</literal> experimentais (-exp).  Se o processo
+      de compilação encontrar um diretório vázio, ambas as fases de
+      compilação irão parar rapidamente, e um erro similar ao seguinte
+      será adicionado para
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make.[0|1]</filename>:
+    </para>
+
+    <screen><literal>don't know how to make dns-all(continuing)</literal></screen>
+
+    <para>Para corrigir este problema, simplesmente comente ou remova
+      as entradas <literal>SUBDIR</literal> que apontam para
+      sub-diretórios vázios.  Depois de feito isso, você pode
+      reiniciar a compilação executando o comando
+      <command>dopackages</command> adequado com a opção
+      <literal>-restart</literal>.
+    </para>
+
+    <note>
+      <para>Esse problema também ocorre se você criar uma nova
+        categoria com um <filename>Makefile</filename> sem entradas
+	<makevar>SUBDIR</makevar>s nele.  Isso é, provavelmente, um
+	defeito.</para>
+    </note>
+
+    <example>
+      <title>Atualize a árvore i386-7 e faça uma compilação
+        completa</title>
+
+      <para><command>dopackages.7 i386 -nosrc -norestr -nofinish</command></para>
+      <para><command>dopackages.wrapper i386 7 -nosrc -norestr -nofinish</command></para>
+    </example>
+
+    <example>
+      <title>Reinicie uma compilação para amd64-8 interrompida sem
+        atualizar</title>
+
+      <para><command>dopackages.8 amd64 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</command></para>
+      <para><command>dopackages.wrapper amd64 8 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</command></para>
+    </example>
+
+    <example>
+      <title>Realiza o pós-processamento de uma árvore sparc64-7
+        concluída</title>
+
+      <para><command>dopackages.7 sparc64 -finish</command></para>
+      <para><command>dopackages.wrapper sparc64 7 -finish</command></para>
+    </example>
+
+    <para>Dica: normalmente nós achamos melhor executar o comando
+      <command>dopackages</command> dentro do
+      <command>screen(1)</command>.</para>
+    </sect3>
+    </sect2>
+
+    <sect2 id="build-command">
+      <title>O comando <command>build</command></title>
+
+      <para>Você pode precisar manipular os dados da compilação antes
+        de inicia-la, especialmente para compilações experimentais.
+	Isso é feito com o comando <command>build</command>.  Aqui
+	estão algumas opções úteis para criação:</para>
+
+      <itemizedlist>
+	<listitem>
+	  <para><literal>build create <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable>
+	    [<replaceable>newid</replaceable>]</literal> - Cria um
+	    <replaceable>newid</replaceable> (ou um
+	    <literal>datestamp</literal> se não for especifícado).  Só
+	      é necessário quando da criação de um novo ramo ou uma nova
+	      arquitetura.  (À fazer: documentar se
+	      <literal>newid</literal> deve ser especificado como
+	      <literal>latest</literal> no novo código base.)
+	  </para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>build clone <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable> <replaceable>oldid</replaceable>
+	    [<replaceable>newid</replaceable>]</literal> - Cria um
+	    clone do <replaceable>oldid</replaceable> para o
+	    <replaceable>newid</replaceable> (ou um
+	    <literal>datestamp</literal> se não for especificado).
+	  </para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>build srcupdate <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable>
+	    <replaceable>buildid</replaceable></literal> - Substitui
+	    a árvore <literal>src</literal> com um novo
+	    <literal>snapshot</literal> do ZFS.  Não se esqueça de
+	    usar a opção <literal>-nosrc</literal> quando executar o
+	    <command>dopackages</command> mais tarde!
+	  </para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>build portsupdate <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable>
+	    <replaceable>buildid</replaceable></literal> - Substitui a
+	    árvore de <literal>ports</literal> com um novo
+	    <literal>snapshot</literal> do ZFS.  Não se esqueça de
+	    usar a opção <literal>-noports</literal> quando executar
+	    <command>dopackages</command> mais tarde!
+	  </para>
+	</listitem>
+
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="build-one">
+      <title>Compilando um único pacote</title>
+
+      <para>Algumas vezes é necessário recompilar um único pacote a
+	partir do conjunto de pacotes.  Isso pode ser feito executando
+	o seguinte comando:</para>
+
+      <para><command><replaceable>path</replaceable>/qmanager/packagebuild <replaceable>amd64</replaceable> <replaceable>7-exp</replaceable> <replaceable>20080904212103</replaceable> <replaceable>aclock-0.2.3_2.tbz</replaceable></command></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="anatomy">
+    <title>O Processo de Compilação</title>
+
+    <para>Uma compilação completa sem qualquer opção
+      <literal>-no</literal> que desabilite as opções padrões, executa
+      as seguintes operações na ordem especificada:</para>
+
+    <orderedlist>
+      <listitem>
+	<para>Atualiza a árvore de <literal>ports</literal> atual a
+	  partir de um <literal>snapshot</literal> do ZFS [*]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Atualiza o ramo usado na árvore <literal>src</literal> a
+	  partir de um <literal>snapshot</literal> do ZFS [*]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Verifica que <literal>ports</literal> não têm uma
+	  entrada <literal>SUBDIR</literal> no
+	  <filename>Makefile</filename> de suas respectivas categorias
+	  [*]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Cria o arquivo <filename>duds</filename>, que é uma
+	  lista de <literal>ports</literal> que não precisam ser
+	  compilados [*] [+]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Cria um arquivo <filename>INDEX</filename> atualizado
+	[*] [+]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Define os nós que serão usados na compilação [*] [+]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Compila uma lista de <literal>ports</literal> restritos
+	  [*] [+]</para>
+      </listitem>
+
+      <listitem>
+	<para>Compilação de pacotes (fase 1) [++]</para>
+      </listitem>
+
+      <listitem>
+	<para>Executa outra configuração do nó [+]</para>
+      </listitem>
+
+      <listitem>
+	<para>Compilação de pacotes (fase 2) [++]</para>
+      </listitem>
+    </orderedlist>
+
+    <para>[*] O status destes passos pode ser encontrado em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/build.log</filename>,
+      bem como no <literal>stderr</literal> do <literal>tty</literal>
+      onde o comando <command>dopackages</command> está
+      rodando.</para>
+
+    <para>[+] Se qualquer destes passos falhar, a compilação será
+      encerrada.</para>
+
+    <para>[++] O status destes passos pode ser encontrado em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make</filename>
+      (antigo código base) ou
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/journal</filename>
+      (novo código base).  <literal>Ports</literal> individuais vão
+      escrever seus <literal>logs</literal> de compilação em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/logs</filename>
+      e outros <literal>logs</literal> de erros em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors</filename>.
+    </para>
+
+    <para>Anteriormente, a árvore <literal>docs</literal> também era
+      verificada, no entanto, isso mostrou-se desnecessário.
+    </para>
+  </sect1>
+
+  <sect1 id="build-maintenance">
+    <title>Manutenção da Compilação</title>
+
+    <para>Existem vários casos onde você precisará limpar manualmente
+      uma compilação:
+    </para>
+
+    <orderedlist>
+      <listitem>
+	<para>Você a interrompeu manualmente.</para>
+      </listitem>
+
+      <listitem>
+	<para><hostid>pointyhat</hostid> foi reiniciado enquanto uma
+	  compilação estava executando.</para>
+      </listitem>
+
+      <listitem>
+	<para><filename>qmanager</filename> tenha falhado e tenha sido
+	  reiniciado.</para>
+      </listitem>
+      </orderedlist>
+
+  <sect2 id="interrupting">
+    <title>Interrompendo uma Compilação</title>
+
+    <para>Interromper uma compilação manualmente é um pouco confuso.
+      Primeiro você precisa identificar o <literal>tty</literal> em
+      que ela está rodando (ou lembrando-se da saída do &man.tty.1;
+      quando você iniciou a compilação, ou usando <command>ps
+      x</command> para identifica-lo).  Você precisa certificar-se de
+      que nada mais importante está rodando neste
+      <literal>tty</literal>, e.g. <command>ps -t p1</command> ou
+      qualquer outro.  Se não existe, você pode encerrar o terminal
+      facilmente com <command>pkill -t pts/1</command>; ou pode
+      utilizar o <command>kill -HUP</command>, por exemplo,
+      <command>ps -t pts/1 -o pid= | xargs kill -HUP</command>.
+      Substitua <replaceable>p1</replaceable> pelo
+      <literal>tty</literal> utilizado na compilação, claro.</para>
+
+    <para>A compilação de pacote enviada por <command>make</command>
+      para as máquinas clientes irá limpar-se após alguns minutos
+      (verifique com <command>ps x</command> até que todos
+      finalizem).</para>
+
+    <para>Se você não encerrar &man.make.1;, ele irá gerar mais
+      trabalhos.  Se você não encerrar <command>dopackages</command>
+      ele irá reiniciar toda a compilação.  Se você não encerrar
+      os processos <command>pdispatch</command>, eles irão continuar
+      (ou reaparecer) até concluir a compilação do pacote.</para>
+
+  </sect2>
+
+  <sect2 id="cleanup">
+    <title>Limpeza de uma Compilação</title>
+
+    <para>Para liberar recursos, você precisa limpar as máquinas
+      clientes executando o comando <command>build cleanup</command>.
+      Por exemplo:
+      <screen>&prompt.user; <userinput>/var/portbuild/scripts/build cleanup i386 8-exp 20080714120411 -full</userinput></screen>
+    </para>  
+
+    <para>Se você esquecer de fazer isso, então os
+      <literal>chroot</literal>s da compilação antiga não serão limpos
+      por 24 horas, e nenhum novo trabalho será enviado para este
+      lugar enquanto <hostid>pointyhat</hostid> achar que esta máquina
+      está ocupada.</para>
+
+    <para>Verifique usando <command>cat ~/loads/*</command> para
+      mostrar o status das máquinas clientes; a primeira coluna é o
+      número de trabalhos que ela acha estar executando, e isso pode
+      estar bem próximo da carga média.  <literal>loads</literal> é
+      atualizado a cada 2 minutos.  Se você executar <command>ps x |
+      grep pdispatch</command> e ele contiver menos trabalhos do que
+      <literal>loads</literal> pensa estar em uso, você está em
+      apuros.</para>
+
+    <para>Você pode ter problemas com comandos <command>umount</command>
+      suspensos.  Se assim for, você terá que usar o
+      <literal>script</literal> <command>allgohans</command>  para
+      executar um comando &man.ssh.1; em todos os clientes neste
+      ambiente de compilação.  Por exemplo:
+<screen>ssh -l root gohan24 df</screen>
+
+      vai te dar um <command>df</command>, e
+
+<screen>allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports"
+allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/src"</screen>
+
+      supostamente são para livrar-se das montagens suspensas.  Você
+      terá que continuar os executando, pois podem existir diversas
+      montagens.</para>
+
+    <note>
+      <para>Ignore o seguinte:
+
+<screen>umount: pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports: statfs: No such file or directory
+umount: pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports: unknown file system
+umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
+/x/tmp/8-exp/chroot/53837/compat/linux/proc: not a file system root directory</screen>
+
+      Os dois primeiros significam que o cliente não os tinha montado;
+      os dois últimos são um defeito.</para>
+
+      <para>Você também poderá ver mensagens sobre
+      <literal>procfs</literal>.</para>
+    </note>
+
+    <para>Após concluir tudo que foi exposto acima, remova o arquivo
+      <filename><replaceable>${arch}</replaceable>/lock</filename>
+      antes de tentar reiniciar a compilação.  Se você não o fizer,
+      <filename>dopackages</filename> simplesmente será encerrado.
+    </para>
+
+    <para>Se você atualizou a árvore de <literal>ports</literal> antes
+      de reiniciar, você ter que recompilar outro
+      <filename>duds</filename>, <filename>INDEX</filename>, ou
+      ambos.</para>
+
+    </sect2>
+
+    <sect2 id="build-command-2">
+      <title>Manutenção de compilações com o comando
+        <command>build</command></title>
+
+      <para>Aqui está o resto das opções para o comando
+        <command>build</command>:</para>
+
+      <itemizedlist>
+	<listitem>
+	  <para><literal>build destroy <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable></literal> - Destrói o
+	    <literal>id</literal> da compilação.
+	  </para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>build list <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable></literal> - Mostra o
+	    conjunto atual de <literal>ids</literal> de compilações.
+	  </para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>build upload <replaceable>arch</replaceable>
+	    <replaceable>branch</replaceable></literal> - ainda não
+	    implementado.
+	  </para>
+	</listitem>
+      </itemizedlist>
+
+    </sect2>
+
+  </sect1>
+
+  <sect1 id="monitoring">
+    <title>Monitorando a Compilação</title>
+
+    <para>Você pode usar o comando <command>qclient</command> para
+      monitorar o status dos nós de compilação, e para a lista de
+      trabalhos agendados atualmente:</para>
+
+    <para><command>python <replaceable>path</replaceable>/qmanager/qclient jobs</command></para>
+    <para><command>python <replaceable>path</replaceable>/qmanager/qclient status</command></para>
+
+    <para>O comando
+      <command>scripts/stats <replaceable>${branch}</replaceable></command>
+      mostra o número de pacotes terminados.</para>
+
+    <para>Executar <command>cat /var/portbuild/*/loads/*</command>
+      mostra a carga do cliente e o número de compilações simultâneas
+      em progresso.  Os arquivos que têm sido atualizados recentemente
+      são dos clientes que estão <literal>online</literal>; os outrss são dos
+      clientes <literal>offline</literal>.</para>
+
+    <note>
+      <para>O comando <command>pdispatch</command> faz o envio de
+        trabalhos para o cliente, e pós-processamento.
+	<command>ptimeout.host</command> vigia a compilação e a
+	encerra após <literal>timeouts</literal>.  Então, tendo 50
+	processos <command>pdispatch</command>, mas apenas 4 processos
+	&man.ssh.1;, significa que 46 processos
+	<command>pdispatch</command>es estão ociosos, esperando por um
+	nó ocioso.</para>
+    </note>
+
+    <para>Executar <command>tail -f <replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/build.log</command>
+      mostra o progresso geral da compilação.</para>
+
+    <para>Se a compilação do <literal>port</literal> falhar, e o
+      motivo não for imediatamente óbvio a partir do
+      <literal>log</literal>, você pode preservar o
+      <literal>WRKDIR</literal> para uma análise mais profunda.  Para
+      fazer isso, crie um arquivo chamado <filename>.keep</filename>
+      no diretório do <literal>port</literal>, isso vai arquivar,
+      comprimir, e copiar o <literal>WRKDIR</literal> para
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/wrkdirs</filename>.
+    </para>
+
+    <para>Se você achar que o sistema está em uma repetição
+      indefinida compilando o mesmo pacote, outra e outra vez, você
+      pode ser capaz de corrigir este problema recompilando este
+      pacote problemático manualmente.</para>
+
+    <para>Se todos as compilações iniciam apresentando erros de que
+      não podem carregar suas dependências, verifique se
+      <application>httpd</application> ainda está rodando, e reinicie
+      se não estiver.</para>
+
+    <para>Matenha o olho na saída do &man.df.1;.  Se o sistema de
+      arquivos em <filename>/var/portbuild</filename> começar a ficar
+      cheio, coisas ruins acontecem.
+    </para>
+
+    <para>O status de todas as compilações é gerado duas vezes por
+      hora e postado em <ulink
+      url="http://pointyhat.FreeBSD.org/errorlogs/packagestats.html"></ulink>.
+      Para cada <literal>buildenv</literal> é apresentado o
+      seguinte:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para><literal>cvs date</literal> é o conteúdo do
+	  <filename>cvsdone</filename>.  É por isso que nós recomendamos
+	  que você atualize o <filename>cvsdone</filename> para
+	  executar compilações experimentais, <literal>-exp</literal>
+	  (veja abaixo).</para>
+      </listitem>
+
+      <listitem>
+	<para>data do último <literal>log</literal>
+	  (<literal>latest log</literal>)</para>
+      </listitem>
+
+      <listitem>
+	<para>número de linhas no <literal>INDEX</literal></para>
+      </listitem>
+
+      <listitem>
+	<para>o número atual de <literal>logs</literal> de
+	  compilações (<literal>build logs</literal>)</para>
+      </listitem>
+
+      <listitem>
+	<para>o número pacotes completos
+	  (<literal>packages</literal>)</para>
+      </listitem>
+
+      <listitem>
+	<para>o número de erros (<literal>errors</literal>)</para>
+      </listitem>
+
+      <listitem>
+	<para>o número de <literal>ports</literal> ignorados
+	  (mostrados como <literal>skipped</literal>)</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>missing</literal> mostra a diferença entre o
+	  <filename>INDEX</filename> e as outras colunas.  Se você
+	  reiniciou uma compilação após um <command>cvs
+	  update</command>, provavelmente haverá duplicatas nos pacotes
+	  e colunas de erros, e esta coluna será inútil.  (O
+	  <literal>script</literal> é ingênuo).</para>
+      </listitem>
+
+      <listitem>
+	<para><literal>running</literal> e <literal>completed</literal>
+	  são supostamente baseadas em um &man.grep.1; do
+	  <filename>build.log</filename>.
+	</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 id="errors">
+    <title>Lidando com Erros de Compilação</title>
+
+    <para>A maneira mais fácil de rastrear falhas na compilação é
+      receber os <literal>logs</literal> enviados por e-mail e
+      organiza-los em uma pasta, assim você pode manter uma lista com
+      as falhas atuais e detectar facilmente novas falhas.  Para fazer
+      isso, adicione um endereço de e-mail em
+      <filename><replaceable>${branch}</replaceable>/portbuild.conf</filename>.
+      Você pode facilmente enviar os novos para os
+      mantenedores.</para>
+
+    <para>Depois que um <literal>port</literal> aparece quebrado em
+      cada combinação de compilação, várias vezes, é hora de marcá-lo
+      como <literal>BROKEN</literal>.  Notificar os mantenedores
+      durante duas semanas parece justo.</para>
+
+    <note>
+      <para>Para evitar erros de compilação com
+        <literal>ports</literal> que precisam ser baixados
+	manualmente, coloque os <literal>distfiles</literal> em
+	<filename>~ftp/pub/FreeBSD/distfiles</filename>.  Restrições
+	de acesso garantem que apenas os clientes de compilação possam
+	acessar este diretório.</para>
+    </note>
+  </sect1>
+
+  <sect1 id="release">
+    <title>Compilações do <literal>Release</literal></title>
+
+    <para>Quando compilando pacotes para um
+      <literal>release</literal> do &os;, pode
+      ser necessário atualizar manualmente as árvores de
+      <literal>ports</literal> e <literal>src</literal> para a
+      <literal>tag</literal> de <literal>release</literal> e usar as opções
+      <literal>-nocvs</literal> e
+      <literal>-noportscvs</literal>.</para>
+
+    <para>Para compilar conjuntos de pacotes que serão usados em um
+      CD-ROM, use a opção <literal>-cdrom</literal> para o comando
+      <command>dopackages</command>.</para>
+
+    <para>Se não houver espaço disponível em disco no
+      <literal>cluster</literal>, use <literal>-nodistfiles</literal>
+      para que os <literal>distfiles</literal> não sejam
+      baixados.</para>
+
+    <para>Após completar a compilação inicial, reinicie a compilação
+      com <literal>-restart -fetch-original</literal> para baixar os
+      <literal>distfiles</literal> atualizados.  Então, uma vez que a
+      compilação seja pós-processada, faça um inventário da lista de
+      arquivos baixados:</para>
+
+    <screen>&prompt.user; <userinput>cd <replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
+&prompt.user; <userinput>find distfiles > distfiles-<replaceable>${release}</replaceable></userinput></screen>
+
+    <!-- XXX MCL apparently obsolete -->
+    <para>Este arquivo de invetário normalmente está localizado em
+      <filename>i386/<replaceable>${branch}</replaceable></filename>
+      no <literal>cluster master</literal>.</para>
+
+    <para>Isso é útil para ajudar periodicamente na limpeza dos
+      <literal>distfiles</literal> do <hostid>ftp-master</hostid>.
+      Quando o espaço se torna apertado, os <literal>distfiles</literal>
+      dos <literal>releases</literal> recentes podem ser mantidos, enquanto outros
+      podem ser jogados fora.</para>
+
+    <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos <literal>distfiles</literal> tenha
+      sido feito (veja abaixo), o conjunto de pacotes do
+      <literal>release</literal>
+      final deve ser criado.  Para se assegurar, execute o
+      <literal>script</literal>
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/cdrom.sh</filename>
+      manualmente para certificar-se que todos os pacotes restritos e
+      os <literal>distfiles</literal> foram removidos.  Então, copie o
+      diretório
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/packages</filename>
+      para
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/packages-<replaceable>${release}</replaceable></filename>.
+      Uma vez que os pacotes tenham sido movidos com segurança,
+      contate o &a.re; e informe-os da localização do pacote do
+      <literal>release</literal>.</para>
+
+    <para>Lembre-se de coordenar com a &a.re; sobre o momento e
+      status das compilações do <literal>release</literal>.
+    </para>
+  </sect1>
+
+  <sect1 id="uploading">
+    <title><foreignphrase>Upload</foreignphrase> dos Pacotes</title>
+
+    <para>Uma vez que a compilação tenha terminado, pacotes e/ou
+      <literal>distfiles</literal> podem ser transferidos para o
+      <hostid>ftp-master</hostid> para propagação com a rede de
+      espelhos FTP.  Se a compilação foi executada com a opção
+      <literal>-nofinish</literal>, então certifique-se de em seguida
+      executar <command>dopackages -finish</command> para
+      pós-processamento dos pacotes (remover pacotes marcados como
+      <literal>RESTRICTED</literal> e <literal>NO_CDROM</literal> onde
+      for apropriado, remover pacotes não listados no
+      <filename>INDEX</filename>, remover do
+      <filename>INDEX</filename> as referências para pacotes não
+      compilados, e gerar um <filename>CHECKSUM.MD5</filename>
+      resumido); e <literal>distfiles</literal> (movendo-os do
+      diretório temporario <filename>distfiles/.pbtmp</filename> para
+      <filename>distfiles/</filename> e remove os
+      <literal>distfiles</literal> marcados como
+      <literal>RESTRICTED</literal> e
+      <literal>NO_CDROM</literal>).</para>
+
+    <para>Normalmente é uma boa idéia executar os
+      <literal>scripts</literal> <command>restricted.sh</command> e/ou
+      <command>cdrom.sh</command> manualmente após a finalização do
+      <command>dopackages</command>, apenas por segurança.  Execute o
+      <literal>script</literal> <command>restricted.sh</command> antes
+      de fazer o <foreignphrase>upload</foreignphrase> para o <hostid>ftp-master</hostid>, em
+      seguida, execute <command>cdrom.sh</command> antes de preparar o
+      conjunto final de pacotes para um
+      <literal>release</literal>.</para>
+
+    <para>Os subdiretórios de pacotes são nomeados de acordo com seu
+      ramo, <literal>release</literal>, <literal>stable</literal>, ou
+      <literal>current</literal>.  Exemplo:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para><literal>packages-7.2-release</literal></para>
+      </listitem>
+
+      <listitem>
+	<para><literal>packages-7-stable</literal></para>
+      </listitem>
+
+      <listitem>
+	<para><literal>packages-8-stable</literal></para>
+      </listitem>
+
+      <listitem>
+	<para><literal>packages-9-stable</literal></para>
+      </listitem>
+
+      <listitem>
+	<para><literal>packages-10-current</literal></para>
+      </listitem>
+    </itemizedlist>
+
+    <note><para>Alguns desses diretórios no
+      <hostid>ftp-master</hostid> são, de fato,
+      <literal>links</literal> simbólicos.  Exemplo:</para>
+
+      <itemizedlist>
+	<listitem>
+	  <para><literal>packages-stable</literal></para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>packages-current</literal></para>
+	</listitem>
+      </itemizedlist>
+
+      <para>Tenha certeza de estar movendo o novo pacote para um
+        diretório de destino <emphasis>real</emphasis>, e não para um
+	dos <literal>links</literal> simbólicos que apontam para
+	ele.</para>
+    </note>
+
+    <para>Se você está fazendo um conjunto de pacotes completamente
+      novo (e.g. para um novo <literal>release</literal>), copie os
+      pacotes para a área de teste no <hostid>ftp-master</hostid> com
+      algo como o seguinte:</para>
+
+    <screen>&prompt.root; <userinput>cd /var/portbuild/<replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
+&prompt.root; <userinput>tar cfv - packages/ | ssh portmgr@ftp-master tar xfC - w/ports/<replaceable>${arch}</replaceable>/tmp/<replaceable>${subdir}</replaceable></userinput></screen>
+
+    <para>Em seguida, entre no <hostid>ftp-master</hostid> e verifique
+      se o conjunto de pacotes foi transferido com sucesso, remova o
+      conjunto de pacotes que o novo conjunto vai substituir (em
+      <filename>~/w/ports/<replaceable>${arch}</replaceable></filename>),
+      e mova o novo conjunto para o local.  (<literal>w/</literal> é
+      apenas um atalho.)</para>
+
+    <para>Para compilações incrementais, o
+      <foreignphrase>upload</foreignphrase> deve ser feito usando o
+      <command>rsync</command> para não colocar muita pressão nos
+      espelhos.</para>
+
+    <para><emphasis>SEMPRE</emphasis> use <command>rsync</command>
+      primeiro com a opção <literal>-n</literal> e verifique a saída
+      para assegurar-se que não existem problemas.  Se parece estar
+      tudo bem, execute novamente o <command>rsync</command> sem a
+      opção <literal>-n</literal>.
+    </para>
+
+    <para>Exemplo de comando <command>rsync</command> para o
+      <foreignphrase>upload</foreignphrase> incremental de
+      pacotes:</para>
+
+    <screen>&prompt.root; <userinput>rsync -n -r -v -l -t -p --delete packages/ portmgr@ftp-master:w/ports/<replaceable>${arch}</replaceable>/<replaceable>${subdir}</replaceable>/ | tee log</userinput></screen>
+
+    <para><literal>Distfiles</literal> devem ser transferidos com o
+      <literal>script</literal> <command>cpdistfiles</command>:</para>
+
+    <screen>&prompt.root; <userinput>/var/portbuild/scripts/cpdistfiles <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-yesreally] | tee log2</userinput></screen>
+
+    <para>Fazer isso manualmente está obsoleto.</para>
+  </sect1>
+
+  <sect1 id="expbuilds">
+    <title>Compilação de <literal>Patches</literal>
+      Experimentais</title>
+
+    <para>Compilações de <literal>patches</literal> experimentais são
+      executadas de tempos em tempos para novas funções ou correções
+      de defeitos na infraestrutura do <literal>ports</literal> (i.e.
+      <filename>bsd.port.mk</filename>), ou para testar atualizações
+      em grabde escala.  A qualquer momento pode haver vários
+      <literal>patches</literal> de ramos experimentais simultâneos,
+      como o <literal>8-exp</literal> na arquitetura amd64.</para>
+
+    <para>Geralmente, uma compilação de <literal>patches</literal>
+      experimentais é executada da mesma forma que qualquer outra
+      compilação, exceto que você deve primeiro atualizar a árvore de
+      <literal>ports</literal> para a última versão e, em seguida,
+      aplicar os <literal>patches</literal>.  Para fazer o primeiro,
+      você pode usar o seguinte:
+
+      <screen>&prompt.user; <userinput>cvs -R update -dP > update.out</userinput>
+&prompt.user; <userinput>date > cvsdone</userinput></screen>
+
+      Issa é a simulação mais próxima do que o
+      <literal>script</literal> <literal>dopackages</literal> faz.
+      (Enquanto <filename>cvsdone</filename> é meramente informativo,
+      isso pode ajudar.)</para>
+
+    <para>Você precisará editar o <filename>update.out</filename> para
+      procurar por linhas que comecem com <literal>^M</literal>,
+      <literal>^C</literal>, ou <literal>^?</literal> e então
+      corrigi-las.</para>
+
+    <para>É sempre uma boa idéia salvar copias do original de todos os
+      arquivos modificados, como também uma lista do que você está
+      modificando.  Você pode consultar a lista ao fazer o
+      <literal>commit</literal> final, para se certificar que você
+      está realizando o <literal>commit</literal> exatamente daquilo
+      que testou.</para>
+
+    <para>Pelo fato da máquina ser compartilhada, alguém pode excluir
+      suas alterações por engano, entãi mantenha copias destas no, por
+      exemplo, seu diretório <literal>home</literal>  em
+      <hostid>freefall</hostid>.  Não use o <filename>tmp/</filename>;
+      pois por <hostid>pointyhat</hostid> executar ele mesmo alguma
+      versão do <literal>-CURRENT</literal>, você pode esperar
+      reinicializações (se por nada de mais, para
+      atualizações).</para>
+    
+    <para>Com o objetivo de ter uma compilação de controle a qual
+      comparar falhas, você deve primeiro executar a compilação de
+      pacote no ramo em que os <literal>patches</literal>
+      experimentais sejam baseados para a arquitetura &i386;
+      (atualmente esta é o <literal>8</literal>).  Em seguida, quando
+      preparando para a compilação de <literal>patches</literal>
+      exparimentais, faça o <literal>checkout</literal> da árvore do
+      <literal>ports</literal> e do <literal>src</literal> com a mesma
+      data da que foi usada para a compilação de controle.  Isso vai
+      garantir uma comparação entre as compilações depois.</para>
+
+    <!-- XXX MCL currently there is only one build cluster
+    <note><para>One build cluster can do the control build while the other
+      does the experimental patches build.  This can be a great
+      time-saver.</para></note>
+    -->
+
+    <para>Uma vez terminada a compilação, compare as falhas da
+      compilação de controle com as da compilação dos
+      <literal>patches</literal> experimentais.  Para facilitar, use
+      os seguintes comandos (assumindo o ramo <literal>8</literal>
+      como ramo de controle, e o <literal>8-exp</literal> como ramo
+      experimental):</para>
+    <para>Once the build finishes, compare the control build failures
+      to those of the experimental patches build.  Use the following
+      commands to facilitate this (this assumes the <literal>8</literal>
+      branch is the control branch, and the <literal>8-exp</literal>
+      branch is the experimental patches branch):</para>
+
+    <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8-exp/errors</userinput>
+&prompt.user; <userinput>find . -name \*.log\* | sort > /tmp/8-exp-errs</userinput>
+&prompt.user; <userinput>cd /var/portbuild/i386/8/errors</userinput>
+&prompt.user; <userinput>find . -name \*.log\* | sort > /tmp/8-errs</userinput></screen>
+
+    <note><para>Se já faz muito tempo desde que a última compilação
+      foi finalizada, os <literal>logs</literal> podem ter sido
+      compactados automaticamente com
+      <application>bzip2</application>.  Nesse caso você deve usar
+      <literal>sort | sed 's,\.bz2,,g'</literal> em seu
+      lugar.</para></note>
+
+    <screen>&prompt.user; <userinput>comm -3 /tmp/8-errs /tmp/8-exp-errs | less</userinput></screen>
+
+    <para>Este último comando vai gerar um relatório com duas colunas.
+      A primeira coluna contém os <literal>ports</literal> que
+      falharam na compilação de controle, mas não na compilação com
+      <literal>patches</literal> experimentais; a segunda é vice
+      versa.  Razões para o <literal>port</literal> estar no primeira
+      coluna incluem:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>O <literal>port</literal> foi corrigido desde que a
+	  compilação de controle foi executada, ou foi atualizado para
+	  uma nova versão que também está quebrada (assim a nova
+	  versão também deve aparecer na segunda coluna)
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>O <literal>port</literal> foi corrigido pelos
+	  <literal>patches</literal> experimentais na compilação
+	  experimental
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>O <literal>port</literal> não foi compilado na
+	compilação com <literal>patches</literal> experimentais devido
+	à falha de dependência
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Razões para o <literal>port</literal> aparecer na segunda
+      coluna incluem:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>O <literal>port</literal> foi quebrado pelos
+	  <literal>patches</literal> experimentais [1]</para>
+      </listitem>
+
+      <listitem>
+	<para>O <literal>port</literal> foi atualizado desde a
+	  compilação de controle e tornou-se quebrado [2]
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>O <literal>port</literal> foi quebrado devido a um erro
+	  temporário (e.g. site FTP fora do ar, erro do pacote
+	  cliente, etc.)
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Ambas as colunas devem ser investigadas e as razões para os
+      erros entendidas antes do <literal>commit</literal> do conjunto
+      de <literal>patches</literal> experimentais.  Para diferenciar
+      entre o [1] e o [2] acima, você recompilar os pacotes afetados
+      sob o ramo de controle:</para>
+
+    <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/ports</userinput></screen>
+
+    <note><para>Certifique-se de atualizar esta árvore com o
+      <literal>cvs update</literal> para a mesma data da árvore dos
+      <literal>patches</literal> experimentais.</para></note>
+
+    <!-- XXX MCL fix -->
+    <para>O seguinte comando vai configurar o ramo de controle para a
+      compilação parcial (antigo código base):</para>
+
+    <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportscvs -nobuild -nocvs -nofinish</userinput></screen>
+
+    <!-- XXX MCL obsolete -->
+    <para>As compilações devem ser executadas a partir do diretório
+      <literal>packages/All</literal>.  Esse diretório deve estar
+      vázio inicialmente, exceto para o <literal>link</literal>
+      simbólico do Makefile.  Se este <literal>link</literal>
+      simbólico não existir, ele deve ser criado:</para>
+
+    <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/packages/All</userinput>
+&prompt.user; <userinput>ln -sf ../../Makefile .</userinput>
+&prompt.user; <userinput>make -k -j&lt;#&gt; &lt;list of packages to build&gt;</userinput></screen>
+
+    <note><para>&lt;#&gt; é o número de compilações paralelas para
+      tentar.  Normalmente isso é a soma dos pesos listados em
+      <filename>/var/portbuild/i386/mlist</filename>, a menos que você
+      tenha uma razão para executar uma compilação mais pesada ou
+      leve.</para>
+
+    <para>A lista de pacotes para compilar deve ser uma lista do nome
+      do pacote (incluindo as versões) como aparece no
+      <filename>INDEX</filename>.  O <literal>PKGSUFFIX</literal>
+      (i.e. .tgz ou .tbz) é opicional.</para></note>
+
+    <para>Isso vai compilar apenas os pacotes listados, assim como
+      todas as suas dependências.</para>
+
+    <para>Você pode verificar o progresso da compilação parcial da
+      mesma forma que você faria com uma compilação normal.</para>
+
+    <para>Uma vez que todos os erros tenham sido resolvidos, você pode
+      efetuar o <literal>commit</literal> do conjunto de pacotes.
+      Após efetuar o <literal>commit</literal> é de costume enviar um
+      e-mail <literal>HEADS UP</literal> para <ulink
+      url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> e uma
+      cópia para <ulink
+      url="mailto:ports-developers@FreeBSD.org">ports-developers@FreeBSD.org</ulink>,
+      informando as pessoas das mudanças.  Um resumo de todas as
+      mudanças também deve ter o <literal>commit</literal> efetuado
+      para <filename>/usr/ports/CHANGES</filename>.</para>
+  </sect1>
+
+  <sect1 id="new-node">
+    <title>Como configurar um novo nó de compilação de pacote</title>
+
+    <para>Antes de seguir estes passos, por favor, coordene-se com o
+      <literal>portmgr</literal>.
+    </para>
+
+    <note>
+      <para>Devido à algumas doações generosas,
+        <literal>portmgr</literal> não está procurando por emprétimos
+	de sistemas &i386; ou <literal>amd64</literal>.  No entanto,
+	nós estamos interessados no empréstimo de sistemas
+	<literal>tier-2</literal>.</para>
+    </note>
+
+    <sect2 id="node-requirements">
+      <title>Requisitos do nó</title>
+
+      <para><literal>portmgr</literal> ainda está trabalhando nas
+        características de que um nó necessita para ser útil em
+	geral.</para>
+
+      <itemizedlist>
+	<listitem>
+	  <para>Capacidade de CPU: qualquer coisa abaixo de 500MHz
+	    geralmente não é usável para compilação de pacotes.</para>
+
+	  <note>
+	    <para>Nós somos capazes de ajustar o número de trabalhos
+	    enviados para cada máquina, e nós geralmente ajustamos o
+	    número para usar 100% de CPU.</para>
+	  </note>
+	</listitem>
+
+	<listitem>
+	  <para>RAM: Menos de 2G não é muito usuável; 8G ou mais é
+	    preferível.  Nós temos ajustado um trabalho para cada
+	    cada 512M de RAM.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Disco: um mínimo de 20G é necessário para o sistema de
+	    arquivos; 32G é necessário para <literal>swap</literal>.
+	    A performance será melhor se multiplos discos forem
+	    usados, e configurados como <literal>geom</literal>
+	    <literal>stripes</literal>.  Números de performance também
+	    estão para serem definidos.</para>
+
+	  <note>
+	    <para>A compilação de pacotes irá testar unidades de disco
+	      para destruição.  Esteja consciente do que você está
+	      fazendo!</para>
+	  </note>
+	</listitem>
+
+	<listitem>
+	  <para>largura de banda da rede: também está para ser
+	    definido.  No entanto, uma máquina com 8 trabalhos
+	    mostrou ser capaz de saturar uma linha de <literal>cable
+	    modem</literal>.</para>
+	</listitem>
+      </itemizedlist>
+
+    </sect2>
+
+    <sect2 id="node-preparation">
+      <title>Preparação</title>
+
+      <procedure>
+	<step>
+	  <para>Escolha um <literal>hostname</literal> único.  Ele não
+	    tem que ser um <literal>hostname</literal> resolviveu
+	    publicamente (ele pode ser um nome em sua rede
+	    interna).</para>
+	</step>
+
+	<step>
+	  <para>Por padrão, compilação de pacotes necessita que as
+	    seguintes portas TCP estejam acessíveis: 22
+	    (<literal>ssh</literal>), 414
+	    (<literal>infoseek</literal>), e 8649
+	    (<literal>ganglia</literal>).  Se estas não estiverem
+	    acessíveis, escolha outras e garanta que um túnel
+	    <command>ssh</command> esteja configurado (veja
+	    abaixo).</para>
+
+	  <para>(Nota: se você tem mais de uma máquina em seu site,
+	    você vai precisar de uma porta TCP individual para cada
+	    serviço em cada máquina, e assim túneis
+	    <command>ssh</command> serão necessários.  Como tal, você
+	    provavelmente precisará configurar o redirecionamento de
+	    portas em seu <literal>firewall</literal>.)</para>
+	</step>
+
+	<step>
+	  <para>Decida se você vai inicializar localmente ou via
+	    <literal>pxeboot</literal>.  Você vai descobrir que é
+	    mais fácil acompanhar as mudanças do
+	    <literal>-current</literal> com a última opção,
+	    especialmente se você tem várias máquinas em seu
+	    site.</para>
+	</step>
+
+	<step>
+	  <para>Escolha um diretório para manter as configurações de
+	    <literal>ports</literal> e os subdiretórios do
+	    <command>chroot</command>.  Pode ser melhor colocá-lo em
+	    sua própria partição.  (Exemplo:
+	    <filename>/usr2/</filename>.)</para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="node-src">
+      <title>Configurando o <literal>src</literal></title>
+
+      <procedure>
+	<step>
+	  <para>Crie um diretório para armazenar a árvore dos fontes
+	    do último <literal>-current</literal> e sincronize ela com
+	    o repositório.  (Uma vez que sua máquina provavelmente
+	    será solicitada para compilar pacotes para o
+	    <literal>-current</literal>, o <literal>kernel</literal>
+	    que ela executa deve estar razoavelmente atualizado com o
+	    <literal>bindist</literal> que será exportado por nossos
+	    <literal>scripts</literal>.)</para>
+	</step>
+
+	<step>
+	  <para>Se você está usando <literal>pxeboot</literal>: crie
+	    um diretório para armazenar os arquivos de instalação.
+	    Você provavelmente vai querer usar um subdiretório do
+	    <filename>/pxeroot</filename>, e.g.,
+	    <filename>/pxeroot/<replaceable>${arch}</replaceable>-<replaceable>${branch}</replaceable></filename>.
+	    Exporte como <makevar>DESTDIR</makevar>.</para>
+	  <para>If you are using <literal>pxeboot</literal>: create a
+	    directory to contain the install bits.  You will probably
+	    want to use a subdirectory of <filename>/pxeroot</filename>,
+	    e.g.,
+	    <filename>/pxeroot/<replaceable>${arch}</replaceable>-<replaceable>${branch}</replaceable></filename>.
+	    Export that as <makevar>DESTDIR</makevar>.</para>
+	</step>
+
+	<step>
+	  <para>Se você está realizando uma compilação para outra
+	    plataforma, que não a instalada na máquina
+	    (<foreignphrase>cross-building</foreignphrase>), exporte
+	    <literal>TARGET_ARCH</literal>=<replaceable>${arch}</replaceable>.
+	  </para>
+	  <note>
+	    <para>O procedimento para
+	      <foreignphrase>cross-building</foreignphrase> ainda não
+	      está definido.</para>
+	  </note>
+	</step>
+
+	<step>
+	  <para>Gere um arquivo de configuração para o
+	    <literal>kernel</literal>. Inclua o
+	    <literal>GENERIC</literal> (ou, se você está usando mais
+	    que 3.5G em um &i386;, <literal>PAE</literal>).
+	  </para>
+	  <para>
+	    Opção requeridas:<screen>
+options         NULLFS
+options         TMPFS</screen>
+	  </para>
+	  <para>
+	    Opções sugeridas:<screen>
+options         GEOM_CONCAT
+options         GEOM_STRIPE
+options         SHMMAXPGS=65536
+options         SEMMNI=40
+options         SEMMNS=240
+options         SEMUME=40
+options         SEMMNU=120
+
+options         ALT_BREAK_TO_DEBUGGER</screen>
+	  </para>
+
+	  <para>Para <literal>PAE</literal>, atualmente não é possível
+	    carregar módulos.  Portanto, se você está executando uma
+	    arquitetura que suporta emulação para Linux, você
+	    precisará adicionar:<screen>
+options         COMPAT_LINUX
+options         LINPROCFS</screen>
+	  </para>
+
+	  <para>Também para <literal>PAE</literal>, a partir de
+	    12/09/2011 você precisa do seguinte.  Isso precisa ser
+	    investigado:<screen>
+nooption        NFSD                    # New Network Filesystem Server
+options         NFSCLIENT               # Network Filesystem Client
+options         NFSSERVER               # Network Filesystem Server</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>Como <username>root</username>, execute os passos
+	    usuais de compilação, e.g.:<screen>
+<userinput>make -j4 buildworld</userinput>
+<userinput>make buildkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
+<userinput>make installkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
+<userinput>make installworld</userinput></screen>
+	    Os passos de instalação usam <makevar>DESTDIR</makevar>.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Personalize os arquivos em <filename>etc/</filename>.
+	    Se você faz isso no próprio cliente, ou em outra máquina,
+	    vai depender se você está usando
+	    <literal>pxeboot</literal>.</para>
+
+	  <para>Se você está usando <literal>pxeboot</literal>: crie
+	    um subdiretório do
+	    <filename><replaceable>${DESTDIR}</replaceable></filename>
+	    chamado <filename>conf/</filename>.  Crie um subdiretório
+	    <filename>default/etc/</filename>, e (se seu
+	    <literal>site</literal> vai hospedar vários nós),
+	    subdiretórios
+	    <filename><replaceable>${ip-address}</replaceable>/etc/</filename>
+	    para os arquivos que vão sobreescrever as configurações
+	    para os <literal>hosts</literal> individuais.  (Você pode
+	    achar útil criar um <literal>link</literal> simbólico de
+	    cada um destes diretórios para um
+	    <literal>hostname</literal>.) Copie todo o conteúdo de
+	    <filename><replaceable>${DESTDIR}</replaceable>/etc/</filename>
+	    para <filename>default/etc/</filename>; que é onde você
+	    vai editar seus arquivos.  Os diretórios para cada
+	    endereço IP provavelmente só necessitarão personalizar os
+	    arquivos <filename>rc.conf</filename>.</para>
+
+	  <para>Em qualquer caso, aplique os seguintes passos:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Crie um usuário e grupo
+	        <literal>ports-<replaceable>${arch}</replaceable></literal>.
+		Adicione o usuário para o grupo
+		<literal>wheel</literal>.  Ele pode ter um
+		<literal>'*'</literal> no lugar da senha.</para>
+
+	      <para>Crie o
+	        <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
+		e adicione a sua chave ao
+		<filename>authorized_keys</filename>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Adicione também os seguintes usuários:<screen>
+squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
+ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
+	      </para>
+	      <para>Adicioná-los ao <filename>etc/group</filename>
+	        também.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Crie os arquivos apropriados em
+	        <filename>etc/.ssh/</filename>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Em <filename>etc/crontab</filename> adicione o
+	        seguinte:
+		<screen>*       *       *       *       *       root    /var/portbuild/scripts/client-metrics</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Crie o <filename>etc/fstab</filename>
+	        apropriadmente.  (Se você tem várias máquinas
+		diferentes, você precisará colocar este arquivo nos
+		diretórios que sobreescreverão está
+		configuração.)</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Em <filename>etc/inetd.conf</filename> adicione o
+	        seguinte:
+		<screen>infoseek        stream  tcp     nowait  nobody  /var/portbuild/scripts/reportload</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Nós rodamos o <literal>cluster</literal> em
+	        horário <acronym>UTC</acronym>:
+		<screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Crie o <filename>etc/rc.conf</filename>
+	        apropriadamente.  (Se você está usando
+		<literal>pxeboot</literal>, e tem várias máquinas
+		diferentes, você precisará colocar este arquivo nos
+		diretórios que sobreescreverão está
+		configuração.)</para>
+
+	      <para>Entradas recomendadas para nós físicos:<screen>
+hostname="<replaceable>${hostname}</replaceable>"
+inetd_enable="YES"
+linux_enable="YES"
+nfs_client_enable="YES"
+ntpd_enable="YES"
+ntpdate_enable="YES"
+ntpdate_flags="north-america.pool.ntp.org"
+sendmail_enable="NONE"
+sshd_enable="YES"
+sshd_program="/usr/local/sbin/sshd"
+
+gmond_enable="YES"
+squid_enable="YES"
+squid_chdir="<filename>/<replaceable>usr2</replaceable>/squid/logs</filename>"
+squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</filename>"
+</screen>
+	      </para>
+
+	      <para>Entradas requeridas para nós baseados no
+		VMWare:<screen>
+vmware_guest_vmmemctl_enable="YES"
+vmware_guest_guestd_enable="YES"
+</screen>
+	      </para>
+
+	      <para>Entradas recomendadas para nós baseados no
+	        VMWare:<screen>
+hostname=""
+ifconfig_em0="DHCP"
+fsck_y_enable="YES"
+
+inetd_enable="YES"
+linux_enable="YES"
+nfs_client_enable="YES"
+sendmail_enable="NONE"
+sshd_enable="YES"
+sshd_program="/usr/local/sbin/sshd"
+
+gmond_enable="YES"
+squid_enable="YES"
+squid_chdir="<filename>/<replaceable>usr2</replaceable>/squid/logs</filename>"
+squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</filename>"
+</screen>
+	      </para>
+
+	      <para>O &man.ntpd.8; <emphasis>não</emphasis> deve ser
+	        habilitado para instâncias no VMWare.</para>
+
+	      <para>Além disso, pode ser possível deixar o
+	        <application>squid</application> desabilitado por
+		padrão de modo a não ter o
+		<filename>/<replaceable>usr2</replaceable></filename>
+		persistente (o que deve economizar tempo na criação da
+		instância.)  O trabalho ainda está em andamento.
+	      </para>
+
+	    </listitem>
+
+	    <listitem>
+	      <para>Crie o <filename>etc/resolv.conf</filename>, se
+	        necessário.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Modifique o
+	        <filename>etc/sysctl.conf</filename>:<screen>	
+9a10,30
+> kern.corefile=<filename>/<replaceable>usr2</replaceable>/%N.core</filename>
+> kern.sugid_coredump=1
+> #debug.witness_ddb=0
+> #debug.witness_watch=0
+>
+> # squid needs a lot of fds (leak?)
+> kern.maxfiles=40000
+> kern.maxfilesperproc=30000
+>
+> # Since the NFS root is static we don't need to check frequently for file changes
+> # This saves >75% of NFS traffic
+> vfs.nfs.access_cache_timeout=300
+> debug.debugger_on_panic=1
+>
+> # For jailing
+> security.jail.sysvipc_allowed=1
+> security.jail.allow_raw_sockets=1
+> security.jail.chflags_allowed=1
+> security.jail.enforce_statfs=1
+>
+> vfs.lookup_shared=1</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Se desejar, modifique
+	        <filename>etc/syslog.conf</filename> para mudar o
+		destino do <literal>log</literal> para
+		<literal>@pointyhat.freebsd.org</literal>.</para>
+	    </listitem>
+	  </itemizedlist>
+
+	</step>
+
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="node-ports">
+      <title>Configurando os <literal>ports</literal></title>
+
+      <procedure>
+	<step>
+	  <para>Instale os seguintes <literal>ports</literal>:<screen>
+net/rsync
+security/openssh-portable (with HPN on)
+security/sudo
+sysutils/ganglia-monitor-core (with GMETAD off)
+www/squid (with SQUID_AUFS on)</screen>
+	  </para>
+
+	  <para>Existe um trabalho em andamento para criar um
+	    <literal>meta-port</literal>, mas ainda não está
+	    completo.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Customizar os arquivos em
+	    <filename>usr/local/etc/</filename>.  Se você faz isso no
+	    próprio cliente, ou em outra máquina, dependerá de você
+	    estar usando <literal>pxeboot</literal>.</para>
+
+	  <note>
+	    <para>O truque de usar subdiretórios para sobreescrever
+	      <filename>conf</filename> é menos eficaz aqui, pois você
+	      precisa copiar todos os subdiretórios do
+	      <filename>usr/</filename>.  Este é um detalhe da
+	      implementação de como o <literal>pxeboot</literal>
+	      funciona.</para>
+	  </note>
+
+	  <para>Aplique os seguintes passos:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Modifique o
+		 <filename>usr/local/etc/gmond.conf</filename>:<screen>
+21,22c21,22
+&lt;   name = "unspecified"
+&lt;   owner = "unspecified"
+---
+&gt;   name = "<replaceable>${arch}</replaceable> package build cluster"
+&gt;   owner = "portmgr@FreeBSD.org"
+24c24
+&lt;   url = "unspecified"
+---
+&gt;   url = "http://pointyhat.freebsd.org"</screen>
+	      </para>
+
+	      <!-- XXX MCL adapted literally from krismail; I do not understand it -->
+	      <para>Se existem máquinas de mais de um
+	        <literal>cluster</literal> no mesmo domínio
+		<literal>multicast</literal> (basicamente = LAN),
+		então altere os grupos de <literal>multicast</literal>
+		para valores diferentes (.71, .72, etc).</para>
+	    </listitem>
+
+	    <listitem>
+	      <!-- XXX MCL get latest patches from narutos -->
+	      <para>Crie o
+	        <filename>usr/local/etc/rc.d/portbuild.sh</filename>,
+		usando um valor apropriado par
+		<literal>scratchdir</literal>:<screen>
+#!/bin/sh
+#
+# Configure a package build system post-boot
+
+scratchdir=<filename>/<replaceable>usr2</replaceable></filename>
+
+ln -sf ${scratchdir}/portbuild /var/
+
+# Identify builds ready for use
+cd /var/portbuild/<replaceable>${arch}</replaceable>
+for i in */builds/*; do
+    if [ -f ${i}/.ready ]; then
+        mkdir /tmp/.setup-${i##*/}
+    fi
+done
+
+# Flag that we are ready to accept jobs
+touch /tmp/.boot_finished</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Modifique o
+		 <filename>usr/local/etc/squid/squid.conf</filename>:<screen>
+288,290c288,290
+&lt; #auth_param basic children 5
+&lt; #auth_param basic realm Squid proxy-caching web server
+&lt; #auth_param basic credentialsttl 2 hours
+---
+&gt; auth_param basic children 5
+&gt; auth_param basic realm Squid proxy-caching web server
+&gt; auth_param basic credentialsttl 2 hours
+611a612
+&gt; acl localnet src 127.0.0.0/255.0.0.0
+655a657
+&gt; http_access allow localnet
+2007a2011
+&gt; maximum_object_size 400 MB
+2828a2838
+&gt; negative_ttl 0 minutes</screen>
+	      </para>
+
+	      <para>Modifique também o <filename>usr/local</filename>
+		para
+		<filename><replaceable>usr2</replaceable></filename>
+		em <literal>cache_dir</literal>,
+		<literal>access_log</literal>,
+		<literal>cache_log</literal>,
+		<literal>cache_store_log</literal>,
+		<literal>pid_filename</literal>,
+		<literal>netdb_filename</literal>,
+		<literal>coredump_dir</literal>.
+	      </para>
+
+	      <para>Finalmente, mude o esquema de armazenamento do
+		<literal>cache_dir</literal>, de
+		<literal>ufs</literal> para <literal>aufs</literal>
+		(oferece uma melhor performance).
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Configure o <command>ssh</command>: copie
+	        <filename>/etc/ssh</filename> para
+		<filename>/usr/local/etc/ssh</filename> e adicione
+		<literal>NoneEnabled yes</literal> para o
+		<filename>sshd_config</filename>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Modifique o
+		 <filename>usr/local/etc/sudoers</filename>:<screen>
+38a39,42
+>
+> # local changes for package building
+> %wheel        ALL=(ALL) ALL
+> ports-<replaceable>${arch}</replaceable>    ALL=(ALL) NOPASSWD: ALL</screen>
+	      </para>
+	    </listitem>
+	  </itemizedlist>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="node-configuration">
+      <title>Configuração no próprio cliente</title>
+
+      <procedure>
+	<step>
+	  <para>Entre no diretório <literal>port/package</literal> que
+	    você escolheu acima, e.g., 
+	    <command>cd <filename>/<replaceable>usr2</replaceable></filename></command>.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Execute como root:<screen>
+<userinput>mkdir portbuild</userinput>
+<userinput>chown ports-<replaceable>${arch}</replaceable>:ports-<replaceable>${arch}</replaceable> portbuild</userinput>
+<userinput>mkdir pkgbuild</userinput>
+<userinput>chown ports-<replaceable>${arch}</replaceable>:ports-<replaceable>${arch}</replaceable> pkgbuild</userinput>
+<userinput>mkdir squid</userinput>
+<userinput>mkdir squid/cache</userinput>
+<userinput>mkdir squid/logs</userinput>
+<userinput>chown -R squid:squid squid</userinput></screen>
+	  </para>
+	</step>  
+
+	<!-- XXX MCL adapted literally from krismail; I do not understand it -->
+	<step>
+	  <para>Se os clientes preservam o conteúdo de
+	    <filename>/var/portbuild</filename> entre as
+	    inicializações, então eles devem preservar seu
+	    <filename>/tmp</filename>, ou revalidar suas compilações
+	    disponíveis em tempo de inicialização (veja o
+	    <literal>script</literal> nas máquinas
+	    <literal>amd64</literal>).  Eles também devem limpar
+	    <literal>chroots</literal> obsoletos de compilações
+	    anteriores antes de cria o
+	    <filename>/tmp/.boot_finished</filename>.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Inicialize o cliente.</para>
+	</step>
+
+	<step>
+	  <para>Como root, crie a estrutura de diretórios do
+	    <command>squid</command>:
+	    <screen><userinput>squid -z</userinput></screen></para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-configuration">
+      <title>Configuração no <literal>pointyhat</literal></title>
+
+      <para>Estes passos precisam ser feitos por um
+        <literal>portmgr</literal><literal>portmgr</literal>,
+	autenticado como o usuário
+	<literal>ports-<replaceable>${arch}</replaceable></literal> em
+	<hostid>pointyhat</hostid>.
+      </para>
+
+      <procedure>
+	<step>
+	  <para>Se qualquer das portas <acronym>TCP</acronym> não
+	    estiver disponível (veja acima), você precisará criar um
+	    túnel <command>ssh</command> para isso e inclui-lo no
+	    <filename>crontab</filename>.</para>
+	</step>
+
+	<step>
+	  <para>Adicione uma entrada em
+	    <filename>/home/ports-<replaceable>${arch}</replaceable>/.ssh/config</filename>
+	    para especificar o endereço IP público, porta TCP para o
+	    <command>ssh</command>, usuário, e qualquer outra
+	    informação necessária.</para>
+	</step>
+
+	<step>
+	  <para>Crie o
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/clients/bindist-<replaceable>${hostname}</replaceable>.tar</filename>.
+	  </para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Copie um dos existentes como modelo e
+	        descompacte-o em um diretório tenporario.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Personalize o <filename>etc/resolv.conf</filename>
+	        para o site local.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Personalize o <filename>etc/make.conf</filename>
+	        para a busca de arquivo no FTP local.  Nota: a
+		anulação da variável
+		<makevar>MASTER_SITE_BACKUP</makevar> deve ser comum
+		para todos os nós, mas a primeira entrada em
+		<makevar>MASTER_SITE_OVERRIDE</makevar> deve ser o
+		espelho FTP mais próximo.  Exemplo:<screen><command>
+.if defined(FETCH_ORIGINAL)
+MASTER_SITE_BACKUP=
+.else
+MASTER_SITE_OVERRIDE= \
+	ftp://<replaceable>friendly-local-ftp-mirror</replaceable>/pub/FreeBSD/ports/distfiles/${DIST_SUBDIR}/ \
+	ftp://${BACKUP_FTP_SITE}/pub/FreeBSD/distfiles/${DIST_SUBDIR}/
+.endif</command></screen>
+	      </para>
+	    </listitem>
+	    <listitem>
+	      <para>Arquive com <command>tar</command> e mova para o
+	        local correto.</para>
+	    </listitem>
+	  </itemizedlist>
+
+	  <para>Dica: você precisará de um desses para cada máquina;
+	   no entanto, se você tem várias máquinas no mesmo site, você
+	   deve criar um local específico para este site (e.g. em
+	   <filename>/var/portbuild/conf/clients/</filename>) e criar
+	   um <literal>link</literal> simbólico para ele.</para>
+	</step>
+
+	<step>
+	  <para>Crie o
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild-<replaceable>${hostname}</replaceable></filename>
+	    utilizando um dos existentes como guia.  O conteúdo deste
+	    arquivop sobreescreve as configurações de
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild.conf</filename>.</para>
+
+	  <para>Sugestão de valores:<screen>
+disconnected=1
+http_proxy="http://localhost:3128/"
+squid_dir=<filename>/<replaceable>usr2</replaceable>/squid</filename>
+scratchdir=<filename>/<replaceable>usr2</replaceable>/pkgbuild</filename>
+client_user=ports-<replaceable>${arch}</replaceable>
+sudo_cmd="sudo -H"
+rsync_gzip=-z
+
+infoseek_host=localhost
+infoseek_port=<replaceable>${tunelled-tcp-port}</replaceable></screen>
+	  </para>
+
+	  <para>Outros valores possíveis:<screen>
+use_md_swap=1
+md_size=9g
+use_zfs=1
+scp_cmd="/usr/local/bin/scp"
+ssh_cmd="/usr/local/bin/ssh"
+</screen>
+	  </para>
+	</step>
+      </procedure>
+
+      <para>Esses passos precisam ser feitos por um
+	<literal>portmgr</literal> autenticado como
+        <literal>root</literal> em <hostid>pointyhat</hostid>.
+      </para>
+
+      <procedure>
+	<step>
+	  <para>Adicione o endereço IP público em
+	    <filename>/etc/hosts.allow</filename>.  (Lembre-se, várias
+	    máquinas podem estar sob o mesmo endereço IP.)</para>
+	</step>
+
+	<step>
+	  <para>Adicione uma entrada <literal>data_source</literal>
+	    para
+	    <filename>/usr/local/etc/gmetad.conf</filename>:</para>
+	  <para>
+	    <literal>data_source "<replaceable>arch</replaceable>/<replaceable>location</replaceable> Package Build Cluster" 30 <replaceable>hostname</replaceable></literal>
+	  </para>
+
+	  <para>Você precisará reiniciar o
+	    <filename>gmetad</filename>.
+	  </para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="node-enabling">
+      <title>Habilitando o nó</title>
+
+      <para>Esses passos precisam ser feitos por um
+        <literal>portmgr</literal> autenticado como
+	<literal>ports-<replaceable>arch</replaceable></literal> em
+	<hostid>pointyhat</hostid>.
+      </para>
+
+      <procedure>
+	<step>
+	  <para>Cerifique-se que o
+	    <literal>ssh</literal><literal>ssh</literal> está
+	    funcionando executando <command>ssh
+	    <replaceable>hostname</replaceable></command>.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Crie os arquivos em
+	    <filename>/var/portbuild/scripts/</filename> executando
+	    algo como <command>/var/portbuild/scripts/dosetupnode
+	    <replaceable>arch</replaceable>
+	    <replaceable>major</replaceable> latest
+	    <replaceable>hostname</replaceable></command>.  Verifique
+	    se os arquivos foram criados no diretório.
+	  </para>
+	</step>
+
+	<step>
+	  <para>Teste as outras portas TCP executando <command>telnet
+	    <replaceable>hostname</replaceable>
+	    <replaceable>portnumber</replaceable></command>.
+	    <literal>414</literal> (ou seu túnel) deve dar-lhe algumas
+	    linhas de informação sobre seu status, incluindo
+	    <literal>arch</literal> e <literal>osversion</literal>;
+	    <literal>8649</literal> deve dar-lhe uma resposta em
+	    <literal>XML</literal> de
+	    <literal>ganglia</literal>.</para>
+	</step>
+      </procedure>
+
+      <para>Esses passos passos precisam ser feitos por um
+        <literal>portmgr</literal> autenticado como
+	<literal>root</literal> em <hostid>pointyhat</hostid>.
+      </para>
+
+      <procedure>
+	<step>
+	  <para>Informe <filename>qmanager</filename> sobre o nó.
+	    Exemplo:
+	  </para>
+
+	  <para><command>python <replaceable>path</replaceable>/qmanager/qclient add
+	    name=<replaceable>uniquename</replaceable>
+	    arch=<replaceable>arch</replaceable>
+	    osversion=<replaceable>osversion</replaceable>
+	    numcpus=<replaceable>number</replaceable>
+	    haszfs=0
+	    online=1
+	    domain=<replaceable>domain</replaceable>
+	    primarypool=package
+	    pools="package all" maxjobs=1
+	    acl="ports-<replaceable>arch</replaceable>,deny_all"
+	    </command></para>
+	</step>
+      </procedure>
+    </sect2>
+  </sect1>
+
+  <sect1 id="new-branch">
+    <title>Como configurar um novo <literal>branch</literal> do
+      &os;</title>
+
+    <para>Quando um novo <literal>branch</literal> é criado, algum
+      trabalho precisa ser feito para especificar que o
+      <literal>branch</literal> anterior não mais corresponde ao
+      <literal>HEAD</literal>.  As seguintes instruções se aplicam ao
+      número do <literal>branch</literal>
+      <emphasis>anterior</emphasis>:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>(novo código base) Edite o
+	  <filename>/var/portbuild/conf/server.conf</filename>
+	  e faça as seguintes alterações:</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para>Adicione <replaceable>new-branch</replaceable> para
+	      a variável <makevar>SRC_BRANCHES</makevar>.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Para o <literal>branch</literal> que anteriormente
+	      foi o <literal>head</literal>, mude
+	      <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
+	      para
+	      <literal>RELENG_<replaceable>branch</replaceable>_0</literal>.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Adicione
+	      <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
+	      (o ponto é literal).</para>
+	  </listitem>
+	</itemizedlist>
+      </listitem>
+
+      <listitem>
+	<para>(novo código base) Execute <command>
+/var/portbuild/updatesnap</command> manualmente.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Apenas para o antigo código base) Crie um novo sistema
+	  de arquivos <application>zfs</application> para os fontes:
+	  <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	  <para>(Necessário apenas para o antigo código base):
+	  Sincronize a árvore <literal>src</literal> localmente no
+	  novo sistema de arquivos:
+	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): Edite a
+	  cópia principal do
+	  <filename>Tools/portbuild/portbuild.conf</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): Edite a
+	cópia do arquivo acima para cada uma das arquiteturas em
+	  <filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): Edite o
+	  <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): adicione
+	  um <literal>link</literal> de 
+	  <filename>/var/portbuild/scripts/dopackages</filename> para
+	  <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
+	</para>  
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): Modifique
+	  as variáveis <makevar>HEAD_BRANCH</makevar> e
+	  <makevar>NON_HEAD_BRANCHES</makevar> em
+	  <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<!-- XXX MCL writeup for new codebase -->
+	<para>(Necessário apenas para o antigo código base): Adicione
+	  o diretório <literal>snap</literal> no arquivo
+	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Necessário apenas para o antigo código base): Crie
+	  <literal>links</literal> simbólicos para o servidor web no
+	  diretório
+	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Inicie a compilação para o <literal>branch</literal> com
+	  <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
+	</para>  
+      </listitem>
+
+      <listitem>
+	<para><link linkend="setup">Crie o <filename>bindist.tar</filename>
+	  </link>.</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 id="old-branch">
+    <title>Como excluir um <literal>branch</literal> não suportado do
+      &os;</title>
+
+    <para>Quando um <literal>branch</literal> antigo deixa de ser
+      suportado, existem algumas a serem feitas para que o lixo seja
+      recolhido.</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>(novo código base) Edite o
+	  <filename>/var/portbuild/conf/server.conf</filename> e faça
+	  as seguintes mudanças:</para>
+	  <itemizedlist>
+	    <listitem>
+	      <para>Remova <replaceable>old-branch</replaceable> da
+		variável <makevar>SRC_BRANCHES</makevar>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Remova
+		<makevar>SRC_BRANCH_<replaceable>old-branch</replaceable>_TAG</makevar>
+		<literal>=<replaceable>whatever</replaceable></literal></para>
+	    </listitem>
+	  </itemizedlist>
+      </listitem>
+
+      <listitem>
+	<para>(novo e antigo código base):
+<command>umount a/snap/src-<replaceable>old-branch</replaceable>/src;
+umount a/snap/src-<replaceable>old-branch</replaceable>;
+zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
+      </listitem>
+    </itemizedlist>
+
+    <itemizedlist>
+      <listitem>
+	<para>(novo e antigo código base) Provavelmente você
+	  encontrará os seguintes arquivos e <literal>links</literal>
+	  simbólicos em <filename>/var/portbuild/errorlogs/</filename>
+	  que podem ser removidos:</para>
+	  <itemizedlist>
+	    <listitem>
+	      <para>Arquivos chamados
+		<filename>*-<replaceable>old_branch</replaceable>-failure.html</filename>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Arquivos chamados
+		<filename>buildlogs_*-<replaceable>old_branch</replaceable>-*-logs.txt</filename>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para><literal>Links</literal> simbólicos chamados
+		<filename>*-<replaceable>old_branch</replaceable>-previous*</filename>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para><literal>Links</literal> simbólicos chamados
+		<filename>*-<replaceable>old_branch</replaceable>-latest*</filename>
+	      </para>
+	    </listitem>
+
+	  </itemizedlist>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 id="rebase-branch">
+    <title>How to rebase on a supported &os; branch</title>
+
+    <para>As of 2011, the philosophy of package building is to build
+      packages based on <emphasis>the earliest supported release</emphasis>
+      of each branch.  e.g.: if on <literal>RELENG-8</literal>, the
+      following releases are supported: 8.1, 8.2, 8.3; then
+      <literal>packages-8-stable</literal> should be built from 8.1.</para>
+
+    <para>As releases go End-Of-Life (see
+      <ulink url="http://www.freebsd.org/security/index.html#supported-branches">chart</ulink>),
+      a full (not incremental!) package build should be done and uploaded.
+      </para>
+
+    <para>The procedure for the new codebase is as follows:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>Edit <filename>/var/portbuild/conf/server.conf</filename>
+	  with the following changes:</para>
+	  <itemizedlist>
+	    <listitem>
+	      <para>Change
+	        <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar> to
+	        <literal>RELENG_<replaceable>branch</replaceable>_<replaceable>N</replaceable></literal>
+	        where <literal>N</literal> is the newest 'oldest' release
+	        for that branch.</para>
+	    </listitem>
+	  </itemizedlist>
+      </listitem>
+
+      <listitem>
+	<para>Run <command>
+/var/portbuild/updatesnap</command> manually.</para>
+      </listitem>
+
+      <listitem>
+	<para>Run <command>
+dopackages</command> with <literal>-nobuild</literal>.</para>
+      </listitem>
+
+      <listitem>
+	<para>Follow the <link linkend="setup">setup procedure</link>.</para>
+      </listitem>
+
+      <listitem>
+	<para>Now you can run <command>
+dopackages</command> without <literal>-nobuild</literal>.</para>
+      </listitem>
+
+    </itemizedlist>
+
+    <para>The procedure for the old codebase is left as an
+      exercise for the reader.</para>
+
+  </sect1>
+
+  <sect1 id="new-arch">
+    <title>How to configure a new architecture</title>
+
+    <note>
+      <para>The initial steps need to be done using
+	<application>sudo</application>.</para>
+    </note>
+
+    <itemizedlist>
+      <listitem>
+	<para>Create a new
+	  <literal>ports-<replaceable>arch</replaceable></literal>
+	  user and group.</para>
+      </listitem>
+
+      <listitem>
+	  <screen>mkdir /var/portbuild/<replaceable>arch</replaceable></screen>
+      </listitem>
+
+      <listitem>
+	<para>Create a new <application>zfs</application> filesystem:
+	  <screen>zfs create -o mountpoint=/a/portbuild/<replaceable>arch</replaceable> a/portbuild/<replaceable>arch</replaceable></screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	<screen>
+chown ports-<replaceable>arch</replaceable>:portmgr /var/portbuild/<replaceable>arch</replaceable>;
+chmod 755 /var/portbuild/<replaceable>arch</replaceable>;
+cd /var/portbuild/<replaceable>arch</replaceable></screen>
+      </listitem>
+
+      <listitem>
+	<para>Create and populate the <filename>.ssh</filename> directory.</para>
+      </listitem>
+
+      <listitem>
+	<para>Create a directory for buildlogs and errorlogs:
+	  <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
+	</para>
+
+	<note>
+	  <para>It is possible that <filename>/dumpster/pointyhat</filename>
+	    will not have enough space.  In that case, create the archive
+	    directory as
+	    <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
+	    and symlink to that.  (This needs to be sorted out.)
+	  </para>
+	</note>
+      </listitem>
+
+      <listitem>
+	<para>Create a link to the above for the webserver:
+	  <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>The next steps are most easily done as user
+	<literal>ports-<replaceable>arch</replaceable></literal>.</para>
+    </note>
+
+    <itemizedlist>
+      <listitem>
+	<para>In the
+	  <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
+	  directory:<screen>mkdir clients</screen></para>
+      </listitem>
+
+      <listitem>
+	<para>Populate <filename>clients</filename> as usual.</para>
+      </listitem>
+
+      <listitem>
+	<para><screen>mkdir loads</screen></para>
+      </listitem>
+
+      <listitem>
+	<para><screen>mkdir lockfiles</screen></para>
+      </listitem>
+
+      <listitem>
+	<para>Create a local <filename>make.conf</filename>.  In the
+	  most trivial case, you can
+	  <screen>ln ../make.conf ./make.conf</screen></para>
+      </listitem>
+
+      <listitem>
+	<para>Create an empty <filename>mlist</filename> file.</para>
+      </listitem>
+
+      <listitem>
+	<para>(Only necessary for old codebase) Create
+	  <filename>pnohang.<replaceable>arch</replaceable></filename>.
+	  (The easiest way may be to do the following on a client, and
+	  then copy it back):
+	  <screen>cc pnohang.c -o pnohang-<replaceable>arch</replaceable></screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>Create a fresh <filename>portbuild.conf</filename> file
+	  from one of the ones for another architecture.</para>
+      </listitem>
+
+      <listitem>
+	<para>Create customized
+	  <filename>portbuild.<replaceable>machinename</replaceable>.conf</filename>
+	  files as appropriate.</para>
+      </listitem>
+
+      <listitem>
+	<para><screen>cd .ssh && ssh-keygen</screen></para>
+      </listitem>
+
+      <listitem>
+	<para>Edit the <filename>.ssh/config</filename> file for
+	  convenience in using <application>ssh</application>.</para>
+      </listitem>
+
+      <listitem>
+	<para>Make the private configuration directory:
+	  <screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>In that directory: create any <filename>dotunnel.*</filename>
+	  scripts needed.</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Once again using <application>sudo</application>:</para>
+    </note>
+
+    <itemizedlist>
+      <listitem>
+	<para>Tell <application>qmanager</application> about the arch:
+	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen></para>
+      </listitem>
+
+      <listitem>
+        <para>(Only necessary for new codebase):
+	  Add <replaceable>arch</replaceable> to <makevar>SUPPORTED_ARCHS</makevar> in
+	    <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
+      </listitem>
+
+      <listitem>
+        <para>(Only necessary for old codebase):
+	  Edit <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>Add the <replaceable>arch</replaceable> directory to
+	  <filename>/var/portbuild/scripts/zbackup</filename> and
+	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
+      </listitem>
+
+      <listitem>
+        <para>(Only necessary for old codebase):
+	  As with the procedure for creating a new branch:
+	  in the <filename>/var/portbuild/errorlogs/</filename>
+	  directory, create links for the webserver:<screen>
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
+ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
+	</para>
+      </listitem>
+
+      <listitem>
+        <para>
+	  In the <filename>/var/portbuild/errorlogs/</filename>
+	  directory, create two more links for the webserver:<screen>
+ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
+ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</replaceable>-errorlogs</screen>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Again, as
+	<literal>ports-<replaceable>arch</replaceable></literal>:</para>
+    </note>
+
+    <itemizedlist>
+      <listitem>
+	<para>For each branch that will be supported, do the following:
+	</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para>Kick-start the build for the branch with
+	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
+	    </para>  
+	  </listitem>
+
+	  <listitem>
+	    <para><link linkend="setup">Create
+	      <filename>bindist.tar</filename></link>.</para>
+	  </listitem>
+	</itemizedlist>
+
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>One last time using <application>sudo</application>:</para>
+    </note>
+
+    <itemizedlist>
+      <listitem>
+        <para>(Only necessary for old codebase):
+	  Only after the first time a
+	  <application>dopackages</application> has been run for the
+	  arch: add the arch to
+	  <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
+      </listitem>
+
+      <listitem>
+	<para>Add an appropriate <replaceable>arch</replaceable> entry for
+	  <filename>/var/portbuild/scripts/dologs</filename> to the root
+	  <filename>crontab</filename>.  (This is a hack and should go away.)
+	</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 id="new-head-node">
+    <title>How to configure a new head node (pointyhat instance)</title>
+
+    <para>This section is in progress.</para>
+
+    <para>Please talk to Mark Linimon before making any changes.</para>
+
+    <sect2 id="pointyhat-basics">
+      <title>Basic installation</title>
+
+      <procedure>
+
+	<step>
+	  <para>Install FreeBSD.</para>
+	</step>
+
+	<step>
+	  <para>For each supported arch, add a
+	    <literal>ports-<replaceable>${arch}</replaceable></literal>
+	    user and group.  Add them to the <literal>wheel</literal>
+	    group.  They should have the <literal>'*'</literal> password.
+	    Also, similarly, create the <literal>ports</literal> and
+	    <literal>portmgr</literal> users.</para>
+	</step>
+
+	<step>
+	  <para>For each supported arch, create
+	    <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
+	    and populate <filename>authorized_keys</filename>.  </para>
+	</step>
+
+<!-- NOTYET
+	<step>
+	  <para>Also add the following users:<screen>
+squid:*:100:100::0:0:User &:/usr/local/squid:/bin/sh
+ganglia:*:102:102::0:0:User &:/usr/local/ganglia:/bin/sh</screen>
+	  </para>
+	  <para>Add them to <filename>/etc/group</filename> as well.</para>
+	</step>
+-->
+
+	<step>
+	  <para>Create the appropriate files in
+	    <filename>/etc/.ssh/</filename>.</para>
+	</step>
+
+	<step>
+	  <para>Add the following to <filename>/boot/loader.conf</filename>:<screen>
+console="vidconsole,comconsole"</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>Add the following to <filename>/etc/sysctl.conf</filename>:<screen>
+kern.maxfiles=40000</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>Make sure the following change is made to
+	    <filename>/etc/ttys</filename>:<screen>
+ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>TBA</para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-disk">
+      <title>Configuring the disk</title>
+
+      <procedure>
+
+	<step>
+	  <para>Create a <application>zfs</application> volume named
+	    <filename>a</filename> and mount it on
+	    <filename>/a</filename>:<screen>
+# zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>Set up the base portbuild directory:<screen>
+# mkdir -p /a/portbuild
+# cd /a/portbuild
+# chown portmgr:portmgr .
+# chmod 775 .</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>TBA</para>
+	</step>
+
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-src">
+      <title>Configuring <literal>src</literal></title>
+
+      <procedure>
+
+	<step>
+	  <para>TBA</para>
+	</step>
+
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-ports">
+      <title>Configuring <literal>ports</literal></title>
+
+      <procedure>
+	<step>
+	  <para>The following ports (or their latest successors) are required:<screen>
+databases/py-pysqlite23
+databases/py-sqlalchemy
+devel/git (WITH_SVN)
+devel/py-configobj
+devel/py-setuptools
+devel/subversion
+net/nc
+net/rsync
+sysutils/ganglia-monitor-core (with GMETAD off)
+sysutils/ganglia-webfrontend (WITHOUT_X11)
+www/apache22 (with EXT_FILTER and THREADS)</screen>
+	  </para>
+
+	  <para>Expect those to bring in:<screen>
+databases/sqlite3
+lang/perl-5.12
+lang/python27</screen>
+	  </para>
+
+	  <para>The following ports (or their latest successors) are strongly suggested:<screen>
+benchmarks/bonnie++
+devel/ccache
+mail/postfix
+net/isc-dhcp41-server
+ports-mgmt/pkg_cutleaves
+ports-mgmt/pkg_tree
+ports-mgmt/portaudit
+ports-mgmt/portmaster
+security/sudo
+shells/bash
+shells/zsh
+sysutils/screen
+sysutils/smartmontools</screen>
+	  </para>
+	</step>
+
+	<step>
+	  <para>Configure mail by doing the following: TBA.
+	  </para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-other">
+      <title>Other</title>
+
+      <procedure>
+
+	<step>
+	  <para>TBA</para>
+	</step>
+
+      </procedure>
+
+    </sect2>
+
+  </sect1>
+
+  <sect1 id="disk-failure">
+    <title>Procedures for dealing with disk failures</title>
+
+    <para>When a machine has a disk failure (e.g. panics due to read errors,
+      etc), then we should do the following steps:</para>
+
+    <itemizedlist>
+      <listitem><para>Note the time and failure mode (e.g. paste in the
+	relevant console output) in
+	<filename>/var/portbuild/<replaceable>${arch}</replaceable>/reboots</filename></para></listitem>
+
+      <listitem><para>For i386 gohan clients, scrub the disk by touching
+	<filename>/SCRUB</filename> in the nfsroot (e.g.
+	<filename>/a/nfs/8.dir1/SCRUB</filename>) and rebooting.  This will
+	<command>dd if=/dev/zero of=/dev/ad0</command> and force the drive to
+	remap any bad sectors it finds, if it has enough spares left.  This is
+	a temporary measure to extend the lifetime of a drive that is on the
+	way out.</para>
+
+	<note><para>For the i386 blade systems another signal of a failing
+	  disk seems to be that the blade will completely hang and be
+	  unresponsive to either console break, or even NMI.</para></note>
+
+	<para>For other build systems that don't newfs their disk at boot (e.g.
+	  amd64 systems) this step has to be skipped.</para></listitem>
+
+      <listitem><para>If the problem recurs, then the disk is probably toast.
+	Take the machine out of <filename>mlist</filename> and (for ata disks)
+	run <command>smartctl</command> on the drive:</para>
+
+	<screen>smartctl -t long /dev/ad0</screen>
+
+	<para>It will take about 1/2 hour:</para>
+
+	<screen>gohan51# smartctl -t long /dev/ad0
+smartctl version 5.38 [i386-portbld-freebsd8.0] Copyright (C) 2002-8
+Bruce Allen
+Home page is http://smartmontools.sourceforge.net/
+
+=== START OF OFFLINE IMMEDIATE AND SELF-TEST SECTION ===
+Sending command: "Execute SMART Extended self-test routine immediately in off-line mode".
+Drive command "Execute SMART Extended self-test routine immediately in off-line mode" successful.
+Testing has begun.
+Please wait 31 minutes for test to complete.
+Test will complete after Fri Jul  4 03:59:56 2008
+
+Use smartctl -X to abort test.</screen>
+
+	<para>Then <command>smartctl -a /dev/ad0</command> shows the status
+	  after it finishes:</para>
+
+	<screen># SMART Self-test log structure revision number 1
+# Num  Test_Description    Status                  Remaining
+LifeTime(hours)  LBA_of_first_error
+#   1  Extended offline    Completed: read failure       80%     15252    319286</screen>
+
+	<para>It will also display other data including a log of previous drive
+	  errors.  It is possible for the drive to show previous DMA errors
+	  without failing the self-test though (because of sector
+	  remapping).</para></listitem>
+    </itemizedlist>
+
+    <para>When a disk has failed, please inform the cluster administrators
+      so we can try to get it replaced.</para>
+  </sect1>
+</article>

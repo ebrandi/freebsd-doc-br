@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="iso-8859-1" ?>
 <!DOCTYPE report PUBLIC "-//FreeBSD//DTD FreeBSD XML Database for Status Report//EN"
-                        "http://www.FreeBSD.org/XML/www/share/sgml/statusreport.dtd">
+                        "http://www.FreeBSD.org/XML/www/share/xml/statusreport.dtd">
 
 <!-- $FreeBSD$ -->
 
@@ -740,9 +740,7 @@ includes porting this facility to the -current tree.</p>
       </person>
     </contact>
 
-    <links>
-      <url href="http://www.FreeBSD.org/smp/" />
-    </links>
+    <links/>
 
     <body>
       <p>The SMPng project has continued to make steady progress in
@@ -1321,10 +1319,7 @@ includes porting this facility to the -current tree.</p>
     </person>
   </contact>
 
-  <links>
-    <!-- And/or one without. -->
-    <url href="http://www.FreeBSD.org/smp" />
-  </links>
+  <links/>
 
   <body>
     <p>Jennifer Yang's patch was committed June 10 for the BSD Summit.

@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $FreeBSD: head/en_US.ISO8859-1/books/dev-model/chapters.ent 39534 2012-09-14 12:11:19Z gabor $ -->
-<!--!ENTITY chap.references	SYSTEM "references.sgml"-->
+<!-- $FreeBSD: head/en_US.ISO8859-1/books/dev-model/chapters.ent 39631 2012-10-01 09:53:01Z gabor $ -->
+<!--!ENTITY chap.references	SYSTEM "references.xml"-->

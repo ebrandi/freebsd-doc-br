@@ -1,10 +1,3 @@
-# The FreeBSD Documentation Project
-# The FreeBSD Brazilian Portuguese Documentation Project
-#
-# Original version: 1.8
-#
-# $FreeBSD$
-#
 # Build the FreeBSD documentation *outside* of the www tree, and install it
 # in to the right place as necessary.
 #
@@ -37,7 +30,7 @@ install clean:
 		${MAKE} FORMATS="html-split html" DOCDIR=${DESTDIR}/data/doc \
 			INSTALL_COMPRESSED= ${.TARGET}
 .if make(clean)
-	${RM} -rf pt* faq
+	${RM} -rf pt*
 .endif
 
 .include "${DOC_PREFIX}/share/mk/web.site.mk"
