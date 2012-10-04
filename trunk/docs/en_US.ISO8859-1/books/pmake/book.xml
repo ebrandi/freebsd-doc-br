@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN"
+	"../../../share/xml/freebsd42.dtd" [
+<!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//EN" "../../share/xml/entities.ent">
+%entities;
+<!ENTITY % chapters.ent SYSTEM "chapters.ent">
+%chapters.ent;
+]>
+
+<book lang='en'>
+  <bookinfo>
+    <title>PMake &mdash; A Tutorial</title>
+
+    <author>
+      <firstname>Adam</firstname>
+      <surname>de Boor</surname>
+    </author>
+
+    &legalnotice;
+
+    <releaseinfo>$FreeBSD$</releaseinfo>
+  </bookinfo>
+
+  &chap.intro;
+  &chap.basics;
+  &chap.shortcuts;
+  &chap.gods;
+  &chap.answers;
+
+  &glossary;
+</book>

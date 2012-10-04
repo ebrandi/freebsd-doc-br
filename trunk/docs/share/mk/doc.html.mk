@@ -1,5 +1,5 @@
 #
-# $FreeBSD: head/share/mk/doc.html.mk 39534 2012-09-14 12:11:19Z gabor $
+# $FreeBSD: head/share/mk/doc.html.mk 39632 2012-10-01 11:56:00Z gabor $
 #
 # This include file <doc.html.mk> handles building and installing of
 # HTML documentation in the FreeBSD Documentation Project.
@@ -42,7 +42,7 @@ KNOWN_FORMATS=	html txt tar pdb
 
 CSS_SHEET?=
 
-HTMLCATALOG=	${PREFIX}/share/sgml/html/catalog
+HTMLCATALOG=	${PREFIX}/share/xml/html/catalog
 
 IMAGES_LIB?=
 

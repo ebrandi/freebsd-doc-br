@@ -1,5 +1,9 @@
+# The FreeBSD Documentation Project
+# The FreeBSD Brazilian Portuguese Documentation Project
 #
 # $FreeBSD$
+#
+# Original revision: r38826
 #
 # Article: Building products using FreeBSD
 
@@ -11,7 +15,7 @@ WITH_ARTICLE_TOC?= YES
 INSTALL_COMPRESSED?=	gz
 INSTALL_ONLY_COMPRESSED?=
 
-SRCS=			article.sgml
+SRCS=			article.xml
 
 IMAGES_EN=		freebsd-branches.pic freebsd-organization.pic
 

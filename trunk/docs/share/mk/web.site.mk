@@ -1,5 +1,5 @@
 # bsd.web.mk
-# $FreeBSD: head/share/mk/web.site.mk 39569 2012-09-17 08:42:56Z bz $
+# $FreeBSD: head/share/mk/web.site.mk 39632 2012-10-01 11:56:00Z gabor $
 
 #
 # Build and install a web site.
@@ -145,32 +145,32 @@ _INCLIST=	navibar.ent \
 _SGML_INCLUDES=	${SGML_INCLUDES}
 
 .for F in ${_INCLIST}
-.if exists(${DOC_PREFIX}/${LANGCODE}/share/sgml/${F})
-_SGML_INCLUDES+=${DOC_PREFIX}/${LANGCODE}/share/sgml/${F}
+.if exists(${DOC_PREFIX}/${LANGCODE}/share/xml/${F})
+_SGML_INCLUDES+=${DOC_PREFIX}/${LANGCODE}/share/xml/${F}
 .endif
-.if exists(${DOC_PREFIX}/share/sgml/${F})
-_SGML_INCLUDES+=${DOC_PREFIX}/share/sgml/${F}
+.if exists(${DOC_PREFIX}/share/xml/${F})
+_SGML_INCLUDES+=${DOC_PREFIX}/share/xml/${F}
 .endif
 .endfor
 
-CATALOG?=	${PREFIX}/share/sgml/html/catalog \
-		${PREFIX}/share/sgml/catalog
-.if exists(${DOC_PREFIX}/${LANGCODE}/share/sgml/catalog)
-CATALOG+=	${DOC_PREFIX}/${LANGCODE}/share/sgml/catalog
+CATALOG?=	${PREFIX}/share/xml/html/catalog \
+		${PREFIX}/share/xml/catalog
+.if exists(${DOC_PREFIX}/${LANGCODE}/share/xml/catalog)
+CATALOG+=	${DOC_PREFIX}/${LANGCODE}/share/xml/catalog
 .endif
-CATALOG+=	${DOC_PREFIX}/share/sgml/catalog
+CATALOG+=	${DOC_PREFIX}/share/xml/catalog
 
 ##################################################################
 # Transformation rules
 
 ###
-# file.sgml --> file.html
+# file.xml --> file.html
 #
-# Runs file.sgml through spam to validate and expand some entity
+# Runs file.xml through spam to validate and expand some entity
 # references are expanded.  file.html is added to the list of
 # things to install.
 
-.SUFFIXES:	.sgml .html
+.SUFFIXES:	.xml .html
 .if defined(REVCHECK)
 PREHTML?=	${DOC_PREFIX}/ja_JP.eucJP/htdocs/prehtml
 CANONPREFIX0!=	cd ${DOC_PREFIX}; ${ECHO_CMD} $${PWD};
@@ -187,19 +187,19 @@ PREHTML?=	${SED} -e 's/<!ENTITY base CDATA ".*">/<!ENTITY base CDATA "http:\/\/w
 .endif
 .endif
 
-GENDOCS+=	${DOCS:M*.sgml:S/.sgml$/.html/g}
-ORPHANS:=	${ORPHANS:N*.sgml}
+GENDOCS+=	${DOCS:M*.xml:S/.xml$/.html/g}
+ORPHANS:=	${ORPHANS:N*.xml}
 
-.sgml.html: ${_DEPENDSET.wwwstd} ${DOC_PREFIX}/share/sgml/xhtml.xsl
+.xml.html: ${_DEPENDSET.wwwstd} ${DOC_PREFIX}/share/xml/xhtml.xsl
 .if defined(PREHTML)
 	${PREHTML} ${PREHTMLOPTS} ${.IMPSRC} > ${.IMPSRC}-tmp
 	${XMLLINT} ${XMLLINTOPTS} ${.IMPSRC}-tmp
-	${XSLTPROC} ${XSLTPROCOPTS} --debug -o ${.TARGET} ${DOC_PREFIX}/share/sgml/xhtml.xsl ${.IMPSRC}-tmp || \
+	${XSLTPROC} ${XSLTPROCOPTS} --debug -o ${.TARGET} ${DOC_PREFIX}/share/xml/xhtml.xsl ${.IMPSRC}-tmp || \
 			(${RM} -f ${.IMPSRC}-tmp ${.TARGET} && false)
 	${RM} -f ${.IMPSRC}-tmp
 .else
 	${XMLLINT} ${XMLLINTOPTS} ${.IMPSRC}
-	${XSLTPROC} ${XSLTPROCOPTS} --debug -o ${.TARGET} ${DOC_PREFIX}/share/sgml/xhtml.xsl ${.IMPSRC}
+	${XSLTPROC} ${XSLTPROCOPTS} --debug -o ${.TARGET} ${DOC_PREFIX}/share/xml/xhtml.xsl ${.IMPSRC}
 .endif
 
 ##################################################################
