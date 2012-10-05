@@ -21,7 +21,7 @@
   <title>Suporte a Sistemas de Arquivo</title>
 
   <sect1 id="filesystems-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>Sistemas de Arquivo</primary></indexterm>
     <indexterm>
@@ -33,7 +33,7 @@
       operacional. Ele permite aos usuários o envio e armazenamento
       de arquivos, provê acesso aos dados e claro, permite o uso do
       disco rigido. É usado em diferentes sistemas operacionais mas
-      todos mantêm uma caracteristica comum, que é o sistema de
+      todos mantêm uma característica comum, que é o sistema de
       arquivo nativo. No &os; o sistema de arquivo é conhecido como
       Fast File System (Sistema de Arquivo Rápido) ou <acronym>FFS
       </acronym> que é baseado no sistema de arquivo original do
@@ -70,7 +70,7 @@
       </listitem>
 
       <listitem>
-	<para>Como habilitar, configurar acessar e gerenciar o uso de
+	<para>Como habilitar, configurar, acessar e gerenciar o uso de
       sistemas de arquivo não nativos.</para>
       </listitem>
     </itemizedlist>
@@ -106,14 +106,14 @@
 
     <para>O Z&nbsp;file system (Sistema de Arquivo Z), desenvolvido
       pela &sun;, é uma nova tecnologia desenvolvida para usar um
-      metodo de armazenamento agrupado. Isto significa que o espaço
+      método de armazenamento agrupado. Isto significa que o espaço
       somente é usado quando precisa armazenar dados. Ele também é
-      desenvolvido para manter a maior integridade possivel do dados,
+      desenvolvido para manter a maior integridade possível do dados,
       suportando o uso de snapshots dos dados, multiplas copias e
       checagem de dados (checksum). Um novo modelo de replicação de
       dados, conhecido como <acronym>RAID</acronym>-Z foi adicionado.
       O modelo <acronym>RAID</acronym>-Z é similar ao <acronym>RAID
-      </acronym>5 mas é desenvolvido para prevenir a corrumpção de
+      </acronym>5 mas é desenvolvido para prevenir a corrupção de
       escrita de dados.</para>
 
     <sect2>
@@ -121,13 +121,13 @@
 
       <para>O subsistema do <acronym>ZFS</acronym> utiliza muito dos
         recursos do sistema, então alguns afinamentos e ajustes são
-        requeridos para prover o máximo de eficiencia durante o uso
-        diario. Como recurso experimental no &os; algumas coisas podem
+        requeridos para prover o máximo de eficiência durante o uso
+        diário. Como recurso experimental no &os; algumas coisas podem
         mudar no futuro; entretanto, neste momento, as etapas
         descritas a seguir são recomendadas.</para>
 
       <sect3>
-	<title>Memoria</title>
+	<title>Memória</title>
 
 	<para>O total de memória no sistema deve ser de pelo menos um
       gigabyte, mas o recomendado é que você tenha dois ou mais
@@ -137,8 +137,8 @@
 
 	<para>Algumas pessoas tiveram sorte de usar menos de um gigabyte
       de memória, porém com uma quantidade limitada de memória
-      física, quando o sistema está sob uso pesado, é muito plausivél
-      que o &os; terá um panic devido ao uso exaustivel de memória.
+      física, quando o sistema está sob uso pesado, é muito plausível
+      que o &os; terá um panic devido ao uso exaustivo de memória.
     </para>
       </sect3>
 
@@ -153,7 +153,7 @@
 
 	<para>Usuários da arquitetura &i386; devem adicionar a opção
       descrita abaixo no arquivo de configuração do kernel,
-      reconstruir o kernel e reinciar o sistema:</para>
+      reconstruir o kernel e reiniciar o sistema:</para>
 
 	<programlisting>options 	KVA_PAGES=512</programlisting>
 
@@ -192,7 +192,7 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
 
       <para>Existe um mecanismo de inicialização que permite ao &os;
         montar os conjuntos (pools) do <acronym>ZFS</acronym> durante
-	a inicialização do sistema. Para isso, é preciso configura-lo
+	a inicialização do sistema. Para isso, é preciso configurá-lo
 	através dos seguintes comandos:</para>
 
 	<screen>&prompt.root; <userinput>echo 'zfs_enable="YES"' &gt;&gt; /etc/rc.conf</userinput>
@@ -204,20 +204,20 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
 	  <devicename><replaceable>da1</replaceable></devicename>
 	  e <devicename><replaceable>da2</replaceable></devicename>.
 	  Usuários de interface <acronym>IDE</acronym> talvez tenham
-	  disponiveis o seguinte nome <devicename><replaceable>ad</replaceable></devicename>
+	  disponíveis o seguinte nome <devicename><replaceable>ad</replaceable></devicename>
 	  ao invés do dispositivo <acronym>SCSI</acronym>.</para>
 
       <sect3>
 	<title>Conjunto (Pool) em Disco Único</title>
 
-	<para>Para criar um simples e não reduntante conjunto (pool)
+	<para>Para criar um simples e não redundante conjunto (pool)
 	  <acronym>ZFS</acronym> usando somente um dispositivo de
 	  disco, basta usar o comando <command>zpool</command>:
 	  </para>
 
 	<screen>&prompt.root; <userinput>zpool create exemplo /dev/da0</userinput></screen>
 
-	<para>Para ver o novo conjunto (pool), veja a saida do comando
+	<para>Para ver o novo conjunto (pool), veja a saída do comando
 	  <command>df</command>:</para>
 
 	<screen>&prompt.root; <userinput>df</userinput>
@@ -230,7 +230,7 @@ example      17547136       0 17547136     0%    /exemplo</screen>
 	<para>Veja que a saída do comando mostra claramente o conjunto
 	  <literal>exemplo</literal> e ele não somente criou o
 	  conjunto como também já montou ele no sistema. Ele também é
-	  acessivel como um sistema de arquivo normal, arquivos podem
+	  acessível como um sistema de arquivo normal, arquivos podem
 	  ser criados e usuários podem navegar como mostrado no
 	  exemplo abaixo:</para>
 
@@ -253,7 +253,7 @@ drwxr-xr-x  21 root  wheel  512 Aug 29 23:12 ..
 
 	<para>O <literal>exemplo/comprimido</literal> agora é um
 	  sistema de arquivo <acronym>ZFS</acronym> comprimido. Tente
-	  copiar algums arquivos grandes para o diretorio 
+	  copiar alguns arquivos grandes para o diretório 
 	  <filename class="directory">/exemplo/comprimido</filename>.</para>
 
 	<para>A compressão pode ser desabilitada agora com o comando:</para>
@@ -286,7 +286,7 @@ example             17547008       0 17547008     0%    /exemplo
 example/compressed  17547008       0 17547008     0%    /exemplo/comprimido</screen>
 
 	<para>O conjunto (pool) e o sistema de arquivo podem ser
-	  observados na saida do comando <command>mount</command>:
+	  observados na saída do comando <command>mount</command>:
 	  </para>
 
 	<screen>&prompt.root; <userinput>mount</userinput>
@@ -299,7 +299,7 @@ exemplo/comprimido on /exemplo/comprimido (zfs, local)</screen>
 
 	<para>Como observado, o sistema de arquivo <acronym>ZFS</acronym>
 	  após ser criado, já pode ser usado como um sistema de
-	  arquivo, entretanto, muitas funções estão disponiveis para
+	  arquivo, entretanto, muitas funções estão disponíveis para
 	  configuração. No exemplo mostrado, um novo sistema de
 	  arquivo, <literal>dados</literal> foi criado. Arquivos
 	  importantes serão armazenados ali, dessa forma, o sistema de
@@ -321,29 +321,26 @@ exemplo             17547008       0 17547008     0%    /exemplo
 exemplo/comprimido  17547008       0 17547008     0%    /exemplo/comprimido
 exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
-	<para>Observer que cada sistema de arquivo dentro do conjunto
-	  (pool) têm o mesmo espaço disponivel. Notice that each file system on the pool has the same
-	  amount of available space.  Essa é a razão de utilizar-mos
-	  o comando <command>df</command> em nossos exemplos, para
-	  mostrar a quantidade de espaço utilizada apenas pelo o
-	  sistema de arquivo, que é uma soma total disponivel no
-	  conjunto (pool).
+	<para>Observe que cada sistema de arquivo dentro do conjunto
+	  (pool) têm o mesmo espaço disponível. Essa é a razão de
+	  utilizar-mos o comando <command>df</command> em nossos
+	  exemplos, para mostrar a quantidade de espaço utilizada
+	  apenas pelo o sistema de arquivo, que é uma soma total
+	  disponível no conjunto (pool).
 	  O sistema de arquivo <acronym>ZFS</acronym> acaba com
 	  alguns conceitos como volumes e partições e permite o uso
-	  de vários sistemas de arquivo no mesmo conjunto (pool) file system does away with concepts
-	  such as volumes and partitions, and allows for several file
-	  systems to occupy the same pool. Vamos destruir o sistema de
-	  arquivo e destruir o conjunto (pool) já que não vamos mais
-	  precisar dele:</para>
+	  de vários sistemas de arquivo no mesmo conjunto (pool).
+	  Vamos destruir o sistema de arquivo e destruir o conjunto
+	  (pool) já que não vamos mais precisar dele:</para>
 
 	<screen>&prompt.root; <userinput>zfs destroy exemplo/comprimido</userinput>
 &prompt.root; <userinput>zfs destroy exemplo/dados</userinput>
 &prompt.root; <userinput>zpool destroy exemplo</userinput></screen>
 
-	<para>Discos podem ser ruins e falharem, ks go bad and fail,
-	  é uma caracteristica inevitável. Quando o disco vai mal, os
-	  dados podem ser perdidos. Um método para evitar essa perda
-	  de dados é a implementação de um <acronym>RAID</acronym>.
+	<para>Discos podem ser ruins e falharem, é uma característica
+	  inevitável. Quando o disco vai mal, os dados podem ser
+	  perdidos. Um método para evitar essa perda de dados é a
+	  implementação de um <acronym>RAID</acronym>.
 	  <acronym>ZFS</acronym> suporta este recurso no ambiente de
 	  conjunto (pool) e é o que nós vamos abordar na próxima
 	  sessão.</para>
@@ -353,7 +350,7 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 	<title><acronym>ZFS</acronym> RAID-Z</title>
 
 	<para>Como observado anteriormente, esta sessão assume a
-	  existencia de três discos <acronym>SCSI</acronym> como
+	  existência de três discos <acronym>SCSI</acronym> como
 	  dispositivos <devicename>da0</devicename>, <devicename>da1</devicename>
 	  e <devicename>da2</devicename> (ou <devicename>ad0</devicename>
 	  e outros discos IDE no caso de serem usados). Para criar um
@@ -367,7 +364,7 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 	  esteja entre três e nove. Se você necessita usar 10 ou mais
 	  discos em um conjunto (pool) simples, pare e pense em usar
 	  grupos de <acronym>RAID</acronym>-Z. Se você somente
-	  possuir dois discos e necessitar de redundancia, considere
+	  possuir dois discos e necessitar de redundância, considere
 	  usar o espelhamento (mirror) em <acronym>ZFS</acronym>.
 	  Veja as páginas de manual (&man.zpool.8;) para maiores
 	  detalhes.</para></note>
@@ -383,7 +380,7 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
 	<screen>&prompt.root; <userinput>zfs create storage/home</userinput></screen>
 
-	<para>Veja que agora é possivel habilitar a compressão e
+	<para>Veja que agora é possível habilitar a compressão e
 	  manter cópias extras dos diretórios e arquivos dos usuários.
 	  Isto pode ser configurado, conforme mostramos anteriormente
 	  com os comandos descritos abaixo:</para>
@@ -393,7 +390,7 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
 	<para>Para configurar este ponto de montagem como novo home
 	  dos usuários, copie os dados dos usuários para este
-	  diretório e crie os links simbolicos necessários:</para>
+	  diretório e crie os links simbólicos necessários:</para>
 
 	<screen>&prompt.root; <userinput>cp -rp /home/* /storage/home</userinput>
 &prompt.root; <userinput>rm -rf /home /usr/home</userinput>
@@ -412,31 +409,31 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
 	<para>Observe que a opção de snapshot somente capturou o
 	  sistema de arquivo real, não um diretório home ou um
-	  arquivo. O caracter <literal>@</literal> é um delimitador
+	  arquivo. O carácter <literal>@</literal> é um delimitador
 	  usado entre o nome do sistema de arquivo e o nome do volume.
 	  Quando um home de usuário for enviado para a lixeira,
-	  podemos recupera-lo com o comando:</para>
+	  podemos recuperá-lo com o comando:</para>
 
 	<screen>&prompt.root; <userinput>zfs rollback storage/home@08-30-08</userinput></screen>
 
-	<para>Para listar todos os snapshots disponiveis, execute
-	  <command>ls</command> no diretorio de sistema de arquivo
+	<para>Para listar todos os snapshots disponíveis, execute
+	  <command>ls</command> no diretório de sistema de arquivo
 	  <filename class="directory">.zfs/snapshot</filename>.
-	  Por exemplo, para visualizar um possivel snapshot anterior,
+	  Por exemplo, para visualizar um possível snapshot anterior,
 	  execute o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>ls /storage/home/.zfs/snapshot</userinput></screen>
 
-	<para>É possivel escrever um script para que mensalmente possa
+	<para>É possível escrever um script para que mensalmente possa
 	  criar snapshots dos dados dos usuários, entretanto, a cada
 	  vez, os snapshots podem consumir uma quantidade de espaço
-	  consideravél do disco. Os snapshots antigos nesse caso,
+	  considerável do disco. Os snapshots antigos nesse caso,
 	  podem ser removidos com o comando descrito abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zfs destroy storage/home@08-30-08</userinput></screen>
 
-	<para>Após todos esses testes, não ha razão para manter-mos
-	  o diretório <filename class="directory">/storage/home</filename>
+	<para>Após todos esses testes, não ha razão para mantermos o
+	  diretório <filename class="directory">/storage/home</filename>
 	  neste ponto de montagem. Configure o
 	  <filename class="directory">/home</filename> de forma real
 	  como um sistema de arquivo:</para>
@@ -473,21 +470,21 @@ storage/home  26320512       0 26320512     0%    /home</screen>
       <sect3>
 	<title>Recuperando um <acronym>RAID</acronym>-Z</title>
 
-	<para>Cada software de <acronym>RAID</acronym> tem um metodo
+	<para>Cada software de <acronym>RAID</acronym> tem um método
 	  de monitorar o <literal>estado</literal> dos dispositivos.
-	  <acronym>ZFS</acronym> não é uma excessão. O estado dos
+	  <acronym>ZFS</acronym> não é uma exceção. O estado dos
 	  dispositivos do <acronym>RAID</acronym>-Z podem ser
 	  visualizados com o comando abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zpool status -x</userinput></screen>
 
-	<para>Se todos os conjuntos (pools) estão saudaveis e tudo
+	<para>Se todos os conjuntos (pools) estão saudáveis e tudo
 	  esta normal, uma mensagem semelhante a seguir, será
 	  mostrada:</para>
 
 	<screen>all pools are healthy</screen>
 
-	<para>Se existir algum problem, um disco desligado, o estado
+	<para>Se existir algum problema, um disco desligado, o estado
 	  do conjunto (pool) será semelhante ao que podemos ver
 	  abaixo:</para>
 
@@ -512,12 +509,12 @@ errors: No known data errors</screen>
 
 	<para>O estado do dispositivo mostra que o mesmo está
 	  desligado pelo o Administrador. Na verdade, isto é
-	  particular do nosso exemplo. Para desligar-mos um disco,
+	  particular do nosso exemplo. Para desligarmos um disco,
 	  vamos executar o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool offline storage da1</userinput></screen>
 
-	<para>Veja que agora é possivel substituir-mos o dispositivo
+	<para>Veja que agora é possível substituirmos o dispositivo
 	  <devicename>da1</devicename> após desligar-mos o sistema
 	  operacional. Assim que o sistema operacional voltar a ficar
 	  ligado, poderemos fazer a substituição do disco com o
@@ -526,8 +523,8 @@ errors: No known data errors</screen>
 	<screen>&prompt.root; <userinput>zpool replace storage da1</userinput></screen>
 
 	<para>A partir daqui, o estado pode ser checado novamente,
-	  nteste momento sem a opção <option>-x</option> para
-	  pegar-mos a informação de estado:</para>
+	  neste momento sem a opção <option>-x</option> para
+	  pegarmos a informação de estado:</para>
 
 	<screen>&prompt.root; <userinput>zpool status storage</userinput>
  pool: storage
@@ -552,18 +549,17 @@ errors: No known data errors</screen>
 
 	<para>Como mencionado anteriormente, <acronym>ZFS</acronym>
 	  usa <literal>checagens</literal> para verificar a
-	  integridade dos dados armazenados. to verify the integrity of
-	  stored data. Eles são ativados automaticamente no momento da
-	  criação do sistema de arquivo e podem ser desabilitados com
-	  o comando abaixo:</para>
+	  integridade dos dados armazenados. Eles são ativados
+	  automaticamente no momento da criação do sistema de arquivo
+	  e podem ser desabilitados com o comando abaixo:</para>
 
 	<screen>&prompt.root; <userinput>zfs set checksum=off storage/home</userinput></screen>
 
 	<para>Mas isso não é uma boa ideia, contudo, como a checagem
-	  consome muito pouco espaço é mais interessante que possa-mos
-	  deixa-la habilitada. Aparentemente não teremos custos muito
-	  visiveis em deixar esta opção habilitada. Enquanto
-	  habilitada, é possivel ter o <acronym>ZFS</acronym>
+	  consome muito pouco espaço é mais interessante que possamos
+	  deixá-la habilitada. Aparentemente não teremos custos muito
+	  visíveis em deixar esta opção habilitada. Enquanto
+	  habilitada, é possível ter o <acronym>ZFS</acronym>
 	  checando a integridade dados usando verificação
 	  <literal>checksum</literal>. Este processo é conhecido
 	  como <quote>scrubbing.</quote> Para verificar a integridade
@@ -572,7 +568,7 @@ errors: No known data errors</screen>
 
 	<screen>&prompt.root; <userinput>zpool scrub storage</userinput></screen>
 
-	<para>Este processo pode demorar um tempo consideravel,
+	<para>Este processo pode demorar um tempo considerável,
 	  dependendo do volume de dados armazenado. Ele faz uso
 	  intensivo de <acronym>I/O</acronym>, de tal forma que
 	  somente uma operação pode ser executada por vez. Após o scrub
@@ -606,7 +602,7 @@ errors: No known data errors</screen>
       <sect3>
 		<title>Uso de Cotas no ZFS</title>
 
-		<para>O ZFS suporta diferentes tipos de cota;
+		<para>O ZFS suporta diferentes tipos de cota: 
 		  refquota, cota geral (general quota), cota por
 		  usuário e cota por grupo. Esta sessão irá explicar
 		  o básico de cada uma e irá incluir algumas
@@ -623,7 +619,7 @@ errors: No known data errors</screen>
 		<note>
 	  	  <para>As cotas não podem ser configuradas nos
 		    volumes, dessa forma, a propriedade <literal>volsize</literal>
-		    atua de forma implicita à cota.</para>
+		    atua de forma implícita à cota.</para>
 		</note>
 
 		<para>A opção refquota, <literal>refquota=<replaceable>size</replaceable></literal>,
@@ -650,7 +646,7 @@ errors: No known data errors</screen>
 	  	  <listitem>
 	    	<para><acronym
 	    	  role="Portable Operating System Interface">POSIX</acronym>
-	    	  nome compativel (ex:, <replaceable>jose</replaceable>).</para>
+	    	  nome compatível (ex:, <replaceable>jose</replaceable>).</para>
 	  	  </listitem>
 	  	  <listitem>
 	    	<para><acronym
@@ -665,7 +661,7 @@ errors: No known data errors</screen>
 	  	  </listitem>
 	  	  <listitem>
 	    	<para><acronym role="System Identifier">SID</acronym>
-	    	  ID númerico (ex:.,
+	    	  ID numérico (ex:.,
 	    	  <replaceable>S-1-123-456-789</replaceable>).</para>
 	  	  </listitem>
 		</itemizedlist>
@@ -685,8 +681,8 @@ errors: No known data errors</screen>
 		  visualizadas com o comando <command>zfs get all</command>.
 		  Usuários não-<username>root</username> somente
 		  podem ver suas próprias cotas se elas forem
-		  configuradas com os previlegios do <literal>userquota</literal>.
-		  Usuários com previlegio, podem ver e configura cotas
+		  configuradas com os privilegios do <literal>userquota</literal>.
+		  Usuários com privilegio, podem ver e configura cotas
 		  para todo mundo no sistema de arquivo.</para>
 
 		<para>A cota de grupo é a quantidade de espaço que um
@@ -706,11 +702,11 @@ errors: No known data errors</screen>
 
 		<screen>&prompt.root; <userinput>zfs set groupquota@primeiro_grupo=none</userinput></screen>
 
-		<para>Como nas propriedadse de cota de usuário,
+		<para>Como nas propriedades de cota de usuário,
 		  usuários não-<username>root</username> somente
 		  podem ver a cota de grupos ao qual ele esta
-		  associado, contudo, o usuário<username>root</username>
-		  ou um usuário com previlegio de <literal>groupquota</literal>
+		  associado, contudo, o usuário <username>root</username>
+		  ou um usuário com privilegio de <literal>groupquota</literal>
 		  poderá visualizar e configurar cotas para todos os
 		  grupos.</para>
 
@@ -740,12 +736,12 @@ errors: No known data errors</screen>
 		  incluir algumas instruções de uso.</para>
 
 		<para>A propriedade <literal>reservation</literal>
-		  configura se possivel uma reserva uma quantidade de
-		  espaço minima garantida para um conjunto de dados e
-		  seus descendentes. Isto significa que se fizer-mos
+		  configura se possível uma reserva uma quantidade de
+		  espaço mínima garantida para um conjunto de dados e
+		  seus descendentes. Isto significa que se fizermos
 		  uma reserva de 10&nbsp;GB para
 		  <filename>storage/home/bob</filename>, e se
-		  existir espaço minimo para isso, os 10&nbsp;GB de
+		  existir espaço mínimo para isso, os 10&nbsp;GB de
 		  espaço serão reservados para o conjunto de dados.
 		  A propriedade <literal>refreservation</literal>
 		  configura ou indica a quantidade de espaço minima
@@ -766,7 +762,7 @@ errors: No known data errors</screen>
 		  exemplo, se você faz um planejamento e teste de
 		  alocação de uso de espaço em um novo sistema ou
 		  software ou se precisa de espaço suficiente no
-		  sistema para possiveis procedimentos de recuperação
+		  sistema para possíveis procedimentos de recuperação
 		  de arquivos.</para>
 
 		<para>O formato geral da propriedade
@@ -790,7 +786,7 @@ errors: No known data errors</screen>
 		  com um formato geral dessa forma: 
 		  <literal>refreservation=<replaceable>tamanho</replaceable></literal>.</para>
 
-		<para>Para checar a existencia de qualquer
+		<para>Para checar a existência de qualquer
 		  configuração da propriedade reservations ou
 		  refreservations em <filename>storage/home/bob</filename>,
 		  execute o comando abaixo:</para>
@@ -812,7 +808,7 @@ errors: No known data errors</screen>
 
       <para>A implementação de kernel do sistema de arquivo &man.ext2fs.5;
         foi escrita por Godmar Back, e o primeiro driver foi
-	disponivel a partir do &os; 2.2. No &os; 8 e anteriores, o código
+	disponível a partir do &os; 2.2. No &os; 8 e anteriores, o código
 	é licenciado sob uma licença <acronym>GNU</acronym> Public
 	License, entretanto, no &os; 9, o código foi reescrito e agora
 	esta sob a licença <acronym>BSD</acronym>.</para>
@@ -848,9 +844,9 @@ errors: No known data errors</screen>
       <screen>&prompt.root; <userinput>kldload xfs</userinput></screen>
 
       <para>O driver &man.xfs.5; permite ao kernel do &os; acessar
-        sistemas de arquivos no formato XFS, entretando, até o
+        sistemas de arquivos no formato XFS, entretanto, até o
 	presente momento, somente o acesso a leitura é suportado.
-	A escrita no volume ainda não é possivel.</para>
+	A escrita no volume ainda não é possível.</para>
 
       <para>Para montar um volume &man.xfs.5; localizado em
 	<filename>/dev/ad1s1</filename>, execute o seguinte comando:
@@ -858,18 +854,18 @@ errors: No known data errors</screen>
 
       <screen>&prompt.root; <userinput>mount -t xfs /dev/as1s1 /mnt</userinput></screen>
 
-      <para>Também é util notar que o port
+      <para>Também é útil notar que o port
 	<filename role="package">sysutils/xfsprogs</filename> contém
-	o utilitario <command>mkfs.xfs</command> que permite a
+	o utilitário <command>mkfs.xfs</command> que permite a
 	criação de sistemas de arquivos no formato <acronym>XFS</acronym>
-	outros utilitários estão disponiveis nesse port para
+	outros utilitários estão disponíveis nesse port para
 	manipulação do sistema de arquivo <acronym>XFS</acronym>.
 	</para>
 
       <para>A opção <literal>-p</literal> do comando
         <command>mkfs.xfs</command> pode ser usada para criar um
-	sistema de arquivo &man.xfs.5; e preenche-lo com arquivos e
-	outros metadados. Isto é útil para rapidamente criar-mos um
+	sistema de arquivo &man.xfs.5; e preenchê-lo com arquivos e
+	outros metadados. Isto é útil para rapidamente criarmos um
 	sistema de arquivo somente leitura para ser testado no &os;.
 	</para>
     </sect2>
