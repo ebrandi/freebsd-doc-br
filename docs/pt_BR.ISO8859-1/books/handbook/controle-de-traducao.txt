@@ -4,7 +4,7 @@ Linhas #      Capitulo       # Revis„o #   Responsavel , Data Inicio
 ##################################################################
 312    # book.sgml           # r39544  # Edson Brandi, 02/10/2012
 708    # preface             # r39544  # Rafael Aquino, 03/10/2012
-3394   # mirrors             # r39575  #
+3394   # mirrors             # r39575  # Vin√≠cius Zavam, 05/10/2012
 580    # bibliography        # r39544  #
 2142   # eresources          # r39544  #
 40     # pgpkeys             # r39631  #
