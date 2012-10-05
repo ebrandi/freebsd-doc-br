@@ -9,82 +9,86 @@
 -->
 
 <chapter id="disks">
-  <title>Storage</title>
+  <title>Armazenagem</title>
 
   <sect1 id="disks-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
-    <para>This chapter covers the use of disks in FreeBSD.  This
-      includes memory-backed disks, network-attached disks,
-      standard SCSI/IDE storage devices, and devices using the USB
-      interface.</para>
+    <para>Este capítulo irá cobrir o uso de discos no &os;, incluindo
+      discos baseada em memória, discos em rede, dispositivos de
+      armazenagem padrão SCSI/IDE e dispositivos que usam a interface
+      USB.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler este capítulo, você terá conhecimento sobre:
+      </para>
 
     <itemizedlist>
       <listitem>
-	<para>The terminology FreeBSD uses to describe the
-	  organization of data on a physical disk (partitions and
-	  slices).</para>
+	<para>Os termos que o &os; usa para descrever a organização de
+	  dados em um disco físico (partições e slices).</para>
       </listitem>
 
       <listitem>
-	<para>How to add additional hard disks to your system.</para>
+	<para>Como adicionar discos adicionais no seu sistema.</para>
       </listitem>
 
       <listitem>
-	<para>How to configure &os; to use USB storage devices.</para>
+	<para>Como configurar no &os; o uso de dispositivos de
+	  armazenamento em USB.</para>
       </listitem>
 
       <listitem>
-	<para>How to set up virtual file systems, such as memory
-	  disks.</para>
+	<para>Como configurar um sistema de arquivo virtual, como
+	  discos de memória.</para>
       </listitem>
 
       <listitem>
-	<para>How to use quotas to limit disk space usage.</para>
+	<para>Como usar cotas para limitar o uso de espaço em disco.
+	  </para>
       </listitem>
 
       <listitem>
-	<para>How to encrypt disks to secure them against
-	  attackers.</para>
+	<para>Como encriptar discos em prol de segurança contra
+	  ataques.</para>
       </listitem>
 
       <listitem>
-	<para>How to create and burn CDs and DVDs on FreeBSD.</para>
+	<para>Como criar e gravar CDs e DVDs no &os;.</para>
       </listitem>
 
       <listitem>
-	<para>The various storage media options for backups.</para>
+	<para>As várias opções de mídia para armazenamento de backup.
+	  </para>
       </listitem>
 
       <listitem>
-	<para>How to use backup programs available under
-	  FreeBSD.</para>
+	<para>Como usar softwares de backup disponíveis no &os;.
+	  </para>
       </listitem>
 
       <listitem>
-	<para>How to backup to floppy disks.</para>
+	<para>Como fazer backup em disquetes.</para>
       </listitem>
 
       <listitem>
-	<para>What file system snapshots are and how to use them
-	  efficiently.</para>
+	<para>O que são snapshots de sistemas de arquivo e como usa-lo
+	  de forma eficiente.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, você deve conhecer:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Know how to configure and install a new FreeBSD kernel
-	  (<xref linkend="kernelconfig"/>).</para>
+	<para>Conhecer como configurar e instalar uma nova
+	  configuração de kernel do &os; (<xref linkend="kernelconfig"/>).
+	  </para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="disks-naming">
-    <title>Device Names</title>
+    <title>Nomes de Dispositivo</title>
 
     <para>The following is a list of physical storage devices
       supported in FreeBSD, and the device names associated with
