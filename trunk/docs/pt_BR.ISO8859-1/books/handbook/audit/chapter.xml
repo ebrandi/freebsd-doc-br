@@ -95,11 +95,11 @@ requirements. -->
   configuram propriamente o serviço de auditoria nas sessões de 
   autenticação dos usuários.</para>
 
-      <para>O evento de auditoria e segurança são capazes de gerar logs 
+      <para>Os eventos de auditoria e segurança são capazes de gerar logs 
   detalhados das atividades do sistema: em um sistema movimentado dados 
-  referente ao rastreio de um arquivo pode se tornar muito grande quando 
-  configurado com muitos detalhes excedendo gigabytes em uma semana em 
-  algumas configuralções. Administradores devem considerar os requerimentos 
+  referentes ao rastreio de um arquivo podem se tornar muito grandes quando 
+  configurados com muitos detalhes excedendo gigabytes em uma semana em 
+  algumas configurações. Administradores devem considerar os requerimentos 
   de espaço em disco associados ao alto volume de dados gerados devido ao 
   tipo de configuração de auditoria. Por exemplo, é desejável que se dedique
   um file system à arvore <filename>/var/audit</filename>, dessa
@@ -141,54 +141,55 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para><emphasis>registro</emphasis>: A record is an audit log entry
-	  describing a security event.  Records contain a record event type,
-	  information on the subject (user) performing the action,
-	  date and time information, information on any objects or
-	  arguments, and a success or failure condition.</para>
+	<para><emphasis>registro</emphasis>: Um registro é uma entrada no 
+    no log de auditoria descrevendo um evento de segurança. Registros
+    contém um campo do tipo de evento, informação do assunto (usuário)
+    ocasionando a ação, informação de data e hora, informação de 
+    qualquer objeto ou argumentos e uma condição de sucesso ou falha.</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>trail</emphasis>: An audit trail, or log file,
-	  consists of a series of audit records describing security
-	  events.  Typically, trails are in roughly chronological
-	  order with respect to the time events completed.  Only
-	  authorized processes are allowed to commit records to the
-	  audit trail.</para>
+	<para><emphasis>rastro</emphasis>: Um rastro de auditoria ou 
+    arquivo de log consiste em uma série de registros de auditoria
+    descrevendo eventos de segurança. Normalmente os rastros estão em
+    ordem cronológica respeitando o horário dos eventos completos.
+    Somente processos autorizados são autorizados a realizar 
+    registro nos rastros de auditoria.</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>selection expression</emphasis>: A selection
-	  expression is a string containing a list of prefixes and audit
-	  event class names used to match events.</para>
+	<para><emphasis>expressões de seleção</emphasis>: Uma expressão de 
+    seleção é uma string contendo uma lista de prefixos e nomes de classes 
+    de evento de auditoria utilizados para combinar eventos.</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>preselection</emphasis>: The process by which the
-	  system identifies which events are of interest to the administrator
-	  in order to avoid generating audit records describing events that
-	  are not of interest.  The preselection configuration
-	  uses a series of selection expressions to identify which classes
-	  of events to audit for which users, as well as global settings
-	  that apply to both authenticated and unauthenticated
-	  processes.</para>
+	<para><emphasis>pré-seleção</emphasis>: Processo pelo qual o sistema
+    identifica quais eventos são de interesse do administrador afim de 
+    evitar gerar registros de auditoria descrevendo eventos que não são 
+    de seu interesse. A configuração de pré-seleção utiliza uma série
+    de expressões de seleção para identificar quais classes de eventos 
+    auditar para quais usuários, bem como as configurações globais que
+    se aplicam tanto aos processos autenticados quanto aos não 
+    autenticados.</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>reduction</emphasis>: The process by which records
-	  from existing audit trails are selected for preservation, printing,
-	  or analysis.  Likewise, the process by which undesired audit
-	  records are removed from the audit trail.  Using reduction,
-	  administrators can implement policies for the preservation of audit
-	  data.  For example, detailed audit trails might be kept for one
-	  month, but after that, trails might be reduced in order to preserve
-	  only login information for archival purposes.</para>
+	<para><emphasis>redução</emphasis>: Processo o qual registros dos 
+    rastros de auditoria existentes são selecionados à serem preservados, 
+    impressos ou analisados. Bem como o processo pelo qual registros
+    indesejados de auditoria são removidos dos rastros de auditoria.
+    Utilizando redução os administradores podem implementar politicas 
+    para preservar os dados de auditoria. Por exemplo, rastros detalhados
+    de auditoria poderiam ser mantidos por um mês, porém, após isso os 
+    rastros poderiam ser reduzidos afim de preservar somente as informações 
+    de login para propósito de arquivo .</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="audit-install">
-    <title>Installing Audit Support</title>
+    <title>Instalando Suporte de Auditoria</title>
 
     <para>User space support for Event Auditing is installed as part of the
       base &os; operating system.  Kernel support for
