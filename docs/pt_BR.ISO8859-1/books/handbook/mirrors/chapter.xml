@@ -9,33 +9,38 @@
 -->
 
 <appendix id="mirrors">
-  <title>Obtaining &os;</title>
+  <title>Obtendo o &os;</title>
 
   <sect1 id="mirrors-cdrom">
-    <title>CDROM and DVD Publishers</title>
+    <title>&os; no Varejo</title>
 
     <sect2>
-      <title>Retail Boxed Products</title>
+      <title>Produtos Avulsos</title>
 
-      <para>&os; is available as a boxed product (&os; CDs,
-	additional software, and printed documentation) from several
-	retailers:</para>
+      <para>O &os; é disponibilizado em forma de 
+	documentação impressa, como um software vendido em avulso ou 
+	em mídias de CD com ajuda dos seguintes revendedores:</para>
 
       <itemizedlist>
 	<listitem>
 	  <address>
-	    <otheraddr>Frys Electronics</otheraddr>
-	    WWW: <otheraddr><ulink url="http://www.frys.com/"></ulink></otheraddr>
+	    <otheraddr>Fry's Electronics</otheraddr>
+	    <street>600 East Brokaw</street>
+	    <city>San Jose</city>, <state>CA</state>  <postcode>95112</postcode>
+	    <country>Estados Unidos da América</country>
+	    Telefone: <phone>+1 408 350-1484</phone>
+	    Email: <email>service@cs.frys.com</email>
+	    WWW: <otheraddr><ulink url="http://www.frys.com"></ulink></otheraddr>
 	  </address>
 	</listitem>
       </itemizedlist>
     </sect2>
 
     <sect2>
-      <title>CD and DVD Sets</title>
+      <title>Conjuntos de CD e DVD</title>
 
-      <para>&os; CD and DVD sets are available from many online
-	retailers:</para>
+      <para>O &os; pode ser obtido através da Internet, em um conjunto 
+	de mídias de CD e DVD, com ajuda dos seguintes revendedores:</para>
 
     <itemizedlist>
       <listitem>
@@ -43,21 +48,21 @@
 	  <otheraddr>&os; Mall, Inc.</otheraddr>
 	  <street>700 Harvest Park Ste F</street>
 	  <city>Brentwood</city>, <state>CA</state>  <postcode>94513</postcode>
-	  <country>USA</country>
-	  Phone: <phone>+1 925 240-6652</phone>
+	  <country>Estados Unidos da América</country>
+	  Telefone: <phone>+1 925 240-6652</phone>
 	  Fax: <fax>+1 925 674-0821</fax>
 	  Email: <email>info@freebsdmall.com</email>
-	  WWW: <otheraddr><ulink url="http://www.freebsdmall.com/"></ulink></otheraddr>
+	  WWW: <otheraddr><ulink url="http://www.freebsdmall.com"></ulink></otheraddr>
         </address>
       </listitem>
 
       <listitem>
 	<address>
 	  <otheraddr>Dr. Hinner EDV</otheraddr>
-	  <street>St. Augustinus-Str. 10</street>
-	  <postcode>D-81825</postcode> <city>M&uuml;nchen</city>
-	  <country>Germany</country>
-	  Phone: <phone>(089) 428 419</phone>
+	  <street>St. Augustinus Str. 10</street>
+	  <postcode>D 81825</postcode> <city>Munique</city>
+	  <country>Alemanha</country>
+	  Telefone: <phone>+49 89 428-419</phone>
 	  WWW: <otheraddr><ulink url="http://www.hinner.de/linux/freebsd.html"></ulink></otheraddr>
         </address>
       </listitem>
@@ -65,8 +70,8 @@
       <listitem>
 	<address>
 	  <otheraddr>JMC Software</otheraddr>
-	  <country>Ireland</country>
-	  Phone: <phone>353 1 6291282</phone>
+	  <country>Irlanda</country>
+	  Telefone: <phone>+353 1 629-1282</phone>
 	  WWW: <otheraddr><ulink url="http://www.thelinuxmall.com"></ulink></otheraddr>
 	</address>
       </listitem>
@@ -77,8 +82,8 @@
 	  <street>42 Wharfedale Road</street>
 	  <city>Margate</city>
 	  <postcode>CT9 2TB</postcode>
-	  <country>United Kingdom</country>
-	  WWW: <otheraddr><ulink url="https://linux-distro.co.uk/"></ulink></otheraddr>
+	  <country>Reino Unido</country>
+	  WWW: <otheraddr><ulink url="https://linux-distro.co.uk"></ulink></otheraddr>
         </address>
       </listitem>
 
@@ -88,10 +93,10 @@
 	  <street>Hilliard House, Lester Way</street>
 	  <city>Wallingford</city>
 	  <postcode>OX10 9TA</postcode>
-	  <country>United Kingdom</country>
-	  Phone: <phone>+44 1491 837010</phone>
+	  <country>Reino Unido</country>
+	  Telefone: <phone>+44 1491 837-010</phone>
 	  Fax: <fax>+44 1491 837016</fax>
-	  WWW: <otheraddr><ulink url="http://www.linuxemporium.co.uk/products/bsd/"></ulink></otheraddr>
+	  WWW: <otheraddr><ulink url="http://www.linuxemporium.co.uk/products/bsd"></ulink></otheraddr>
         </address>
       </listitem>
 
@@ -99,12 +104,12 @@
 	<address>
 	  <otheraddr>Linux+ DVD Magazine</otheraddr>
 	  <street>Lewartowskiego 6</street>
-	  <city>Warsaw</city>
-	  <postcode>00-190</postcode>
-	  <country>Poland</country>
-	  Phone: <phone>+48 22 860 18 18</phone>
+	  <city>Varsóvia</city>
+	  <postcode>00 190</postcode>
+	  <country>Polônia</country>
+	  Telefone: <phone>+48 22 860-1818</phone>
 	  Email: <email>editors@lpmagazine.org</email>
-	  WWW: <otheraddr><ulink url="http://www.lpmagazine.org/"></ulink></otheraddr>
+	  WWW: <otheraddr><ulink url="http://www.lpmagazine.org"></ulink></otheraddr>
 	</address>
       </listitem>
 
@@ -113,9 +118,9 @@
 	  <otheraddr>Linux System Labs Australia</otheraddr>
 	  <street>21 Ray Drive</street>
 	  <city>Balwyn North</city>
-	  <postcode>VIC - 3104</postcode>
-	  <country>Australia</country>
-	  Phone: <phone>+61 3 9857 5918</phone>
+	  <postcode>VIC 3104</postcode>
+	  <country>Austrália</country>
+	  Telefone: <phone>+61 3 9857-5918</phone>
 	  Fax: <fax>+61 3 9857 8974</fax>
 	  WWW: <otheraddr><ulink url="http://www.lsl.com.au"></ulink></otheraddr>
         </address>
@@ -123,12 +128,12 @@
 
       <listitem>
 	<address>
-	  <otheraddr>LinuxCenter.Ru</otheraddr>
+	  <otheraddr>LinuxCenter.ru</otheraddr>
 	  <street>Galernaya Street, 55</street>
-	  <city>Saint-Petersburg</city>
+	  <city>São Petersburgo</city>
 	  <postcode>190000</postcode>
-	  <country>Russia</country>
-	  Phone: <phone>+7-812-3125208</phone>
+	  <country>Rússia</country>
+	  Telefone: <phone>+7 812 312-5208</phone>
 	  Email: <email>info@linuxcenter.ru</email>
 	  WWW: <otheraddr><ulink url="http://linuxcenter.ru/shop/freebsd"></ulink></otheraddr>
 	</address>
@@ -138,10 +143,11 @@
     </sect2>
 
     <sect2>
-      <title>Distributors</title>
+      <title>Distribuidores</title>
 
-      <para>If you are a reseller and want to carry &os; CDROM products,
-	please contact a distributor:</para>
+      <para>Se você é um revendedor varejista e está interessado em 
+	revender o &os; e produtos relacionados, entre em contato 
+	com um dos seguintes distribuidores:</para>
 
       <itemizedlist>
         <listitem>
@@ -149,9 +155,9 @@
 	    <otheraddr>Ingram Micro</otheraddr>
 	    <street>1600 E. St. Andrew Place</street>
 	    <city>Santa Ana</city>, <state>CA</state>  <postcode>92705-4926</postcode>
-	    <country>USA</country>
-	    Phone: <phone>1 (800) 456-8000</phone>
-	    WWW: <otheraddr><ulink url="http://www.ingrammicro.com/"></ulink></otheraddr>
+	    <country>Estados Unidos da América</country>
+	    Telefone: <phone>+1 800 456-8000</phone>
+	    WWW: <otheraddr><ulink url="http://www.ingrammicro.com"></ulink></otheraddr>
           </address>
         </listitem>
 
@@ -160,8 +166,8 @@
 	    <otheraddr>Kudzu, LLC</otheraddr>
 	    <street>7375 Washington Ave. S.</street>
 	    <city>Edina</city>, <state>MN</state> <postcode>55439</postcode>
-	    <country>USA</country>
-	    Phone: <phone>+1 952 947-0822</phone>
+	    <country>Estados Unidos da América</country>
+	    Telefone: <phone>+1 952 947-0822</phone>
 	    Fax: <fax>+1 952 947-0876</fax>
 	    Email: <email>sales@kudzuenterprises.com</email>
 	  </address>
@@ -169,12 +175,12 @@
 
 	<listitem>
 	  <address>
-	    <otheraddr>LinuxCenter.Ru</otheraddr>
+	    <otheraddr>LinuxCenter.ru</otheraddr>
 	    <street>Galernaya Street, 55</street>
-	    <city>Saint-Petersburg</city>
+	    <city>São Petersburgo</city>
 	    <postcode>190000</postcode>
-	    <country>Russia</country>
-	    Phone: <phone>+7-812-3125208</phone>
+	    <country>Rússia</country>
+	    Telefone: <phone>+7 812 3125-208</phone>
 	    Email: <email>info@linuxcenter.ru</email>
 	    WWW: <otheraddr><ulink url="http://linuxcenter.ru/freebsd"></ulink></otheraddr>
 	  </address>
@@ -184,28 +190,36 @@
   </sect1>
 
   <sect1 id="mirrors-ftp">
-    <title>FTP Sites</title>
+    <title>Sítios FTP</title>
 
-    <para>The official sources for &os; are available via anonymous FTP
-      from a worldwide set of mirror sites.  The site
-      <ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/"></ulink> is well
-      connected and allows a large number of connections to it, but
-      you are probably better off finding a <quote>closer</quote>
-      mirror site (especially if you decide to set up some sort of
-      mirror site).</para>
+    <para>Os códigos fonte, pacotes e arquivos oficiais do &os; 
+	estão disponíveis via FTP anônimo através de vários 
+	servidores espelho espalhados pelo mundo. O endereço 
+	<ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD"></ulink> é o 
+	servidor primário do projeto, é muito estável e aceita um 
+	grande número de conexões, mas é aconselhável que você 
+	localize um servidor espelho desse sítio FTP que seja 
+	<quote>o mais próximo possível</quote> do local onde você 
+	está situado (especialmente se você está optando por criar e 
+	configurar seu próprio servidor espelho).</para>
 
-    <para>Additionally, &os; is available via anonymous FTP from the
-      following mirror sites.  If you choose to obtain &os; via anonymous
-      FTP, please try to use a site near you.  The mirror sites listed as
-      <quote>Primary Mirror Sites</quote> typically have the entire &os; archive (all
-      the currently available versions for each of the architectures) but
-      you will probably have faster download times from a site that is
-      in your country or region.  The regional sites carry the most recent
-      versions for the most popular architecture(s) but might not carry
-      the entire &os; archive.  All sites provide access via anonymous
-      FTP but some sites also provide access via other methods.  The access
-      methods available for each site are provided in parentheses
-      after the hostname.</para>
+    <para>Além disso, o &os; está disponível via FTP anônimo em 
+	outros sítios. Se você optar por obter o &os; via FTP 
+	anônimo, por favor, tente usar um sítio que esteja o mais 
+	próximo possível de você. Os servidores espelho listados 
+	como <quote>Servidores Primários</quote> normalmente 
+	contém todos os arquivos, códigos fonte, pacotes, releases e 
+	imagens de instalação do &os; (disponíveis para todas as 
+	arquiteturas suportadas), mas provavelmente você fará 
+	downloads mais rápidos se utilizar um sítio que está em seu 
+	país ou região. Os sítios e servidores espelho regionais 
+	contém as versões mais recentes para a(s) arquitetura(s) 
+	mais popular(es), mas pode não conter alguns arquivos do 
+	&os; para a(s) arquitetura(s) em questão. Todos os sítios 
+	oferecem acesso via FTP anônimo, mas alguns sítios também 
+	fornecem acesso através de outros métodos e protocolos. 
+	Os métodos e protocolos disponíveis para cada sítio são 
+	listados entre parênteses, após o nome do servidor.</para>
 
     &chap.mirrors.ftp.inc;
   </sect1>
@@ -217,68 +231,76 @@
       <primary>BitTorrent</primary>
     </indexterm>
 
-    <para>The ISO images for the basic release CDs are available via
-      BitTorrent.  A collection of torrent files to download the
-      images is available at <ulink
-      url="http://torrents.freebsd.org:8080/">http://torrents.freebsd.org:8080</ulink></para>
+    <para>As imagens de instalação, em formato ISO, das releases do 
+	&os; também são disponibilizadas via BitTorrent. Uma coleção 
+	de torrents está disponível para download em 
+	<ulink url="http://torrents.freebsd.org:8080">http://torrents.freebsd.org:8080</ulink></para> 
 
-    <para>The BitTorrent client software is available from the
-      <filename role="package">net-p2p/py-bittorrent</filename> port,
-      or a precompiled package.</para>
+    <para>O software cliente para uso do BitTorrent está disponível 
+	através do port 
+	<filename role="package">net-p2p/py-bittorrent</filename>, 
+	ou por meio da instalação de seu pacote pré-compilado.</para>
 
-    <para>After downloading the ISO image with BitTorrent, you may
-      burn it to CD or DVD media as described in <xref
-      linkend="burncd"/>, burncd.</para>
+    <para>Após realizar o download da imagem ISO via BitTorrent, 
+	você deve gravar uma mídia de CD ou DVD como descrito na 
+	<xref linkend="burncd"/>.</para>
   </sect1>
 
   <sect1 id="mirrors-svn">
-    <title>Subversion Sites</title>
+    <title>Sítios SVN</title>
 
     <indexterm>
       <primary>svn</primary>
     </indexterm>
 
-    <para>As of July 2012, &os; uses
-      <ulink url="http://subversion.apache.org/">Subversion</ulink>
-      (<emphasis>svn</emphasis>) as the primary version control system
-      for storing all of &os;'s source code, documentation, and the
-      Ports Collection.</para>
+    <para>Em Julho de 2012, o projeto &os; começou a utilizar 
+	<ulink url="http://subversion.apache.org">Subversion</ulink> 
+	(<emphasis>SVN</emphasis>) como seu principal sistema de 
+	controle de versões para armazenar os códigos fonte do &os;,  
+	documentações e sua Coleção de Ports.</para>
 
     <note>
-      <para>Subversion is generally a developer tool.  Most users
-	should use
-	<link linkend="updating-upgrading-freebsdupdate">FreeBSD
-	  Update</link> to update the &os; base system, and
-	<link linkend="updating-upgrading-portsnap">Portsnap</link>
-	to update the &os; Ports Collection.</para>
+      <para>O Subversion é utilizado, em geral, como uma ferramenta 
+	para desenvolvimento. É mais aconselhável, à maioria dos 
+	usuários, que seja utilizado o 
+	<link linkend="updating-upgrading-freebsdupdate">FreeBSD 
+	Update</link> para atualização do sistema base do &os; e o 
+	<link linkend="updating-upgrading-portsnap">Portsnap</link> 
+	para atualizar a Coleção de Ports.</para>
     </note>
 
-    <para>The &os; svn mirror network is still in its early days, and
-      will likely change.  Do not count on this list of mirrors being
-      static.  In particular, the SSL certificates of the servers will
-      likely change at some point.</para>
+    <para>A rede de sítios SVN do &os; ainda está engatinhando e, 
+	provavelmente, sofrerá algumas alterações. Não conte com o 
+	fato de que esta seja uma lista estática de servidores 
+	disponíveis. Em particular, os certificados SSL utilizados 
+	pelos servidores, em certo ponto, serão alterados.</para>
 
-    <para>In Subversion, URLs are used to designate a repository,
-      taking the form of <literal>protocol://hostname/path</literal>.
-      Mirrors may support different protocols as specified below.  The
-      first component of the path is the &os; repository to access.
-      There are three different repositories, <literal>base</literal>
-      for the &os; base system source code, <literal>ports</literal>
-      for the Ports Collection, and <literal>doc</literal> for
-      documentation.  For example, the URL
-      <literal>svn://svn0.us-east.FreeBSD.org/ports/head/</literal>
-      specifies the main branch of the ports repository on the
-      <hostid role="fqdn">svn0.us-east.FreeBSD.org</hostid> mirror,
-      using the svn protocol.</para>
+    <para>No Subversion, as URLs são utilizadas para designar um 
+	repositório seguindo o padrão 
+	<literal>protocolo://servidor/path</literal>. Cada sítio SVN 
+	pode suportar um protocolo diferente, como mostrado 
+	abaixo. O primeiro componente do <literal>path</literal> 
+	é o repositório do &os; que você pretende acessar. Existem 
+	três repositórios diferentes; <literal>base</literal>, 
+	<literal>ports</literal> e <literal>doc</literal>. Esses 
+	repositórios respondem, respectivamente, pelos códigos fonte 
+	do sistema base do &os;, pela Coleção de Ports e pela 
+	documentação do projeto. Por exemplo, a URL 
+	<literal>svn://svn0.us-east.FreeBSD.org/ports/head</literal> 
+	especifica a árvore principal do repositório 
+	<literal>ports</literal> em 
+	<hostid role="fqdn">svn0.us-east.FreeBSD.org</hostid>, 
+	usando o protocolo <literal>svn</literal>.</para>
 
-    <para>All mirrors carry all repositories.</para>
+    <para>Todos os servidores contém os três repositórios.</para>
 
-    <para>The master &os; Subversion server,
-      <hostid role="fqdn">svn.FreeBSD.org</hostid>, is publicly
-      accessible, read-only.  That may change in the future, so users
-      are encouraged to use one of the official mirrors.  To view the
-      &os; Subversion repositories through a browser, use <ulink
-	url="http://svnweb.FreeBSD.org/">http://svnweb.FreeBSD.org/</ulink>.</para>
+    <para>O servidor de Subversion principal utilizado pelo projeto 
+	&os;, <hostid role="fqdn">svn.FreeBSD.org</hostid>, é 
+	público e opera em modo somente leitura. Isto pode mudar no 
+	futuro, então encorajamos os usuários a utilizarem um dos 
+	espelhos oficiais. Para acessar os repositórios do &os; 
+	através de um Navegador Web, visite <ulink 
+	url="http://svnweb.FreeBSD.org">http://svnweb.FreeBSD.org</ulink>.</para>
 
     <informaltable>
       <tgroup cols="4">
@@ -288,13 +310,13 @@
 	<colspec colwidth="10*"/>
 	<thead>
 	  <row>
-	    <entry>Name</entry>
+	    <entry>Servidor</entry>
 
-	    <entry>Protocols</entry>
+	    <entry>Protocolos</entry>
 
-	    <entry>Location</entry>
+	    <entry>Localização</entry>
 
-	    <entry>SSL fingerprint</entry>
+	    <entry>Assinatura SSL</entry>
 	  </row>
 	</thead>
 
@@ -303,12 +325,14 @@
 	    <entry><hostid
 		role="fqdn">svn0.us-west.FreeBSD.org</hostid></entry>
 
-	    <entry>svn, <ulink
-		url="http://svn0.us-west.FreeBSD.org/base/">http</ulink>,
+	    <entry><ulink
+		url="svn://svn0.us-west.FreeBSD.org/base">svn</ulink>, 
 	      <ulink
-		url="https://svn0.us-west.FreeBSD.org/base/">https</ulink></entry>
+		url="http://svn0.us-west.FreeBSD.org/base">http</ulink>, 
+	      <ulink
+		url="https://svn0.us-west.FreeBSD.org/base">https</ulink></entry>
 
-	    <entry>USA, California</entry>
+	    <entry>Califórnia, EUA</entry>
 
 	    <entry>SHA1
 	      <literal>79:35:8F:CA:6D:34:D9:30:44:D1:00:AF:33:4D:E6:11:44:4D:15:EC</literal></entry>
@@ -318,12 +342,14 @@
 	    <entry><hostid
 		role="fqdn">svn0.us-east.FreeBSD.org</hostid></entry>
 
-	    <entry>svn, <ulink
-		url="http://svn0.us-east.FreeBSD.org/base/">http</ulink>,
+	    <entry><ulink
+		url="svn://svn0.us-east.FreeBSD.org/base">svn</ulink>, 
 	      <ulink
-		url="https://svn0.us-east.FreeBSD.org/base/">https</ulink></entry>
+		url="http://svn0.us-east.FreeBSD.org/base">http</ulink>,
+	      <ulink
+		url="https://svn0.us-east.FreeBSD.org/base">https</ulink></entry>
 
-	    <entry>USA, New Jersey</entry>
+	    <entry>Nova Jérsia, EUA</entry>
 
 	    <entry>SHA1
 	      <literal>06:D1:23:DE:5E:7A:F7:2B:7A:7E:74:95:5F:54:8D:5C:B0:D6:2E:8F</literal></entry>
@@ -334,96 +360,107 @@
   </sect1>
 
     <sect1 id="anoncvs">
-      <title>Anonymous CVS</title>
+      <title>CVS Anônimo</title>
 
       <sect2>
-	<title><anchor id="anoncvs-intro"/>Introduction</title>
+	<title><anchor id="anoncvs-intro"/>Introdução</title>
 
 	<indexterm>
 	  <primary>CVS</primary>
 	  <secondary>anonymous</secondary>
 	</indexterm>
 
-	<para>Anonymous CVS (or, as it is otherwise known,
-	  <emphasis>anoncvs</emphasis>) is a feature provided by the CVS
-	  utilities bundled with &os; for synchronizing with a remote
-	  CVS repository.  Among other things, it allows users of &os;
-	  to perform, with no special privileges, read-only CVS operations
-	  against one of the &os; project's official anoncvs servers.
-	  To use it, one simply sets the <envar>CVSROOT</envar>
-	  environment variable to point at the appropriate anoncvs server,
-	  provides the well-known password <quote>anoncvs</quote> with the
-	  <command>cvs login</command> command, and then uses the
-	  &man.cvs.1; command to access it like any local
-	  repository.</para>
+	<para>CVS Anônimo (ou, como é conhecido de outra forma, 
+	<emphasis>AnonCVS</emphasis>) é um recurso fornecido pelo 
+	utilitário do CVS que acompanha o &os; para realizar 
+	sincronização entre um host e um servidor CVS remoto. Entre 
+	outras coisas, ele permite a usuários do &os; efetuarem, sem 
+	privilégios especiais, operações de leitura nos servidores 
+	AnonCVS oficiais do projeto  &os;. Para utilizar este 
+	recurso, basta que você utilize a variável de ambiente 
+	<envar>CVSROOT</envar> para apontar para um servidor de 
+	AnonCVS, utilize o comando <command>cvs login</command>, 
+	forneça a senha <quote>anoncvs</quote> quando for solicitada 
+	e então usar o comando &man.cvs.1; para acessar o 
+	repositório como qualquer outro repositório local.</para>
 
 	<note>
-	  <para>The <command>cvs login</command> command, stores the passwords
-	    that are used for authenticating to the CVS server in a file
-	    called <filename>.cvspass</filename> in your
-	    <envar>HOME</envar> directory.  If this file does not exist,
-	    you might get an error when trying to use <command>cvs
-	    login</command> for the first time.  Just make an empty
-	    <filename>.cvspass</filename> file, and retry to login.</para>
+	  <para>O comando <command>cvs login</command> guardará as 
+	    senhas que forem utilizadas para efetuar a autenticação 
+	    em um servidor CVS no arquivo 
+	    <filename>.cvspass</filename>, que ficará no diretório 
+	    <envar>HOME</envar> do usuário que executar o comando. 
+	    Caso este arquivo não exista, você pode receber uma 
+	    mensagem de erro ao tentar executar o comando 
+	    <command>cvs login</command> pela primeira vez. 
+	    Basta que você crie um arquivo vazio e efetue novamente 
+	    a operação para realizar o login.</para>
 	</note>
 
-	<para>While it can also be said that the <link
-	  linkend="cvsup">CVSup</link> and <emphasis>anoncvs</emphasis>
-	  services both perform essentially the same function, there are
-	  various trade-offs which can influence the user's choice of
-	  synchronization methods.  In a nutshell,
-	  <application>CVSup</application> is much more efficient in its
-	  usage of network resources and is by far the most technically
-	  sophisticated of the two, but at a price.  To use
-	  <application>CVSup</application>, a special client must first be
-	  installed and configured before any bits can be grabbed, and
-	  then only in the fairly large chunks which
-	  <application>CVSup</application> calls
-	  <emphasis>collections</emphasis>.</para>
+	<para>Embora possa se dizer que o 
+	<link linkend="cvsup">CVSup</link> e o serviço provido pelo 
+	<emphasis>AnonCVS</emphasis> executem a mesma função, 
+	existem vários dilemas que podem influenciar a escolha do 
+	usuário entre um método de sincronização e outro. Em poucas 
+	palavras, o <application>CVSup</application> é muito mais 
+	eficiente no que se diz respeito ao uso dos recursos de rede 
+	e é, de longe, o mais sofisticado entre os dois. Mas existe 
+	um preço para se usar <application>CVSup</application>; é 
+	necessário que um cliente especial seja instalado e 
+	configurado antes que se possa acessar quaisquer bits em um 
+	enorme pedaço do repositório, conhecido pelo 
+	<application>CVSup</application> como 
+	<emphasis>collection</emphasis>.</para>
 
-	<para><application>Anoncvs</application>, by contrast, can be used
-	  to examine anything from an individual file to a specific
-	  program (like <command>ls</command> or <command>grep</command>)
-	  by referencing the CVS module name.  Of course,
-	  <application>anoncvs</application> is also only good for
-	  read-only operations on the CVS repository, so if it is your
-	  intention to support local development in one repository shared
-	  with the &os; project bits then
-	  <application>CVSup</application> is really your only
-	  option.</para>
+	<para>O <application>AnonCVS</application>, por outro lado, 
+	  pode ser usado para examinar qualquer coisa, desde um 
+	  arquivo individual a um programa específico (como 
+	  <command>ls</command> ou <command>grep</command>) 
+	  referenciando o nome do módulo CVS. Obviamente o 
+	  <application>AnonCVS</application> é útil apenas para 
+	  operações de leitura no repositório CVS. Por isso, se você 
+	  pretende apoiar o desenvolvimento do projeto &os; 
+	  compartilhando um repositório CVS local, o 
+	  <application>CVSup</application> é sua única opção.</para>
       </sect2>
 
       <sect2>
-	<title><anchor id="anoncvs-usage"/>Using Anonymous CVS</title>
+	<title><anchor id="anoncvs-usage"/>Usando o AnonCVS</title>
 
-	<para>Configuring &man.cvs.1; to use an Anonymous CVS repository
-	  is a simple matter of setting the <envar>CVSROOT</envar>
-	  environment variable to point to one of the &os; project's
-	  <emphasis>anoncvs</emphasis> servers.  At the time of this
-	  writing, the following servers are available:</para>
+	<para>Configurar o &man.cvs.1; para usar um repositório de 
+	  CVS que ofereça acesso anônimo é uma simples questão de 
+	  alterar o valor da variável de ambiente 
+	  <envar>CVSROOT</envar> para que ela aponte para um dos 
+	  repositórios de <emphasis>AnonCVS</emphasis> do projeto 
+	  &os;. Até o presente momento, os seguintes servidores 
+	  estão disponíveis:</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para><emphasis>France</emphasis>:
+	    <para><emphasis>França</emphasis>:
 	      :pserver:anoncvs@anoncvs.fr.FreeBSD.org:/home/ncvs
-	      (For pserver mode, use <command>cvs login</command> and
-	      enter the password <quote>anoncvs</quote> when prompted.
-	      For ssh, no password is required.)</para>
+	      (Para efetuar login em modo pserver, utilize o comando 
+	      <command>cvs login</command> e utilize a senha 
+	      <quote>anoncvs</quote> quando solicitada. Para 
+	      acessos via <application>SSH</application>, não é 
+	      necessária nenhuma senha).</para>
 	  </listitem>
 	  <!--
 	  <listitem>
-	    <para><emphasis>Japan</emphasis>:
+	    <para><emphasis>Japão</emphasis>:
 	      :pserver:anoncvs@anoncvs.jp.FreeBSD.org:/home/ncvs
-	      (Use <command>cvs login</command> and enter the password
-	      <quote>anoncvs</quote> when prompted.)</para>
+	      (Use <command>cvs login</command> e use a senha
+	      <quote>anoncvs</quote> quando solicitada).</para>
 	  </listitem>
 	  -->
 	  <listitem>
 	    <para><emphasis>Taiwan</emphasis>:
 	      :pserver:anoncvs@anoncvs.tw.FreeBSD.org:/home/ncvs
-	      (For pserver mode, use <command>cvs login</command> and
-	      enter any password when prompted. For ssh, no password
-	      is required.)</para>
+	      (Para efetuar login em modo pserver, utilize o comando 
+	      <command>cvs login</command> e utilize qualquer senha 
+	      quando solicitada. Para acessos via 
+	      <application>SSH</application>, não é necessária 
+	      nenhuma senha).</para>
 
 	      <programlisting>SSH2 HostKey: 1024 02:ed:1b:17:d6:97:2b:58:5e:5c:e2:da:3b:89:88:26 /etc/ssh/ssh_host_rsa_key.pub
 SSH2 HostKey: 1024 e8:3b:29:7b:ca:9f:ac:e9:45:cb:c8:17:ae:9b:eb:55 /etc/ssh/ssh_host_dsa_key.pub</programlisting>
@@ -431,9 +468,11 @@ SSH2 HostKey: 1024 e8:3b:29:7b:ca:9f:ac:e9:45:cb:c8:17:ae:9b:eb:55 /etc/ssh/ssh_
 	  </listitem>
 	  <!--
 	  <listitem>
-	    <para><emphasis>USA</emphasis>:
-	      anoncvs@anoncvs1.FreeBSD.org:/home/ncvs (For ssh, use ssh
-	      version 2 and no password is required.)</para>
+	    <para><emphasis>Estados Unidos da América</emphasis>:
+	      anoncvs@anoncvs1.FreeBSD.org:/home/ncvs (Para acesso 
+	      via <application>SSH</application>, utilize a versão 
+	      2. Não é necessário fornecer nenhuma senha de 
+	      acesso).</para>
 
 	    <programlisting>SSH2 HostKey: 2048 53:1f:15:a3:72:5c:43:f6:44:0e:6a:e9:bb:f8:01:62 /etc/ssh/ssh_host_dsa_key.pub</programlisting>
 
@@ -441,55 +480,61 @@ SSH2 HostKey: 1024 e8:3b:29:7b:ca:9f:ac:e9:45:cb:c8:17:ae:9b:eb:55 /etc/ssh/ssh_
 	  -->
 	</itemizedlist>
 
-	<para>Since CVS allows one to <quote>check out</quote> virtually
-	  any version of the &os; sources that ever existed (or, in
-	  some cases, will exist), you need to be
-	  familiar with the revision (<option>-r</option>) flag to
-	  &man.cvs.1; and what some of the permissible values for it in
-	  the &os; Project repository are.</para>
+	<para>Visto que o CVS permite a você realizar um 
+	  <quote>check out</quote> virtual de quaisquer versões dos 
+	  códigos fonte do &os; que existam (ou, em alguns casos, 
+	  irão existir), você precisa se familiarizar com as flags 
+	  de revisão (<option>-r</option>) utilizadas pelo 
+	  &man.cvs.1; para saber são os valores aceitáveis nos 
+	  repositórios do projeto &os;.</para>
 
-	<para>There are two kinds of tags, revision tags and branch tags.
-	  A revision tag refers to a specific revision.  Its meaning stays
-	  the same from day to day.  A branch tag, on the other hand,
-	  refers to the latest revision on a given line of development, at
-	  any given time.  Because a branch tag does not refer to a
-	  specific revision, it may mean something different tomorrow than
-	  it means today.</para>
+	<para>Existem dois tipos de tags, as tags das revisões e as 
+	  tags dos ramos de desenvolvimento. Uma tag de revisão 
+	  refere-se a uma revisão específica. Os conteúdos 
+	  referentes a uma revisão específica serão sempre os 
+	  mesmos, independente do dia em que esta revisão seja 
+	  obtida. Uma tag de ramo, por outro lado, refere-se à 
+	  última revisão numa dada linha de desenvolvimento, criada 
+	  num momento qualquer. Pelo fato de uma tag de ramo não 
+	  se referir a uma revisão específica, o conteúdo obtido 
+	  hoje pode não ser o mesmo obtido amanhã.</para>
 
-	<para><xref linkend="cvs-tags"/> contains revision tags that users
- 	  might be interested
-	  in.  Again, none of these are valid for the Ports Collection
-	  since the Ports Collection does not have multiple
-	  branches of development.</para>
+	<para>A <xref linkend="cvs-tags"/> contém uma lista das tags 
+	  que podem interessar a alguns usuários. Lembre-se que 
+	  nenhuma destas tags é válida para a Coleção de Ports, já 
+	  que na Coleção de Ports não existem diferentes ramos de 
+	  desenvolvimento.</para>
 
-	<para>When you specify a branch tag, you normally receive the
-	  latest versions of the files on that line of development.  If
-	  you wish to receive some past version, you can do so by
-	  specifying a date with the <option>-D date</option> flag.
-	  See the &man.cvs.1; manual page for more details.</para>
+	<para>Normalmente, quando você especifica a tag do ramo 
+	  que deseja obter, a última versão dos arquivos que fazem 
+	  parte do projeto naquele ramo são fornecidos a você. Se 
+	  você pretende obter uma versão anterior, você pode fazer 
+	  uso da flag <option>-D data</option> para especificar uma 
+	  data desejada. Veja a página de manual &man.cvs.1; para 
+	  mais detalhes e informações.</para>
       </sect2>
 
       <sect2>
-	<title>Examples</title>
+	<title>Exemplos</title>
 
-	<para>While it really is recommended that you read the manual page
-	  for &man.cvs.1; thoroughly before doing anything, here are some
-	  quick examples which essentially show how to use Anonymous
-	  CVS:</para>
+	<para>Embora seja extremamente recomendado que você leia a 
+	  página de manual &man.cvs.1; antes de fazer alguma coisa, 
+	  aqui estão alguns exemplos que demonstram o uso básico de 
+	  servidores que permitam AnonCVS.</para>
 
 	<example>
-	  <title>Checking Out Something from -CURRENT (&man.ls.1;):</title>
+	  <title>Checando algo na versão -CURRENT (&man.ls.1;):</title>
 
 	  <screen>&prompt.user; <userinput>setenv CVSROOT :pserver:anoncvs@anoncvs.tw.FreeBSD.org:/home/ncvs</userinput>
 &prompt.user; <userinput>cvs login</userinput>
-<emphasis>At the prompt, enter any word for</emphasis> <quote>password</quote>.
+<emphasis>Quando solicitada a senha, use qualquer valor.</emphasis>
 &prompt.user; <userinput>cvs co ls</userinput>
 	  </screen>
 	</example>
 
 	<example>
-	  <title>Using SSH to Check Out the <filename>src/</filename>
-	    Tree:</title>
+	  <title>Usando SSH para visualizar a árvore de diretórios  
+	    <filename>src</filename>:</title>
 	  <screen>&prompt.user; <userinput>cvs -d anoncvs@anoncvs1.FreeBSD.org:/home/ncvs co src</userinput>
 The authenticity of host 'anoncvs1.freebsd.org (216.87.78.137)' can't be established.
 DSA key fingerprint is 53:1f:15:a3:72:5c:43:f6:44:0e:6a:e9:bb:f8:01:62.
@@ -498,32 +543,34 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
 	</example>
 
 	<example>
-	  <title>Checking Out the Version of &man.ls.1; in the 8-STABLE
-	    Branch:</title>
+	  <title>Checando a versão do &man.ls.1; na árvore de 
+	    desenvolvimento da versão 8-STABLE:</title>
 
 	  <screen>&prompt.user; <userinput>setenv CVSROOT :pserver:anoncvs@anoncvs.tw.FreeBSD.org:/home/ncvs</userinput>
 &prompt.user; <userinput>cvs login</userinput>
-<emphasis>At the prompt, enter any word for</emphasis> <quote>password</quote>.
+<emphasis>Quando solicitada a senha, entre com o valor <quote>password</quote>.</emphasis>
 &prompt.user; <userinput>cvs co -rRELENG_8 ls</userinput>
 	  </screen>
 	</example>
 
 	<example>
-	  <title>Creating a List of Changes (as Unified Diffs) to &man.ls.1;</title>
+	  <title>Criando uma lista das alterações (num único arquivo 
+	    diff) do &man.ls.1;:</title>
 
 	  <screen>&prompt.user; <userinput>setenv CVSROOT :pserver:anoncvs@anoncvs.tw.FreeBSD.org:/home/ncvs</userinput>
 &prompt.user; <userinput>cvs login</userinput>
-<emphasis>At the prompt, enter any word for</emphasis> <quote>password</quote>.
+<emphasis>Quando solicitada a senha, entre com o valor <quote>password</quote>.</emphasis>
 &prompt.user; <userinput>cvs rdiff -u -rRELENG_8_0_0_RELEASE -rRELENG_8_1_0_RELEASE ls</userinput>
 	  </screen>
 	</example>
 
 	<example>
-	  <title>Finding Out What Other Module Names Can Be Used:</title>
+	  <title>Descobrindo quais outros nomes de módulos podem ser 
+	    utilizados:</title>
 
 	  <screen>&prompt.user; <userinput>setenv CVSROOT :pserver:anoncvs@anoncvs.tw.FreeBSD.org:/home/ncvs</userinput>
 &prompt.user; <userinput>cvs login</userinput>
-<emphasis>At the prompt, enter any word for</emphasis> <quote>password</quote>.
+<emphasis>Quando solicitada a senha, entre com o valor <quote>password</quote>.</emphasis>
 &prompt.user; <userinput>cvs co modules</userinput>
 &prompt.user; <userinput>more modules/modules</userinput>
 	  </screen>
@@ -531,27 +578,28 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
       </sect2>
 
       <sect2>
-	<title>Other Resources</title>
+	<title>Outros Recursos</title>
 
-	<para>The following additional resources may be helpful in learning
-	  CVS:</para>
+	<para>Os seguintes recursos adicionais podem lhe ser úteis 
+	  no aprendizado do CVS:</para>
 
 	<itemizedlist>
 	  <listitem>
 	    <para><ulink
-	      url="http://users.csc.calpoly.edu/~gfisher/classes/308/handouts/cvs-basics.html">CVS Tutorial</ulink> from California
-		Polytechnic State University.</para>
+	      url="http://users.csc.calpoly.edu/~gfisher/classes/308/handouts/cvs-basics.html">CVS Tutorial</ulink> (em inglês), 
+	        da Universidade Politécnica do Estado da Califórnia dos EUA.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para><ulink url="http://www.nongnu.org/cvs/">CVS Home</ulink>,
-	      the CVS development and support community.</para>
+	    <para><ulink url="http://www.nongnu.org/cvs/">CVS Home</ulink> (em inglês),
+	      uma comunidade de desenvolvimento e suporte ao CVS.</para>
 	  </listitem>
 
 	  <listitem>
 	    <para><ulink
-		url="http://www.FreeBSD.org/cgi/cvsweb.cgi">CVSweb</ulink> is
-	      the &os; Project web interface for CVS.</para>
+		url="http://www.FreeBSD.org/cgi/cvsweb.cgi">CVSweb</ulink>, 
+	      interface Web provida pelo projeto &os; para navegar 
+	      em seu repositório.</para>
 	  </listitem>
 	</itemizedlist>
       </sect2>
@@ -559,46 +607,54 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
 
 
   <sect1 id="ctm">
-    <title>Using CTM</title>
+    <title>Usando CTM</title>
 
       <indexterm>
 	<primary>CTM</primary>
       </indexterm>
 
-      <para><application>CTM</application> is a method for keeping a
-	remote directory tree in sync with a central one.  It has been
-	developed for usage with &os;'s source trees, though other
-	people may find it useful for other purposes as time goes by.
-	Little, if any, documentation currently exists at this time on the
-	process of creating deltas, so contact the &a.ctm-users.name; mailing list for more
-	information and if you wish to use <application>CTM</application>
-	for other things.</para>
+      <para><application>CTM</application> é um método para manter 
+	uma árvore de diretórios remotos em sincronia com uma árvore 
+	central. Ele foi desenvolvido para ser usado em árvores 
+	contendo os códgos fonte do &os;. Algumas pessoas acreditam 
+	que, com o passar do tempo, ele possa ser útil para outras 
+	finalidades. A documentação existente neste momento sobre o 
+	processo de criação de deltas para se utilizar 
+	<application>CTM</application> é pouca e escassa. Então, se 
+	você pretende utilizá-lo para outras finalidades, acesse e 
+	cadastre-se na lista de discussão &a.ctm-users.name; para 
+	obter mais informações.</para>
 
       <sect2>
-	<title>Why Should I Use <application>CTM</application>?</title>
+	<title>Porquê eu deveria usar <application>CTM</application>?</title>
 
-	<para><application>CTM</application> will give you a local copy of
-	  the &os; source trees.  There are a number of
-	  <quote>flavors</quote> of the tree available.  Whether you wish
-	  to track the entire CVS tree or just one of the branches,
-	  <application>CTM</application> can provide you the information.
-	  If you are an active developer on &os;, but have lousy or
-	  non-existent TCP/IP connectivity, or simply wish to have the
-	  changes automatically sent to you,
-	  <application>CTM</application> was made for you.  You will need
-	  to obtain up to three deltas per day for the most  active
-	  branches.  However, you should consider having them sent by
-	  automatic email.  The sizes of the updates are always kept as
-	  small as possible.  This is typically less than 5K, with an
-	  occasional (one in ten) being 10-50K and every now and then a
-	  large 100K+ or more coming around.</para>
+	<para>O <application>CTM</application> vai lhe fornecer uma 
+	  cópia local das árvores com o código fonte do &os;. 
+	  Existem diferentes tipos de árvores disponíveis. Se você 
+	  deseja acompanhar a árvore CVS inteira ou apenas um dos 
+	  ramos, o <application>CTM</application> pode lhe 
+	  fornecer a informação que você desejar. Se você é um 
+	  desenvolvedor ativo no projeto FreeBSD, mas tem uma 
+	  péssima, ou nenhuma, conexão via TCP/IP com os servidores 
+	  do projeto e simplesmente deseja que as alterações sejam 
+	  enviadas automaticamente para você, o 
+	  <application>CTM</application> foi feito para 
+	  você. Você só precisará obter até três deltas por dia para 
+	  os ramos mais ativos. No entanto, você deve considerar que 
+	  o envio dos deltas é feito de forma automática via email. 
+	  O tamanho dos deltas para atualização será sempre o menor 
+	  possível. Isto é, tipicamente menor do que 5K, 
+	  ocasionalmente (um em 10) entre 10K e 50K e, de vez em 
+	  quando, ultrapassando 100K.</para>
 
-	<para>You will also need to make yourself aware of the various
-	  caveats related to working directly from the development sources
-	  rather than a pre-packaged release.  This is particularly true
-	  if you choose the <quote>current</quote> sources.  It is
-	  recommended that you read <link linkend="current">Staying
-	  current with &os;</link>.</para>
+	<para>Você também precisa estar ciente das diversas 
+	  advertências relacionadas ao trabalho realizado 
+	  diretamente nos códigos fonte ao invés de atentar-se 
+	  somente para uma release lançadas. Isto é um fator muito 
+	  importante, caso você opte por acompanhar o 
+	  desenvolvimento dos códigos fonte <quote>current</quote>. 
+	  É recomendado que você leia a sessão 
+	  <link linkend="current">Mantendo o &os; atualizado</link>.</para>
       </sect2>
 
       <sect2>
@@ -898,7 +954,7 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
   </sect2></sect1>
 
   <sect1 id="cvsup">
-    <title>Using CVSup</title>
+    <title>Usando CVSup</title>
 
     <sect2 id="cvsup-intro">
       <title>Introduction</title>
@@ -3218,80 +3274,80 @@ doc/zh_*</screen>
   </sect1>
 
   <sect1 id="mirrors-rsync">
-    <title>rsync Sites</title>
+    <title>Sítios rsync</title>
 
-    <para>The following sites make &os; available through the rsync
-      protocol.  The <application>rsync</application> utility works in
-      much the same way as the &man.rcp.1; command,
-      but has more options and uses the rsync remote-update protocol
-      which transfers only the differences between two sets of files,
-      thus greatly speeding up the synchronization over the network.
-      This is most useful if you are a mirror site for the
-      &os; FTP server, or the CVS repository.  The
-      <application>rsync</application> suite is available for many
-      operating systems, on &os;, see the
-      <filename role="package">net/rsync</filename>
-      port or use the package.</para>
+    <para>Os sítios listados abaixo disponibilizam o &os; através do 
+      protocolo rsync. O utilitário <application>rsync</application> 
+      trabalha, em muitos aspectos, da mesma maneira como o 
+      &man.rcp.1;, mas tem mais opções e utiliza um protocolo de 
+      atualização remota que transfere apenas as diferenças entre os 
+      conjuntos de arquivos. Assim, a sincronização de dados através 
+      da rede torna-se mais rápida. Isso é muito útil se você for um 
+      servidor espelho de sítios FTP ou repositórios CVS do &os;. A 
+      suíte <application>rsync</application> está disponível para 
+      vários sistemas operacionais. No &os;, consulte o port 
+      <filename role="package">net/rsync</filename> ou utilize o 
+      pacote pré-compilado.</para>
 
     <variablelist>
       <varlistentry>
-	<term>Czech Republic</term>
+	<term>República Checa</term>
 
 	<listitem>
 	  <para>rsync://ftp.cz.FreeBSD.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>ftp: A partial mirror of the &os; FTP
-	      server.</para></listitem>
-	    <listitem><para>&os;: A full mirror of the &os; FTP
-	      server.</para></listitem>
+	    <listitem><para>ftp: Um espelho parcial do servidor 
+	      FTP do &os;.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term>Netherlands</term>
+	<term>Holanda</term>
 
 	<listitem>
 	  <para>rsync://ftp.nl.FreeBSD.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: A full mirror of the
-	      &os; FTP server.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term>Russia</term>
+	<term>Rússia</term>
 
 	<listitem>
 	  <para>rsync://ftp.mtu.ru/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: A full mirror of the &os; FTP
-	      server.</para></listitem>
-	    <listitem><para>&os;-gnats: The GNATS bug-tracking
-	      database.</para></listitem>
-	    <listitem><para>&os;-Archive: The mirror of &os; Archive FTP
-	      server.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
+	    <listitem><para>&os;-gnats: Banco de dados do sistema de 
+	      detecção de bugs do GNATS.</para></listitem>
+	    <listitem><para>&os;-Archive: Um espelho completo do servidor 
+	      FTP do &os;, com imagens, releases e pacotes antigos.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term>Sweden</term>
+	<term>Suécia</term>
 
 	<listitem>
 	  <para>rsync://ftp4.se.freebsd.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: A full mirror of the &os; FTP
-	      server.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
@@ -3304,50 +3360,50 @@ doc/zh_*</screen>
 	  <para>rsync://ftp2.tw.FreeBSD.org/</para>
 	  <para>rsync://ftp6.tw.FreeBSD.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: A full mirror of the &os; FTP
-	      server.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term>United Kingdom</term>
+	<term>Reino Unido</term>
 
 	<listitem>
 	  <para>rsync://rsync.mirrorservice.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>sites/ftp.freebsd.org: A full mirror of the
-	      &os; FTP server.</para></listitem>
+	    <listitem><para>sites/ftp.freebsd.org: Um espelho 
+	      completo do servidor FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term>United States of America</term>
+	<term>Estados Unidos da América</term>
 
 	<listitem>
 	  <para>rsync://ftp-master.FreeBSD.org/</para>
 
-	  <para>This server may only be used by &os; primary mirror
-	    sites.</para>
-	  <para>Available collections:</para>
+	  <para>Este servidor só pode ser acessado pelos principais 
+	    servidores espelho do projeto &os;.</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: The master archive of the &os;
-	      FTP server.</para></listitem>
-	    <listitem><para>acl: The &os; master ACL
-	      list.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
+	    <listitem><para>acl: Lista de acesso dos espelhos que 
+	      podem acessar este servidor.</para></listitem>
 	  </itemizedlist>
 
 	  <para>rsync://ftp13.FreeBSD.org/</para>
 
-	  <para>Available collections:</para>
+	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
-	    <listitem><para>&os;: A full mirror of the &os; FTP
-	      server.</para></listitem>
+	    <listitem><para>&os;: Um espelho completo do servidor 
+	      FTP do &os;.</para></listitem>
 	  </itemizedlist>
 	</listitem>
       </varlistentry>
