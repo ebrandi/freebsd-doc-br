@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r39590
+  Original revision: r39677
 -->
 
 <article lang='pt_br'>
@@ -2968,7 +2968,8 @@ console="vidconsole,comconsole"</screen>
 
 	<step>
 	  <para>Add the following to <filename>/etc/sysctl.conf</filename>:<screen>
-kern.maxfiles=40000</screen>
+kern.maxfiles=40000
+kern.maxfilesperproc=38000</screen>
 	  </para>
 	</step>
 
