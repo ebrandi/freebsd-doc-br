@@ -126,14 +126,15 @@ boot loader -->
 
     <para>Se você tem apenas um sistema operacional instalado nos seus
       discos rígidos então um MBR padrão será suficiente.  Esse MBR
-      procura pela primeira divisão inicializável (ou seja, ativa) do
-      disco rígido, e então executa o código nessa divisão para
-      carregar o restante do sistema operacional.  O MBR instalado
-      pelo &man.fdisk.8;, é um MBR padrão.  Ele é baseado no
-      <filename>/boot/mbr</filename>.</para>
+      procura pelo primeiro <literal>slice</literal> (o equivalente
+      as partições em outros sistemas) inicializável (ou seja, ativo)
+      do disco rígido, e então executa o código gravado nesse
+      <literal>slice</literal> para carregar o restante do sistema
+      operacional.  O MBR instalado pelo &man.fdisk.8;, é um MBR
+      padrão.  Ele é baseado no <filename>/boot/mbr</filename>.</para>
 
     <para>Se você tem instalado vários sistemas operacionais nos seus
-      discos rígidos então você pode instalar um gerenciador de
+      discos rígidos, então você pode instalar um gerenciador de
       inicialização, que pode exibir uma lista dos sistemas
       operacionais, e permitir que você escolha um para iniciar.  Dois
       destes são discutidos na próxima subseção.</para>
@@ -146,7 +147,7 @@ boot loader -->
       finaliza a tarefa de carregar o sistema operacional.  O trabalho
       é dividido nestas três etapas porque o padrão do PC coloca
       limites no tamanho do programa que pode ser executado nas etapas
-      um e dois.  Dividindo as tarefas em etapas permite que o FreeBSD
+      um e dois.  Dividir as tarefas em etapas permite que o FreeBSD
       tenha um inicializador mais flexível.</para>
 
     <indexterm><primary>kernel</primary></indexterm>
@@ -175,7 +176,7 @@ boot loader -->
       <indexterm><primary>Master Boot Record
 	  (MBR)</primary></indexterm>
 
-      <para>O código no MBR ou o gerenciador de inicialização é
+      <para>O código no MBR, ou o gerenciador de inicialização, é
 	referido algumas vezes como a <emphasis>etapa zero</emphasis> do
 	processo de inicialização.  Essa subseção discute dois dos
 	gerenciadores de inicialização mencionados anteriormente:
@@ -186,17 +187,18 @@ boot loader -->
 	<title>O Gerenciador de Inicialização
 	<application>boot0</application>:</title>
 
-	<para>O MBR instalado pelo instalador do FreeBSD ou seja o
+	<para>O MBR instalado pelo instalador do FreeBSD, ou seja, o
 	  &man.boot0cfg.8;, por padrão, é baseado no
 	  <filename>/boot/boot0</filename>.  (O programa
 	  <application>boot0</application> é muito simples, pois o
 	  programa no <abbrev>MBR</abbrev> pode ter apenas 446 bytes
-	  de tamanho devido à tabela de divisão do disco rígido e ao
-	  identificador <literal>0x55AA</literal> que existe no fim do
-	  MBR.) Se você instalou o <application>boot0</application> e
-	  possui vários sistemas operacionais nos seus discos rígidos,
-	  então você verá algo parecido com a tela abaixo no momento
-	  da inicialização:</para>
+	  de tamanho devido à tabela de <literal>slices</literal> do
+	  disco rígido e ao identificador <literal>0x55AA</literal>
+	  que existe no fim do MBR.) Se você instalou o
+	  <application>boot0</application> e possui vários sistemas
+	  operacionais nos seus discos rígidos, então você verá algo
+	  parecido com a tela abaixo no momento da
+	  inicialização:</para>
       </formalpara>
 
       <example id="boot-boot0-example">
@@ -214,7 +216,7 @@ Default: F2</screen>
       <para>É conhecido que outros sistemas operacionais, em
 	particular o &windows;, sobrescrevem o MBR.  Se isso
 	acontecer, ou se você quiser substituir o MBR existente pelo o
-	MBR do FreeBSD então use o seguinte comando:</para>
+	MBR do FreeBSD, então use o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>dispositivo</replaceable></userinput></screen>
 
@@ -261,19 +263,19 @@ label=FreeBSD</programlisting>
       <title>Primeira Etapa, <filename>/boot/boot1</filename>, e
 	Segunda Etapa, <filename>/boot/boot2</filename></title>
 
-      <para>No conceito a primeira e segunda etapa são partes do mesmo
-	programa, na mesma área do disco rígido.  Essa divisão é
+      <para>Conceitualmente, a primeira e segunda etapa são partes do
+	mesmo programa, na mesma área do disco rígido.  Essa divisão é
 	devida a limitações de espaço, mas você sempre deve
 	instalá-las juntas.  As duas etapas são copiadas do arquivo
 	combinado <filename>/boot/boot</filename> pelo instalador ou
 	<application>bsdlabel</application> (veja abaixo).</para>
 
       <para>Elas ficam armazenadas fora do sistema de arquivos, na
-	primeira trilha da divisão de inicialização do disco rígido, a
-	partir do primeiro setor.  Esse é o local onde o <link
-	linkend="boot-boot0">boot0</link>, ou qualquer outro
-	gerenciador de boot, espera encontrar o programa que será
-	executado para continuar o processo de inicialização.  O
+	primeira trilha do <literal>slice</literal> de inicialização
+	do disco rígido, a partir do primeiro setor.  Esse é o local
+	onde o <link linkend="boot-boot0">boot0</link>, ou qualquer
+	outro gerenciador de boot, espera encontrar o programa que
+	será executado para continuar o processo de inicialização.  O
 	número de setores usados é facilmente determinado pelo tamanho
 	do <filename>/boot/boot</filename>.</para>
 
