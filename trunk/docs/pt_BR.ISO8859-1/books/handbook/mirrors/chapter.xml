@@ -675,7 +675,7 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
 	  <application>CTM</application> podem ser obtidos de duas 
 	  maneiras, FTP ou e-mail. Se você tem acesso via FTP para a 
 	  Internet, então o seguinte sítio FTP disponibiliza acesso ao 
-	  <application>CTM</application>:
+	  <application>CTM</application>: </para>
 
 	<para><ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/CTM"></ulink></para>
 
