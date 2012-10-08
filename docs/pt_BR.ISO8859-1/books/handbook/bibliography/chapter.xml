@@ -9,92 +9,93 @@
 -->
 
 <appendix id="bibliography">
-  <title>Bibliography</title>
+  <title>Bibliografia</title>
 
-  <para>While the manual pages provide the definitive reference for
-    individual pieces of the FreeBSD operating system, they are
-    notorious for not illustrating how to put the pieces together to
-    make the whole operating system run smoothly.  For this, there is
-    no substitute for a good book on &unix; system administration and
-    a good users' manual.</para>
+  <para>Enquanto as páginas do manual fornecem a referência completa
+    para pedaços individuais do sistema operacional FreeBSD, elas não
+    ilustraram como unir esses pedaços para fazer o sistema
+    operacional funcionar como um todo.  Para isso, não há substituto
+    para um bom livro sobre administração de sistemas UNIX® e um bom
+    manual do usuário.</para>
 
   <sect1 id="bibliography-freebsd">
-    <title>Books &amp; Magazines Specific to FreeBSD</title>
+    <title>Livros &amp; Revistas Específicas para FreeBSD</title>
 
-    <para><emphasis>International books &amp;
-	Magazines:</emphasis></para>
+    <para><emphasis>Livros &amp; Revistas
+      Internacionais</emphasis></para>
 
     <itemizedlist>
       <listitem>
 	<para><ulink
 	    url="http://jdli.tw.FreeBSD.org/publication/book/freebsd2/index.htm">Using
-	    FreeBSD</ulink> (in Traditional Chinese), published by
+	    FreeBSD</ulink> (em Chinês Tradicional), publicado por
 	  <ulink url="http://www.drmaster.com.tw/">Drmaster</ulink>,
 	  1997.  ISBN 9-578-39435-7.</para>
       </listitem>
 
       <listitem>
 
-	<para>FreeBSD Unleashed (Simplified Chinese translation),
-	  published by
-	  <ulink url="http://www.hzbook.com/">China Machine
-	    Press</ulink>.  ISBN 7-111-10201-0.</para>
+
+	<para>FreeBSD Unleashed (traduzido para Chinês Simplificado),
+	  publicado por <ulink
+	  url="http://www.hzbook.com/">China Machine Press</ulink>.
+	  ISBN 7-111-10201-0.</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD From Scratch Second Edition (in Simplified
-	  Chinese), published by China Machine Press.  ISBN
+	<para>FreeBSD From Scratch Second Edition (em Chinês
+	  Simplificado), publicado por China Machine Press.  ISBN
 	  7-111-10286-X.</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD Handbook Second Edition (Simplified Chinese
-	  translation), published by <ulink
+	<para>FreeBSD Handbook Second Edition (traduzido para Chinês
+	  Simplificado), publicado por <ulink
 	    url="http://www.ptpress.com.cn/">Posts &amp; Telecom
 	    Press</ulink>.  ISBN 7-115-10541-3.</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD &amp; Windows (in Simplified Chinese), published
-	  by <ulink url="http://www.tdpress.com/">China Railway
-	    Publishing House</ulink>.  ISBN 7-113-03845-X</para>
+	<para>FreeBSD &amp; Windows (em Chinês Simplificado),
+	  publicado por <ulink url="http://www.tdpress.com/">China
+	  Railway Publishing House</ulink>.  ISBN 7-113-03845-X</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD Internet Services HOWTO (in Simplified Chinese),
-	  published by China Railway Publishing House.  ISBN
+	<para>FreeBSD Internet Services HOWTO (em Chinês Simplificado),
+	  publicado por China Railway Publishing House.  ISBN
 	  7-113-03423-3</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD (in Japanese), published by CUTT.  ISBN
+	<para>FreeBSD (em Japonês), publicado por CUTT.  ISBN
 	  4-906391-22-2 C3055 P2400E.</para>
       </listitem>
 
       <listitem>
 	<para><ulink
-	    url="http://www.shoeisha.com/book/Detail.asp?bid=650">Complete
-	    Introduction to FreeBSD</ulink> (in Japanese), published
-	  by <ulink url="http://www.shoeisha.co.jp/">Shoeisha Co.,
-	    Ltd</ulink>.  ISBN 4-88135-473-6 P3600E.</para>
+	  url="http://www.shoeisha.com/book/Detail.asp?bid=650">Complete
+	  Introduction to FreeBSD</ulink> (em Japonês), publicado por
+	  <ulink url="http://www.shoeisha.co.jp/">Shoeisha Co.,
+	  Ltd</ulink>.  ISBN 4-88135-473-6 P3600E.</para>
       </listitem>
 
       <listitem>
 	<para><ulink
-	    url="http://www.ascii.co.jp/pb/book1/shinkan/detail/1322785.html">Personal
-	    UNIX Starter Kit FreeBSD</ulink> (in Japanese), published
-	  by <ulink url="http://www.ascii.co.jp/">ASCII</ulink>.  ISBN
+	  url="http://www.ascii.co.jp/pb/book1/shinkan/detail/1322785.html">Personal
+	  UNIX Starter Kit FreeBSD</ulink> (em Japonês), publicado por
+	  <ulink url="http://www.ascii.co.jp/">ASCII</ulink>.  ISBN
 	  4-7561-1733-3 P3000E.</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD Handbook (Japanese translation), published by
+	<para>FreeBSD Handbook (traduzido para Japonês), publicado por
 	  <ulink url="http://www.ascii.co.jp/">ASCII</ulink>.  ISBN
 	  4-7561-1580-2 P3800E.</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD mit Methode (in German), published by
+	<para>FreeBSD mit Methode (em Alemão), publicado por
 	  <ulink url="http://www.cul.de">Computer und Literatur
 	    Verlag</ulink>/Vertrieb Hanser, 1998.  ISBN
 	  3-932311-31-0.</para>
@@ -103,53 +104,51 @@
       <listitem>
 	<para><ulink
 	    url="http://www.mitp.de/vmi/mitp/detail/pWert/1343/">
-	    FreeBSD de Luxe</ulink> (in German), published by
+	    FreeBSD de Luxe</ulink> (em Alemão), publicado por
 	  <ulink url="http://www.mitp.de">Verlag Modere
 	    Industrie</ulink>, 2003.  ISBN 3-8266-1343-0.</para>
       </listitem>
 
       <listitem>
 	<para><ulink
-	    url="http://www.pc.mycom.co.jp/FreeBSD/install-manual.html">FreeBSD
-	    Install and Utilization Manual</ulink> (in Japanese),
-	  published by
-	  <ulink url="http://www.pc.mycom.co.jp/">Mainichi
-	    Communications Inc.</ulink>, 1998.  ISBN
-	  4-8399-0112-0.</para>
+	  url="http://www.pc.mycom.co.jp/FreeBSD/install-manual.html">FreeBSD
+	  Install and Utilization Manual</ulink> (em Japonês),
+	  publicado por <ulink
+	  url="http://www.pc.mycom.co.jp/">Mainichi Communications
+	  Inc.</ulink>, 1998.  ISBN 4-8399-0112-0.</para>
       </listitem>
 
       <listitem>
 	<para>Onno W Purbo, Dodi Maryanto, Syahrial Hubbany, Widjil
 	  Widodo <emphasis><ulink
-	      url="http://maxwell.itb.ac.id/">Building Internet Server
-	      with FreeBSD</ulink></emphasis> (in Indonesia Language),
-	  published by <ulink url="http://www.elexmedia.co.id/">Elex
+	  url="http://maxwell.itb.ac.id/">Building Internet Server
+	  with FreeBSD</ulink></emphasis> (em Língua Indonésia),
+	  publicado por <ulink url="http://www.elexmedia.co.id/">Elex
 	    Media Komputindo</ulink>.</para>
       </listitem>
 
       <listitem>
-	<para>Absolute BSD: The Ultimate Guide to FreeBSD (Traditional
-	  Chinese translation), published by <ulink
-	    url="http://www.grandtech.com.tw/">GrandTech
-	    Press</ulink>, 2003.  ISBN 986-7944-92-5.</para>
+	<para>Absolute BSD: The Ultimate Guide to FreeBSD (traduzido
+	  para Chinês Tradicional), publicado por <ulink
+	  url="http://www.grandtech.com.tw/">GrandTech
+	  Press</ulink>, 2003.  ISBN 986-7944-92-5.</para>
       </listitem>
 
       <listitem>
 	<para><ulink
-	    url="http://www.twbsd.org/cht/book/">The FreeBSD 6.0
-	    Book</ulink> (in Traditional Chinese), published by
+          url="http://www.twbsd.org/cht/book/">The FreeBSD 6.0
+	  Book</ulink> (em Chinês Tradicional), publicado por
 	  Drmaster, 2006.  ISBN 9-575-27878-X.</para>
       </listitem>
     </itemizedlist>
 
-    <para><emphasis>English language books &amp;
-	Magazines:</emphasis></para>
+    <para><emphasis>Livros &amp; Revistas em Inglês</emphasis></para>
 
     <itemizedlist>
       <listitem>
 	<para><ulink url="http://www.absoluteFreeBSD.com/">Absolute
 	    FreeBSD, 2nd Edition: The Complete Guide to
-	    FreeBSD</ulink>, published by
+	    FreeBSD</ulink>, publicado por
 	  <ulink url="http://www.nostarch.com/">No Starch
 	    Press</ulink>, 2007.  ISBN: 978-1-59327-151-0</para>
       </listitem>
@@ -157,112 +156,112 @@
       <listitem>
 	<para><ulink
 	    url="http://www.freebsdmall.com/cgi-bin/fm/bsdcomp">
-	    The Complete FreeBSD</ulink>, published by
+	    The Complete FreeBSD</ulink>, publicado por
 	  <ulink url="http://www.oreilly.com/">O'Reilly</ulink>, 2003.
 	  ISBN: 0596005164</para>
       </listitem>
 
       <listitem>
 	<para><ulink url="http://www.freebsd-corp-net-guide.com/">The
-	    FreeBSD Corporate Networker's Guide</ulink>, published by
+	  FreeBSD Corporate Networker's Guide</ulink>, publicado por
 	  <ulink url="http://www.awl.com/aw/">Addison-Wesley</ulink>,
 	  2000.  ISBN: 0201704811</para>
       </listitem>
 
       <listitem>
 	<para><ulink
-	    url="http://andrsn.stanford.edu/FreeBSD/introbook/">
-	    FreeBSD: An Open-Source Operating System for Your Personal
-	    Computer</ulink>, published by The Bit Tree Press, 2001.
+	  url="http://andrsn.stanford.edu/FreeBSD/introbook/">
+	  FreeBSD: An Open-Source Operating System for Your Personal
+	  Computer</ulink>, publicado por The Bit Tree Press, 2001.
 	  ISBN: 0971204500</para>
       </listitem>
 
       <listitem>
-	<para>Teach Yourself FreeBSD in 24 Hours, published by
+	<para>Teach Yourself FreeBSD in 24 Hours, publicado por
 	  <ulink url="http://www.samspublishing.com/">Sams</ulink>,
 	  2002.  ISBN: 0672324245</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD 6 Unleashed, published by
+	<para>FreeBSD 6 Unleashed, publicado por
 	  <ulink url="http://www.samspublishing.com/">Sams</ulink>,
 	  2006.  ISBN: 0672328755</para>
       </listitem>
 
       <listitem>
-	<para>FreeBSD: The Complete Reference, published by <ulink
+	<para>FreeBSD: The Complete Reference, publicado por <ulink
 	    url="http://books.mcgraw-hill.com">McGrawHill</ulink>,
 	  2003.  ISBN: 0072224096 </para>
       </listitem>
 
       <listitem>
 	<para><ulink url="http://www.bsdmag.org">BSD Magazine</ulink>,
-	  published by Software Press Sp. z o.o. SK.
+	  publicado por Software Press Sp. z o.o. SK.
 	  ISSN 1898-9144</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="bibliography-userguides">
-    <title>Users' Guides</title>
+    <title>Guias do Usuário</title>
 
     <itemizedlist>
       <listitem>
-	<para>Ohio State University has written a <ulink
-	    url="http://www.cs.duke.edu/csl/docs/unix_course/">UNIX
-	    Introductory Course</ulink> which is available online in
-	  HTML and PostScript format.</para>
+	<para>A Universidade Estadual de Ohio escreveu um <ulink
+	  url="http://www.cs.duke.edu/csl/docs/unix_course/">Curso de
+	  Introdução ao UNIX</ulink> que está disponível online em
+	  formato HTML e PostScript.</para>
 
-	<para>An Italian <ulink
-	    url="&url.doc.base;/it_IT.ISO8859-15/books/unix-introduction/index.html">translation</ulink>
-	  of this document is available as part of the FreeBSD Italian
-	  Documentation Project.</para>
+	<para>Uma <ulink
+	  url="&url.doc.base;/it_IT.ISO8859-15/books/unix-introduction/index.html">tradução
+	  Italiana</ulink> deste documento está disponível como parte
+	  do Projeto de Documentação Italiana do FreeBSD.</para>
       </listitem>
 
       <listitem>
-	<para><ulink url="http://www.jp.FreeBSD.org/">Jpman Project,
-	    Japan FreeBSD Users Group</ulink>.  <ulink
-	    url="http://www.pc.mycom.co.jp/FreeBSD/urm.html">FreeBSD
-	    User's Reference Manual</ulink> (Japanese translation).
-	    <ulink url="http://www.pc.mycom.co.jp/">Mainichi
-	    Communications Inc.</ulink>, 1998.  ISBN4-8399-0088-4
+	<para><ulink url="http://www.jp.FreeBSD.org/">Projeto Jpman,
+	  Grupo Japonês de Usuários do FreeBSD</ulink>.  <ulink
+	  url="http://www.pc.mycom.co.jp/FreeBSD/urm.html">Manual de
+	  Referência do Usuário FreeBSD</ulink> (traduzido para
+	  Japonês).  <ulink url="http://www.pc.mycom.co.jp/">Mainichi
+	  Communications Inc.</ulink>, 1998.  ISBN4-8399-0088-4
 	  P3800E.</para>
       </listitem>
 
       <listitem>
-	<para><ulink url="http://www.ed.ac.uk/">Edinburgh
-	    University</ulink> has written an <ulink
-	    url="http://unixhelp.ed.ac.uk/">Online Guide</ulink> for
-	  newcomers to the UNIX environment.</para>
+	<para><ulink url="http://www.ed.ac.uk/">A Universidade
+	  Edinburgh</ulink> escreveu um <ulink
+	  url="http://unixhelp.ed.ac.uk/">Guia Online</ulink> para
+	  recém chegados ao ambiente UNIX.</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="bibliography-adminguides">
-    <title>Administrators' Guides</title>
+    <title>Guias do Administrador</title>
 
     <itemizedlist>
       <listitem>
-	<para><ulink url="http://www.jp.FreeBSD.org/">Jpman Project,
-	    Japan FreeBSD Users Group</ulink>.  <ulink
-	    url="http://www.pc.mycom.co.jp/FreeBSD/sam.html">FreeBSD
-	    System Administrator's Manual</ulink> (Japanese
-	  translation).  <ulink
-	    url="http://www.pc.mycom.co.jp/">Mainichi Communications
-	    Inc.</ulink>, 1998.  ISBN4-8399-0109-0 P3300E.</para>
+	<para><ulink url="http://www.jp.FreeBSD.org/">Projeto Jpman,
+	  Grupo Japonês de Usuários FreeBSD</ulink>.  <ulink
+	  url="http://www.pc.mycom.co.jp/FreeBSD/sam.html">FreeBSD
+	  System Administrator's Manual</ulink> (traduzido para
+	  Japonês).  <ulink url="http://www.pc.mycom.co.jp/">Mainichi
+	  Communications Inc.</ulink>, 1998.  ISBN4-8399-0109-0
+	  P3300E.</para>
       </listitem>
 
       <listitem>
 	<para>Dreyfus, Emmanuel.  <ulink
-	    url="http://www.eyrolles.com/Informatique/Livre/9782212114638/">Cahiers
-	    de l'Admin: BSD</ulink> 2nd Ed. (in French), Eyrolles,
+	  url="http://www.eyrolles.com/Informatique/Livre/9782212114638/">Cahiers
+	  de l'Admin: BSD</ulink> 2nd Ed. (em Francês), Eyrolles,
 	  2004.  ISBN 2-212-11463-X</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="bibliography-programmers">
-    <title>Programmers' Guides</title>
+    <title>Guias do Programador</title>
 
     <itemizedlist>
       <listitem>
@@ -280,13 +279,13 @@
       </listitem>
 
       <listitem>
-	<para>Harbison, Samuel P. and Steele, Guy L. Jr.  <emphasis>C:
+	<para>Harbison, Samuel P. e Steele, Guy L. Jr.  <emphasis>C:
 	    A Reference Manual</emphasis>.  4th ed. Prentice Hall,
 	  1995.  ISBN 0-13-326224-3</para>
       </listitem>
 
       <listitem>
-	<para>Kernighan, Brian and Dennis M. Ritchie.  <emphasis>The C
+	<para>Kernighan, Brian e Dennis M. Ritchie.  <emphasis>The C
 	    Programming Language</emphasis>.  2nd Ed. PTR Prentice
 	  Hall, 1988.  ISBN 0-13-110362-8</para>
       </listitem>
@@ -318,7 +317,7 @@
       </listitem>
 
       <listitem>
-	<para>Stevens, W. Richard and Stephen A. Rago.
+	<para>Stevens, W. Richard e Stephen A. Rago.
 	  <emphasis>Advanced Programming in the UNIX
 	    Environment</emphasis>.  2nd Ed. Reading, Mass. :
 	  Addison-Wesley, 2005.  ISBN 0-201-43307-9</para>
@@ -350,7 +349,7 @@
 
       <listitem>
 	<para>Leffler, Samuel J., Marshall Kirk McKusick, Michael J
-	  Karels and John Quarterman <emphasis>The Design and
+	  Karels e John Quarterman <emphasis>The Design and
 	    Implementation of the 4.3BSD UNIX Operating
 	    System</emphasis>.  Reading, Mass. : Addison-Wesley, 1989.
 	  ISBN 0-201-06196-1</para>
@@ -365,14 +364,14 @@
 
       <listitem>
 	<para>McKusick, Marshall Kirk, Keith Bostic, Michael J Karels,
-	  and John Quarterman.  <emphasis>The Design and
+	  e John Quarterman.  <emphasis>The Design and
 	    Implementation of the 4.4BSD Operating System</emphasis>.
 	  Reading, Mass. : Addison-Wesley, 1996.  ISBN
 	  0-201-54979-4</para>
 
-	<para>(Chapter 2 of this book is available <ulink
-	    url="&url.books.design-44bsd;/book.html">online</ulink> as
-	  part of the FreeBSD Documentation Project.)</para>
+	<para>O capítulo 2 desse livro está disponível <ulink
+	  url="&url.books.design-44bsd;/book.html">online</ulink> como
+	  parte do Projeto de Documentação do FreeBSD.</para>
       </listitem>
 
       <listitem>
@@ -417,11 +416,11 @@
   </sect1>
 
   <sect1 id="bibliography-security">
-    <title>Security Reference</title>
+    <title>Referência sobre Segurança</title>
 
     <itemizedlist>
       <listitem>
-	<para>Cheswick, William R. and Steven M. Bellovin.
+	<para>Cheswick, William R. e Steven M. Bellovin.
 	  <emphasis>Firewalls and Internet Security: Repelling the
 	    Wily Hacker</emphasis>.  Reading, Mass. : Addison-Wesley,
 	  1995.  ISBN 0-201-63357-4</para>
@@ -436,11 +435,11 @@
   </sect1>
 
   <sect1 id="bibliography-hardware">
-    <title>Hardware Reference</title>
+    <title>Referência sobre Hardware</title>
 
     <itemizedlist>
       <listitem>
-	<para>Anderson, Don and Tom Shanley.  <emphasis>Pentium
+	<para>Anderson, Don e Tom Shanley.  <emphasis>Pentium
 	    Processor System Architecture</emphasis>.  2nd Ed.
 	  Reading, Mass. : Addison-Wesley, 1995.  ISBN
 	  0-201-40992-5</para>
@@ -454,10 +453,10 @@
       </listitem>
 
       <listitem>
-	<para>Intel Corporation publishes documentation on their CPUs,
-	  chipsets and standards on their <ulink
-	    url="http://developer.intel.com/">developer web
-	    site</ulink>, usually as PDF files.</para>
+	<para>A Intel publica documentação sobre suas CPUs, chipsets
+	e padrões em seu <ulink url="http://developer.intel.com/">site
+	para desenvolvedores</ulink>, geralmente em arquivos
+	PDF.</para>
       </listitem>
 
       <listitem>
@@ -493,7 +492,7 @@
   </sect1>
 
   <sect1 id="bibliography-history">
-    <title>&unix; History</title>
+    <title>História do &unix;</title>
 
     <itemizedlist>
       <listitem>
@@ -505,7 +504,7 @@
       <listitem>
 	<para>Raymond, Eric S.  <emphasis>The New Hacker's Dictionary,
 	    3rd edition</emphasis>.  MIT Press, 1996.  ISBN
-	  0-262-68092-0.  Also known as the <ulink
+	  0-262-68092-0.  Também conhecido como <ulink
 	    url="http://www.catb.org/~esr/jargon/html/index.html">Jargon
 	    File</ulink></para>
       </listitem>
@@ -519,14 +518,14 @@
       <listitem>
 	<para>Simon Garfinkel, Daniel Weise, Steven Strassmann.
 	  <emphasis>The UNIX-HATERS Handbook</emphasis>.  IDG Books
-	  Worldwide, Inc., 1994.  ISBN 1-56884-203-1.  Out of print,
-	  but available <ulink
-	    url="http://www.simson.net/ref/ugh.pdf">online</ulink>.</para>
+	  Worldwide, Inc., 1994.  ISBN 1-56884-203-1.  Está esgotado,
+	  mas disponível <ulink
+	  url="http://www.simson.net/ref/ugh.pdf">online</ulink>.</para>
       </listitem>
 
       <listitem>
 	<para>Don Libes, Sandy Ressler <emphasis>Life with
-	    UNIX</emphasis> &mdash; special edition.  Prentice-Hall,
+	  UNIX</emphasis> &mdash; edição especial.  Prentice-Hall,
 	  Inc., 1989.  ISBN 0-13-536657-7</para>
       </listitem>
 
@@ -534,10 +533,10 @@
 	<para><emphasis>The BSD family tree</emphasis>.
 	  <ulink
 	    url="http://www.FreeBSD.org/cgi/cvsweb.cgi/src/share/misc/bsd-family-tree"></ulink>
-	  or
+	  ou
 	  <ulink type="html"
 	    url="file://localhost/usr/share/misc/bsd-family-tree"><filename>/usr/share/misc/bsd-family-tree</filename></ulink>
-	  on a FreeBSD machine.</para>
+	  em uma máquina com FreeBSD.</para>
       </listitem>
 
       <listitem>
@@ -549,17 +548,17 @@
       <listitem>
 	<para><emphasis>Old BSD releases from the Computer Systems
 	    Research group (CSRG)</emphasis>.
-	  <ulink url="http://www.mckusick.com/csrg/"></ulink>: The
-	  4CD set covers all BSD versions from 1BSD to 4.4BSD and
-	  4.4BSD-Lite2 (but not 2.11BSD, unfortunately).  The last
-	  disk also holds the final sources plus the SCCS
-	  files.</para>
+	  <ulink url="http://www.mckusick.com/csrg/"></ulink>: O
+	  conjunto de 4CDs cobrem todas as versões BSD desde 1BSD até
+	  4.4BSD e 4.4BSD-Lite2 (exceto o 2.11BSD, infelizmente).  O
+	  último disco também contém o código fonte final e os
+	  arquivos SCCS.</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="bibliography-journals">
-    <title>Magazines and Journals</title>
+    <title>Revistas e Periódicos</title>
 
     <itemizedlist>
       <listitem>
@@ -575,7 +574,7 @@
 
       <listitem>
 	<para><emphasis>freeX &mdash; Das Magazin f&uuml;r Linux - BSD
-	    - UNIX</emphasis> (in German) Computer- und
+	    - UNIX</emphasis> (em Alemão) Computer- und
 	  Literaturverlag GmbH, ISSN 1436-7033</para>
       </listitem>
     </itemizedlist>
