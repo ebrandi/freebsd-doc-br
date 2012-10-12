@@ -9,606 +9,646 @@
 -->
 
 <appendix id="eresources">
-  <title>Resources on the Internet</title>
+  <title>Recursos na Internet</title>
 
-  <para>The rapid pace of FreeBSD progress makes print media impractical as a
-    means of following the latest developments.  Electronic resources are the
-    best, if not often the only, way to stay informed of the latest advances.
-    Since FreeBSD is a volunteer effort, the user community itself also
-    generally serves as a <quote>technical support department</quote> of sorts,
-    with electronic mail, web forums, and USENET news being the most
-    effective way of reaching that community.</para>
+  <para>O progresso em ritmo acelerado do FreeBSD torna impraticável o
+    uso de mídia impressa para seguir o seu desenvolvimento.  Recursos
+    eletrônicos são o melhor caminho, se não o único, para se manter
+    informado dos últimos avanços.  Uma vez que o FreeBSD é um projeto
+    voluntário, a comunidade de usuários geralmente serve como um
+    <quote>departamento de suporte técnico</quote>, com correio
+    eletrônico, fóruns na internet e notícias na USENET sendo a forma
+    mais eficaz de desfrutar dessa comunidade.</para>
 
-  <para>The most important points of contact with the FreeBSD user community
-    are outlined below.  If you are aware of other resources not mentioned
-    here, please send them to the &a.doc; so that they may also be
-    included.</para>
+  <para>Os pontos mais importantes de contato com a comunidade de
+    usuários do FreeBSD são descritos abaixo.  Se você está ciente de
+    outros recursos não mencionados aqui, envie-as para a &a.doc; para
+    que eles também possam ser incluídos.</para>
 
   <sect1 id="eresources-mail">
-    <title>Mailing Lists</title>
+    <title>Listas de Discussão</title>
 
-    <para>The mailing lists are the most direct way of addressing
-      questions or opening a technical discussion to a concentrated
-      FreeBSD audience.  There are a wide variety of lists on a number
-      of different FreeBSD topics.  Addressing your questions to the
-      most appropriate mailing list will invariably assure a faster
-      and more accurate response.</para>
+    <para>As listas de discussão são a forma mais direta de enviar
+      dúvidas ou abrir uma discussão técnica para um público
+      concentrado do FreeBSD.  Há uma grande variedade de listas com
+      uma variedade de diferentes temas do FreeBSD.  Enviando suas
+      perguntas para a lista de discussão mais adequada vai garantir
+      uma resposta mais rápida e precisa.</para>
 
-    <para>The charters for the various lists are given at the bottom of this
-      document.  <emphasis>Please read the charter before joining or sending
-	mail to any list</emphasis>.  Most of our list subscribers now receive
-      many hundreds of FreeBSD related messages every day, and by setting down
-      charters and rules for proper use we are striving to keep the
-      signal-to-noise ratio of the lists high. To do less would see the
-      mailing lists ultimately fail as an effective communications medium for
-      the project.</para>
+    <para>O escopo para as várias listas são dados no fim deste
+      documento.  <emphasis>Por favor, leia o escopo antes de entrar
+      ou enviar mensagens para alguma lista</emphasis>.  A maioria dos
+      assinantes das listas recebem centenas de mensagens sobre o
+      FreeBSD a cada dia, e por definir escopos e regras para o uso
+      correto nós estamos nos esforçando para manter as listas livre
+      de ruídos.  Sem isto, as listas seriam um modo ineficiente de
+      comunicação com o projeto.</para>
 
     <note>
-      <para><emphasis>If you wish to test your ability to send to
-	&os; lists, send a test message to &a.test.name;.</emphasis>
-	Please do not send test messages to any other list.</para>
+      <para><emphasis>Se você quer testar o envio de mensagens para as
+	listas do FreeBSD, envie uma mensagem de teste para
+	&a.test.name;.</emphasis>  Por favor, não envie mensagens de
+	teste para outras listas.</para>
     </note>
 
-    <para>When in doubt about what list to post a question to, see <ulink
-      url="&url.articles.freebsd-questions;">How to get best results from
-        the FreeBSD-questions mailing list</ulink>.</para>
+    <para>Se estiver em dúvida para qual lista enviar uma pergunta,
+      verifique <ulink url="&url.articles.freebsd-questions;">Como
+      obter melhores resultados de uma lista de discussão do
+      FreeBSD</ulink>.</para>
 
-    <para>Before posting to any list, please learn about how to best use
-      the mailing lists, such as how to help avoid frequently-repeated
-      discussions, by reading the <ulink url="&url.articles.mailing-list-faq;">
-        Mailing List Frequently Asked Questions</ulink> (FAQ) document.</para>
+    <para>Antes de postar em alguma lista, por favor aprenda como
+      usar melhor as listas de discussão, tal como evitar discussões
+      frequentemente repetidas, lendo o documento (FAQ) <ulink
+      url="&url.articles.mailing-list-faq;">Perguntas Frequentes em
+      Listas de Discussão</ulink>.</para>
 
-    <para>Archives are kept for all of the mailing lists and can be searched
-      using the <ulink url="&url.base;/search/index.html">FreeBSD World
-	Wide Web server</ulink>.  The keyword searchable archive offers an
-      excellent way of finding answers to frequently asked questions and
-      should be consulted before posting a question.  Note that this
-      also means that messages sent to FreeBSD mailing lists are
-      archived in perpetuity.  When protecting privacy is a
-      concern, consider using a disposable secondary email address and
-      posting only public information.</para>
+    <para>Históricos são mantidos para todas as listas de discussão e
+      podem ser pesquisados usando o <ulink
+      url="&url.base;/search/index.html">Servidor World Wide Web do
+      FreeBSD</ulink>.  O histórico com pesquisa por palavra-chave
+      oferece um modo excelente de encontrar respostas para perguntas
+      frequentes e deve ser consultado antes de enviar uma pergunta.
+      Note que isso também significa que mensagens enviadas para as
+      listas de discussão do FreeBSD estarão no histórico de modo
+      permanente.  Quando estiver interessado em manter a privacidade,
+      procure usar um endereço de email descartável e enviar apenas
+      informações públicas.</para>
 
     <sect2 id="eresources-summary">
-      <title>List Summary</title>
+      <title>Sumário</title>
 
-      <para><emphasis>General lists:</emphasis> The following are general
-	lists which anyone is free (and encouraged) to join:</para>
+      <para><emphasis>Listas gerais:</emphasis> As listas a seguir são
+	gerais, qualquer um pode (e é incentivado a) entrar:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>List</entry>
-	      <entry>Purpose</entry>
+	      <entry>Lista</entry>
+	      <entry>Finalidade</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
 	      <entry>&a.advocacy.name;</entry>
-	      <entry>FreeBSD Evangelism</entry>
+	      <entry>Evangelismo do FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.announce.name;</entry>
-	      <entry>Important events and project milestones</entry>
+	      <entry>Eventos importantes e marcos do projeto</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.arch.name;</entry>
-	      <entry>Architecture and design discussions</entry>
+	      <entry>Discussões de arquitetura e design</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.bugbusters.name;</entry>
-	      <entry>Discussions pertaining to the maintenance of the FreeBSD
-		problem report database and related tools</entry>
+	      <entry>Discussões sobre a manutenção da base de dados
+		dos relatos de problemas do FreeBSD e das ferramentas
+		relacionadas</entry>
 	    </row>
 
     	    <row>
 	      <entry>&a.bugs.name;</entry>
-	      <entry>Bug reports</entry>
+	      <entry>Relatos de problemas</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.chat.name;</entry>
-	      <entry>Non-technical items related to the FreeBSD
-		community</entry>
-	    </row>
-
-	    <row>
-	      <entry>&a.chromium.name;</entry>
-	      <entry>FreeBSD-specific Chromium issues</entry>
-	    </row>
-
-	    <row>
-	      <entry>&a.current.name;</entry>
-	      <entry>Discussion concerning the use of
-		&os.current;</entry>
-	    </row>
-
-	    <row>
-	      <entry>&a.isp.name;</entry>
-	      <entry>Issues for Internet Service Providers using
+	      <entry>Discussões não técnicas relacionadas a comunidade
 		FreeBSD</entry>
 	    </row>
 
 	    <row>
+	      <entry>&a.chromium.name;</entry>
+	      <entry>Questões sobre o Chromium específicas para o
+		FreeBSD</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.current.name;</entry>
+	      <entry>Discussões sobre o uso do &os.current;</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.isp.name;</entry>
+	      <entry>Questões para os Provedores de Serviços de
+		Internet que usam FreeBSD</entry>
+	    </row>
+
+	    <row>
 	      <entry>&a.jobs.name;</entry>
-	      <entry>FreeBSD employment and consulting
-		opportunities</entry>
+	      <entry>Oportunidades de emprego e consultoria sobre o
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.questions.name;</entry>
-	      <entry>User questions and technical support</entry>
+	      <entry>Dúvidas do usuário e suporte técnico</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.security-notifications.name;</entry>
-	      <entry>Security notifications</entry>
+	      <entry>Notificações de segurança</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.stable.name;</entry>
-	      <entry>Discussion concerning the use of
-		&os.stable;</entry>
+	      <entry>Discussões sobre o uso do &os.stable;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.test.name;</entry>
-	      <entry>Where to send your test messages instead of one of
-		the actual lists</entry>
+	      <entry>Para onde enviar as suas mensagens de teste, em
+		vez de uma das listas reais</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
 
-      <para><emphasis>Technical lists:</emphasis> The following lists are for
-	technical discussion.  You should read the charter for each list
-	carefully before joining or sending mail to one as there are firm
-	guidelines for their use and content.</para>
+      <para><emphasis>Listas técnicas:</emphasis> As listas a seguir
+	são para discussões técnicas.  Você deve ler cuidadosamente o
+	escopo de cada lista antes de entrar ou enviar mensagens, pois
+	há diretrizes firmes para o uso e conteúdo delas.</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>List</entry>
-	      <entry>Purpose</entry>
+	      <entry>Lista</entry>
+	      <entry>Finalidade</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
 	      <entry>&a.acpi.name;</entry>
-	      <entry>ACPI and power management development</entry>
+	      <entry>Desenvolvimento ACPI e de controle de
+		energia</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.afs.name;</entry>
-	      <entry>Porting AFS to FreeBSD</entry>
+	      <entry>Portabilidade do AFS para FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.aic7xxx.name;</entry>
-	      <entry>Developing drivers for the &adaptec; AIC 7xxx</entry>
+	      <entry>Desenvolvimento de drivers para o &adaptec; AIC
+		7xxx</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.amd64.name;</entry>
-	      <entry>Porting FreeBSD to AMD64 systems</entry>
+	      <entry>Portabilidade do FreeBSD para sistemas
+		AMD64</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.apache.name;</entry>
-	      <entry>Discussion about <application>Apache</application> related ports</entry>
+	      <entry>Discussões sobre os ports relacionados ao
+		<application>Apache</application></entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.arm.name;</entry>
-	      <entry>Porting FreeBSD to &arm; processors</entry>
+	      <entry>Portabilidade do FreeBSD para processadores
+		&arm;</entry> 
 	    </row>
 
 	    <row>
 	      <entry>&a.atm.name;</entry>
-	      <entry>Using ATM networking with FreeBSD</entry>
+	      <entry>Usando redes ATM com FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.bluetooth.name;</entry>
-	      <entry>Using &bluetooth; technology in FreeBSD</entry>
+	      <entry>Usando tecnologia &bluetooth; com FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.cluster.name;</entry>
-	      <entry>Using FreeBSD in a clustered environment</entry>
+	      <entry>Usando FreeBSD em um ambiente de cluster</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.cvsweb.name;</entry>
-	      <entry>CVSweb maintenance</entry>
+	      <entry>Manutenção CVSweb</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.database.name;</entry>
-	      <entry>Discussing database use and development under
-		FreeBSD</entry>
+	      <entry>Discutindo o uso e desenvolvimento de banco de
+		dados no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.desktop.name;</entry>
-	      <entry>Using and improving &os; on the desktop</entry>
+	      <entry>Usando e melhorando &os; no ambiente
+		desktop</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.doc.name;</entry>
-	      <entry>Creating FreeBSD related documents</entry>
+	      <entry>Criando documentos relacionados ao
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.drivers.name;</entry>
-	      <entry>Writing device drivers for &os;</entry>
+	      <entry>Escrevendo drivers de dispositivos para
+		&os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.eclipse.name;</entry>
-	      <entry>FreeBSD users of Eclipse IDE, tools, rich client
-	       applications and ports.</entry>
+	      <entry>Usuários FreeBSD da IDE Eclipse, ferramentas,
+		aplicativos rich client e ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.embedded.name;</entry>
-	      <entry>Using FreeBSD in embedded applications</entry>
+	      <entry>Usando FreeBSD em aplicações embarcadas</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.eol.name;</entry>
-	      <entry>Peer support of FreeBSD-related software that
-		is no longer supported by the FreeBSD project.</entry>
+	      <entry>Suporte aos softwares relacionado ao FreeBSD que
+		não são mais suportados pelo projeto FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.emulation.name;</entry>
-	      <entry>Emulation of other systems such as
+	      <entry>Emulação de outros sistemas tais como
 		Linux/&ms-dos;/&windows;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.firewire.name;</entry>
-	      <entry>FreeBSD &firewire; (iLink, IEEE 1394) technical
-		discussion</entry>
+	      <entry>Discussões técnicas sobre &firewire; (iLink, IEEE
+		1394) no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.fs.name;</entry>
-	      <entry>File systems</entry>
+	      <entry>Sistemas de arquivos</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.gecko.name;</entry>
-	      <entry><application>Gecko Rendering Engine</application> issues</entry>
+	      <entry>Questões sobre <application>Gecko Rendering Engine</application></entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.geom.name;</entry>
-	      <entry>GEOM-specific discussions and implementations</entry>
+	      <entry>Discussões e implementações específicas do
+		GEOM</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.gnome.name;</entry>
-	      <entry>Porting <application>GNOME</application> and <application>GNOME</application> applications</entry>
+	      <entry>Portabilidade do <application>GNOME</application>
+		e aplicativos <application>GNOME</application></entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.hackers.name;</entry>
-	      <entry>General technical discussion</entry>
+	      <entry>Discussão técnica geral</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.hardware.name;</entry>
-	      <entry>General discussion of hardware for running
+	      <entry>Discussão técnica de hardware para executar o
 		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.i18n.name;</entry>
-	      <entry>FreeBSD Internationalization</entry>
+	      <entry>FreeBSD Internacionalização</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ia32.name;</entry>
-	      <entry>FreeBSD on the IA-32 (&intel; x86) platform</entry>
+	      <entry>FreeBSD na plataforma IA-32 (&intel; x86)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ia64.name;</entry>
-	      <entry>Porting FreeBSD to &intel;'s upcoming IA64 systems</entry>
+	      <entry>Portabilidade do FreeBSD para o sistemas IA64 da
+		&intel;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ipfw.name;</entry>
-	      <entry>Technical discussion concerning the redesign of the IP
-		firewall code</entry>
+	      <entry>Discussão técnica sobre a reformulação do código
+		do IP firewall (ipfw)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.isdn.name;</entry>
-	      <entry>ISDN developers</entry>
+	      <entry>Desenvolvedores ISDN</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.jail.name;</entry>
-	      <entry>Discussion about the &man.jail.8; facility</entry>
+	      <entry>Discussão sobre a ferramenta &man.jail.8;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.java.name;</entry>
-	      <entry>&java; developers and people porting &jdk;s to
-		FreeBSD</entry>
+	      <entry>Desenvolvedores &java; e pessoas portando &jdk;s
+		para o FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.kde.name;</entry>
-	      <entry>Porting <application>KDE</application> and <application>KDE</application> applications</entry>
+	      <entry>Portabilidade do <application>KDE</application> e
+	        aplicativos <application>KDE</application></entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.lfs.name;</entry>
-	      <entry>Porting LFS to FreeBSD</entry>
+	      <entry>Portabilidade do LFS para o FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.mips.name;</entry>
-	      <entry>Porting FreeBSD to &mips;</entry>
+	      <entry>Portabilidade do FreeBSD para &mips;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.mobile.name;</entry>
-	      <entry>Discussions about mobile computing</entry>
+	      <entry>Discussões sobre computação móvel</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.mono.name;</entry>
-	      <entry>Mono and C# applications on FreeBSD</entry>
+	      <entry>Aplicativos C# e Mono no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.mozilla.name;</entry>
-	      <entry>Porting <application>Mozilla</application> to FreeBSD</entry>
+	      <entry>Portabilidade do 
+		<application>Mozilla</application> para o
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.multimedia.name;</entry>
-	      <entry>Multimedia applications</entry>
+	      <entry>Aplicativos Multimídia</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.newbus.name;</entry>
-	      <entry>Technical discussions about bus architecture</entry>
+	      <entry>Discussões técnicas sobre arquitetura de
+		barramento</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.net.name;</entry>
-	      <entry>Networking discussion and TCP/IP source code</entry>
+	      <entry>Discussão sobre redes e código fonte
+		TCP/IP</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.numerics.name;</entry>
-	      <entry>Discussions of high quality implementation of libm functions</entry>
+	      <entry>Discussões de implementações de alta qualidade de
+		funções da libm</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.office.name;</entry>
-	      <entry>Office applications on &os;</entry>
+	      <entry>Aplicativos Office no &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.performance.name;</entry>
-	      <entry>Performance tuning questions for high
-		performance/load installations</entry>
+	      <entry>Dúvidas sobre ajustes de performance para alto
+		desempenho ou ambientes com alta carga</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.perl.name;</entry>
-	      <entry>Maintenance of a number of
-		Perl-related ports</entry>
+	      <entry>Manutenção para vários ports relacionados ao
+		Perl</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.pf.name;</entry>
-	      <entry>Discussion and questions about the packet filter
-		firewall system</entry>
+	      <entry>Discussão eu dúvidas sobre o sistema de firewall
+		packet filter (pf)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.platforms.name;</entry>
-	      <entry>Concerning ports to non &intel; architecture
-		platforms</entry>
+	      <entry>Relacionado aos ports para arquiteturas não
+		&intel;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ports.name;</entry>
-	      <entry>Discussion of the Ports Collection</entry>
+	      <entry>Discussão sobre a coleção de Ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ports-announce.name;</entry>
-	      <entry>Important news and instructions about the Ports Collection</entry>
+	      <entry>Notícias importantes e instruções sobre a coleção
+		de Ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ports-bugs.name;</entry>
-	      <entry>Discussion of the ports bugs/PRs</entry>
+	      <entry>Discussão sobre problemas (PR) dos ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ppc.name;</entry>
-	      <entry>Porting FreeBSD to the &powerpc;</entry>
+	      <entry>Portabilidade do FreeBSD para &powerpc;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.proliant.name;</entry>
-	      <entry>Technical discussion of FreeBSD on HP ProLiant server platforms</entry>
+	      <entry>Discussão técnica sobre FreeBSD em plataformas de
+		servidores HP ProLiant</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.python.name;</entry>
-	      <entry>FreeBSD-specific Python issues</entry>
+	      <entry>Questões específicas para FreeBSD sobre
+		Python</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.rc.name;</entry>
-	      <entry>Discussion related to the <filename>rc.d</filename> system and its development</entry>
+	      <entry>Discussão relacionada ao sistema
+		<filename>rc.d</filename> e seu
+		desenvolvimento</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.realtime.name;</entry>
-	      <entry>Development of realtime extensions to FreeBSD</entry>
+	      <entry>Desenvolvimento de extensões de tempo real para o
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.ruby.name;</entry>
-	      <entry>FreeBSD-specific Ruby discussions</entry>
+	      <entry>Discussões específicas para FreeBSD sobre
+		Ruby</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.scsi.name;</entry>
-	      <entry>The SCSI subsystem</entry>
+	      <entry>O subsistema SCSI</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.security.name;</entry>
-	      <entry>Security issues affecting FreeBSD</entry>
+	      <entry>Questões de segurança que afetam o
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.small.name;</entry>
-	      <entry>Using FreeBSD in embedded applications
-		(obsolete; use &a.embedded.name; instead)</entry>
+	      <entry>Usando FreeBSD em aplicações embarcadas
+		(obsoleto; use &a.embedded.name;)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.sparc.name;</entry>
-	      <entry>Porting FreeBSD to &sparc; based systems</entry>
+	      <entry>Portabilidade do FreeBSD para sistemas
+		&sparc;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.standards.name;</entry>
-	      <entry>FreeBSD's conformance to the C99 and the &posix;
-		standards</entry>
+	      <entry>Conformidade do FreeBSD com os padrões C99 e
+		&posix;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.sysinstall.name;</entry>
-	      <entry>&man.sysinstall.8; development</entry>
+	      <entry>Desenvolvimento do &man.sysinstall.8;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.threads.name;</entry>
-	      <entry>Threading in FreeBSD</entry>
+	      <entry>Threading no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.tilera.name;</entry>
-	      <entry>Porting FreeBSD to the Tilera family of CPUs</entry>
+	      <entry>Portabilidade do FreeBSD para a família de CPUs
+		Tilera</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.tokenring.name;</entry>
-	      <entry>Support Token Ring in FreeBSD</entry>
+	      <entry>Suporte para Token Ring no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.toolchain.name;</entry>
-	      <entry>Maintenance of &os;'s integrated toolchain</entry>
+	      <entry>Manutenção da cadeia de ferramentas (toolchain)
+		integrada do &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.usb.name;</entry>
-	      <entry>Discussing &os; support for USB</entry>
+	      <entry>Discussão sobre o suporte USB no &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.virtualization.name;</entry>
-	      <entry>Discussion of various virtualization techniques supported
-	        by &os;</entry>
+	      <entry>Discussão sobre várias técnicas de virtualização
+		suportadas pelo &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.vuxml.name;</entry>
-	      <entry>Discussion on VuXML infrastructure</entry>
+	      <entry>Discussão sobre infraestrutura VuXML</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.x11.name;</entry>
-	      <entry>Maintenance and support of X11 on FreeBSD</entry>
+	      <entry>Manutenção e suporte do X11 no FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.xen.name;</entry>
-	      <entry>Discussion of the &os; port to &xen; &mdash; implementation and usage</entry>
+	      <entry>Discussão sobre o port &os; para &xen; &mdash;
+		implementação e uso</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.xfce.name;</entry>
-	      <entry><application>XFCE</application> for &os; &mdash; porting and maintaining</entry>
+	      <entry><application>XFCE</application> para &os; &mdash;
+	       portabilidade e uso</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.zope.name;</entry>
-	      <entry><application>Zope</application> for &os; &mdash;
-		porting and maintaining</entry>
+	      <entry><application>Zope</application> para &os; &mdash;
+		portabilidade e manutenção</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
 
-      <para><emphasis>Limited lists:</emphasis> The following lists are for
-	more specialized (and demanding) audiences and are probably not of
-        interest to the general public.  It is also a good idea to establish a
-        presence in the technical lists before joining one of these limited
-        lists so that you will understand the communications etiquette involved.</para>
+      <para><emphasis>Listas restritas:</emphasis> As listas a seguir
+	são para um público mais especializado e provavelmente não são
+	de interesse do público em geral.  É também uma boa ideia
+	estabelecer presença nas listas técnicas antes de entrar em
+	uma dessas listas restritas para que você entenda a etiqueta
+	de comunicação envolvida.</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>List</entry>
-	      <entry>Purpose</entry>
+	      <entry>Lista</entry>
+	      <entry>Finalidade</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
 	      <entry>&a.hubs.name;</entry>
-	      <entry>People running mirror sites (infrastructural
-		support)</entry>
+	      <entry>Administração de sites espelhos (infraestrutura e
+		suporte)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.usergroups.name;</entry>
-	      <entry>User group coordination</entry>
+	      <entry>Coordenação de grupos de usuários</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.vendors.name;</entry>
-	      <entry>Vendors pre-release coordination</entry>
+	      <entry>Coordenação de pré-lançamentos dos
+		fornecedores</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.wip-status.name;</entry>
-	      <entry>FreeBSD Work-In-Progress Status</entry>
+	      <entry>Situação do trabalho em andamento no
+		FreeBSD</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.wireless.name;</entry>
-	      <entry>Discussions of 802.11 stack, tools, device driver
-		development</entry>
+	      <entry>Discussões sobre 802.11 desenvolvimento da pilha,
+		ferramentas e drivers de dispositivos</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.www.name;</entry>
-	      <entry>Maintainers of <ulink url="&url.base;/index.html">www.FreeBSD.org</ulink></entry>
+	      <entry>Manutenção do <ulink
+		url="&url.base;/index.html">www.FreeBSD.org</ulink></entry>
 	    </row>
 	  </tbody>
 	</tgroup>
