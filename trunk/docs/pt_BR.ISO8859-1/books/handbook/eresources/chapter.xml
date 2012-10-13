@@ -35,7 +35,7 @@
       perguntas para a lista de discussão mais adequada vai garantir
       uma resposta mais rápida e precisa.</para>
 
-    <para>O escopo para as várias listas são dados no fim deste
+    <para>Os escopos para as várias listas estão no fim deste
       documento.  <emphasis>Por favor, leia o escopo antes de entrar
       ou enviar mensagens para alguma lista</emphasis>.  A maioria dos
       assinantes das listas recebem centenas de mensagens sobre o
@@ -654,24 +654,24 @@
 	</tgroup>
       </informaltable>
 
-      <para><emphasis>Digest lists:</emphasis> All of the above lists
-	are available in a digest format.  Once subscribed to a list,
-	you can change your digest options in your account options
-	section.</para>
+      <para><emphasis>Resumo das listas:</emphasis> Todas as listas
+	acima estão disponíveis em um formato resumido.  Uma vez
+	inscrito em uma lista, você pode alterar as opções de resumo
+	na sua seção de opções de conta.</para>
 
-      <para><emphasis>SVN lists:</emphasis> The following lists
-	are for people interested in seeing the log messages for changes to
-	various areas of the source tree.  They are
-	<emphasis>Read-Only</emphasis> lists and should not have mail sent to
-	them.</para>
+      <para><emphasis>Listas SVN:</emphasis> As listas a seguir são
+	para pessoas interessadas em observar as mensagens de log das
+	mudanças das várias áreas da árvore de código.  Elas são
+	listas de <emphasis>Somente Leitura</emphasis> e você não deve
+	enviar mensagens para elas.</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="3">
 	  <thead>
 	    <row>
-	      <entry>List</entry>
-	      <entry>Source area</entry>
-	      <entry>Area Description (source for)</entry>
+	      <entry>Lista</entry>
+	      <entry>Área de código</entry>
+	      <entry>Descrição da área</entry>
 	    </row>
 	  </thead>
 
@@ -679,157 +679,169 @@
 	    <row>
 	      <entry>&a.svn-doc-all.name;</entry>
 	      <entry><filename>/usr/doc</filename></entry>
-	      <entry>All changes to the doc Subversion repository (except
-	        for <filename>user</filename>,
-	            <filename>projects</filename>
-	        and <filename>translations</filename>)</entry>
+	      <entry>Todas as mudanças no repositório Subversion doc
+		exceto para <filename>user</filename>,
+		<filename>projects</filename> e
+		<filename>translations</filename>)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-doc-head.name;</entry>
 	      <entry><filename>/usr/doc</filename></entry>
-	      <entry>All changes to the <quote>head</quote> branch of
-		the doc Subversion repository</entry>
+	      <entry>Todas as mudanças para a ramificação
+		<quote>head</quote> do repositório Subversion
+		doc</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-doc-projects.name;</entry>
 	      <entry><filename>/usr/doc/projects</filename></entry>
-	      <entry>All changes to the <filename>projects</filename>
-		area of the doc Subversion repository</entry>
+	      <entry>Todas as mudanças para a área
+		<filename>projects</filename> do repositório
+		Subversion doc</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-doc-svnadmin.name;</entry>
 	      <entry><filename>/usr/doc</filename></entry>
-	      <entry>All changes to the administrative scripts, hooks,
-		and other configuration data of the doc Subversion
-		repository</entry>
+	      <entry>Todas as mudanças nos scripts administrativos,
+		hooks e outras configurações do repositório Subversion
+		doc</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-ports-all.name;</entry>
 	      <entry><filename>/usr/ports</filename></entry>
-	      <entry>All changes to the ports Subversion repository</entry>
+	      <entry>Todas as mudanças no repositório Subversion
+		ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-ports-head.name;</entry>
 	      <entry><filename>/usr/ports</filename></entry>
-	      <entry>All changes to the <quote>head</quote> branch of
-		the ports Subversion repository</entry>
+	      <entry>Todas as mudanças na ramificação
+		<quote>head</quote> do repositório Subversion
+		ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-ports-svnadmin.name;</entry>
 	      <entry><filename>/usr/ports</filename></entry>
-	      <entry>All changes to the administrative scripts, hooks,
-		and other configuration data of the ports Subversion
-		repository</entry>
+	      <entry>Todas as mudanças nos scripts administrativos,
+		hooks e outras configurações do repositório Subversion
+		ports</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-all.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the src Subversion repository (except
-		for <filename>user</filename>
-		and <filename>projects</filename>)</entry>
+	      <entry>Todas as mudanças no repositório Subversion src
+		(exceto para <filename>user</filename> e
+		<filename>projects</filename>)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-head.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <quote>head</quote> branch of
-		the src Subversion repository (the &os;-CURRENT
-		branch)</entry>
+	    <entry>Todas as mudanças para a ramificação
+	      <quote>head</quote> do repositório Subversion src (a
+	      ramificação &os;-CURRENT)</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-projects.name;</entry>
 	      <entry><filename>/usr/projects</filename></entry>
-	      <entry>All changes to the <filename>projects</filename>
-		area of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a área
+		<filename>projects</filename> do repositório
+		Subversion src<entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-release.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>releases</filename>
-		area of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a área
+		<filename>releases</filename> do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-releng.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>releng</filename>
-		branches of the src Subversion repository (the
-		security&nbsp;/ release engineering branches)</entry>
+	      <entry>Todas as mudanças para a ramificação 
+		<filename>releng</filename> do repositório Subversion
+		src (as ramificações de segurança&nbsp;/ engenharia de
+		liberação)<entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the all stable branches of the src
-		Subversion repository</entry>
+	      <entry>Todas as mudanças para todos as ramificações
+		<quote>stable</quote> do repositório Subversion
+		src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable-6.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>stable/6</filename>
-		branch of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a ramificação
+		<filename>stable/6</filename> do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable-7.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>stable/7</filename>
-		branch of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a ramificação
+		<filename>stable/7</filename> do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable-8.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>stable/8</filename>
-		branch of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a ramificação
+		<filename>stable/8</filename> do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable-9.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the <filename>stable/9</filename>
-		branch of the src Subversion repository</entry>
+	      <entry>Todas as mudanças para a ramificação
+		<filename>stable/9</filename> do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-stable-other.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the
-		older <filename>stable</filename> branches of the src
-		Subversion repository</entry>
+	      <entry>Todas as mudanças para as ramificações
+		<filename>stable</filename> antigas do repositório
+		Subversion src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-svnadmin.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the administrative scripts, hooks,
-		and other configuration data of the src Subversion
-		repository</entry>
+	      <entry>Todas as mudanças nos scripts administrativos,
+		hooks e outras configurações do repositório Subversion
+		src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-user.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the
-		experimental <filename>user</filename> area of the src
-		Subversion repository</entry>
+	      <entry>Todas as mudanças experimentais para a área
+		<filename>user</filename> do repositório Subversion
+		src</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.svn-src-vendor.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>All changes to the vendor work area of the src
-		Subversion repository</entry>
+	      <entry>Todas as mudanças para a área de trabalho dos
+		fornecedores do repositório Subversion src</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
@@ -837,29 +849,29 @@
     </sect2>
 
     <sect2 id="eresources-subscribe">
-      <title>How to Subscribe</title>
+      <title>Como se Inscrever</title>
 
-      <para>To subscribe to a list, click on the list name above or
-        go to &a.mailman.lists.link;
-        and click on the list that you are interested in.  The list
-        page should contain all of the necessary subscription
-        instructions.</para>
+      <para>Para se inscrever em uma lista, clique no nome da lista
+	acima ou vá para &a.mailman.lists.link; e clique na lista que
+	você está interessado.  A página da lista deve conter toda
+	informação necessária para a inscrição.</para>
 
-      <para>To actually post to a given list, send mail to
-	<email><replaceable>listname</replaceable>@FreeBSD.org</email>.  It will then
-	be redistributed to mailing list members world-wide.</para>
+      <para>Para de fato postar em uma lista, envie e-mail para
+	<email><replaceable>nome-da-lista</replaceable>@FreeBSD.org</email>.
+	Isto irá enviar sua mensagem para os membros em todo
+	mundo.</para>
 
-      <para>To unsubscribe yourself from a list, click on the URL
-	found at the bottom of every email received from the list.  It
-	is also possible to send an email to
-	<email><replaceable>listname</replaceable>-unsubscribe@FreeBSD.org</email> to unsubscribe
-	yourself.</para>
+      <para>Para se desinscrever de uma lista, clique na URL
+        encontrada na parte inferior de cada e-mail recebido da lista.
+	Também é possível enviar e-mail para
+	<email><replaceable>nome-da-lista</replaceable>-unsubscribe@FreeBSD.org</email>
+	para se desinscrever.</para>
 
-      <para>Again, we would like to request that you keep discussion in the
-	technical mailing lists on a technical track. If you are only
-	interested in important announcements then it is suggested that
-	you join the &a.announce;, which is intended only for infrequent
-	traffic.</para>
+      <para>Novamente, nós gostaríamos de pedir que você mantenha a
+	discussão nas listas técnicas em um nível técnico.  Se você
+	está interessado apenas em anúncios importantes então é
+	sugerido que você entre na &a.announce;, que é destinada
+	apenas para trafego não frequente.</para>
     </sect2>
 
     <sect2 id="eresources-charters">
