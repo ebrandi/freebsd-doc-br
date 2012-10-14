@@ -18,33 +18,35 @@
 
     <para>O processo de iniciar um computador e seu sistema
       operacional é referido como <quote>o processo de
-      inicialização</quote>, ou simplesmente
-      <quote>inicialização</quote>.  O processo de inicialização do
-      FreeBSD oferece uma grande flexibilidade na personalização do
-      que acontece quando você inicia o sistema, permitindo você
-      selecionar diferentes sistemas operacionais instalados no mesmo
-      computador, ou mesmo versões diferentes do mesmo sistema
-      operacional ou kernel instalado.</para>
+      <literal>bootstrap</literal></quote>, ou simplesmente
+      <literal>boot</literal> (inicialização).  O processo de
+      <literal>boot</literal> do FreeBSD oferece uma grande
+      flexibilidade na personalização do que acontece quando você
+      inicia o sistema, permitindo você selecionar diferentes sistemas
+      operacionais instalados no mesmo computador, ou mesmo versões
+      diferentes do mesmo sistema operacional ou kernel
+      instalado.</para>
 
     <para>Este capítulo detalha as opções de configurações que você
-      pode configurar e como personalizar o processo de inicialização
-      do FreeBSD.  Isso inclui tudo o que acontece até que o kernel do
-      FreeBSD tenha iniciado, procurado por dispositivos e iniciado o
-      &man.init.8;.  Se você não tem certeza de quando isso acontece,
-      isso ocorre quando a cor do texto muda de branco brilhante para
-      cinza.</para>
+      pode usar e como personalizar o processo de
+      <literal>boot</literal> do FreeBSD.  Isso inclui tudo o que
+      acontece até que o kernel do FreeBSD tenha iniciado, procurado
+      por dispositivos e iniciado o &man.init.8;.  Se você não tem
+      certeza de quando isso acontece, isso ocorre quando a cor do
+      texto muda de branco brilhante para cinza.</para>
 
     <para>Depois de ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>O que são os componentes de inicialização do FreeBSD, e
-	  como eles interagem.</para>
+	<para>O que são os componentes de <literal>bootstrap</literal>
+	  do FreeBSD, e como eles interagem.</para>
       </listitem>
 
       <listitem>
-	<para>As opções que você pode passar para os componentes na
-	  inicialização do FreeBSD para controlar o processo.</para>
+	<para>As opções que você pode passar para os componentes no
+	  <literal>boot</literal> do FreeBSD para controlar o
+	  processo.</para>
       </listitem>
 
       <listitem>
@@ -55,13 +57,14 @@
     <note>
       <title>Apenas para x86</title>
 
-      <para>Este capítulo descreve apenas o processo de inicialização
-	do FreeBSD rodando em sistemas x86 da Intel.</para>
+      <para>Este capítulo descreve apenas o processo de
+	<literal>boot</literal> do FreeBSD rodando em sistemas x86 da
+	Intel.</para>
     </note>
   </sect1>
 
   <sect1 id="boot-introduction">
-    <title>O problema da inicialização</title>
+    <title>O Problema do <literal>Boot</literal></title>
 
     <para>Ligar o computador e iniciar o sistema operacional possui um
       dilema interessante.  Por definição, o computador não sabe como
@@ -76,19 +79,20 @@
        Gostaria de opiniões nele -->
     <para>Esse problema é similar ao apresentado no livro
       <citetitle>As aventuras do Barão Munchausen</citetitle>.  Um
-      personagem caiu no fundo de um poço de inspeção, e puxou a si
-      mesmo para fora agarrando suas botas, e se içando.  Nos
-      primórdios da computação o termo
-      <firstterm>bootstrap</firstterm> (em inglês) foi empregado para
-      o mecanismo usado para carregar o sistema operacional, e então o
-      termo foi encurtado para <quote>boot</quote> (em inglês).</para>
+      personagem caiu no fundo de um bueiro, e puxou a si mesmo para
+      fora agarrando suas botas, se içando
+      (<literal>bootstrap</literal>).  Nos primórdios da computação o
+      termo <firstterm>bootstrap</firstterm> (em inglês) foi empregado
+      para o mecanismo usado para carregar o sistema operacional, e
+      então o termo foi encurtado para <quote>boot</quote> (em
+      inglês).</para>
 
     <indexterm><primary>BIOS</primary></indexterm>
 
     <indexterm><primary>Basic Input/Output
-	System</primary><see>BIOS</see></indexterm>
+      System</primary><see>BIOS</see></indexterm>
 
-    <para>Em hardware x86 o Sistema Básico de Entrada e Saída (BIOS,
+    <para>Em hardware x86, o Sistema Básico de Entrada e Saída (BIOS,
       sigla em inglês) é responsável por iniciar o sistema
       operacional.  Para fazer isso, o BIOS procura no disco rígido
       pelo Registro Mestre de Inicialização (MBR, sigla em inglês),
@@ -107,19 +111,20 @@
 <!-- Gostaria de deixar mais claro a diferença entre boot manager e
 boot loader -->
     <para>O código dentro do MBR é normalmente referido por
-      <emphasis>gerenciador de inicialização</emphasis>
-      (<literal>boot manager</literal>, em inglês), especialmente
-      quando ele interage com o usuário.  Geralmente nesse caso o
-      gerenciador de inicialização possui mais código na primeira
+      <emphasis><literal>boot manager</literal></emphasis>
+      (gerenciador de inicialização), especialmente quando ele
+      interage com o usuário.  Geralmente nesse caso o <literal>boot
+      manager</literal> possui mais código na primeira
       <emphasis>trilha</emphasis> do disco rígido ou dentro de algum
-      sistema de arquivos do sistema operacional.  (Um gerenciador de
-      inicialização é chamado algumas vezes de <emphasis>carregador de
-      inicialização</emphasis> (<literal>boot loader</literal>, em
-      inglês), entretanto o FreeBSD usa este termo para um estágio
-      posterior da inicialização.) Os gerenciadores de inicialização
-      mais populares são <application>boot0</application> (também
-      conhecido como <application>Boot Easy</application>, o
-      gerenciador de inicialização padrão do &os;),
+      sistema de arquivos do sistema operacional.  (Um <literal>boot
+      manager</literal> é chamado algumas vezes de
+      <emphasis><literal>boot loader</literal></emphasis> (carregador
+      de inicialização), entretanto o &os; usa este termo para um
+      estágio posterior do <literal>boot</literal>.) Os <literal>boot
+      managers</literal> mais populares são
+      <application>boot0</application> (também conhecido como
+      <application>Boot Easy</application>, o <literal>boot
+      manager</literal> padrão do &os;),
       <application>Grub</application>, <application>GAG</application>,
       e <application>LILO</application>.  (Somente o
       <application>boot0</application> cabe no MBR.)</para>
@@ -291,11 +296,12 @@ label=FreeBSD</programlisting>
 	 interface simples para escolher o arquivo do kernel para
 	 carregar e executar.</para>
 
-      <para>O <link linkend="boot-loader">carregador</link> é muito
-	mais sofisticado, e fornece uma configuração de inicialização
-	fácil de usar, o <filename>boot2</filename> executa o
-	carregador, mas anteriormente ele era encarregado de executar
-	o kernel diretamente.</para>
+      <para>O
+	<link linkend="boot-loader"><literal>loader</literal></link>
+	é muito mais sofisticado, e fornece uma configuração de
+	inicializaçãoa fácil de usar, o <filename>boot2</filename>
+	executa o carregador, mas anteriormente ele era encarregado de
+	executar o kernel diretamente.</para>
 
       <example id="boot-boot2-example">
 	<title>Imagem de tela do <filename>boot2</filename></title>
