@@ -14,102 +14,133 @@
       <author>
 	<firstname>Matthew</firstname>
 	<surname>Dillon</surname>
-	<contrib>Much of this chapter has been taken from the
-	security(7) manual page by </contrib>
+	<contrib>
+		Muitas coisas desse capitulo foi retirado da pagina do manual
+		security(7)
+	</contrib>
       </author>
     </authorgroup>
   </chapterinfo>
 
-  <title>Security</title>
+  <title>Seguranca</title>
 
-  <indexterm><primary>security</primary></indexterm>
+  <indexterm><primary>seguranca</primary></indexterm>
 
   <sect1 id="security-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
-    <para>This chapter will provide a basic introduction to system
-      security concepts, some general good rules of thumb, and some
-      advanced topics under &os;.  A lot of the topics covered here
-      can be applied to system and Internet security in general as
-      well.  The Internet is no longer a <quote>friendly</quote> place
-      in which everyone wants to be your kind neighbor.  Securing your
-      system is imperative to protect your data, intellectual
-      property, time, and much more from the hands of hackers and the
-      like.</para>
-
-    <para>&os; provides an array of utilities and mechanisms to ensure
-      the integrity and security of your system and network.</para>
-
-    <para>After reading this chapter, you will know:</para>
-
-    <itemizedlist>
-      <listitem>
-	<para>Basic system security concepts, in respect to
-	  &os;.</para>
-      </listitem>
-
-      <listitem>
-	<para>About the various crypt mechanisms available in &os;,
-	  such as <acronym>DES</acronym> and
-	  <acronym>MD5</acronym>.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to set up one-time password authentication.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to configure <acronym>TCP</acronym> Wrappers for use
-	  with <application>inetd</application>.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to set up <application>Kerberos5</application> on
-	  &os;.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to configure IPsec and create a
-	  <acronym>VPN</acronym> between &os;/&windows;
-	  machines.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to configure and use
-	  <application>OpenSSH</application>, &os;'s
-	  <acronym>SSH</acronym> implementation.</para>
-      </listitem>
-
-      <listitem>
-	<para>What file system <acronym>ACL</acronym>s are and how to
-	  use them.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to use the <application>Portaudit</application>
-	  utility to audit third party software packages installed
-	  from the Ports Collection.</para>
-      </listitem>
-
-      <listitem>
-	<para>How to utilize the &os; security advisories
-	  publications.</para>
-      </listitem>
-
-      <listitem>
-	<para>Have an idea of what Process Accounting is and how to
-	  enable it on &os;.</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>Before reading this chapter, you should:</para>
+	<para>
+		Esse capitlo ira prover uma introducao basica aos conceitos do
+		sistema de seguranca, algumas boas regras gerais de manuseio,
+		e alguns topicos avancados sobre &so;.  Muitos dos topicos cobertos
+		aqui, podem ser aplicados para sistemas e seguranca da Internet
+		no geral.  A internet nao 'e mais um lugar <quote>amistoso</quote>
+		no qual cada um gostaria de ser bons vizinhos.  A seguranca do
+		seu sistema e imperativo para protejer seus dados, propriedade
+		intelectual, tempo, e muito mais das maos dos harckers e 
+		assemelhados.
+	</para>
+	<para>
+		&os; prove um conjunto de utilitarios e mecanismos para garantir
+		a integridade e seguranca do seu sistema e da sua rede.
+	</para>
+	<para>
+		Apos a leitura deste capitulo, voce conhecera:
+	</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand basic &os; and Internet concepts.</para>
+			<para>
+				Conceitos basicos de seguranca do sistema, em relacao ao &os;.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Varios mecanismos de criptografia disponivel no &os;,	
+				tais como <acronum>DES</acronym> and <acronum>MD5</acronym>.
+			</para>
+		</listitem>
+
+      <listitem>
+			<para>
+				Como configurar autenticacao de senha em um passo.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como configurar involucro para <acronym>TCP</acronym> com
+				<application>inetd</application>.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como configurar o <application>Kerberos5</application> no &os;.
+	  		</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como configurar IPsec e criar uma <acronym>VPN</acronym>
+				entre maquinas &os;/&windows;.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como configurar e usar o <application>OpenSSH</application>, 
+				a implementacao de <acronym>SSH</acronym> para o &os;.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				O que e o sistemas de arquivos <acronym>ACL</acronym> 
+				e como usa-lo.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como usar o utilitario <application>Portaudit</application>
+				para auditar os programas de terceiros instalados a partir
+				da colecao de "ports".
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Como utilizar as publicacoes de alertas de seguranca do &os;.
+			</para>
+      </listitem>
+
+      <listitem>
+			<para>
+				Ter uma ideia do que e o Processo de Contabilidade e como
+				habilitar-lo no &os;.
+			</para>
       </listitem>
     </itemizedlist>
 
+	<para>Antes de ler este capitulo, voce deve:</para>
+
+    <itemizedlist>
+      <listitem>
+			<para>
+				Compreender os conceitos basicos do &os; e da Internet.
+			</para>
+      </listitem>
+    </itemizedlist>
+
+	<para>
+		Topicos adicionais de seguranca serao abortados neste livro.
+		Por exemplo, Controle de Acesso Obrigatorio 
+		(<acronym>MAC</acronym>	NT. Mandatory Access Control ) e discutido
+		no <xref linkend="mac"/> e Internet Firewall e discutido no 
+      <xref linkend="firewalls"/>.
+	</para>
     <para>Additional security topics are covered throughout this book.
       For example, Mandatory Access Control is discussed in <xref
 	linkend="mac"/> and Internet Firewalls are discussed in <xref

@@ -45,7 +45,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 3556   # config              # r39544  #
 1055   # boot                # r39544  # Pronto para revisão
 1034   # users               # r39544  #
-4151   # security            # r39576  # 
+4151   # security            # r39576  # Nilton Jose Rizzo, 13/10/2012
 988    # jails               # r39566  # Liberado para Revisão
 2075   # mac                 # r39544  #
 717    # audit               # r39544  # Leandro Silva, 25/09/2012
