@@ -753,7 +753,7 @@
 	      <entry><filename>/usr/projects</filename></entry>
 	      <entry>Todas as mudanças para a área
 		<filename>projects</filename> do repositório
-		Subversion src<entry>
+		Subversion src</entry>
 	    </row>
 
 	    <row>
@@ -770,7 +770,7 @@
 	      <entry>Todas as mudanças para a ramificação 
 		<filename>releng</filename> do repositório Subversion
 		src (as ramificações de segurança&nbsp;/ engenharia de
-		liberação)<entry>
+		liberação)</entry>
 	    </row>
 
 	    <row>
