@@ -82,10 +82,9 @@
       personagem caiu no fundo de um bueiro, e puxou a si mesmo para
       fora agarrando suas botas, se içando
       (<literal>bootstrap</literal>).  Nos primórdios da computação o
-      termo <firstterm>bootstrap</firstterm> (em inglês) foi empregado
-      para o mecanismo usado para carregar o sistema operacional, e
-      então o termo foi encurtado para <quote>boot</quote> (em
-      inglês).</para>
+      termo <firstterm>bootstrap</firstterm> foi empregado para o
+      mecanismo usado para carregar o sistema operacional, e então o
+      termo foi encurtado para <quote>boot</quote>.</para>
 
     <indexterm><primary>BIOS</primary></indexterm>
 
@@ -139,21 +138,22 @@ boot loader -->
       padrão.  Ele é baseado no <filename>/boot/mbr</filename>.</para>
 
     <para>Se você tem instalado vários sistemas operacionais nos seus
-      discos rígidos, então você pode instalar um gerenciador de
-      inicialização, que pode exibir uma lista dos sistemas
+      discos rígidos, então você pode instalar um <literal>boot
+      manager</literal>, que pode exibir uma lista dos sistemas
       operacionais, e permitir que você escolha um para iniciar.  Dois
       destes são discutidos na próxima subseção.</para>
 
-    <para>O restante da inicialização do FreeBSD é dividido em três
+    <para>O restante do sistema de <literal>boot</literal> do &os; é
+      dividido em três
       etapas.  A primeira etapa é executada pelo MBR, que sabe apenas
       o suficiente para deixar o computador em um estado específico e
       executar a segunda etapa.  A segunda etapa pode fazer um pouco
       mais, antes de executar a terceira etapa.  A terceira etapa
       finaliza a tarefa de carregar o sistema operacional.  O trabalho
-      é dividido nestas três etapas porque o padrão do PC coloca
-      limites no tamanho do programa que pode ser executado nas etapas
-      um e dois.  Dividir as tarefas em etapas permite que o FreeBSD
-      tenha um inicializador mais flexível.</para>
+      é dividido nestas três etapas porque o padrão PC impõe limites
+      no tamanho do programa que pode ser executado nas etapas um e
+      dois.  Dividir as tarefas em etapas permite que o &os; tenha
+      um inicializador mais flexível.</para>
 
     <indexterm><primary>kernel</primary></indexterm>
     <indexterm><primary><command>init</command></primary></indexterm>
@@ -167,7 +167,7 @@ boot loader -->
       usuário que monta sistemas de arquivos, inicia placas de rede
       para se comunicar na rede, e geralmente inicia todos os
       processos que normalmente são executados na inicialização de um
-      sistema FreeBSD.</para>
+      sistema &os;.</para>
   </sect1>
 
   <sect1 id="boot-blocks">
@@ -192,7 +192,7 @@ boot loader -->
 	<title>O Gerenciador de Inicialização
 	<application>boot0</application>:</title>
 
-	<para>O MBR instalado pelo instalador do FreeBSD, ou seja, o
+	<para>O MBR instalado pelo instalador do &os;, ou seja, o
 	  &man.boot0cfg.8;, por padrão, é baseado no
 	  <filename>/boot/boot0</filename>.  (O programa
 	  <application>boot0</application> é muito simples, pois o
@@ -221,7 +221,7 @@ Default: F2</screen>
       <para>É conhecido que outros sistemas operacionais, em
 	particular o &windows;, sobrescrevem o MBR.  Se isso
 	acontecer, ou se você quiser substituir o MBR existente pelo o
-	MBR do FreeBSD, então use o seguinte comando:</para>
+	MBR do &os;, então use o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>dispositivo</replaceable></userinput></screen>
 
@@ -238,7 +238,7 @@ Default: F2</screen>
 	<title>O Gerenciador de Inicialização LILO:</title>
 
 	<para>Para que esse gerenciador de inicialização possa iniciar
-	  o FreeBSD, primeiro inicie o Linux e adicione a seguinte
+	  o &os;, primeiro inicie o &linux; e adicione a seguinte
 	  configuração no arquivo
 	  <filename>/etc/lilo.conf</filename>:</para>
       </formalpara>
@@ -249,10 +249,10 @@ loader=/boot/chain.b
 label=FreeBSD</programlisting>
 
       <para>Na configuração acima, especifique a partição primária do
-	FreeBSD usando as especificações do Linux, substituindo o
+	&os; usando as especificações do &linux;, substituindo o
 	<replaceable>X</replaceable> pela letra que representa o disco
-	rígido no Linux e o <replaceable>Y</replaceable> pelo número
-	que representa a partição primária no Linux.  Se você está
+	rígido no &linux; e o <replaceable>Y</replaceable> pelo número
+	que representa a partição primária no &linux;.  Se você está
 	usando um disco rígido <acronym>SCSI</acronym>, você precisará
 	mudar <replaceable>/dev/hd</replaceable> por algo parecido com
 	<replaceable>/dev/sd</replaceable>.  A linha
