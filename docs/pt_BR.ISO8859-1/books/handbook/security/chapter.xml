@@ -15,62 +15,62 @@
 	<firstname>Matthew</firstname>
 	<surname>Dillon</surname>
 	<contrib>
-		Muitas coisas desse capitulo foi retirado da pagina do manual
+		Muito desse capítulo foi retirado da pagina do manual
 		security(7)
 	</contrib>
       </author>
     </authorgroup>
   </chapterinfo>
 
-  <title>Seguranca</title>
+  <title>Segurança</title>
 
-  <indexterm><primary>seguranca</primary></indexterm>
+  <indexterm><primary>segurança</primary></indexterm>
 
   <sect1 id="security-synopsis">
     <title>Sinopse</title>
 
 	<para>
-		Esse capitlo ira prover uma introducao basica aos conceitos do
-		sistema de seguranca, algumas boas regras gerais de manuseio,
+		Esse capitlo proverá uma introdução basica aos conceitos do
+		sistema de segurança, algumas boas regras gerais de manuseio,
 		e alguns topicos avancados sobre &os;.  Muitos dos topicos cobertos
-		aqui, podem ser aplicados para sistemas e seguranca da Internet
+		aqui, podem ser aplicados para sistemas e segurança da Internet
 		no geral.  A internet nao 'e mais um lugar <quote>amistoso</quote>
-		no qual cada um gostaria de ser bons vizinhos.  A seguranca do
+		no qual cada um gostaria de ser bons vizinhos.  A segurança do
 		seu sistema e imperativo para protejer seus dados, propriedade
 		intelectual, tempo, e muito mais das maos dos harckers e 
 		assemelhados.
 	</para>
 	<para>
 		&os; prove um conjunto de utilitarios e mecanismos para garantir
-		a integridade e seguranca do seu sistema e da sua rede.
+		a integridade e segurança do seu sistema e da sua rede.
 	</para>
 	<para>
-		Apos a leitura deste capitulo, voce conhecera:
+		Apos a leitura deste capítulo, você conhecera:
 	</para>
 
     <itemizedlist>
       <listitem>
 			<para>
-				Conceitos basicos de seguranca do sistema, em relacao ao &os;.
+				Conceitos básicos de segurança do sistema, em relação ao &os;.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				Varios mecanismos de criptografia disponivel no &os;,	
+				Vários mecanismos de criptografia disponível no &os;,	
 				tais como <acronym>DES</acronym> and <acronym>MD5</acronym>.
 			</para>
 		</listitem>
 
       <listitem>
 			<para>
-				Como configurar autenticacao de senha em um passo.
+				Como configurar autenticação de senha em um passo.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				Como configurar involucro para <acronym>TCP</acronym> com
+				Como configurar invólucro para <acronym>TCP</acronym> com
 				<application>inetd</application>.
 			</para>
       </listitem>
@@ -84,113 +84,118 @@
       <listitem>
 			<para>
 				Como configurar IPsec e criar uma <acronym>VPN</acronym>
-				entre maquinas &os;/&windows;.
+				entre máquinas &os;/&windows;.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
 				Como configurar e usar o <application>OpenSSH</application>, 
-				a implementacao de <acronym>SSH</acronym> para o &os;.
+				a implementação de <acronym>SSH</acronym> para o &os;.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				O que e o sistemas de arquivos <acronym>ACL</acronym> 
-				e como usa-lo.
+				O que é o sistemas de arquivos <acronym>ACL</acronym> 
+				e como usá-lo.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				Como usar o utilitario <application>Portaudit</application>
+				Como usar o utilitário <application>Portaudit</application>
 				para auditar os programas de terceiros instalados a partir
-				da colecao de "ports".
+				da coleção de "ports".
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				Como utilizar as publicacoes de alertas de seguranca do &os;.
+				Como utilizar as publicações de alertas de segurança do &os;.
 			</para>
       </listitem>
 
       <listitem>
 			<para>
-				Ter uma ideia do que e o Processo de Contabilidade e como
-				habilitar-lo no &os;.
+				Ter uma ideia do que é o Processo de Contabilidade e como
+				habilitá-lo no &os;.
 			</para>
       </listitem>
     </itemizedlist>
 
-	<para>Antes de ler este capitulo, voce deve:</para>
+	<para>Antes de ler este capítulo, você deve:</para>
 
     <itemizedlist>
       <listitem>
 			<para>
-				Compreender os conceitos basicos do &os; e da Internet.
+				Compreender os conceitos básicos do &os; e da Internet.
 			</para>
       </listitem>
     </itemizedlist>
 
 	<para>
-		Topicos adicionais de seguranca serao abortados neste livro.
-		Por exemplo, Controle de Acesso Obrigatorio 
-		(<acronym>MAC</acronym>	NT. Mandatory Access Control ) e discutido
+		Tópicos adicionais de segurança serão abortados neste livro.
+		Por exemplo, Controle de Acesso Obrigatório 
+		(<acronym>MAC</acronym>	NT.) e discutido
 		no <xref linkend="mac"/> e Internet Firewall e discutido no 
       <xref linkend="firewalls"/>.
 	</para>
-    <para>Additional security topics are covered throughout this book.
-      For example, Mandatory Access Control is discussed in <xref
-	linkend="mac"/> and Internet Firewalls are discussed in <xref
-	linkend="firewalls"/>.</para>
   </sect1>
 
   <sect1 id="security-intro">
-    <title>Introduction</title>
+    <title>Introdução</title>
 
-    <para>Security is a function that begins and ends with the system
-      administrator.  While all BSD &unix; multi-user systems have
-      some inherent security, the job of building and maintaining
-      additional security mechanisms to keep those users
-      <quote>honest</quote> is probably one of the single largest
-      undertakings of the sysadmin.  Machines are only as secure as
-      you make them, and security concerns are ever competing with the
-      human necessity for convenience.  &unix; systems, in general,
-      are capable of running a huge number of simultaneous processes
-      and many of these processes operate as servers &mdash; meaning
-      that external entities can connect and talk to them.  As
-      yesterday's mini-computers and mainframes become today's
-      desktops, and as computers become networked and inter-networked,
-      security becomes an even bigger issue.</para>
-
-    <para>System security also pertains to dealing with various forms
-      of attack, including attacks that attempt to crash, or otherwise
-      make a system unusable, but do not attempt to compromise the
-      <username>root</username> account (<quote>break root</quote>).
-      Security concerns can be split up into several
-      categories:</para>
+		<para>
+			A seguraça é a função que começa e termina com o administrador
+		do sistema.  Enquanto todos os BSD &unix; são sistemas multi-usuários
+		que possuem alguma segurança inerente, o trabalho de construir e
+		manter um mecanismo de seguraça adicional para manter os usuários
+		<quote>honestos</quote> é provavelmente um dos maiories empreitadas
+		individual dos administradores de sistema.  Máquinas são tão seguras
+		quanto se pode fazer, e preocupações com a segurança são sempre 
+		competindo com a necessidade humana por conveniência.  Sistemas
+		&unix;, em geral, é capaz de rodar um grande número de processos
+		simultâneos e muitos desses processos operam como servidores &mdash;
+		habilitanto diversas entitades externas a conectarem e se comunicarem.
+		Como no passado mini-computadores e mainframes se tornam os computadores
+		de mesa, e como os computadores começaram a conectar-se em redes, o
+		problema com a segurança torna-se cada vez mais presente.
+		</para>
+		<para>
+			Segurança de sistemas também lida com várias formas de ataques,
+		incluindo ataques que visam travar, ou tornar o sistema indisponível,
+		mas não tentam comprometer a conta de <username>root</username>.
+		A preocupação com a segurança pode ser dividida em várias categorias:
+		</para>
 
     <orderedlist>
       <listitem>
-	<para>Denial of service attacks.</para>
+			<para>Ataques de negação de serviço.</para>
       </listitem>
 
       <listitem>
-	<para>User account compromises.</para>
+			<para>
+				Comprometimento de contas de usuários.
+			</para>
       </listitem>
 
       <listitem>
-	<para>Root compromise through accessible servers.</para>
+			<para>
+				Comprometimento do usuário root através de servidores acessíveis.
+			</para>
       </listitem>
 
       <listitem>
-	<para>Root compromise via user accounts.</para>
+			<para>
+				Comprometimento do usuário root através de contas de usuários.
+			</para>
       </listitem>
 
       <listitem>
-	<para>Backdoor creation.</para>
+			<para>
+				Criação de <quote>Backdoor</quote>.
+			</para>
       </listitem>
     </orderedlist>
 
@@ -199,7 +204,7 @@
       <see>Denial of Service (DoS)</see>
     </indexterm>
     <indexterm>
-      <primary>security</primary>
+      <primary>segurança</primary>
       <secondary>DoS attacks</secondary>
       <see>Denial of Service (DoS)</see>
     </indexterm>
