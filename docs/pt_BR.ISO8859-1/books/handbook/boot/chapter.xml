@@ -270,28 +270,30 @@ label=FreeBSD</programlisting>
 
       <para>Conceitualmente, a primeira e segunda etapa são partes do
 	mesmo programa, na mesma área do disco rígido.  Essa divisão é
-	devida a limitações de espaço, mas você sempre deve
+	devida à limitações de espaço, mas você sempre deve
 	instalá-las juntas.  As duas etapas são copiadas do arquivo
 	combinado <filename>/boot/boot</filename> pelo instalador ou
 	<application>bsdlabel</application> (veja abaixo).</para>
 
       <para>Elas ficam armazenadas fora do sistema de arquivos, na
-	primeira trilha do <literal>slice</literal> de inicialização
-	do disco rígido, a partir do primeiro setor.  Esse é o local
-	onde o <link linkend="boot-boot0">boot0</link>, ou qualquer
-	outro gerenciador de boot, espera encontrar o programa que
-	será executado para continuar o processo de inicialização.  O
-	número de setores usados é facilmente determinado pelo tamanho
-	do <filename>/boot/boot</filename>.</para>
+	primeira trilha do <literal>slice</literal> de
+	<literal>boot</literal> do disco rígido, a partir do primeiro
+	setor.  Esse é o local onde o <link
+	linkend="boot-boot0">boot0</link>, ou qualquer outro
+	<literal>boot manager</literal>, espera encontrar o programa
+	que será executado para continuar o processo de
+	<literal>boot</literal>.  O número de setores usados é
+	facilmente determinado pelo tamanho do
+	<filename>/boot/boot</filename>.</para>
 
       <para>O <filename>boot1</filename> é muito simples, pois ele
 	pode ter apenas o tamanho de 512 bytes, e ele conhece o
-	suficiente sobre o <firstterm>bsdlabel</firstterm> do FreeBSD,
+	suficiente sobre o <firstterm>bsdlabel</firstterm> do &os;,
 	o qual tem informações sobre a divisão do disco rígido, para
 	encontrar e executar o <filename>boot2</filename>.</para>
 
       <para>O <filename>boot2</filename> é ligeiramente mais
-	 sofisticado, e conhece o sistema de arquivos do FreeBSD o
+	 sofisticado, e conhece o sistema de arquivos do &os; o
 	 suficiente para encontrar arquivos, e pode fornecer uma
 	 interface simples para escolher o arquivo do kernel para
 	 carregar e executar.</para>
@@ -299,9 +301,9 @@ label=FreeBSD</programlisting>
       <para>O
 	<link linkend="boot-loader"><literal>loader</literal></link>
 	é muito mais sofisticado, e fornece uma configuração de
-	inicializaçãoa fácil de usar, o <filename>boot2</filename>
-	executa o carregador, mas anteriormente ele era encarregado de
-	executar o kernel diretamente.</para>
+	inicialização fácil de usar, o <filename>boot2</filename>
+	executa o <literal>loader</literal>, mas anteriormente ele era
+	encarregado de executar o kernel diretamente.</para>
 
       <example id="boot-boot2-example">
 	<title>Imagem de tela do <filename>boot2</filename></title>
@@ -314,12 +316,12 @@ boot:</screen>
       <para>Se você precisar substituir o <filename>boot1</filename> e
 	o <filename>boot2</filename> use o &man.bsdlabel.8;:</para>
 
-      <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>discodivisão</replaceable></userinput></screen>
+      <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>diskslice</replaceable></userinput></screen>
 
-      <para>Onde <replaceable>discodivisão</replaceable> é o disco
-	rígido e a divisão da qual você quer iniciar, tal como
-	<devicename>ad0s1</devicename> para a primeira divisão no
-	primeiro disco rígido IDE.</para>
+      <para>Onde <replaceable>diskslice</replaceable> é o disco
+	rígido e o <literal>slice</literal> do qual você quer iniciar, tal
+	como <devicename>ad0s1</devicename> para o primeiro
+	<literal>slice</literal> no primeiro disco rígido IDE.</para>
 
       <warning>
 	<title>Modo Dedicado Arriscado</title>
@@ -338,28 +340,30 @@ boot:</screen>
 
       <indexterm><primary>boot-loader</primary></indexterm>
 
-      <para>O carregador é a etapa final das três etapas da 
-        inicialização, está localizado no sistema de arquivos,
-	geralmente como <filename>/boot/loader</filename>.</para>
+      <para>O <literal>loader</literal> é a etapa final das três
+	etapas da inicialização, está localizado no sistema de
+	arquivos, geralmente como
+	<filename>/boot/loader</filename>.</para>
 
-      <para>O carregador é usado como um método amigável para
-        configuração, usando um conjunto de comandos próprios fáceis
-        de usar, apoiado por um interpretador mais poderoso, com um
-        conjunto de comandos mais complexos.</para>
+      <para>O <literal>loader</literal> é usado como um método
+	amigável para configuração, usando um conjunto de comandos
+	próprios, fáceis de usar, apoiado por um interpretador mais
+	poderoso, com um conjunto de comandos mais complexos.</para>
 
       <sect3 id="boot-loader-flow">
-	<title>Fluxo do Programa Carregador</title>
+	<title>Fluxo do Programa <literal>Loader</literal></title>
 
-	<para>Durante a inicialização, o carregador irá procurar por
-	  um console e por discos, e descobrir a partir de qual disco
-	  ele está iniciando.  Ele definirá variáveis necessárias, e
-	  um interpretador será iniciado por onde comandos do usuário
-	  podem ser passados de um script ou interativamente.</para>
+	<para>Durante a inicialização, o <literal>loader</literal> irá
+	  procurar por um console e por discos, e descobrir a partir
+	  de qual disco ele está iniciando.  Ele definirá variáveis
+	  necessárias, e um interpretador será iniciado por onde
+	  comandos do usuário podem ser passados de um script ou
+	  interativamente.</para>
 
 	<indexterm><primary>loader</primary></indexterm>
 	<indexterm><primary>loader configuration</primary></indexterm>
 
-	<para>O carregador irá ler o
+	<para>O <literal>loader</literal> irá ler o
 	  <filename>/boot/loader.rc</filename>, que por padrão lê o
 	  <filename>/boot/defaults/loader.conf</filename> que define
 	  valores padrões para variáveis e então lê o
@@ -369,13 +373,13 @@ boot:</screen>
 	  variáveis, carregando os módulos e o kernel que foram
 	  selecionados.</para>
 
-	<para>Finalmente, por padrão, o carregador espera por 10
-	  segundos para uma tecla ser pressionada, após isso inicia o
-	  kernel.  Se interrompido, será exibido para o usuário um
-	  prompt que entende um conjunto de comandos de uso fácil,
-	  onde o usuário pode ajustar variáveis, descarregar todos os
-	  módulos, carregar módulos, e então finalmente iniciar ou
-	  reiniciar.</para>
+	<para>Finalmente, por padrão, o <literal>loader</literal>
+	  espera por 10 segundos para uma tecla ser pressionada, após
+	  isso inicia o kernel.  Se interrompido, será exibido para o
+	  usuário um prompt que entende um conjunto de comandos de uso
+	  fácil, onde o usuário pode ajustar variáveis, descarregar
+	  todos os módulos, carregar módulos, e então finalmente
+	  iniciar ou reiniciar.</para>
       </sect3>
 
       <sect3 id="boot-loader-commands">
