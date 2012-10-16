@@ -2934,34 +2934,38 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
   </sect1>
 
   <sect1 id="new-head-node">
-    <title>How to configure a new head node (pointyhat instance)</title>
+    <title>Como configurar um novo nó principal (instância do
+      pointyhat)</title>
 
-    <para>This section is in progress.</para>
+    <para>Esta seção está em progresso.</para>
 
-    <para>Please talk to Mark Linimon before making any changes.</para>
+    <para>Por favor, consulte Mark Linimon antes de fazer qualquer
+      mudança.</para>
 
     <sect2 id="pointyhat-basics">
-      <title>Basic installation</title>
+      <title>Instalação básica</title>
 
       <procedure>
 
 	<step>
-	  <para>Install FreeBSD.</para>
+	  <para>Instale o &os;.</para>
 	</step>
 
 	<step>
-	  <para>For each supported arch, add a
-	    <literal>ports-<replaceable>${arch}</replaceable></literal>
-	    user and group.  Add them to the <literal>wheel</literal>
-	    group.  They should have the <literal>'*'</literal> password.
-	    Also, similarly, create the <literal>ports</literal> and
-	    <literal>portmgr</literal> users.</para>
+	  <para>Para cada arquitetura suportada, adicione um usuário e
+	    grupo
+	    <literal>ports-<replaceable>${arch}</replaceable></literal>.
+	    Adicione o usuário para o grupo <literal>wheel</literal>.
+	    Este deve ter um <literal>'*'</literal> como senha.
+	    Crie também também, de modo similar, o usuário
+	    <literal>ports</literal> e
+	    <literal>portmgr</literal>.</para>
 	</step>
 
 	<step>
-	  <para>For each supported arch, create
+	  <para>Para cada arquitetura suportada, crie o
 	    <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
-	    and populate <filename>authorized_keys</filename>.  </para>
+	    e ajuste o <filename>authorized_keys</filename>.</para>
 	</step>
 
 <!-- NOTYET
@@ -2975,52 +2979,55 @@ ganglia:*:102:102::0:0:User &:/usr/local/ganglia:/bin/sh</screen>
 -->
 
 	<step>
-	  <para>Create the appropriate files in
+	  <para>Crie os arquivos apropriados em
 	    <filename>/etc/.ssh/</filename>.</para>
 	</step>
 
 	<step>
-	  <para>Add the following to <filename>/boot/loader.conf</filename>:<screen>
+	  <para>Adicione o seguinte para
+	    <filename>/boot/loader.conf</filename>:<screen>
 console="vidconsole,comconsole"</screen>
 	  </para>
 	</step>
 
 	<step>
-	  <para>Add the following to <filename>/etc/sysctl.conf</filename>:<screen>
+	  <para>Adicione o seguinte para
+	    <filename>/etc/sysctl.conf</filename>:<screen>
 kern.maxfiles=40000
 kern.maxfilesperproc=38000</screen>
 	  </para>
 	</step>
 
 	<step>
-	  <para>Make sure the following change is made to
-	    <filename>/etc/ttys</filename>:<screen>
+	  <para>Certifique-se de que as seguintes mudanças foram
+	    feitas em <filename>/etc/ttys</filename>:<screen>
 ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
 	  </para>
 	</step>
 
 	<step>
-	  <para>TBA</para>
+	  <para>Ainda a ser anunciado.</para>
 	</step>
       </procedure>
 
     </sect2>
 
     <sect2 id="pointyhat-disk">
-      <title>Configuring the disk</title>
+      <title>Configurando o disco</title>
 
       <procedure>
 
 	<step>
-	  <para>Create a <application>zfs</application> volume named
-	    <filename>a</filename> and mount it on
+	  <para>Crie um volume <application>zfs</application> chamado
+	    <filename>a</filename> e monte-o em
 	    <filename>/a</filename>:<screen>
 # zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
 	  </para>
 	</step>
 
 	<step>
-	  <para>Set up the base portbuild directory:<screen>
+	  <para>Configure o diretório base do
+	    <literal>portbuild</literal>:<screen>
 # mkdir -p /a/portbuild
 # cd /a/portbuild
 # chown portmgr:portmgr .
@@ -3029,7 +3036,7 @@ ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
 	</step>
 
 	<step>
-	  <para>TBA</para>
+	  <para>Ainda a ser anunciado.</para>
 	</step>
 
       </procedure>
@@ -3037,12 +3044,12 @@ ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
     </sect2>
 
     <sect2 id="pointyhat-src">
-      <title>Configuring <literal>src</literal></title>
+      <title>Configurando o <literal>src</literal></title>
 
       <procedure>
 
 	<step>
-	  <para>TBA</para>
+	  <para>Ainda a ser anunciado.</para>
 	</step>
 
       </procedure>
@@ -3050,11 +3057,12 @@ ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
     </sect2>
 
     <sect2 id="pointyhat-ports">
-      <title>Configuring <literal>ports</literal></title>
+      <title>Configurando o <literal>ports</literal></title>
 
       <procedure>
 	<step>
-	  <para>The following ports (or their latest successors) are required:<screen>
+	  <para>Os seguintes <literal>ports</literal> (ou seus
+	    sucessores mais recentes) são obrigatórios:<screen>
 databases/py-pysqlite23
 databases/py-sqlalchemy
 devel/git (WITH_SVN)
@@ -3068,13 +3076,15 @@ sysutils/ganglia-webfrontend (WITHOUT_X11)
 www/apache22 (with EXT_FILTER and THREADS)</screen>
 	  </para>
 
-	  <para>Expect those to bring in:<screen>
+	  <para>Esperamos que estes últimos instalem também:<screen>
 databases/sqlite3
 lang/perl-5.12
 lang/python27</screen>
 	  </para>
 
-	  <para>The following ports (or their latest successors) are strongly suggested:<screen>
+	  <para>Os seguintes <literal>ports</literal> (ou seus
+	    sucessores mais recentes) são fortemente
+	    recomendados:<screen>
 benchmarks/bonnie++
 devel/ccache
 mail/postfix
@@ -3092,7 +3102,8 @@ sysutils/smartmontools</screen>
 	</step>
 
 	<step>
-	  <para>Configure mail by doing the following: TBA.
+	  <para>Configure o e-mail fazendo o seguinte: (ainda a ser
+	    anunciado).
 	  </para>
 	</step>
       </procedure>
@@ -3100,12 +3111,12 @@ sysutils/smartmontools</screen>
     </sect2>
 
     <sect2 id="pointyhat-other">
-      <title>Other</title>
+      <title>Outros</title>
 
       <procedure>
 
 	<step>
-	  <para>TBA</para>
+	  <para>Ainda a ser anunciado.</para>
 	</step>
 
       </procedure>
