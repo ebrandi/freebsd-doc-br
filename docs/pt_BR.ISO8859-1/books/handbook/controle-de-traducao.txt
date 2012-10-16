@@ -2,14 +2,14 @@
 ##################################################################
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
-312    # book.sgml           # r39544  # Liberado para revisão, 16/10/2012 - ebrandi
+312    # book.xml            # r39544  # Liberado para revisão, 16/10/2012 - ebrandi
 708    # preface             # r39544  # Rafael Aquino, 03/10/2012
 3394   # mirrors             # r39575  # VinÃ­cius Zavam, 05/10/2012
 580    # bibliography        # r39544  # Liberado para tradução
 2142   # eresources          # r39544  # Marcelo/Porks, 10/10/2012
 40     # pgpkeys             # r39631  #
 2039   # glossary.ent        # r39534  #
-25     # colophon.sgml       # r39631  #
+25     # colophon.xml        # r39631  #
 ##################################################################
 9215 Linhas
 
