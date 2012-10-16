@@ -2815,49 +2815,54 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
       </listitem>
 
       <listitem>
-	<para>Make the private configuration directory:
+	<para>Crie o diretório privado de configuração:
 	  <screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
 	</para>
       </listitem>
 
       <listitem>
-	<para>In that directory: create any <filename>dotunnel.*</filename>
-	  scripts needed.</para>
+	<para>Nesse diretório: crie qualquer <literal>script</literal>
+	  <filename>dotunnel.*</filename> necessário.</para>
       </listitem>
     </itemizedlist>
 
     <note>
-      <para>Once again using <application>sudo</application>:</para>
+      <para>Mais uma vez usando
+        <application>sudo</application>:</para>
     </note>
 
     <itemizedlist>
       <listitem>
-	<para>Tell <application>qmanager</application> about the arch:
+	<para>Informe o <application>qmanager</application> sobre a
+	  arquitetura:
 	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen></para>
       </listitem>
 
       <listitem>
-        <para>(Only necessary for new codebase):
-	  Add <replaceable>arch</replaceable> to <makevar>SUPPORTED_ARCHS</makevar> in
-	    <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
+	<para>(Necessário apenas para o novo código base):
+	  Adicione <replaceable>arch</replaceable> para
+	  <makevar>SUPPORTED_ARCHS</makevar> no
+	  <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
       </listitem>
 
       <listitem>
-        <para>(Only necessary for old codebase):
-	  Edit <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+	<para>(Necessário apenas para o antigo código base):
+	  Edite
+	  <filename>/var/portbuild/scripts/buildenv</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>Add the <replaceable>arch</replaceable> directory to
-	  <filename>/var/portbuild/scripts/zbackup</filename> and
+	<para>Adicione o diretório <replaceable>arch</replaceable> no
+	  <filename>/var/portbuild/scripts/zbackup</filename> e
 	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
       </listitem>
 
       <listitem>
-        <para>(Only necessary for old codebase):
-	  As with the procedure for creating a new branch:
-	  in the <filename>/var/portbuild/errorlogs/</filename>
-	  directory, create links for the webserver:<screen>
+	<para>Necessário apenas para o antigo código base):
+	  Como no procedimento para criação de um novo ramo:
+	  crie os <literal>links</literal> para o servidor web no
+	  diretório
+	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
@@ -2869,8 +2874,9 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 
       <listitem>
         <para>
-	  In the <filename>/var/portbuild/errorlogs/</filename>
-	  directory, create two more links for the webserver:<screen>
+	  Crie mais dois <literal>links</literal> para o servidor
+	  web no diretório
+	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
 ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
 ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</replaceable>-errorlogs</screen>
 	</para>
@@ -2878,24 +2884,24 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
     </itemizedlist>
 
     <note>
-      <para>Again, as
-	<literal>ports-<replaceable>arch</replaceable></literal>:</para>
+      <para>NOvamente como
+        <literal>ports-<replaceable>arch</replaceable></literal>:</para>
     </note>
 
     <itemizedlist>
       <listitem>
-	<para>For each branch that will be supported, do the following:
+	<para>Para cada ramo que será suportado, faça o seguinte:
 	</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Kick-start the build for the branch with
+	    <para>Inicie a compilação para o ramo com
 	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
 	    </para>  
 	  </listitem>
 
 	  <listitem>
-	    <para><link linkend="setup">Create
+	    <para><link linkend="setup">Crie o
 	      <filename>bindist.tar</filename></link>.</para>
 	  </listitem>
 	</itemizedlist>
@@ -2904,22 +2910,24 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
     </itemizedlist>
 
     <note>
-      <para>One last time using <application>sudo</application>:</para>
+      <para>Uma última vez usando o
+        <application>sudo</application>:</para>
     </note>
 
     <itemizedlist>
       <listitem>
-        <para>(Only necessary for old codebase):
-	  Only after the first time a
-	  <application>dopackages</application> has been run for the
-	  arch: add the arch to
+	<para>(Necessário apenas para o antigo código base):
+	  Só depois que a primeira execução do
+	  <application>dopackages</application> for feita para a
+	  arquitetura: adicione a arquitetura para
 	  <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>Add an appropriate <replaceable>arch</replaceable> entry for
-	  <filename>/var/portbuild/scripts/dologs</filename> to the root
-	  <filename>crontab</filename>.  (This is a hack and should go away.)
+	<para>Adicione uma entrada <replaceable>arch</replaceable> apropriada
+	  para <filename>/var/portbuild/scripts/dologs</filename> na
+	  raiz do <filename>crontab</filename>.  (Isso é um paleativo
+	  e deve ser corrigido.)
 	</para>
       </listitem>
     </itemizedlist>
