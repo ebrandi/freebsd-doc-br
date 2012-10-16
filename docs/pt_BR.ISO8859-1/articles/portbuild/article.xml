@@ -3126,23 +3126,26 @@ sysutils/smartmontools</screen>
   </sect1>
 
   <sect1 id="disk-failure">
-    <title>Procedures for dealing with disk failures</title>
+    <title>Procedimentos para lidar com falhas de disco</title>
 
-    <para>When a machine has a disk failure (e.g. panics due to read errors,
-      etc), then we should do the following steps:</para>
+    <para>Quando uma máquina tem uma flaha de disco (e.g. entra em
+      pânico devido à erros de leitura, etc), então devemos fazer os
+      seguintes passos:</para>
 
     <itemizedlist>
-      <listitem><para>Note the time and failure mode (e.g. paste in the
-	relevant console output) in
+      <listitem><para>Anote o tempo e o modo como a falha ocorreu
+	(por exemplo, colar a saída do console que seja relevante) no
 	<filename>/var/portbuild/<replaceable>${arch}</replaceable>/reboots</filename></para></listitem>
 
-      <listitem><para>For i386 gohan clients, scrub the disk by touching
-	<filename>/SCRUB</filename> in the nfsroot (e.g.
-	<filename>/a/nfs/8.dir1/SCRUB</filename>) and rebooting.  This will
-	<command>dd if=/dev/zero of=/dev/ad0</command> and force the drive to
-	remap any bad sectors it finds, if it has enough spares left.  This is
-	a temporary measure to extend the lifetime of a drive that is on the
-	way out.</para>
+      <listitem><para>Para os clientes i386 gohan, limpe o disco
+        criando o arquivo <filename>/SCRUB</filename> no
+	<literal>nfsroot</literal> (por exemplo,
+	<filename>/a/nfs/8.dir1/SCRUB</filename>) e reinicie.  Isso
+	vai executar <command>dd if=/dev/zero of=/dev/ad0</command> e
+	forçar a unidade a remapear todos os setores defeituoso que
+	encontrar, se tiver bastante setores sobressalentes.  Essa é
+	uma medida temporária para extender o tempo de vida de uma
+	unidade de disco que irá tornar-se inutilizável.</para>
 
 	<note><para>For the i386 blade systems another signal of a failing
 	  disk seems to be that the blade will completely hang and be
@@ -3151,13 +3154,14 @@ sysutils/smartmontools</screen>
 	<para>For other build systems that don't newfs their disk at boot (e.g.
 	  amd64 systems) this step has to be skipped.</para></listitem>
 
-      <listitem><para>If the problem recurs, then the disk is probably toast.
-	Take the machine out of <filename>mlist</filename> and (for ata disks)
-	run <command>smartctl</command> on the drive:</para>
+      <listitem><para>Se o problema persistir, então provavelmente o
+	disco está queimado.  Mantenha a máquina fora do
+	<filename>mlist</filename> e (para discos ATA) execute o
+	<command>smartctl</command> na unidade:</para>
 
 	<screen>smartctl -t long /dev/ad0</screen>
 
-	<para>It will take about 1/2 hour:</para>
+	<para>Isso vai levar cerca de 1/2 horas:</para>
 
 	<screen>gohan51# smartctl -t long /dev/ad0
 smartctl version 5.38 [i386-portbld-freebsd8.0] Copyright (C) 2002-8
@@ -3173,21 +3177,24 @@ Test will complete after Fri Jul  4 03:59:56 2008
 
 Use smartctl -X to abort test.</screen>
 
-	<para>Then <command>smartctl -a /dev/ad0</command> shows the status
-	  after it finishes:</para>
+	<para>Quando terminar, o <command>smartctl -a
+	  /dev/ad0</command> mostra o estado da unidade:</para>
 
 	<screen># SMART Self-test log structure revision number 1
 # Num  Test_Description    Status                  Remaining
 LifeTime(hours)  LBA_of_first_error
 #   1  Extended offline    Completed: read failure       80%     15252    319286</screen>
 
-	<para>It will also display other data including a log of previous drive
-	  errors.  It is possible for the drive to show previous DMA errors
-	  without failing the self-test though (because of sector
-	  remapping).</para></listitem>
+	<para>Ele também exibirá outros dados, incluindo um
+	  <literal>log</literal> dos erros anteriores da unidade.  É
+	  possível que a unidade mostre erros de
+	  <acronym>DMA</acronym> embora não apresente falhas no
+	  auto-teste (por conta do remapeamento de
+	  setores).</para></listitem>
     </itemizedlist>
 
-    <para>When a disk has failed, please inform the cluster administrators
-      so we can try to get it replaced.</para>
+    <para>Quando um disco falhar, por favor, informe os
+      administradores do <literal>cluster</literal>, para que possamos
+      substituílo.</para>
   </sect1>
 </article>
