@@ -101,19 +101,20 @@
 	uso no dia a dia do <emphasis>&os;
 	&rel2.current;-RELEASE</emphasis> e do <emphasis>&os;
 	&rel.current;-RELEASE</emphasis>.  Este
-	handbook é um <emphasis>trabalho em andamento</emphasis> e é o
+	manual é um <emphasis>trabalho em andamento</emphasis> e é o
 	resultado do trabalho de muitas pessoas.  Como tal, algumas
 	seções podem estar desatualizadas e necessitando de
 	atualização.  Se você estiver interessado em colaborar com
 	este projeto, envie um email para a &a.doc;.  A última versão
 	deste documento sempre poderá ser encontrada no <ulink
 	url="http://www.FreeBSD.org/">Web site do &os;</ulink> (as
-	versões anteriores desde manual podem ser obtidas a partir do
-	endereço <ulink url="http://docs.FreeBSD.org/doc/"></ulink>).
+	versões anteriores desde handbook podem ser obtidas a partir 
+	do endereço 
+	<ulink url="http://docs.FreeBSD.org/doc/"></ulink>).
 	Este documento também pode ser obtido em várias outras opções
 	de formatos e compressões de arquivo no <ulink
 	url="ftp://ftp.FreeBSD.org/pub/FreeBSD/doc/">Servidor de
-	FTP do FreeBSD</ulink> ou em um dos numerosos <link
+	FTP do &os;</ulink> ou em um dos numerosos <link
 	linkend="mirrors-ftp">sites espelho</link>.  Se você preferir
 	ter uma cópia impressa deste handbook, você pode comprar uma 
 	na <ulink url="http://www.freebsdmall.com/">FreeBSD 
@@ -184,7 +185,7 @@
 
       <itemizedlist>
 	<listitem>
-	  <para>Apresentá-lo a aplicativos de desktop populares e
+	  <para>Apresentá-lo à aplicativos de desktop populares e
 	    úteis: navegadores, ferramentas de produtividade,
 	    visualizadores de documentos, etc.</para>
 	</listitem>
@@ -196,14 +197,16 @@
 
 	<listitem>
 	  <para>Explicar o processo de compilação de um kernel
-	    customizado para o &os;, para habilitar funcionalidades
-	    extras no seu sistema.</para>
+	    customizado para o &os;, para que possa habilitar 
+	    funcionalidades extras no seu sistema.</para>
 	</listitem>
 
 	<listitem>
 	  <para>Descrever o sistema de impressão em detalhes, tanto
-	    para impressoras conectadas diretamente ao desktop quanto
-	    para impressoras conectadas à rede.</para>
+	    para configurações nas quais as impressoras são 
+	    conectadas diretamente a um desktop quanto para aquelas 
+	    nas quais as impressoras são conectadas através da 
+	    rede.</para>
 	</listitem>
 
 	<listitem>
@@ -229,16 +232,17 @@
     <title>Administração do Sistema</title>
 
     <partintro>
-      <para>The remaining chapters of the FreeBSD Handbook cover all
-	aspects of FreeBSD system administration.  Each chapter starts
-	by describing what you will learn as a result of reading the
-	chapter, and also details what you are expected to know before
-	tackling the material.</para>
+      <para>Os capítulos restantes do Handbook cobrem todos os
+	aspectos da administração de um sistema &os;.  Cada capítulo
+	inicia descrevendo o que você irá aprender como resultado da
+	sua leitura, e também detalha qual o conhecimento prévio que 
+	se espera que você tenha antes de iniciar a leitura do
+	material.</para>
 
-      <para>These chapters are designed to be read when you need
-	the information.  You do not have to read them in any
-	particular order, nor do you need to read all of them before
-	you can begin using FreeBSD.</para>
+      <para>Estes capítulos foram concebidos para serem lidos quando
+	você precisar das informações sobre os seus temas.  Você não 
+	tem que lê-los em nenhuma ordem em particular, e nem precisa
+	ler todos para que possa começar a usar o &os;.</para>
     </partintro>
 
     &chap.config;
@@ -262,25 +266,25 @@
     <title>Comunicação de Rede</title>
 
     <partintro>
-      <para>FreeBSD is one of the most widely deployed operating
-	systems for high performance network servers.  The chapters in
-	this part cover:</para>
-
+      <para>O &os; é um dos sistemas operacionais mais utilizados em 
+	servidores de rede de alto desempenho.  Os capítulos desta
+	parte irão cobrir:</para>
+      
       <itemizedlist>
 	<listitem>
-	  <para>Serial communication</para>
+	  <para>Comunicação Serial</para>
 	</listitem>
 
 	<listitem>
-	  <para>PPP and PPP over Ethernet</para>
+	  <para>PPP e PPP sobre Ethernet</para>
 	</listitem>
 
 	<listitem>
-	  <para>Electronic Mail</para>
+	  <para>Correio Eletrônico</para>
 	</listitem>
 
 	<listitem>
-	  <para>Running Network Servers</para>
+	  <para>Execução de Servidores de Rede</para>
 	</listitem>
 
 	<listitem>
@@ -288,14 +292,15 @@
 	</listitem>
 
 	<listitem>
-	  <para>Other Advanced Networking Topics</para>
+	  <para>Outros tópicos avançados de rede</para>
 	</listitem>
       </itemizedlist>
 
-      <para>These chapters are designed to be read when
-	you need the information.  You do not have to read them in any
-	particular order, nor do you need to read all of them before
-	you can begin using FreeBSD in a network environment.</para>
+      <para>Estes capítulos foram concebidos para serem lidos quando 
+	você precisar das informações sobre os seus temas.  Você não 
+	tem que lê-los em nenhuma ordem em particular, e nem precisa 
+	ler todos para que possa começar a usar o &os; em um ambiente
+	de rede.</para>
     </partintro>
 
     &chap.serialcomms;
