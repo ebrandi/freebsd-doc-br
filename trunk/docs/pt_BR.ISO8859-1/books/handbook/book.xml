@@ -178,42 +178,44 @@
     <title>Tarefas Comuns</title>
 
     <partintro>
-      <para>Now that the basics have been covered, this part of the
-	FreeBSD Handbook will discuss some frequently used features of
-	FreeBSD.  These chapters:</para>
+      <para>Agora que o básico já foi abordado, esta parte do Handbook
+	irá discutir algumas das funcionalidades mais utilizadas do
+	&os;.  Estes capítulos irão:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>Introduce you to popular and useful desktop
-	    applications: browsers, productivity tools, document
-	    viewers, etc.</para>
+	  <para>Apresentá-lo a aplicativos de desktop populares e
+	    úteis: navegadores, ferramentas de produtividade,
+	    visualizadores de documentos, etc.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Introduce you to a number of multimedia tools
-	    available for FreeBSD.</para>
+	  <para>Apresentá-lo às diversas ferramentas multimídia
+	    disponíveis para o FreeBSD.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Explain the process of building a customized FreeBSD
-	    kernel, to enable extra functionality on your
-	    system.</para>
+	  <para>Explicar o processo de compilação de um kernel
+	    customizado para o &os;, para habilitar funcionalidades
+	    extras no seu sistema.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Describe the print system in detail, both for desktop
-	    and network-connected printer setups.</para>
+	  <para>Descrever o sistema de impressão em detalhes, tanto
+	    para impressoras conectadas diretamente ao desktop quanto
+	    para impressoras conectadas à rede.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Show you how to run Linux applications on your FreeBSD
-	    system.</para>
+	  <para>Mostrar como executar aplicativos nativos do 
+	    Linux no seu sistema &os;</para>
 	</listitem>
       </itemizedlist>
 
-      <para>Some of these chapters recommend that you do some prior
-	reading, and this is noted in the synopsis at the beginning of
-	each chapter.</para>
+      <para>Alguns destes capítulos requerem que você tenha realizado
+	alguma leitura prévia, quando aplicável esta recomendação 
+	será mencionada na sinopse existente no início de cada 
+	capítulo.</para>
     </partintro>
 
     &chap.desktop;
@@ -224,7 +226,7 @@
   </part>
 
   <part id="system-administration">
-    <title>System Administration</title>
+    <title>Administração do Sistema</title>
 
     <partintro>
       <para>The remaining chapters of the FreeBSD Handbook cover all
@@ -257,7 +259,7 @@
   </part>
 
   <part id="network-communication">
-    <title>Network Communication</title>
+    <title>Comunicação de Rede</title>
 
     <partintro>
       <para>FreeBSD is one of the most widely deployed operating
@@ -306,7 +308,7 @@
   </part>
 
   <part id="appendices">
-    <title>Appendices</title>
+    <title>Apêndices</title>
 
     &chap.mirrors;
     &chap.bibliography;
