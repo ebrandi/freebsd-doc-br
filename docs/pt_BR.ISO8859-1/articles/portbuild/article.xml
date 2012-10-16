@@ -2697,9 +2697,8 @@ dopackages</command> sem <literal>-nobuild</literal>.</para>
 
     <itemizedlist>
       <listitem>
-	<para>Create a new
-	  <literal>ports-<replaceable>arch</replaceable></literal>
-	  user and group.</para>
+	<para>Crie um novo usuário e grupo
+	  <literal>ports-<replaceable>arch</replaceable></literal>.</para>
       </listitem>
 
       <listitem>
@@ -2707,7 +2706,8 @@ dopackages</command> sem <literal>-nobuild</literal>.</para>
       </listitem>
 
       <listitem>
-	<para>Create a new <application>zfs</application> filesystem:
+	<para>Crie um novo sistema de arquivo
+	  <application>zfs</application>:
 	  <screen>zfs create -o mountpoint=/a/portbuild/<replaceable>arch</replaceable> a/portbuild/<replaceable>arch</replaceable></screen>
 	</para>
       </listitem>
@@ -2720,45 +2720,51 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
       </listitem>
 
       <listitem>
-	<para>Create and populate the <filename>.ssh</filename> directory.</para>
+	<para>Crie e popule o diretório
+	  <filename>.ssh</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>Create a directory for buildlogs and errorlogs:
+	<para>Crie um diretório para os <literal>logs</literal> de
+	  compilação e <literal>logs</literal> de erros:
 	  <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
 	</para>
 
 	<note>
-	  <para>It is possible that <filename>/dumpster/pointyhat</filename>
-	    will not have enough space.  In that case, create the archive
-	    directory as
+	  <para>É possível que
+	    <filename>/dumpster/pointyhat</filename> não tenha mais
+	    espaço suficiente.  Neste caso, crie o diretório dos
+	    arquivos como
 	    <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
-	    and symlink to that.  (This needs to be sorted out.)
+	    e crie um <literal>link</literal> simbólico para este.
+	    (Isso precisa ser resolvido.)
 	  </para>
 	</note>
       </listitem>
 
       <listitem>
-	<para>Create a link to the above for the webserver:
+	<para>Crie um <literal>link</literal> para o diretório acima
+	  para o servidor web:
 	  <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
 	</para>
       </listitem>
     </itemizedlist>
 
     <note>
-      <para>The next steps are most easily done as user
+      <para>Os próximos passos são mais fáceis de serem realizados
+	como o usuário
 	<literal>ports-<replaceable>arch</replaceable></literal>.</para>
     </note>
 
     <itemizedlist>
       <listitem>
-	<para>In the
+	<para>No diretório
 	  <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
-	  directory:<screen>mkdir clients</screen></para>
+	  execute:<screen>mkdir clients</screen></para>
       </listitem>
 
       <listitem>
-	<para>Populate <filename>clients</filename> as usual.</para>
+	<para>Popule <filename>clients</filename> como de costume.</para>
       </listitem>
 
       <listitem>
@@ -2770,33 +2776,33 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
       </listitem>
 
       <listitem>
-	<para>Create a local <filename>make.conf</filename>.  In the
-	  most trivial case, you can
+	<para>Crie um <filename>make.conf</filename> local.  Nos casos
+	mais comuns você pode executar
 	  <screen>ln ../make.conf ./make.conf</screen></para>
       </listitem>
 
       <listitem>
-	<para>Create an empty <filename>mlist</filename> file.</para>
+	<para>Crie um arquivo vázio <filename>mlist</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>(Only necessary for old codebase) Create
+	<para>(Necessário apenas para o antigo código base) Crie o
 	  <filename>pnohang.<replaceable>arch</replaceable></filename>.
-	  (The easiest way may be to do the following on a client, and
-	  then copy it back):
+	  (O modo mais fácil pode ser fazer o seguinte em um cliente,
+	  e depois copiar isso de volta):
 	  <screen>cc pnohang.c -o pnohang-<replaceable>arch</replaceable></screen>
 	</para>
       </listitem>
 
       <listitem>
-	<para>Create a fresh <filename>portbuild.conf</filename> file
-	  from one of the ones for another architecture.</para>
+	<para>Crie o arquivo <filename>portbuild.conf</filename>
+	  atualizado a partir de uma das outras arquiteturas.</para>
       </listitem>
 
       <listitem>
-	<para>Create customized
+	<para>Crie o arquivo
 	  <filename>portbuild.<replaceable>machinename</replaceable>.conf</filename>
-	  files as appropriate.</para>
+	  personalizado apropriadamente.</para>
       </listitem>
 
       <listitem>
@@ -2804,8 +2810,8 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
       </listitem>
 
       <listitem>
-	<para>Edit the <filename>.ssh/config</filename> file for
-	  convenience in using <application>ssh</application>.</para>
+	<para>Edite o arquivo <filename>.ssh/config</filename> para o
+	  uso do <application>ssh</application>.</para>
       </listitem>
 
       <listitem>
