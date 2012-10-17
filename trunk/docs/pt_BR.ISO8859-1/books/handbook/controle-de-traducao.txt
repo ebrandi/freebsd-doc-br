@@ -7,7 +7,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 3394   # mirrors             # r39575  # VinÃ­cius Zavam, 05/10/2012
 580    # bibliography        # r39544  # Liberado para tradução
 2142   # eresources          # r39544  # Marcelo/Porks, 10/10/2012
-40     # pgpkeys             # r39631  #
+40     # pgpkeys             # r39631  # Liberado para revisão,  16/10/2012 - ebrandi
 2039   # glossary.ent        # r39534  #
 25     # colophon.xml        # r39631  #
 ##################################################################
