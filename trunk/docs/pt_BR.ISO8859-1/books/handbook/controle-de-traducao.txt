@@ -18,7 +18,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 1048   # introduction        # r39576  # Juliana Manczenko, 18/09/2012
-5011   # install             # r39550  #  
+5011   # install             # r39550  # Marcos Alves, 16/10/2012 
 2731   # bsdinstall          # r39550  #
 2716   # basics              # r39544  #
 1623   # ports               # r39649  #
