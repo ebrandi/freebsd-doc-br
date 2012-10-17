@@ -9,17 +9,18 @@
 -->
 
 <colophon id='colophon'>
-  <para>This book is the combined work of hundreds of contributors to
-    <quote>The FreeBSD Documentation Project</quote>.  The text is
-    authored in SGML
-    according to the DocBook DTD and is formatted from SGML into many
-    different presentation formats using <application>Jade</application>,
-    an open source DSSSL
-    engine.  Norm Walsh's DSSSL stylesheets were used with an
-    additional customization layer to provide the presentation
-    instructions for <application>Jade</application>.  The printed
-    version of this document would not be possible without Donald
-    Knuth's <application>&tex;</application> typesetting language,
-    Leslie Lamport's <application>LaTeX</application>, or Sebastian
-    Rahtz's <application>JadeTeX</application> macro package.</para>
+  <para>Este livro é o resultado do trabalho combinado de centenas de
+    colaboradores do <quote>Projeto de Documentação do
+    FreeBSD</quote>. O texto é escrito em XML de acordo com o DocBook
+    DTD e é formatado a partir do XML para diversos formatos de
+    apresentação utilizando o <application>Jade</application>, um
+    motor DSSSL de código aberto.  As folhas de estilo do Norm Walsh
+    são utilizadas com uma camada adicional de customização para
+    fornecer as instruções de apresentação para o
+    <application>Jade</application>.  A versão impressa deste
+    documento não seria possível sem a linguagem de composição
+    <application>&tex;</application> do Donald Knuth, sem o
+    <application>LaTeX</application> do Leslie Lamport, ou do pacote
+    de macros <application>JadeTeX</application> do Sebastian
+    Rahtz.</para>
 </colophon>
