@@ -1,8 +1,8 @@
-  -- ...................................................................... --
-  -- FreeBSD SGML Public Identifiers ...................................... --
+  -- ............................................................. --
+  -- FreeBSD SGML Public Identifiers ............................. --
 
-  -- ...................................................................... --
-  -- Portuguese Brazilian specific ........................................ --
+  -- ............................................................. --
+  -- Portuguese Brazilian specific ............................... --
 
   -- The FreeBSD Documentation Project
   -- The FreeBSD Brazilian Portuguese Documentation Project
@@ -48,4 +48,19 @@ PUBLIC  "-//FreeBSD//ENTITIES DocBook FreeBSD Books Entity Set//PT"
 
 PUBLIC  "-//FreeBSD//ENTITIES DocBook FreeBSD Articles Entity Set//PT"
         "articles.ent"
+
+  -- ............................................................. --
+  -- HTML docs ................................................... --
+
+PUBLIC "-//FreeBSD//ENTITIES FreeBSD L10N Entities//EN"
+       "l10n.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES FreeBSD Release L10N Entities//EN"
+       "release.l10n.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES HTML FreeBSD Header L10N Entities//EN"
+       "header.l10n.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES HTML FreeBSD Navigation Bar L10N Entities//EN"
+       "navibar.l10n.ent"
 
