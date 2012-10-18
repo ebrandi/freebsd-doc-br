@@ -15,7 +15,7 @@
 	<firstname>Matthew</firstname>
 	<surname>Dillon</surname>
 	<contrib>
-		Muito desse capítulo foi retirado da pagina do manual
+		Muito desse capítulo foi retirado da página do manual
 		security(7)
 	</contrib>
       </author>
@@ -30,22 +30,22 @@
     <title>Sinopse</title>
 
 	<para>
-		Esse capitlo proverá uma introdução basica aos conceitos do
-		sistema de segurança, algumas boas regras gerais de manuseio,
-		e alguns topicos avancados sobre &os;.  Muitos dos topicos cobertos
+		Esse capítulo proverá uma introdução básica aos conceitos do
+		sistema de segurança, algumas regras gerais de manuseio,
+		e alguns tópicos avançados sobre &os;.  Muitos dos tópicos cobertos
 		aqui, podem ser aplicados para sistemas e segurança da Internet
-		no geral.  A internet nao 'e mais um lugar <quote>amistoso</quote>
-		no qual cada um gostaria de ser bons vizinhos.  A segurança do
-		seu sistema e imperativo para protejer seus dados, propriedade
-		intelectual, tempo, e muito mais das maos dos harckers e 
+		no geral.  A internet não é mais um lugar <quote>amistoso</quote>
+		no qual cada um gostaria de ter somente bons vizinhos.  A segurança 
+		do seu sistema é imperativa para proteger seus dados, propriedade
+		intelectual, tempo, e muito mais das mãos dos harckers e 
 		assemelhados.
 	</para>
 	<para>
-		&os; prove um conjunto de utilitarios e mecanismos para garantir
+		&os; provê um conjunto de utilitários e mecanismos para garantir
 		a integridade e segurança do seu sistema e da sua rede.
 	</para>
 	<para>
-		Apos a leitura deste capítulo, você conhecera:
+		Apos a leitura deste capítulo, você conhecerá:
 	</para>
 
     <itemizedlist>
@@ -106,7 +106,7 @@
 			<para>
 				Como usar o utilitário <application>Portaudit</application>
 				para auditar os programas de terceiros instalados a partir
-				da coleção de "ports".
+				da coleção de <quote>ports</quote>.
 			</para>
       </listitem>
 
@@ -118,7 +118,7 @@
 
       <listitem>
 			<para>
-				Ter uma ideia do que é o Processo de Contabilidade e como
+				Ter noção do que é o Processo de Contabilidade e como
 				habilitá-lo no &os;.
 			</para>
       </listitem>
@@ -135,7 +135,7 @@
     </itemizedlist>
 
 	<para>
-		Tópicos adicionais de segurança serão abortados neste livro.
+		Tópicos adicionais de segurança serão abortados neste manual.
 		Por exemplo, Controle de Acesso Obrigatório 
 		(<acronym>MAC</acronym>	NT.) e discutido
 		no <xref linkend="mac"/> e Internet Firewall e discutido no 
@@ -151,21 +151,21 @@
 		do sistema.  Enquanto todos os BSD &unix; são sistemas multi-usuários
 		que possuem alguma segurança inerente, o trabalho de construir e
 		manter um mecanismo de seguraça adicional para manter os usuários
-		<quote>honestos</quote> é provavelmente um dos maiories empreitadas
+		<quote>honestos</quote> é provavelmente um das maiories empreitadas
 		individual dos administradores de sistema.  Máquinas são tão seguras
-		quanto se pode fazer, e preocupações com a segurança são sempre 
+		quanto se pode fazer, e preocupações com a segurança estão sempre 
 		competindo com a necessidade humana por conveniência.  Sistemas
-		&unix;, em geral, é capaz de rodar um grande número de processos
+		&unix;, em geral, são capaz de rodar um grande número de processos
 		simultâneos e muitos desses processos operam como servidores &mdash;
-		habilitanto diversas entitades externas a conectarem e se comunicarem.
+		habilitando diversas entitades externas a se conectarem e se comunicarem.
 		Como no passado mini-computadores e mainframes se tornam os computadores
-		de mesa, e como os computadores começaram a conectar-se em redes, o
-		problema com a segurança torna-se cada vez mais presente.
+		de mesa, e como os computadores começaram a se conectar em redes, o
+		problema com a segurança se torna cada vez mais presente.
 		</para>
 		<para>
 			Segurança de sistemas também lida com várias formas de ataques,
 		incluindo ataques que visam travar, ou tornar o sistema indisponível,
-		mas não tentam comprometer a conta de <username>root</username>.
+		ou tentam comprometer a conta do usuário <username>root</username>.
 		A preocupação com a segurança pode ser dividida em várias categorias:
 		</para>
 
@@ -204,7 +204,7 @@
       <see>Denial of Service (DoS)</see>
     </indexterm>
     <indexterm>
-      <primary>segurança</primary>
+      <primary>security/primary>
       <secondary>DoS attacks</secondary>
       <see>Denial of Service (DoS)</see>
     </indexterm>
@@ -224,6 +224,23 @@
       impossible to stop, short of cutting your system off from the
       Internet.  It may not be able to take your machine down, but it
       can saturate your Internet connection.</para>
+		<para>
+			O ataque de negação de serviço (DoS), é uma ação que priva a máquina
+		dos recursos necessários.  Tipicamente, os ataques de DoS são mecanismos
+		de força bruta que tentam travar ou  fazer a máquina ficar inutilizável 
+		através de uma sobrecarga a seus serviços ou a pilha da rede.  
+		Alguns ataques de DoS tentam tirar vantagens de falhas na pilha
+		de rede para travar a máquina com um único pacote,  Este uúltimo só
+		pode ser corrigido através de aplicação de uma correção de falha no 
+		<literal>kernel</literal>.  Ataques à serviços podem ser 
+		corrigidos/evitados através de configurações de opções específicas para
+		limitar a carga destes serviços em sistemas sob condições adversas.
+		Ataques de bruta força são difíceis de se lidar.  Um ataque de 
+		<literal>spoofed-packet</literal>, por exemplo, é praticamente impossível
+		de parar, retire seu sistema da rede por um beve intervalo de tempo.
+		Isso pode não retirar seu serviço do ar, mas pode saturar a sua conexão
+		com a Internet.
+		</para>
 
     <indexterm>
       <primary>security</primary>
