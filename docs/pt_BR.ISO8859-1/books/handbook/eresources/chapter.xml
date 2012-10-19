@@ -35,14 +35,15 @@
       perguntas para a lista de discussão mais adequada vai garantir
       uma resposta mais rápida e precisa.</para>
 
-    <para>Os escopos para as várias listas estão no fim deste
-      documento.  <emphasis>Por favor, leia o escopo antes de entrar
-      ou enviar mensagens para alguma lista</emphasis>.  A maioria dos
-      assinantes das listas recebem centenas de mensagens sobre o
-      FreeBSD a cada dia, e por definir escopos e regras para o uso
-      correto nós estamos nos esforçando para manter as listas livre
-      de ruídos.  Sem isto, as listas seriam um modo ineficiente de
-      comunicação com o projeto.</para>
+    <para>Os manuais de conduta para as várias listas estão no fim
+      deste documento.  <emphasis>Por favor, leia o manual de conduta
+      antes de entrar ou enviar mensagens para alguma
+      lista</emphasis>.  A maioria dos assinantes das listas recebem
+      centenas de mensagens sobre o FreeBSD a cada dia, e por definir
+      manais de conduta e regras para o uso correto nós estamos nos
+      esforçando para manter as listas livre de ruídos.  Sem isto, as
+      listas seriam um modo ineficiente de comunicação com o
+      projeto.</para>
 
     <note>
       <para><emphasis>Se você quer testar o envio de mensagens para as
@@ -172,8 +173,9 @@
 
       <para><emphasis>Listas técnicas:</emphasis> As listas a seguir
 	são para discussões técnicas.  Você deve ler cuidadosamente o
-	escopo de cada lista antes de entrar ou enviar mensagens, pois
-	há diretrizes firmes para o uso e conteúdo delas.</para>
+	manual de conduta de cada lista antes de entrar ou enviar
+	mensagens, pois há diretrizes firmes para o uso e conteúdo
+	delas.</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
@@ -688,7 +690,7 @@
 	    <row>
 	      <entry>&a.svn-doc-head.name;</entry>
 	      <entry><filename>/usr/doc</filename></entry>
-	      <entry>Todas as mudanças para a ramificação
+	      <entry>Todas as mudanças no ramo
 		<quote>head</quote> do repositório Subversion
 		doc</entry>
 	    </row>
@@ -719,7 +721,7 @@
 	    <row>
 	      <entry>&a.svn-ports-head.name;</entry>
 	      <entry><filename>/usr/ports</filename></entry>
-	      <entry>Todas as mudanças na ramificação
+	      <entry>Todas as mudanças no ramo
 		<quote>head</quote> do repositório Subversion
 		ports</entry>
 	    </row>
@@ -743,9 +745,9 @@
 	    <row>
 	      <entry>&a.svn-src-head.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	    <entry>Todas as mudanças para a ramificação
-	      <quote>head</quote> do repositório Subversion src (a
-	      ramificação &os;-CURRENT)</entry>
+	    <entry>Todas as mudanças no ramo
+	      <quote>head</quote> do repositório Subversion src (o
+	      ramo &os;-CURRENT)</entry>
 	    </row>
 
 	    <row>
@@ -767,7 +769,7 @@
 	    <row>
 	      <entry>&a.svn-src-releng.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>Todas as mudanças para a ramificação 
+	      <entry>Todas as mudanças no ramo
 		<filename>releng</filename> do repositório Subversion
 		src (as ramificações de segurança&nbsp;/ engenharia de
 		liberação)</entry>
@@ -784,7 +786,7 @@
 	    <row>
 	      <entry>&a.svn-src-stable-6.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>Todas as mudanças para a ramificação
+	      <entry>Todas as mudanças no ramo
 		<filename>stable/6</filename> do repositório
 		Subversion src</entry>
 	    </row>
@@ -792,7 +794,7 @@
 	    <row>
 	      <entry>&a.svn-src-stable-7.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>Todas as mudanças para a ramificação
+	      <entry>Todas as mudanças no ramo
 		<filename>stable/7</filename> do repositório
 		Subversion src</entry>
 	    </row>
@@ -800,7 +802,7 @@
 	    <row>
 	      <entry>&a.svn-src-stable-8.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>Todas as mudanças para a ramificação
+	      <entry>Todas as mudanças no ramo
 		<filename>stable/8</filename> do repositório
 		Subversion src</entry>
 	    </row>
@@ -808,7 +810,7 @@
 	    <row>
 	      <entry>&a.svn-src-stable-9.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
-	      <entry>Todas as mudanças para a ramificação
+	      <entry>Todas as mudanças no ramo
 		<filename>stable/9</filename> do repositório
 		Subversion src</entry>
 	    </row>
@@ -875,66 +877,72 @@
     </sect2>
 
     <sect2 id="eresources-charters">
-      <title>List Charters</title>
+      <title>Manual de Conduta</title>
 
-      <para><emphasis>All</emphasis> FreeBSD mailing lists have certain basic
-	rules which must be adhered to by anyone using them. Failure to comply
-	with these guidelines will result in two (2) written warnings from the
-	FreeBSD Postmaster <email>postmaster@FreeBSD.org</email>, after which,
-	on a third offense, the poster will removed from all FreeBSD mailing
-	lists and filtered from further posting to them. We regret that such
-	rules and measures are necessary at all, but today's Internet is a
-	pretty harsh environment, it would seem, and many fail to appreciate
-	just how fragile some of its mechanisms are.</para>
+      <para><emphasis>Todas</emphasis> as listas do FreeBSD possuem
+	regras básicas que devem ser respeitadas por todos que as
+	usam.  O não cumprimento destas regras irá resultar em duas
+	(2) advertências por escrito pelo Administrador do Sistema de
+	E-mail do FreeBSD <email>postmaster@FreeBSD.org</email> e após
+	um terceiro desrespeito das regras o usuário será removido de
+	todas as listas de discussão do FreeBSD e filtrado em
+	postagens futuras.  Nós lamentamos que tais regras e medidas
+	são necessárias, mas a Internet de hoje é um ambiente muito
+	difícil e ao que parece muitos não conseguem apreciar o quão
+	frágeis alguns de seus mecanismos são.</para>
 
-      <para>Rules of the road:</para>
+      <para>Regras básicas:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>The topic of any posting should adhere to the basic charter of
-	    the list it is posted to, e.g., if the list is about technical
-	    issues then your posting should contain technical discussion.
-	    Ongoing irrelevant chatter or flaming only detracts from the value
-	    of the mailing list for everyone on it and will not be tolerated.
-	    For free-form discussion on no particular topic, the &a.chat;
-	    is freely available and should be used instead.</para>
+	  <para>O tópico em qualquer lista deve seguir o estatuto
+	    básico da lista em que é postado, por exemplo, se a lista
+	    é sobre assuntos técnicos, então a postagem deve conter
+	    discussão técnica.  Conversas irrelevantes e respostas
+	    provocativas apenas desvalorizam a lista de discussão e
+	    não será tolerado.  Para discussão livre sobre nenhum tema
+	    em particular, a &a.chat; deve ser usada.</para>
 	</listitem>
 
 	<listitem>
-	  <para>No posting should be made to more than 2 mailing lists, and
-	    only to 2 when a clear and obvious need to post to both lists
-	    exists.  For most lists, there is already a great deal of
-	    subscriber overlap and except for the most esoteric mixes (say
-	    <quote>-stable &amp; -scsi</quote>), there really is no reason to post to more
-	    than one list at a time.  If a message is sent to you in such a
-	    way that multiple mailing lists appear on the
-	    <literal>Cc</literal> line then the <literal>Cc</literal>
-	    line should also be trimmed before sending it out again.
-	    <emphasis>You are still responsible for your
-	      own cross-postings, no matter who the originator might have
-	      been.</emphasis></para>
+	  <para>Nenhuma postagem deve ser feita para mais de 2 listas
+	    de discussão e somente para 2 quando existir uma
+	    necessidade clara e óbvia de postar para ambas as listas.
+	    Para a maioria das listas já existe uma grande quantidade
+	    de assinantes sobrepostos e exceto para misturas mais
+	    esotéricas (por exemplo, <quote>-stable &amp;
+	    -scsi</quote>), não há realmente uma razão para postar em
+	    mais de uma lista ao mesmo tempo.  Se uma mensagem é
+	    enviada para você de tal maneira que várias listas de
+	    discussão aparecem no campo <literal>Cc</literal> então o
+	    campo <literal>Cc</literal> deve ser alterado antes de
+	    você responder a mensagem.  <emphasis>Você será
+	    responsável pela sua postagem cruzada, não importando quem
+	    foi o autor original.</emphasis></para>
 	</listitem>
 
 	<listitem>
-	  <para>Personal attacks and profanity (in the context of an argument)
-	    are not allowed, and that includes users and developers alike.
-	    Gross breaches of netiquette, like excerpting or reposting private
-	    mail when permission to do so was not and would not be
-	    forthcoming, are frowned upon but not specifically enforced.
-	    <emphasis>However</emphasis>, there are also very few cases where
-	    such content would fit within the charter of a list and it would
-	    therefore probably rate a warning (or ban) on that basis
-	    alone.</para>
+	  <para>Ataques pessoais e profanação (no contexto de um
+	    argumento) não são permitidos, isto inclui usuários e
+	    desenvolvedores.  Violações da netiqueta, como citar ou
+	    encaminhar mensagens privadas sem a devida permissão, são
+	    desagradáveis, mas não são especificamente proibidas.
+	    <emphasis>No entanto</emphasis>, existem alguns casos em
+	    qua tais conteúdos se encaixam nas regras da lista e
+	    proavelmente poderá gerar uma advertência (ou
+	    banimento).</para>
 	</listitem>
 
 	<listitem>
-	  <para>Advertising of non-FreeBSD related products or services is
-	    strictly prohibited and will result in an immediate ban if it is
-	    clear that the offender is advertising by spam.</para>
+	  <para>Publicidade de produtos ou serviços que não são
+	    relacionados ao estritamente proibido e irá resultar em um
+	    banimento imediato, se ficar claro que o infrator está
+	    fazendo spam.</para>
 	</listitem>
       </itemizedlist>
 
-      <para><emphasis>Individual list charters:</emphasis></para>
+      <para><emphasis>Manuais de conduta individuais de cada
+	lista:</emphasis></para>
 
       <variablelist>
 
@@ -942,8 +950,8 @@
 	  <term>&a.acpi.name;</term>
 
 	  <listitem>
-	    <para><emphasis>ACPI and power management
-	       development</emphasis></para>
+	    <para><emphasis>Desenvolvimento ACPI e de controle de
+	      energia</emphasis></para>
 	  </listitem>
 	</varlistentry>
 
@@ -953,8 +961,8 @@
 	  <listitem>
 	    <para><emphasis>Andrew File System</emphasis></para>
 
-	    <para>This list is for discussion on porting and using AFS from
-	      CMU/Transarc</para>
+	    <para>Esta lista é para discutir o uso e portabilidade do
+	      AFS desenvolvido pelo CMU/Transarc</para>
 	  </listitem>
 	</varlistentry>
 
@@ -962,14 +970,17 @@
 	  <term>&a.announce.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Important events / milestones</emphasis></para>
+	    <para><emphasis>Eventos importantes e
+	      marcos</emphasis></para>
 
-	    <para>This is the mailing list for people interested only in
-	      occasional announcements of significant FreeBSD events. This
-	      includes announcements about snapshots and other releases.  It
-	      contains announcements of new FreeBSD capabilities.  It may
-	      contain calls for volunteers etc. This is a low volume, strictly
-	      moderated mailing list.</para>
+	    <para>Este é a lista de discussão para pessoas
+	      interessadas somente em anúncios ocasionais de eventos
+	      significantivos do FreeBSD.  Isso inclui anúncios sobre
+	      <literal>snapshots</literal> e outros lançamentos.  Ela
+	      contém anúncios para novas funcionalidades do FreeBSD.
+	      Também pode conter chamadas para voluntários, etc.  Esta
+	      é uma lista de poucas mensagens e estritamente
+	      moderada.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -977,33 +988,35 @@
 	  <term>&a.arch.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Architecture and design
-		discussions</emphasis></para>
+	    <para><emphasis>Discussões de arquitetura e
+	      design</emphasis></para>
 
-            <para>This list is for discussion of the FreeBSD
-	      architecture.  Messages will mostly be kept strictly
-	      technical in nature.  Examples of suitable topics
-	      are:</para>
+	    <para>Esta lista é para a discussão da arquitetura
+	      FreeBSD.  A maioria das mensagens serão mantidas
+	      estritamente técnicas.  Exemplos de tópicos apropriados
+	      são:</para>
 
 	    <itemizedlist>
 	      <listitem>
-		<para>How to re-vamp the build system to have several
-		  customized builds running at the same time.</para>
+		<para>Como arrumar o sistema de
+		  <literal>build</literal> para ter várias construções
+		  do sistema sendo executadas ao mesmo tempo.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>What needs to be fixed with VFS to make Heidemann layers
-		  work.</para>
+		<para>O que precisa ser arrumado no VFS para as
+		  camadas Heidemann funcionar.</para>
 		</listitem>
 
 	      <listitem>
-		<para>How do we change the device driver interface to be able
-		  to use the same drivers cleanly on many buses and
-		  architectures.</para>
+		<para>Como podemos mudar a interface de driver de
+		  dispositivo para poder usar os mesmos drivers de
+		  maneira limpa em vários barramentos e
+		  arquiteturas.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>How to write a network driver.</para>
+		<para>Como escrever um driver de rede.</para>
 	      </listitem>
 	    </itemizedlist>
 	  </listitem>
@@ -1013,13 +1026,14 @@
 	  <term>&a.bluetooth.name;</term>
 
 	  <listitem>
-	    <para><emphasis>&bluetooth; in FreeBSD</emphasis></para>
+	    <para><emphasis>&bluetooth; no FreeBSD</emphasis></para>
 
-	    <para>This is the forum where FreeBSD's &bluetooth; users
-              congregate.  Design issues, implementation details,
-              patches, bug reports, status reports, feature requests,
-              and all matters related to &bluetooth; are fair
-              game.</para>
+	    <para>Este é o fórum onde os usuários do FreeBSD que usam
+	      &bluetooth; se reúnem.  Questões de design, detalhes de
+	      implementação, <literal>patches</literal>, relatórios de
+	      <literal>bugs</literal>, relatórios de status,
+	      solicitações de recursos e todos os assuntos
+	      relacionados ao &bluetooth; são válidos.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1027,12 +1041,18 @@
 	  <term>&a.bugbusters.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Coordination of the Problem Report handling effort</emphasis></para>
+	    <para><emphasis>Coordenação dos Relatórios de Problemas
+	      (<literal>Problema Report</literal>)</emphasis></para>
 
-	    <para>The purpose of this list is to serve as a coordination and
-	      discussion forum for the Bugmeister, his Bugbusters, and any other
-	      parties who have a genuine interest in the PR database.  This list
-	      is not for discussions about specific bugs, patches or PRs.</para>
+	    <para>O objetivo desta lista é de servir como um fórum de
+	      discussão e coordenação para os gestores de
+	      <literal>bugs</literal>, os caçadores de
+	      <literal>bugs</literal> e quaisquer outros que tem
+	      interesse genuíno no banco de dados de
+	      <literal>PR</literal>.  Esta lista não é para discussões
+	      sobre <literal>bugs</literal> específicos,
+	      <literal>patches</literal> ou
+	      <literal>PRs</literal>.</para>
 	  </listitem>
 	</varlistentry>
 
