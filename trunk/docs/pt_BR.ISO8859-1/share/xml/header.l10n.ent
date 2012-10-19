@@ -70,8 +70,8 @@
 	<ul>
 	  <li><a href="&base;/projects/newbies.html">Introdução</a>
 	  </li>
-	  <li><a href="&base;/features.html">Funcionalidades</a></li>
-	  <li><a href="&base;/advocacy/">Apoio</a></li>
+	  <li><a href="&base;/features.html">Características</a></li>
+	  <li><a href="&base;/advocacy/">Proselitismo</a></li>
 	  <li><a href="&base;/marketing/">Marketing</a></li>
 	</ul>
       </li>
@@ -99,7 +99,7 @@
       <li><a href="&base;/community.html">Comunidade</a>
 	<ul>
 	  <li><a href="&base;/community/mailinglists.html">Listas de Discussão</a></li>
-	  <li><a href="http://forums.freebsd.org">Fórums</a></li>
+	  <li><a href="http://forums.freebsd.org">Fóruns</a></li>
 	  <li><a href="&base;/usergroups.html">Grupos de Usuários</a></li>
 	  <li><a href="&base;/events/events.html">Eventos</a></li>
 	</ul>
