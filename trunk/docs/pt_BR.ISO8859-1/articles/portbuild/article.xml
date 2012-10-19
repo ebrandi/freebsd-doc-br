@@ -65,25 +65,26 @@
     <note>
       <para>Muitos dos detalhes neste artigo serão do
 	interesse apenas para aqueles no time de <ulink
-	url="&url.base/portmgr">Gestao de
+	url="&url.base/portmgr">Gestão de
 	<literal>Ports</literal></ulink></para>
     </note>
 
     <sect2 id="codebase">
       <title>O código base</title>
-    <para>A maior parte da mágica da compilação de pacotes ocorre sob
+    <para>A maior parte da mágica na compilação de pacotes ocorre sob
       o diretório <filename>/var/portbuild</filename>.  A menos que
       seja especificado o contrário, todos os caminhos serão relativos
       à este diretório.  <replaceable>${arch}</replaceable> será usado
       para determinar uma das arquiteturas de pacotes (amd64, &i386;,
       ia64, powerpc, e &sparc64;), e
       <replaceable>${branch}</replaceable> será usado para determinar
-      o ramo de compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
+      o <literal>branch</literal> (ramo de desenvolvimento) de compilação
+      (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
       10-exp).</para>
 
     <note>
-      <para>Não são mais compilados pacotes para os
-	<literal>releases</literal> 4, 5 ou 6, e para a arquitetura
+      <para>Não são mais compilados pacotes para as versões
+	4, 5 ou 6, e para a arquitetura
 	alpha</para>
     </note>
 
@@ -102,7 +103,8 @@
       compilações completas apenas quando:</para>
 
     <itemizedlist>
-      <listitem><para>depois de um <literal>release</literal>, para o ramo
+      <listitem><para>depois de um lançamento, para o
+        <literal>branch</literal>
         <literal>-STABLE</literal></para></listitem>
 
       <listitem><para>periodicamente, para testar mudanças
@@ -158,7 +160,7 @@
 
       <note>
 	<para>Como em dezembro de 2010, <hostid>pointyhat</hostid>
-	  ainda está rodando sobre o antigo código base até que o
+	  ainda está rodando sobre o antigo código base, até que o
 	  novo código base seja considerado estável.</para>
       </note>
 
@@ -178,7 +180,7 @@
     <title>Configurando Clientes de Compilação</title>
 
     <para>Os clientes &i386; localizados conjuntamente com
-      <hostid>pointyhat</hostid> efetuam o <literal>boot</literal> via
+      <hostid>pointyhat</hostid>, efetuam o <literal>boot</literal> via
       rede a partir dele (nós <replaceable>conectados</replaceable>);
       todos os outros clientes (nós
       <replaceable>desconectados</replaceable>) ou são
@@ -200,7 +202,7 @@
     <para>O usuário
       <username>ports-<replaceable>${arch}</replaceable></username>
       pode acessar os nós clientes através do &man.ssh.1; para
-      monitorá-los.  Usar o <command>sudo</command> e verificar o
+      monitorá-los.  Use o <command>sudo</command> e verifique o
       <hostid>portbuild.<replaceable>hostname</replaceable>.conf</hostid>
       para o usuário e detalhes do acesso.</para>
 
@@ -215,16 +217,17 @@
       compilação, e agendar quais nós compilarão quais
       <literal>ports</literal>.  Este <literal>script</literal> não é
       muito robusto e tem uma tendência a morrer.  É melhor iniciar
-      este <literal>script</literal> no nó principal (e.g.
+      este <literal>script</literal> no nó principal (por exemplo,
       <hostid>pointyhat</hostid>) depois do <literal>boot</literal>
       usando um <literal>loop</literal> com &man.while.1;.</para>
   </sect1>
 
   <sect1 id="setup">
-    <title>Configuração do Ambiente de Compilação em Chroot</title>
+    <title>Configuração do Ambiente de Compilação em
+      <literal>Chroot</literal></title>
 
     <para>A compilação de pacotes é realizada em um ambiente
-      <literal>chroot</literal> populado pelo
+      <literal>chroot</literal>, populado pelo
       <literal>script</literal> <filename>portbuild</filename> usando
       o arquivo
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
@@ -247,7 +250,7 @@
 
     <screen>/var/portbuild&prompt.root; <userinput>scripts/mkbindist <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable></userinput></screen>
 
-    <para>Os arquivos <literal>tar</literal> de cada máquina estão
+    <para>Os <literal>tarballs</literal> de cada máquina estão
       localizados em
       <filename><replaceable>${arch}</replaceable>/clients</filename>.</para>
 
@@ -268,7 +271,7 @@
   <sect1 id="customizing">
     <title>Customizando Sua Compilação</title>
 
-    <para>(O trecho a seguir aplica-se apenas para o novo código
+    <para>(O trecho a seguir aplica-se apenas ao novo código
       base.)</para>
 
     <para>Você pode customizar sua compilação providenciando versões
@@ -287,7 +290,7 @@
     </para>
 
     <note>
-      <para>Devido ao fato de cada um dos clientes individuais poderem ter
+      <para>Devido ao fato de cada um dos clientes individuais poder ter
         seu próprio <filename>make.conf</filename>, o conteúdo do
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>
 	vai ser <emphasis>adicionado</emphasis> ao
@@ -367,7 +370,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     <title>Iniciando a Compilação</title>
 
     <para>Várias compilações separadas para cada arquitetura -
-      a combinação de ramos é suportada.  Todos os dados privados para
+      a combinação de <literal>branchs</literal> é suportada.  Todos os dados privados para
       uma compilação (árvore de <literal>ports</literal>, árvore do
       <literal>src</literal>, pacotes, <literal>distfiles</literal>,
       arquivos de <literal>log</literal>, <literal>bindist</literal>,
@@ -382,7 +385,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       ZFS.</para>
 
     <sect2 id="build-dopackages">
-      <title><literal>Scripts</literal>
+      <title>Os <literal>Scripts</literal>
         <command>dopackages</command></title>
 
     <para>Os <literal>scripts</literal>
@@ -403,7 +406,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><command>dopackages.7-exp</command> - Executa a
 	  compilação para a série 7.X com <literal>patches</literal>
-	  experimentais (ramo 7-exp)
+	  experimentais (<literal>branch</literal> 7-exp)
 	</para>
       </listitem>
 
@@ -416,7 +419,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><command>dopackages.8-exp</command> - Executa a
 	  compilação para a série 8.X com <literal>patches</literal>
-	  experimentais (ramo 8-exp)
+	  experimentais (<literal>branch</literal> 8-exp)
 	</para>
       </listitem>
 
@@ -429,7 +432,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><command>dopackages.9-exp</command> - Executa a
 	  compilação para a série 9.X com <literal>patches</literal>
-	  experimentais (ramo 9-exp)
+	  experimentais (<literal>branch</literal> 9-exp)
 	</para>
       </listitem>
 
@@ -442,17 +445,22 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><command>dopackages.10-exp</command> - Executa a
 	  compilação para a série 10.X com <literal>patches</literal>
-	  experimentais (ramo 10-exp)
+	  experimentais (<literal>branch</literal> 10-exp)
 	</para>
       </listitem>
     </itemizedlist>
 
-    <para>These are wrappers around <command>dopackages</command>,
-      and are all symlinked to <command>dopackages.wrapper</command>.
-      New branch wrapper scripts can be created by symlinking
-      <command>dopackages.${branch}</command> to
-      <command>dopackages.wrapper</command>.  These scripts
-      take a number of arguments.  For example:</para>
+    <para>Esses são <literal>wrappers</literal> para o
+      <command>dopackages</command> e todos são
+      <literal>links</literal> simbólicos para
+      <command>dopackages.wrapper</command>.
+      <literal>Wrappers</literal> de <literal>scripts</literal> para
+      um novo <literal>branch</literal> podem ser criados com
+      <literal>links</literal> simbólicos
+      <command>dopackages.${branch}</command> para
+      <command>dopackages.wrapper</command>.  Esses
+      <literal>scripts</literal> tem uma série de argumentos.  Por
+      exemplo:</para>
 
     <screen><command>dopackages.7 <replaceable>${arch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></command></screen>
 
