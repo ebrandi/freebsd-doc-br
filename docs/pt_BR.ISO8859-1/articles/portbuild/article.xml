@@ -857,7 +857,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
   <sect1 id="anatomy">
     <title>O Processo de Compilação</title>
 
-    <para>Uma compilação completa sem qualquer opção
+    <para>Uma compilação completa, sem qualquer opção
       <literal>-no</literal> que desabilite as opções padrões, executa
       as seguintes operações na ordem especificada:</para>
 
@@ -869,13 +869,13 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para>Atualiza o ramo usado na árvore <literal>src</literal> a
+	<para>Atualiza o <literal>branch</literal> usado na árvore <literal>src</literal> a
 	  partir de um <literal>snapshot</literal> do ZFS [*]
 	</para>
       </listitem>
 
       <listitem>
-	<para>Verifica que <literal>ports</literal> não têm uma
+	<para>Verifica se <literal>ports</literal> não têm uma
 	  entrada <literal>SUBDIR</literal> no
 	  <filename>Makefile</filename> de suas respectivas categorias
 	  [*]
@@ -975,7 +975,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       quando você iniciou a compilação, ou usando <command>ps
       x</command> para identifica-lo).  Você precisa certificar-se de
       que nada mais importante está rodando neste
-      <literal>tty</literal>, e.g. <command>ps -t p1</command> ou
+      <literal>tty</literal>, por exemplo, <command>ps -t p1</command> ou
       qualquer outro.  Se não existe, você pode encerrar o terminal
       facilmente com <command>pkill -t pts/1</command>; ou pode
       utilizar o <command>kill -HUP</command>, por exemplo,
@@ -1058,7 +1058,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     </para>
 
     <para>Se você atualizou a árvore de <literal>ports</literal> antes
-      de reiniciar, você ter que recompilar outro
+      de reiniciar, você terá que recompilar outro
       <filename>duds</filename>, <filename>INDEX</filename>, ou
       ambos.</para>
 
@@ -1115,7 +1115,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Executar <command>cat /var/portbuild/*/loads/*</command>
       mostra a carga do cliente e o número de compilações simultâneas
       em progresso.  Os arquivos que têm sido atualizados recentemente
-      são dos clientes que estão <literal>online</literal>; os outrss são dos
+      são dos clientes que estão <literal>online</literal>; os outros são dos
       clientes <literal>offline</literal>.</para>
 
     <note>
@@ -1147,7 +1147,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       pode ser capaz de corrigir este problema recompilando este
       pacote problemático manualmente.</para>
 
-    <para>Se todos as compilações iniciam apresentando erros de que
+    <para>Se todas as compilações iniciam apresentando erros de que
       não podem carregar suas dependências, verifique se
       <application>httpd</application> ainda está rodando, e reinicie
       se não estiver.</para>
@@ -1187,7 +1187,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para>o número pacotes completos
+	<para>o número de pacotes completos
 	  (<literal>packages</literal>)</para>
       </listitem>
 
@@ -1246,13 +1246,13 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   </sect1>
 
   <sect1 id="release">
-    <title>Compilações do <literal>Release</literal></title>
+    <title>Compilando Pacotes uma Versão</title>
 
-    <para>Quando compilando pacotes para um
-      <literal>release</literal> do &os;, pode
+    <para>Quando compilando pacotes para uma
+      versão do &os;, pode
       ser necessário atualizar manualmente as árvores de
       <literal>ports</literal> e <literal>src</literal> para a
-      <literal>tag</literal> de <literal>release</literal> e usar as opções
+      <literal>tag</literal> da versão e usar as opções
       <literal>-nocvs</literal> e
       <literal>-noportscvs</literal>.</para>
 
@@ -1282,12 +1282,11 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Isso é útil para ajudar periodicamente na limpeza dos
       <literal>distfiles</literal> do <hostid>ftp-master</hostid>.
       Quando o espaço se torna apertado, os <literal>distfiles</literal>
-      dos <literal>releases</literal> recentes podem ser mantidos, enquanto outros
+      das versões recentes podem ser mantidos, enquanto outros
       podem ser jogados fora.</para>
 
     <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos <literal>distfiles</literal> tenha
-      sido feito (veja abaixo), o conjunto de pacotes do
-      <literal>release</literal>
+      sido feito (veja abaixo), o conjunto de pacotes da versão
       final deve ser criado.  Para se assegurar, execute o
       <literal>script</literal>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/cdrom.sh</filename>
@@ -1298,7 +1297,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       para
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/packages-<replaceable>${release}</replaceable></filename>.
       Uma vez que os pacotes tenham sido movidos com segurança,
-      contate o &a.re; e informe-os da localização do pacote do
+      contate o &a.re; e informe-os da localização dos pacotes do
       <literal>release</literal>.</para>
 
     <para>Lembre-se de coordenar com a &a.re; sobre o momento e
@@ -1313,7 +1312,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>distfiles</literal> podem ser transferidos para o
       <hostid>ftp-master</hostid> para propagação com a rede de
       espelhos FTP.  Se a compilação foi executada com a opção
-      <literal>-nofinish</literal>, então certifique-se de em seguida
+      <literal>-nofinish</literal>, então certifique-se de, em
+      seguida,
       executar <command>dopackages -finish</command> para
       pós-processamento dos pacotes (remover pacotes marcados como
       <literal>RESTRICTED</literal> e <literal>NO_CDROM</literal> onde
@@ -1323,7 +1323,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       compilados, e gerar um <filename>CHECKSUM.MD5</filename>
       resumido); e <literal>distfiles</literal> (movendo-os do
       diretório temporario <filename>distfiles/.pbtmp</filename> para
-      <filename>distfiles/</filename> e remove os
+      <filename>distfiles/</filename> e remover os
       <literal>distfiles</literal> marcados como
       <literal>RESTRICTED</literal> e
       <literal>NO_CDROM</literal>).</para>
@@ -1339,7 +1339,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>release</literal>.</para>
 
     <para>Os subdiretórios de pacotes são nomeados de acordo com seu
-      ramo, <literal>release</literal>, <literal>stable</literal>, ou
+      <literal>branch</literal>, <literal>release</literal>, <literal>stable</literal>, ou
       <literal>current</literal>.  Exemplo:</para>
 
     <itemizedlist>
@@ -1385,7 +1385,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     </note>
 
     <para>Se você está fazendo um conjunto de pacotes completamente
-      novo (e.g. para um novo <literal>release</literal>), copie os
+      novo (por exemplo, para um novo <literal>release</literal>), copie os
       pacotes para a área de teste no <hostid>ftp-master</hostid> com
       algo como o seguinte:</para>
 
@@ -1431,10 +1431,10 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <para>Compilações de <literal>patches</literal> experimentais são
       executadas de tempos em tempos para novas funções ou correções
-      de defeitos na infraestrutura do <literal>ports</literal> (i.e.
-      <filename>bsd.port.mk</filename>), ou para testar atualizações
-      em grabde escala.  A qualquer momento pode haver vários
-      <literal>patches</literal> de ramos experimentais simultâneos,
+      de defeitos na infraestrutura do <literal>ports</literal> (isto
+      é, <filename>bsd.port.mk</filename>), ou para testar atualizações
+      em grande escala.  A qualquer momento podem haver vários
+      <literal>patches</literal> de <literal>branchs</literal> experimentais simultâneos,
       como o <literal>8-exp</literal> na arquitetura amd64.</para>
 
     <para>Geralmente, uma compilação de <literal>patches</literal>
@@ -1447,7 +1447,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <screen>&prompt.user; <userinput>cvs -R update -dP > update.out</userinput>
 &prompt.user; <userinput>date > cvsdone</userinput></screen>
 
-      Issa é a simulação mais próxima do que o
+      Essa é a simulação mais próxima do que o
       <literal>script</literal> <literal>dopackages</literal> faz.
       (Enquanto <filename>cvsdone</filename> é meramente informativo,
       isso pode ajudar.)</para>
@@ -1465,21 +1465,21 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       que testou.</para>
 
     <para>Pelo fato da máquina ser compartilhada, alguém pode excluir
-      suas alterações por engano, entãi mantenha copias destas no, por
-      exemplo, seu diretório <literal>home</literal>  em
+      suas alterações por engano, então mantenha copias destas, por
+      exemplo, no seu diretório <literal>home</literal>  em
       <hostid>freefall</hostid>.  Não use o <filename>tmp/</filename>;
       pois por <hostid>pointyhat</hostid> executar ele mesmo alguma
       versão do <literal>-CURRENT</literal>, você pode esperar
       reinicializações (se por nada de mais, para
       atualizações).</para>
     
-    <para>Com o objetivo de ter uma compilação de controle a qual
+    <para>Com o objetivo de ter uma compilação de controle com a qual
       comparar falhas, você deve primeiro executar a compilação de
-      pacote no ramo em que os <literal>patches</literal>
+      pacote no <literal>brabch</literal> em que os <literal>patches</literal>
       experimentais sejam baseados para a arquitetura &i386;
       (atualmente esta é o <literal>8</literal>).  Em seguida, quando
       preparando para a compilação de <literal>patches</literal>
-      exparimentais, faça o <literal>checkout</literal> da árvore do
+      experimentais, faça o <literal>checkout</literal> da árvore do
       <literal>ports</literal> e do <literal>src</literal> com a mesma
       data da que foi usada para a compilação de controle.  Isso vai
       garantir uma comparação entre as compilações depois.</para>
@@ -1493,14 +1493,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Uma vez terminada a compilação, compare as falhas da
       compilação de controle com as da compilação dos
       <literal>patches</literal> experimentais.  Para facilitar, use
-      os seguintes comandos (assumindo o ramo <literal>8</literal>
-      como ramo de controle, e o <literal>8-exp</literal> como ramo
-      experimental):</para>
-    <para>Once the build finishes, compare the control build failures
-      to those of the experimental patches build.  Use the following
-      commands to facilitate this (this assumes the <literal>8</literal>
-      branch is the control branch, and the <literal>8-exp</literal>
-      branch is the experimental patches branch):</para>
+      os seguintes comandos (assumindo o <literal>branch 8</literal>
+      como <literal>branch</literal> de controle, e o <literal>8-exp</literal>
+      como <literal>branch</literal> experimental):</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8-exp/errors</userinput>
 &prompt.user; <userinput>find . -name \*.log\* | sort > /tmp/8-exp-errs</userinput>
@@ -1564,7 +1559,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
       <listitem>
 	<para>O <literal>port</literal> foi quebrado devido a um erro
-	  temporário (e.g. site FTP fora do ar, erro do pacote
+	  temporário (por exemplo, site FTP fora do ar, erro do pacote
 	  cliente, etc.)
 	</para>
       </listitem>
