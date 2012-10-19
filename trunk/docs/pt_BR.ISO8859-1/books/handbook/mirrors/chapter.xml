@@ -998,419 +998,476 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
     <sect2 id="cvsup-intro">
       <title>Introdução</title>
 
-      <para><application>CVSup</application> is a software package for
-	distributing and updating source trees from a master CVS
-	repository on a remote server host.  The &os; sources are
-	maintained in a CVS repository on a central development machine
-	in California.  With <application>CVSup</application>, &os;
-	users can easily keep their own source trees up to date.</para>
+      <para><application>CVSup</application> é um software utilizado 
+	para distribuição e atualização de códigos fonte, presentes 
+	em diferentes árvores ou galhos de desenvolvimento, num 
+	repositório CVS remoto. Os códigos fonte do &os; são 
+	mantidos em um repositório CVS em um servidor de 
+	desenvolvimento central, na Califórnia. Com o 
+	<application>CVSup</application>, os usuários do &os; 
+	podem facilmente manter suas árvores de código fonte 
+	atualizadas.</para>
 
-      <para><application>CVSup</application> uses the so-called
-	<emphasis>pull</emphasis> model of updating.  Under the pull
-	model, each client asks the server for updates, if and when they
-	are wanted.  The server waits passively for update requests from
-	its clients.  Thus all updates are instigated by the client.
-	The server never sends unsolicited updates.  Users must either
-	run the <application>CVSup</application> client manually to get
-	an update, or they must set up a <command>cron</command> job to
-	run it automatically on a regular basis.</para>
+      <para>O <application>CVSup</application> é baseado na 
+	estratégia de <emphasis>solicitação dos clientes</emphasis> 
+	para realizar suas atualizações . Sob este modelo 
+	estratégico <literal>(pull model)</literal>, cada cliente 
+	deve solicitar ao servidor suas atualizações quando acharem 
+	que for conveniente. O servidor aguarda passivamente por 
+	solicitações de atualização de clientes. Assim, todas as 
+	atualizações são solicitadas pelo cliente. O servidor nunca 
+	envia atualizações não solicitadas. Os usuários devem 
+	executar o cliente <application>CVSup</application> 
+	manualmente para obter uma atualização, ou eles devem 
+	configurar e agendar uma tarefa através do uso do 
+	<command>cron</command> para, automaticamente, 
+	obterem atualizações regularmente.</para>
 
-      <para>The term <application>CVSup</application>, capitalized just
-	so, refers to the entire software package.  Its main components
-	are the client <command>cvsup</command> which runs on each
-	user's machine, and the server <command>cvsupd</command> which
-	runs at each of the &os; mirror sites.</para>
+      <para>O termo <application>CVSup</application>, escrito nessa 
+	forma, refere-se ao pacote de software inteiro. Seus 
+	principais componentes são o cliente 
+	<command>cvsup</command> que roda na máquina de cada 
+	usuário, e o <command>cvsupd</command> que é executado em 
+	cada um dos servidores espelho do &os;.</para>
 
-      <para>As you read the &os; documentation and mailing lists, you
-	may see references to <application>sup</application>.
-	<application>Sup</application> was the predecessor of
-	<application>CVSup</application>, and it served a similar
-	purpose.  <application>CVSup</application> is used much in the
-	same way as sup and, in fact, uses configuration files which are
-	backward-compatible with <command>sup</command>'s.
-	<application>Sup</application> is no longer used in the &os;
-	project, because <application>CVSup</application> is both faster
-	and more flexible.</para>
+      <para>Ao ler a documentação do &os; e suas listas de 
+	discussão, você pode ver referências ao 
+	<application>Sup</application>. O 
+	<application>Sup</application> foi o antecessor do 
+	<application>CVSup</application>, e serviu a um propósito 
+	semelhante. O <application>CVSup</application> é muito usado 
+	da mesma forma que o <application>Sup</application> e, de 
+	fato, usa arquivos de configuração que são compatíveis com o 
+	<command>sup</command>. Atualmente o 
+	<application>Sup</application> não é mais usado pelo projeto 
+	&os; porque o <application>CVSup</application> mostrou-se 
+	mais rápido e mais flexível.</para>
 
       <note>
-	<para>The <application>csup</application> utility is a rewrite of the
-	  <application>CVSup</application> software in C.  Its biggest
-	  advantage is, that it is faster and does not depend on the
-	  Modula-3 language, thus you do not need to install it as a
-	  requirement.  Moreover
-	  you can use it out-of-the-box, since it is included in the base
-	  system.
-	  If you decided to use
-	  <application>csup</application>, just skip the steps on the
-	  installation of <application>CVSup</application> and
-	  substitute the references of <application>CVSup</application> with
-	  <application>csup</application> while following the remainder of
-	  this article.</para>
+	<para>O utilitário <application>csup</application> 
+	  corresponde ao software cliente do 
+	  <application>CVSup</application> reescrito em linguagem C. 
+	  Suas maiores vantagens são os fatos de ele ser mais rápido 
+	  e não depender da linguagem Modula-3. Desta forma não se 
+	  faz necessária a instalação adicional de Modula-3 para 
+	  cumprir exigências. Além disso, você pode usá-lo 
+	  <quote>fora-da-caixa</quote>, uma vez que o 
+	  <application>csup</application> está incluído no sistema 
+	  base. Se você decidiu usar 
+	  <application>csup</application>, basta pular as etapas da 
+	  instalação do <application>CVSup</application> e 
+	  substituir as referências ao cliente 
+	  <application>CVSup</application> por 
+	  <application>csup</application> enquanto segue o restante 
+	  deste artigo.</para>
       </note>
     </sect2>
 
     <sect2 id="cvsup-install">
       <title>Instalação</title>
 
-      <para>The easiest way to install <application>CVSup</application>
-	is to use the precompiled <filename role="package">net/cvsup</filename> package
-	from the &os; <link linkend="ports">packages collection</link>.
-	If you prefer to build <application>CVSup</application> from
-	source, you can use the <filename role="package">net/cvsup</filename>
-	port instead.  But be forewarned: the
-	<filename role="package">net/cvsup</filename> port depends on the Modula-3
-	system, which takes a substantial amount of time and
-	disk space to download and build.</para>
+      <para>A maneira mais fácil de instalar o 
+	<application>CVSup</application> é usar o pacote 
+	<filename role="package">net/cvsup</filename> pré-compilado, 
+	disponível no sistema de <link linkend="ports">pacotes 
+	pré-compilados</link> do &os;. Se você preferir compilar e 
+	instalar o <application>CVSup</application> a partir do 
+	código fonte, você pode usar o port 
+	<filename role="package">net/cvsup</filename>. Mas esteja 
+	ciente de que o port 
+	<filename role="package">net/cvsup</filename> dependerá da 
+	instalação de Modula-3, que irá consumir uma quantidade 
+	substancial de tempo e espaço em disco para finalizar todo o 
+	processo de compilação e instalação.</para>
 
 	<note>
-	  <para>If you are going to be using
-	  <application>CVSup</application> on a machine which will not have
-	  <application>&xorg;</application> installed, such as a server, be
-	  sure to use the port which does not include the
-	  <application>CVSup</application> <acronym>GUI</acronym>,
-	  <filename role="package">net/cvsup-without-gui</filename>.</para>
+	  <para>Se você for usar <application>CVSup</application> 
+	  numa máquina que não terá um servidor 
+	  <application>&xorg;</application> instalado, certifique-se 
+	  de usar o port que não inclui a interface gráfica do 
+	  <application>CVSup</application>, o 
+	  <filename role="package">net/cvsup-without-gui</filename>.
+	  </para>
 	</note>
     </sect2>
 
     <sect2 id="cvsup-config">
       <title>Configuração</title>
 
-      <para><application>CVSup</application>'s operation is controlled
-	by a configuration file called the <filename>supfile</filename>.
-	There are some sample <filename>supfiles</filename> in the
-	directory <ulink type="html"
-	  url="file://localhost/usr/share/examples/cvsup/"><filename>/usr/share/examples/cvsup/</filename></ulink>.</para>
+      <para>As operações realizadas pelo 
+	<application>CVSup</application> são controladas por um 
+	arquivo de configuração chamado 
+	<filename>supfile</filename>. Existem alguns arquivos de 
+	exemplo disponíveis no diretório 
+	<filename>/usr/share/examples/cvsup</filename>.</para>
 
-      <para>The information in a <filename>supfile</filename> answers
-	the following questions for <application>CVSup</application>:</para>
+      <para>A informação contida em um <filename>supfile</filename> 
+	responde as seguintes perguntas feitas pelo 
+	<application>CVSup</application>:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para><link linkend="cvsup-config-files">Which files do you
-	      want to receive?</link></para>
+	  <para><link linkend="cvsup-config-files">Quais arquivos 
+	      você gostaria de receber?</link></para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="cvsup-config-vers">Which versions of them
-	      do you want?</link></para>
+	  <para><link linkend="cvsup-config-vers">Quais versões 
+	      desses arquivos você gostaria de receber?</link></para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="cvsup-config-where">Where do you want to
-	      get them from?</link></para>
+	  <para><link linkend="cvsup-config-where">De onde você 
+	      gostaria de receber esses arquivos?</link></para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="cvsup-config-dest">Where do you want to
-	      put them on your own machine?</link></para>
+	  <para><link linkend="cvsup-config-dest">Onde você gostaria 
+	      de armazenar esses arquivos em seu sistema?</link></para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="cvsup-config-status">Where do you want to
-	      put your status files?</link></para>
+	  <para><link linkend="cvsup-config-status">Onde o 
+	      <command>cvsup</command> deveria armazenar seus arquivos
+	      de status?</link></para>
 	</listitem>
       </itemizedlist>
 
-      <para>In the following sections, we will construct a typical
-	<filename>supfile</filename> by answering each of these
-	questions in turn.  First, we describe the overall structure of
-	a <filename>supfile</filename>.</para>
+      <para>Nas seções seguintes, vamos construir um 
+	<filename>supfile</filename> bem simples respondendo cada 
+	uma destas perguntas. Em primeiro lugar, descreveremos a 
+	estrutura geral de um <filename>supfile</filename>.</para>
 
-      <para>A <filename>supfile</filename> is a text file.  Comments
-	begin with <literal>#</literal> and extend to the end of the
-	line.  Lines that are blank and lines that contain only
-	comments are ignored.</para>
+      <para>O <filename>supfile</filename> é um arquivo de texto 
+	plano. Os comentários começam com <literal>#</literal> e 
+	estendem-se até o final de uma linha. Linhas que estão em 
+	branco e linhas que contêm apenas comentários são ignoradas.</para>
 
-      <para>Each remaining line describes a set of files that the user
-	wishes to receive.  The line begins with the name of a
-	<quote>collection</quote>, a logical grouping of files defined by
-	the server. The name of the collection tells the server which
-	files you want.  After the collection name come zero or more
-	fields, separated by white space.  These fields answer the
-	questions listed above.  There are two types of fields: flag
-	fields and value fields.  A flag field consists of a keyword
-	standing alone, e.g., <literal>delete</literal> or
-	<literal>compress</literal>.  A value field also begins with a
-	keyword, but the keyword is followed without intervening white
-	space by <literal>=</literal> and a second word.  For example,
-	<literal>release=cvs</literal> is a value field.</para>
+      <para>Ignoradas as linhas em branco e os comentários, cada 
+	linha restante descreve um conjunto de arquivos que o 
+	usuário deseja receber. A linha é iniciada com o nome de uma 
+	<quote>coleção</quote>, um agrupamento lógico de ficheiros 
+	definidos pelo servidor. O nome da coleção diz ao servidor 
+	quais arquivos você deseja. Depois do nome da coleção 
+	seguem-se zero ou mais campos, separados por espaço em 
+	branco. Estes campos respondem as perguntas listadas acima. 
+	Existem dois tipos de campos: campos de flags e campos de 
+	valores. Um campo de flag consiste em uma palavra-chave 
+	isolada como, por exemplo, <literal>delete</literal> ou 
+	<literal>compress</literal>. Um campo de valor também começa 
+	com uma palavra-chave, mas essa palavra-chave é seguida (sem 
+	nenhum espaço em branco) por <literal>=</literal> e, também 
+	sem nenhum outro espaço, uma segunda palavra-chave. Por 
+	exemplo, <literal>release=cvs</literal> é um campo de valor 
+	num <filename>supfile</filename>.</para>
 
-      <para>A <filename>supfile</filename> typically specifies more than
-	one collection to receive.  One way to structure a
-	<filename>supfile</filename> is to specify all of the relevant
-	fields explicitly for each collection.  However, that tends to
-	make the <filename>supfile</filename> lines quite long, and it
-	is inconvenient because most fields are the same for all of the
-	collections in a <filename>supfile</filename>.
-	<application>CVSup</application> provides a defaulting mechanism
-	to avoid these problems.  Lines beginning with the special
-	pseudo-collection name <literal>*default</literal> can be used
-	to set flags and values which will be used as defaults for the
-	subsequent collections in the <filename>supfile</filename>.  A
-	default value can be overridden for an individual collection, by
-	specifying a different value with the collection itself.
-	Defaults can also be changed or augmented in mid-supfile by
-	additional <literal>*default</literal> lines.</para>
+      <para>O <filename>supfile</filename> normalmente especifica 
+	mais de uma coleção a se receber. Uma forma de estruturar um 
+	<filename>supfile</filename> é especificar todos os campos 
+	relevantes explicitamente para cada coleção. No entanto, 
+	isto tende a fazer as linhas supfile bem longas, tornando 
+	esta prática inconveniente (porque a maioria dos campos são 
+	os mesmos para todos os conjuntos de coleções). O 
+	<application>CVSup</application> fornece um mecanismo para 
+	evitar estes problemas. As linhas que comecem com 
+	<literal>*default</literal>, uma pseudo-coleção, podem ser 
+	usadas para definir as flags e os valores que serão usados
+	como padrão para as coleções seguintes, presentes no 
+	<filename>supfile</filename>. Um valor padrão pode ser 
+	substituído por uma coleção individual, especificando um 
+	valor diferente para a coleção em si. Padrões também podem 
+	ser alterados ou ampliados no 
+	<filename>supfile</filename> por outras linhas que iniciem 
+	com <literal>*default</literal>.</para>
 
-      <para>With this background, we will now proceed to construct a
-	<filename>supfile</filename> for receiving and updating the main
-	source tree of <link
-	  linkend="current">&os;-CURRENT</link>.</para>
+      <para>Com essas informações, vamos agora avançar para a 
+	construção de um <filename>supfile</filename> para receber e 
+	atualizar a árvore principal contendo o código fonte do 
+	<link linkend="current">&os;-CURRENT</link>.</para>
 
       <itemizedlist>
 	<listitem>
-	  <para><anchor id="cvsup-config-files"/>Which files do you want
-	    to receive?</para>
+	  <para><anchor id="cvsup-config-files"/>Quais arquivos 
+	    você gostaria de receber?</para>
 
-	  <para>The files available via <application>CVSup</application>
-	    are organized into named groups called
-	    <quote>collections</quote>.  The collections that are
-	    available are described in the <link
-	      linkend="cvsup-collec">following section</link>.  In this
-	    example, we
-	    wish to receive the entire main source tree for the &os;
-	    system.  There is a single large collection
-	    <literal>src-all</literal> which will give us all of that.
-	    As a first step toward constructing our
-	    <filename>supfile</filename>, we
-	    simply list the collections, one per line (in this case,
-	    only one line):</para>
+	  <para>Os arquivos disponíveis via 
+	    <application>CVSup</application> são organizadas em 
+	    grupos denominados <quote>coleções</quote>. As coleções 
+	    que estão disponíveis estão descritas na 
+	    <link linkend="cvsup-collec">seção seguinte</link>. 
+	    Neste exemplo, queremos receber a árvore contendo o 
+	    código fonte de todo o sistema base do &os;. Há uma 
+	    coleção única denominada <literal>src-all</literal> que 
+	    nos fornecerá os arquivos referentes a todo o sistema 
+	    base do &os;. Como um primeiro passo para a construção 
+	    do nosso <filename>supfile</filename>, nós devemos 
+	    simplesmente listar as coleções, uma por linha (neste 
+	    caso, apenas uma):</para>
 
 	  <programlisting>src-all</programlisting>
 	</listitem>
 
 	<listitem>
-	  <para><anchor id="cvsup-config-vers"/>Which version(s) of them
-	    do you want?</para>
+	  <para><anchor id="cvsup-config-vers"/>Quais versões 
+	    desses arquivos você gostaria de receber?</para>
 
-	  <para>With <application>CVSup</application>, you can receive
-	    virtually any version of the sources that ever existed.
-	    That is possible because the
-	    <application>cvsupd</application> server works directly from
-	    the CVS repository, which contains all of the versions.  You
-	    specify which one of them you want using the
-	    <literal>tag=</literal> and <option>date=</option> value
-	    fields.</para>
-
-	  <warning>
-	    <para>Be very careful to specify any <literal>tag=</literal>
-	      fields correctly.  Some tags are valid only for certain
-	      collections of files.  If you specify an incorrect or
-	      misspelled tag, <application>CVSup</application>
-	      will delete files which you probably
-	      do not want deleted.  In particular, use <emphasis>only
-	      </emphasis> <literal>tag=.</literal> for the
-	      <literal>ports-*</literal> collections.</para>
-	  </warning>
-
-	  <para>The <literal>tag=</literal> field names a symbolic tag
-	    in the repository.  There are two kinds of tags, revision
-	    tags and branch tags.  A revision tag refers to a specific
-	    revision.  Its meaning stays the same from day to day.  A
-	    branch tag, on the other hand, refers to the latest revision
-	    on a given line of development, at any given time.  Because
-	    a branch tag does not refer to a specific revision, it may
-	    mean something different tomorrow than it means
-	    today.</para>
-
-	  <para><xref linkend="cvs-tags"/> contains branch tags that
-	    users might be interested in.  When specifying a tag in
-	    <application>CVSup</application>'s configuration file, it
-	    must be preceded with <literal>tag=</literal>
-	    (<literal>RELENG_8</literal> will become
-	    <literal>tag=RELENG_8</literal>).
-	    Keep in mind that only the <literal>tag=.</literal> is
-	    relevant for the Ports Collection.</para>
+	  <para>Com o <application>CVSup</application>, você pode 
+	    receber praticamente qualquer 
+	    versão dos códigos fonte que já existiram. Isso é 
+	    possível porque o servidor 
+	    <application>cvsupd</application> trabalha diretamente 
+	    com repositório CVS, que contém todas as versões. Você 
+	    especifica qual delas você quer usar utilizando os 
+	    campos de valor <literal>tag=</literal> e 
+	    <literal>date=</literal>.</para>
 
 	  <warning>
-	    <para>Be very careful to type the tag name exactly as shown.
-	      <application>CVSup</application> cannot distinguish
-	      between valid and invalid tags.  If you misspell the tag,
-	      <application>CVSup</application> will behave as though you
-	      had specified a valid tag which happens to refer to no
-	      files at all.  It will delete your existing sources in
-	      that case.</para>
+	  <para>Tenha muito cuidado ao especificar qualquer valor 
+	    para <literal>tag=</literal> no 
+	    <filename>supfile</filename>. Alguns valores de tags 
+	    são válidos apenas para algumas coleções. Se você 
+	    especificar uma tag incorreta ou inexistente naquela 
+	    coleção o <application>CVSup</application> vai apagar 
+	    arquivos que você provavelmente não quer perder. Em 
+	    particular, a utilização de <literal>tag=.</literal> 
+	    (com a presença deste ponto final) é feita 
+	    <emphasis>SOMENTE</emphasis> para a coleção 
+	    <literal>ports-*</literal>.</para>
 	  </warning>
 
-	  <para>When you specify a branch tag, you normally receive the
-	    latest versions of the files on that line of development.
-	    If you wish to receive some past version, you can do so by
-	    specifying a date with the <option>date=</option> value
-	    field. The &man.cvsup.1; manual page explains how to do
-	    that.</para>
+	  <para>O campo <literal>tag=</literal> nomeia uma tag 
+	    simbólica no repositório. Existem dois tipos de tags, as 
+	    tags de revisões e as tags dos galhos de 
+	    desenvolvimento. Uma tag de revisão refere-se a uma 
+	    revisão específica. Seu significado permanece o mesmo do 
+	    dia a dia. Uma tag especificando um galho de 
+	    desenvolvimento, por outro lado, refere-se à última 
+	    revisão numa dada linha de desenvolvimento, em qualquer 
+	    momento dado. Uma tag de galho de desenvolvimento não se 
+	    refere a uma revisão específica, ela pode significar 
+	    alguma coisa amanhã diferente do que significa hoje.</para>
 
-	  <para>For our example, we wish to receive &os;-CURRENT.  We
-	    add this line at the beginning of our
+	  <para>A <xref linkend="cvs-tags"/> contém as denominações 
+	    de galhos de desenvolvimentos que podem lhe interessar. 
+	    Quando se especifica uma tag de galho num 
+	    <filename>supfile</filename>, deve-se preceder esta 
+	    configuração com o campo <literal>tag=</literal> (o 
+	    galho referente a <literal>RELENG_9</literal> se tornará 
+	    <literal>tag=RELENG_9</literal>). Tenha sempre em mente 
+	    que o uso de <literal>tag=.</literal> (com este ponto 
+	    final) é relevante somente para a Coleção de Ports.</para>
+
+	  <warning>
+	    <para>Tenha muito cuidado ao digitar o nome da tag 
+	      exatamente como mostrado. O 
+	      <application>CVSup</application> não pode distinguir 
+	      entre as tags válidas e inválidas. Se você digitar 
+	      incorretamente a tag, o 
+	      <application>CVSup</application> irá se comportar como 
+	      se você tivesse especificado uma tag válida. Usar uma 
+	      tag inválida fará o CVSup referenciar um repositório 
+	      vazio, sem nenhum arquivo. Neste caso, ele apagará 
+	      todos os arquivos em seu repositório local, 
+	      configurado no <filename>supfile</filename>.</para>
+	  </warning>
+
+	  <para>Quando você especificar uma tag de galho, 
+	    normalmente você deve receber as últimas versões dos 
+	    arquivos presentes no galho de desenvolvimento 
+	    especificado. Se você deseja receber alguma versão 
+	    anterior, você pode fazê-lo especificando uma data como 
+	    valor para o campo <option>date=</option>. A página de 
+	    manual &man.cvsup.1; explica como fazer isso.</para>
+
+	  <para>Para nosso exemplo, queremos receber os fontes 
+	    referentes ao desenvolvimento do &os;-CURRENT. Nós 
+	    devemos adicionar a seguinte linha no início de nosso 
 	    <filename>supfile</filename>:</para>
 
 	  <programlisting>*default tag=.</programlisting>
 
-	  <para>There is an important special case that comes into play
-	    if you specify neither a <literal>tag=</literal> field nor a
-	    <literal>date=</literal> field.  In that case, you receive
-	    the actual RCS files directly from the server's CVS
-	    repository, rather than receiving a particular version.
-	    Developers generally prefer this mode of operation.  By
-	    maintaining a copy of the repository itself on their
-	    systems, they gain the ability to browse the revision
-	    histories and examine past versions of files.  This gain is
-	    achieved at a large cost in terms of disk space,
-	    however.</para>
+	  <para>Há um caso especial importante que entra em jogo, se 
+	    você não especificar nenhum valor para 
+	    <literal>tag=</literal> e <literal>date=</literal>. 
+	    Nesse caso, você receberá os arquivos RCS diretamente do 
+	    repositório do servidor CVS, ao invés de receber uma 
+	    versão específica. Desenvolvedores geralmente preferem 
+	    este modo de operação. Ao manter uma cópia do 
+	    repositório em seus sistemas, eles ganham a capacidade 
+	    de procurar, no histórico das revisões, por versões 
+	    anteriores de arquivos específicos. No entanto, esse 
+	    ganho é obtido a um custo grande em termos de espaço 
+	    em disco.</para>
 	</listitem>
 
 	<listitem>
-	  <para><anchor id="cvsup-config-where"/>Where do you want to get
-	    them from?</para>
+	  <para><anchor id="cvsup-config-where"/>De onde você 
+	    gostaria de receber esses arquivos?</para>
 
-	  <para>We use the <literal>host=</literal> field to tell
-	    <command>cvsup</command> where to obtain its updates.  Any
-	    of the <link linkend="cvsup-mirrors">CVSup mirror
-	      sites</link> will do, though you should try to select one
-	    that is close to you in cyberspace.  In this example we will
-	    use a fictional &os; distribution site,
-	    <hostid role="fqdn">cvsup99.FreeBSD.org</hostid>:</para>
+	  <para>Usamos o campo <literal>host=</literal> para dizer 
+	    ao <command>cvsup</command> onde obter suas coleções e 
+	    atualizações. Qualquer um dos 
+	    <link linkend="cvsup-mirrors">sítios CVSup</link> e seus 
+	    servidores espelho podem ser utilizados, mas 
+	    recomendamos que você busque e use um servidor que 
+	    esteja o mais próximo possível de sua localidade. Neste 
+	    exemplo, usaremos 
+	    <hostid role="fqdn">cvsup.br.freebsd.org</hostid> para 
+	    obter nossas coleções.</para>
 
-	  <programlisting>*default host=cvsup99.FreeBSD.org</programlisting>
+	  <programlisting>*default host=cvsup.br.freebsd.org</programlisting>
 
-	  <para>You will need to change the host to one that actually
-	    exists before running <application>CVSup</application>.
-	    On any particular run of
-	    <command>cvsup</command>, you can override the host  setting
-	    on the command line, with <option>-h
-	      <replaceable>hostname</replaceable></option>.</para>
+	  <para>Em qualquer execução do cvsup, através da linha de 
+	    comando, você pode substituir a configuração de host 
+	    utilizando a opção 
+	    <option>-h <replaceable>hostname</replaceable></option>.</para>
 	</listitem>
 
 	<listitem>
-	  <para><anchor id="cvsup-config-dest"/>Where do you want to put
-	    them on your own machine?</para>
+	  <para><anchor id="cvsup-config-dest"/>Onde você gostaria 
+	    de armazenar esses arquivos em seu sistema?</para>
 
-	  <para>The <literal>prefix=</literal> field tells
-	    <command>cvsup</command> where to put the files it receives.
-	    In this example, we will put the source files directly into
-	    our main source tree, <filename>/usr/src</filename>.  The
-	    <filename>src</filename> directory is already implicit in
-	    the collections we have chosen to receive, so this is the
-	    correct specification:</para>
+	  <para>O campo <literal>prefix=</literal> diz ao 
+	    <command>cvsup</command> onde colocar os arquivos que 
+	    recebe. Neste exemplo, vamos colocar os arquivos de 
+	    origem diretamente em <filename>/usr/src</filename>. O 
+	    diretório <filename>src</filename> já está implícito nas 
+	    coleções que nós escolhemos para receber, por isso esta 
+	    é a configuração correta a se utilizar:</para>
 
 	  <programlisting>*default prefix=/usr</programlisting>
 	</listitem>
 
 	<listitem>
-	  <para><anchor id="cvsup-config-status"/>Where should
-	    <command>cvsup</command> maintain its status files?</para>
+	  <para><anchor id="cvsup-config-status"/>Onde o 
+	    <command>cvsup</command> deveria armazenar seus arquivos
+	    de status?</para>
 
-	  <para>The <application>CVSup</application> client maintains
-	    certain status files in what
-	    is called the <quote>base</quote> directory.  These files
-	    help <application>CVSup</application> to work more
-	    efficiently, by keeping track of which updates you have
-	    already received.  We will use the standard base directory,
-	    <filename>/var/db</filename>:</para>
+	  <para>O cliente do <application>CVSup</application> mantém 
+	    certos arquivos de status, armazenados num diretório 
+	    <quote>base</quote>. Esses arquivos ajudam o 
+	    <application>CVSup</application> a trabalhar de forma 
+	    mais eficiente, mantendo o controle de quais 
+	    atualizações você já recebeu. Nós vamos usar o diretório 
+	    base padrão, <filename>/var/db</filename>:</para>
 
 	  <programlisting>*default base=/var/db</programlisting>
 
-	  <para>If your base directory does not already exist, now would
-	    be a good time to create it.  The <command>cvsup</command>
-	    client will refuse to run if the base directory does not
-	    exist.</para>
+	  <para>Se o diretório que você pretende utilizar como 
+	    diretório base não existe, agora seria um bom momento 
+	    para criá-lo. O <command>cvsup</command> não irá 
+	    executar, caso este diretório não exista.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Miscellaneous <filename>supfile</filename>
-	    settings:</para>
-
-	  <para>There is one more line of boiler plate that normally
-	    needs to be present in the
+	  <para>Outras opções presentes no 
 	    <filename>supfile</filename>:</para>
+
+	  <para>Existe mais uma linha que, normalmente, tem de estar 
+	    presente no <filename>supfile</filename>:</para>
 
 	  <programlisting>*default release=cvs delete use-rel-suffix compress</programlisting>
 
-	  <para><literal>release=cvs</literal> indicates that the server
-	    should get its information out of the main &os; CVS
-	    repository.  This is virtually always the case, but there
-	    are other possibilities which are beyond the scope of this
-	    discussion.</para>
+	  <para><literal>release=cvs</literal> indica que o servidor 
+	    irá fornecer dados a partir do repositório CVS do &os;. 
+	    Isso é, na maioria dos casos, a opção que deve ser 
+	    utilizada. Existem outras possibilidades, mas detalhes a 
+	    respeito dessas possibilidades estão além do escopo 
+	    desta documentação.</para>
 
-	  <para><literal>delete</literal> gives
-	    <application>CVSup</application> permission to delete files.
-	    You should always specify this, so that
-	    <application>CVSup</application> can keep your source tree
-	    fully up-to-date.  <application>CVSup</application> is
-	    careful to delete only those files for which it is
-	    responsible.  Any extra files you happen to have will be
-	    left strictly alone.</para>
+	  <para><literal>delete</literal> dá permissão ao 
+	    <application>CVSup</application> para apagar arquivos. 
+	    Você sempre deve especificar esta opção para que o 
+	    <application>CVSup</application> possa manter a árvore 
+	    dos diretórios presentes em seu repositório local 
+	    completamente atualizada. Ele cuida para que, se 
+	    necessário, apenas os arquivos presentes em seu 
+	    repositório local e catalogados no diretório base sejam 
+	    excluídos. Quaisquer arquivos extras que tejam sido 
+	    adicionados por você não serão alterados.</para>
 
-	  <para><literal>use-rel-suffix</literal> is ... arcane.  If you
-	    really want to know about it, see the &man.cvsup.1; manual
-	    page.  Otherwise, just specify it and do not worry about
-	    it.</para>
+	  <para><literal>use-rel-suffix</literal> é... mistério! Se 
+	    você realmente quer saber sobre isso, leia a página de 
+	    manual &man.cvsup.1;. Caso contrário, use e não se 
+	    preocupe com isso.</para>
 
-	  <para><literal>compress</literal> enables the use of
-	    gzip-style compression on the communication channel.  If
-	    your network link is T1 speed or faster, you probably should
-	    not use compression.  Otherwise, it helps
-	    substantially.</para>
+	  <para><literal>compress</literal> permite o uso de 
+	    compressão <literal>(gzip)</literal> no canal de 
+	    comunicação entre cliente e servidor. Se o seu link de 
+	    dados é de, aproximadamente, 2Mbps ou superior você 
+	    provavelmente não deve usar esta opção. Caso contrário, 
+	    ela te ajudará substancialmente.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Putting it all together:</para>
+	  <para>Colocando tudo junto:</para>
 
-	  <para>Here is the entire <filename>supfile</filename> for our
-	    example:</para>
+	  <para>Aqui está o <filename>supfile</filename> que foi 
+	    montado e descrito em nosso exemplo:</para>
 
 	  <programlisting>*default tag=.
-*default host=cvsup99.FreeBSD.org
+*default host=cvsup.br.freebsd.org
 *default prefix=/usr
 *default base=/var/db
 *default release=cvs delete use-rel-suffix compress
-
 src-all</programlisting>
 	</listitem>
       </itemizedlist>
       <sect3 id="cvsup-refuse-file">
-       <title>The <filename>refuse</filename> File</title>
+       <title>O arquivo <filename>refuse</filename></title>
 
-       <para>As mentioned above, <application>CVSup</application> uses
-       a <emphasis>pull method</emphasis>. Basically, this means that
-       you connect to the <application>CVSup</application> server, and
-       it says, <quote>Here is what you can download from
-       me...</quote>, and your client responds <quote>OK, I will take
-       this, this, this, and this.</quote> In the default
-       configuration, the <application>CVSup</application> client will
-       take every file associated with the collection and tag you
-       chose in the configuration file. However, this is not always
-       what you want, especially if you are synching the <filename>doc</filename>, <filename>ports</filename>, or
-       <filename>www</filename> trees &mdash; most people cannot read four or five
-       languages, and therefore they do not need to download the
-       language-specific files. If you are
-       <application>CVSup</application>ing the Ports Collection, you
-       can get around this by specifying each collection individually
-       (e.g., <emphasis>ports-astrology</emphasis>,
-       <emphasis>ports-biology</emphasis>, etc instead of simply
-       saying <emphasis>ports-all</emphasis>). However, since the <filename>doc</filename>
-       and <filename>www</filename> trees do not have language-specific collections, you
-       must use one of <application>CVSup</application>'s many nifty
-       features: the <filename>refuse</filename> file.</para>
+       <para>Como mencionado no início desta documentação, o 
+	<application>CVSup</application> utiliza uma estratégia que 
+	atende a <emphasis>solicitação de clientes</emphasis> 
+	<literal>(pull model)</literal> para realizar suas 
+	atualizações. Isso significa, basicamente, que você se 
+	conectar ao servidor e ele diz: <quote>Aqui está o que você 
+	pode baixar de mim: ...</quote>, e, então, seu cliente 
+	responde: <quote>OK, vou levar só isso, isso, aquilo e isso 
+	aqui</quote>. Na configuração padrão, o cliente do 
+	<application>CVSup</application> irá solicitar e baixar 
+	todos os arquivos associados a uma coleção e a tag que 
+	você escolheu no arquivo de configuração. No entanto, isso 
+	nem sempre é o que você quer, especialmente se você estiver 
+	sincronizando as coleções <filename>doc</filename>, 
+	<filename>ports</filename> ou <filename>www</filename> 
+	&mdash; grande maioria das pessoas não pode ler quatro ou 
+	cinco idiomas, e, portanto, não precisa baixar os arquivos 
+	específicos de um idioma que não compreenda.</para>
 
-       <para>The <filename>refuse</filename> file essentially tells
-       <application>CVSup</application> that it should not take every
-       single file from a collection; in other words, it tells the
-       client to <emphasis>refuse</emphasis> certain files from the
-       server. The <filename>refuse</filename> file can be found (or, if you do not yet
-       have one, should be placed) in
-       <filename><replaceable>base</replaceable>/sup/</filename>.
-       <replaceable>base</replaceable> is defined in your <filename>supfile</filename>;
-       our defined <replaceable>base</replaceable> is
-       <filename>/var/db</filename>,
-       which means that by default the <filename>refuse</filename> file is
-       <filename>/var/db/sup/refuse</filename>.</para>
+       <para>Se você está, por exemplo, planejando obter apenas 
+	parte da coleção de ports, você pode contornar esse fato 
+	especificando cada coleção individualmente (ao invés de usar 
+	<emphasis>ports-all</emphasis>, você pode obter apenas 
+	<emphasis>ports-astrology</emphasis>, 
+	<emphasis>ports-biology</emphasis> e etc). No entanto, as 
+	coleções <filename>doc</filename> e <filename>www</filename> 
+	não possuem linhagens e ramificações específicas. Você terá 
+	de usar uma funcionalidade interessante do 
+	<application>CVSup</application>, o arquivo 
+	<filename>refuse</filename>.</para>
 
-       <para>The <filename>refuse</filename> file has a very simple format; it simply
-       contains the names of files or directories that you do not wish
-       to download.  For example, if you cannot speak any languages other
-       than English and some German, and you do not feel the need to read
-       the German translation of documentation, you can put the following in your
-       <filename>refuse</filename> file:</para>
+       <para>O arquivo <filename>refuse</filename>, essencialmente, 
+	diz ao <application>CVSup</application> que ele não deve 
+	baixar todos os arquivos de uma determinada coleção. Em 
+	outras palavras, ele diz ao cliente quais arquivos presentes 
+	no servidor ele deve ignorar. O arquivo 
+	<filename>refuse</filename> pode ser encontrado ou colocado 
+	no diretório <filename>/var/db/sup</filename>, onde 
+	<filename>/var/db</filename> é o diretório base configurado 
+	no seu <filename>supfile</filename> e usado pelo 
+	<application>CVSup</application> como diretório base. Desta 
+	forma, a localização exata do arquivo será 
+	<filename>/var/db/sup/refuse</filename>.</para>
+
+       <para>O arquivo <filename>refuse</filename> tem um formato 
+	muito simples, que contém os nomes de arquivos ou diretórios 
+	que você não deseja baixar. Por exemplo, se você não é apto 
+	a ler quaisquer outros idiomas que não sejam Português ou 
+	Inglês, e você não sente necessidade de ler a tradução alemã, 
+	húngara, russa e japonesa da documentação do &os;, você pode 
+	colocar o seguinte conteúdo no arquivo 
+	<filename>refuse</filename>:</para>
 
        <screen>doc/bn_*
 doc/da_*
@@ -1425,7 +1482,6 @@ doc/mn_*
 doc/nl_*
 doc/no_*
 doc/pl_*
-doc/pt_*
 doc/ru_*
 doc/sr_*
 doc/tr_*
