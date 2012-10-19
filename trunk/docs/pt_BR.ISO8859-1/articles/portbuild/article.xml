@@ -1568,8 +1568,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Ambas as colunas devem ser investigadas e as razões para os
       erros entendidas antes do <literal>commit</literal> do conjunto
       de <literal>patches</literal> experimentais.  Para diferenciar
-      entre o [1] e o [2] acima, você recompilar os pacotes afetados
-      sob o ramo de controle:</para>
+      entre o [1] e o [2] acima, você pode recompilar os pacotes afetados
+      sob o <literal>branch</literal> de controle:</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/ports</userinput></screen>
 
@@ -1578,7 +1578,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>patches</literal> experimentais.</para></note>
 
     <!-- XXX MCL fix -->
-    <para>O seguinte comando vai configurar o ramo de controle para a
+    <para>O seguinte comando vai configurar o
+      <literal>branch</literal> de controle para a
       compilação parcial (antigo código base):</para>
 
     <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportscvs -nobuild -nocvs -nofinish</userinput></screen>
@@ -1586,7 +1587,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <!-- XXX MCL obsolete -->
     <para>As compilações devem ser executadas a partir do diretório
       <literal>packages/All</literal>.  Esse diretório deve estar
-      vázio inicialmente, exceto para o <literal>link</literal>
+      vázio inicialmente, exceto pelo <literal>link</literal>
       simbólico do Makefile.  Se este <literal>link</literal>
       simbólico não existir, ele deve ser criado:</para>
 
@@ -1603,7 +1604,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>A lista de pacotes para compilar deve ser uma lista do nome
       do pacote (incluindo as versões) como aparece no
       <filename>INDEX</filename>.  O <literal>PKGSUFFIX</literal>
-      (i.e. .tgz ou .tbz) é opicional.</para></note>
+      (isto é, .tgz ou .tbz) é opicional.</para></note>
 
     <para>Isso vai compilar apenas os pacotes listados, assim como
       todas as suas dependências.</para>
@@ -1613,7 +1614,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <para>Uma vez que todos os erros tenham sido resolvidos, você pode
       efetuar o <literal>commit</literal> do conjunto de pacotes.
-      Após efetuar o <literal>commit</literal> é de costume enviar um
+      Após efetuar o <literal>commit</literal>, é de costume enviar um
       e-mail <literal>HEADS UP</literal> para <ulink
       url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> e uma
       cópia para <ulink
@@ -1632,7 +1633,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <note>
       <para>Devido à algumas doações generosas,
-        <literal>portmgr</literal> não está procurando por emprétimos
+        <literal>portmgr</literal> não está procurando por empréstimos
 	de sistemas &i386; ou <literal>amd64</literal>.  No entanto,
 	nós estamos interessados no empréstimo de sistemas
 	<literal>tier-2</literal>.</para>
@@ -1756,15 +1757,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	  <para>Se você está usando <literal>pxeboot</literal>: crie
 	    um diretório para armazenar os arquivos de instalação.
 	    Você provavelmente vai querer usar um subdiretório do
-	    <filename>/pxeroot</filename>, e.g.,
+	    <filename>/pxeroot</filename>, por exemplo,
 	    <filename>/pxeroot/<replaceable>${arch}</replaceable>-<replaceable>${branch}</replaceable></filename>.
 	    Exporte como <makevar>DESTDIR</makevar>.</para>
-	  <para>If you are using <literal>pxeboot</literal>: create a
-	    directory to contain the install bits.  You will probably
-	    want to use a subdirectory of <filename>/pxeroot</filename>,
-	    e.g.,
-	    <filename>/pxeroot/<replaceable>${arch}</replaceable>-<replaceable>${branch}</replaceable></filename>.
-	    Export that as <makevar>DESTDIR</makevar>.</para>
 	</step>
 
 	<step>
@@ -1823,7 +1818,7 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 
 	<step>
 	  <para>Como <username>root</username>, execute os passos
-	    usuais de compilação, e.g.:<screen>
+	    usuais de compilação, por exemplo:<screen>
 <userinput>make -j4 buildworld</userinput>
 <userinput>make buildkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
 <userinput>make installkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
@@ -1869,7 +1864,7 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 
 	      <para>Crie o
 	        <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
-		e adicione a sua chave ao
+		e ajuste o
 		<filename>authorized_keys</filename>.</para>
 	    </listitem>
 
@@ -2050,7 +2045,7 @@ www/squid (with SQUID_AUFS on)</screen>
 	</step>
 
 	<step>
-	  <para>Customizar os arquivos em
+	  <para>Customize os arquivos em
 	    <filename>usr/local/etc/</filename>.  Se você faz isso no
 	    próprio cliente, ou em outra máquina, dependerá de você
 	    estar usando <literal>pxeboot</literal>.</para>
@@ -2094,7 +2089,7 @@ www/squid (with SQUID_AUFS on)</screen>
 	      <!-- XXX MCL get latest patches from narutos -->
 	      <para>Crie o
 	        <filename>usr/local/etc/rc.d/portbuild.sh</filename>,
-		usando um valor apropriado par
+		usando um valor apropriado para
 		<literal>scratchdir</literal>:<screen>
 #!/bin/sh
 #
