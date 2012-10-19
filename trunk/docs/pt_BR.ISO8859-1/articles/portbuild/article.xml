@@ -286,8 +286,8 @@
     </para>
 
     <note>
-      <para>Devido ao fato de cada um dos clientes individuais poder ter
-        seu próprio <filename>make.conf</filename>, o conteúdo do
+      <para>Devido ao fato de cada um dos clientes individuais poder
+        ter seu próprio <filename>make.conf</filename>, o conteúdo do
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>
 	vai ser <emphasis>adicionado</emphasis> ao
 	<filename>make.conf</filename>, não substituí-lo, como é feito
@@ -365,11 +365,12 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
   <sect1 id="starting">
     <title>Iniciando a Compilação</title>
 
-    <para>Várias compilações separadas para cada arquitetura -
-      a combinação de <literal>branchs</literal> é suportada.  Todos os dados privados para
-      uma compilação (árvore de <literal>ports</literal>, árvore do
-      <literal>src</literal>, pacotes, <literal>distfiles</literal>,
-      arquivos de <literal>log</literal>, <literal>bindist</literal>,
+    <para>Várias compilações separadas para cada arquitetura - a
+      combinação de <literal>branchs</literal> é suportada.  Todos os
+      dados privados para uma compilação (árvore de
+      <literal>ports</literal>, árvore do <literal>src</literal>,
+      pacotes, <literal>distfiles</literal>, arquivos de
+      <literal>log</literal>, <literal>bindist</literal>,
       <literal>Makefile</literal>, etc) estão localizados sob
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable></filename>.
       Alternativamente, a última compilação pode ser referenciada sob
@@ -464,6 +465,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <sect3>
       <title>Novo código base</title>
+
       <para>Você pode usar o <command>dopackages.wrapper</command>
         diretamente, ao invés dos <literal>links</literal> simbólicos.
 	Por exemplo:</para>
@@ -495,9 +497,9 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	<para><literal>-nofinish</literal> - Não executa o
 	  pós-processamento uma vez que a compilação estiver completa.
 	  Útil se você espera que a compilação precise ser reiniciada
-	  depois de concluída.  Se você usar esta opção, não se esqueça
-	  de limpar os clientes quando você não precisar mais da
-	  compilação.
+	  depois de concluída.  Se você usar esta opção, não se
+	  esqueça de limpar os clientes quando você não precisar mais
+	  da compilação.
 	</para>
       </listitem>
 
@@ -585,12 +587,12 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	<para><literal>-trybroken</literal> - Tenta compilar
 	  <literal>ports</literal> marcados como
 	  <literal>BROKEN</literal> (desativado por padrão, pois os
-	  <literal>clusters</literal> amd64/&i386; agora são suficientemente rápidos
-	  do que quando fazem compilações incrementais, muito tempo era
-	  gasto recompilando coisas que iriam falhar de qualquer
-	  maneira.  Por outro lado, os outros
-	  <literal>clusters</literal> são bastante lentos, o que
-	  seria um desperdício de tempo tentar compilar
+	  <literal>clusters</literal> amd64/&i386; agora são
+	  suficientemente rápidos do que quando fazem compilações
+	  incrementais, muito tempo era gasto recompilando coisas que
+	  iriam falhar de qualquer maneira.  Por outro lado, os outros
+	  <literal>clusters</literal> são bastante lentos, o que seria
+	  um desperdício de tempo tentar compilar
 	  <literal>ports</literal> marcados como
 	  <literal>BROKEN</literal>).
 	</para>
@@ -667,8 +669,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
       <listitem>
 	<para><literal>-unlimited-errors</literal> (apenas novo
-	  código base) - anula a verificação do "qmanager threshhold" para
-	  compilações descontroladas.  Você pode querer isso
+	  código base) - anula a verificação do "qmanager threshhold"
+	  para compilações descontroladas.  Você pode querer isso
 	  principalmente quando usar <literal>-restart</literal> em
 	  uma compilação que provavelmente vai falhar, ou talvez
 	  quando executar <literal>-trybroken</literal>.  O
