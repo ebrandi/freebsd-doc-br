@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <!DOCTYPE article PUBLIC "-//FreeBSD//DTD DocBook XML V4.2-Based Extension//EN"
   "../../../share/xml/freebsd42.dtd" [
-  <!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT"
+<!ENTITY % entities PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Entity Set//PT"
   "../../share/xml/entities.ent">
-  %entities;
+%entities;
 ]>
 
 <!--
@@ -33,7 +33,7 @@
       <year>2011</year>
       <year>2012</year>
       <holder role="mailto:portmgr@FreeBSD.org">The &os; Ports
-	Management Team</holder>
+        Management Team</holder>
     </copyright>
 
     <legalnotice id="trademarks" role="trademarks">
@@ -43,9 +43,9 @@
       &tm-attrib.general;
     </legalnotice>
 
-    <pubdate>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</pubdate>
+    <pubdate>$FreeBSD$</pubdate>
 
-    <releaseinfo>$FreeBSD: head/en_US.ISO8859-1/articles/portbuild/article.sgml 39544 2012-09-14 17:47:48Z gabor $</releaseinfo>
+    <releaseinfo>$FreeBSD$</releaseinfo>
   </articleinfo>
 
   <sect1 id="intro">
@@ -63,14 +63,14 @@
       <literal>cluster</literal></para>
 
     <note>
-      <para>Muitos dos detalhes neste artigo serão do
-	interesse apenas para aqueles no time de <ulink
-	url="&url.base/portmgr">Gestão de
-	<literal>Ports</literal></ulink></para>
+      <para>Muitos dos detalhes neste artigo serão do interesse apenas
+        para aqueles no time de <ulink url="&url.base/portmgr">Gestão
+	de <literal>Ports</literal></ulink></para>
     </note>
 
     <sect2 id="codebase">
       <title>O código base</title>
+
     <para>A maior parte da mágica na compilação de pacotes ocorre sob
       o diretório <filename>/var/portbuild</filename>.  A menos que
       seja especificado o contrário, todos os caminhos serão relativos
@@ -78,21 +78,19 @@
       para determinar uma das arquiteturas de pacotes (amd64, &i386;,
       ia64, powerpc, e &sparc64;), e
       <replaceable>${branch}</replaceable> será usado para determinar
-      o <literal>branch</literal> (ramo de desenvolvimento) de compilação
-      (7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
-      10-exp).</para>
+      o <literal>branch</literal> (ramo de desenvolvimento) de
+      compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10, 10-exp).</para>
 
     <note>
-      <para>Não são mais compilados pacotes para as versões
-	4, 5 ou 6, e para a arquitetura
-	alpha</para>
+      <para>Não são mais compilados pacotes para as versões 4, 5 ou 6,
+        e para a arquitetura alpha</para>
     </note>
 
-    <para>Os <literal>scripts</literal> que controlam tudo
-      estão localizados em <filename
-      class="directory">/var/portbuild/scripts/</filename>.  Estes
-      são cópias do <literal>checked-out</literal> do
-      repositório Subversion <ulink
+    <para>Os <literal>scripts</literal> que controlam tudo estão
+      localizados em <filename
+      class="directory">/var/portbuild/scripts/</filename>.  Estes são
+      cópias do <literal>checked-out</literal> do repositório
+      Subversion <ulink
       url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">
       <filename
       class="directory">base/projects/portbuild/scripts/</filename></ulink>.</para>
@@ -107,11 +105,10 @@
         <literal>branch</literal>
         <literal>-STABLE</literal></para></listitem>
 
-      <listitem><para>periodicamente, para testar mudanças
-	para o <literal>-CURRENT</literal></para></listitem>
+      <listitem><para>periodicamente, para testar mudanças para o
+	<literal>-CURRENT</literal></para></listitem>
 
-      <listitem><para>para compilações
-	experimentais</para></listitem>
+      <listitem><para>para compilações experimentais</para></listitem>
     </itemizedlist>
 
     </sect2>
@@ -120,12 +117,11 @@
       <title>Notas sobre o código base</title>
 
       <para>Até meados de 2010, os <literal>scripts</literal>
-	apontavam especificamente para
-	<hostid>pointyhat</hostid> como o nó principal
-	(dispatch).  Durante o verão de 2010, mudanças
+	apontavam especificamente para <hostid>pointyhat</hostid> como
+	o nó principal (dispatch).  Durante o verão de 2010, mudanças
 	significativas foram feitas a fim de aceitar outros
-	<literal>hosts</literal> como nós principais.  Entre
-	essas mudanças estão:</para>
+	<literal>hosts</literal> como nós principais.  Entre essas
+	mudanças estão:</para>
 
       <itemizedlist>
 	<listitem><para>remoção da <literal>string</literal>
@@ -153,9 +149,9 @@
       </itemizedlist>
 
       <para>Este documento foi escrito originalmente antes das
-        mudanças serem feitas.  Onde alguma coisa foi modificada,
-	como nas chamadas de <literal>scripts</literal>, elas são
-	indicadas como <literal>novo código base:</literal> em oposição à
+        mudanças serem feitas.  Onde alguma coisa foi modificada, como
+	nas chamadas de <literal>scripts</literal>, elas são indicadas
+	como <literal>novo código base:</literal> em oposição à
 	<literal>antigo código base:</literal>.</para>
 
       <note>
@@ -180,24 +176,24 @@
     <title>Configurando Clientes de Compilação</title>
 
     <para>Os clientes &i386; localizados conjuntamente com
-      <hostid>pointyhat</hostid>, efetuam o <literal>boot</literal> via
-      rede a partir dele (nós <replaceable>conectados</replaceable>);
-      todos os outros clientes (nós
-      <replaceable>desconectados</replaceable>) ou são
+      <hostid>pointyhat</hostid>, efetuam o <literal>boot</literal>
+      via rede a partir dele (nós
+      <replaceable>conectados</replaceable>); todos os outros clientes
+      (nós <replaceable>desconectados</replaceable>) ou são
       <literal>self-hosted</literal> ou efetuam
-      <literal>boot</literal> via rede a partir de outro
-      <literal>host pxe</literal>.  Em todos os casos eles se
-      configuram durante o <literal>boot</literal> preparando-se
-      para compilar pacotes.</para>
+      <literal>boot</literal> via rede a partir de outro <literal>host
+      pxe</literal>.  Em todos os casos eles se configuram durante o
+      <literal>boot</literal> preparando-se para compilar
+      pacotes.</para>
 
     <para>O <literal>cluster</literal> principal copia, através do
-      <command>rsync</command>, os dados
-      necessários (a árvore de <literal>ports</literal> e dos fontes,
-      <literal>bindist tarballs</literal>, <literal>scripts</literal>,
-      etc.) para os nós desconectados durante a fase de cofiguração dos nós.
-      Em seguida, o diretório <literal>portbuild</literal>
-      desconectado é montado como <literal>nullfs</literal> para
-      compilações em <literal>chroot</literal>.</para>
+      <command>rsync</command>, os dados necessários (a árvore de
+      <literal>ports</literal> e dos fontes, <literal>bindist
+      tarballs</literal>, <literal>scripts</literal>, etc.) para os
+      nós desconectados durante a fase de configuração dos nós.  Em
+      seguida, o diretório <literal>portbuild</literal> desconectado é
+      montado como <literal>nullfs</literal> para compilações em
+      <literal>chroot</literal>.</para>
 
     <para>O usuário
       <username>ports-<replaceable>${arch}</replaceable></username>
@@ -227,7 +223,7 @@
       <literal>Chroot</literal></title>
 
     <para>A compilação de pacotes é realizada em um ambiente
-      <literal>chroot</literal>, populado pelo
+      <literal>chroot</literal>, configurado pelo
       <literal>script</literal> <filename>portbuild</filename> usando
       o arquivo
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
@@ -254,7 +250,7 @@
       localizados em
       <filename><replaceable>${arch}</replaceable>/clients</filename>.</para>
 
-    <para>O arquivo <filename>bindist.tar</filename> é extraido para
+    <para>O arquivo <filename>bindist.tar</filename> é extraído para
       cada cliente durante a inicialização deles, e no início de cada
       passagem do <literal>script</literal>
       <command>dopackages</command>.</para>
@@ -312,7 +308,7 @@
 	para testar a nova versão padrão do
 	<application>ruby</application></title>
 
-      <para>(Neste caso, os conteúdos são identicos para ambos,
+      <para>(Neste caso, os conteúdos são idênticos para ambos,
         servidor e cliente.)</para>
 
       <screen>RUBY_DEFAULT_VER= 1.9</screen>
@@ -323,7 +319,7 @@
         <filename>make.conf.<replaceable>target</replaceable></filename>
 	para compilação do <application>clang</application></title>
 
-      <para>(Neste caso, os conteúdos também são indenticos para ambos,
+      <para>(Neste caso, os conteúdos também são idênticos para ambos,
         servidor e cliente.)</para>
 
       <screen>
@@ -479,7 +475,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     <sect3>
       <title>Either codebase</title>
 
-    <para>Frequetemente você usará <literal>latest</literal> como
+    <para>Frequentemente você usará <literal>latest</literal> como
       valor para o <replaceable>buildid</replaceable>.</para>
 
     <para><literal>[-options]</literal> pode ser uma, ou mais, das
@@ -591,7 +587,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	  <literal>BROKEN</literal> (desativado por padrão, pois os
 	  <literal>clusters</literal> amd64/&i386; agora são suficientemente rápidos
 	  do que quando fazem compilações incrementais, muito tempo era
-	  gasto recompilando coisas que irião falhar de qualquer
+	  gasto recompilando coisas que iriam falhar de qualquer
 	  maneira.  Por outro lado, os outros
 	  <literal>clusters</literal> são bastante lentos, o que
 	  seria um desperdício de tempo tentar compilar
@@ -687,7 +683,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <filename>previous</filename> será removido; a compilação mais
       recente terá seu <literal>link</literal> modificado para
       <filename>previous/</filename>; e a nova compilação será criada
-      e referênciada com um <literal>link</literal> em <filename>latest/</filename>.
+      e referenciada com um <literal>link</literal> em <filename>latest/</filename>.
     </para>
 
     <para>Se a última compilação foi finalizada de forma limpa, você
@@ -725,15 +721,15 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     <note><para>Atualmente, a própria compilação de pacotes ocorre em
       duas fases idênticas.  A razão para isso é que, algumas vezes,
       problemas temporários (por exemplo, falhas do NFS, sites FTP
-      inalcanssaveis, etc.) podem quebrar a compilação.  Realizar o
+      inalcançáveis, etc.) podem quebrar a compilação.  Realizar o
       processo em duas fases é uma solução alternativa para esse tipo
       de problema.</para></note>
 
     <para>Seja cuidadoso com <filename>ports/Makefile</filename> para
-      não especificar qualquer diretório vázio.  Isso é especialmente
+      não especificar qualquer diretório vazio.  Isso é especialmente
       importante se você está realizando uma compilação com
       <literal>patches</literal> experimentais (-exp).  Se o processo
-      de compilação encontrar um diretório vázio, ambas as fases de
+      de compilação encontrar um diretório vazio, ambas as fases de
       compilação irão parar rapidamente, e um erro similar ao seguinte
       será adicionado para
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make.[0|1]</filename>:
@@ -743,7 +739,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <para>Para corrigir este problema, simplesmente comente ou remova
       as entradas <literal>SUBDIR</literal> que apontam para
-      sub-diretórios vázios.  Depois de feito isso, você pode
+      subdiretórios vazios.  Depois de feito isso, você pode
       reiniciar a compilação executando o comando
       <command>dopackages</command> adequado com a opção
       <literal>-restart</literal>.
@@ -800,7 +796,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    <replaceable>branch</replaceable>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    <replaceable>newid</replaceable> (ou um
-	    <literal>datestamp</literal>, se não for especifícado).  Só
+	    <literal>datestamp</literal>, se não for especificado).  Só
 	      é necessário quando da criação de um novo <literal>branch</literal> ou uma nova
 	      arquitetura.  (À fazer: documentar se
 	      <literal>newid</literal> deve ser especificado como
@@ -939,7 +935,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     </para>
 
     <para>Anteriormente, a árvore <literal>docs</literal> também era
-      verificada, no entanto, isso mostrou-se desnecessário.
+      verificada, no entanto, isso se mostrou desnecessário.
     </para>
   </sect1>
 
@@ -1005,7 +1001,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <screen>&prompt.user; <userinput>/var/portbuild/scripts/build cleanup i386 8-exp 20080714120411 -full</userinput></screen>
     </para>  
 
-    <para>Se você esquecer de fazer isso, então os
+    <para>Se você esquecer-se de fazer isso, então os
       <literal>chroot</literal>s da compilação antiga não serão limpos
       por 24 horas, e nenhum novo trabalho será enviado para este
       lugar enquanto <hostid>pointyhat</hostid> achar que esta máquina
@@ -1152,7 +1148,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <application>httpd</application> ainda está rodando, e reinicie
       se não estiver.</para>
 
-    <para>Matenha o olho na saída do &man.df.1;.  Se o sistema de
+    <para>Mantenha o olho na saída do &man.df.1;.  Se o sistema de
       arquivos em <filename>/var/portbuild</filename> começar a ficar
       cheio, coisas ruins acontecem.
     </para>
@@ -1246,7 +1242,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   </sect1>
 
   <sect1 id="release">
-    <title>Compilando Pacotes uma Versão</title>
+    <title>Compilando Pacotes para uma Versão</title>
 
     <para>Quando compilando pacotes para uma
       versão do &os;, pode
@@ -1275,7 +1271,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 &prompt.user; <userinput>find distfiles > distfiles-<replaceable>${release}</replaceable></userinput></screen>
 
     <!-- XXX MCL apparently obsolete -->
-    <para>Este arquivo de invetário normalmente está localizado em
+    <para>Este arquivo de inventário normalmente está localizado em
       <filename>i386/<replaceable>${branch}</replaceable></filename>
       no <literal>cluster master</literal>.</para>
 
@@ -1322,7 +1318,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <filename>INDEX</filename> as referências para pacotes não
       compilados, e gerar um <filename>CHECKSUM.MD5</filename>
       resumido); e <literal>distfiles</literal> (movendo-os do
-      diretório temporario <filename>distfiles/.pbtmp</filename> para
+      diretório temporário <filename>distfiles/.pbtmp</filename> para
       <filename>distfiles/</filename> e remover os
       <literal>distfiles</literal> marcados como
       <literal>RESTRICTED</literal> e
@@ -1457,7 +1453,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>^C</literal>, ou <literal>^?</literal> e então
       corrigi-las.</para>
 
-    <para>É sempre uma boa idéia salvar copias do original de todos os
+    <para>É sempre uma boa idéia salvar cópias do original de todos os
       arquivos modificados, como também uma lista do que você está
       modificando.  Você pode consultar a lista ao fazer o
       <literal>commit</literal> final, para se certificar que você
@@ -1465,7 +1461,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       que testou.</para>
 
     <para>Pelo fato da máquina ser compartilhada, alguém pode excluir
-      suas alterações por engano, então mantenha copias destas, por
+      suas alterações por engano, então mantenha cópias destas, por
       exemplo, no seu diretório <literal>home</literal>  em
       <hostid>freefall</hostid>.  Não use o <filename>tmp/</filename>;
       pois por <hostid>pointyhat</hostid> executar ele mesmo alguma
@@ -1515,7 +1511,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       A primeira coluna contém os <literal>ports</literal> que
       falharam na compilação de controle, mas não na compilação com
       <literal>patches</literal> experimentais; a segunda é vice
-      versa.  Razões para o <literal>port</literal> estar no primeira
+      versa.  Razões para o <literal>port</literal> estar na primeira
       coluna incluem:</para>
 
     <itemizedlist>
@@ -1587,7 +1583,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <!-- XXX MCL obsolete -->
     <para>As compilações devem ser executadas a partir do diretório
       <literal>packages/All</literal>.  Esse diretório deve estar
-      vázio inicialmente, exceto pelo <literal>link</literal>
+      vazio inicialmente, exceto pelo <literal>link</literal>
       simbólico do Makefile.  Se este <literal>link</literal>
       simbólico não existir, ele deve ser criado:</para>
 
@@ -1604,7 +1600,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>A lista de pacotes para compilar deve ser uma lista do nome
       do pacote (incluindo as versões) como aparece no
       <filename>INDEX</filename>.  O <literal>PKGSUFFIX</literal>
-      (isto é, .tgz ou .tbz) é opicional.</para></note>
+      (isto é, .tgz ou .tbz) é opcional.</para></note>
 
     <para>Isso vai compilar apenas os pacotes listados, assim como
       todas as suas dependências.</para>
@@ -1659,17 +1655,17 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	</listitem>
 
 	<listitem>
-	  <para>RAM: Menos de 2G não é muito usuável; 8G ou mais é
-	    preferível.  Nós temos ajustado um trabalho para cada
+	  <para>RAM: Menos de 2G não é muito usável; 8G ou mais é
+	    preferível.  Nós temos ajustado um trabalho para
 	    cada 512M de RAM.</para>
 	</listitem>
 
 	<listitem>
 	  <para>Disco: um mínimo de 20G é necessário para o sistema de
 	    arquivos; 32G é necessário para <literal>swap</literal>.
-	    A performance será melhor se multiplos discos forem
+	    O desempenho será melhor se múltiplos discos forem
 	    usados, e configurados como <literal>geom</literal>
-	    <literal>stripes</literal>.  Números de performance também
+	    <literal>stripes</literal>.  Números do desempenho também
 	    estão para serem definidos.</para>
 
 	  <note>
@@ -1695,7 +1691,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <procedure>
 	<step>
 	  <para>Escolha um <literal>hostname</literal> único.  Ele não
-	    tem que ser um <literal>hostname</literal> resolviveu
+	    tem que ser um <literal>hostname</literal> resolvível
 	    publicamente (ele pode ser um nome em sua rede
 	    interna).</para>
 	</step>
@@ -1777,7 +1773,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
 	<step>
 	  <para>Gere um arquivo de configuração para o
-	    <literal>kernel</literal>. Inclua o
+	    <literal>kernel</literal>.  Inclua o
 	    <literal>GENERIC</literal> (ou, se você está usando mais
 	    que 3.5G em um &i386;, <literal>PAE</literal>).
 	  </para>
@@ -1841,7 +1837,7 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 	    <literal>site</literal> vai hospedar vários nós),
 	    subdiretórios
 	    <filename><replaceable>${ip-address}</replaceable>/etc/</filename>
-	    para os arquivos que vão sobreescrever as configurações
+	    para os arquivos que vão sobrescrever as configurações
 	    para os <literal>hosts</literal> individuais.  (Você pode
 	    achar útil criar um <literal>link</literal> simbólico de
 	    cada um destes diretórios para um
@@ -1891,9 +1887,9 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 
 	    <listitem>
 	      <para>Crie o <filename>etc/fstab</filename>
-	        apropriadmente.  (Se você tem várias máquinas
+	        apropriadamente.  (Se você tem várias máquinas
 		diferentes, você precisará colocar este arquivo nos
-		diretórios que sobreescreverão está
+		diretórios que sobrescreverão está
 		configuração.)</para>
 	    </listitem>
 
@@ -1916,7 +1912,7 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	        apropriadamente.  (Se você está usando
 		<literal>pxeboot</literal>, e tem várias máquinas
 		diferentes, você precisará colocar este arquivo nos
-		diretórios que sobreescreverão está
+		diretórios que sobrescreverão está
 		configuração.)</para>
 
 	      <para>Entradas recomendadas para nós físicos:<screen>
@@ -2182,7 +2178,7 @@ touch /tmp/.boot_finished</screen>
       <procedure>
 	<step>
 	  <para>Entre no diretório <literal>port/package</literal> que
-	    você escolheu acima, e.g., 
+	    você escolheu acima, por exemplo, 
 	    <command>cd <filename>/<replaceable>usr2</replaceable></filename></command>.
 	  </para>
 	</step>
@@ -2232,9 +2228,9 @@ touch /tmp/.boot_finished</screen>
       <title>Configuração no <literal>pointyhat</literal></title>
 
       <para>Estes passos precisam ser feitos por um
-        <literal>portmgr</literal><literal>portmgr</literal>,
+        <literal>portmgr</literal>,
 	autenticado como o usuário
-	<literal>ports-<replaceable>${arch}</replaceable></literal> em
+	<literal>ports-<replaceable>${arch}</replaceable></literal>, em
 	<hostid>pointyhat</hostid>.
       </para>
 
@@ -2262,11 +2258,11 @@ touch /tmp/.boot_finished</screen>
 	  <itemizedlist>
 	    <listitem>
 	      <para>Copie um dos existentes como modelo e
-	        descompacte-o em um diretório tenporario.</para>
+	        descompacte-o em um diretório temporário.</para>
 	    </listitem>
 	    <listitem>
 	      <para>Personalize o <filename>etc/resolv.conf</filename>
-	        para o site local.</para>
+	        para o <literal>site</literal> local.</para>
 	    </listitem>
 	    <listitem>
 	      <para>Personalize o <filename>etc/make.conf</filename>
@@ -2293,7 +2289,7 @@ MASTER_SITE_OVERRIDE= \
 
 	  <para>Dica: você precisará de um desses para cada máquina;
 	   no entanto, se você tem várias máquinas no mesmo site, você
-	   deve criar um local específico para este site (e.g. em
+	   deve criar um local específico para este <literal>site</literal> (por exemplo, em
 	   <filename>/var/portbuild/conf/clients/</filename>) e criar
 	   um <literal>link</literal> simbólico para ele.</para>
 	</step>
@@ -2302,7 +2298,7 @@ MASTER_SITE_OVERRIDE= \
 	  <para>Crie o
 	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild-<replaceable>${hostname}</replaceable></filename>
 	    utilizando um dos existentes como guia.  O conteúdo deste
-	    arquivop sobreescreve as configurações de
+	    arquivo sobrescreve as configurações de
 	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild.conf</filename>.</para>
 
 	  <para>Sugestão de valores:<screen>
@@ -2369,7 +2365,7 @@ ssh_cmd="/usr/local/bin/ssh"
       <procedure>
 	<step>
 	  <para>Cerifique-se que o
-	    <literal>ssh</literal><literal>ssh</literal> está
+	    <literal>ssh</literal> está
 	    funcionando executando <command>ssh
 	    <replaceable>hostname</replaceable></command>.
 	  </para>
@@ -2394,12 +2390,12 @@ ssh_cmd="/usr/local/bin/ssh"
 	    linhas de informação sobre seu status, incluindo
 	    <literal>arch</literal> e <literal>osversion</literal>;
 	    <literal>8649</literal> deve dar-lhe uma resposta em
-	    <literal>XML</literal> de
+	    <literal>XML</literal> do
 	    <literal>ganglia</literal>.</para>
 	</step>
       </procedure>
 
-      <para>Esses passos passos precisam ser feitos por um
+      <para>Esses passos precisam ser feitos por um
         <literal>portmgr</literal> autenticado como
 	<literal>root</literal> em <hostid>pointyhat</hostid>.
       </para>
@@ -2557,7 +2553,7 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
       &os;</title>
 
     <para>Quando um <literal>branch</literal> antigo deixa de ser
-      suportado, existem algumas a serem feitas para que o lixo seja
+      suportado, existem algumas coisas a serem feitas para que o lixo seja
       recolhido.</para>
 
     <itemizedlist>
@@ -2628,14 +2624,14 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 
     <para>A partir de 2011, a filosofia da compilação de pacotes é
       compilá-los baseados <emphasis>na versão mais antiga
-      suportada</emphasis> de cada ramo.  e.g.: se no
+      suportada</emphasis> de cada <literal>branch</literal>.  Por exemplo: se no
       <literal>RELENG-8</literal> as seguintes versões são suportadas:
       8.1, 8.2, 8.3; então o <literal>packages-8-stable</literal> deve
       ser compilado para o 8.1.</para>
 
     <para>Quando uma versão chega ao fim de sua vida
-      (<literal>End-Of-Life</literal>, veja <ulink
-      url="http://www.freebsd.org/security/index.html#supported-branches">chart</ulink>),
+      (<literal>End-Of-Life</literal>, veja o <ulink
+      url="http://www.freebsd.org/security/index.html#supported-branches">gráfico</ulink>),
       uma compilação completa (não incremental!) dos pacotes deve ser
       feita e enviada.</para>
 
@@ -2857,7 +2853,8 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 
       <listitem>
 	<para>Necessário apenas para o antigo código base):
-	  Como no procedimento para criação de um novo ramo:
+	  Como no procedimento para criação de um novo
+	  <literal>branch</literal>:
 	  crie os <literal>links</literal> para o servidor web no
 	  diretório
 	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
@@ -2882,18 +2879,18 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
     </itemizedlist>
 
     <note>
-      <para>NOvamente como
+      <para>Novamente como
         <literal>ports-<replaceable>arch</replaceable></literal>:</para>
     </note>
 
     <itemizedlist>
       <listitem>
-	<para>Para cada ramo que será suportado, faça o seguinte:
+	<para>Para cada <literal>branch</literal> que será suportado, faça o seguinte:
 	</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Inicie a compilação para o ramo com
+	    <para>Inicie a compilação para o <literal>branch</literal> com
 	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
 	    </para>  
 	  </listitem>
@@ -2924,7 +2921,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
       <listitem>
 	<para>Adicione uma entrada <replaceable>arch</replaceable> apropriada
 	  para <filename>/var/portbuild/scripts/dologs</filename> na
-	  raiz do <filename>crontab</filename>.  (Isso é um paleativo
+	  raiz do <filename>crontab</filename>.  (Isso é um paliativo
 	  e deve ser corrigido.)
 	</para>
       </listitem>
@@ -2955,7 +2952,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	    <literal>ports-<replaceable>${arch}</replaceable></literal>.
 	    Adicione o usuário para o grupo <literal>wheel</literal>.
 	    Este deve ter um <literal>'*'</literal> como senha.
-	    Crie também também, de modo similar, o usuário
+	    Crie também, de modo similar, o usuário
 	    <literal>ports</literal> e
 	    <literal>portmgr</literal>.</para>
 	</step>
@@ -3126,8 +3123,8 @@ sysutils/smartmontools</screen>
   <sect1 id="disk-failure">
     <title>Procedimentos para lidar com falhas de disco</title>
 
-    <para>Quando uma máquina tem uma flaha de disco (e.g. entra em
-      pânico devido à erros de leitura, etc), então devemos fazer os
+    <para>Quando uma máquina tem uma falha de disco (por exemplo, entra em
+      pânico devido a erros de leitura, etc.), então devemos fazer os
       seguintes passos:</para>
 
     <itemizedlist>
@@ -3135,25 +3132,26 @@ sysutils/smartmontools</screen>
 	(por exemplo, colar a saída do console que seja relevante) no
 	<filename>/var/portbuild/<replaceable>${arch}</replaceable>/reboots</filename></para></listitem>
 
-      <listitem><para>Para os clientes i386 gohan, limpe o disco
+      <listitem><para>Para os clientes gohan i386, limpe o disco
         criando o arquivo <filename>/SCRUB</filename> no
 	<literal>nfsroot</literal> (por exemplo,
 	<filename>/a/nfs/8.dir1/SCRUB</filename>) e reinicie.  Isso
 	vai executar <command>dd if=/dev/zero of=/dev/ad0</command> e
-	forçar a unidade a remapear todos os setores defeituoso que
+	forçar a unidade a remapear todos os setores defeituosos que
 	encontrar, se tiver bastante setores sobressalentes.  Essa é
-	uma medida temporária para extender o tempo de vida de uma
+	uma medida temporária para estender o tempo de vida de uma
 	unidade de disco que irá tornar-se inutilizável.</para>
 
-	<note><para>For the i386 blade systems another signal of a failing
-	  disk seems to be that the blade will completely hang and be
-	  unresponsive to either console break, or even NMI.</para></note>
+	<note><para>Para os sistemas <literal>blade</literal> i386,
+	  outro sinal de falhas no disco parece ser quando o
+	  <literal>blade</literal> fica em espera e não responde a
+	  qualquer entrada no console, ou mesmo NMI.</para></note>
 
 	<para>For other build systems that don't newfs their disk at boot (e.g.
 	  amd64 systems) this step has to be skipped.</para></listitem>
 
       <listitem><para>Se o problema persistir, então provavelmente o
-	disco está queimado.  Mantenha a máquina fora do
+	disco está inutilizado.  Mantenha a máquina fora do
 	<filename>mlist</filename> e (para discos ATA) execute o
 	<command>smartctl</command> na unidade:</para>
 
@@ -3193,6 +3191,6 @@ LifeTime(hours)  LBA_of_first_error
 
     <para>Quando um disco falhar, por favor, informe os
       administradores do <literal>cluster</literal>, para que possamos
-      substituílo.</para>
+      substituí-lo.</para>
   </sect1>
 </article>
