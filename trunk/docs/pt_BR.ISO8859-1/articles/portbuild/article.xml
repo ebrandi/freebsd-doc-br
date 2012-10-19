@@ -543,7 +543,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	  que foram alterados, e recompila o resto.  Isso reduz o
 	  tempo de compilação substancialmente, pois os
 	  <literal>ports</literal> inalterados não serão recompilados
-	  toda vez.
+	  todas as vezes.
 	</para>
       </listitem>
 
@@ -571,7 +571,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><literal>-noduds</literal> - Não reconstrói o arquivo
 	  <filename>duds</filename> (<literal>ports</literal> que
-	  nunca são compilados, e.g. aqueles marcados com
+	  nunca são compilados, por exemplo, aqueles marcados com
 	  <literal>IGNORE</literal>, <literal>NO_PACKAGE</literal>,
 	  etc.) durante o pré-processamento.
 	</para>
@@ -580,8 +580,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><literal>-nochecksubdirs</literal> - Não verifica o
 	  <makevar>SUBDIRS</makevar> para os <literal>ports</literal>
-	  que não estão ligados à compilação.  (Apenas para a nova
-	  base de código).
+	  que não estão ligados à compilação.  (Apenas para o novo
+	  código base).
 	</para>
       </listitem>
 
@@ -648,12 +648,12 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><literal>-noplistcheck</literal> - Não considera como
 	  erro <literal>ports</literal> deixarem arquivos para trás
-	  depois que for desinstalado.
+	  depois que forem removidos.
 	</para>
       </listitem>
 
       <listitem>
-	<para><literal>-nodistfiles</literal> - Não coletar os
+	<para><literal>-nodistfiles</literal> - Não coleta os
 	  <literal>distfiles</literal> que passarem no <command>make
 	  checksum</command> para depois fazer o
 	  <foreignphrase>upload</foreignphrase> para o
@@ -671,7 +671,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
       <listitem>
 	<para><literal>-unlimited-errors</literal> (apenas novo
-	  código) - anula a verificação do "qmanager threshhold" para
+	  código base) - anula a verificação do "qmanager threshhold" para
 	  compilações descontroladas.  Você pode querer isso
 	  principalmente quando usar <literal>-restart</literal> em
 	  uma compilação que provavelmente vai falhar, ou talvez
@@ -683,11 +683,11 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     <para>A menos que você especifique <literal>-restart</literal>,
       <literal>-continue</literal>, ou <literal>-finish</literal>, os
       <literal>links</literal> simbólicos para as compilações existentes serão
-      rotacionados.  Isto é, o link simbólico para
+      rotacionados.  Isto é, o <literal>link</literal> simbólico para
       <filename>previous</filename> será removido; a compilação mais
-      recente terá seu link modificado para
+      recente terá seu <literal>link</literal> modificado para
       <filename>previous/</filename>; e a nova compilação será criada
-      e linkada em <filename>latest/</filename>.
+      e referênciada com um <literal>link</literal> em <filename>latest/</filename>.
     </para>
 
     <para>Se a última compilação foi finalizada de forma limpa, você
@@ -724,7 +724,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <note><para>Atualmente, a própria compilação de pacotes ocorre em
       duas fases idênticas.  A razão para isso é que, algumas vezes,
-      problemas temporários (e.g. falhas do NFS, sites FTP
+      problemas temporários (por exemplo, falhas do NFS, sites FTP
       inalcanssaveis, etc.) podem quebrar a compilação.  Realizar o
       processo em duas fases é uma solução alternativa para esse tipo
       de problema.</para></note>
@@ -800,8 +800,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    <replaceable>branch</replaceable>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    <replaceable>newid</replaceable> (ou um
-	    <literal>datestamp</literal> se não for especifícado).  Só
-	      é necessário quando da criação de um novo ramo ou uma nova
+	    <literal>datestamp</literal>, se não for especifícado).  Só
+	      é necessário quando da criação de um novo <literal>branch</literal> ou uma nova
 	      arquitetura.  (À fazer: documentar se
 	      <literal>newid</literal> deve ser especificado como
 	      <literal>latest</literal> no novo código base.)
@@ -814,7 +814,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    clone do <replaceable>oldid</replaceable> para o
 	    <replaceable>newid</replaceable> (ou um
-	    <literal>datestamp</literal> se não for especificado).
+	    <literal>datestamp</literal>, se não for especificado).
 	  </para>
 	</listitem>
 
