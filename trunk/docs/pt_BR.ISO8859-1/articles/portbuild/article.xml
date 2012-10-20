@@ -1501,8 +1501,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       compilação de controle com as da compilação dos
       <literal>patches</literal> experimentais.  Para facilitar, use
       os seguintes comandos (assumindo o <literal>branch 8</literal>
-      como <literal>branch</literal> de controle, e o <literal>8-exp</literal>
-      como <literal>branch</literal> experimental):</para>
+      como <literal>branch</literal> de controle, e o
+      <literal>8-exp</literal> como <literal>branch</literal>
+      experimental):</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8-exp/errors</userinput>
 &prompt.user; <userinput>find . -name \*.log\* | sort > /tmp/8-exp-errs</userinput>
@@ -1575,8 +1576,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Ambas as colunas devem ser investigadas e as razões para os
       erros entendidas antes do <literal>commit</literal> do conjunto
       de <literal>patches</literal> experimentais.  Para diferenciar
-      entre o [1] e o [2] acima, você pode recompilar os pacotes afetados
-      sob o <literal>branch</literal> de controle:</para>
+      entre o [1] e o [2] acima, você pode recompilar os pacotes
+      afetados sob o <literal>branch</literal> de controle:</para>
 
     <screen>&prompt.user; <userinput>cd /var/portbuild/i386/8/ports</userinput></screen>
 
@@ -1992,7 +1993,7 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
 
 	    <listitem>
 	      <para>Modifique o
-	        <filename>etc/sysctl.conf</filename>:<screen>	
+	        <filename>etc/sysctl.conf</filename>:<screen>
 9a10,30
 > kern.corefile=<filename>/<replaceable>usr2</replaceable>/%N.core</filename>
 > kern.sugid_coredump=1
@@ -2239,10 +2240,9 @@ touch /tmp/.boot_finished</screen>
       <title>Configuração no <literal>pointyhat</literal></title>
 
       <para>Estes passos precisam ser feitos por um
-        <literal>portmgr</literal>,
-	autenticado como o usuário
-	<literal>ports-<replaceable>${arch}</replaceable></literal>, em
-	<hostid>pointyhat</hostid>.
+        <literal>portmgr</literal>, autenticado como o usuário
+	<literal>ports-<replaceable>${arch}</replaceable></literal>,
+	em <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
@@ -2300,7 +2300,8 @@ MASTER_SITE_OVERRIDE= \
 
 	  <para>Dica: você precisará de um desses para cada máquina;
 	   no entanto, se você tem várias máquinas no mesmo site, você
-	   deve criar um local específico para este <literal>site</literal> (por exemplo, em
+	   deve criar um local específico para este
+	   <literal>site</literal> (por exemplo, em
 	   <filename>/var/portbuild/conf/clients/</filename>) e criar
 	   um <literal>link</literal> simbólico para ele.</para>
 	</step>
@@ -2375,8 +2376,7 @@ ssh_cmd="/usr/local/bin/ssh"
 
       <procedure>
 	<step>
-	  <para>Cerifique-se que o
-	    <literal>ssh</literal> está
+	  <para>Cerifique-se que o <literal>ssh</literal> está
 	    funcionando executando <command>ssh
 	    <replaceable>hostname</replaceable></command>.
 	  </para>
@@ -2502,7 +2502,7 @@ ssh_cmd="/usr/local/bin/ssh"
       <listitem>
 	<para>(Necessário apenas para o antigo código base): Edite a
 	cópia do arquivo acima para cada uma das arquiteturas em
-	  <filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
+	<filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
       </listitem>
 
       <listitem>
@@ -2564,8 +2564,8 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
       &os;</title>
 
     <para>Quando um <literal>branch</literal> antigo deixa de ser
-      suportado, existem algumas coisas a serem feitas para que o lixo seja
-      recolhido.</para>
+      suportado, existem algumas coisas a serem feitas para que o
+      lixo seja recolhido.</para>
 
     <itemizedlist>
       <listitem>
