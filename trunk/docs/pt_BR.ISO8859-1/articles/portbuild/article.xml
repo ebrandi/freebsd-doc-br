@@ -2635,10 +2635,11 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 
     <para>A partir de 2011, a filosofia da compilação de pacotes é
       compilá-los baseados <emphasis>na versão mais antiga
-      suportada</emphasis> de cada <literal>branch</literal>.  Por exemplo: se no
-      <literal>RELENG-8</literal> as seguintes versões são suportadas:
-      8.1, 8.2, 8.3; então o <literal>packages-8-stable</literal> deve
-      ser compilado para o 8.1.</para>
+      suportada</emphasis> de cada <literal>branch</literal>.  Por
+      exemplo: se no <literal>RELENG-8</literal> as seguintes versões
+      são suportadas: 8.1, 8.2, 8.3; então o
+      <literal>packages-8-stable</literal> deve ser compilado para o
+      8.1.</para>
 
     <para>Quando uma versão chega ao fim de sua vida
       (<literal>End-Of-Life</literal>, veja o <ulink
@@ -2782,7 +2783,7 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 
       <listitem>
 	<para>Crie um <filename>make.conf</filename> local.  Nos casos
-	mais comuns você pode executar
+	  mais comuns você pode executar
 	  <screen>ln ../make.conf ./make.conf</screen></para>
       </listitem>
 
@@ -2880,8 +2881,8 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 
       <listitem>
         <para>
-	  Crie mais dois <literal>links</literal> para o servidor
-	  web no diretório
+	  Crie mais dois <literal>links</literal> para o servidor web
+	  no diretório
 	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
 ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
 ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</replaceable>-errorlogs</screen>
@@ -2896,12 +2897,14 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 
     <itemizedlist>
       <listitem>
-	<para>Para cada <literal>branch</literal> que será suportado, faça o seguinte:
+	<para>Para cada <literal>branch</literal> que será suportado,
+	  faça o seguinte:
 	</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Inicie a compilação para o <literal>branch</literal> com
+	    <para>Inicie a compilação para o <literal>branch</literal>
+	      com
 	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
 	    </para>  
 	  </listitem>
@@ -2930,10 +2933,11 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
       </listitem>
 
       <listitem>
-	<para>Adicione uma entrada <replaceable>arch</replaceable> apropriada
-	  para <filename>/var/portbuild/scripts/dologs</filename> na
-	  raiz do <filename>crontab</filename>.  (Isso é um paliativo
-	  e deve ser corrigido.)
+	<para>Adicione uma entrada <replaceable>arch</replaceable>
+	  apropriada para
+	  <filename>/var/portbuild/scripts/dologs</filename> na raiz
+	  do <filename>crontab</filename>.  (Isso é um paliativo e
+	  deve ser corrigido.)
 	</para>
       </listitem>
     </itemizedlist>
@@ -3134,9 +3138,9 @@ sysutils/smartmontools</screen>
   <sect1 id="disk-failure">
     <title>Procedimentos para lidar com falhas de disco</title>
 
-    <para>Quando uma máquina tem uma falha de disco (por exemplo, entra em
-      pânico devido a erros de leitura, etc.), então devemos fazer os
-      seguintes passos:</para>
+    <para>Quando uma máquina tem uma falha de disco (por exemplo,
+      entra em pânico devido a erros de leitura, etc.), então devemos
+      fazer os seguintes passos:</para>
 
     <itemizedlist>
       <listitem><para>Anote o tempo e o modo como a falha ocorreu
