@@ -680,12 +680,14 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <para>A menos que você especifique <literal>-restart</literal>,
       <literal>-continue</literal>, ou <literal>-finish</literal>, os
-      <literal>links</literal> simbólicos para as compilações existentes serão
-      rotacionados.  Isto é, o <literal>link</literal> simbólico para
+      <literal>links</literal> simbólicos para as compilações
+      existentes serão rotacionados.  Isto é, o
+      <literal>link</literal> simbólico para
       <filename>previous</filename> será removido; a compilação mais
       recente terá seu <literal>link</literal> modificado para
       <filename>previous/</filename>; e a nova compilação será criada
-      e referenciada com um <literal>link</literal> em <filename>latest/</filename>.
+      e referenciada com um <literal>link</literal> em
+      <filename>latest/</filename>.
     </para>
 
     <para>Se a última compilação foi finalizada de forma limpa, você
@@ -715,7 +717,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	defeito.)</para>
     </note>
 
-    <para>Verifique se a compilação de pacotes para a arquitetura 
+    <para>Verifique se a compilação de pacotes para a arquitetura
       <replaceable>${arch}</replaceable> está executando como
       usuário ports-<replaceable>${arch}</replaceable> ou ele
       apresentará um grande número de erros.</para>
@@ -798,17 +800,19 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    <replaceable>branch</replaceable>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    <replaceable>newid</replaceable> (ou um
-	    <literal>datestamp</literal>, se não for especificado).  Só
-	      é necessário quando da criação de um novo <literal>branch</literal> ou uma nova
-	      arquitetura.  (À fazer: documentar se
-	      <literal>newid</literal> deve ser especificado como
-	      <literal>latest</literal> no novo código base.)
+	    <literal>datestamp</literal>, se não for especificado).
+	    Só é necessário quando da criação de um novo
+	    <literal>branch</literal> ou uma nova arquitetura.  (À
+	    fazer: documentar se <literal>newid</literal> deve ser
+	    especificado como <literal>latest</literal> no novo código
+	    base.)
 	  </para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>build clone <replaceable>arch</replaceable>
-	    <replaceable>branch</replaceable> <replaceable>oldid</replaceable>
+	    <replaceable>branch</replaceable>
+	    <replaceable>oldid</replaceable>
 	    [<replaceable>newid</replaceable>]</literal> - Cria um
 	    clone do <replaceable>oldid</replaceable> para o
 	    <replaceable>newid</replaceable> (ou um
@@ -817,7 +821,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	</listitem>
 
 	<listitem>
-	  <para><literal>build srcupdate <replaceable>arch</replaceable>
+	  <para><literal>build srcupdate
+	    <replaceable>arch</replaceable>
 	    <replaceable>branch</replaceable>
 	    <replaceable>buildid</replaceable></literal> - Substitui
 	    a árvore <literal>src</literal> com um novo
@@ -828,7 +833,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	</listitem>
 
 	<listitem>
-	  <para><literal>build portsupdate <replaceable>arch</replaceable>
+	  <para><literal>build portsupdate
+	    <replaceable>arch</replaceable>
 	    <replaceable>branch</replaceable>
 	    <replaceable>buildid</replaceable></literal> - Substitui a
 	    árvore de <literal>ports</literal> com um novo
@@ -867,8 +873,9 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para>Atualiza o <literal>branch</literal> usado na árvore <literal>src</literal> a
-	  partir de um <literal>snapshot</literal> do ZFS [*]
+	<para>Atualiza o <literal>branch</literal> usado na árvore
+	  <literal>src</literal> a partir de um
+	  <literal>snapshot</literal> do ZFS [*]
 	</para>
       </listitem>
 
@@ -973,8 +980,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       quando você iniciou a compilação, ou usando <command>ps
       x</command> para identifica-lo).  Você precisa certificar-se de
       que nada mais importante está rodando neste
-      <literal>tty</literal>, por exemplo, <command>ps -t p1</command> ou
-      qualquer outro.  Se não existe, você pode encerrar o terminal
+      <literal>tty</literal>, por exemplo, <command>ps -t p1</command>
+      ou qualquer outro.  Se não existe, você pode encerrar o terminal
       facilmente com <command>pkill -t pts/1</command>; ou pode
       utilizar o <command>kill -HUP</command>, por exemplo,
       <command>ps -t pts/1 -o pid= | xargs kill -HUP</command>.
@@ -1018,11 +1025,12 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <literal>loads</literal> pensa estar em uso, você está em
       apuros.</para>
 
-    <para>Você pode ter problemas com comandos <command>umount</command>
-      suspensos.  Se assim for, você terá que usar o
-      <literal>script</literal> <command>allgohans</command>  para
-      executar um comando &man.ssh.1; em todos os clientes neste
-      ambiente de compilação.  Por exemplo:
+    <para>Você pode ter problemas com comandos
+      <command>umount</command> suspensos.  Se assim for, você terá
+      que usar o <literal>script</literal>
+      <command>allgohans</command>  para executar um comando
+      &man.ssh.1; em todos os clientes neste ambiente de compilação.
+      Por exemplo:
 <screen>ssh -l root gohan24 df</screen>
 
       vai te dar um <command>df</command>, e
@@ -1113,8 +1121,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Executar <command>cat /var/portbuild/*/loads/*</command>
       mostra a carga do cliente e o número de compilações simultâneas
       em progresso.  Os arquivos que têm sido atualizados recentemente
-      são dos clientes que estão <literal>online</literal>; os outros são dos
-      clientes <literal>offline</literal>.</para>
+      são dos clientes que estão <literal>online</literal>; os outros
+      são dos clientes <literal>offline</literal>.</para>
 
     <note>
       <para>O comando <command>pdispatch</command> faz o envio de
@@ -1164,10 +1172,10 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <itemizedlist>
       <listitem>
 	<para><literal>cvs date</literal> é o conteúdo do
-	  <filename>cvsdone</filename>.  É por isso que nós recomendamos
-	  que você atualize o <filename>cvsdone</filename> para
-	  executar compilações experimentais, <literal>-exp</literal>
-	  (veja abaixo).</para>
+	  <filename>cvsdone</filename>.  É por isso que nós
+	  recomendamos que você atualize o
+	  <filename>cvsdone</filename> para executar compilações
+	  experimentais, <literal>-exp</literal> (veja abaixo).</para>
       </listitem>
 
       <listitem>
@@ -1202,15 +1210,15 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	<para><literal>missing</literal> mostra a diferença entre o
 	  <filename>INDEX</filename> e as outras colunas.  Se você
 	  reiniciou uma compilação após um <command>cvs
-	  update</command>, provavelmente haverá duplicatas nos pacotes
-	  e colunas de erros, e esta coluna será inútil.  (O
+	  update</command>, provavelmente haverá duplicatas nos
+	  pacotes e colunas de erros, e esta coluna será inútil.  (O
 	  <literal>script</literal> é ingênuo).</para>
       </listitem>
 
       <listitem>
-	<para><literal>running</literal> e <literal>completed</literal>
-	  são supostamente baseadas em um &man.grep.1; do
-	  <filename>build.log</filename>.
+	<para><literal>running</literal> e
+	  <literal>completed</literal> são supostamente baseadas em um
+	  &man.grep.1; do <filename>build.log</filename>.
 	</para>
       </listitem>
     </itemizedlist>
@@ -1246,9 +1254,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   <sect1 id="release">
     <title>Compilando Pacotes para uma Versão</title>
 
-    <para>Quando compilando pacotes para uma
-      versão do &os;, pode
-      ser necessário atualizar manualmente as árvores de
+    <para>Quando compilando pacotes para uma versão do &os;, pode ser
+      necessário atualizar manualmente as árvores de
       <literal>ports</literal> e <literal>src</literal> para a
       <literal>tag</literal> da versão e usar as opções
       <literal>-nocvs</literal> e
@@ -1279,14 +1286,14 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <para>Isso é útil para ajudar periodicamente na limpeza dos
       <literal>distfiles</literal> do <hostid>ftp-master</hostid>.
-      Quando o espaço se torna apertado, os <literal>distfiles</literal>
-      das versões recentes podem ser mantidos, enquanto outros
-      podem ser jogados fora.</para>
+      Quando o espaço se torna apertado, os
+      <literal>distfiles</literal> das versões recentes podem ser
+      mantidos, enquanto outros podem ser jogados fora.</para>
 
-    <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos <literal>distfiles</literal> tenha
-      sido feito (veja abaixo), o conjunto de pacotes da versão
-      final deve ser criado.  Para se assegurar, execute o
-      <literal>script</literal>
+    <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos
+      <literal>distfiles</literal> tenha sido feito (veja abaixo), o
+      conjunto de pacotes da versão final deve ser criado.  Para se
+      assegurar, execute o <literal>script</literal>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/cdrom.sh</filename>
       manualmente para certificar-se que todos os pacotes restritos e
       os <literal>distfiles</literal> foram removidos.  Então, copie o
@@ -1311,8 +1318,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <hostid>ftp-master</hostid> para propagação com a rede de
       espelhos FTP.  Se a compilação foi executada com a opção
       <literal>-nofinish</literal>, então certifique-se de, em
-      seguida,
-      executar <command>dopackages -finish</command> para
+      seguida, executar <command>dopackages -finish</command> para
       pós-processamento dos pacotes (remover pacotes marcados como
       <literal>RESTRICTED</literal> e <literal>NO_CDROM</literal> onde
       for apropriado, remover pacotes não listados no
@@ -1331,14 +1337,15 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <command>cdrom.sh</command> manualmente após a finalização do
       <command>dopackages</command>, apenas por segurança.  Execute o
       <literal>script</literal> <command>restricted.sh</command> antes
-      de fazer o <foreignphrase>upload</foreignphrase> para o <hostid>ftp-master</hostid>, em
-      seguida, execute <command>cdrom.sh</command> antes de preparar o
-      conjunto final de pacotes para um
-      <literal>release</literal>.</para>
+      de fazer o <foreignphrase>upload</foreignphrase> para o
+      <hostid>ftp-master</hostid>, em seguida, execute
+      <command>cdrom.sh</command> antes de preparar o conjunto final
+      de pacotes para um <literal>release</literal>.</para>
 
     <para>Os subdiretórios de pacotes são nomeados de acordo com seu
-      <literal>branch</literal>, <literal>release</literal>, <literal>stable</literal>, ou
-      <literal>current</literal>.  Exemplo:</para>
+      <literal>branch</literal>, <literal>release</literal>,
+      <literal>stable</literal>, ou <literal>current</literal>.
+      Exemplo:</para>
 
     <itemizedlist>
       <listitem>
@@ -1383,9 +1390,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     </note>
 
     <para>Se você está fazendo um conjunto de pacotes completamente
-      novo (por exemplo, para um novo <literal>release</literal>), copie os
-      pacotes para a área de teste no <hostid>ftp-master</hostid> com
-      algo como o seguinte:</para>
+      novo (por exemplo, para um novo <literal>release</literal>),
+      copie os pacotes para a área de teste no
+      <hostid>ftp-master</hostid> com algo como o seguinte:</para>
 
     <screen>&prompt.root; <userinput>cd /var/portbuild/<replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
 &prompt.root; <userinput>tar cfv - packages/ | ssh portmgr@ftp-master tar xfC - w/ports/<replaceable>${arch}</replaceable>/tmp/<replaceable>${subdir}</replaceable></userinput></screen>
@@ -1430,10 +1437,11 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Compilações de <literal>patches</literal> experimentais são
       executadas de tempos em tempos para novas funções ou correções
       de defeitos na infraestrutura do <literal>ports</literal> (isto
-      é, <filename>bsd.port.mk</filename>), ou para testar atualizações
-      em grande escala.  A qualquer momento podem haver vários
-      <literal>patches</literal> de <literal>branchs</literal> experimentais simultâneos,
-      como o <literal>8-exp</literal> na arquitetura amd64.</para>
+      é, <filename>bsd.port.mk</filename>), ou para testar
+      atualizações em grande escala.  A qualquer momento podem haver
+      vários <literal>patches</literal> de <literal>branchs</literal>
+      experimentais simultâneos, como o <literal>8-exp</literal> na
+      arquitetura amd64.</para>
 
     <para>Geralmente, uma compilação de <literal>patches</literal>
       experimentais é executada da mesma forma que qualquer outra
@@ -1473,11 +1481,12 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     
     <para>Com o objetivo de ter uma compilação de controle com a qual
       comparar falhas, você deve primeiro executar a compilação de
-      pacote no <literal>brabch</literal> em que os <literal>patches</literal>
-      experimentais sejam baseados para a arquitetura &i386;
-      (atualmente esta é o <literal>8</literal>).  Em seguida, quando
-      preparando para a compilação de <literal>patches</literal>
-      experimentais, faça o <literal>checkout</literal> da árvore do
+      pacote no <literal>brabch</literal> em que os
+      <literal>patches</literal> experimentais sejam baseados para a
+      arquitetura &i386; (atualmente esta é o <literal>8</literal>).
+      Em seguida, quando preparando para a compilação de
+      <literal>patches</literal> experimentais, faça o
+      <literal>checkout</literal> da árvore do
       <literal>ports</literal> e do <literal>src</literal> com a mesma
       data da que foi usada para a compilação de controle.  Isso vai
       garantir uma comparação entre as compilações depois.</para>
