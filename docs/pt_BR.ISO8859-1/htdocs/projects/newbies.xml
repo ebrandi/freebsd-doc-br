@@ -6,6 +6,15 @@
 <!ENTITY url.books "&base;/doc/en_US.ISO8859-1/books">
 ]>
 
+<!--
+    The FreeBSD Documentation Project
+    The FreeBSD Brazilian Portuguese Documentation Project
+
+    Original revision:  r39632
+
+    $FreeBSD$
+-->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <title>&title;</title>
