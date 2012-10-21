@@ -234,7 +234,7 @@
 
 	<para>
 		O comprometimento de uma conta de usuário é mais comum que
-	um ataque de DoS.  Muitos administradores de sistemas, aind 
+	um ataque de DoS.  Muitos administradores de sistema, ainda 
 	executam os serviços padrões 
       <application>telnetd</application>,
       <application>rlogind</application>,
@@ -243,24 +243,25 @@
 		em suas máquinas.  Esses serviços, por padrão, não operam com
 		uma conexão criptografada. O resultado é que se você tem uma
 		base moderada de usuários, um ou mais deles podem se conectar
-		em seu sistema de forma remota ( O que é um meio muito comum e 
-		conveniente de acesso ao sistema) e podera ter sua senha roubada.
+		em seu sistema de forma remota ( o que é um meio muito comum e 
+		conveniente de acesso ao sistema) e poderá ter sua senha roubada.
 		Alternativamente, o administrador de sistema poderá analisar os
 		arquivos de logs a procura de endereços de origem suspeita que 
 		obtiveram acesso ao sistema.
 	</para>
 
 	<para>
-		Uma vez assumido que o atacante teve acesso à uma conta de usuário,
-	poderá obter credenciais do usuário <username>root</username>.  Entretanto
-	a realidade é que em um sistema bem protegido e supervisionado, o acesso
-	a uma conta de usuário não dá necessáriamente acesso ao usuário 
+		Uma vez assumido que o atacante teve acesso à uma conta de 
+	usuário, este poderá obter credenciais do usuário 
+	<username>root</username>.  Entretanto a realidade é que em um 
+	sistema bem protegido e supervisionado, o acesso a uma conta de 
+	usuário não dá necessáriamente acesso ao usuário 
 	<username>root</username>.  A distinção é importante porque sem o 
 	acesso ao usuário <username>root</username>, o atacante não poderá
 	esconder seu rastro, e na melhor das hipótses, só poderá alterar
 	os arquivos do usuário ou travar a máquina em questão.  O comprometimento
 	de contas de usuários é muito comum porque os usuários tendem a não 
-	seguir as precauções que os administradores de sistemas dão.
+	seguir as precauções que os administradores de sistemas fornecem.
 	</para> 
 
     <indexterm>
@@ -268,6 +269,14 @@
       <secondary>backdoors</secondary>
     </indexterm>
 
+	<para>
+		Administradores de sistema devem ter em mente que existem
+	várias maneiras em potencial para obter credenciais do usuário
+	<username>root</username> na sua máquina.  O atacante pode conhecer
+	a senha do usuário <username>root</username>, pode ter encontrado
+	um erro em algun serviço que está sendo executado comprivilégios
+	de root e pode obter 
+	</para>
     <para>System administrators must keep in mind that there are
       potentially many ways to break <username>root</username> on a
       machine.  The attacker may know the <username>root</username>
