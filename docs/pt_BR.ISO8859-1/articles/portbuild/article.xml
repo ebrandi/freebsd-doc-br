@@ -163,11 +163,11 @@
       <note>
 	<para>Também durante esse processo, o código base foi migrado
 	  para o <ulink
-	  url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">
-	  repositório Subversion</ulink>.  Para referência, a versão
+	  url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">repositório 
+	  Subversion</ulink>.  Para referência, a versão
 	  anterior ainda pode ser <ulink
-	  url="http://www.freebsd.org/cgi/cvsweb.cgi/ports/Tools/portbuild/scripts/Attic/">
-	  encontrada no CVS</ulink>.</para>
+	  url="http://www.freebsd.org/cgi/cvsweb.cgi/ports/Tools/portbuild/scripts/Attic/">encontrada 
+	  no CVS</ulink>.</para>
       </note>
     </sect2>
   </sect1>
@@ -175,16 +175,15 @@
   <sect1 id="management">
     <title>Gerenciamento dos Clientes de Compilação</title>
 
-    <para>Os clientes &i386; localizados conjuntamente com
+    <para>Os clientes &i386; localizados conjuntamente com o
       <hostid>pointyhat</hostid>, efetuam o <literal>boot</literal>
       via rede a partir dele (nós
       <replaceable>conectados</replaceable>); todos os outros clientes
       (nós <replaceable>desconectados</replaceable>) ou são
-      <literal>self-hosted</literal> ou efetuam
-      <literal>boot</literal> via rede a partir de outro <literal>host
-      pxe</literal>.  Em todos os casos eles se configuram durante o
-      <literal>boot</literal> preparando-se para compilar
-      pacotes.</para>
+      auto-hospedados ou efetuam <literal>boot</literal> via rede a 
+      partir de outro <literal>host pxe</literal>.  Em todos os casos
+      eles se auto configuram durante o <literal>boot</literal> 
+      preparando-se para compilar pacotes.</para>
 
     <para>O <literal>cluster</literal> principal copia, através do
       <command>rsync</command>, os dados necessários (a árvore de
@@ -192,7 +191,7 @@
       tarballs</literal>, <literal>scripts</literal>, etc.) para os
       nós desconectados durante a fase de configuração dos nós.  Em
       seguida, o diretório <literal>portbuild</literal> desconectado é
-      montado como <literal>nullfs</literal> para compilações em
+      montado como <literal>nullfs</literal> para compilações sob 
       <literal>chroot</literal>.</para>
 
     <para>O usuário
@@ -219,7 +218,7 @@
   </sect1>
 
   <sect1 id="setup">
-    <title>Configuração do Ambiente de Compilação em
+    <title>Configuração do Ambiente de Compilação sob
       <literal>Chroot</literal></title>
 
     <para>A compilação de pacotes é realizada em um ambiente
@@ -233,8 +232,8 @@
       a partir da árvore de diretórios em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src/</filename>
       e o instala em <replaceable>${worlddir}</replaceable>.  A
-      árvore de diretórios será atualizada primeiro, a menos que
-      <literal>-nocvs</literal> seja especificado.</para>
+      árvore de diretórios será atualizada primeiro, a menos que a
+      opção <literal>-nocvs</literal> seja especificada.</para>
 
     <screen>/var/portbuild&prompt.root; <userinput>scripts/makeworld <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-nocvs]</userinput></screen>
 
@@ -251,15 +250,15 @@
       <filename><replaceable>${arch}</replaceable>/clients</filename>.</para>
 
     <para>O arquivo <filename>bindist.tar</filename> é extraído para
-      cada cliente durante a inicialização deles, e no início de cada
-      passagem do <literal>script</literal>
+      cada cliente durante a inicialização dos mesmos, e no início de
+      cada passagem do <literal>script</literal>
       <command>dopackages</command>.</para>
 
     <sect2>
       <title>Novo Código Base</title>
 
-      <para>Para ambos os comandos acima, se
-        <replaceable>${buildid}</replaceable> esta definido como
+      <para>Para ambos os comandos acima, se o
+        <replaceable>${buildid}</replaceable> estiver definido como
 	<literal>latest</literal>, ele pode ser omitido.</para>
     </sect2>
   </sect1>
@@ -276,10 +275,10 @@
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.server</filename>
       e
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src.conf.server</filename>,
-      respectivamente.  Esses serão usados, em vez dos arquivos que
-      estão no lado do servidor.</para>
+      respectivamente.  Estes serão usados, em vez dos arquivos
+      padrões que estão no lado do servidor.</para>
 
-    <para>Da mesma forma, se você quiser afetar o
+    <para>Da mesma forma, se você também quiser afetar o
       <filename>make.conf</filename> no <emphasis>lado do
       cliente</emphasis>, você pode usar o
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>.
@@ -290,7 +289,7 @@
         ter seu próprio <filename>make.conf</filename>, o conteúdo do
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.client</filename>
 	vai ser <emphasis>adicionado</emphasis> ao
-	<filename>make.conf</filename>, não substituí-lo, como é feito
+	<filename>make.conf</filename>, e não substituí-lo, como é feito
 	com o
 	<filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/make.conf.server</filename>.
 	</para>
