@@ -209,7 +209,7 @@
       <see>Denial of Service (DoS)</see>
     </indexterm>
     <indexterm><primary>Denial of Service (DoS)</primary></indexterm>
-
+	<para>
 			O ataque de negação de serviço (DoS), é uma ação que priva a máquina
 		dos recursos necessários.  Tipicamente, os ataques de DoS são mecanismos
 		de força bruta que tentam travar ou  fazer a máquina ficar inutilizável 
