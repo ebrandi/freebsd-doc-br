@@ -1,12 +1,12 @@
+# The FreeBSD Documentation Project
+# The FreeBSD Brazilian Portuguese Documentation Project
 #
-# $FreeBSD: head/en_US.ISO8859-1/articles/portbuild/Makefile 38826 2012-05-17 19:12:14Z hrs $
+# Original revision: r39631
 #
-# Article: Portbuild Procedure
-#
+# $FreeBSD$
+# 
 
 DOC?= article
-
-NO_TIDY=YES
 
 FORMATS?= html html-split
 WITH_ARTICLE_TOC?= YES
