@@ -210,21 +210,6 @@
     </indexterm>
     <indexterm><primary>Denial of Service (DoS)</primary></indexterm>
 
-    <para>A denial of service attack is an action that deprives the
-      machine of needed resources.  Typically, DoS attacks are
-      brute-force mechanisms that attempt to crash or otherwise make a
-      machine unusable by overwhelming its servers or network stack.
-      Some DoS attacks try to take advantage of bugs in the networking
-      stack to crash a machine with a single packet.  The latter can
-      only be fixed by applying a bug fix to the kernel.  Attacks on
-      servers can often be fixed by properly specifying options to
-      limit the load the servers incur on the system under adverse
-      conditions.  Brute-force network attacks are harder to deal
-      with.  A spoofed-packet attack, for example, is nearly
-      impossible to stop, short of cutting your system off from the
-      Internet.  It may not be able to take your machine down, but it
-      can saturate your Internet connection.</para>
-		<para>
 			O ataque de negação de serviço (DoS), é uma ação que priva a máquina
 		dos recursos necessários.  Tipicamente, os ataques de DoS são mecanismos
 		de força bruta que tentam travar ou  fazer a máquina ficar inutilizável 
@@ -247,32 +232,36 @@
       <secondary>account compromises</secondary>
     </indexterm>
 
-    <para>A user account compromise is even more common than a DoS
-      attack.  Many sysadmins still run standard
+	<para>
+		O comprometimento de uma conta de usuário é mais comum que
+	um ataque de DoS.  Muitos administradores de sistemas, aind 
+	executam os serviços padrões 
       <application>telnetd</application>,
       <application>rlogind</application>,
-      <application>rshd</application>, and
-      <application>ftpd</application> servers on their machines.
-      These servers, by default, do not operate over encrypted
-      connections.  The result is that if you have any moderate-sized
-      user base, one or more of your users logging into your system
-      from a remote location (which is the most common and convenient
-      way to login to a system) will have his or her password sniffed.
-      The attentive system admin will analyze his remote access logs
-      looking for suspicious source addresses even for successful
-      logins.</para>
+      <application>rshd</application>, e
+      <application>ftpd</application> 
+		em suas máquinas.  Esses serviços, por padrão, não operam com
+		uma conexão criptografada. O resultado é que se você tem uma
+		base moderada de usuários, um ou mais deles podem se conectar
+		em seu sistema de forma remota ( O que é um meio muito comum e 
+		conveniente de acesso ao sistema) e podera ter sua senha roubada.
+		Alternativamente, o administrador de sistema poderá analisar os
+		arquivos de logs a procura de endereços de origem suspeita que 
+		obtiveram acesso ao sistema.
+	</para>
 
-    <para>One must always assume that once an attacker has access to a
-      user account, the attacker can break <username>root</username>.
-      However, the reality is that in a well secured and maintained
-      system, access to a user account does not necessarily give the
-      attacker access to <username>root</username>.  The distinction
-      is important because without access to <username>root</username>
-      the attacker cannot generally hide his tracks and may, at best,
-      be able to do nothing more than mess with the user's files, or
-      crash the machine.  User account compromises are very common
-      because users tend not to take the precautions that sysadmins
-      take.</para>
+	<para>
+		Uma vez assumido que o atacante teve acesso à uma conta de usuário,
+	poderá obter credenciais do usuário <username>root</username>.  Entretanto
+	a realidade é que em um sistema bem protegido e supervisionado, o acesso
+	a uma conta de usuário não dá necessáriamente acesso ao usuário 
+	<username>root</username>.  A distinção é importante porque sem o 
+	acesso ao usuário <username>root</username>, o atacante não poderá
+	esconder seu rastro, e na melhor das hipótses, só poderá alterar
+	os arquivos do usuário ou travar a máquina em questão.  O comprometimento
+	de contas de usuários é muito comum porque os usuários tendem a não 
+	seguir as precauções que os administradores de sistemas dão.
+	</para> 
 
     <indexterm>
       <primary>security</primary>
