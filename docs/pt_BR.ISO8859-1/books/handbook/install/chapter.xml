@@ -2,7 +2,6 @@
 <!--
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
-
   Original revision: r39550
 
   $FreeBSD$
@@ -30,178 +29,193 @@
     <!-- January 2000 -->
   </chapterinfo>
 
-  <title>Installing &os;&nbsp;8.<replaceable>X</replaceable> and Earlier</title>
-
+  <title>Instalando &os;&nbsp;8.<replaceable>X</replaceable> e Anteriores
+  </title>
   <sect1 id="install-synopsis">
-    <title>Synopsis</title>
+    <title>Resumo</title>
 
-    <indexterm><primary>installation</primary></indexterm>
+    <indexterm><primary>instalação</primary></indexterm>
 
-    <para>FreeBSD is provided with a text-based, easy to use installation
-      program.  &os; 9.0-RELEASE and later use the installation program
-      known as <application>bsdinstall</application>, with releases prior
-      to 9.0-RELEASE using <application>sysinstall</application> for
-      installation.  This chapter describes the use of <application>sysinstall</application>
-      to install &os;.  The use of <application>bsdinstall</application>
-      is covered in <xref linkend="bsdinstall"/>.</para>
+    <para>FreeBSD é fornecido com um programa de instalação em modo
+	 texto, fácil de usar.  &os; 9.0-RELEASE e instalações
+	 posteriores usam o programa de instalação conhedo como
+	 <application>bsdinstall</application>, com versões anteriores
+	 à 9.0-RELEASE usando <application>sysinstall</application>
+	 para instalação. Este capítulo descreve o uso do 
+	<application>sysinstall</application> para instalar &os;.  O 
+	uso do <application>bsdinstall</application> é abordado no
+	 <xref linkend="bsdinstall"/>.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>How to create the FreeBSD installation disks.</para>
+	<para>Como criar os discos de instalação do FreeBSD.</para>
       </listitem>
 
       <listitem>
-	<para>How FreeBSD refers to, and subdivides, your hard disks.</para>
+	<para>Como o FreeBSD atribui, e subdivide, seus discos rígidos.
+	</para>
       </listitem>
 
       <listitem>
-	<para>How to start <application>sysinstall</application>.</para>
+	<para>Como iniciar o <application>sysinstall</application>.</para>
       </listitem>
 
       <listitem>
-	<para>The questions <application>sysinstall</application> will ask
-	  you, what they mean, and how to answer them.</para>
+	<para>As perguntas que o <application>sysinstall</application>
+	 irá perguntar a você, o significado delas, e como respondê-las.
+	</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de continuar este capítulo, você deveria:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Read the supported hardware list that shipped with the version
-	  of FreeBSD you are installing, and verify that your hardware is
-	  supported.</para>
+	<para>Ler a lista de <foreignphrase>hardware</foreignphrase>
+	 suportados que acompanham a versão do FreeBSD que você está
+	 instalando, verificando se seu <foreignphrase>hardware</foreignphrase> 
+	é suportado.</para>
       </listitem>
     </itemizedlist>
 
     <note>
-      <para>In general, these installation instructions are written
-	for &i386; (<quote>PC compatible</quote>) architecture
-	computers.  Where applicable, instructions specific to other
-	platforms will be listed.  Although this
-	guide is kept as up to date as possible, you may find minor
-	differences between the installer and what is shown here.  It is
-	suggested that you use this chapter as a general guide rather
-	than a literal installation manual.</para>
+      <para>Em geral, essas intruções de instalação são escritas para
+	 computadores de arquitetura &i386; (<quote>PC compatible</quote>).
+	 Instruções sobre outras plataformas serão listadas,
+	 quando aplicáveis. Embora este guia é mantido o mais 
+	atualizado possivel, você pode encontrar algumas poucas 
+	diferenças entre o instalador e o que é exibido aqui. é 
+	sugerido que você use este capítulo como um guia geral do que 
+	literalmente como um manual de instalação. </para>
     </note>
 
   </sect1>
 
   <sect1 id="install-hardware">
-    <title>Hardware Requirements</title>
+    <title>Requerimentos de <foreignphrase>Hardware</foreignphrase></title>
 
     <sect2 id="install-hardware-minimal">
-      <title>Minimal Configuration</title>
+      <title>Configuração Mínima</title>
 
-      <para>The minimal configuration to install &os; varies with the
-	&os; version and the hardware architecture.</para>
+      <para>A configuração mínima para instalar &os; varia com a versão
+	 do &os; e da arquitetura do <foreignphrase>hardware</foreignphrase>
+	 utilizados.</para>
 
-      <para>A summary of this information is given in the following sections.
-	Depending on the method you choose to install &os;, you may
-	also need a floppy drive, a supported CDROM drive, and in some
-	case a network adapter.  This will be covered by the <xref
-	linkend="install-boot-media"/>.</para>
+      <para>Um resumo dessa informação é abordada nas seções à seguir.
+	 Dependendo do método que você escolha para instalar &os;,
+	 você pode também precisar de um disco flexível, uma unidade 
+	de CDROM suportado pelo seu <foreignphrase>hardware</foreignphrase>,
+	 e em alguns casos um adaptador de rede. Isto será abordado na 
+	 <xref	linkend="install-boot-media"/>.</para>
 
       <sect3>
-	<title>&os;/&arch.i386; and &os;/&arch.pc98;</title>
+	<title>&os;/&arch.i386; e &os;/&arch.pc98;</title>
 
-	<para>Both &os;/&arch.i386; and &os;/&arch.pc98; require a 486 or
-	  better processor and at least 24&nbsp;MB of RAM.  You will
-	  need at least 150&nbsp;MB of free hard drive space for the
-	  most minimal installation.</para>
+	<para>Ambos &os;/&arch.i386; e &os;/&arch.pc98; necessitam 
+	de processadores 486 ou melhores e no mínimo 24&nbsp;MB de RAM.
+	 Você precisará de pelo menos 150&nbsp;MB de espaço livre no
+	 disco rígido para a mínima instalação possível.</para>
 
 	<note>
-	  <para>In case of old configurations, most of time, getting
-	    more RAM and more hard drive space is more important than
-	    getting a faster processor.</para>
+	  <para>No caso de configurações antigas, na maioria dos casos,
+	 possuir mais RAM e mais espaço em disco é mais importante do 
+	que obter um processador mais rápido.</para>
 	</note>
       </sect3>
 
       <sect3>
 	<title>&os;/&arch.amd64;</title>
 
-	<para>There are two classes of processors capable of running
-	  &os;/&arch.amd64;.  The first are AMD64 processors,
-	  including the &amd.athlon;64,
-	  &amd.athlon;64-FX, &amd.opteron; or better
-	  processors.</para>
+	<para>Existem duas classes de processadores capazes de executar
+	  &os;/&arch.amd64;. Os primeiros são os processadores AMD64,
+	 incluindo o &amd.athlon;64,  &amd.athlon;64-FX, &amd.opteron;
+	 ou melhores.</para>
 
-	<para>The second class of processors that can use
-	  &os;/&arch.amd64; includes those using the &intel; EM64T
-	  architecture.  Examples of these processors include the
-	  &intel;&nbsp;&core;&nbsp;2 Duo, Quad, Extreme processor
-	  families, and the &intel;&nbsp;&xeon; 3000, 5000, and 7000
-	  sequences of processors.</para>
+	<para>A segunda classe de processadores que pode usar 
+	&os;/&arch.amd64; inclui aqueles usando a arquitetura
+	 &intel; EM64T.  Exemplos desses processadores incluem as
+	 famíias  &intel;&nbsp;&core;&nbsp;2 Duo, Quad, Extreme , e
+	 as sequencias de processadores &intel;&nbsp;&xeon; 3000,
+	 5000, e 7000.</para>
 
-	<para>If you have a machine based on an nVidia nForce3
-	  Pro-150, you <emphasis>must</emphasis> use the BIOS setup to
-	  disable the IO APIC.  If you do not have an option to do
-	  this, you will likely have to disable ACPI instead.  There
-	  are bugs in the Pro-150 chipset that we have not found a
-	  workaround for yet.</para>
+	<para>Se voce tiver uma máquina baseada numa nVidia nForce3
+	  Pro-150, você <emphasis>deve</emphasis> usar o setup <acronym>
+	 BIOS</acronym> para desabilitar o IO APIC. Se não houver a 
+	opção para fazer isso, provavelmente você precisará desabilitar
+	 ACPI como alternativa. Existem <foreignphrase>bugs</foreignphrase>
+	 no chipset Pro-150 nos quais ainda não foram encontradas 
+	soluções alternativas.</para>
       </sect3>
 
       <sect3>
 	<title>&os;/&arch.sparc64;</title>
 
-	<para>To install &os;/&arch.sparc64;, you will need a supported
-	  platform (see <xref
-	  linkend="install-hardware-supported"/>).</para>
+	<para>Para instalar &os;/&arch.sparc64;, você vai precisar de
+	 uma plataforma suportada (veja <xref linkend="install-hardware-supported"/>).
+	</para>
 
-	<para>You will need a dedicated disk for &os;/&arch.sparc64;.  It
-	  is not possible to share a disk with another operating
-	  system at this time.</para>
+	<para>Você vai precisar de um disco totalmente dedicado para
+	 o &os;/&arch.sparc64;. Pois dessa forma não é possível
+	 compartilhar um disco com outro sistema operacional.</para>
       </sect3>
     </sect2>
 
     <sect2 id="install-hardware-supported">
-      <title>Supported Hardware</title>
+      <title><foreignphrase>Hardware</foreignphrase> Suportado </title>
 
-      <para>A list of supported hardware is provided with each &os;
-	release in the &os; Hardware Notes.  This document can usually
-	be found in a file named <filename>HARDWARE.TXT</filename>, in
-	the top-level directory of a CDROM or FTP distribution or in
-	<application>sysinstall</application>'s documentation menu.
-	It lists, for a given architecture, what hardware devices are
-	known to be supported by each release of &os;.  Copies of the
-	supported hardware list for various releases and architectures
-	can also be found on the <ulink
-	url="http://www.FreeBSD.org/releases/index.html">Release
-	Information</ulink> page of the &os; Web site.</para>
+      <para>Uma lista do <foreignphrase>hardware</foreignphrase>
+	 suportado é fornecida a cada versão do &os; nas Notas de
+	 <foreignphrase>Hardware</foreignphrase>. Este documento 
+	geralmente é encontrado num arquivo chamado 
+	<filename>HARDWARE.TXT</filename>, num diretório de nível 
+	superior da distribuição de um CDROM ou FTP ou no menu de
+	 documentação do <application>sysinstall</application>. Nele
+	 é listado, para determinada arquitetura, quais dispositivos
+	 de <foreignphrase>hardware</foreignphrase> são suportados 
+	em cada versão do &os;. Cópias da lista de 
+	<foreignphrase>hardware</foreignphrase> suportados por várias
+	 distribuições e arquiteturas também podem ser encontrados 
+	na página <ulinkurl="http://www.FreeBSD.org/releases/index.html">
+	Informações da Versão</ulink> do sítio www do &os;.</para>
     </sect2>
   </sect1>
 
   <sect1 id="install-pre">
-    <title>Pre-installation Tasks</title>
+    <title>Tarefas Pre-Instalação</title>
 
     <sect2 id="install-inventory">
-      <title>Inventory Your Computer</title>
+      <title>Inventariar seu Computador</title>
 
-      <para>Before installing FreeBSD you should attempt to inventory the
-	components in your computer.  The FreeBSD installation routines will
-	show you the components (hard disks, network cards, CDROM drives, and
-	so forth) with their model number and manufacturer.  FreeBSD will also
-	attempt to determine the correct configuration for these devices,
-	which includes information about IRQ and IO port usage.  Due to the
-	vagaries of PC hardware this process is not always completely
-	successful, and you may need to correct FreeBSD's determination of
-	your configuration.</para>
-
-      <para>If you already have another operating system installed, such as
-	&windows; or Linux, it is a good idea to use the facilities provided
-	by those operating systems to see how your hardware is already
-	configured.  If you are not sure what settings an expansion
-	card is using, you may find it printed on the card itself.  Popular IRQ
-	numbers are 3, 5, and 7, and IO port addresses are normally written as
-	hexadecimal numbers, such as 0x330.</para>
-
-      <para>We recommend you print or write down this information before
-	installing FreeBSD.  It may help to use a table, like this:</para>
-
+      <para>Antes de instalar o FreeBSD você deveria tentar catalogar
+	 os componentes do seu computador. As rotinas de instalação
+	 do FreeBSD irão exibir os componentes do seu computador 
+	(discos rígidos, adaptadores de rede, unidades de CDROM, e 
+	assim por diante) com modelo e fabricante. FreeBSD vai também
+	tentar determinar a configuração correta destes dispositivos,
+	nos quais inclui informações sobre IRQ e o uso das portas IO.
+	Devido às inconstancias de <foreignphrase>hardware</foreignphrase>
+	do PC este processo nem sempre é completado com sucesso,
+	e você talvez precise corrigir as determinações do FreeBSD na 
+	na sua configuração.</para>
+	
+      <para> Se você ja tiver outro sistema operacional instalado,
+	como &windows; ou Linux, é uma boa idéia utilizar os recursos 
+	fornecidas por esses sistemas operacionais para verificar 
+	como seu <foreignphrase>hardware</foreignphrase> já está 
+	configurado. Se você não tem certeza de que propriedades uma
+	placa de expansão está usando, você pode encontrá-las 
+	impressas na própria placa. Os Populares números de IRQ são 3,
+	5 e 7, e os endereços das portas IO são normalmente escritos 
+	como números decimais, tais como 0x330.</para>
+	
+	<para> Nós recomendamos que você imprima ou escreva estas 
+	informações antes de instalar o FreeBSD. Pode ajudar usando
+	uma tabela, como esta:</para>
+ 
       <table pgwide="1" frame="none">
-	<title>Sample Device Inventory</title>
+	<title>Exemplo do Inventário de Dispositivos</title>
 
 	<tgroup cols="4">
 	  <colspec colwidth="2*"/>
@@ -210,25 +224,25 @@
 	  <colspec colwidth="4*"/>
 	  <thead>
 	    <row>
-	      <entry>Device Name</entry>
+	      <entry>Nome do Dispositivo</entry>
 
 	      <entry>IRQ</entry>
 
-	      <entry>IO port(s)</entry>
+	      <entry>Porta(s) IO</entry>
 
-	      <entry>Notes</entry>
+	      <entry>Detalhes</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
-	      <entry>First hard disk</entry>
+	      <entry>Primeiro disco rígido</entry>
 
 	      <entry>N/A</entry>
 
 	      <entry>N/A</entry>
 
-	      <entry>40&nbsp;GB, made by Seagate, first IDE master</entry>
+	      <entry>40&nbsp;GB, fabricante Seagate, primeira IDE mestre</entry>
 	    </row>
 
 	    <row>
@@ -238,21 +252,21 @@
 
 	      <entry>N/A</entry>
 
-	      <entry>First IDE slave</entry>
+	      <entry>Primeira IDE escravo</entry>
 	    </row>
 
 	    <row>
-	      <entry>Second hard disk</entry>
+	      <entry>Segundo disco rígido</entry>
 
 	      <entry>N/A</entry>
 
 	      <entry>N/A</entry>
 
-	      <entry>20&nbsp;GB, made by IBM, second IDE master</entry>
+	      <entry>20&nbsp;GB, fabricante IBM, segunda IDE mestre</entry>
 	    </row>
 
 	    <row>
-	      <entry>First IDE controller</entry>
+	      <entry>Primeira controladora IDE</entry>
 
 	      <entry>14</entry>
 
@@ -262,7 +276,7 @@
 	    </row>
 
 	    <row>
-	      <entry>Network card</entry>
+	      <entry>Placa de rede</entry>
 
 	      <entry>N/A</entry>
 
@@ -278,7 +292,7 @@
 
 	      <entry>N/A</entry>
 
-	      <entry>&tm.3com; 56K faxmodem, on COM1</entry>
+	      <entry>&tm.3com; 56K faxmodem, na COM1</entry>
 	    </row>
 
 	    <row>
@@ -288,10 +302,11 @@
 	</tgroup>
       </table>
 
-      <para>Once the inventory of the components in your computer is
-	done, you have to check if they match the hardware
-	requirements of the &os; release you want to install.</para>
-    </sect2>
+      <para>Uma vez que o inventário dos componentes no seu computador
+	estiver pronto, você tem que verificar se eles correspondem 
+	aos requerimentos de <foreignphrase>hardware</foreignphrase> da
+	versão do &os; que você deseja instalar.</para>  
+     </sect2>
 
     <sect2>
       <title>Backup Your Data</title>
@@ -302,6 +317,8 @@
 	installation routine will prompt you before writing any
 	data to your disk, but once that process has started it cannot be
 	undone.</para>
+
+
     </sect2>
 
     <sect2 id="install-where">
@@ -696,8 +713,8 @@
 	      <title>Obtaining <application>Image Writer for Windows</application></title>
 
 	      <para><application>Image Writer for Windows</application> is a
-	        free application that can correctly write an image file to a
-	        memory stick.  Download it from
+		free application that can correctly write an image file to a
+		memory stick.  Download it from
 	        <ulink url="https://launchpad.net/win32-image-writer/"></ulink>
 	        and extract it into a folder.</para>
 	    </step>
@@ -2170,7 +2187,7 @@ Mounting root from ufs:/dev/md0c
 
       <para>The installation program does not check to see if you have
 	adequate space.  Select this option only if you have
-	adequate hard disk space. As of FreeBSD &rel.current;, the FreeBSD
+	adequate hard disk space.  As of FreeBSD &rel.current;, the FreeBSD
 	Ports Collection takes up about &ports.size; of disk space.
 	You can safely assume a larger value for more recent versions
 	of FreeBSD.</para>
@@ -3528,7 +3545,7 @@ Retype new password :</screen>
 
                             [ Yes ]   No</screen>
 
-      <para>Select &gui.yes;. If you are booting from the CDROM drive
+      <para>Select &gui.yes;.  If you are booting from the CDROM drive
 	the following message will remind you to remove the
 	disk:</para>
 
@@ -4480,7 +4497,7 @@ Please press any key to reboot.</screen>
 	  </step>
       </procedure>
 
-      <para>That's it! You should now be able to control the headless machine
+      <para>That's it!  You should now be able to control the headless machine
 	through your <command>cu</command> session.  It will load the kernel
 	and then it will come up
 	with a selection of what kind of terminal to use.  Select the
