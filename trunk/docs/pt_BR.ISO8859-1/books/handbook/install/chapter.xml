@@ -177,7 +177,7 @@
 	em cada versão do &os;. Cópias da lista de 
 	<foreignphrase>hardware</foreignphrase> suportados por várias
 	 distribuições e arquiteturas também podem ser encontrados 
-	na página <ulinkurl="http://www.FreeBSD.org/releases/index.html">
+	na página <ulink url="http://www.FreeBSD.org/releases/index.html">
 	Informações da Versão</ulink> do sítio www do &os;.</para>
     </sect2>
   </sect1>
@@ -309,75 +309,81 @@
      </sect2>
 
     <sect2>
-      <title>Backup Your Data</title>
+      <title>Cópia de Segurança dos Seus Arquivos</title>
 
-      <para>If the computer you will be installing FreeBSD on contains
-	valuable data, then ensure you have it backed up, and that you have
-	tested the backups before installing FreeBSD.  The FreeBSD
-	installation routine will prompt you before writing any
-	data to your disk, but once that process has started it cannot be
-	undone.</para>
-
-
+      <para>Se o computador que você está instalando FreeBSD contém
+	dados importantes, então garanta que você os tenha salvo, e 
+	que voce tenha testado as cópias de segurança antes de 
+	instalar o FreeBSD. O processo de instalação do FreeBSD 
+	solicitará confirmação antes de escrever qualquer coisa no seu
+	disco, mas logo que o processo inicia ele não pode ser 
+	desfeito.</para>	
+	
     </sect2>
 
     <sect2 id="install-where">
-      <title>Decide Where to Install FreeBSD</title>
+      <title>Decida Onde Instalar o FreeBSD</title>
 
-      <para>If you want FreeBSD to use your entire hard disk, then there is nothing
-	more to concern yourself with at this point &mdash; you can skip this
-	section.</para>
+      <para> Se você deseja que o FreeBSD use seu disco rígido inteiro,
+	então não há nada o que se preocupar neste ponto &mdash; você 
+	pode pular esta seção.</para>
 
-      <para>However, if you need FreeBSD to co-exist with other operating
-	systems then you need to have a rough understanding of how data is
-	laid out on the disk, and how this affects you.</para>
+	<para>Contudo, se voce precisa que o FreeBSD co-existir com 
+	outros sistemas operacionais entao voce precisa ter uma 
+	compreensão aproximada de como os dados são colocados no disco,
+	e como isso irá afetar você.</para>
 
       <sect3 id="install-where-i386">
-	<title>Disk Layouts for &os;/&arch.i386;</title>
+	<title>Formatos de Disco para &os;/&arch.i386;</title>
 
-      <para>A PC disk can be divided into discrete chunks.  These chunks are
-	called <firstterm>partitions</firstterm>. Since
-	&os; internally also has partitions, the naming
-	can become confusing very quickly, therefore these
-	disk chunks are referred to as disk slices or simply slices
-	in &os; itself.  For example, the FreeBSD utility
-	<command>fdisk</command> which operates on the PC disk partitions,
-	refers to slices instead of partitions.  By design, the PC only
-	supports four partitions per disk.  These partitions are called
-	<firstterm>primary partitions</firstterm>.  To work around this
-	limitation and allow more than four partitions, a new partition type
-	was created, the <firstterm>extended partition</firstterm>.  A disk
-	may contain only one extended partition.  Special partitions, called
-	<firstterm>logical partitions</firstterm>, can be created inside this
-	extended partition.</para>
+      <para>Um disco de um PC pode ser dividido em pedaços distintos.
+	Estes pedaços são chamados de <firstterm>partições</firstterm>.
+	Uma vez que o &os; internamente também possuir partições, a 
+	nomenclatura pode começar a ser confusa rapidamente, portanto
+	estes pedaços de discos são referidos como fatias de disco ou 
+	simplesmente fatias no &os; . Por exemplo, a utilidade 
+	<command>fdisk</command> do FreeBSD que opera nas partições de
+	disco do PC, atribui para fatias ao invés de partições. Por
+	projeto, o PC somente suporta quatro partições por disco. Estas
+	partições são chamadas <firstterm>partições primárias</firstterm>.
+	Para contornar esta limitação e permitir mais que quatro 
+	partições, um novo tipo de partição foi criada, a <firstterm>
+	partição estendida</firstterm>. Um disco somente pode ter 
+	somente uma partição estendida. Partições especiais, chamadas 
+	<firstterm>partições lógicas</firstterm>,, podem ser criadas 
+	dentro desta partição estendida.</para>	
+	
+      <para>Cada partição tem um <firstterm>ID de partição</firstterm>,
+	que é um número usado para identificar o tipo de dados em cada
+	partição. Partições FreeBSD tem o ID de partição de número
+	<literal>165</literal>.</para>
+	
+	<para>Em geral, cada sistema operacional que voce usa vai 
+	identificar partições de uma forma diferenciada. Por exemplo,
+	&ms-dos;, e seus descendentes, como &windows;, atribuem a cada
+	partição primária e logica uma <firstterm>letra de unidade</firstterm>,
+	começando com <devicename>C:</devicename>.</para>
 
-      <para>Each partition has a <firstterm>partition ID</firstterm>, which is
-	a number used to identify the type of data on the partition.  FreeBSD
-	partitions have the partition ID of <literal>165</literal>.</para>
+      <para>FreeBSD deve ser instalado em uma partição primária. O 
+	FreeBSD pode manter todos os dados, incluindo qualquer arquivo
+	que você crie, nesta partição. Contudo, se você possuir 
+	múltiplos discos, então você pode criar uma partição FreeBSD
+	em todos, ou alguns deles. Quando você instala FreeBSD, você 
+	deve ter uma partição disponível. Esta pode ser uma partição 
+	vazia que você havia preparado, ou pode ser uma partição 
+	existente que contenha dados que você não se importa mais.
+	</para> 
 
-      <para>In general, each operating system that you use will identify
-	partitions in a particular way.  For example, &ms-dos;, and its
-	descendants, like &windows;, assign each primary and logical partition a
-	<firstterm>drive letter</firstterm>, starting with
-	<devicename>C:</devicename>.</para>
+      <para>Se você já está usando todas as partições em todos os seus
+	discos, entao você terá que liberar um deles para o FreeBSD
+	usando as ferramentas formecidas por outros sistemas 
+	operacionais que você usa (e.g., <command>fdisk</command> no
+	&ms-dos; ou &windows;).</para>
 
-      <para>FreeBSD must be installed into a primary partition.  FreeBSD can
-	keep all its data, including any files that you create, on this one
-	partition.  However, if you have multiple disks, then you can create a
-	FreeBSD partition on all, or some, of them.  When you install FreeBSD,
-	you must have one partition available.  This might be a blank
-	partition that you have prepared, or it might be an existing partition
-	that contains data that you no longer care about.</para>
-
-      <para>If you are already using all the partitions on all your disks, then
-	you will have to free one of them for FreeBSD using the tools
-	provided by the other operating systems you use (e.g.,
-	<command>fdisk</command> on &ms-dos; or &windows;).</para>
-
-      <para>If you have a spare partition then you can use that.  However, you
-	may need to shrink one or more of your existing partitions
-	first.</para>
-
+      <para>Se você tem uma partição sobrando entao você pode usá-la.
+	No entanto, você pode precisar encolher uma ou mais das suas
+	partições existentes primeiro.</para>
+      
       <para>A minimal installation of FreeBSD takes as little as 100&nbsp;MB
 	of disk
 	space.  However, that is a <emphasis>very</emphasis> minimal install,
