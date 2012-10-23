@@ -377,7 +377,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       anterior a esta é chamada <literal>previous</literal>.</para>
 
     <para>Novas compilações são clonadas a partir da
-      <literal>latest</literal>, o que é rápido, desde que se use
+      <literal>latest</literal>, o que é rápido, uma vez que ele usa 
       ZFS.</para>
 
     <sect2 id="build-dopackages">
@@ -390,7 +390,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
     <sect3>
       <title>Código base antigo</title>
-      <para>Os mais úteis para o código base antigo são:</para>
+      <para>Para o código base antigo, os mais úteis são:</para>
 
     <itemizedlist>
       <listitem>
@@ -474,31 +474,31 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     </sect3>
 
     <sect3>
-      <title>Either codebase</title>
+      <title>Para ambos os códigos base</title>
 
     <para>Frequentemente você usará <literal>latest</literal> como
       valor para o <replaceable>buildid</replaceable>.</para>
 
-    <para><literal>[-options]</literal> pode ser uma, ou mais, das
-      opções seguintes:</para>
+    <para><literal>[-options]</literal> pode ser nulo, uma ou mais, 
+      das opções seguintes:</para>
 
     <itemizedlist>
       <listitem>
 	<para><literal>-keep</literal> - Não remove esta compilação no
 	  futuro, quando normalmente seria removido como parte do
-	  ciclo <literal>latest</literal> -
-	  <literal>previous</literal>.  Não se esqueça de limpar isso
-	  manualmente quando não for mais necessário.
-	</para>
+	  ciclo <literal>latest</literal> - 
+	  <literal>previous</literal>.  Não se esqueça de efetuar a 
+	  limpeza manualmente quando ele não for mais 
+	  necessário.</para>
       </listitem>
 
       <listitem>
 	<para><literal>-nofinish</literal> - Não executa o
-	  pós-processamento uma vez que a compilação estiver completa.
-	  Útil se você espera que a compilação precise ser reiniciada
-	  depois de concluída.  Se você usar esta opção, não se
-	  esqueça de limpar os clientes quando você não precisar mais
-	  da compilação.
+	  pós-processamento após finalizar a compilação.
+	  Isto é útil se você espera que a compilação precise ser 
+	  reiniciada depois de concluída.  Se você usar esta opção, 
+	  não se esqueça de limpar os clientes quando você não 
+	  precisar mais da compilação.
 	</para>
       </listitem>
 
@@ -518,15 +518,15 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
       <listitem>
 	<para><literal>-restart</literal> - Reinicia uma compilação
-	  interrompida (ou não-<literal>finish</literal>) a partir do
-	  começo.  <literal>Ports</literal> que falharam na compilação
+	  interrompida (ou não finalizada) a partir do começo.  Os 
+	  <literal>Ports</literal> que falharam na compilação
 	  anterior serão recompilados.
 	</para>
       </listitem>
 
       <listitem>
 	<para><literal>-continue</literal> - Reinicia uma compilação
-	  interrompida (ou não-<literal>finish</literal>).
+	  interrompida (ou não finalizada).  Os 
 	  <literal>Ports</literal> que falharam na compilação anterior
 	  não serão recompilados.
 	</para>
@@ -568,7 +568,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><literal>-noduds</literal> - Não reconstrói o arquivo
 	  <filename>duds</filename> (<literal>ports</literal> que
-	  nunca são compilados, por exemplo, aqueles marcados com
+	  nunca são compilados, como por exemplo, aqueles marcados com
 	  <literal>IGNORE</literal>, <literal>NO_PACKAGE</literal>,
 	  etc.) durante o pré-processamento.
 	</para>
@@ -587,11 +587,11 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	  <literal>ports</literal> marcados como
 	  <literal>BROKEN</literal> (desativado por padrão, pois os
 	  <literal>clusters</literal> amd64/&i386; agora são
-	  suficientemente rápidos do que quando fazem compilações
-	  incrementais, muito tempo era gasto recompilando coisas que
-	  iriam falhar de qualquer maneira.  Por outro lado, os outros
-	  <literal>clusters</literal> são bastante lentos, o que seria
-	  um desperdício de tempo tentar compilar
+	  suficientemente rápidos e quando fazem compilações
+	  incrementais eles gastam muito mais tempo do que o
+	  necessário para compilar tudo.  Por outro lado,
+	  os outros <literal>clusters</literal> são bastante lentos, 
+	  e seria um desperdício de tempo tentar compilar
 	  <literal>ports</literal> marcados como
 	  <literal>BROKEN</literal>).
 	</para>
@@ -645,7 +645,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <listitem>
 	<para><literal>-noplistcheck</literal> - Não considera como
 	  erro <literal>ports</literal> deixarem arquivos para trás
-	  depois que forem removidos.
+	 ao serem removidos.
 	</para>
       </listitem>
 
@@ -667,13 +667,13 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para><literal>-unlimited-errors</literal> (apenas novo
-	  código base) - anula a verificação do "qmanager threshhold"
+	<para><literal>-unlimited-errors</literal> (apenas no novo
+	  código base) - anula a verificação de limites do qmanager
 	  para compilações descontroladas.  Você pode querer isso
 	  principalmente quando usar <literal>-restart</literal> em
 	  uma compilação que provavelmente vai falhar, ou talvez
-	  quando executar <literal>-trybroken</literal>.  O
-	  <literal>threshhold</literal> é realizado por padrão.</para>
+	  quando executar <literal>-trybroken</literal>.  A
+	  A limitação é realizada por padrão.</para>
       </listitem>
     </itemizedlist>
 
@@ -689,30 +689,30 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <filename>latest/</filename>.
     </para>
 
-    <para>Se a última compilação foi finalizada de forma limpa, você
+    <para>Se a última compilação finalizou de forma limpa, você
       não precisa remover nada.  Se ela foi interrompida, ou você usou
       a opção <literal>-nocleanup</literal>, você precisa limpar os
-      clientes executando
+      clientes executando:
     </para>
 
     <para><command>build cleanup <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> -full</command></para>
 
-    <para><filename>errors/</filename>, <filename>logs/</filename>,
-      <filename>packages/</filename>, e assim por diante, são limpos
-      pelos <literal>scripts</literal>.  Se você está com pouco
-      espaço, também pode limpar o
+    <para>Os diretórios <filename>errors/</filename>, 
+      <filename>logs/</filename>, <filename>packages/</filename>, e 
+      assim por diante, são limpos pelos <literal>scripts</literal>.  
+      Se você está com pouco espaço, também pode limpar o
       <filename>ports/distfiles/</filename>.  Não altere o diretório
       <filename>latest/</filename>; ele é um link simbólico para o
       servidor web.</para>
 
     <note>
-      <para><literal>dosetupnodes</literal> supostamente é executado
+      <para>O <literal>dosetupnodes</literal> supostamente é executado
 	pelo <literal>script</literal> <literal>dopackages</literal>
 	no caso de <literal>-restart</literal>, mas pode ser uma boa
-	idéia executa-lo manualmente e depois verificar se todos os
+	idéia executá-lo manualmente e depois verificar se todos os
 	clientes tem a carga de trabalho esperada.  Algumas vezes
 	<literal>dosetupnode</literal> não pode limpar uma compilação
-	e você precisará fazer isso manualmente.  (Isso é um
+	e você precisará fazer isso manualmente.  (Isto é um
 	defeito.)</para>
     </note>
 
@@ -749,7 +749,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     </para>
 
     <note>
-      <para>Esse problema também ocorre se você criar uma nova
+      <para>Este problema também ocorre se você criar uma nova
         categoria com um <filename>Makefile</filename> sem entradas
 	<makevar>SUBDIR</makevar>s nele.  Isso é, provavelmente, um
 	defeito.</para>
@@ -772,14 +772,14 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     </example>
 
     <example>
-      <title>Realiza o pós-processamento de uma árvore sparc64-7
+      <title>Realize o pós-processamento de uma árvore sparc64-7
         concluída</title>
 
       <para><command>dopackages.7 sparc64 -finish</command></para>
       <para><command>dopackages.wrapper sparc64 7 -finish</command></para>
     </example>
 
-    <para>Dica: normalmente nós achamos melhor executar o comando
+    <para>Dica: geralmente é melhor executar o comando
       <command>dopackages</command> dentro do
       <command>screen(1)</command>.</para>
     </sect3>
@@ -790,7 +790,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 
       <para>Você pode precisar manipular os dados da compilação antes
         de inicia-la, especialmente para compilações experimentais.
-	Isso é feito com o comando <command>build</command>.  Aqui
+	Isto é feito com o comando <command>build</command>.  Aqui
 	estão algumas opções úteis para criação:</para>
 
       <itemizedlist>
@@ -801,8 +801,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	    <replaceable>newid</replaceable> (ou um
 	    <literal>datestamp</literal>, se não for especificado).
 	    Só é necessário quando da criação de um novo
-	    <literal>branch</literal> ou uma nova arquitetura.  (À
-	    fazer: documentar se <literal>newid</literal> deve ser
+	    <literal>branch</literal> ou uma nova arquitetura.  (TODO:
+	    documentar se <literal>newid</literal> deve ser
 	    especificado como <literal>latest</literal> no novo código
 	    base.)
 	  </para>
@@ -858,7 +858,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
   </sect1>
 
   <sect1 id="anatomy">
-    <title>O Processo de Compilação</title>
+    <title>Anatomia de uma compilação</title>
 
     <para>Uma compilação completa, sem qualquer opção
       <literal>-no</literal> que desabilite as opções padrões, executa
