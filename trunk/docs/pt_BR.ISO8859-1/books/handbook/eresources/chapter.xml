@@ -115,7 +115,7 @@
 
     	    <row>
 	      <entry>&a.bugs.name;</entry>
-	      <entry>Relatos de problemas</entry>
+	      <entry>Relatos de <literal>bugs</literal></entry>
 	    </row>
 
 	    <row>
@@ -464,7 +464,8 @@
 
 	    <row>
 	      <entry>&a.ports-bugs.name;</entry>
-	      <entry>Discussão sobre problemas (PR) dos ports</entry>
+	      <entry>Discussão sobre <literal>bugs</literal> (PR) dos
+		ports</entry>
 	    </row>
 
 	    <row>
@@ -1060,14 +1061,15 @@
 	  <term>&a.bugs.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Bug reports</emphasis></para>
+	    <para><emphasis>Relato de
+	      <literal>Bug</literal></emphasis></para>
 
-	    <para>This is the mailing list for reporting bugs in FreeBSD.
-	      Whenever possible, bugs should be submitted using the
-		&man.send-pr.1;
-	      command or the <ulink
-		url="&url.base;/send-pr.html">WEB
-		interface</ulink> to it.</para>
+	    <para>Esta lista de discussão é para relatar
+	      <literal>bugs</literal> no FreeBSD.  Quando possível,
+	      os relatos de <literal>bugs</literal> devem ser enviados
+	      usando o comando &man.send-pr.1; ou a <ulink
+	      url="&url.base;/send-pr.html">interface
+	      WEB</ulink>.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1075,18 +1077,20 @@
 	  <term>&a.chat.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Non technical items related to the FreeBSD
-		community</emphasis></para>
+	    <para><emphasis>Discussões não técnicas relacionadas a
+	      comunidade FreeBSD</emphasis></para>
 
-	    <para>This list contains the overflow from the other lists about
-	      non-technical, social information.  It includes discussion about
-	      whether Jordan looks like a toon ferret or not, whether or not
-	      to type in capitals, who is drinking too much coffee, where the
-	      best beer is brewed, who is brewing beer in their basement, and
-	      so on.  Occasional announcements of important events (such as
-	      upcoming parties, weddings, births, new jobs, etc) can be made
-	      to the technical lists, but the follow ups should be directed to
-	      this -chat list.</para>
+	    <para>Essa lista contém o que sobra das outras listas
+	      sobre discussões não técnicas,  Ela inclui discussões
+	      sobre se Jordan parece um furão dos desenhos animados ou
+	      não, se deve deve ou não digitar em maiúsculas, quem
+	      está bebendo muito café, onde a melhor cerveja é
+	      fabricada, quem está fabricando cerveja no porão e por
+	      ai vai.  Anúncios ocasionais de eventos importantes
+	      (como festas, casamentos, aniversários, novos empregos,
+	      etc) podem ser feitos nas listas técnicas, mas as
+	      respostas devem ser direcionadas para a lista
+	      -chat.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1094,11 +1098,13 @@
 	  <term>&a.chromium.name;</term>
 
 	  <listitem>
-	    <para><emphasis>FreeBSD-specific Chromium issues</emphasis></para>
+	    <para><emphasis>Questões sobre o Chromium específicas para
+	      o FreeBSD</emphasis></para>
 
-	    <para>This is a list for the discussion of Chromium
-	      support for FreeBSD.  This is a technical list to discuss
-	      development and installation of Chromium.</para>
+	    <para>Essa lista é para discutir sobre o suporte do
+	      Chromium para o FreeBSD.  Essa é a lista técnica para
+	      discutir o desenvolvimento e a instalação do
+	      Chromium.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1106,12 +1112,12 @@
 	  <term>&a.core.name;</term>
 
 	  <listitem>
-	    <para><emphasis>FreeBSD core team</emphasis></para>
+	    <para><emphasis>Time do núcleo do FreeBSD</emphasis></para>
 
-	    <para>This is an internal mailing list for use by the core
-	      members.  Messages can be sent to it when a serious
-	      FreeBSD-related matter requires arbitration or high-level
-	      scrutiny.</para>
+	    <para>Essa é uma lista interna para ser usada pelos
+	      membros do núcleo do FreeBSD.  Mensagens podem ser
+	      enviadas para ela quando um problema sério relacionado
+	      ao FreeBSD requer exame minucioso.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1119,15 +1125,17 @@
 	  <term>&a.current.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Discussions about the use of
+	    <para><emphasis>Discussões sobre o uso do
 		&os.current;</emphasis></para>
 
-	    <para>This is the mailing list for users of &os.current;.  It
-	      includes warnings about new features coming out in -CURRENT that
-	      will affect the users, and instructions on steps that must be
-	      taken to remain -CURRENT.  Anyone running <quote>CURRENT</quote>
-	      must subscribe to this list.  This is a technical mailing list
-	      for which strictly technical content is expected.</para>
+	    <para>Essa lista de email é para os usuários do
+	      &os.current;.  Ela inclui avisos sobre novas
+	      funcionalidades implementadas no -CURRENT que irão
+	      afetar os usuários e instruções das medidas que devem
+	      ser tomadas para permanecer -CURRENT.  Todos que usam
+	      <quote>CURRENT</quote> devem se inscrever nessa lista.
+	      Essa é uma lista técnica, na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
