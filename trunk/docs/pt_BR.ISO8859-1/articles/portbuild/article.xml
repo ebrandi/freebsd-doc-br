@@ -910,7 +910,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para>Compilação de pacotes (fase 1) [++]</para>
+	<para>Compila os pacotes (fase 1) [++]</para>
       </listitem>
 
       <listitem>
@@ -918,7 +918,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para>Compilação de pacotes (fase 2) [++]</para>
+	<para>Compila os pacotes (fase 2) [++]</para>
       </listitem>
     </orderedlist>
 
@@ -935,10 +935,10 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make</filename>
       (antigo código base) ou
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/journal</filename>
-      (novo código base).  <literal>Ports</literal> individuais vão
+      (novo código base).  <literal>Ports</literal> individuais irão
       escrever seus <literal>logs</literal> de compilação em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/logs</filename>
-      e outros <literal>logs</literal> de erros em
+      e os seus <literal>logs</literal> de erros em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors</filename>.
     </para>
 
@@ -960,13 +960,12 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para><hostid>pointyhat</hostid> foi reiniciado enquanto uma
+	<para>O <hostid>pointyhat</hostid> foi reiniciado enquanto uma
 	  compilação estava executando.</para>
       </listitem>
 
       <listitem>
-	<para><filename>qmanager</filename> tenha falhado e tenha sido
-	  reiniciado.</para>
+	<para>O <filename>qmanager</filename> falhou e reiniciado</para>
       </listitem>
       </orderedlist>
 
