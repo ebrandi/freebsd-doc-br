@@ -972,99 +972,109 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
   <sect2 id="interrupting">
     <title>Interrompendo uma Compilação</title>
 
-    <para>Interromper uma compilação manualmente é um pouco confuso.
-      Primeiro você precisa identificar o <literal>tty</literal> em
-      que ela está rodando (ou lembrando-se da saída do &man.tty.1;
+    <para>O processo para interromper de forma manual uma compilação 
+      é um tanto quanto confuso.  Primeiro você precisa identificar o
+      <literal>tty</literal> em que ela está sendo executada rodando 
+      (ou lembrando-se da saída do &man.tty.1;
       quando você iniciou a compilação, ou usando <command>ps
-      x</command> para identifica-lo).  Você precisa certificar-se de
-      que nada mais importante está rodando neste
-      <literal>tty</literal>, por exemplo, <command>ps -t p1</command>
-      ou qualquer outro.  Se não existe, você pode encerrar o terminal
-      facilmente com <command>pkill -t pts/1</command>; ou pode
-      utilizar o <command>kill -HUP</command>, por exemplo,
+      x</command> para identificá-lo).  Você precisa certificar-se de
+      que não existe mais nada importante rodando neste
+      <literal>tty</literal>, você pode verificar isto executando o
+      comando <command>ps</command>, por exemplo, 
+      <command>ps -t p1</command> lista os processos em execução 
+      no tty 1.  Se não existir mais nada importante, você pode
+      encerrar o terminal facilmente com 
+      <command>pkill -t pts/1</command>; ou pode utilizar o 
+      <command>kill -HUP</command>, por exemplo,
       <command>ps -t pts/1 -o pid= | xargs kill -HUP</command>.
-      Substitua <replaceable>p1</replaceable> pelo
-      <literal>tty</literal> utilizado na compilação, claro.</para>
+      Você deve Substitur o <replaceable>p1</replaceable> pelo
+      <literal>tty</literal> utilizado na compilação.</para>
 
-    <para>A compilação de pacote enviada por <command>make</command>
-      para as máquinas clientes irá limpar-se após alguns minutos
+    <para>A compilação de pacote enviada pelo <command>make</command>
+      para as máquinas clientes irá se auto limpar após alguns minutos
       (verifique com <command>ps x</command> até que todos
       finalizem).</para>
 
-    <para>Se você não encerrar &man.make.1;, ele irá gerar mais
-      trabalhos.  Se você não encerrar <command>dopackages</command>
-      ele irá reiniciar toda a compilação.  Se você não encerrar
+    <para>Se você não encerrar o &man.make.1;, ele irá iniciar novas
+      tarefas de compilação.  Se você não encerrar o
+      <command>dopackages</command> ele irá reiniciar toda a 
+      compilação.  Se você não encerrar
       os processos <command>pdispatch</command>, eles irão continuar
       (ou reaparecer) até concluir a compilação do pacote.</para>
 
   </sect2>
 
   <sect2 id="cleanup">
-    <title>Limpeza de uma Compilação</title>
+    <title>Limpando uma Compilação</title>
 
     <para>Para liberar recursos, você precisa limpar as máquinas
       clientes executando o comando <command>build cleanup</command>.
-      Por exemplo:
-      <screen>&prompt.user; <userinput>/var/portbuild/scripts/build cleanup i386 8-exp 20080714120411 -full</userinput></screen>
-    </para>  
+      Por exemplo:</para>
+    
+    <screen>&prompt.user; <userinput>/var/portbuild/scripts/build cleanup i386 8-exp 20080714120411 -full</userinput></screen>
 
-    <para>Se você esquecer-se de fazer isso, então os
+    <para>Se você esquecer de fazer isso, então os
       <literal>chroot</literal>s da compilação antiga não serão limpos
-      por 24 horas, e nenhum novo trabalho será enviado para este
-      lugar enquanto <hostid>pointyhat</hostid> achar que esta máquina
-      está ocupada.</para>
+      nas próximas 24 horas, e nenhum novo trabalho será iniciado no 
+      seu lugar enquanto o <hostid>pointyhat</hostid> achar que esta 
+      máquina ainda está ocupada.</para>
 
-    <para>Verifique usando <command>cat ~/loads/*</command> para
+    <para>Para verificar, utilize o comando 
+      <command>cat ~/loads/*</command> para
       mostrar o status das máquinas clientes; a primeira coluna é o
-      número de trabalhos que ela acha estar executando, e isso pode
-      estar bem próximo da carga média.  <literal>loads</literal> é
-      atualizado a cada 2 minutos.  Se você executar <command>ps x |
-      grep pdispatch</command> e ele contiver menos trabalhos do que
-      <literal>loads</literal> pensa estar em uso, você está em
-      apuros.</para>
+      número de trabalhos que ela pensa estar executando, e isso pode
+      estar bem próximo da carga média.  O <literal>loads</literal> é
+      atualizado a cada 2 minutos.  Se você executar um 
+      <command>ps x | grep pdispatch</command> e ele listar menos 
+      trabalhos do que os que o <literal>loads</literal> pensa estarem
+      em uso, você está em apuros.</para>
 
-    <para>Você pode ter problemas com comandos
-      <command>umount</command> suspensos.  Se assim for, você terá
-      que usar o <literal>script</literal>
-      <command>allgohans</command>  para executar um comando
-      &man.ssh.1; em todos os clientes neste ambiente de compilação.
-      Por exemplo:
-<screen>ssh -l root gohan24 df</screen>
+    <para>Você pode ter problemas com instâncias do comando
+      <command>umount</command> ficando congeladas.  Se isto ocorrer,
+      você terá que usar o <literal>script</literal>
+      <command>allgohans</command> para executar um comando
+      &man.ssh.1; em todos os clientes deste ambiente de compilação.
+      Por exemplo:</para>
 
-      vai te dar um <command>df</command>, e
+      <screen>ssh -l root gohan24 df</screen>
+
+      <para>Vai lhe dar um <command>df</command>, e</para>
 
 <screen>allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports"
 allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/src"</screen>
 
-      supostamente são para livrar-se das montagens suspensas.  Você
-      terá que continuar os executando, pois podem existir diversas
-      montagens.</para>
+      <para>Supostamente irá resolver o problema dos
+	<literal>mounts</literal>  que não foram desconectados pelo
+	<command>umount</command>.  Você terá que continuar 
+	executando-os pois podem existir diversas 
+	montagens.</para>
 
     <note>
-      <para>Ignore o seguinte:
+      <para>Ignore o seguinte:</para>
 
 <screen>umount: pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports: statfs: No such file or directory
 umount: pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports: unknown file system
 umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 /x/tmp/8-exp/chroot/53837/compat/linux/proc: not a file system root directory</screen>
 
-      Os dois primeiros significam que o cliente não os tinha montado;
-      os dois últimos são um defeito.</para>
+      <para>Os dois primeiros significam que o cliente não tinha o 
+	sistema de arquivos montado; os dois últimos são um 
+	defeito.</para>
 
-      <para>Você também poderá ver mensagens sobre
+      <para>Você também poderá ver mensagens sobre o
       <literal>procfs</literal>.</para>
     </note>
 
     <para>Após concluir tudo que foi exposto acima, remova o arquivo
       <filename><replaceable>${arch}</replaceable>/lock</filename>
       antes de tentar reiniciar a compilação.  Se você não o fizer,
-      <filename>dopackages</filename> simplesmente será encerrado.
+      o <filename>dopackages</filename> simplesmente será encerrado.
     </para>
 
     <para>Se você atualizou a árvore de <literal>ports</literal> antes
-      de reiniciar, você terá que recompilar outro
-      <filename>duds</filename>, <filename>INDEX</filename>, ou
-      ambos.</para>
+      de reiniciar, você pode precisar reconstruir o
+      <filename>duds</filename>, o <filename>INDEX</filename>, ou
+      ambos os arquivos.</para>
 
     </sect2>
 
