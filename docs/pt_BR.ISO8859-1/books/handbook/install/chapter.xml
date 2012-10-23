@@ -384,77 +384,85 @@
 	No entanto, você pode precisar encolher uma ou mais das suas
 	partições existentes primeiro.</para>
       
-      <para>A minimal installation of FreeBSD takes as little as 100&nbsp;MB
-	of disk
-	space.  However, that is a <emphasis>very</emphasis> minimal install,
-	leaving almost no space for your own files.  A more realistic minimum
-	is 250&nbsp;MB without a graphical environment, and 350&nbsp;MB or
-	more if you
-	want a graphical user interface.  If you intend to install a lot of
-	third-party software as well, then you will need more space.</para>
+	<para> Uma instalação mínima do FreeBSD ocupa tão pouco quanto
+	100&nbsp;MB de espaco em disco. Contudo, esta e uma instalação
+	<emphasis>bem</emphasis> menor, deixando quase nenhum espaco
+	para os seus arquivos. Uma mínima instalação mais realística e
+	250&nbsp;MB sem um ambiente gráfico, e 350&nbsp;MB ou mais se
+	você quiser usar uma interface gráfica. Se você também pretende 
+	instalar muitos softwares de terceiros, entao você vai precisar
+	de mais espaço</para> 
 
-      <para>You can use a commercial tool such as <application>&partitionmagic;</application>,
-	or a free tool such as <application>GParted</application>,
-	to resize your partitions and make space for
-	&os;.  Both
-	<application>&partitionmagic;</application> and
-	<application>GParted</application> are known to work on
-	<acronym>NTFS</acronym>.  <application>GParted</application>
-	is available on a number of Live CD Linux distributions, such as
+      <para>Você pode usar uma ferramenta comercial como o 
+	<application>&partitionmagic;</application> ou uma ferramenta
+	gratuita como o <application>GParted</application>, para 
+	redimensionar suas partições e criar espaço para o &os;.
+	Ambos <application>&partitionmagic;</application> e 
+	<application>GParted</application> são conhecidas por 
+	funcionar em <acronym>NTFS</acronym>.
+	<application>GParted</application> está disponível em algumas
+	distribuições Linux Live CD, como o
 	<ulink url="http://www.sysresccd.org/">SystemRescueCD</ulink>.</para>
 
-      <para>Problems have been reported resizing &microsoft; Vista
-	partitions.  Having a Vista installation CDROM handy when
-	attempting such an operation is recommended.  As with all
-	such disk maintenance tasks, a current set of backups is
-	also strongly advised.</para>
-
+      <para>Foram reportados problemas redimensionando partições do
+	 &microsoft; Vista. Possuindo um CDROM de instalação do Vista
+	em mãos ao tentar realizar operações desse tipo é recomendado.
+	E como todas tarefas de manutenção de disco, alerta-se ter
+	um conjunto com as atuais cópias de segurança. 
+	
       <warning>
-	<para>Incorrect use of these tools can delete the data on your disk.
-	  Be sure that you have recent, working backups before using
-	  them.</para>
-      </warning>
+	<para>O uso incorreto destas ferramentas pode deletar os dados
+	no seu disco. tenha certeza de que você tenha, 
+	<foreignphrase>backups</foreignphrase> recentes e funcionais
+	antes de usá-los.</para> 
+	</warning>
 
       <example>
-	<title>Using an Existing Partition Unchanged</title>
+	<title>Usando uma Partição Existente Inalterada</title>
 
-	<para>Suppose that you have a computer with a single 4&nbsp;GB disk
-	  that
-	  already has a version of &windows; installed, and you have split the
-	  disk into two drive letters, <devicename>C:</devicename> and
-	  <devicename>D:</devicename>, each of which is 2&nbsp;GB in size.
-	  You have 1&nbsp;GB of data on <devicename>C:</devicename>, and
-	  0.5&nbsp;GB of data on
-	  <devicename>D:</devicename>.</para>
+	<para>Suponha que você tenha um computador com somente um disco
+	de 4&nbsp;GB que já tenha uma versão do &windows; instalada, e
+	você tem que dividir o disco em duas unidades,
+	<devicename>C:</devicename> e <devicename>D:</devicename>, cada
+	uma com um tamanho de 2&nbsp;GB. Você tem 1&nbsp;GB de dados na
+	unidade <devicename>C:</devicename>, e 0.5&nbsp;GB de dados na
+	unidade <devicename>D:</devicename>.</para>  	
 
-	<para>This means that your disk has two partitions on it, one per
-	  drive letter.  You can copy all your existing data from
-	  <devicename>D:</devicename> to <devicename>C:</devicename>, which
-	  will free up the second partition, ready for FreeBSD.</para>
-      </example>
+	<para>Isto quer dizer que seu disco tem duas partições nele,
+	uma por unidade. Você pode copiar todos os dados existentes da
+	unidade <devicename>D:</devicename> para a unidade
+	<devicename>C:</devicename>, o que deixará a segunda partição
+	livre, pronta para o FreeBSD.</para>
+
+	</example>
 
       <example>
-	<title>Shrinking an Existing Partition</title>
+	<title>Reduzindo uma Partição Existente</title>
 
-	<para>Suppose that you have a computer with a single 4&nbsp;GB disk
-	  that already has a version of &windows; installed.  When you installed
-	  &windows; you created one large partition, giving you a
-	  <devicename>C:</devicename> drive that is 4&nbsp;GB in size.  You are
-	  currently using 1.5&nbsp;GB of space, and want FreeBSD to have 2&nbsp;GB
-	  of space.</para>
+	<para>Suponha que você tenha um computador com um unico disco de
+	4&nbsp;GB que já tenha uma versão do &windows; instalada. Quando
+	você instalou &windows; você criou uma única grande partição,
+	dando a você uma unidade <devicename>C:</devicename> com um 
+	tamanho de 4&nbsp;GB. Você está atualmente usando 1.5&nbsp;GB 
+	em espaco, e deseja que o FreeBSD tenha 2&nbsp; de espaço.
+	</para>  
+	
+	<para>
 
-	<para>In order to install FreeBSD you will need to either:</para>
-
+	<para>De modo que você possa instalar o FreeBSD você precisará
+	que:</para>
+ 
 	<orderedlist>
 	  <listitem>
-	    <para>Backup your &windows; data, and then reinstall &windows;,
-	      asking for a 2&nbsp;GB partition at install time.</para>
+	    <para>Fazer uma cópia de segurança dos seus dados do
+	    &windows;, e a partir daí reinstalar o &windows; solicitando
+	    uma partição de 2&nbsp;GB no período de instalação.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>Use one of the tools such as <application>&partitionmagic;</application>,
-	      described above, to shrink your &windows;
-		partition.</para>
+	    <para>Use uma das ferramentas como o 
+	    <application>&partitionmagic;</application> descritas 
+	    anteriormente, para reduzir sua partição &windows;.</para>
 	  </listitem>
 	</orderedlist>
       </example>
