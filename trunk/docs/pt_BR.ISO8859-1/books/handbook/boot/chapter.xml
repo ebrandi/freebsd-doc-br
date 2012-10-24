@@ -383,18 +383,19 @@ boot:</screen>
       </sect3>
 
       <sect3 id="boot-loader-commands">
-	<title>Comandos Internos do Carregador</title>
+	<title>Comandos Internos do <literal>Loader</literal></title>
 
-	<para>Estes são os comandos mais comuns usados no carregador.
+	<para>Estes são os comandos mais comuns usados no
+	  <literal>loader</literal>.
 	  Para uma explicação completa de todos os comandos
-	  disponíveis, por favor olhe o &man.loader.8;.</para>
+	  disponíveis, por favor, consulte o &man.loader.8;.</para>
 
 	<variablelist>
 	  <varlistentry>
 	    <term>autoboot <replaceable>segundos</replaceable></term>
 
 	    <listitem>
-	      <para>Prossegue com a inicialização do kernel se não for
+	      <para>Prossegue com <literal>boot</literal> do kernel se não for
 		interrompido no tempo especificado, em segundos.
 		Exibe uma contagem regressiva, o valor padrão é 10
 		segundos.</para>
@@ -407,7 +408,8 @@ boot:</screen>
 	      <optional><replaceable>nomedokernel</replaceable></optional></term>
 
 	    <listitem>
-	      <para>Prossegue imediatamente com a inicialização do
+	      <para>Prossegue imediatamente com o
+	        <literal>boot</literal> do
 		kernel, com as opções especificadas, se existir
 		alguma, e com o nome do kernel especificado, se for
 		especificado.  Somente é possível especificar o nome
@@ -422,8 +424,8 @@ boot:</screen>
 
 	    <listitem>
 	      <para>Passa pela mesma configuração automática dos
-		módulos baseando-se nas variáveis do mesmo modo que
-		acontece na inicialização.  Isso somente faz sentido
+		módulos, baseando-se nas variáveis do mesmo modo que
+		acontece no <literal>boot</literal>.  Isso somente faz sentido
 		se você primeiramente usar o comando
 		<command>unload</command>, e mudar algumas variáveis,
 		mais comumente o <envar>kernel</envar>.</para>
@@ -447,9 +449,9 @@ boot:</screen>
 	      &hellip;</term>
 
 	    <listitem>
-	      <para>Processa o arquivo com o nome dado.  O arquivo é
+	      <para>Processa o arquivo informado no comando.  O arquivo é
 		lido, e interpretado linha por linha.  Quando um erro
-		é encontrado, o comando para imediatamente.</para>
+		é encontrado o comando para imediatamente.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -473,7 +475,7 @@ boot:</screen>
 	    <listitem>
 	      <para>Exibe uma lista de arquivos no caminho
 		especificado, ou do diretório raiz, se um caminho não
-		for especificado.  Se <option>-l</option> é
+		for informado.  Se <option>-l</option> é
 		especificada, o tamanho dos arquivos é exibido
 		também.</para>
 	    </listitem>
@@ -539,10 +541,10 @@ boot:</screen>
       </sect3>
 
       <sect3 id="boot-loader-examples">
-	<title>Exemplos do Carregador</title>
+      <title>Exemplos do <literal>Loader</literal></title>
 
-	<para>Aqui tem alguns exemplos de uso do carregador na
-	  prática:</para>
+	<para>Aqui tem alguns exemplos de uso do
+	  <literal>loader</literal> na prática:</para>
 
 	<itemizedlist>
 	  <indexterm><primary>single-user mode</primary></indexterm>
@@ -583,9 +585,9 @@ boot:</screen>
 
 	  <listitem>
 	    <para>Para carregar um script de configuração do kernel
-	      (um script automatizado para fazer o que você
-	      normalmente faria no configurador de
-	      inicialização):</para>
+	      (um script para automatizar aquilo que você faria para
+	      configurar o kernel em tempo de
+	      <literal>boot</literal>):</para>
 
 	    <screen><userinput>load -t userconfig_script <replaceable>/boot/kernel.conf</replaceable></userinput></screen>
 	  </listitem>
@@ -603,12 +605,14 @@ boot:</screen>
 	  </authorgroup>
 	</sect3info>
 
-	<title>Telas de Abertura da Inicialização</title>
+	<title>Telas de Abertura do <literal>Boot</literal></title>
 
-	<para>A tela de abertura cria uma tela de inicialização mais
-	  atraente em comparação com as mensagens de inicialização
-	  originais.  Essa tela será exibida até que o console ou um
-	  gerenciador gráfico exiba um prompt de login.</para>
+	<para>A tela de abertura cria uma tela de
+	  <literal>boot</literal> mais
+	  atraente em comparação com as mensagens de
+	  <literal>boot</literal>
+	  originais.  Essa tela será exibida até que o console, ou um
+	  gerenciador gráfico, exiba um prompt de login.</para>
 
 	<para>Existem dois ambientes básicos disponíveis no &os;.  O
 	  primeiro é o ambiente de linha de comando legado do console
