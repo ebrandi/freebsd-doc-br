@@ -1116,60 +1116,64 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <title>Monitorando a Compilação</title>
 
     <para>Você pode usar o comando <command>qclient</command> para
-      monitorar o status dos nós de compilação, e para a lista de
-      trabalhos agendados atualmente:</para>
+      monitorar o status dos nós de compilação, e para listar as
+      tarefas de compilação agendadas para execução:</para>
 
     <para><command>python <replaceable>path</replaceable>/qmanager/qclient jobs</command></para>
     <para><command>python <replaceable>path</replaceable>/qmanager/qclient status</command></para>
 
     <para>O comando
       <command>scripts/stats <replaceable>${branch}</replaceable></command>
-      mostra o número de pacotes terminados.</para>
+      mostra o número de pacotes cuja compilação já finalizou.</para>
 
-    <para>Executar <command>cat /var/portbuild/*/loads/*</command>
-      mostra a carga do cliente e o número de compilações simultâneas
-      em progresso.  Os arquivos que têm sido atualizados recentemente
-      são dos clientes que estão <literal>online</literal>; os outros
-      são dos clientes <literal>offline</literal>.</para>
-
+    <para>A execução de um 
+      <command>cat /var/portbuild/*/loads/*</command>
+      irá mostrar o <literal>load</literal> nos clientes e o número de
+      compilações simultâneas em andamento.  Os arquivos que foram
+      atualizados recentemente correspondem aos clientes que estão
+      <literal>online</literal>; os demais arquivos são dos clientes 
+      que estão <literal>offline.</literal></para>
+      
     <note>
       <para>O comando <command>pdispatch</command> faz o envio de
-        trabalhos para o cliente, e pós-processamento.
-	<command>ptimeout.host</command> vigia a compilação e a
-	encerra após <literal>timeouts</literal>.  Então, tendo 50
-	processos <command>pdispatch</command>, mas apenas 4 processos
-	&man.ssh.1;, significa que 46 processos
-	<command>pdispatch</command>es estão ociosos, esperando por um
-	nó ocioso.</para>
+        trabalhos para o cliente, e executa tarefas de 
+	pós-processamento a partir do retorno recebido do client.  O
+	<command>ptimeout.host</command> monitora permanentemente o
+	processo de compilação e a encerra após a ocorrência de 
+	<literal>timeouts</literal>.  Desta forma, se você tiver
+	50 processos <command>pdispatch</command>, mas apenas 4 
+	processos &man.ssh.1;, significa que 46 processos
+	<command>pdispatch</command>es estão ociosos, esperando que
+	um nó fique livre.</para>
     </note>
 
     <para>Executar <command>tail -f <replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/build.log</command>
-      mostra o progresso geral da compilação.</para>
+      irá mostrar o progresso geral da compilação.</para>
 
     <para>Se a compilação do <literal>port</literal> falhar, e o
-      motivo não for imediatamente óbvio a partir do
+      motivo não ficar imediatamente óbvio a partir da análise do
       <literal>log</literal>, você pode preservar o
-      <literal>WRKDIR</literal> para uma análise mais profunda.  Para
-      fazer isso, crie um arquivo chamado <filename>.keep</filename>
-      no diretório do <literal>port</literal>, isso vai arquivar,
+      <literal>WRKDIR</literal> para uma análise mais aprofundada.
+      Para fazer isso, crie um arquivo vazio chamado 
+      <filename>.keep</filename> no diretório do 
+      <literal>port</literal>, isso vai arquivar,
       comprimir, e copiar o <literal>WRKDIR</literal> para
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/wrkdirs</filename>.
     </para>
 
-    <para>Se você achar que o sistema está em uma repetição
-      indefinida compilando o mesmo pacote, outra e outra vez, você
-      pode ser capaz de corrigir este problema recompilando este
-      pacote problemático manualmente.</para>
+    <para>Se você verificar que o sistema está compilando o mesmo 
+      pacote de forma ciclica, repetindo o processo indefinidamente,
+      você pode ser capaz de corrigir o problema reconstruindo
+      manualmente o pacote ofensor.</para>
 
-    <para>Se todas as compilações iniciam apresentando erros de que
-      não podem carregar suas dependências, verifique se
-      <application>httpd</application> ainda está rodando, e reinicie
-      se não estiver.</para>
+    <para>Se todas as compilações iniciam reclamando de que não pode
+      carregar os pacotes dos quais ela depende, verifique se o
+      <application>httpd</application> ainda está rodando, e o i
+      reinicie se não estiver.</para>
 
     <para>Mantenha o olho na saída do &man.df.1;.  Se o sistema de
-      arquivos em <filename>/var/portbuild</filename> começar a ficar
-      cheio, coisas ruins acontecem.
-    </para>
+      arquivos do <filename>/var/portbuild</filename> ficar cheio,
+      coisas ruins acontecem.</para>
 
     <para>O status de todas as compilações é gerado duas vezes por
       hora e postado em <ulink
@@ -1201,7 +1205,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para>o número de pacotes completos
+	<para>o número de pacotes concluídos
 	  (<literal>packages</literal>)</para>
       </listitem>
 
@@ -1215,7 +1219,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para><literal>missing</literal> mostra a diferença entre o
+	<para>O <literal>missing</literal> mostra a diferença entre o
 	  <filename>INDEX</filename> e as outras colunas.  Se você
 	  reiniciou uma compilação após um <command>cvs
 	  update</command>, provavelmente haverá duplicatas nos
@@ -1225,7 +1229,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
       <listitem>
 	<para><literal>running</literal> e
-	  <literal>completed</literal> são supostamente baseadas em um
+	  <literal>completed</literal> são palpites baseados em um
 	  &man.grep.1; do <filename>build.log</filename>.
 	</para>
       </listitem>
