@@ -1460,59 +1460,53 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       experimentais simultâneos, como o <literal>8-exp</literal> na
       arquitetura amd64.</para>
 
-    <para>Geralmente, uma compilação de <literal>patches</literal>
+    <para>Geralmente, a compilação de <literal>patches</literal>
       experimentais é executada da mesma forma que qualquer outra
       compilação, exceto que você deve primeiro atualizar a árvore de
       <literal>ports</literal> para a última versão e, em seguida,
-      aplicar os <literal>patches</literal>.  Para fazer o primeiro,
-      você pode usar o seguinte:
+      aplicar os seus <literal>patches</literal>.  Para fazer o primeiro,
+      você pode usar o seguinte:</para>
 
       <screen>&prompt.user; <userinput>cvs -R update -dP > update.out</userinput>
 &prompt.user; <userinput>date > cvsdone</userinput></screen>
 
-      Essa é a simulação mais próxima do que o
+    <para>Essa é a simulação mais próxima do que o
       <literal>script</literal> <literal>dopackages</literal> faz.
-      (Enquanto <filename>cvsdone</filename> é meramente informativo,
-      isso pode ajudar.)</para>
+      (Embora o <filename>cvsdone</filename> seja meramente 
+	informativo, ele pode ser útil.)</para>
 
     <para>Você precisará editar o <filename>update.out</filename> para
       procurar por linhas que comecem com <literal>^M</literal>,
-      <literal>^C</literal>, ou <literal>^?</literal> e então
+      <literal>^C</literal>, ou <literal>^?</literal> para que possa 
       corrigi-las.</para>
 
     <para>É sempre uma boa idéia salvar cópias do original de todos os
-      arquivos modificados, como também uma lista do que você está
+      arquivos modificados, bem como uma lista do que você está
       modificando.  Você pode consultar a lista ao fazer o
-      <literal>commit</literal> final, para se certificar que você
+      <literal>commit</literal> final, para se certificar de que você
       está realizando o <literal>commit</literal> exatamente daquilo
       que testou.</para>
 
     <para>Pelo fato da máquina ser compartilhada, alguém pode excluir
       suas alterações por engano, então mantenha cópias destas, por
-      exemplo, no seu diretório <literal>home</literal>  em
+      exemplo, no seu diretório <literal>home</literal>  freefall
       <hostid>freefall</hostid>.  Não use o <filename>tmp/</filename>;
-      pois por <hostid>pointyhat</hostid> executar ele mesmo alguma
-      versão do <literal>-CURRENT</literal>, você pode esperar
-      reinicializações (se por nada de mais, para
-      atualizações).</para>
+      pois a <hostid>pointyhat</hostid> executa ele mesmo alguma
+      versão do <literal>-CURRENT</literal>, você pode esperar por
+      reinicializações (no mínimo para atualizações).</para>
     
-    <para>Com o objetivo de ter uma compilação de controle com a qual
-      comparar falhas, você deve primeiro executar a compilação de
-      pacote no <literal>brabch</literal> em que os
-      <literal>patches</literal> experimentais sejam baseados para a
+    <para>Para que você tenha uma compilação de controle com a qual
+      possa comparar eventuais falhas, você deve primeiro executar a 
+      compilação de pacote no <literal>branch</literal> em que os
+      <literal>patches</literal> experimentais foram baseados para a
       arquitetura &i386; (atualmente esta é o <literal>8</literal>).
-      Em seguida, quando preparando para a compilação de
+      Quando estiver preparando a compilação dos
       <literal>patches</literal> experimentais, faça o
       <literal>checkout</literal> da árvore do
       <literal>ports</literal> e do <literal>src</literal> com a mesma
       data da que foi usada para a compilação de controle.  Isso vai
-      garantir uma comparação entre as compilações depois.</para>
-
-    <!-- XXX MCL currently there is only one build cluster
-    <note><para>One build cluster can do the control build while the other
-      does the experimental patches build.  This can be a great
-      time-saver.</para></note>
-    -->
+      garantir uma comparação válida entre as compilações 
+      depois.</para>
 
     <para>Uma vez terminada a compilação, compare as falhas da
       compilação de controle com as da compilação dos
@@ -1539,8 +1533,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Este último comando vai gerar um relatório com duas colunas.
       A primeira coluna contém os <literal>ports</literal> que
       falharam na compilação de controle, mas não na compilação com
-      <literal>patches</literal> experimentais; a segunda é vice
-      versa.  Razões para o <literal>port</literal> estar na primeira
+      <literal>patches</literal> experimentais; a segunda é o inverso
+      As razões para o <literal>port</literal> estar na primeira
       coluna incluem:</para>
 
     <itemizedlist>
