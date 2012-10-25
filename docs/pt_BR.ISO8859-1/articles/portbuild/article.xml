@@ -1443,7 +1443,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <screen>&prompt.root; <userinput>/var/portbuild/scripts/cpdistfiles <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-yesreally] | tee log2</userinput></screen>
 
-    <para>A execução manual de processo é procedimento
+    <para>A execução manual deste processo é um procedimento
       obsoleto.</para>
   </sect1>
 
