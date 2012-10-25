@@ -469,164 +469,172 @@
     </sect2>
 
     <sect2>
-      <title>Collect Your Network Configuration Details</title>
+      <title>Colete Detalhes da Sua Configuração de Rede</title>
 
-      <para>If you intend to connect to a network as part of your FreeBSD
-	installation (for example, if you will be installing from an FTP
-	site or an
-	NFS server), then you need to know your network configuration.  You
-	will be prompted for this information during the installation so that
-	FreeBSD can connect to the network to complete the install.</para>
-
+      <para>Se você pretende conectar em uma rede como parte da 
+	instalação do FreeBSD (por exemplo, se você irá instalar de
+	um sítio FTP ou um servidor NFS), então você precisa saber sua
+	configuração de rede. Esta informação será solicitada a você 
+	durante a instalação para que o FreeBSD possa conectar na rede 
+	para completar a instalação.</para>
+	
       <sect3>
-	<title>Connecting to an Ethernet Network or Cable/DSL Modem</title>
+	<title>Conectando a uma Rede Ethernet ou Modem à Cabo/DSL</title>
 
-	<para>If you connect to an Ethernet network, or you have an Internet
-	  connection using an Ethernet adapter via cable or DSL, then you will
-	  need the following information:</para>
+	<para>Se você conecta em uma rede Ethernet, ou possui uma 
+	conexão Internet à cabo ou DSL usando uma placa Ethernet, então
+	você vai precisar das seguintes informações:</para>
 
 	<orderedlist>
 	  <listitem>
-	    <para>IP address</para>
+	    <para>Endereço IP</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>IP address of the default gateway</para>
+	    <para>Endereço IP do gateway padrão</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>Hostname</para>
+	    <para><foreignphrase>Hostname</foreignphrase></para>
 	  </listitem>
 
 	  <listitem>
-	    <para>DNS server IP addresses</para>
+	    <para>endereço IP do servidor DNS</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>Subnet Mask</para>
+	    <para>Máscara de Sub-rede</para>
 	  </listitem>
 	</orderedlist>
 
-	<para>If you do not know this information, then ask your system
-	  administrator or service provider.  They may say that this
-	  information is assigned automatically, using
-	  <firstterm>DHCP</firstterm>.  If so, make a note of this.</para>
-      </sect3>
-
+	<para>Se você não souver desta informação, então pergunte
+	  para seu administrador de rede ou provedor de acesso. Eles
+	  poderão dizer que esta informação é atribuída automaticamente,
+	  usando <firstterm>DHCP</firstterm>. Se for, faça uma nota 
+	  desta.</para>
+	</sect3>  
+	
       <sect3>
-	<title>Connecting Using a Modem</title>
+	<title>Conectando Usando um Modem</title>
 
-	<para>If you dial up to an ISP using a regular modem then you can
-	  still install FreeBSD over the Internet, it will just take a very
-	  long time.</para>
+	<para>Se você disca para um Provedor de Serviço Internet
+	usando um modem regular então você ainda pode instalar o FreeBSD
+	através da Internet, apenas vai demorar um tempo muito maior.
+	</para>
 
-	<para>You will need to know:</para>
+	<para>Você precisa saber:</para>
 
 	<orderedlist>
 	  <listitem>
-	    <para>The phone number to dial for your ISP</para>
+	    <para>O número do telefone para discar para o seu Provedor
+	de Serviço Internet</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>The COM: port your modem is connected to</para>
+	    <para>A porta COM: na qual seu modem é conectado</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>The username and password for your ISP account</para>
+	    <para>O nome de usuário e senha da acesso ao seu Provedor de
+	Serviço internet</para>
 	  </listitem>
 	</orderedlist>
       </sect3>
     </sect2>
     <sect2>
-      <title>Check for FreeBSD Errata</title>
+      <title>Procure pela Errata do FreeBSD</title>
 
-      <para>Although the FreeBSD project strives to ensure that each release
-	of FreeBSD is as stable as possible, bugs do occasionally creep into
-	the process.  On very rare occasions those bugs affect the
-	installation process.  As these problems are discovered and fixed, they
-	are noted in the <ulink url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">FreeBSD Errata</ulink>,
-	which is found on the FreeBSD web site.  You
-	should check the errata before installing to make sure that there are
-	no late-breaking problems which you should be aware of.</para>
-
-      <para>Information about all the releases, including the errata for each
-	release, can be found on the
+      <para>Embora o projeto FreeBSD se esforça para manter cada 
+	<literal>release</literal> o mais estável possível, falhas
+	assombram ocasionalmente no processo. Em raras ocasiões estas
+	falhas afetam o processo de instalação. Conforme estes problemas
+	são descobertos e fixados, eles são registrados na
+	<ulink url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">Errata do FreeBSD</ulink>,
+	que é encontrada no sítio web do FreeBSD. Você deve checar a 
+	errata antes de instalar para ter certeza de que não existam 
+	problemas de ultima hora que você deva estar ciente.</para>
+	
+      <para>Informações sobre todos os <literal>releases</literal>, 
+	incluindo a errata para cada <literal>release</literal>, pode 
+	ser encontrada na seção
 	<ulink
-	url="&url.base;/releases/index.html">release
-	information</ulink> section of the
+	url="&url.base;/releases/index.html">informação do <literal>release</literal>
+	</ulink> do
 	<ulink
-	  url="&url.base;/index.html">FreeBSD web site</ulink>.</para>
+	  url="&url.base;/index.html">sítio www do FreeBSD</ulink>.</para>
     </sect2>
 
     <sect2>
-      <title>Obtain the FreeBSD Installation Files</title>
+      <title>Adquira os Arquivos de Instalação do FreeBSD</title>
 
-      <para>The FreeBSD installation process can install FreeBSD from files
-	located in any of the following places:</para>
+      <para>O processo de instalação do FreeBSD pode instalar através de
+	arquivos localizados em qualquer um dos seguintes locais:</para>
 
       <itemizedlist>
-	<title>Local Media</title>
+	<title>Mídia Local</title>
 
 	<listitem>
-	  <para>A CDROM or DVD</para>
+	  <para>Um CDROM ou DVD</para>
 	</listitem>
 
 	<listitem>
-	  <para>A USB Memory Stick</para>
+	  <para>Um Cartão de memória USB</para>
 	</listitem>
 
 	<listitem>
-	  <para>A &ms-dos; partition on the same computer</para>
+	  <para>uma partição  &ms-dos; no mesmo computador</para>
 	</listitem>
 
 	<listitem>
-	  <para>A SCSI or QIC tape</para>
+	  <para>Uma fita  SCSI ou QIC</para>
 	</listitem>
 
 	<listitem>
-	  <para>Floppy disks</para>
+	  <para>Discos Flexíveis</para>
 	</listitem>
       </itemizedlist>
 
       <itemizedlist>
-	<title>Network</title>
+	<title>Rede</title>
 
 	<listitem>
-	  <para>An FTP site, going through a firewall, or using an HTTP proxy,
-	    as necessary</para>
+	  <para>Um sítio FTP, passando por um <foreignphrase>firewall</foreignphrase>,
+	ou usando um proxy HTTP, como necessário</para>	
+ 	</listitem>
+
+	<listitem>
+	  <para>Um servidor NFS</para>
 	</listitem>
 
 	<listitem>
-	  <para>An NFS server</para>
-	</listitem>
-
-	<listitem>
-	  <para>A dedicated parallel or serial connection</para>
+	  <para>Uma conexão dedicada paralela ou conexão serial</para>
 	</listitem>
       </itemizedlist>
 
-      <para>If you have purchased FreeBSD on CD or DVD then you already have
-	everything you need, and should proceed to the next section
+      <para>Se você comprou FreeBSD em CD ou DVD ent;ao você já tem tudo
+	o que precisa, e deve prosseguir para a próxima seção
 	(<xref linkend="install-boot-media"/>).</para>
 
-      <para>If you have not obtained the FreeBSD installation files you should
-	skip ahead to <xref linkend="install-diff-media"/> which explains how
-	to prepare to install FreeBSD from any of the above.  After reading
-	that section, you should come back here, and read on to
-	<xref linkend="install-boot-media"/>.</para>
+      <para>Se você não adquiriu os arquivos de instalação do FreeBSD 
+	você deve pular adiante para <xref linkend="install-diff-media"/>
+	que explica como preparar a instalação do FreeBSD de qualquer 
+	uma citada acima. Depois de ler aquela seção, você deve voltar
+	aqui, e continuar a leitura da <xref linkend="install-boot-media"/>.
+	</para>
     </sect2>
 
     <sect2 id="install-boot-media">
-      <title>Prepare the Boot Media</title>
+      <title>Prepare a Mídia de Inicialização</title>
 
-      <para>The FreeBSD installation process is started by booting your
-	computer into the FreeBSD installer&mdash;it is not a program you run
-	within another operating system.  Your computer normally boots using
-	the operating system installed on your hard disk, but it can also be
-	configured to use a <quote>bootable</quote> floppy disk.
-	Most modern computers can also
-	boot from a CDROM in the CDROM drive or from a USB disk.</para>
-
+      <para>O processo de instalação do FreeBSD dá inicio inicializando
+	seu computador no FreeBSD installer&mdash; não é um programa
+	que você executa dentro de outro sistema operacional. Seu 
+	computador normalmente inicia usando o sistema operacional 
+	instalado no seu disco rígido, mas também pode ser configurado
+	para usar um disco flexível <quote>inicializável</quote>.
+	Computadores mais modernos também podem inicializar por um 
+	CDROM na unidade de CDROM ou um disco USB.</para>
+	 
       <tip>
 	<para>If you have FreeBSD on CDROM or DVD (either one you purchased
 	  or you prepared yourself), and your computer allows you to boot from
