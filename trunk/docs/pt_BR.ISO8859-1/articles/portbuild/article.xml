@@ -1327,28 +1327,29 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   <sect1 id="uploading">
     <title><foreignphrase>Upload</foreignphrase> dos Pacotes</title>
 
-    <para>Uma vez que a compilação tenha terminado, pacotes e/ou
+    <para>Uma vez que a compilação tenha terminado, os pacotes e/ou
       <literal>distfiles</literal> podem ser transferidos para o
-      <hostid>ftp-master</hostid> para propagação com a rede de
+      <hostid>ftp-master</hostid> para serem propagados para a rede de
       espelhos FTP.  Se a compilação foi executada com a opção
-      <literal>-nofinish</literal>, então certifique-se de, em
-      seguida, executar <command>dopackages -finish</command> para
-      pós-processamento dos pacotes (remover pacotes marcados como
-      <literal>RESTRICTED</literal> e <literal>NO_CDROM</literal> onde
-      for apropriado, remover pacotes não listados no
-      <filename>INDEX</filename>, remover do
+      <literal>-nofinish</literal>, então certifique-se de executar em
+      seguida o comando <command>dopackages -finish</command> para
+      realizar o pós-processamento dos pacotes (remover pacotes 
+      marcados como <literal>RESTRICTED</literal> ou como  
+      <literal>NO_CDROM</literal> onde for apropriado, remover pacotes
+      não listados no <filename>INDEX</filename>, remover do
       <filename>INDEX</filename> as referências para pacotes não
-      compilados, e gerar um <filename>CHECKSUM.MD5</filename>
-      resumido); e <literal>distfiles</literal> (movendo-os do
-      diretório temporário <filename>distfiles/.pbtmp</filename> para
+      compilados, e gerar um sumário 
+      <filename>CHECKSUM.MD5</filename>); e dos 
+      <literal>distfiles</literal> (movê-los do diretório temporário 
+      <filename>distfiles/.pbtmp</filename> para o diretório 
       <filename>distfiles/</filename> e remover os
       <literal>distfiles</literal> marcados como
       <literal>RESTRICTED</literal> e
       <literal>NO_CDROM</literal>).</para>
 
-    <para>Normalmente é uma boa idéia executar os
+    <para>É recomendado que se execute manualmente os
       <literal>scripts</literal> <command>restricted.sh</command> e/ou
-      <command>cdrom.sh</command> manualmente após a finalização do
+      <command>cdrom.sh</command> após a finalização do
       <command>dopackages</command>, apenas por segurança.  Execute o
       <literal>script</literal> <command>restricted.sh</command> antes
       de fazer o <foreignphrase>upload</foreignphrase> para o
@@ -1356,10 +1357,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <command>cdrom.sh</command> antes de preparar o conjunto final
       de pacotes para um <literal>release</literal>.</para>
 
-    <para>Os subdiretórios de pacotes são nomeados de acordo com seu
-      <literal>branch</literal>, <literal>release</literal>,
-      <literal>stable</literal>, ou <literal>current</literal>.
-      Exemplo:</para>
+    <para>Os subdiretórios de pacotes são nomeados de acordo com a
+      versão e <literal>branch</literal> ao qual se destinam.  
+      Por exemplo:</para>
 
     <itemizedlist>
       <listitem>
@@ -1383,9 +1383,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
     </itemizedlist>
 
-    <note><para>Alguns desses diretórios no
-      <hostid>ftp-master</hostid> são, de fato,
-      <literal>links</literal> simbólicos.  Exemplo:</para>
+    <note><para>Alguns destes diretórios no
+      <hostid>ftp-master</hostid> são na verdade
+      <literal>links</literal> simbólicos.  Por exemplo:</para>
 
       <itemizedlist>
 	<listitem>
@@ -1397,16 +1397,17 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	</listitem>
       </itemizedlist>
 
-      <para>Tenha certeza de estar movendo o novo pacote para um
-        diretório de destino <emphasis>real</emphasis>, e não para um
-	dos <literal>links</literal> simbólicos que apontam para
-	ele.</para>
+      <para>Certifique-se de que você está  movendo os novos pacotes
+	para um diretório de destino <emphasis>real</emphasis>, e não
+	para um dos <literal>links</literal> simbólicos que apontam 
+	para ele.</para>
     </note>
 
-    <para>Se você está fazendo um conjunto de pacotes completamente
+    <para>Se você está preparando um conjunto de pacotes completamente
       novo (por exemplo, para um novo <literal>release</literal>),
-      copie os pacotes para a área de teste no
-      <hostid>ftp-master</hostid> com algo como o seguinte:</para>
+      copie os pacotes para a área de teste do
+      <hostid>ftp-master</hostid> executando algo como mostrado
+      abaixo:</para>
 
     <screen>&prompt.root; <userinput>cd /var/portbuild/<replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
 &prompt.root; <userinput>tar cfv - packages/ | ssh portmgr@ftp-master tar xfC - w/ports/<replaceable>${arch}</replaceable>/tmp/<replaceable>${subdir}</replaceable></userinput></screen>
@@ -1423,25 +1424,27 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <command>rsync</command> para não colocar muita pressão nos
       espelhos.</para>
 
-    <para><emphasis>SEMPRE</emphasis> use <command>rsync</command>
+    <para><emphasis>SEMPRE</emphasis> use o <command>rsync</command>
       primeiro com a opção <literal>-n</literal> e verifique a saída
-      para assegurar-se que não existem problemas.  Se parece estar
-      tudo bem, execute novamente o <command>rsync</command> sem a
-      opção <literal>-n</literal>.
+      do comando para assegurar-se que não existem problemas.  Se 
+      parece estar tudo bem, execute novamente o 
+      <command>rsync</command> sem a opção <literal>-n</literal>.
     </para>
 
-    <para>Exemplo de comando <command>rsync</command> para o
-      <foreignphrase>upload</foreignphrase> incremental de
+    <para>Exemplo de sintaxe do comando <command>rsync</command> para
+      o <foreignphrase>upload</foreignphrase> incremental de
       pacotes:</para>
 
     <screen>&prompt.root; <userinput>rsync -n -r -v -l -t -p --delete packages/ portmgr@ftp-master:w/ports/<replaceable>${arch}</replaceable>/<replaceable>${subdir}</replaceable>/ | tee log</userinput></screen>
 
-    <para><literal>Distfiles</literal> devem ser transferidos com o
-      <literal>script</literal> <command>cpdistfiles</command>:</para>
+    <para>Os <literal>distfiles</literal> devem ser transferidos
+      utilizando-se o <literal>script</literal> 
+      <command>cpdistfiles</command>:</para>
 
     <screen>&prompt.root; <userinput>/var/portbuild/scripts/cpdistfiles <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-yesreally] | tee log2</userinput></screen>
 
-    <para>Fazer isso manualmente está obsoleto.</para>
+    <para>A execução manual de processo é procedimento
+      obsoleto.</para>
   </sect1>
 
   <sect1 id="expbuilds">
