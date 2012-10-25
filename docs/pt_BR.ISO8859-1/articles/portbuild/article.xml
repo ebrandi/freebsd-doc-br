@@ -1556,7 +1556,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <listitem>
 	<para>O <literal>port</literal> não foi compilado na
 	compilação com <literal>patches</literal> experimentais devido
-	à falha de dependência
+	a falha de uma dependência
 	</para>
       </listitem>
     </itemizedlist>
@@ -1567,12 +1567,13 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <itemizedlist>
       <listitem>
 	<para>O <literal>port</literal> foi quebrado pelos
-	  <literal>patches</literal> experimentais [1]</para>
+	  <literal>patches</literal> experimentais [1]
+	</para>
       </listitem>
 
       <listitem>
 	<para>O <literal>port</literal> foi atualizado desde a
-	  compilação de controle e tornou-se quebrado [2]
+	  compilação de controle e deixou de compilar [2]
 	</para>
       </listitem>
 
@@ -1596,16 +1597,14 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>cvs update</literal> para a mesma data da árvore dos
       <literal>patches</literal> experimentais.</para></note>
 
-    <!-- XXX MCL fix -->
     <para>O seguinte comando vai configurar o
       <literal>branch</literal> de controle para a
       compilação parcial (antigo código base):</para>
 
     <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportscvs -nobuild -nocvs -nofinish</userinput></screen>
 
-    <!-- XXX MCL obsolete -->
     <para>As compilações devem ser executadas a partir do diretório
-      <literal>packages/All</literal>.  Esse diretório deve estar
+      <literal>packages/All</literal>.  Este diretório deve estar
       vazio inicialmente, exceto pelo <literal>link</literal>
       simbólico do Makefile.  Se este <literal>link</literal>
       simbólico não existir, ele deve ser criado:</para>
@@ -1614,7 +1613,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 &prompt.user; <userinput>ln -sf ../../Makefile .</userinput>
 &prompt.user; <userinput>make -k -j&lt;#&gt; &lt;list of packages to build&gt;</userinput></screen>
 
-    <note><para>&lt;#&gt; é o número de compilações paralelas para
+    <note><para>O &lt;#&gt; é o número de compilações paralelas para
       tentar.  Normalmente isso é a soma dos pesos listados em
       <filename>/var/portbuild/i386/mlist</filename>, a menos que você
       tenha uma razão para executar uma compilação mais pesada ou
@@ -1625,7 +1624,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <filename>INDEX</filename>.  O <literal>PKGSUFFIX</literal>
       (isto é, .tgz ou .tbz) é opcional.</para></note>
 
-    <para>Isso vai compilar apenas os pacotes listados, assim como
+    <para>Isto vai compilar apenas os pacotes listados, bem como
       todas as suas dependências.</para>
 
     <para>Você pode verificar o progresso da compilação parcial da
@@ -1634,17 +1633,17 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Uma vez que todos os erros tenham sido resolvidos, você pode
       efetuar o <literal>commit</literal> do conjunto de pacotes.
       Após efetuar o <literal>commit</literal>, é de costume enviar um
-      e-mail <literal>HEADS UP</literal> para <ulink
-      url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> e uma
+      e-mail para <ulink
+      url="mailto:ports@FreeBSD.org">ports@FreeBSD.org</ulink> e com 
       cópia para <ulink
       url="mailto:ports-developers@FreeBSD.org">ports-developers@FreeBSD.org</ulink>,
-      informando as pessoas das mudanças.  Um resumo de todas as
-      mudanças também deve ter o <literal>commit</literal> efetuado
-      para <filename>/usr/ports/CHANGES</filename>.</para>
+      informando as pessoas sobre as mudanças.  Um resumo de todas as
+      mudanças também deve registrado no arquivo 
+      <filename>/usr/ports/CHANGES</filename>.</para>
   </sect1>
 
   <sect1 id="new-node">
-    <title>Como configurar um novo nó de compilação de pacote</title>
+    <title>Como configurar um novo nó de compilação de pacotes</title>
 
     <para>Antes de seguir estes passos, por favor, coordene-se com o
       <literal>portmgr</literal>.
