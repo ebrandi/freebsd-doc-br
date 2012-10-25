@@ -1214,21 +1214,21 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       </listitem>
 
       <listitem>
-	<para>o número de <literal>ports</literal> ignorados
-	  (mostrados como <literal>skipped</literal>)</para>
+	<para>o número de <literal>ports</literal> ignorados (duds)
+	  (listados como <literal>skipped</literal>)</para>
       </listitem>
 
       <listitem>
-	<para>O <literal>missing</literal> mostra a diferença entre o
-	  <filename>INDEX</filename> e as outras colunas.  Se você
-	  reiniciou uma compilação após um <command>cvs
+	<para>A coluna <literal>missing</literal> mostra a diferença 
+	  entre o <filename>INDEX</filename> e as outras colunas.  
+	  Se você reiniciou uma compilação após um <command>cvs
 	  update</command>, provavelmente haverá duplicatas nos
 	  pacotes e colunas de erros, e esta coluna será inútil.  (O
 	  <literal>script</literal> é ingênuo).</para>
       </listitem>
 
       <listitem>
-	<para><literal>running</literal> e
+	<para>Os valores das colunas <literal>running</literal> e
 	  <literal>completed</literal> são palpites baseados em um
 	  &man.grep.1; do <filename>build.log</filename>.
 	</para>
@@ -1241,35 +1241,37 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 
     <para>A maneira mais fácil de rastrear falhas na compilação é
       receber os <literal>logs</literal> enviados por e-mail e
-      organiza-los em uma pasta, assim você pode manter uma lista com
-      as falhas atuais e detectar facilmente novas falhas.  Para fazer
-      isso, adicione um endereço de e-mail em
+      organizá-los em uma pasta, assim você pode manter uma lista com
+      as falhas atuais e detectar facilmente as novas.  Para fazer
+      isto, adicione um endereço de e-mail ao
       <filename><replaceable>${branch}</replaceable>/portbuild.conf</filename>.
-      Você pode facilmente enviar os novos para os
+      Você pode encaminhar facilmente os novos erros para os
       mantenedores.</para>
 
-    <para>Depois que um <literal>port</literal> aparece quebrado em
-      cada combinação de compilação, várias vezes, é hora de marcá-lo
-      como <literal>BROKEN</literal>.  Notificar os mantenedores
-      durante duas semanas parece justo.</para>
+    <para>Quando um <literal>port</literal> passa a não compilar
+      corretamente durante varios ciclos de compilação seguidos,
+      é hora de marcá-lo como quebrado (<literal>BROKEN</literal>).  
+      Recomenda-se notificar os mantenedores durante duas semanas, 
+      antes de fazê-lo.</para>
 
     <note>
-      <para>Para evitar erros de compilação com
-        <literal>ports</literal> que precisam ser baixados
-	manualmente, coloque os <literal>distfiles</literal> em
-	<filename>~ftp/pub/FreeBSD/distfiles</filename>.  Restrições
-	de acesso garantem que apenas os clientes de compilação possam
-	acessar este diretório.</para>
+      <para>Para evitar erros de compilação dos
+        <literal>ports</literal> cujo código fonte precisa ser 
+	baixado manualmente, coloque os <literal>distfiles</literal> 
+	em <filename>~ftp/pub/FreeBSD/distfiles</filename>.  
+	Restrições de acesso foram implementadas para garantir que
+	apenas os clientes de compilação tenham acesso a este
+	diretório.</para>
     </note>
   </sect1>
 
   <sect1 id="release">
-    <title>Compilando Pacotes para uma Versão</title>
+    <title>Compilando Pacotes para uma Versão Específica</title>
 
-    <para>Quando compilando pacotes para uma versão do &os;, pode ser
-      necessário atualizar manualmente as árvores de
-      <literal>ports</literal> e <literal>src</literal> para a
-      <literal>tag</literal> da versão e usar as opções
+    <para>Ao compilar pacotes para uma versão específica do &os;, 
+      pode ser necessário atualizar manualmente as árvores do
+      <literal>ports</literal> e do <literal>src</literal> para a
+      <literal>tag</literal> da versão desejada e usar as opções
       <literal>-nocvs</literal> e
       <literal>-noportscvs</literal>.</para>
 
@@ -1277,7 +1279,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       CD-ROM, use a opção <literal>-cdrom</literal> para o comando
       <command>dopackages</command>.</para>
 
-    <para>Se não houver espaço disponível em disco no
+    <para>Se não houver espaço em disco disponível no
       <literal>cluster</literal>, use <literal>-nodistfiles</literal>
       para que os <literal>distfiles</literal> não sejam
       baixados.</para>
@@ -1285,31 +1287,30 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <para>Após completar a compilação inicial, reinicie a compilação
       com <literal>-restart -fetch-original</literal> para baixar os
       <literal>distfiles</literal> atualizados.  Então, uma vez que a
-      compilação seja pós-processada, faça um inventário da lista de
-      arquivos baixados:</para>
+      compilação tiver sido pós-processada, faça um inventário da 
+      lista de arquivos baixados:</para>
 
     <screen>&prompt.user; <userinput>cd <replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable></userinput>
 &prompt.user; <userinput>find distfiles > distfiles-<replaceable>${release}</replaceable></userinput></screen>
 
-    <!-- XXX MCL apparently obsolete -->
-    <para>Este arquivo de inventário normalmente está localizado em
+    <para>Este arquivo de inventário normalmente fica localizado em
       <filename>i386/<replaceable>${branch}</replaceable></filename>
-      no <literal>cluster master</literal>.</para>
+      no nó principal do <literal>cluster</literal>.</para>
 
-    <para>Isso é útil para ajudar periodicamente na limpeza dos
+    <para>Isto é útil para ajudar na limpeza periódica dos
       <literal>distfiles</literal> do <hostid>ftp-master</hostid>.
-      Quando o espaço se torna apertado, os
+      Quando o espaço se torna escasso, os
       <literal>distfiles</literal> das versões recentes podem ser
       mantidos, enquanto outros podem ser jogados fora.</para>
 
     <para>Uma vez que o <foreignphrase>upload</foreignphrase> dos
       <literal>distfiles</literal> tenha sido feito (veja abaixo), o
       conjunto de pacotes da versão final deve ser criado.  Para se
-      assegurar, execute o <literal>script</literal>
+      assegurar, execute manualmente o <literal>script</literal>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/cdrom.sh</filename>
-      manualmente para certificar-se que todos os pacotes restritos e
-      os <literal>distfiles</literal> foram removidos.  Então, copie o
-      diretório
+      para certificar-se de que todos os pacotes com distribuição 
+      restrita via CD-ROM e todos os <literal>distfiles</literal> 
+      foram removidos.  Então, copie o diretório
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/packages</filename>
       para
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/packages-<replaceable>${release}</replaceable></filename>.
@@ -1317,8 +1318,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       contate o &a.re; e informe-os da localização dos pacotes do
       <literal>release</literal>.</para>
 
-    <para>Lembre-se de coordenar com a &a.re; sobre o momento e
-      status das compilações do <literal>release</literal>.
+    <para>Lembre-se de coordenar com o &a.re; sobre o
+      <literal>timing</literal> e o status das compilações do 
+      <literal>release</literal>.
     </para>
   </sect1>
 
