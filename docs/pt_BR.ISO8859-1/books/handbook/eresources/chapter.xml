@@ -1419,8 +1419,8 @@
 
 	    <para>As mensagens de e-mail devem usar apenas formatos
 	      abertos &mdash; preferencialmente texto plano, mas o
-	      <literal>Portable Document Format
-	      (<acronym>PDF</acronym>)</literal>, HTML e alguns outros
+	      <literal>Portable Document Format</literal>
+	      (<acronym>PDF</acronym>), HTML e alguns outros
 	      formatos são aceitos por vários leitores.  Formatos
 	      fechados tal como &microsoft; Word
 	      (<filename>.doc</filename>) serão rejeitados pelo
