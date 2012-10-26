@@ -636,246 +636,260 @@
 	CDROM na unidade de CDROM ou um disco USB.</para>
 	 
       <tip>
-	<para>If you have FreeBSD on CDROM or DVD (either one you purchased
-	  or you prepared yourself), and your computer allows you to boot from
-	  the CDROM or DVD (typically a BIOS option called <quote>Boot
-	    Order</quote> or similar), then you can skip this section.  The
-	  FreeBSD CDROM and DVD images are bootable and can be used to install
-	  FreeBSD without any other special preparation.</para>
+	<para>Se você tem um CD ou DVD do FreeBSD (que você comprou ou
+	preparou), e seu computador permite que você inicialize pelo
+	CDROM ou DVD (tipicamente há uma opção na BIOS chamada <quote>
+	Ordem de Inicialização</quote> ou parecido), então você pode 
+	pular esta seção. As imagens de CDROM e DVD do FreeBSD são 
+	inicializáveis e podem ser usadas para instalar o FreeBSD sem
+	qualquer outra preparação especial.</para>
       </tip>
 
-      <para>To create a bootable memory stick, follow these
-	steps:</para>
-
+      <para>Para criar um cartão de memória inicializável, siga estes
+	passos:</para>
+	
       <procedure>
 	<step>
-	  <title>Acquire the Memory Stick Image</title>
+	  <title>Obtenha a Imagem do Cartão de Memória</title>
 
-	  <para>Memory stick images for
-	    &os;&nbsp;8.<replaceable>X</replaceable> and earlier can be downloaded from
-	    the <filename class="directory">ISO-IMAGES/</filename>
-	    directory at
+	  <para>Imagens de cartão de para o
+	    &os;&nbsp;8.<replaceable>X</replaceable> e anteriores podem
+	    ser baixados do diretório <filename class="directory">ISO-IMAGES/</filename>
+	    em
 	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/ISO-IMAGES/<replaceable>version</replaceable>/&os;-<replaceable>version</replaceable>-RELEASE-<replaceable>arch</replaceable>-memstick.img</literal>.
-	    Replace <replaceable>arch</replaceable> and
-	    <replaceable>version</replaceable> with the
-	    architecture and the version number which you want to
-	    install, respectively.  For example, the memory stick
-	    images for &os;/&arch.i386;&nbsp;&rel2.current;-RELEASE are
-	    available from <ulink
-	      url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/&arch.i386;/ISO-IMAGES/&rel2.current;/&os;-&rel2.current;-RELEASE-&arch.i386;-memstick.img"></ulink>.</para>
+	    Substitua <replaceable>arch</replaceable> e
+	    <replaceable>version</replaceable> com a arquitetura e número
+	    de versão que você deseja instalar, respectivamente. Por 
+	    exemplo, as imagens de cartão de memória parak
+	    &os;/&arch.i386;&nbsp;&rel2.current;-RELEASE estão disponíveis
+	    <ulink
+	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/&arch.i386;/ISO-IMAGES/&rel2.current;/&os;-&rel2.current;-RELEASE-&arch.i386;-memstick.img"></ulink>.</para>
 
 	  <tip>
-	    <para>A different directory path is used for
-	      &os;&nbsp;9.0-RELEASE and later versions.  Details of
-	      download and installation of &os;&nbsp;9.0-RELEASE and
-	      later is covered in <xref linkend="bsdinstall"/>.</para>
+	    <para>Um caminho diferente é usado pelo
+	      &os;&nbsp;9.0-RELEASE e versões posteriores. Detalhes 
+	      sobre o download e instalação do &os;&nbsp;9.0-RELEASE e
+	      posteriores é abrangido em <xref linkend="bsdinstall"/>.</para>
 	  </tip>
 
-	  <para>The memory stick image has a <filename>.img</filename>
-	    extension.  The <filename
-	    class="directory">ISO-IMAGES/</filename> directory
-	    contains a number of different images, and the one you
-	    will need to use will depend on the version of &os; you
-	    are installing, and in some cases, the hardware you are
-	    installing to.</para>
-
+	  <para>A imagem de cartão de memória tem a extensão 
+	    <filename>.img</filename>.  O diretório <filename
+	    class="directory">ISO-IMAGES/</filename> contém um 
+	    número de imagens diferentes, e aquela que você precisa
+	    usar vai depender da versão do &os; que você está
+	    instalando, e em alguns casos, para que
+	    <foreignphrase>hardware</foreignphrase> você está 
+	    instalando.</para>
+	
 	  <important>
-	    <para>Before proceeding, <emphasis>back up</emphasis> the
-	      data you currently have on your USB stick, as this
-	      procedure will <emphasis>erase</emphasis> it.</para>
+	    <para>Antes de continuar, <emphasis>salve</emphasis> os
+	      dados que você tem atualmente no seu cartão USB, já que
+	      este processo vai <emphasis>apagá-lo</emphasis>.</para>
 	  </important>
 	</step>
 
 	<step>
-	  <title>Write The Image File to the Memory Stick</title>
+	  <title>Grave o Arquivo de Imagem no Cartão de Memória</title>
 
 	  <procedure>
-	    <title>Using FreeBSD To Write the Image</title>
+	    <title>Usando o FreeBSD para Gravarr a Imagem</title>
 
 	    <warning>
-	      <para>The example below
-		lists <filename class="devicefile">/dev/da0</filename> as the
-		target device where the image will be written. Be very careful
-		that you have the correct device as the output target, or you
-		may destroy your existing data.</para>
+	      <para>o exemplo abaixo lista
+		<filename class="devicefile">/dev/da0</filename> como
+		dispositivo alvo onde a imagem vai ser gravada. Tenha
+		cuidado para que voce tenha o dispositivo correto como
+		alvo de saída, ou você pode destruir seus dados 
+		existentes.</para>
 	    </warning>
 
 	    <step>
-	      <title>Writing the Image with &man.dd.1;</title>
+	      <title>Gravando uma Imagem com &man.dd.1;</title>
 
-	      <para>The <filename>.img</filename> file
-		is <emphasis>not</emphasis> a regular file you copy to the
-		memory stick.  It is an image of the complete contents of the
-		disk.  This means that you <emphasis>cannot</emphasis> simply
-		copy files from one disk to another.  Instead, you must use
-		&man.dd.1; to write the image directly to the disk:</para>
+	      <para>O arquivo <filename>.img</filename> 
+		<emphasis>não</emphasis> é um arquivo regular que você
+		copia para o cartão de memória. É uma imagem com 
+		conteúdo completo de um disco. Isto quer dizer que você
+		simplesmente <emphasis>não pode</emphasis> copiar os 
+		arquivos de um disco para o outro. Ao invés disso você
+		deve usar &man.dd.1; para gravar a imagem diretamente no
+		disco:</para>
 
 	      <screen>&prompt.root; <userinput>dd if=&os;-&rel2.current;-RELEASE-&arch.i386;-memstick.img of=/dev/<replaceable>da0</replaceable> bs=64k</userinput></screen>
 
-	      <para>If an
-		<computeroutput>Operation not permitted</computeroutput>
-		error is displayed, make certain that the target device
-		is not in use, mounted, or being automounted by some
-		well-intentioned utility program.  Then try
-		again.</para>
+	      <para>Se uma
+		<computeroutput>Operação não permitida</computeroutput>
+		é exibida, tenha certeza de que o dispositivo de destino
+		não está em uso, montado, ou sendo montado 
+		automaticamente por algum utilitário bem intencionado.
+		então tente novamente.</para>
+		
 	    </step>
 	  </procedure>
 
 	  <procedure>
-	    <title>Using &windows; To Write the Image</title>
+	    <title>usando &windows; Para Gravar a Imagem</title>
 
 	    <warning>
-	      <para>Make sure you use the correct drive letter as the output
-		target, or you may overwrite and destroy existing data.</para>
+	      <para>Tenha certeza  que você use a letra correta da 
+		unidade como saída do destino, ou você pode 
+		subescrever e destruir os dados existentes.</para>
 	    </warning>
 
 	    <step>
-	      <title>Obtaining <application>Image Writer for Windows</application></title>
+	      <title>Obtendo <application>Image Writer para Windows</application></title>
 
-	      <para><application>Image Writer for Windows</application> is a
-		free application that can correctly write an image file to a
-		memory stick.  Download it from
-	        <ulink url="https://launchpad.net/win32-image-writer/"></ulink>
-	        and extract it into a folder.</para>
+	      <para><application>Image Writer para Windows</application>
+		é um aplicativo gratuito que pode gravar corretamente
+		um arquivo de imagem em um cartão de memória. Baixe de
+		<ulink url="https://launchpad.net/win32-image-writer/"></ulink>
+	        e extraia dentro de uma pasta</para>
 	    </step>
 
 	    <step>
-	      <title>Writing The Image with Image Writer</title>
+	      <title>Gravando a imagem com um Gravador de imagens</title>
 
-	      <para>Double-click
-	        the <application>Win32DiskImager</application> icon to start
-	        the program.  Verify that the drive letter shown
-	        under <computeroutput>Device</computeroutput> is the drive
-	        with the memory stick.  Click the folder icon and select the
-	        image to be written to the memory stick.
-	        Click <guibutton>Save</guibutton> to accept the image file
-	        name.  Verify that everything is correct, and that no folders
-	        on the memory stick are open in other windows.  Finally,
-	        click <guibutton>Write</guibutton> to write the image file to
-	        the drive.</para>
-	    </step>
+	      <para>Execute um clique duplo no ícone para do
+	        <application>Win32DiskImager</application> para iniciar
+		o programa. Verifique que a letra do dispositivo exibida
+		em <computeroutput>Device</computeroutput> é o 
+		dispositivo com o cartão de memória. Clique no ícone
+		da pasta e selecione a imagem que será gravada no cartão
+		de memória.
+		Clique <guibutton>Save</guibutton> para aceitar o nome
+		da imagem. Verifique se tudo está correto, e que 
+		não haja pastas no cartão de memória abertas em outras
+		janelas. Finalmente, clique <guibutton>Write</guibutton>
+		para gravar o arquivo de imagem na unidade.</para>
+	   </step>
 	  </procedure>
 	</step>
       </procedure>
 
-      <para>To create boot floppy images, follow these steps:</para>
+      <para>Para crear imagens de disquete, siga estes passos:</para>
 
       <procedure>
 	<step>
-	  <title>Acquire the Boot Floppy Images</title>
+	  <title>Adquira as Imagens de Disquete de Inicialização</title>
 
 	  <important>
-	    <para>Please note, as of &os;&nbsp;8.<replaceable>X</replaceable>, floppy disk images are
-	      no longer available.  Please see above for instructions
-	      on how to install &os; using a USB memory stick or just
-	      use a CDROM or a DVD.</para>
+	    <para>Favor notar, à partir do &os;&nbsp;8.<replaceable>X</replaceable>,
+		imagens de discos flexíveis não são mais
+		disponibilizadas. Com isso, veja as instruções acima
+		de como instalar o &os; usando um cartão de memória USB
+		ou somente utilize um CDROM ou um DVD.</para>
 	  </important>
 
-	  <para>The boot disks are available on your installation media
-	    in the <filename>floppies/</filename> directory, and
-	    can also be downloaded from the floppies directory,
+	  <para>Os discos de inicialização estão disponíveis na sua
+	    mídia de instalação no diretório <filename>floppies/</filename>,
+	    e podem ser também	baixados no diretório de disquete,
 	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/<replaceable>version</replaceable>-RELEASE/floppies/</literal>.
-	    Replace <replaceable>arch</replaceable> and
-	    <replaceable>version</replaceable>
-	    with the architecture and the version number
-	    which you want to install, respectively.
-	    For example, the boot floppy images for
-	    &os;/&arch.i386;&nbsp;&rel2.current;-RELEASE are available
-	    from <ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/i386/&rel2.current;-RELEASE/floppies/"></ulink>.</para>
+	    Substitua <replaceable>arch</replaceable> e
+	    <replaceable>version</replaceable> com a arquitetura e
+	    número da versão que você quer instalar, respectivamente.
+	    Por exemplo, as imagens de disco flexível para
+	    &os;/&arch.i386;&nbsp;&rel2.current;-RELEASE foram
+	    disponibilizadas em
+	    <ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/i386/&rel2.current;-RELEASE/floppies/"></ulink>.</para>
 
-	  <para>The floppy images have a <filename>.flp</filename> extension.
-	    The <filename>floppies/</filename> directory contains a number of
-	    different images, and the ones you will need to use depends on the
-	    version of FreeBSD you are installing, and in some cases, the
-	    hardware you are installing to.
-	    In most cases you will need four
-	    floppies, <filename>boot.flp</filename>,
+	  <para>As imagens de disquete tem uma extensão <filename>.flp</filename>. 
+	    O diretório <filename>floppies/</filename> contém um número 
+	    de imagens diferentes, e aquelas que você precisará usar 
+	    dependem da versão do FreeBSD que você está instalando, e em
+	    alguns casos, o equipamento no qual você irá instalá-lo.
+	    Na maioria dos casos você precisa de quatro disquetes, 
+	    <filename>boot.flp</filename>,
 	    <filename>kern1.flp</filename>,
-	    <filename>kern2.flp</filename>, and
-	    <filename>kern3.flp</filename>.  Check
-	    <filename>README.TXT</filename> in the same directory for the
-	    most up to date information about these floppy images.</para>
-
+	    <filename>kern2.flp</filename>, e
+	    <filename>kern3.flp</filename>.  Verifique o
+	    <filename>README.TXT</filename> no mesmo diretório para a
+	    informação mais atualizada sobre essas imagens de disquete.
+	    </para>
+	
 	  <important>
-	    <para>Your FTP program must use <emphasis>binary mode</emphasis>
-	      to download these disk images.  Some web browsers have been
-	      known to use <emphasis>text</emphasis> (or
-	      <emphasis>ASCII</emphasis>) mode, which will be apparent if you
-	      cannot boot from the disks.</para>
+	    <para>Seu programa FTP precisa usar <emphasis>modo binário</emphasis>
+	    para baixar essas imagens de disco. Alguns navegadores www 
+	    são conhecidos por usar modo <emphasis>texto</emphasis> (ou
+	    <emphasis>ASCII</emphasis>), que farão diferencial se você
+	    não poder inicializar pelos discos.</para>
+
 	  </important>
 	</step>
 
 	<step>
-	  <title>Prepare the Floppy Disks</title>
+	  <title>Prepare os Discos Flexíveis</title>
 
-	  <para>You must prepare one floppy disk per image file you had to
-	    download.  It is imperative that these disks are free from
-	    defects.  The easiest way to test this is to format the disks
-	    for yourself.  Do not trust pre-formatted floppies.  The format
-	    utility in &windows; will not tell about the presence of
-	    bad blocks, it simply marks them as <quote>bad</quote>
-	    and ignores them.  It is advised that you use brand new
-	    floppies if choosing this installation route.</para>
+	  <para>Você precisa preparar um disco flexível por arquivo de
+	    imagem que você teve que baixar. É fundamental que estes
+	    discos estejam livres de defeitos. O modo mais simples de
+	    verificar isso é formatando os discos você mesmo. Não 
+	    confie em disquetes pré-formatados. A utilidade de 
+	    formatação no &windows; não vai informar sobre a presença de
+	    setores danificados, ela simplesmente os marca como
+	    <quote>ruins</quote> e os ignora. É recomendado que você use
+	    disquetes novos escolhendo este método de instalação.</para>
 
 	  <important>
-	    <para>If you try to install FreeBSD and the installation
-	      program crashes, freezes, or otherwise misbehaves, one of
-	      the first things to suspect is the floppies.  Try writing
-	      the floppy image files to new disks and try
-	      again.</para>
+	    <para>Se você tentar instalar o FreeBSD e o programa de
+	     instalação corromper, congelar, ou por outro lado agir
+	     de modo estranho, uma das primeiras coisas à suspeitar são
+	     os disquetes. Tente gravar as os arquivos de imagem de
+	     disquete em novos discos e tente denovo.</para>
 	  </important>
 	</step>
 
 	<step>
-	  <title>Write the Image Files to the Floppy Disks</title>
+	  <title>Gravar os Arquivos de Imagem em Discos Flexíveis</title>
 
-	  <para>The <filename>.flp</filename> files are
-	    <emphasis>not</emphasis> regular files you copy to the disk.
-	    They are images of the complete contents of the
-	    disk.  This means that you <emphasis>cannot</emphasis> simply
-	    copy files from one disk to another.
-	    Instead, you must use specific tools to write the
-	    images directly to the disk.</para>
+	  <para>Os arquivos <filename>.flp</filename> 
+	    <emphasis>não</emphasis> são arquivos comuns que você copia
+	    para o disco. Eles são imagens do conteúdo completo do 
+	    disco. Isto quer dizer que você <emphasis>não</emphasis> 
+	    pode simplesmente copiar os arquivos de um disco para outro.
+	    Ao invés disso, você precisa usar ferramentas específicas
+	    para gravar as imagens diretamente no disco.</para>
 
 	  <indexterm><primary>DOS</primary></indexterm>
-	  <para>If you are creating the floppies on a computer running
-	    &ms-dos; / &windows;, then we provide a tool to do
-	    this called <command>fdimage</command>.</para>
+	  <para>Se você está criando os disquetes em um computador 
+	    usando &ms-dos; / &windows;, então nós disponibilizamos uma
+	    ferramenta usada <command>fdimage</command>.</para>
 
-	  <para>If you are using the floppies from the CDROM, and your
-	    CDROM is the <devicename>E:</devicename> drive, then you would
-	    run this:</para>
+	  <para>Se você está usando os disquetes de um CDROM, e seu
+	    CDROM é a unidade  <devicename>E:</devicename>, então você
+	    deve executar isto:</para>
 
 	  <screen><prompt>E:\&gt;</prompt> <userinput>tools\fdimage floppies\boot.flp A:</userinput></screen>
 
-	  <para>Repeat this command for each <filename>.flp</filename>
-	    file, replacing the floppy disk each time, being sure to label
-	    the disks with the name of the file that you copied to them.
-	    Adjust the command line as necessary, depending on where you have
-	    placed the <filename>.flp</filename> files.  If you do not have
-	    the CDROM, then <command>fdimage</command> can be downloaded from
-	    the <ulink
+	  <para>Repita este comando para cada arquivo
+	    <filename>.flp</filename>, substituindo o disquete cada vez,
+	    certificando-se de nomear os discos com o nome do arquivo 
+	    que você copiou neles. Ajuste a linha de comando se 
+	    necessário, dependendo de onde você colocou os arquivos
+	    <filename>.flp</filename>. Se você não tem o CDROM, então
+	    <command>fdimage</command> pode ser baixado do diretório
+	    <ulink
 	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/tools/"><filename class="directory">tools</filename>
-	    directory</ulink> on the FreeBSD FTP site.</para>
+	    directory</ulink> no sítio FTP do FreeBSD FTP.</para>
 
-	  <para>If you are writing the floppies on a &unix; system (such as
-	    another FreeBSD system) you can use the &man.dd.1; command to
-	    write the image files directly to disk.  On FreeBSD, you would
-	    run:</para>
+	  <para>Se você está gravando os disquetes em um sistema &unix;
+	    (como outro sistema FreeBSD) você pode usar o comando 
+	    &man.dd.1; para gravar os arquivos de imagem diretamente no
+	    disco. No FreeBSD, você irá executar:</para>
 
 	  <screen>&prompt.root; <userinput>dd if=boot.flp of=/dev/fd0</userinput></screen>
 
-	  <para>On FreeBSD, <filename>/dev/fd0</filename> refers to the
-	    first floppy disk (the <devicename>A:</devicename> drive).
-	    <filename>/dev/fd1</filename> would be the
-	    <devicename>B:</devicename> drive, and so on.  Other &unix;
-	    variants might have different names for the floppy disk
-	    devices, and you will need to check the documentation for the
-	    system as necessary.</para>
+	  <para>No FreeBSD, <filename>/dev/fd0</filename> se refere ao
+	    primeiro disco flexível (a unidade 
+	    <devicename>A:</devicename>). <filename>/dev/fd1</filename>
+	    seria a unidade <devicename>B:</devicename>, e assim 
+	    sucessivamente, Outras variantes &unix; podem ter nomes
+	    diferentes para os dispositivos de disco flexível, e você
+	    precisa checar a documentação do sistema, se necessário.
+	    </para>
 	</step>
       </procedure>
 
-      <para>You are now ready to start installing FreeBSD.</para>
+      <para>Você está pronto pra começar instalando FreeBSD.</para>
     </sect2>
   </sect1>
 
