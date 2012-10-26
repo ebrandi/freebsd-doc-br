@@ -250,7 +250,7 @@
 
 	    <row>
 	      <entry>&a.desktop.name;</entry>
-	      <entry>Usando e melhorando &os; no ambiente
+	      <entry>Usando e melhorando o &os; no ambiente
 		desktop</entry>
 	    </row>
 
@@ -1134,7 +1134,7 @@
 	      afetar os usuários e instruções das medidas que devem
 	      ser tomadas para permanecer -CURRENT.  Todos que usam
 	      <quote>CURRENT</quote> devem se inscrever nessa lista.
-	      Essa é uma lista técnica, na qual um conteúdo
+	      Essa é uma lista técnica na qual um conteúdo
 	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
@@ -1143,10 +1143,10 @@
 	  <term>&a.cvsweb.name;</term>
 
 	  <listitem>
-	    <para><emphasis>FreeBSD CVSweb Project</emphasis></para>
+	    <para><emphasis>Projeto FreeBSD CVSweb</emphasis></para>
 
-	    <para>Technical discussions about use, development and maintenance
-	      of FreeBSD-CVSweb.</para>
+	    <para>Discussão técnica sobre o uso, desenvolvimento e
+	      manutenção do FreeBSD-CVSweb.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1154,12 +1154,14 @@
 	  <term>&a.desktop.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Using and improving &os; on the desktop</emphasis></para>
+	    <para><emphasis>Usando e melhorando o &os; no ambiente
+	      desktop</emphasis></para>
 
-	    <para>This is a forum for discussion of &os; on the
-	      desktop.  It is primarily a place for desktop porters
-	      and users to discuss issues and improve &os;'s desktop
-	      support.</para>
+	    <para>Esse é um fórum para discussões sobre o &os; em
+	      desktop.  É principalmente um lugar para desenvolvedores
+	      que fazem <literal>ports</literal> e para usuários
+	      discutirem questões e melhorias no suporte do &os; em
+	      desktop.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1167,13 +1169,14 @@
 	  <term>&a.doc.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Documentation project</emphasis></para>
+	    <para><emphasis>Projeto de documentação</emphasis></para>
 
-	    <para>This mailing list is for the discussion of issues and
-	      projects related to the creation of documentation for FreeBSD.
-	      The members of this mailing list are collectively referred to as
-	      <quote>The FreeBSD Documentation Project</quote>.  It is an open
-	      list; feel free to join and contribute!</para>
+	    <para>Essa lista é para discutir questões e projetos
+	      relacionados à criação de documentação para o FreeBSD.
+	      Os membros dessa lista são referidos coletivamente como
+	      <quote>O Projeto de Documentação do FreeBSD</quote>.
+	      Esta é uma lista aberta; sinta-se livre para entrar e
+	      contribuir!</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1181,13 +1184,15 @@
 	  <term>&a.drivers.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Writing device drivers for &os;</emphasis></para>
+	    <para><emphasis>Escrevendo drivers de dispositivos para
+	      &os;</emphasis></para>
 
-	    <para>This is a forum for technical discussions related to
-		device drivers on &os;.  It is primarily a place
-		for device driver writers to ask questions about
-		how to write device drivers using the APIs in the
-		&os; kernel.</para>
+	    <para>Esse é um fórum para discussões técnicas
+	      relacionadas aos drivers de dispositivos no &os;.  Este
+	      é principalmente um lugar para desenvolvedores de
+	      drivers de dispositivos perguntar sobre como escrever
+	      drivers de dispositivos usando as APIs no kernel do
+	      &os;.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1195,25 +1200,25 @@
 	  <term>&a.eclipse.name;</term>
 
 	  <listitem>
-	    <para><emphasis>&os; users of Eclipse IDE, tools, rich
-	      client applications and ports.</emphasis></para>
+	    <para><emphasis>Usuários &os; da IDE Eclipse, ferramentas,
+	      aplicativos rich client e ports.</emphasis></para>
 
-	    <para>The intention of this list is to provide mutual
-	      support for everything to do with choosing, installing,
-	      using, developing and maintaining the Eclipse IDE,
-	      tools, rich client applications on the &os; platform and
-	      assisting with the porting of Eclipse IDE and plugins to
-	      the &os; environment.</para>
+	    <para>A intenção dessa lista é prover suporte mútuo para
+	      tudo relacionado a escolher, instalar, usar,
+	      desenvolver e manter a IDE Eclipse, ferramentas,
+	      aplicativos rich client na plataforma &os; e auxiliar
+	      com a portabilidade da IDE Eclipse e seus plugins para o
+	      ambiente &os;.</para>
 
-	    <para>The intention is also to facilitate exchange of
-	      information between the Eclipse community and the &os;
-	      community to the mutual benefit of both.</para>
+	    <para>A intenção também é facilitar a troca de informações
+	      entre a comunidade Eclipse e a comunidade &os; para o
+	      benefício mútuo.</para>
 
-	    <para>Although this list is focused primarily on the needs
-	      of Eclipse users it will also provide a forum for those
-	      who would like to develop &os; specific applications
-	      using the Eclipse framework.
-	    </para>
+	    <para>Embora essa lista seja focada principalmente nas
+	      necessidades dos usuários do Eclipse, ela também irá
+	      prover um fórum para aqueles que gostariam de
+	      desenvolver aplicativos específicos para o &os; usando o
+	      framework do Eclipse.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1221,19 +1226,22 @@
 	  <term>&a.embedded.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Using FreeBSD in embedded
-	      applications</emphasis></para>
+	    <para><emphasis>Usando FreeBSD em aplicações
+	      embarcadas</emphasis></para>
 
-	    <para>This list discusses topics related to using FreeBSD in
-	      embedded systems.  This is a technical mailing list for which
-	      strictly technical content is expected.  For the purpose of
-	      this list we define embedded systems as those computing
-	      devices which are not desktops and which usually serve a
-	      single purpose as opposed to being general computing
-	      environments.  Examples include, but are not limited to,
-	      all kinds of phone handsets, network equipment such as
-	      routers, switches and PBXs, remote measuring equipment,
-	      PDAs, Point Of Sale systems, and so on.</para>
+	    <para>Essa lista discute tópicos relacionados a usar
+	      FreeBSD em sistemas embarcados.  Essa é uma lista
+	      técnica na qual um conteúdo estritamente técnico é
+	      esperado.  Para o propósito dessa lista nós definimos
+	      como sistemas embarcados aqueles dispositivos
+	      computacionais que não são usados como desktops e que
+	      normalmente servem a um propósito único em oposto a
+	      ambientes computacionais gerais.  Exemplos incluem, mas
+	      não são limitados a, todos os tipos de celulares,
+	      equipamentos de rede tais como roteadores, switches e
+	      PBXs, equipamentos de medições remota, PDAs, sistemas de
+	      Pontos de Venda (<literal>Point of Sale</literal>) e
+	      assim por diante.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1241,12 +1249,12 @@
 	  <term>&a.emulation.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Emulation of other systems such as
-		Linux/&ms-dos;/&windows;</emphasis></para>
+	    <para><emphasis>Emulação de outros sistemas tais como
+	      Linux/&ms-dos;/&windows;</emphasis></para>
 
-	    <para>This is a forum for technical discussions related to
-	      running programs written for other operating systems on &os;.
-	    </para>
+	    <para>Esse é um fórum para discussões técnicas
+	      relacionadas a executar no &os; programas escritos para
+	      outros sistemas operacionais.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1254,13 +1262,15 @@
 	  <term>&a.eol.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Peer support of FreeBSD-related software that is
-	      no longer supported by the FreeBSD project.</emphasis></para>
+	    <para><emphasis>Suporte aos softwares relacionados ao
+	      FreeBSD que não são mais suportados pelo projeto
+	      FreeBSD.</emphasis></para>
 
-	    <para>This list is for those interested in providing or making use
-	      of peer support of FreeBSD-related software for which the
-	      FreeBSD project no longer provides official support (e.g., in
-	      the form of security advisories and patches).</para>
+	    <para>Essa lista é para aqueles interessados em prover ou
+	      fazer uso de suporte aos softwares relacionados ao
+	      FreeBSD que o projeto FreeBSD não fornece mais suporte
+	      oficial (por exemplo, na forma de avisos de segurança e
+	      patches).</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1270,13 +1280,14 @@
 	  <listitem>
 	    <para><emphasis>&firewire; (iLink, IEEE 1394)</emphasis></para>
 
-	    <para>This is a mailing list for discussion of the design
-	      and implementation of a &firewire; (aka IEEE 1394 aka
-	      iLink) subsystem for FreeBSD.  Relevant topics
-	      specifically include the standards, bus devices and
-	      their protocols, adapter boards/cards/chips sets, and
-	      the architecture and implementation of code for their
-	      proper support.</para>
+	    <para>Essa é a lista para discussão do planejamento e
+	      implementação de um subsistema &firewire; (também
+	      conhecido como IEEE 1394 ou iLink) para o FreeBSD.
+	      Os tópicos relevantes incluem especificamente as normas,
+	      dispositivos de barramento e seus protocolos, conjunto
+	      de adaptadores de placas/cartões/chips e a arquitetura e
+	      implementação do código para seu suporte
+	      adequado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1284,11 +1295,11 @@
 	  <term>&a.fs.name;</term>
 
 	  <listitem>
-	    <para><emphasis>File systems</emphasis></para>
+	    <para><emphasis>Sistemas de arquivos</emphasis></para>
 
-	    <para>Discussions concerning FreeBSD file systems.  This is a
-	      technical mailing list for which strictly technical content is
-	      expected.</para>
+	    <para>Discussões sobre sistemas de arquivos do FreeBSD.
+	      Essa é uma lista técnica na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1298,12 +1309,12 @@
 	  <listitem>
 	    <para><emphasis>Gecko Rendering Engine</emphasis></para>
 
-	    <para>This is a forum about <application>Gecko</application>
-	      applications using &os;.</para>
+	    <para>Esse é um fórum sobre aplicações
+	      <application>Gecko</application> usando o &os;.</para>
 
-	    <para>Discussion centers around Gecko Ports applications,
-	      their installation, their development and their support
-	      within &os;.</para>
+	    <para>Discussões estão centralizadas nos aplicativos Gecko
+	      do <literal>Ports</literal> e em sua instalação,
+	      desenvolvimento e suporte no &os;.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1313,9 +1324,9 @@
 	  <listitem>
 	    <para><emphasis>GEOM</emphasis></para>
 
-	    <para>Discussions specific to GEOM and related implementations.
-	      This is a technical mailing list for which strictly technical
-	      content is expected.</para>
+	    <para>Discussões específicas do GEOM e implementações
+	      relacionadas.  Essa é a lista técnica na qual um
+	      conteúdo estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1325,9 +1336,10 @@
 	  <listitem>
 	    <para><emphasis>GNOME</emphasis></para>
 
-	    <para>Discussions concerning The <application>GNOME</application> Desktop Environment for
-              FreeBSD systems.  This is a technical mailing list for
-	      which strictly technical content is expected.</para>
+	    <para>Discussões sobre Ambiente Desktop
+	      <application>GNOME</application> para sistemas FreeBSD.
+	      Essa é uma lista técnica na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1337,10 +1349,10 @@
 	  <listitem>
 	    <para><emphasis>IP Firewall</emphasis></para>
 
-	    <para>This is the forum for technical discussions concerning the
-	      redesign of the IP firewall code in FreeBSD.  This is a
-	      technical mailing list for which strictly technical content is
-	      expected.</para>
+	    <para>Esse é o fórum para discussões técnicas sobre o
+	      replanejamento do código <literal>IP firewall</literal>
+	      no FreeBSD.  Essa é uma lista técnica na qual um
+	      conteúdo estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1348,13 +1360,15 @@
 	  <term>&a.ia64.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Porting FreeBSD to IA64</emphasis></para>
+	    <para><emphasis>Portabilidade do FreeBSD para
+	      IA64</emphasis></para>
 
-	    <para>This is a technical mailing list for individuals
-            actively working on porting FreeBSD to the IA-64 platform
-            from &intel;, to bring up problems or discuss alternative
-            solutions.  Individuals interested in following the
-            technical discussion are also welcome.</para>
+	    <para>Essa é uma lista técnica para pessoas ativamente
+	      trabalhando na portabilidade do FreeBSD para a
+	      plataforma IA-64 da &intel;, para apontar problemas ou
+	      discutir soluções alternativas.  Pessoas interessadas em
+	      em acompanhar as discussões técnicas também são bem
+	      vindas.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1362,10 +1376,10 @@
 	  <term>&a.isdn.name;</term>
 
 	  <listitem>
-	    <para><emphasis>ISDN Communications</emphasis></para>
+	    <para><emphasis>Comunicações ISDN</emphasis></para>
 
-	    <para>This is the mailing list for people discussing the
-	      development of ISDN support for FreeBSD.</para>
+	    <para>Essa é a lista para pessoas discutirem o
+	      desenvolvimento do suporte ISDN para o FreeBSD.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1373,11 +1387,12 @@
 	  <term>&a.java.name;</term>
 
 	  <listitem>
-	    <para><emphasis>&java; Development</emphasis></para>
+	    <para><emphasis>Desenvolvimento &java;</emphasis></para>
 
-	    <para>This is the mailing list for people discussing the
-	      development of significant &java; applications for FreeBSD and the
-	      porting and maintenance of &jdk;s.</para>
+	    <para>Essa é a lista para pessoas discutirem o
+	      desenvolvimento de aplicativos &java; importantes para o
+	      FreeBSD, a portabilidade e a manutenção dos
+	      &jdk;s.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1385,28 +1400,31 @@
 	  <term>&a.jobs.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Jobs offered and sought</emphasis></para>
+	    <para><emphasis>Empregos oferecidos e
+	      procurados</emphasis></para>
 
-	    <para>This is a forum for posting employment notices and
-	      resumes specifically related to &os;, e.g., if you are
-	      seeking &os;-related employment or have a job involving
-	      &os; to advertise then this is the right place.  This is
-	      <emphasis>not</emphasis> a mailing list for general
-	      employment issues since adequate forums for that
-	      already exist elsewhere.</para>
+	    <para>Esse é um fórum para postar notícias de empregos e
+	      currículos especificamente relacionados ao &os;, por
+	      exemplo, se você está procurando emprego relacionado ao
+	      &os; ou tem uma vaga de emprego envolvendo &os; então
+	      esse é o lugar correto.  Essa <emphasis>não é</emphasis>
+	      uma lista para questões gerais de emprego, pois fóruns
+	      para isto já existem em outros lugares.</para>
 
-	    <para>Note that this list, like other <hostid role="domainname">FreeBSD.org</hostid> mailing
-	      lists, is distributed worldwide.  Thus, you need to be
-	      clear about location and the extent to which
-	      telecommuting or assistance with relocation is
-	      available.</para>
+	    <para>Perceba que essa lista, como outras listas <hostid
+	      role="domainname">FreeBSD.org</hostid>, são distribuídas
+	      na internet.  Portanto, você precisa ser claro sobre a
+	      localização e a extensão de qual telecomunicação ou
+	      assistência com realocação está disponível.</para>
 
-	    <para>Email should use open formats only &mdash;
-	      preferably plain text, but basic Portable Document
-	      Format (<acronym>PDF</acronym>), HTML, and a few others
-	      are acceptable to many readers.  Closed formats such as
-	      &microsoft; Word (<filename>.doc</filename>) will be
-	      rejected by the mailing list server.</para>
+	    <para>As mensagens de e-mail devem usar apenas formatos
+	      abertos &mdash; preferencialmente texto plano, mas o
+	      <literal>Portable Document Format
+	      (<acronym>PDF</acronym>)</literal>, HTML e alguns outros
+	      formatos são aceitos por vários leitores.  Formatos
+	      fechados tal como &microsoft; Word
+	      (<filename>.doc</filename>) serão rejeitados pelo
+	      servidor de e-mails da lista.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1416,9 +1434,9 @@
 	  <listitem>
 	    <para><emphasis>KDE</emphasis></para>
 
-	    <para>Discussions concerning <application>KDE</application> on
-              FreeBSD systems.  This is a technical mailing list for
-	      which strictly technical content is expected.</para>
+	    <para>Discussões sobre <application>KDE</application> em
+	      sistemas FreeBSD.  Essa é uma lista técnica na qual um
+	      conteúdo estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1426,15 +1444,16 @@
 	  <term>&a.hackers.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Technical discussions</emphasis></para>
+	    <para><emphasis>Discussões técnicas</emphasis></para>
 
-	    <para>This is a forum for technical discussions related to
-	      FreeBSD.  This is the primary technical mailing list.  It is for
-	      individuals actively working on FreeBSD, to bring up problems or
-	      discuss alternative solutions.  Individuals interested in
-	      following the technical discussion are also welcome.  This is a
-	      technical mailing list for which strictly technical content is
-	      expected.</para>
+	    <para>Esse é um fórum para discussões técnicas
+	      relacionadas ao FreeBSD.  Essa é a lista inicial para
+	      discussões técnicas.  É destinada para pessoas
+	      trabalhando ativamente no FreeBSD, para apontarem
+	      problemas ou discutir soluções alternativas.  Pessoas
+	      interessadas em acompanhar as discussões técnicas também
+	      são bem vindas.  Essa é uma lista técnica na qual um
+	      conteúdo estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1442,12 +1461,12 @@
 	  <term>&a.hardware.name;</term>
 
 	  <listitem>
-	    <para><emphasis>General discussion of FreeBSD
-		hardware</emphasis></para>
+	    <para><emphasis>Discussão geral do hardware
+	      FreeBSD</emphasis></para>
 
-	    <para>General discussion about the types of hardware that FreeBSD
-	      runs on, various problems and suggestions concerning what to buy
-	      or avoid.</para>
+	    <para>Discussão geral sobre os tipos de hardware em que o
+	      FreeBSD é executado, vários problemas e sugestões sobre
+	      o que comprar ou evitar.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1455,10 +1474,10 @@
 	  <term>&a.hubs.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Mirror sites</emphasis></para>
+	    <para><emphasis>Sites espelhos</emphasis></para>
 
-	    <para>Announcements and discussion for people who run FreeBSD
-	      mirror sites.</para>
+	    <para>Anúncios e discussões para pessoas que administram
+	      sites espelhos do FreeBSD.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1466,13 +1485,13 @@
 	  <term>&a.isp.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Issues for Internet Service
-		Providers</emphasis></para>
+	    <para><emphasis>Questões para Provedores de Serviços de
+		Internet</emphasis></para>
 
-	    <para>This mailing list is for discussing topics relevant to
-	      Internet Service Providers (ISPs) using FreeBSD.  This is a
-	      technical mailing list for which strictly technical content is
-	      expected.</para>
+	    <para>Essa lista é para discutir tópicos relevantes para
+	      Provedores de Serviços de Internet (ISPs) que usam
+	      FreeBSD.  Essa é uma lista técnica na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1480,16 +1499,16 @@
 	  <term>&a.mono.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Mono and C# applications on
+	    <para><emphasis>Aplicativos Mono e C# no
 	      FreeBSD</emphasis></para>
 
-	    <para>This is a list for discussions related to the Mono
-	      development framework on &os;.  This is a technical
-	      mailing list.  It is for individuals actively working on
-	      porting Mono or C# applications to &os;, to bring up
-	      problems or discuss alternative solutions.  Individuals
-	      interested in following the technical discussion are also
-	      welcome.</para>
+	    <para>Essa é uma lista para discussões relacionadas ao
+	      desenvolvimento do framework Mono no &os;.  Essa é uma
+	      lista técnica.  É para pessoas trabalhando ativamente na
+	      portabilidade de aplicativos Mono ou C# para o &os;,
+	      para apontar problemas ou discutir soluções
+	      alternativas.  Pessoas interessadas em acompanhar a
+	      discussões técnicas também são bem vindas.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1497,11 +1516,12 @@
 	  <term>&a.office.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Office applications on &os;</emphasis></para>
+	    <para><emphasis>Aplicativos de escritório no
+	      &os;</emphasis></para>
 
-	    <para>Discussion centers around office applications,
-	      their installation, their development and their support
-	      within &os;.</para>
+	    <para>As discussões são centralizadas nos aplicativos de
+	      escritório, na instalação, desenvolvimento e suporte no
+	      &os;.</para>
 	   </listitem>
 	</varlistentry>
 
@@ -1509,25 +1529,25 @@
 	  <term>&a.performance.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Discussions about tuning or speeding up FreeBSD</emphasis></para>
+	    <para><emphasis>Discussões sobre ajustes ou melhorias de
+	      desempenho do FreeBSD</emphasis></para>
 
-	    <para>This mailing list exists to provide a place for
-	      hackers, administrators, and/or concerned parties to
-	      discuss performance related topics pertaining to
-	      FreeBSD.  Acceptable topics includes talking about
-	      FreeBSD installations that are either under high load,
-	      are experiencing performance problems, or are pushing
-	      the limits of FreeBSD.  Concerned parties that are
-	      willing to work toward improving the performance of
-	      FreeBSD are highly encouraged to subscribe to this list.
-	      This is a highly technical list ideally suited for
-	      experienced FreeBSD users, hackers, or administrators
-	      interested in keeping FreeBSD fast, robust, and
-	      scalable.  This list is not a question-and-answer list
-	      that replaces reading through documentation, but it is a
-	      place to make contributions or inquire about unanswered
-	      performance related topics.</para>
-
+	    <para>Essa lista existe para prover um lugar para hackers,
+	      administradores, e/ou partes interessadas em discutir
+	      tópicos relacionados ao desempenho do FreeBSD.  Tópicos
+	      aceitáveis incluem conversar sobre instalações do
+	      FreeBSD que estão sob alta carga, estão enfrentando
+	      problemas de desempenho ou estão atingindo os limites do
+	      FreeBSD.  Partes interessadas que estão dispostas a
+	      trabalhar para melhorar o desempenho do FreeBSD são
+	      incentivadas a se inscrever nessa lista.  Essa é uma
+	      lista altamente técnica ideal para usuários experientes
+	      do FreeBSD, hackers ou administradores interessados em
+	      manter o FreeBSD rápido, robusto e escalável.  Essa
+	      lista não é uma lista de perguntas e respostas que
+	      substitui a leitura da documentação, mas é um lugar
+	      contribuir e pedir ajuda sobre tópicos sem respostas
+	      relacionados a desempenho.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1535,14 +1555,14 @@
 	  <term>&a.pf.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Discussion and questions about the packet filter
-		firewall system</emphasis></para>
+	    <para><emphasis>Discussões e questões sobre o sistema de
+	      firewall packet filter</emphasis></para>
 
-	    <para>Discussion concerning the packet filter (pf) firewall
-	      system in terms of FreeBSD. Technical discussion and user
-	      questions are both welcome. This list is also a place to
-	      discuss the ALTQ QoS framework.</para>
-
+	    <para>Discussões sobre o sistema de firewall packet filter
+	      (pf) em termos do FreeBSD.  Discussões técnicas e
+	      questões dos usuários são ambas bem vindas.  Esse é
+	      também um lugar para discutir o framework ALTQ
+	      QoS.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1550,12 +1570,13 @@
 	  <term>&a.platforms.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Porting to Non &intel; platforms</emphasis></para>
+	    <para><emphasis>Portabilidade para plataformas não
+	      &intel;</emphasis></para>
 
-	    <para>Cross-platform FreeBSD issues, general discussion and
-	      proposals for non &intel; FreeBSD ports.  This is a technical
-	      mailing list for which strictly technical content is
-	      expected.</para>
+	    <para>Questões multi plataforma, discussões gerais e
+	      propostas para portabilidades não &intel; do FreeBSD.
+	      Essa é uma lista técnica na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1563,13 +1584,14 @@
 	  <term>&a.ports.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Discussion of
+	    <para><emphasis>Discussões do
 		<quote>ports</quote></emphasis></para>
 
-	    <para>Discussions concerning FreeBSD's <quote>ports
-	      collection</quote> (<filename>/usr/ports</filename>), ports infrastructure, and
-	      general ports coordination efforts.  This is a technical mailing list
-	      for which strictly technical content is expected.</para>
+	    <para>Discussões sobre a <quote>coleção ports</quote> do
+	      FreeBSD (<filename>/usr/ports</filename>),
+	      infraestrutura do ports e esforços gerais de coordenação
+	      do ports.  Essa é uma lista técnica na qual um conteúdo
+	      estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1577,16 +1599,16 @@
 	  <term>&a.ports-announce.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Important news and instructions about the
-	      &os;&nbsp;<quote>Ports Collection</quote></emphasis></para>
+	    <para><emphasis>Notícias importantes e instruções sobre a
+	      &os;&nbsp;<quote>Coleção Ports</quote></emphasis></para>
 
-	    <para>Important news for developers, porters, and users of
-	      the <quote>Ports Collection</quote> (<filename
-		role="directory">/usr/ports</filename>), including
-	      architecture/infrastructure changes, new capabilities,
-	      critical upgrade instructions, and release engineering
-	      information.  This is a low-volume mailing list, intended
-	      for announcements.</para>
+	    <para>Notícias importantes para desenvolvedores e usuários
+	      da <quote>Coleção Ports</quote>
+	      (<filename>/usr/ports</filename>), incluindo mudanças de
+	      arquitetura/infraestrutura, novas capacidades,
+	      instruções de atualizações críticas e informações de
+	      engenharia de versão.  Essa é uma lista de baixo volume,
+	      usada para anúncios.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -1594,13 +1616,14 @@
 	  <term>&a.ports-bugs.name;</term>
 
 	  <listitem>
-	    <para><emphasis>Discussion of
-		<quote>ports</quote> bugs</emphasis></para>
+	    <para><emphasis>Discussões dos <literal>bugs</literal> do
+		<quote>ports</quote></emphasis></para>
 
-	    <para>Discussions concerning problem reports for FreeBSD's <quote>ports
-	      collection</quote> (<filename>/usr/ports</filename>), proposed
-	      ports, or modifications to ports.  This is a technical mailing list
-	      for which strictly technical content is expected.</para>
+	    <para>Discussões sobre relatos de problemas para a
+	      <quote>coleção ports</quote> do FreeBSD
+	      (<filename>/usr/ports</filename>), propostas de ports ou
+	      modificações nos ports.  Essa é uma lista técnica na
+	      qual um conteúdo estritamente técnico é esperado.</para>
 	  </listitem>
 	</varlistentry>
 
