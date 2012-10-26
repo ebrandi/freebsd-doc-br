@@ -1645,63 +1645,64 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
   <sect1 id="new-node">
     <title>Como configurar um novo nó de compilação de pacotes</title>
 
-    <para>Antes de seguir estes passos, por favor, coordene-se com o
+    <para>Antes de seguir estes passos, por favor, converse com o
       <literal>portmgr</literal>.
     </para>
 
     <note>
-      <para>Devido à algumas doações generosas,
-        <literal>portmgr</literal> não está procurando por empréstimos
-	de sistemas &i386; ou <literal>amd64</literal>.  No entanto,
-	nós estamos interessados no empréstimo de sistemas
-	<literal>tier-2</literal>.</para>
+      <para>Devido à algumas doações generosas, o
+        <literal>portmgr</literal> não está mais procurando por 
+	empréstimos de sistemas &i386; ou <literal>amd64</literal>.  
+	No entanto, nós ainda estamos interessados no empréstimo de 
+	sistemas <literal>tier-2</literal>.</para>
     </note>
 
     <sect2 id="node-requirements">
       <title>Requisitos do nó</title>
 
-      <para><literal>portmgr</literal> ainda está trabalhando nas
-        características de que um nó necessita para ser útil em
-	geral.</para>
+      <para>O <literal>portmgr</literal> ainda está trabalhando para
+	definir quais são características que um nó necessita possuir 
+	para ser útil.</para>
 
       <itemizedlist>
 	<listitem>
 	  <para>Capacidade de CPU: qualquer coisa abaixo de 500MHz
-	    geralmente não é usável para compilação de pacotes.</para>
+	    geralmente não é útil para a compilação de pacotes.</para>
 
 	  <note>
-	    <para>Nós somos capazes de ajustar o número de trabalhos
-	    enviados para cada máquina, e nós geralmente ajustamos o
-	    número para usar 100% de CPU.</para>
+	    <para>Nós somos capazes de ajustar o número de tarefas
+	    enviadas para cada máquina, e nós geralmente ajustamos o
+	    número para fazer uso de 100% da CPU.</para>
 	  </note>
 	</listitem>
 
 	<listitem>
-	  <para>RAM: Menos de 2G não é muito usável; 8G ou mais é
-	    preferível.  Nós temos ajustado um trabalho para
-	    cada 512M de RAM.</para>
+	  <para>RAM:  O mínimo utilizável é 2G; o ideal é ter 8G 
+	    ou mais.  Normalmente configuramos uma tarefa para cada
+	    512M de RAM.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Disco: um mínimo de 20G é necessário para o sistema de
-	    arquivos; 32G é necessário para <literal>swap</literal>.
+	  <para>Disco: É necessário um mínimo de 20G para o sistema de
+	    arquivos e de 32G para a area de <literal>swap</literal>.
 	    O desempenho será melhor se múltiplos discos forem
-	    usados, e configurados como <literal>geom</literal>
-	    <literal>stripes</literal>.  Números do desempenho também
-	    estão para serem definidos.</para>
+	    utilizados, e configurados como <literal>geom</literal>
+	    <literal>stripes</literal>.  Os dados de desempenho 
+	    também estão em fase de definição.</para>
 
 	  <note>
-	    <para>A compilação de pacotes irá testar unidades de disco
-	      para destruição.  Esteja consciente do que você está
-	      fazendo!</para>
+	    <para>A compilação de pacotes irá estressar as unidades 
+	      de disco até o seu limite (ou além dele).  Esteja 
+	      consciente do que você está se voluntariando para
+	      fazer!</para>
 	  </note>
 	</listitem>
 
 	<listitem>
-	  <para>largura de banda da rede: também está para ser
-	    definido.  No entanto, uma máquina com 8 trabalhos
-	    mostrou ser capaz de saturar uma linha de <literal>cable
-	    modem</literal>.</para>
+	  <para>largura de banda de rede: Ainda não existe um estudo 
+	    preciso, no entanto uma máquina configurada para 8 
+	    tarefas simultâneas se mostrou capaz de saturar um 
+	    link de internet a cabo.</para>
 	</listitem>
       </itemizedlist>
 
