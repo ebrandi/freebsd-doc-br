@@ -2256,22 +2256,22 @@ touch /tmp/.boot_finished</screen>
       <para>Estes passos precisam ser feitos por um
         <literal>portmgr</literal>, autenticado como o usuário
 	<literal>ports-<replaceable>${arch}</replaceable></literal>,
-	em <hostid>pointyhat</hostid>.
+	no <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Se qualquer das portas <acronym>TCP</acronym> não
+	  <para>Se alguma das portas <acronym>TCP</acronym> padrão não
 	    estiver disponível (veja acima), você precisará criar um
-	    túnel <command>ssh</command> para isso e inclui-lo no
-	    <filename>crontab</filename>.</para>
+	    túnel <command>ssh</command> para ela e deverá incluí-lo 
+	    no <filename>crontab</filename>.</para>
 	</step>
 
 	<step>
 	  <para>Adicione uma entrada em
 	    <filename>/home/ports-<replaceable>${arch}</replaceable>/.ssh/config</filename>
-	    para especificar o endereço IP público, porta TCP para o
-	    <command>ssh</command>, usuário, e qualquer outra
+	    para especificar o endereço IP público, a porta TCP para o
+	    <command>ssh</command>, o usuário, e qualquer outra
 	    informação necessária.</para>
 	</step>
 
@@ -2282,8 +2282,9 @@ touch /tmp/.boot_finished</screen>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para>Copie um dos existentes como modelo e
-	        descompacte-o em um diretório temporário.</para>
+	      <para>Copie um arquivos dos existentes para usar como 
+		modelo e descompacte-o em um diretório 
+		temporário.</para>
 	    </listitem>
 	    <listitem>
 	      <para>Personalize o <filename>etc/resolv.conf</filename>
@@ -2296,7 +2297,9 @@ touch /tmp/.boot_finished</screen>
 		<makevar>MASTER_SITE_BACKUP</makevar> deve ser comum
 		para todos os nós, mas a primeira entrada em
 		<makevar>MASTER_SITE_OVERRIDE</makevar> deve ser o
-		espelho FTP mais próximo.  Exemplo:<screen><command>
+		espelho FTP mais próximo.  Por exemplo:</para>
+		
+	      <screen><command>
 .if defined(FETCH_ORIGINAL)
 MASTER_SITE_BACKUP=
 .else
@@ -2304,15 +2307,15 @@ MASTER_SITE_OVERRIDE= \
 	ftp://<replaceable>friendly-local-ftp-mirror</replaceable>/pub/FreeBSD/ports/distfiles/${DIST_SUBDIR}/ \
 	ftp://${BACKUP_FTP_SITE}/pub/FreeBSD/distfiles/${DIST_SUBDIR}/
 .endif</command></screen>
-	      </para>
+	    
 	    </listitem>
 	    <listitem>
-	      <para>Arquive com <command>tar</command> e mova para o
-	        local correto.</para>
+	      <para>Empacote-o com <command>tar</command> e mova 
+		para o local correto.</para>
 	    </listitem>
 	  </itemizedlist>
 
-	  <para>Dica: você precisará de um desses para cada máquina;
+	  <para>Dica: você precisará de um destes para cada máquina;
 	   no entanto, se você tem várias máquinas no mesmo site, você
 	   deve criar um local específico para este
 	   <literal>site</literal> (por exemplo, em
@@ -2327,8 +2330,9 @@ MASTER_SITE_OVERRIDE= \
 	    arquivo sobrescreve as configurações de
 	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/portbuild.conf</filename>.</para>
 
-	  <para>Sugestão de valores:<screen>
-disconnected=1
+	  <para>Sugestão de valores:</para>
+	  
+	  <screen>disconnected=1
 http_proxy="http://localhost:3128/"
 squid_dir=<filename>/<replaceable>usr2</replaceable>/squid</filename>
 scratchdir=<filename>/<replaceable>usr2</replaceable>/pkgbuild</filename>
@@ -2338,22 +2342,22 @@ rsync_gzip=-z
 
 infoseek_host=localhost
 infoseek_port=<replaceable>${tunelled-tcp-port}</replaceable></screen>
-	  </para>
 
-	  <para>Outros valores possíveis:<screen>
-use_md_swap=1
+	  <para>Outros valores possíveis:</para>
+	  
+	  <screen>use_md_swap=1
 md_size=9g
 use_zfs=1
 scp_cmd="/usr/local/bin/scp"
 ssh_cmd="/usr/local/bin/ssh"
 </screen>
-	  </para>
+
 	</step>
       </procedure>
 
-      <para>Esses passos precisam ser feitos por um
+      <para>Os passos abaixo precisam ser executados por um
 	<literal>portmgr</literal> autenticado como
-        <literal>root</literal> em <hostid>pointyhat</hostid>.
+        <literal>root</literal> no <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
@@ -2382,15 +2386,15 @@ ssh_cmd="/usr/local/bin/ssh"
     <sect2 id="node-enabling">
       <title>Habilitando o nó</title>
 
-      <para>Esses passos precisam ser feitos por um
+      <para>Estes passos precisam ser executados por um
         <literal>portmgr</literal> autenticado como
-	<literal>ports-<replaceable>arch</replaceable></literal> em
+	<literal>ports-<replaceable>arch</replaceable></literal> no 
 	<hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Cerifique-se que o <literal>ssh</literal> está
+	  <para>Certifique-se que o <literal>ssh</literal> está
 	    funcionando executando <command>ssh
 	    <replaceable>hostname</replaceable></command>.
 	  </para>
@@ -2411,25 +2415,24 @@ ssh_cmd="/usr/local/bin/ssh"
 	  <para>Teste as outras portas TCP executando <command>telnet
 	    <replaceable>hostname</replaceable>
 	    <replaceable>portnumber</replaceable></command>.
-	    <literal>414</literal> (ou seu túnel) deve dar-lhe algumas
-	    linhas de informação sobre seu status, incluindo
+	    A porta <literal>414</literal> (ou seu túnel) deve dar-lhe
+	    algumas linhas com informações de status, incluindo
 	    <literal>arch</literal> e <literal>osversion</literal>;
-	    <literal>8649</literal> deve dar-lhe uma resposta em
-	    <literal>XML</literal> do
+	    A porta <literal>8649</literal> deve retornar um
+	    <literal>XML</literal> do 
 	    <literal>ganglia</literal>.</para>
 	</step>
       </procedure>
 
-      <para>Esses passos precisam ser feitos por um
+      <para>Esses passos precisam ser executados por um
         <literal>portmgr</literal> autenticado como
-	<literal>root</literal> em <hostid>pointyhat</hostid>.
+	<literal>root</literal> no <hostid>pointyhat</hostid>.
       </para>
 
       <procedure>
 	<step>
-	  <para>Informe <filename>qmanager</filename> sobre o nó.
-	    Exemplo:
-	  </para>
+	  <para>Informe o <filename>qmanager</filename> sobre o nó.
+	    Por exemplo:</para>
 
 	  <para><command>python <replaceable>path</replaceable>/qmanager/qclient add
 	    name=<replaceable>uniquename</replaceable>
