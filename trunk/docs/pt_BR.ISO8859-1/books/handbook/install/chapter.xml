@@ -894,11 +894,12 @@
   </sect1>
 
   <sect1 id="install-start">
-    <title>Starting the Installation</title>
+    <title>Iniciando a Instalação</title>
 
     <important>
-      <para>By default, the installation will not make any changes to your
-	disk(s) until you see the following message:</para>
+      <para>Por padrão, a instalação nao vai fazer nenhuma alteração
+	no(s) seu(s) disco(s) até que você veja a seguinte mensagem:
+	</para>
 
       <literallayout class="monospaced">Last Chance: Are you SURE you want continue the installation?
 
@@ -907,100 +908,106 @@ STRONGLY ENCOURAGE YOU TO MAKE PROPER BACKUPS before proceeding!
 
 We can take no responsibility for lost disk contents!</literallayout>
 
-      <para>The install can be exited at any time prior to the final
-	warning without changing the contents of the hard drive.  If you are
-	concerned that you have configured something incorrectly you can just
-	turn the computer off before this point, and no damage will be
-	done.</para>
+      <para>A instalação pode ser finalizada a qualquer hora antes do
+	último aviso sem mudar o conteúdo do seu disco rígido. Se você
+	ficar preocupado de que tenha configurado algo incorretamente
+	você pode apenas desligar o computador antes deste ponto, e 
+	nenhum dano será feito.</para> 
     </important>
 
     <sect2 id="install-starting">
-      <title>Booting</title>
+      <title>inicializando</title>
 
       <sect3 id="install-starting-i386">
-	<title>Booting for the &i386;</title>
+	<title>Inicializando do &i386;</title>
 
       <procedure>
 	<step>
-	  <para>Start with your computer turned off.</para>
+	  <para>Começe com o seu computador desligado.</para>
 	</step>
 
 	<step>
-	  <para>Turn on the computer.  As it starts it should display an
-	    option to enter the system set up menu, or BIOS, commonly reached
-	    by keys like <keycap>F2</keycap>, <keycap>F10</keycap>,
-	    <keycap>Del</keycap>, or
+	  <para>Ligue o computador. Ao iniciar deve aparecer uma opção
+	    para entrar no menu do sistema, ou BIOS, geralmente 
+	    acessadas pelas teclas <keycap>F2</keycap>, 
+	    <keycap>F10</keycap>, <keycap>Del</keycap>, ou
 	    <keycombo action="simul">
 	      <keycap>Alt</keycap>
 	      <keycap>S</keycap>
-	    </keycombo>.  Use whichever keystroke is indicated on screen.  In
-	    some cases your computer may display a graphic while it starts.
-	    Typically, pressing <keycap>Esc</keycap> will dismiss the graphic
-	    and allow you to see the necessary messages.</para>
+	    </keycombo>. Use qualquer pressionamento de tecla indicado
+	    na tela. Em alguns casos seu computador pode exibir um
+	    gráfico branco enquanto inicia. Tipicamente, pressionando
+	    <keycap>Esc</keycap> vai remover o gráfico e permitir que
+	    você veja as mensagens necessárias.</para>
 	</step>
 
 	<step>
-	  <para>Find the setting that controls which devices the system boots
-	    from.  This is usually labeled as the <quote>Boot Order</quote>
-	    and commonly shown as a list of devices, such as
-	    <literal>Floppy</literal>, <literal>CDROM</literal>,
-	    <literal>First Hard Disk</literal>, and so on.</para>
+	  <para>Encontre a definição que controla quais os dispositivos
+	    pelo qual o sistema pode iniciar. Isto é frequentemente 
+	    descrito como a <quote>Ordem de Inicialização</quote> e
+	    geralmente exibidos como uma lista de dispositivos, como
+	    <literal>Disquete</literal>, <literal>CDROM</literal>,
+	    <literal>Primeiro Disco Rígido</literal>, e assim por
+	    diante.</para>
 
-	  <para>If you are booting from the CDROM then make sure that
-	    the CDROM is selected.  If you are booting from a USB disk or
-	    a floppy disk then
-	    make sure that is selected instead.  In case of doubt, you
-	    should consult the manual that came with your computer, and/or its
-	    motherboard.</para>
+	  <para>Se você está inizializando pelo CDROM então tenha 
+	    certeza de que o CDROM está selecionado. Se você está 
+	    inicializando por um disco USB ou disco flexível então 
+	    esteja certo de que aquela opção esteja selecionada. Em
+	    caso de dúvida, você deve consultar o manual que veio com
+	    o seu computador, e/ou sua placa-mãe.</para>
 
-	  <para>Make the change, then save and exit.  The computer should now
-	    restart.</para>
+	  <para>Faça a alteração, salve e saia. O computador deve 
+	    reiniciar agora.</para>
 	</step>
 
 	<step>
-	  <para>If you prepared a <quote>bootable</quote> USB stick, as described in
-	    <xref linkend="install-boot-media"/>, then plug in your USB
-	    stick before turning on the computer.</para>
+	  <para>Se você preparou um cartão USB
+	    <quote>inicializável</quote>, como descritos em 
+	    <xref linkend="install-boot-media"/>, então conecte seu 
+	    cartão USB antes de ligar o computador.</para>
 
-	  <para>If you are booting from CDROM, then you will need to turn on
-	    the computer, and insert the CDROM at the first
-	    opportunity.</para>
+	  <para>Se você está inicializando pelo CDROM, entao você
+	    precisa ligar o computador, e inserir o CDROM na primeira
+	    oportunidade.</para>
 
 	  <note>
-	    <para>For &os;&nbsp;7.<replaceable>X</replaceable>, installation
-	      boot floppies are available and can be prepared as
-	      described in <xref linkend="install-boot-media"/>.  One of
-	      them will be the first boot disc:
-	      <filename>boot.flp</filename>.  Put this disc in your
-	      floppy drive and boot the computer.</para>
+	    <para>Para o &os;&nbsp;7.<replaceable>X</replaceable>,
+	      disquetes de instalação estão disponíveis e podem ser
+	      preparados como descritos em 
+	      <xref linkend="install-boot-media"/>. Um deles vai ser
+	      seu primeiro disco de inicialização:
+	      <filename>boot.flp</filename>. Coloque o disco na sua 
+	      unidade de disquete e inicialize o computador.</para> 
 	  </note>
 
-	  <para>If your computer starts up as normal and loads your existing
-	    operating system, then either:</para>
+	  <para>Se seu computador iniciar de forma normal e carregar
+	    seu sistema operacional existente, então:</para>
 
 	  <orderedlist>
 	    <listitem>
-	      <para>The disks were not inserted early enough in the boot
-		process.  Leave them in, and try restarting your
-		computer.</para>
+	      <para>Os discos não foram inseridos antes do processo de
+		inicialização. Deixe-os lá, e tente reiniciar seu 
+		computador.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>The BIOS changes earlier did not work correctly.  You
-		should redo that step until you get the right option.</para>
+	      <para>As mudanças feitas anteriormente na BIOS não 
+		funcionaram corretamente. Você deve repetir os passos
+		até você obter a opção correta.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>Your particular BIOS does not support booting from
-		the desired media.</para>
+	      <para>Sua BIOS não suporta inicialização pelas mídias
+		desejadas.</para>
 	    </listitem>
 	</orderedlist>
 	</step>
 
 	<step>
-	  <para>FreeBSD will start to boot.  If you are booting from CDROM you
-	    will see a display similar to this (version information
-	    omitted):</para>
+	  <para>FreeBSD vai inicializar. Se você estiver inicializando 
+	    à partir de um CDROM você vera uma tela parecida com essa
+	    (informação de versão omitida):</para>
 
 	  <screen>Booting from CD-Rom...
 645MB medium detected
@@ -1024,8 +1031,9 @@ Loading /boot/defaults/loader.conf
 /boot/kernel/kernel text=0x64daa0 data=0xa4e80+0xa9e40 syms=[0x4+0x6cac0+0x4+0x88e9d]
 \</screen>
 
-	  <para>If you are booting from floppy disc, you will see a display
-	    similar to this (version information omitted):</para>
+	  <para>Se você estiver inicializando por um disco flexível,
+	    você  vai ver uma tela parecida com esta (informação de 
+	    versão omitida):</para>
 
 	  <screen>Booting from Floppy...
 Uncompressing ... done
@@ -1043,20 +1051,21 @@ Loading /boot/defaults/loader.conf
 
 Insert disk labelled "Kernel floppy 1" and press any key...</screen>
 
-	  <para>Follow these instructions by removing the
-	    <filename>boot.flp</filename> disc, insert the
-	    <filename>kern1.flp</filename> disc, and press
-	    <keycap>Enter</keycap>.  Boot from first floppy;
-	    when prompted, insert the other disks as required.</para>
+	  <para>Siga estas instruções removendo o disco 
+	    <filename>boot.flp</filename>, e insira o disco 
+	    <filename>kern1.flp</filename> , e pressione
+	    <keycap>Enter</keycap>. Inicialize pelo primeiro disco;
+	    quando solicitado, insira os discos na ordem necessária
+	    </para>
 	</step>
 
 	<step>
-	  <para>Whether you booted from CDROM, USB stick or floppy, the
-	    boot process will then get to the &os; boot loader
-	    menu:</para>
+	  <para>No caso de que você tenha inicializado pelo CDROM,
+	    cartão USB ou disquete, o processo de inicialização vai 
+	    então chegar no menu de inicialização do &os;:</para>
 
 	  <figure id="boot-loader-menu">
-	    <title>&os; Boot Loader Menu</title>
+	    <title>Menu de Inicialização do &os;</title>
 
 	    <mediaobject>
 	      <imageobject>
@@ -1065,14 +1074,14 @@ Insert disk labelled "Kernel floppy 1" and press any key...</screen>
 	    </mediaobject>
 	  </figure>
 
-	  <para>Either wait ten seconds, or press <keycap>Enter</keycap>.</para>
+	  <para>Ou Espere dez segundos, ou pressione<keycap>Enter</keycap>.</para>
 	</step>
       </procedure>
 
       </sect3>
 
       <sect3>
-	<title>Booting for &sparc64;</title>
+	<title>Inicialização para &sparc64;</title>
 
 	<para>Most &sparc64; systems are set up to boot automatically
 	  from disk.  To install &os;, you need to boot over the
