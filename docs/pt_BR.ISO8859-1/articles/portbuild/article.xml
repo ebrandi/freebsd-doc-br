@@ -2455,9 +2455,9 @@ ssh_cmd="/usr/local/bin/ssh"
     <title>Como configurar um novo <literal>branch</literal> do
       &os;</title>
 
-    <para>Quando um novo <literal>branch</literal> é criado, algum
-      trabalho precisa ser feito para especificar que o
-      <literal>branch</literal> anterior não mais corresponde ao
+    <para>Quando um novo <literal>branch</literal> é criado, é
+      necessário efetuar alguns ajustes no sistema para especificar 
+      que o <literal>branch</literal> anterior não mais corresponde ao
       <literal>HEAD</literal>.  As seguintes instruções se aplicam ao
       número do <literal>branch</literal>
       <emphasis>anterior</emphasis>:</para>
@@ -2470,20 +2470,20 @@ ssh_cmd="/usr/local/bin/ssh"
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Adicione <replaceable>new-branch</replaceable> para
-	      a variável <makevar>SRC_BRANCHES</makevar>.</para>
+	    <para>Adicione o <replaceable>new-branch</replaceable> 
+	      na variável <makevar>SRC_BRANCHES</makevar>.</para>
 	  </listitem>
 
 	  <listitem>
 	    <para>Para o <literal>branch</literal> que anteriormente
-	      foi o <literal>head</literal>, mude
+	      era o <literal>head</literal>, mude o
 	      <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
 	      para
 	      <literal>RELENG_<replaceable>branch</replaceable>_0</literal>.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>Adicione
+	    <para>Adicione 
 	      <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
 	      (o ponto é literal).</para>
 	  </listitem>
@@ -2491,23 +2491,28 @@ ssh_cmd="/usr/local/bin/ssh"
       </listitem>
 
       <listitem>
-	<para>(novo código base) Execute <command>
-/var/portbuild/updatesnap</command> manualmente.</para>
+	<para>(novo código base) Execute o 
+	<command>/var/portbuild/updatesnap</command> 
+	manualmente.</para>
       </listitem>
 
       <listitem>
 	<para>(Apenas para o antigo código base) Crie um novo sistema
-	  de arquivos <application>zfs</application> para os fontes:
+	  de arquivos <application>zfs</application> para os
+	  fontes:</para>
+
 	  <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
-	</para>
+      
       </listitem>
 
       <listitem>
 	  <para>(Necessário apenas para o antigo código base):
-	  Sincronize a árvore <literal>src</literal> localmente no
-	  novo sistema de arquivos:
+	    Obtenha uma cópia da árvore de fontes do 
+	    <literal>src</literal> apartir do SVN e deposite a mesma
+	    no novo sistema de arquivos:</para>
+
 	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
-	</para>
+      
       </listitem>
 
       <listitem>
@@ -2528,8 +2533,8 @@ ssh_cmd="/usr/local/bin/ssh"
       </listitem>
 
       <listitem>
-	<para>(Necessário apenas para o antigo código base): adicione
-	  um <literal>link</literal> de 
+	<para>(Necessário apenas para o antigo código base): Adicione
+	  um <literal>link</literal> simbólico de 
 	  <filename>/var/portbuild/scripts/dopackages</filename> para
 	  <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
 	</para>  
@@ -2538,47 +2543,48 @@ ssh_cmd="/usr/local/bin/ssh"
       <listitem>
 	<para>(Necessário apenas para o antigo código base): Modifique
 	  as variáveis <makevar>HEAD_BRANCH</makevar> e
-	  <makevar>NON_HEAD_BRANCHES</makevar> em
+	  <makevar>NON_HEAD_BRANCHES</makevar> no arquivo
 	  <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
       </listitem>
 
       <listitem>
-	<!-- XXX MCL writeup for new codebase -->
 	<para>(Necessário apenas para o antigo código base): Adicione
-	  o diretório <literal>snap</literal> no arquivo
+	  o diretório <literal>snap</literal> ao arquivo
 	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
       </listitem>
 
       <listitem>
-	<para>(Necessário apenas para o antigo código base): Crie
-	  <literal>links</literal> simbólicos para o servidor web no
-	  diretório
-	  <filename>/var/portbuild/errorlogs/</filename>:<screen>
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
+	<para>(Necessário apenas para o antigo código base): Crie os
+	  <literal>links</literal> simbólicos para uso do servidor 
+	  web no diretório
+	  <filename>/var/portbuild/errorlogs/</filename>:</para>
+	  
+      <screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
-	</para>
       </listitem>
 
       <listitem>
-	<para>Inicie a compilação para o <literal>branch</literal> com
-	  <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
-	</para>  
+	<para>Inicie a compilação para o <literal>branch</literal>
+	executando:</para> 
+	  
+	<screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
+      
       </listitem>
 
       <listitem>
-	<para><link linkend="setup">Crie o <filename>bindist.tar</filename>
-	  </link>.</para>
+	<para><link linkend="setup">Crie o 
+	  <filename>bindist.tar</filename></link>.</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="old-branch">
-    <title>Como excluir um <literal>branch</literal> não suportado do
-      &os;</title>
+    <title>Como excluir um <literal>branch</literal> que deixou de 
+      ser suportado pelo &os;</title>
 
     <para>Quando um <literal>branch</literal> antigo deixa de ser
       suportado, existem algumas coisas a serem feitas para que o
