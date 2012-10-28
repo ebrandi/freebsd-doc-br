@@ -1083,29 +1083,29 @@ Insert disk labelled "Kernel floppy 1" and press any key...</screen>
       <sect3>
 	<title>Inicialização para &sparc64;</title>
 
-	<para>Most &sparc64; systems are set up to boot automatically
-	  from disk.  To install &os;, you need to boot over the
-	  network or from a CDROM, which requires you to break into
-	  the PROM (OpenFirmware).</para>
+	<para>A maioria dos sistemas &sparc64; não são configurados para
+	  iniciar automaticamente do disco. Para insalar &os; você 
+	  precisa inicializar através da rede ou de um CDROM, o que 
+	  requer que você entre na PROM (OpenFirmware).</para>
 
-	<para>To do this, reboot the system, and wait until the boot
-	  message appears.  It depends on the model, but should look
-	  about like:</para>
+	<para>Para fazer isso, reinicie o sistema, e espere até que a
+	  mensagem de inicialização apareça. Vai depender do modelo,
+	  mas deve parecer mais ou menos como:</para>
 
     <screen>Sun Blade 100 (UltraSPARC-IIe), Keyboard Present
 Copyright 1998-2001 Sun Microsystems, Inc.  All rights reserved.
 OpenBoot 4.2, 128 MB memory installed, Serial #51090132.
 Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
 
-	<para>If your system proceeds to boot from disk at this point,
-	  you need to press
+	<para>Se seu sistema continua a inciar pelo disco neste ponto 
+	  você precisa pressionar 
 	  <keycombo action="simul"><keycap>L1</keycap><keycap>A</keycap></keycombo>
-	  or
+	  ou
 	  <keycombo action="simul"><keycap>Stop</keycap><keycap>A</keycap></keycombo>
-	  on the keyboard, or send a <command>BREAK</command> over the
-	  serial console (using for example <command>~#</command> in
-	  &man.tip.1; or &man.cu.1;) to get to the PROM prompt.  It
-	  looks like this:</para>
+	  no teclado, ou enviar o comando <command>BREAK</command> pelo
+	  console serial (usando por exemplo <command>~#</command> 
+	  &man.tip.1; ou &man.cu.1;) para acessar o ambiente da PROM. Se
+	  parece com isso:</para>
 
 	<screenco>
 	  <areaspec>
@@ -1118,44 +1118,47 @@ Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
 
 	  <calloutlist>
 	    <callout arearefs="prompt-single">
-	      <para>This is the prompt used on systems with just one
-		CPU.</para>
+	      <para>Este é o ambiente selecionado em sistemas que usam
+		somente uma CPU.</para>
 	    </callout>
 
 	    <callout arearefs="prompt-smp">
-	      <para>This is the prompt used on SMP systems, the digit
-		indicates the number of the active CPU.</para>
+	      <para>Este é o ambiente selecionado em sistemas com 
+		múltiplos processadores (SMP), o digito indica o número de
+		CPU's ativas.</para>
 	    </callout>
 	  </calloutlist>
 	</screenco>
 
-	<para>At this point, place the CDROM into your drive, and from
-	  the PROM prompt, type <command>boot cdrom</command>.</para>
+	<para>Neste ponto, coloque o CDROM na sua unidade, e apartir
+	  do ambiente PROM, digite <command>boot cdrom</command>.</para>
 
       </sect3>
 
     </sect2>
 
     <sect2 id="view-probe">
-      <title>Reviewing the Device Probe Results</title>
+      <title>Revisando os Resultados da Análise de Dispositivos</title>
 
-      <para>The last few hundred lines that have been displayed on screen are
-	stored and can be reviewed.</para>
+      <para>As últimas centenas de linhas que são exibidas na tela são
+	guardadas e podem ser revisadas.</para>
 
-      <para>To review the buffer, press <keycap>Scroll Lock</keycap>.  This
-	turns on scrolling in the display.  You can then use the arrow keys, or
-	<keycap>PageUp</keycap> and <keycap>PageDown</keycap> to view the
-	results.  Press <keycap>Scroll Lock</keycap> again to stop
-	scrolling.</para>
+      <para>Para revisar o armazenamento temporário, pressione
+	<keycap>Scroll Lock</keycap>. Isto habilita o rolamento na tela.
+	Você pode entao usar as setas do teclado, ou 
+	<keycap>PageUp</keycap> e <keycap>PageDown</keycap> para ver os
+	resultados. Pressione <keycap>Scroll Lock</keycap> novamente 
+	para parar o rolamento.</para>
 
-      <para>Do this now, to review the text that scrolled off the screen when
-	the kernel was carrying out the device probes.  You will see text
-	similar to <xref linkend="install-dev-probe"/>, although the precise
-	text will differ depending on the devices that you have in your
-	computer.</para>
+      <para>Faça isto agora, para revisar o texto que apareceu na tela 
+	quando o <literal>kernel</literal> estava carregando e
+	examinando os dispositivos. Você vai ver um texto pareciso com 
+	<xref linkend="install-dev-probe"/>, embora o texto preciso será
+	diferente dependendo dos dispositivos que você possui no seu 
+	computador.</para>
 
       <figure id="install-dev-probe">
-	<title>Typical Device Probe Results</title>
+	<title>Típico Resultado da Sonda de Dispositivos</title>
 
 	<screen>avail memory = 253050880 (247120K bytes)
 Preloaded elf kernel "kernel" at 0xc0817000.
@@ -1220,20 +1223,23 @@ Mounting root from ufs:/dev/md0c
 /stand/sysinstall running as init on vty0</screen>
       </figure>
 
-      <para>Check the probe results carefully to make sure that FreeBSD found
-	all the devices you expected.  If a device was not found, then it will
-	not be listed.  A <link linkend="kernelconfig">custom kernel</link>
-	allows you to add in support for devices which are not in the
-	<filename>GENERIC</filename> kernel, such as sound cards.</para>
+      <para>Verifique os resultados da sonda cuidadosamente para ter 
+	certeza de que o FreeBSD encontrou todos os dispositivos que 
+	você esperava. Se um dispositivo nao foi encontrado, então ele
+	não será listado. Um 
+	<link linkend="kernelconfig">kernel customizado</link>
+	permite que você adicione suporte para dispositivos que não 
+	estão no <literal>kernel</literal> <filename>GENERIC</filename>,
+	como placas de som.</para>
 
-      <para>After the procedure of device
-	probing, you will see <xref linkend="config-country"/>.  Use the
-	arrow key to choose a country, region, or group.  Then press
-	<keycap>Enter</keycap>, it will set your country
-	easily.</para>
+      <para>Depois do procedimento de sondagem de dispositivos, você
+	vai ver <xref linkend="config-country"/>. Use as setas do 
+	teclado para escolher o país, região, ou grupo. Então pressione
+	<keycap>Enter</keycap>, isto vai determinar  seu país
+	facilmente.</para>
 
       <figure id="config-country">
-	<title>Selecting Country Menu</title>
+	<title>Menu de escolha do País</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1242,14 +1248,15 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>If you selected <guimenuitem>United States</guimenuitem>
-	as country, the standard American keyboard map will be used,
-	if a different country is chosen the following menu will be
-	displayed.  Use the arrow keys to choose the correct keyboard
-	map and press <keycap>Enter</keycap>.</para>
+      <para>Se você selecionou <guimenuitem>United States</guimenuitem>
+	como país, o mapa de teclado padrão americano vai ser usado,
+	se um país diferente for selecionado o menu seguinte irá 
+	aparecer. Use as setas do teclado para escolher o mapa de 
+	teclado correto e pressione
+	<keycap>Enter</keycap>.</para>
 
       <figure id="config-keymap">
-	<title>Selecting Keyboard Menu</title>
+	<title>Menu de Seleção de Teclado</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1258,13 +1265,13 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>After the country selecting, the <application>sysinstall</application>
-	main menu will display.</para>
+      <para>Depois de selecionar o país, o menu principal do
+	<application>sysinstall</application> vai aparecer.</para>
     </sect2>
   </sect1>
 
   <sect1 id="using-sysinstall">
-    <title>Introducing Sysinstall</title>
+    <title>Introducing Sysinstall.</title>
 
     <para>The <application>sysinstall</application> utility is the installation
       application provided by the FreeBSD Project.  It is console based and is
