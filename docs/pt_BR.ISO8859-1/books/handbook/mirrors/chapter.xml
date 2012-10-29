@@ -207,7 +207,7 @@
 	outros sítios. Se você optar por obter o &os; via FTP 
 	anônimo, por favor, tente usar um sítio que esteja o mais 
 	próximo possível de você. Os servidores espelho listados 
-	como <quote>Servidores Primários</quote> normalmente 
+	como <quote>Sítios Primários</quote> normalmente 
 	contém todos os arquivos, códigos fonte, pacotes, releases e 
 	imagens de instalação do &os; (disponíveis para todas as 
 	arquiteturas suportadas), mas provavelmente você fará 
@@ -260,7 +260,7 @@
 	documentações e sua Coleção de Ports.</para>
 
     <note>
-      <para>O Subversion é utilizado, em geral, como uma ferramenta 
+      <para>O Subversion é utilizado geralmente como uma ferramenta 
 	para desenvolvimento. É mais aconselhável, à maioria dos 
 	usuários, que seja utilizado o 
 	<link linkend="updating-upgrading-freebsdupdate">FreeBSD 
@@ -1487,108 +1487,127 @@ doc/sr_*
 doc/tr_*
 doc/zh_*</screen>
 
-       <para>and so forth for the other languages (you can find the
-       full list by browsing the <ulink
-       url="http://www.FreeBSD.org/cgi/cvsweb.cgi/">&os;
-       CVS repository</ulink>).</para>
+       <para>e assim por diante para as outras línguas (você pode 
+	encontrar a lista completa das línguas disponíveis acessando 
+	o <ulink url="http://www.FreeBSD.org/cgi/cvsweb.cgi/">
+	Repositório CVS Web do &os;</ulink>).</para>
 
-       <para>With this very useful feature, those users who are on
-       slow links or pay by the minute for their Internet connection
-       will be able to save valuable time as they will no longer need
-       to download files that they will never use. For more
-       information on <filename>refuse</filename> files and other neat
-       features of <application>CVSup</application>, please view its
-       manual page.</para>
+       <para>Com este recurso muito útil, aqueles usuários que 
+	utilizam links lentos ou que pagam por minuto para utilizar 
+	uma conexão com a Internet serão capazes de economizar tempo 
+	valioso, visto que eles não precisam fazer download de 
+	arquivos que nunca irão usar. Para mais informações sobre o 
+	arquivo <filename>refuse</filename> e outras características 
+	puras de <application>CVSup</application>, por favor, 
+	consulte a página de manual.</para>
       </sect3>
     </sect2>
 
     <sect2>
-      <title>Running <application>CVSup</application></title>
+      <title>Utilização</title>
 
-      <para>You are now ready to try an update.  The command line for
-	doing this is quite simple:</para>
+      <para>Agora você está apto a tentar executar uma operação de 
+	update através do <application>CVSup</application>. O 
+	comando para efetuar esta operação é bem simples:</para>
 
       <screen>&prompt.root; <userinput>cvsup <replaceable>supfile</replaceable></userinput></screen>
 
-      <para>where <filename><replaceable>supfile</replaceable></filename>
-	is of course the name of the <filename>supfile</filename> you have just created.
-	Assuming you are running under X11, <command>cvsup</command>
-	will display a GUI window with some buttons to do the usual
-	things.  Press the <guibutton>go</guibutton> button, and watch it
-	run.</para>
+      <para>onde 
+	<filename><replaceable>supfile</replaceable></filename> é, 
+	naturalmente, o nome do arquivo com as configurações que 
+	você acabou de criar. Supondo que você esteja executando o 
+	<command>cvsup</command> em um ambiente com X11, ele irá 
+	exibir uma janela com alguns botões. Pressione o botão 
+	<guibutton>Go</guibutton> e veja o processo de atualização 
+	ser executado normalmente.</para>
 
-      <para>Since you are updating your actual
-	<filename>/usr/src</filename> tree in this example, you will
-	need to run the program as <username>root</username> so that
-	<command>cvsup</command> has the permissions it needs to update
-	your files.  Having just created your configuration file, and
-	having never used this program before, that might
-	understandably make you nervous. There is an easy way to do a
-	trial run without touching your precious files.  Just create an
-	empty directory somewhere convenient, and name it as an extra
-	argument on the command line:</para>
+      <para>Uma vez que, neste exemplo, você está atualizando a 
+	árvore de códigos presentes em 
+	<filename>/usr/src</filename>, você terá de executar o 
+	programa como <username>root</username> para que 
+	o <command>cvsup</command> tenha as permissões necessárias 
+	para atualizar seus arquivos.</para>
 
-      <screen>&prompt.root; <userinput>mkdir /var/tmp/dest</userinput>
-&prompt.root; <userinput>cvsup supfile /var/tmp/dest</userinput></screen>
+      <para>Tendo acabado de criar o arquivo de configuração e nunca 
+	ter usado este programa antes pode fazer com que você, 
+	compreensivelmente, esteja um pouco nervoso. Existe uma 
+	maneira fácil de fazer um teste sem afetar nenhum conteúdo 
+	no sistema. Crie um diretório vazio em algum lugar 
+	conveniente e utilize este novo caminho como argumento extra 
+	na linha de comando:</para>
 
-      <para>The directory you specify will be used as the destination
-	directory for all file updates.
-	<application>CVSup</application> will examine your usual files
-	in <filename>/usr/src</filename>, but it will not modify or
-	delete any of them.  Any file updates will instead land in
-	<filename>/var/tmp/dest/usr/src</filename>.
-	<application>CVSup</application> will also leave its base
-	directory status files untouched when run this way.  The new
-	versions of those files will be written into the specified
-	directory.  As long as you have read access to
-	<filename>/usr/src</filename>, you do not even need to be
-	<username>root</username> to perform this kind of trial run.</para>
+      <screen>&prompt.root; <userinput>mkdir /var/tmp/um-diretorio</userinput>
+&prompt.root; <userinput>cvsup <replaceable>supfile</replaceable> /var/tmp/um-diretorio</userinput></screen>
 
-      <para>If you are not running X11 or if you just do not like GUIs,
-	you should add a couple of options to the command line when you
-	run <command>cvsup</command>:</para>
+      <para>O diretório que você especificar será utilizado como 
+	diretório de destino para todas as atualizações de arquivos. 
+	O <application>CVSup</application> irá examinar seus 
+	arquivos usuais no diretório <filename>/usr/src</filename>, 
+	mas não vai modificar ou excluir quaisquer um destes 
+	arquivos. Todas as atualizações serão processadas e 
+	armazenadas em 
+	<filename>/var/tmp/um-diretorio/usr/src</filename>. O 
+	<application>CVSup</application> também vai deixar os 
+	arquivos de status em seu diretório base intocados quando 
+	executado desta forma. As novas versões desses arquivos 
+	serão gravadas no diretório especificado. Enquanto você 
+	tiver acesso de leitura ao diretório 
+	<filename>/usr/src</filename>, você não precisa ser 
+	<username>root</username> para executar este tipo de teste.</para>
+
+      <para>Se você não estiver executando o 
+	<command>cvsup</command> em um ambiente com X11 ou se você 
+	simplesmente não simpatiza com GUI, você pode adicionar 
+	algumas opções quando executar o 
+	<command>cvsup</command>:</para>
 
       <screen>&prompt.root; <userinput>cvsup -g -L 2 <replaceable>supfile</replaceable></userinput></screen>
 
-      <para>The <option>-g</option> tells
-	<application>CVSup</application> not to use its GUI.  This is
-	automatic if you are not running X11, but otherwise you have to
-	specify it.</para>
+      <para>O <option>-g</option> diz ao 
+	<application>CVSup</application> para não usar interface 
+	gráfica (GUI). Isso é interpretado automáticamente se você 
+	não estiver executando X11 em seu sistema. Caso contrário, 
+	você tem de especificar e utilizar essa opção.</para>
 
-      <para>The <option>-L 2</option> tells
-	<application>CVSup</application> to print out the
-	details of all the file updates it is doing.  There are three
-	levels of verbosity, from <option>-L 0</option> to
-	<option>-L 2</option>.  The default is 0, which means total
-	silence except for error messages.</para>
+      <para>A opção <option>-L</option>, acompanhada do parâmetro 
+	<option>2</option> (dois), diz ao 
+	<application>CVSup</application> para exibir os detalhes de 
+	todas operações que ele estiver fazendo. Existem três 
+	níveis de avisos, variando de 0 (zero) à 2 (dois). O padrão 
+	é 0 (zero), o que significa silêncio absoluto (serão 
+	exibidas apenas mensagens de erro).</para>
 
-      <para>There are plenty of other options available.  For a brief
-	list of them, type <command>cvsup -H</command>.  For more
-	detailed descriptions, see the manual page.</para>
+      <para>Existem muitas outras opções disponíveis. Para uma breve 
+	lista destas opções, execute <command>cvsup -H</command>. 
+	Para descrições mais detalhadas, consulte a página de manual 
+	do <command>cvsup</command>.</para>
 
-      <para>Once you are satisfied with the way updates are working, you
-	can arrange for regular runs of <application>CVSup</application>
-	using &man.cron.8;.
-	Obviously, you should not let <application>CVSup</application>
-	use its GUI when running it from &man.cron.8;.</para>
+      <para>Quando estiver satisfeito com a forma na qual as 
+	atualizações estão sendo executaras, você pode agendar 
+	execuções periódicas usando o &man.cron.8;. Obviamente, você 
+	não deve deixar o <application>CVSup</application> usar 
+	interface gráfica (GUI) quando for executado a partir do 
+	&man.cron.8;.</para>
     </sect2>
 
     <sect2 id="cvsup-collec">
-      <title><application>CVSup</application> File Collections</title>
+      <title>Coleções do <application>CVSup</application></title>
 
-      <para>The file collections available via
-	<application>CVSup</application> are organized hierarchically.
-	There are a few large collections, and they are divided into
-	smaller sub-collections.  Receiving a large collection is
-	equivalent to receiving each of its sub-collections.  The
-	hierarchical relationships among collections are reflected by
-	the use of indentation in the list below.</para>
+      <para>As coleções disponíveis via 
+	<application>CVSup</application> são organizadas 
+	hierarquicamente. Existem algumas coleções grandes, e estas, 
+	por sua vez, são divididas em pequenas sub-coleções. Obter 
+	uma destas coleções grandes é equivalente a receber, também, 
+	cada uma de suas sub-coleções. As relações hierárquicas 
+	entre coleções são refletidas pelo uso de indentação na 
+	lista abaixo.</para>
 
-      <para>The most commonly used collections are
-	<literal>src-all</literal>, and
-	<literal>ports-all</literal>.  The other collections are used
-	only by small groups of people for specialized purposes, and
-	some mirror sites may not carry all of them.</para>
+      <para>As coleções mais comumente utilizadas são a 
+	<literal>src-all</literal>, e a 
+	<literal>ports-all</literal>. As outras coleções são 
+	utilizadas apenas por pequenos grupos de pessoas para fins 
+	específicos, e alguns servidores espelho podem não prover 
+	estas coleções pouco utilizadas.</para>
 
       <variablelist>
 	<varlistentry>
@@ -1612,37 +1631,48 @@ doc/zh_*</screen>
 		<term><literal>ports-all release=cvs</literal></term>
 
 		<listitem>
-		  <para>The &os; Ports Collection.</para>
+		  <para>A Coleção de Ports do &os;</para>
 
 		  <important id="cvsup-collec-pbase-warn">
-		    <para>If you do not want to update the whole of
-		      <literal>ports-all</literal> (the whole ports tree),
-		      but use one of the subcollections listed below,
-		      make sure that you <emphasis>always</emphasis> update
-		      the <literal>ports-base</literal> subcollection!
-		      Whenever something changes in the ports build
-		      infrastructure represented by
-		      <literal>ports-base</literal>, it is virtually certain
-		      that those changes will be used by <quote>real</quote>
-		      ports real soon.  Thus, if you only update the
-		      <quote>real</quote> ports and they use some of the new
-		      features, there is a very high chance that their build
-		      will fail with some mysterious error message.  The
-		      <emphasis>very first</emphasis> thing to do in this
-		      case is to make sure that your
-		      <literal>ports-base</literal> subcollection is up to
-		      date.</para>
+
+		    <para>Se você não quiser atualizar toda a 
+		      Coleção de Ports (a árvore 
+		      <literal>ports-all</literal> completa), mas 
+		      apenas algumas das sub-coleções listados 
+		      abaixo, certifique-se de 
+		      <emphasis>sempre</emphasis> atualizar a 
+		      sub-coleção <literal>ports-base</literal>! 
+		      Sempre que algo muda na infraestrutura da 
+		      Coleção de Ports as mudanças são repassadas e 
+		      representadas pela sub-coleção 
+		      <literal>ports-base</literal>. É praticamente 
+		      certo que, muito em breve, essas mudanças 
+		      sejam utilizadas por alguns ports. Assim, se 
+		      você atualizar apenas algumas das sub-coleções 
+		      de ports e esquecer da ports-base, há uma 
+		      chance muito alta de que suas compilações 
+		      venham a falhar, exibindo alguma mensagem de 
+		      erro misteriosa. A 
+		      <emphasis>primeira coisa a se fazer</emphasis> 
+		      neste caso é ter a certeza de que, pelo menos, 
+		      sua sub-coleção <literal>ports-base</literal> 
+		      é a mais recente possível.</para>
 		  </important>
 
 		  <important id="cvsup-collec-index-warn">
-		    <para>If you are going to be building your own local
-		      copy of <filename>ports/INDEX</filename>, you
-		      <emphasis>must</emphasis> accept
-		      <literal>ports-all</literal> (the whole ports tree).
-		      Building <filename>ports/INDEX</filename> with
-		      a partial tree is not supported.  See the
-		      <ulink url="&url.books.faq;/applications.html#MAKE-INDEX">
-		      FAQ</ulink>.</para>
+
+		    <para>Se você estiver pretendendo compilar seu 
+			próprio <filename>INDEX</filename> para 
+			utilizar com sua Coleção de Ports local, você 
+			<emphasis>deve</emphasis> obter 
+			<emphasis>TODOS</emphasis> os ports (a 
+			árvore <literal>ports-all</literal> 
+			completa). O procedimento de se compilar 
+			apenas uma parte do 
+			<filename>INDEX</filename> para a Coleção de 
+			Ports não é suportado. Veja mais detalhes na 
+			página de 
+			<ulink url="&url.books.faq;/applications.html#MAKE-INDEX">FAQ</ulink>.</para>
 		  </important>
 
 		  <variablelist>
@@ -1703,12 +1733,14 @@ doc/zh_*</screen>
 			  <filename>/usr/ports</filename>.</para>
 
 			<note>
-			  <para>Please see the <link
-			    linkend="cvsup-collec-pbase-warn">important
-			    warning above</link>: you should
-			    <emphasis>always</emphasis> update this
-			    subcollection, whenever you update any part of
-			    the &os; Ports Collection!</para>
+
+			  <para>Por favor, veja o 
+			    <link linkend="cvsup-collec-pbase-warn">aviso importante</link>
+			    acima: <emphasis>sempre</emphasis> que 
+			    você atualizar qualquer parte da Coleção 
+			    de Ports do &os; você 
+			    <emphasis>deve</emphasis> atualizar esta 
+			    sub-coleção!</para>
 			</note>
 		      </listitem>
 		    </varlistentry>
@@ -2533,7 +2565,7 @@ doc/zh_*</screen>
     </sect2>
 
     <sect2>
-      <title>For More Information</title>
+      <title>Mais Informações</title>
 
       <para>For the <application>CVSup</application> FAQ and other
 	information about <application>CVSup</application>, see
@@ -2545,58 +2577,69 @@ doc/zh_*</screen>
 	&a.hackers;.  New versions of the software are announced there,
 	as well as on the &a.announce;.</para>
 
-      <para>For questions or bug reports about
-	<application>CVSup</application> take a look at the
-	<ulink url="http://www.cvsup.org/faq.html#bugreports">
-	CVSup FAQ</ulink>.</para>
+      <para>Para obter respostas às perguntas mais frequentes a 
+	respeito do <application>CVSup</application>, ou saber sobre 
+	procedimentos para reportar bugs, consulte a 
+	<ulink url="http://www.cvsup.org/faq.html#bugreports">CVSup FAQ</ulink>.</para>
     </sect2>
 
     <sect2 id="cvsup-mirrors">
-    <title>CVSup Sites</title>
+    <title>Sítios e Servidores Espelho</title>
 
-    <para><link linkend="cvsup">CVSup</link> servers for &os; are running
-      at the following sites:</para>
+    <para>Servidores espelho para uso do 
+	<link linkend="cvsup">CVSup</link> estão disponíveis nos 
+	seguintes sítios:</para>
 
     &chap.mirrors.cvsup.inc;
     </sect2>
   </sect1>
 
   <sect1 id="cvs-tags">
-    <title>CVS Tags</title>
+    <title>Tags do CVS</title>
 
-    <para>When obtaining or updating sources using
-      <application>cvs</application> or
-      <application>CVSup</application>, a revision tag must be specified.
-      A revision tag refers to either a particular line of &os;
-      development, or a specific point in time.  The first type are called
-      <quote>branch tags</quote>, and the second type are called
-      <quote>release tags</quote>.</para>
+    <para>Ao obter ou atualizar códigos fonte usando 
+	<application>csup</application> ou 
+	<application>CVSup</application>, uma tag de revisão deve 
+	ser especificada. Uma tag de revisão pode se referir a uma 
+	determinada linha de desenvolvimento do &os; ou a um 
+	determinado ponto específico na linha de tempo no processo 
+	de desenvolvimento. O primeiro tipo é chamado de 
+	<quote>branch tags</quote>. O segundo tipo é chamado de 
+	<quote>release tags</quote>.</para>
 
     <sect2>
-      <title>Branch Tags</title>
+      <title>Tags de Galhos</title>
 
-      <para>All of these, with the exception of <literal>HEAD</literal> (which
-	is always a valid tag), only apply to the <filename>src/</filename>
-	tree.  The <filename>ports/</filename>, <filename>doc/</filename>, and
-	<filename>www/</filename> trees are not branched.</para>
+      <para>Todas as tags seguintes, com exceção da 
+	<literal>HEAD</literal> (que é sempre uma tag válida), só se 
+	aplicam a árvore <filename>src</filename>. As árvores das 
+	coleções <filename>ports</filename>, 
+	<filename>doc</filename> e <filename>www</filename> não 
+	apresentam <literal>branch tags</literal> (tags de galho, 
+	como já chamamos anteriormente).</para>
 
     <variablelist>
       <varlistentry>
 	<term>HEAD</term>
 
 	<listitem>
-	  <para>Symbolic name for the main line, or &os;-CURRENT.
-	    Also the default when no revision is specified.</para>
 
-	  <para>In <application>CVSup</application>, this tag is represented
-	    by a <literal>.</literal> (not punctuation, but a literal
-	    <literal>.</literal> character).</para>
+	  <para>Nome simbólico para referenciar a linha 
+	    desenvolvimento principal/corrente, ou &os;-CURRENT. 
+	    Além disso, é o padrão usado pelo CVSup quando nenhuma 
+	    revisão é especificada.</para>
+
+	  <para>No CVSup, esta tag é representada por um ponto final 
+	    <literal>(.)</literal> &mdash; o caractere em si.</para>
 
 	  <note>
-	    <para>In CVS, this is the default when no revision tag is
-	      specified.  It is usually <emphasis>not</emphasis>
-	      a good idea to checkout or update to CURRENT sources
-	      on a STABLE machine, unless that is your intent.</para>
+	    <para>Esse é o padrão quando nenhuma tag de revisão é 
+	     especificada. Geralmente <emphasis>não</emphasis> é uma 
+	     boa idéia para fazer o checkout ou atualizar códigos 
+	     fonte para as versões presentes na linha de 
+	     desenvolvimento principal/corrent numa máquina que 
+	     tenha o sistema estável, a menos que esta seja 
+	     realmente a sua intenção.</para>
 	  </note>
 	</listitem>
       </varlistentry>
@@ -2947,22 +2990,23 @@ doc/zh_*</screen>
     </sect2>
 
     <sect2>
-      <title>Release Tags</title>
+      <title>Tags de Releases</title>
 
-      <para>These tags refer to a specific point in time when a particular
-	version	of &os; was released.  The release engineering process is
-	documented in more detail by the
-	<ulink url="&url.base;/releng/">Release Engineering
-	  Information</ulink> and
-        <ulink url="&url.articles.releng;/release-proc.html">Release
-	  Process</ulink> documents.
-	The <filename class="directory">src</filename> tree uses tag names that
-	start with <literal>RELENG_</literal> tags.
-	The <filename class="directory">ports</filename> and
-	<filename class="directory">doc</filename> trees use tags whose names
-	begin with <literal>RELEASE</literal> tags.
-	Finally, the <filename class="directory">www</filename> tree is not
-	tagged with any special name for releases.</para>
+      <para>Essas tags se referem a um ponto específico no tempo em 
+	que uma versão específica (-RELEASE) do &os; foi lançada. O 
+	processo de engenharia de lançamento está documentado em 
+	mais detalhes nos documentos de 
+	<ulink url="&url.base;/releng">Informação sobre Engenharia de Releases</ulink> 
+	e <ulink url="&url.articles.releng;/release-proc.html">Processo de Desenvolvimento de Releases</ulink>. 
+	A árvore <filename class="directory">src</filename> usa 
+	nomes de tags que começam com o prefixo 
+	<literal>RELENG_</literal>. A árvore referente a Coleção de 
+	Ports (<filename class="directory">ports</filename>) e a 
+	árvore <filename class="directory">doc</filename> usam tags 
+	cujos nomes começam com o prefixo 
+	<literal>RELEASE</literal>. Por fim, a árvore 
+	<filename class="directory">www</filename> não usa um nome 
+	especial para suas releases.</para>
 
     <variablelist>
       <varlistentry>
@@ -3389,7 +3433,7 @@ doc/zh_*</screen>
 	<term>República Checa</term>
 
 	<listitem>
-	  <para>rsync://ftp.cz.FreeBSD.org/</para>
+	  <para>rsync://ftp.cz.freebsd.org</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
@@ -3405,7 +3449,7 @@ doc/zh_*</screen>
 	<term>Holanda</term>
 
 	<listitem>
-	  <para>rsync://ftp.nl.FreeBSD.org/</para>
+	  <para>rsync://ftp.nl.freebsd.org</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
@@ -3419,7 +3463,7 @@ doc/zh_*</screen>
 	<term>Rússia</term>
 
 	<listitem>
-	  <para>rsync://ftp.mtu.ru/</para>
+	  <para>rsync://ftp.mtu.ru</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
@@ -3451,9 +3495,9 @@ doc/zh_*</screen>
 	<term>Taiwan</term>
 
 	<listitem>
-	  <para>rsync://ftp.tw.FreeBSD.org/</para>
-	  <para>rsync://ftp2.tw.FreeBSD.org/</para>
-	  <para>rsync://ftp6.tw.FreeBSD.org/</para>
+	  <para>rsync://ftp.tw.freebsd.org</para>
+	  <para>rsync://ftp2.tw.freebsd.org</para>
+	  <para>rsync://ftp6.tw.freebsd.org</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
@@ -3467,7 +3511,7 @@ doc/zh_*</screen>
 	<term>Reino Unido</term>
 
 	<listitem>
-	  <para>rsync://rsync.mirrorservice.org/</para>
+	  <para>rsync://rsync.mirrorservice.org</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
@@ -3481,7 +3525,7 @@ doc/zh_*</screen>
 	<term>Estados Unidos da América</term>
 
 	<listitem>
-	  <para>rsync://ftp-master.FreeBSD.org/</para>
+	  <para>rsync://ftp-master.freebsd.org</para>
 
 	  <para>Este servidor só pode ser acessado pelos principais 
 	    servidores espelho do projeto &os;.</para>
@@ -3493,7 +3537,7 @@ doc/zh_*</screen>
 	      podem acessar este servidor.</para></listitem>
 	  </itemizedlist>
 
-	  <para>rsync://ftp13.FreeBSD.org/</para>
+	  <para>rsync://ftp13.freebsd.org</para>
 
 	  <para>Coleções disponíveis:</para>
 	  <itemizedlist>
