@@ -1271,31 +1271,35 @@ Mounting root from ufs:/dev/md0c
   </sect1>
 
   <sect1 id="using-sysinstall">
-    <title>Introducing Sysinstall.</title>
+    <title>introduzindo ao Sysinstall.</title>
 
-    <para>The <application>sysinstall</application> utility is the installation
-      application provided by the FreeBSD Project.  It is console based and is
-      divided into a number of menus and screens that you can use to
-      configure and control the installation process.</para>
+    <para>A utilidade <application>sysinstall</application> é a 
+      aplicação fornecida pelo projeto FreeBSD. É uma aplicação baseada
+      em console e é dividida em uma quantidade de menus e telas que 
+      você pode usar para configurar e controlar o processo de
+       instalação.</para>
 
-    <para>The <application>sysinstall</application> menu system is controlled
-      by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>,
-      <keycap>Space</keycap>, and
-      other keys.  A detailed description of these keys and what they do is
-      contained in <application>sysinstall</application>'s usage
-      information.</para>
+    <para>O sistema de menus do <application>sysinstall</application>
+      é controlado pelas setas do teclado,
+      <keycap>Enter</keycap>, <keycap>Tab</keycap>,
+      <keycap>Space</keycap>, e outras teclas. Uma descroção detalhada
+      destas teclas e o que elas fazem encontra-se contida no menu de 
+      informações de uso do <application>sysinstall</application>.
+      </para>
 
-    <para>To review this information, ensure that the
-      <guimenuitem>Usage</guimenuitem> entry is highlighted and that the
-      <guibutton>[Select]</guibutton> button is selected, as shown in <xref
-      linkend="sysinstall-main3"/>, then press <keycap>Enter</keycap>.</para>
+    <para>Para checar essa informação, assegure-se de que a opção
+      <guimenuitem>Usage</guimenuitem> está realçada e que o botão 
+      <guibutton>[Select]</guibutton> está selecionado, como exibido em
+      <xref
+      linkend="sysinstall-main3"/>, e pressione <keycap>Enter</keycap>.</para>
 
-    <para>The instructions for using the menu system will be displayed.  After
-      reviewing them, press <keycap>Enter</keycap> to return to the Main
-      Menu.</para>
+    <para>As instruções de uso do menu do sistema serão exibidas. Depois
+      de revisá-las, pressione <keycap>Enter</keycap> para retornar ao 
+      Menu principal.</para>
 
     <figure id="sysinstall-main3">
-      <title>Selecting Usage from Sysinstall Main Menu</title>
+      <title>Selecionando <literal>Usage</literal> do Menu Principal do 
+	<literal>Sysinstall</literal> </title>
 
       <mediaobject>
 	<imageobject>
@@ -1305,14 +1309,14 @@ Mounting root from ufs:/dev/md0c
     </figure>
 
     <sect2 id="select-doc">
-      <title>Selecting the Documentation Menu</title>
+      <title>Selecionando o Menu de Documentação</title>
 
-      <para>From the Main Menu, select <guimenuitem>Doc</guimenuitem> with
-	the arrow keys and
-	press <keycap>Enter</keycap>.</para>
+      <para>Pelo Menu Principal, selecione <guimenuitem>Doc</guimenuitem> 
+	com as setas do teclado e pressione
+	<keycap>Enter</keycap>.</para>
 
       <figure id="main-doc">
-	<title>Selecting Documentation Menu</title>
+	<title>Selecionando o Menu de Documentação</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1321,10 +1325,10 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>This will display the Documentation Menu.</para>
+      <para>Isto irá exibir o Menu de DocumentaçãoThis will display the Documentation Menu.</para>
 
       <figure id="docmenu1">
-	<title>Sysinstall Documentation Menu</title>
+	<title>Menu de Documentação do <literal>Sysinstall</literal></title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1333,28 +1337,29 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>It is important to read the documents provided.</para>
+      <para>É importante ler os documentos fornecidos.</para>
 
-      <para>To view a document, select it with the arrow keys and
-	press <keycap>Enter</keycap>.  When finished reading a document,
-	pressing <keycap>Enter</keycap> will return to the Documentation
-	Menu.</para>
+      <para>Para ver o documento, selecione-o com as setas do teclado
+	e pressione <keycap>Enter</keycap>. Quando terminar de ler o 
+	documento, pressionando <keycap>Enter</keycap> vai retornar
+	para o Menu de Documentação.</para>
 
-      <para>To return to the Main Installation Menu, select
-	<guimenuitem>Exit</guimenuitem> with the
-	arrow keys and press <keycap>Enter</keycap>.</para>
+      <para>Para retornar ao Menu Principal de Instalação, selecione
+	<guimenuitem>Exit</guimenuitem> com as setas do teclado e 
+	pressione <keycap>Enter</keycap>.</para>
     </sect2>
 
     <sect2 id="keymap">
-      <title>Selecting the Keymap Menu</title>
+      <title>Selecionando o Menu do Mapa de Teclas</title>
 
-      <para>To change the keyboard mapping, use the arrow keys to select
-	<guimenuitem>Keymap</guimenuitem> from the menu and press
-	<keycap>Enter</keycap>.  This is only required if you are
-	using a non-standard or non-US keyboard.</para>
+      <para>Para alterar o mapeamento do teclado, use as setas do
+	teclado para selecionar <guimenuitem>Keymap</guimenuitem>
+	do menu e pressione <keycap>Enter</keycap>. Isto vai ser
+	necessário somente se você estiver usando um teclado 
+	não padronizado ou teclado não Americano.</para>
 
       <figure id="sysinstall-keymap">
-	<title>Sysinstall Main Menu</title>
+	<title>Menu Principal do <literal>Sysinstall</literal></title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1363,18 +1368,22 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>A different keyboard mapping may be chosen by selecting the
-	menu item using up/down arrow keys and pressing <keycap>Space</keycap>.
-	Pressing <keycap>Space</keycap> again will unselect the item.
-	When finished, choose the &gui.ok; using the arrow keys and press
-	<keycap>Enter</keycap>.</para>
+      <para>Um mapeamento diferente de teclado pode ser escolhido por
+	selecionar o item de menu usando as setas do teclado 
+	cima/baixo e pressionando <keycap>Space</keycap>.
+	Pressionando <keycap>Space</keycap> denovo vai desselecionar
+	o item.
+	Quando finalizado, escolha o &gui.ok; usando as setas do teclado
+	e pressione <keycap>Enter</keycap>.</para>
 
-      <para>Only a partial list is shown in this screen representation.
-	Selecting &gui.cancel; by pressing <keycap>Tab</keycap> will use the
-	default keymap and return to the Main Install Menu.</para>
+      <para>Somente uma lista parcial é mostrada nessa representação da
+	tela. Selecionando &gui.cancel; pressionando <keycap>Tab</keycap>
+	vai usar o mapa de teclado padrão e retornar para o Menu de 
+	Instalação Principal.</para>
 
       <figure id="sysinstall-keymap-menu">
-	<title>Sysinstall Keymap Menu</title>
+	<title>Menu de Mapas de Teclado do <literal>Sysinstall</literal>
+	</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1386,13 +1395,13 @@ Mounting root from ufs:/dev/md0c
     </sect2>
 
     <sect2 id="viewsetoptions">
-      <title>Installation Options Screen</title>
+      <title>Tela de Opoções de Instalação</title>
 
-    <para>Select <guimenuitem>Options</guimenuitem> and press
+    <para>Selecione <guimenuitem>Options</guimenuitem> e pressione
 	<keycap>Enter</keycap>.</para>
 
     <figure id="sysinstall-options">
-      <title>Sysinstall Main Menu</title>
+      <title>Menu Principal do <literal>Sysinstall</literal></title>
 
       <mediaobject>
 	<imageobject>
@@ -1402,7 +1411,7 @@ Mounting root from ufs:/dev/md0c
     </figure>
 
       <figure id="options">
-	<title>Sysinstall Options</title>
+	<title>Opções do <literal>Sysinstall</literal></title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1411,32 +1420,34 @@ Mounting root from ufs:/dev/md0c
 	</mediaobject>
       </figure>
 
-      <para>The default values are usually fine for most users and do
-	not need to be changed.  The release name will vary according
-	to the version being installed.</para>
+      <para>Os valores padrão são geralmente são bons para a maioria dos
+	usuários e não precisam ser alterados. O nome do
+	<literal>release</literal> vai variar de acordo com a versão que
+	estiver sendo instalada.</para>
 
-      <para>The description of the selected item will appear at the
-	bottom of the screen highlighted in blue.  Notice that one of the
-	options is <guimenuitem>Use Defaults</guimenuitem> to reset all
-	values to startup defaults.</para>
+      <para>A descrição do item selecionado vai aparecer no rodapé da 
+	tela realçado em azul. Note que uma das opções é a 
+	<guimenuitem>Use Defaults</guimenuitem> para resetar todos os
+	valores para os padrões do inícialização.</para>
 
-      <para>Press <keycap>F1</keycap> to read the help screen about the
-	various options.</para>
+      <para>Pressione <keycap>F1</keycap> para ler a tela de ajuda sobre
+	as várias opções.</para>
 
-      <para>Pressing <keycap>Q</keycap> will return to the Main Install
-	menu.</para>
+      <para>Pressionando <keycap>Q</keycap> vai fazer você para o menu
+	de Instalação Principal.</para>
     </sect2>
 
     <sect2 id="start-install">
-      <title>Begin a Standard Installation</title>
+      <title>Iniciando uma Instalação <literal>Standard</literal></title>
 
-      <para>The <guimenuitem>Standard</guimenuitem> installation is the
-	option recommended for those new to &unix; or FreeBSD.  Use the arrow
-	keys to select <guimenuitem>Standard</guimenuitem> and
-	then press <keycap>Enter</keycap> to start the installation.</para>
+      <para>A instalação <guimenuitem>Standard</guimenuitem> é a opção 
+	recomendada para aqueles novos no &unix; ou FreeBSD. Use as 
+	setas do teclado para selecionar 
+	<guimenuitem>Standard</guimenuitem> e pressione
+	<keycap>Enter</keycap>  para iniciar a instalação.</para>
 
       <figure id="sysinstall-standard">
-	<title>Begin Standard Installation</title>
+	<title>Inicie uma Instalação <literal>Standard</literal></title>
 
 	<mediaobject>
 	  <imageobject>
