@@ -386,16 +386,16 @@ boot:</screen>
 	<title>Comandos Internos do <literal>Loader</literal></title>
 
 	<para>Estes são os comandos mais comuns usados no
-	  <literal>loader</literal>.
-	  Para uma explicação completa de todos os comandos
-	  disponíveis, por favor, consulte o &man.loader.8;.</para>
+	  <literal>loader</literal>.  Para uma explicação completa de
+	  todos os comandos disponíveis, por favor, consulte o
+	  &man.loader.8;.</para>
 
 	<variablelist>
 	  <varlistentry>
 	    <term>autoboot <replaceable>segundos</replaceable></term>
 
 	    <listitem>
-	      <para>Prossegue com <literal>boot</literal> do kernel se não for
+	      <para>Prossegue com o <literal>boot</literal> do kernel se não for
 		interrompido no tempo especificado, em segundos.
 		Exibe uma contagem regressiva, o valor padrão é 10
 		segundos.</para>
@@ -410,11 +410,11 @@ boot:</screen>
 	    <listitem>
 	      <para>Prossegue imediatamente com o
 	        <literal>boot</literal> do
-		kernel, com as opções especificadas, se existir
-		alguma, e com o nome do kernel especificado, se for
+		kernel, com as opções especificadas, se houver
+		alguma, e com o nome do kernel, se este foi 
 		especificado.  Somente é possível especificar o nome
 		do kernel no prompt depois que o comando
-		<emphasis>unload</emphasis> for usado, senão o kernel
+		<emphasis>unload</emphasis> for executado, senão o kernel
 		carregado anteriormente será usado.</para>
 	    </listitem>
 	  </varlistentry>
@@ -426,8 +426,8 @@ boot:</screen>
 	      <para>Passa pela mesma configuração automática dos
 		módulos, baseando-se nas variáveis do mesmo modo que
 		acontece no <literal>boot</literal>.  Isso somente faz sentido
-		se você primeiramente usar o comando
-		<command>unload</command>, e mudar algumas variáveis,
+		se você primeiramente executar o comando
+		<command>unload</command> e mudar algumas variáveis,
 		mais comumente o <envar>kernel</envar>.</para>
 	    </listitem>
 	  </varlistentry>
@@ -437,7 +437,7 @@ boot:</screen>
 	      <optional><replaceable>tópico</replaceable></optional></term>
 
 	    <listitem>
-	      <para>Exibe texto de ajuda contido no
+	      <para>Exibe o texto de ajuda contido no
 		<filename>/boot/loader.help</filename>.  Se o tópico
 		for <literal>index</literal>, então a lista de tópicos
 		disponíveis é exibida.</para>
@@ -449,8 +449,8 @@ boot:</screen>
 	      &hellip;</term>
 
 	    <listitem>
-	      <para>Processa o arquivo informado no comando.  O arquivo é
-		lido, e interpretado linha por linha.  Quando um erro
+	      <para>Processa o arquivo especificado no comando.  O arquivo é
+		lido e interpretado linha por linha.  Quando um erro
 		é encontrado o comando para imediatamente.</para>
 	    </listitem>
 	  </varlistentry>
@@ -461,7 +461,7 @@ boot:</screen>
 	      <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Carrega o kernel, módulo do kernel, ou arquivo do
+	      <para>Carrega o kernel, módulo do kernel, ou o arquivo do
 		tipo e nome especificado.  Qualquer argumento
 		após o nome do arquivo é passado para o
 		arquivo.</para>
@@ -475,9 +475,8 @@ boot:</screen>
 	    <listitem>
 	      <para>Exibe uma lista de arquivos no caminho
 		especificado, ou do diretório raiz, se um caminho não
-		for informado.  Se <option>-l</option> é
-		especificada, o tamanho dos arquivos é exibido
-		também.</para>
+		for informado.  Se a opção <option>-l</option> é
+		usada, o tamanho dos arquivos também é exibido.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -507,8 +506,9 @@ boot:</screen>
 	    <term>more <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Exibe o arquivo especificado, com uma pausa a cada
-		 <varname>LINES</varname> linhas exibidas.</para>
+	      <para>Exibe o conteúdo do arquivo especificado, com uma pausa a cada
+		certo número de linhas, definido na variável
+		<varname>LINES</varname>.</para>
 	    </listitem>
 	  </varlistentry>
 
