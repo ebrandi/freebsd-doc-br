@@ -622,7 +622,7 @@ boot:</screen>
 	  linkend="x-install">X11</link> e um dos ambientes gráficos,
 	  como <application>GNOME</application>,
 	  <application>KDE</application>, ou
-	  <application>XFce</application> forem instalados, o ambiente
+	  <application>XFce</application>, forem instalados, o ambiente
 	  gráfico X11 pode ser iniciado usando o comando
 	  <command>startx</command>.</para>
 
@@ -632,7 +632,7 @@ boot:</screen>
 	  para o &xorg;, <application>gdm</application> para o
 	  <application>GNOME</application>, e
 	  <application>kdm</application> para o
-	  <application>KDE</application> (e qualquer um outro da
+	  <application>KDE</application> (e qualquer outro da
 	  coleção do Ports) fornecem uma tela de login gráfico no
 	  lugar do prompt de login no console.  Após um login bem
 	  sucedido, eles apresentam ao usuário um
@@ -642,7 +642,7 @@ boot:</screen>
 	  deveria esconder todas as mensagens do processo de
 	  inicialização e das tarefas de inicialização antes de exibir
 	  o prompt de login.  No ambiente X11, os usuários podem
-	  visualizar uma inicialização mais limpa semelhante a algo
+	  visualizar uma inicialização mais limpa, semelhante à algo
 	  mais próximo que um usuário do &microsoft; &windows; ou de
 	  um sistema não-unix poderia ter.</para>
 
@@ -654,14 +654,14 @@ boot:</screen>
 	    ZSoft <acronym>PCX</acronym> (<filename>.pcx</filename>),
 	    ou TheDraw (<filename>.bin</filename>).  Além disso, o
 	    arquivo da imagem de abertura deve ter uma resolução de
-	    320 por 200 pixels ou menos para funcionar nos adaptadores
+	    320 por 200 pixels, ou menos, para funcionar nos adaptadores
 	    de vídeo VGA padrão.</para>
 	
 	  <para>Para usar imagens maiores, até do tamanho máximo de
-	    resolução de 1024 por 768 pixels, ative o suporte
+	    resolução de 1024 por 768 pixels, ative o suporte ao
 	    <acronym>VESA</acronym> incluído no &os;.  Isso pode ser
-	    habilitado por carregar o módulo <acronym>VESA</acronym>
-	    durante a inicialização do sistema, ou por adicionar a
+	    habilitado carregando o módulo <acronym>VESA</acronym>
+	    durante a inicialização do sistema, ou adicionando a
 	    opção <literal>VESA</literal> na configuração do kernel e
 	    compilar um kernel customizado (veja <xref
 	    linkend="kernelconfig"/>).  O suporte ao
@@ -674,7 +674,7 @@ boot:</screen>
 	    qualquer momento pressionando qualquer tecla do
 	    teclado.</para>
 
-	  <para>A tela de abertura também é por padrão um protetor de
+	  <para>A tela de abertura também é, por padrão, um protetor de
 	    tela quando fora do ambiente gráfico.  Depois de um
 	    período de tempo sem usar o computador a tela irá mudar
 	    para a tela de abertura e percorrer passos mudando a
@@ -691,8 +691,8 @@ boot:</screen>
 	    consoles virtuais.  Ela não tem efeito nos gerenciadores
 	    gráficos X11.</para>
 
-	  <para>Algumas mensagens de inicialização, incluindo o menu
-	    de opções e o contador de tempo de espera são exibidas
+	  <para>Algumas mensagens do <literal>boot loader</literal>, incluindo o menu
+	    de opções e o contador de tempo de espera, são exibidas
 	    durante a inicialização, mesmo quando a tela de abertura
 	    está habilitada.</para>
 
