@@ -14,23 +14,23 @@
       <author>
 	<firstname>Jim</firstname>
 	<surname>Mock</surname>
-	<contrib>Restructured, reorganized, and parts
-	  rewritten by </contrib>
+	<contrib>Reestruturado, reorganizado e algumas partes
+	  reescritas por </contrib>
       </author>
     </authorgroup>
     <authorgroup>
       <author>
 	<firstname>Randy</firstname>
 	<surname>Pratt</surname>
-	<contrib>The sysinstall walkthrough, screenshots, and general
-	  copy by </contrib>
+	<contrib>Passo a passo, imagem de tela e cópia geral do
+	  sysinstall feitas por </contrib>
       </author>
     </authorgroup>
     <authorgroup>
       <author>
 	<firstname>Gavin</firstname>
 	<surname>Atkinson</surname>
-	<contrib>Updated for bsdinstall by </contrib>
+	<contrib>Atualizado para o bsdinstall por </contrib>
       </author>
 
       <author>
@@ -40,159 +40,163 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>Installing &os;&nbsp;9.<replaceable>X</replaceable> and
-    Later</title>
+  <title>Instalando &os;&nbsp;9.<replaceable>X</replaceable> e
+    Posterior</title>
 
   <sect1 id="bsdinstall-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>installation</primary></indexterm>
 
-    <para>&os; comes with a text-based, easy to use installation
-      program.  &os;&nbsp;9.0-RELEASE and later use an installation
-      program called <application>bsdinstall</application>, while
-      releases prior to &os;&nbsp;9.0-RELEASE using
-      <application>sysinstall</application> for installation.  This
-      chapter describes the use of
-      <application>bsdinstall</application>.  The use of
-      <application>sysinstall</application> is covered in <xref
-	linkend="install"/>.</para>
+    <para>O &os; vem com programa de instalação fácil de usar baseado
+      texto.  O &os;&nbsp;9.0-RELEASE e posterior usa um programa de
+      instalação chamado <application>bsdinstall</application>,
+      enquanto as versões anteriores a &os;&nbsp;9.0-RELEASE usam o
+      <application>sysinstall</application> para a instalação.  Esse
+      capítulo descreve o uso do
+      <application>bsdinstall</application>.  O uso do
+      <application>sysinstall</application> é coberto em <xref
+      linkend="install"/>.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Depois de ler esse capítulo, você irá saber:</para>
 
     <itemizedlist>
       <listitem>
-	<para>How to create the &os; installation media.</para>
+	<para>Como criar uma mídia de instalação do &os;.</para>
       </listitem>
 
       <listitem>
 	<!-- WB: verify this, including GPT partition notation (ada0p2) -->
-	<para>How &os; subdivides and refers to hard disks.</para>
+	<para>Como o &os; subdivide e refere aos discos
+	  rígidos.</para>
       </listitem>
 
       <listitem>
-	<para>How to start
+	<para>Como iniciar o
 	  <application>bsdinstall</application>.</para>
       </listitem>
 
       <listitem>
-	<para>The questions <application>bsdinstall</application> will
-	  ask you, what they mean, and how to answer them.</para>
+	<para>As perguntas que o <application>bsdinstall</application>
+	  irá fazer para você, o que elas significam e como
+	  respondê-las.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler esse capítulo, você deveria:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Read the supported hardware list that shipped with the
-	  version of &os; you are installing, and verify that your
-	  hardware is supported.</para>
+	<para>Ler a lista de hardware suportado que vem com a versão
+	  do &os; que você está instalando e verifique se seu hardware
+	  é suportado.</para>
       </listitem>
     </itemizedlist>
 
     <note>
-      <para>In general, these installation instructions are written
-	for &i386; (<quote>PC compatible</quote>) architecture
-	computers.  Where applicable, instructions specific to other
-	platforms will be listed.  There may be minor differences
-	between the installer and what is shown here, so use this
-	chapter as a general guide rather than as exact literal
-	instructions.</para>
+      <para>Em geral, essas instruções de instalação são escritas para
+	a arquitetura de computadores &i386; (<quote>compatível com
+	PC</quote>).  Quando aplicável, instruções específicas para
+	outras plataformas serão listadas.  Podem haver pequenas
+	diferenças entre o instalador e o que é mostrado aqui,
+	portanto use esse capítulo como um guia geral e não como
+	instruções exatas e literais.</para>
     </note>
   </sect1>
 
   <sect1 id="bsdinstall-hardware">
-    <title>Hardware Requirements</title>
+    <title>Requerimentos de Hardware</title>
 
     <sect2 id="bsdinstall-hardware-minimal">
-      <title>Minimal Configuration</title>
+      <title>Configuração Mínima</title>
 
-      <para>The minimal configuration to install &os; varies with the
-	&os; version and the hardware architecture.</para>
+      <para>A configuração mínima para instalar o &os; varia conforme
+	a versão do &os; e a arquitetura do hardware.</para>
 
-      <para>A summary of this information is given in the following
-	sections.  Depending on the method you choose to install &os;,
-	you may also need a supported CDROM drive, and in some cases a
-	network adapter.  This will be covered by <xref
-	  linkend="bsdinstall-installation-media"/>.</para>
+      <para>Um resumo dessa informação está nas seções seguintes.
+	Dependendo do método que você escolher para instalar o &os;,
+	você pode precisar de uma unidade de CDROM e em alguns casos
+	um adaptador de rede.  Isso será coberto pelo <xref
+	linkend="bsdinstall-installation-media"/>.</para>
 
       <sect3>
 	<title>&os;/&arch.i386;</title>
 
-	<para>&os;/&arch.i386; requires a 486 or better processor and
-	  at least 64&nbsp;MB of RAM.  At least 1.1&nbsp;GB of free
-	  hard drive space is needed for the most minimal
-	  installation.</para>
+	<para>O &os;/&arch.i386; requer um processador 486 ou superior
+	  e no mínimo 64&nbsp;MB de RAM. Pelo menos 1.1&nbsp;GB de
+	  espaço livre no disco rígido é necessário para a instalação
+	  mínima.</para>
 
 	<note>
-	  <para>On old computers, increasing RAM and hard drive space
-	    is usually more effective at improving performance than
-	    installing a faster processor.</para>
+	  <para>Em computadores antigos, aumentar a RAM e o espaço no
+	    disco rígido é geralmente mais eficaz em melhorar o
+	    desempenho do que instalar um processador mais
+	    rápido.</para>
 	</note>
       </sect3>
 
       <sect3>
 	<title>&os;/&arch.amd64;</title>
 
-	<para>There are two classes of processors capable of running
-	  &os;/&arch.amd64;.  The first are AMD64 processors,
-	  including the &amd.athlon;64,
-	  &amd.athlon;64-FX, &amd.opteron; or better
-	  processors.</para>
+	<para>Há duas classes de processadores capaz de executar o
+	  &os;/&arch.amd64;.  A primeira são os processadores AMD64,
+	  incluindo o &amd.athlon;64, &amd.athlon;64-FX, &amd.opteron;
+	  ou processadores melhores.</para>
 
-	<para>The second class of processors that can use
-	  &os;/&arch.amd64; includes those using the
-	  &intel;&nbsp;EM64T architecture.  Examples of these
-	  processors include the &intel;&nbsp;&core;&nbsp;2 Duo, Quad,
-	  Extreme processor families, the &intel;&nbsp;&xeon; 3000,
-	  5000, and 7000 sequences of processors, and the
-	  &intel;&nbsp;&core; i3, i5 and i7 processors.</para>
+	<para>A segunda classe de processadores que pode usar o
+	  &os;/&arch.amd64; incluem aqueles que usam a arquitetura
+	  &intel;&nbsp;EM64T.  Exemplos desses processadores incluem
+	  as famílias de processadores &intel;&nbsp;&core;&nbsp;2 Duo,
+	  Quad, Extreme, as sequencias de processadores
+	  &intel;&nbsp;&xeon; 3000, 5000 e 7000 e os processadores
+	  &intel;&nbsp;&core; i3, i5 and i7.</para>
 
-	<para>If you have a machine based on an nVidia nForce3
-	  Pro-150, you <emphasis>must</emphasis> use the BIOS setup to
-	  disable the IO APIC.  If you do not have an option to do
-	  this, you will likely have to disable ACPI instead.  There
-	  are bugs in the Pro-150 chipset for which we have not yet
-	  found a workaround.</para>
+	<para>Se você tem uma máquina baseada em um nVidia nForce3
+	  Pro-150, você <emphasis>deve</emphasis> usar o
+	  <literal>setup do BIOS</literal> para desabilitar o
+	  <literal>IO APIC</literal>.  Se você não tem uma opção para
+	  fazer isso, você deve desabilitar o <literal>ACPI</literal>
+	  no lugar.  Há <literal>bugs</literal> no
+	  <literal>chipset</literal>Pro-150 que nós ainda não
+	  encontramos uma solução.</para>
       </sect3>
 
       <sect3>
 	<title>&os;/&arch.powerpc; &apple; &macintosh;</title>
 
-	<para>All New World &apple; &macintosh; systems with built-in
-	  USB are supported.  SMP is supported on machines with
-	  multiple CPUs.</para>
+	<para>Todos sistemas <literal>New World</literal> &apple;
+	  &macintosh; com USB incorporado são suportados.  SMP são
+	  suportados em máquinas com múltiplos CPUs.</para>
 
-	<para>A 32-bit kernel can only use the first 2&nbsp;GB of RAM.
-	  &firewire; is not supported on the Blue & White PowerMac
-	  G3.</para>
+	<para>Um kernel 32-bit pode usar apenas os primeiros 2&nbsp;GB
+	  de RAM.  &firewire; não é suportado no PowerMac G3 Azul &
+	  Branco.</para>
       </sect3>
 
       <sect3>
 	<title>&os;/&arch.sparc64;</title>
 
-	<para>Systems supported by &os;/&arch.sparc64; are listed at
-	  the <ulink
-	    url="http://www.freebsd.org/platforms/sparc.html">
-	    FreeBSD/sparc64</ulink> Project.</para>
+	<para>Sistemas suportados pelo &os;/&arch.sparc64; são
+	listados no Projeto <ulink
+	url="http://www.freebsd.org/platforms/sparc.html">FreeBSD/sparc64</ulink>.</para>
 
-	<para>A dedicated disk is required for &os;/&arch.sparc64;.
-	  It is not possible to share a disk with another operating
-	  system at this time.</para>
+	<para>Um disco dedicado é requerido para o
+	  &os;/&arch.sparc64;.  Atualmente não é possível compartilhar
+	  um disco com outro sistema operacional.</para>
       </sect3>
     </sect2>
 
     <sect2 id="bsdinstall-hardware-supported">
-      <title>Supported Hardware</title>
+      <title>Hardware Suportado</title>
 
-      <para>Hardware architectures and devices supported by a &os;
-	release are listed in the Hardware Notes file.  Usually named
-	<filename>HARDWARE.TXT</filename>, the file is located in the
-	root directory of the release media.  Copies of the supported
-	hardware list are also available on the <ulink
-	  url="http://www.FreeBSD.org/releases/index.html">Release
-	  Information</ulink> page of the &os; web site.</para>
+      <para>Arquiteturas de hardware e dispositivos suportados por uma
+	versão do &os; estão listados no arquivo Notas de Hardware.
+	Geralmente com o nome <filename>HARDWARE.TXT</filename>, o
+	arquivo é localizado no diretório raiz da mídia da versão.
+	Cópias da lista de hardware suportada também estão disponíveis
+	na página <ulink
+	url="http://www.FreeBSD.org/releases/index.html">Informação da
+	Versão</ulink> do web site do &os;</para>
     </sect2>
   </sect1>
 
