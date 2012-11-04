@@ -35,12 +35,12 @@
       certeza de quando isso acontece, isso ocorre quando a cor do
       texto muda de branco brilhante para cinza.</para>
 
-    <para>Depois de ler este capítulo, você saberá:</para>
+    <para>Depois de ler este capítulo você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>O que são os componentes de <literal>bootstrap</literal>
-	  do FreeBSD, e como eles interagem.</para>
+	<para>Quais são os componentes do <literal>boot</literal>
+	  do FreeBSD e como eles interagem.</para>
       </listitem>
 
       <listitem>
@@ -58,8 +58,7 @@
       <title>Apenas para x86</title>
 
       <para>Este capítulo descreve apenas o processo de
-	<literal>boot</literal> do FreeBSD rodando em sistemas x86 da
-	Intel.</para>
+	<literal>boot</literal> do FreeBSD rodando em sistemas Intel x86.</para>
     </note>
   </sect1>
 
@@ -92,13 +91,13 @@
       System</primary><see>BIOS</see></indexterm>
 
     <para>Em hardware x86, o Sistema Básico de Entrada e Saída (BIOS,
-      sigla em inglês) é responsável por iniciar o sistema
+      sigla em inglês) é responsável por carregar o sistema
       operacional.  Para fazer isso, o BIOS procura no disco rígido
       pelo Registro Mestre de Inicialização (MBR, sigla em inglês),
       que deve estar localizado em um lugar específico do disco
       rígido.  O BIOS tem conhecimento suficiente do hardware para
-      obter e executar o MBR, e assume que o MBR pode se encarregar
-      das tarefas restantes necessárias para iniciar o sistema
+      carregar e executar o MBR, e assume que ele pode se encarregar
+      das tarefas restantes necessárias para carregar o sistema
       operacional, possivelmente com a ajuda do BIOS.</para>
 
     <indexterm><primary>Master Boot Record (MBR)</primary></indexterm>
@@ -118,7 +117,7 @@ boot loader -->
       sistema de arquivos do sistema operacional.  (Um <literal>boot
       manager</literal> é chamado algumas vezes de
       <emphasis><literal>boot loader</literal></emphasis> (carregador
-      de inicialização), entretanto o &os; usa este termo para um
+      de inicialização), entretanto, o &os; usa este termo para um
       estágio posterior do <literal>boot</literal>.) Os <literal>boot
       managers</literal> mais populares são
       <application>boot0</application> (também conhecido como
@@ -129,31 +128,31 @@ boot loader -->
       <application>boot0</application> cabe no MBR.)</para>
 
     <para>Se você tem apenas um sistema operacional instalado nos seus
-      discos rígidos então um MBR padrão será suficiente.  Esse MBR
+      discos rígidos, então um MBR padrão será suficiente.  Esse MBR
       procura pelo primeiro <literal>slice</literal> (o equivalente
       as partições em outros sistemas) inicializável (ou seja, ativo)
       do disco rígido, e então executa o código gravado nesse
       <literal>slice</literal> para carregar o restante do sistema
-      operacional.  O MBR instalado pelo &man.fdisk.8;, é um MBR
+      operacional.  O MBR instalado pelo &man.fdisk.8; é um MBR
       padrão.  Ele é baseado no <filename>/boot/mbr</filename>.</para>
 
     <para>Se você tem instalado vários sistemas operacionais nos seus
       discos rígidos, então você pode instalar um <literal>boot
       manager</literal>, que pode exibir uma lista dos sistemas
-      operacionais, e permitir que você escolha um para iniciar.  Dois
+      operacionais e permitir que você escolha um para iniciar.  Dois
       destes são discutidos na próxima subseção.</para>
 
     <para>O restante do sistema de <literal>boot</literal> do &os; é
-      dividido em três
-      etapas.  A primeira etapa é executada pelo MBR, que sabe apenas
-      o suficiente para deixar o computador em um estado específico e
-      executar a segunda etapa.  A segunda etapa pode fazer um pouco
-      mais, antes de executar a terceira etapa.  A terceira etapa
-      finaliza a tarefa de carregar o sistema operacional.  O trabalho
-      é dividido nestas três etapas porque o padrão PC impõe limites
-      no tamanho do programa que pode ser executado nas etapas um e
-      dois.  Dividir as tarefas em etapas permite que o &os; tenha
-      um inicializador mais flexível.</para>
+      dividido em três etapas.  A primeira etapa é executada pelo MBR,
+      que sabe apenas o suficiente para deixar o computador em um
+      estado específico e executar a segunda etapa.  A segunda etapa
+      pode fazer um pouco mais, antes de executar a terceira etapa.  A
+      terceira etapa finaliza a tarefa de carregar o sistema
+      operacional.  O trabalho é dividido nestas três etapas porque o
+      padrão PC impõe limites no tamanho do programa que pode ser
+      executado nas etapas um e dois.  Dividir as tarefas em etapas
+      permite que o &os; tenha um <literal>loader</literal> mais
+      flexível.</para>
 
     <indexterm><primary>kernel</primary></indexterm>
     <indexterm><primary><command>init</command></primary></indexterm>
@@ -161,42 +160,42 @@ boot loader -->
     <para>O kernel é então iniciado e começa a procurar por
       dispositivos e inicializá-los para uso.  Uma vez que o processo
       de inicialização do kernel termina, o kernel passa o controle
-      para o processo do usuário &man.init.8;, que então verifica se
+      para o processo de usuário, o &man.init.8;, que então verifica se
       os discos estão em um estado utilizável.  Em seguida o
-      &man.init.8; inicia a configuração de recursos no nível do
-      usuário que monta sistemas de arquivos, inicia placas de rede
+      &man.init.8; inicia a configuração de recursos no nível de
+      usuário, que monta sistemas de arquivos, inicia placas de rede
       para se comunicar na rede, e geralmente inicia todos os
       processos que normalmente são executados na inicialização de um
       sistema &os;.</para>
   </sect1>
 
   <sect1 id="boot-blocks">
-    <title>O Gerenciador de Inicialização e As Etapas da
-      Inicialização</title>
+    <title>O <literal>Boot Manager</literal> e As Etapas de
+      <literal>Boot</literal></title>
 
     <indexterm><primary>Boot Manager</primary></indexterm>
 
     <sect2 id="boot-boot0">
-      <title>O Gerenciador de Inicialização</title>
+      <title>O <literal>Boot Manager</literal></title>
       <indexterm><primary>Master Boot Record
 	  (MBR)</primary></indexterm>
 
-      <para>O código no MBR, ou o gerenciador de inicialização, é
+      <para>O código no MBR, ou o <literal>boot manager</literal>, é
 	referido algumas vezes como a <emphasis>etapa zero</emphasis> do
-	processo de inicialização.  Essa subseção discute dois dos
-	gerenciadores de inicialização mencionados anteriormente:
+	processo de <literal>boot</literal>.  Essa subseção discute dois dos
+	<literal>boot managers</literal> mencionados anteriormente:
 	<application>boot0</application> e
 	<application>LILO</application>.</para>
 
       <formalpara>
-	<title>O Gerenciador de Inicialização
+	<title>O <literal>Boot Manager</literal>
 	<application>boot0</application>:</title>
 
-	<para>O MBR instalado pelo instalador do &os;, ou seja, o
-	  &man.boot0cfg.8;, por padrão, é baseado no
+	<para>O MBR instalado pelo instalador do &os; por padrão, ou seja, o
+	  &man.boot0cfg.8;, é baseado no
 	  <filename>/boot/boot0</filename>.  (O programa
 	  <application>boot0</application> é muito simples, pois o
-	  programa no <abbrev>MBR</abbrev> pode ter apenas 446 bytes
+	  programa no <abbrev>MBR</abbrev> deve ter apenas 446 bytes
 	  de tamanho devido à tabela de <literal>slices</literal> do
 	  disco rígido e ao identificador <literal>0x55AA</literal>
 	  que existe no fim do MBR.) Se você instalou o
@@ -225,8 +224,9 @@ Default: F2</screen>
 
       <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>dispositivo</replaceable></userinput></screen>
 
-      <para>Onde <replaceable>dispositivo</replaceable> é o
-	dispositivo do qual você inicializa o seu computador, tal como
+      <para>Onde <replaceable>dispositivo</replaceable> é a unidade
+	de disco a partir da qual você efetua o
+	<literal>boot</literal>, tal como
 	<devicename>ad0</devicename> para o primeiro disco rígido IDE,
 	<devicename>ad2</devicename> para o primeiro disco rígido na
 	segunda controladora IDE, <devicename>da0</devicename> para o
@@ -235,9 +235,9 @@ Default: F2</screen>
 	&man.boot0cfg.8;.</para>
 
       <formalpara>
-	<title>O Gerenciador de Inicialização LILO:</title>
+	<title>O <literal>Boot Manager</literal> LILO:</title>
 
-	<para>Para que esse gerenciador de inicialização possa iniciar
+	<para>Para que esse <literal>boot manager</literal> possa iniciar
 	  o &os;, primeiro inicie o &linux; e adicione a seguinte
 	  configuração no arquivo
 	  <filename>/etc/lilo.conf</filename>:</para>
@@ -287,7 +287,7 @@ label=FreeBSD</programlisting>
 	<filename>/boot/boot</filename>.</para>
 
       <para>O <filename>boot1</filename> é muito simples, pois ele
-	pode ter apenas o tamanho de 512 bytes, e ele conhece o
+	deve ter apenas o tamanho de 512 bytes, e ele conhece o
 	suficiente sobre o <firstterm>bsdlabel</firstterm> do &os;,
 	o qual tem informações sobre a divisão do disco rígido, para
 	encontrar e executar o <filename>boot2</filename>.</para>
@@ -314,7 +314,7 @@ boot:</screen>
       </example>
 
       <para>Se você precisar substituir o <filename>boot1</filename> e
-	o <filename>boot2</filename> use o &man.bsdlabel.8;:</para>
+	o <filename>boot2</filename>, use o &man.bsdlabel.8;:</para>
 
       <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>diskslice</replaceable></userinput></screen>
 
@@ -324,12 +324,12 @@ boot:</screen>
 	<literal>slice</literal> no primeiro disco rígido IDE.</para>
 
       <warning>
-	<title>Modo Dedicado Arriscado</title>
+	<title>O Arriscado Modo Dedicado</title>
 
 	<para>Se você usar apenas o nome do disco rígido, tal como
 	  <devicename>ad0</devicename>, no comando
-	  &man.bsdlabel.8; você irá criar um disco dedicado, sem
-	  divisões do disco rígido.  É quase certo que não é isso que
+	  &man.bsdlabel.8; você irá criar um disco dedicado perigoso, sem
+	  <literal>slices</literal>.  É quase certo que não é isso que
 	  você quer fazer, então tenha certeza que você verificou o
 	  comando &man.bsdlabel.8; antes de apertar Enter.</para>
       </warning>
@@ -357,7 +357,7 @@ boot:</screen>
 	  procurar por um console e por discos, e descobrir a partir
 	  de qual disco ele está iniciando.  Ele definirá variáveis
 	  necessárias, e um interpretador será iniciado por onde
-	  comandos do usuário podem ser passados de um script ou
+	  comandos de usuário podem ser passados a partir de um script ou
 	  interativamente.</para>
 
 	<indexterm><primary>loader</primary></indexterm>
@@ -366,7 +366,7 @@ boot:</screen>
 	<para>O <literal>loader</literal> irá ler o
 	  <filename>/boot/loader.rc</filename>, que por padrão lê o
 	  <filename>/boot/defaults/loader.conf</filename> que define
-	  valores padrões para variáveis e então lê o
+	  valores padrões para variáveis, este então lê o
 	  <filename>/boot/loader.conf</filename> para definições do
 	  usuário para essas variáveis.  O
 	  <filename>loader.rc</filename> então age conforme essas
@@ -379,7 +379,7 @@ boot:</screen>
 	  usuário um prompt que entende um conjunto de comandos de uso
 	  fácil, onde o usuário pode ajustar variáveis, descarregar
 	  todos os módulos, carregar módulos, e então finalmente
-	  iniciar ou reiniciar.</para>
+	  efetuar o <literal>boot</literal> ou reiniciar.</para>
       </sect3>
 
       <sect3 id="boot-loader-commands">
@@ -476,7 +476,7 @@ boot:</screen>
 	      <para>Exibe uma lista de arquivos no caminho
 		especificado, ou do diretório raiz, se um caminho não
 		for informado.  Se a opção <option>-l</option> é
-		usada, o tamanho dos arquivos também é exibido.</para>
+		usadai, o tamanho dos arquivos também é exibido.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -605,9 +605,10 @@ boot:</screen>
 	  </authorgroup>
 	</sect3info>
 
-	<title>Telas de Abertura do <literal>Boot</literal></title>
+	<title>Utilizando <literal>Splash Screens</literal> Durante o
+	  <literal>Boot</literal></title>
 
-	<para>A tela de abertura cria uma tela de
+	<para>A <literal>splash screen</literal> (tela de abertura) cria uma tela de
 	  <literal>boot</literal> mais
 	  atraente em comparação com as mensagens de
 	  <literal>boot</literal>
@@ -617,9 +618,9 @@ boot:</screen>
 	<para>Existem dois ambientes básicos disponíveis no &os;.  O
 	  primeiro é o ambiente de linha de comando legado do console
 	  virtual padrão.  Depois que o sistema termina de iniciar, um
-	  prompt de login é exibido no console.  O segundo ambiente é
+	  prompt de login é exibido no console.  O segundo é
 	  o ambiente de trabalho gráfico X11.  Depois que o <link
-	  linkend="x-install">X11</link> e um dos ambientes gráficos,
+	  linkend="x-install">X11</link>, e um dos ambientes gráficos,
 	  como <application>GNOME</application>,
 	  <application>KDE</application>, ou
 	  <application>XFce</application>, forem instalados, o ambiente
@@ -628,19 +629,20 @@ boot:</screen>
 
 	<para>Alguns usuários preferem a tela de login gráfica X11 do
 	  que o tradicional prompt de login no modo texto.
-	  Gerenciadores gráficos como <application>XDM</application>
-	  para o &xorg;, <application>gdm</application> para o
-	  <application>GNOME</application>, e
+	  Gerenciadores gráficos, como o <application>XDM</application>
+	  para o &xorg;, o <application>gdm</application> para o
+	  <application>GNOME</application>, e o
 	  <application>kdm</application> para o
 	  <application>KDE</application> (e qualquer outro da
-	  coleção do Ports) fornecem uma tela de login gráfico no
+	  coleção do Ports), fornecem uma tela de login gráfico no
 	  lugar do prompt de login no console.  Após um login bem
 	  sucedido, eles apresentam ao usuário um
 	  <foreignphrase>desktop</foreignphrase> gráfico.</para>
 
-	<para>No ambiente de linha de comando, a tela de abertura
+	<para>No ambiente de linha de comando, a <literal>splash
+	  screen</literal>
 	  deveria esconder todas as mensagens do processo de
-	  inicialização e das tarefas de inicialização antes de exibir
+	  <literal>boot</literal> e das tarefas de inicialização antes de exibir
 	  o prompt de login.  No ambiente X11, os usuários podem
 	  visualizar uma inicialização mais limpa, semelhante à algo
 	  mais próximo que um usuário do &microsoft; &windows; ou de
