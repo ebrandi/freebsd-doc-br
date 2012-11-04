@@ -9,7 +9,7 @@
      The FreeBSD Documentation Project
      The FreeBSD Brazilian Portuguese Documentation Project
 
-     Original revision: r39544
+     Original revision: r39913
 
      $FreeBSD$
 -->
@@ -606,7 +606,7 @@
 	      compilação automatizada de 
 	      <literal>ports</literal>, o <ulink
 	      url="http://pointyhat.FreeBSD.org">pointyhat</ulink>,  e
-	      o <ulink url="http://www.portscout.org">scanner de
+	      o <ulink url="http://portscout.FreeBSD.org">scanner de
 	      arquivos de distribuição</ulink> para ver
 	      se algum dos <literal>ports</literal> que você 
 	      mantém está falhando na 
@@ -1030,8 +1030,8 @@
       manutenção os quais precisam ser 
       corrigidos.</para>
     
-    <para>O <ulink url="http://www.portscout.org">Scanner de Arquivos 
-      de Distribuição</ulink> da Coleção 
+    <para>O <ulink url="http://portscout.FreeBSD.org">Scanner de
+      Arquivos de Distribuição</ulink> da Coleção 
       de Ports do FreeBSD pode lhe mostrar <literal>ports</literal> 
       para os quais não é possível fazer o 
       download do código fonte.  Você pode 
