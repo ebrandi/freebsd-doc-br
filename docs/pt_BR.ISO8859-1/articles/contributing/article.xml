@@ -9,7 +9,7 @@
      The FreeBSD Documentation Project
      The FreeBSD Brazilian Portuguese Documentation Project
 
-     Original revision: r39882
+     Original revision: r39924
 
      $FreeBSD$
 -->
@@ -705,17 +705,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	  <ulink url="&url.base;/donations/">Escritório de 
 	  Relacionamento com Doadores</ulink>.</para> 
 	</sect3>
-
-      <sect3>
-	<title>Doando Acesso Internet</title>
-
-	<para>Nós sempre podemos utilizar novos sítios
-	  espelho para os serviços de FTP, WWW ou
-	  <command>cvsup</command>.  Se você desejar se tornar
-	  um sítio espelho; por favor, consulte o artigo <ulink
-	  url="&url.articles.hubs;/index.html">Espelhando o 
-	  FreeBSD</ulink> para maiores informações.</para>
-      </sect3>
     </sect2>
   </sect1>
 </article>
