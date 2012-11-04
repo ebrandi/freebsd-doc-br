@@ -712,26 +712,27 @@ boot:</screen>
 	</sect4>
 
 	<sect4 id="boot-splash-enable">
-	  <title>Habilitando a Função de Tela de Abertura</title>
+	  <title>Habilitando o Recurso <literal>Splash
+	    Screen</literal></title>
 
-	  <para>O arquivo da tela de abertura
+	  <para>O arquivo da <literal>splash screen</literal>
 	    (<filename>.bmp</filename>, <filename>.pcx</filename>, ou
 	    <filename>.bin</filename>) tem que ser colocado na
-	    partição raiz, por exemplo no diretório <filename
+	    partição raiz, por exemplo, no diretório <filename
 	    class="directory">/boot</filename>.</para>
 
-	  <para>Para a resolução padrão da inicialização (256 cores,
+	  <para>Para utilizar a resolução padrão do <literal>boot</literal> (256 cores,
 	    320 por 200 pixels, ou menos), edite o
-	    <filename>/boot/loader.conf</filename>, para conter o
+	    <filename>/boot/loader.conf</filename>, e adicione o
 	    seguinte:</para>
 
 	  <programlisting>splash_bmp_load="YES"
 bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bmp</replaceable>"</programlisting>
 
-	  <para>Para resoluções de vídeo maiores até o máximo de 1024
+	  <para>Para resoluções de vídeo maiores, até o máximo de 1024
 	    por 768 pixels, edite o
-	    <filename>/boot/loader.conf</filename>, para conter o
+	    <filename>/boot/loader.conf</filename>, e adicione o
 	    seguinte:</para>
 
 	  <programlisting>vesa_load="YES"
@@ -741,8 +742,8 @@ bitmap_name="<replaceable>/boot/splash.bmp</replaceable>"</programlisting>
 
 	  <para>As linhas acima assumem que o
 	    <filename><replaceable>/boot/splash.bmp</replaceable></filename>
-	    é usado para tela de abertura.  Quando um arquivo
-	    <acronym>PCX</acronym> for desejado, use a seguinte
+	    é usado para <literal>splash screen</literal>.  Quando um arquivo
+	    <acronym>PCX</acronym> for utilizado, use a seguinte
 	    configuração, adicionando a linha
 	    <literal>vesa_load="YES"</literal> dependendo da
 	    resolução.</para>
@@ -760,9 +761,9 @@ bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
 	  <para>O nome do arquivo não está restrito a
-	    <quote>splash</quote> como mostrado no exemplo acima.  Ele
-	    pode ser qualquer coisa desde que seja um dos tipos
-	    referidos acima tal como,
+	    <quote>splash</quote>, como mostrado no exemplo acima.  Ele
+	    pode ser qualquer coisa, desde que seja um dos tipos
+	    referidos acima, tal como
 	    <filename><replaceable>splash_640x400</replaceable>.bmp</filename>
 	    ou
 	    <filename><replaceable>bluewave</replaceable>.pcx</filename>.</para>
@@ -775,8 +776,8 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	      <term><literal>beastie_disable="YES"</literal></term>
 
 	      <listitem>
-		<para>Isso fará com que o menu de opções da
-		  inicialização não seja exibido, mas a contagem
+		<para>Isso fará com que o menu de opções do
+		  <literal>boot</literal> não seja exibido, mas a contagem
 		  regressiva estará presente.  Mesmo com a exibição do
 		  menu desativada, digitando uma opção de seleção
 		  durante a contagem regressiva irá executar a opção
@@ -790,13 +791,13 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	      <listitem>
 		<para>Isso irá substituir as palavras padrões
 		  <quote>&os;</quote>, que são exibidas na direita do
-		  menu de inicialização por uma logo colorida do
+		  menu do <literal>boot</literal> por uma logo colorida do
 		  beastie como havia em versões passadas.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 
-	  <para>Para mais informações, por favor, veja as páginas do
+	  <para>Para mais informações, por favor, veja as páginas de
 	    manual &man.splash.4;, &man.loader.conf.5;, e
 	    &man.vga.4;.</para>
 	</sect4>
