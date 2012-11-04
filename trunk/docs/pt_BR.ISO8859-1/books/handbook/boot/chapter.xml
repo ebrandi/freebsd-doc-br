@@ -806,36 +806,36 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
   </sect1>
 
   <sect1 id="boot-kernel">
-    <title>Interação com o Kernel durante a Inicialização</title>
+    <title>Interação com o Kernel durante o <literal>Boot</literal></title>
     <indexterm>
       <primary>kernel</primary>
       <secondary>boot interaction</secondary>
     </indexterm>
 
     <para>Quando o kernel termina de ser carregado pelo <link
-      linkend="boot-loader">carregador</link> (em situações normais)
+      linkend="boot-loader">loader</link> (em situações normais)
       ou pelo <link linkend="boot-boot1">boot2</link> (ignorando o
-      carregador), o kernel analisa seus parâmetros de inicialização,
-      se existirem, e ajusta seu comportamento conforme for
+      <literal>loader</literal>), o kernel analisa os parâmetros do <literal>boot</literal>,
+      se eles existirem, e ajusta seu comportamento conforme for
       necessário.</para>
 
     <sect2 id="boot-kernel-bootflags">
-      <title>Parâmetros de Inicialização do Kernel</title>
+      <title>Parâmetros do <literal>Boot</literal> do Kernel</title>
 
       <indexterm>
 	<primary>kernel</primary>
 	<secondary>bootflags</secondary>
       </indexterm>
 
-      <para>Aqui estão os parâmetros mais comuns de
-	inicialização:</para>
+      <para>Aqui estão os parâmetros mais comuns do
+	<literal>boot</literal>:</para>
 
       <variablelist id="boot-kernel-bootflags-list">
 	<varlistentry>
 	  <term><option>-a</option></term>
 
 	  <listitem>
-	    <para>durante a inicialização do kernel, pergunta por um
+	    <para>durante o <literal>boot</literal> do kernel, pergunta por um
 	      dispositivo para montar como o sistema de arquivos
 	      raiz.</para>
 	  </listitem>
@@ -845,7 +845,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-C</option></term>
 
 	  <listitem>
-	    <para>inicia a partir do CDROM.</para>
+	    <para>efetua o <literal>boot</literal> a partir do CDROM.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -854,7 +854,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
 	  <listitem>
 	    <para>executa o UserConfig, o configurador do kernel
-	      usado durante a inicialização.</para>
+	      usado durante <literal>boot</literal>.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -862,7 +862,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-s</option></term>
 
 	  <listitem>
-	    <para>inicia em modo monousuário.</para>
+	    <para>efetua o <literal>boot</literal> em modo monousuário.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -870,23 +870,18 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 	  <term><option>-v</option></term>
 
 	  <listitem>
-	    <para>é mais verboso durante a inicialização do
-	      kernel.</para>
+	    <para>exibe mensagens mais detalhadas durante o
+	    <literal>boot</literal> do kernel.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
 
       <note>
-        <para>Há outros parâmetros de inicialização, leia o
+        <para>Existem outros parâmetros de <literal>boot</literal>, leia o
 	  &man.boot.8; para mais informações sobre eles.</para>
       </note>
     </sect2>
 
-<!--    <sect2 id="boot-kernel-userconfig">
-      <title>UserConfig: the Boot-time Kernel Configurator</title>
-
-      <para></para>
-    </sect2> -->
   </sect1>
 
   <sect1 id="device-hints">
@@ -907,14 +902,15 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       <primary>device.hints</primary>
     </indexterm>
 
-    <para>Durante a inicialização do sistema, o carregador
-      (&man.loader.8;) lerá o arquivo &man.device.hints.5;.  Esse
-      arquivo armazena informações da inicialização conhecidas como
-      variáveis, algumas vezes referidas por <quote>ajustes dos
+    <para>Durante o <literal>boot</literal> do sistema, o
+      <literal>boot</literal> &man.loader.8; lerá o arquivo
+      &man.device.hints.5;.  Esse arquivo armazena informações do
+      <literal>boot</literal> do kernel conhecidas como variáveis,
+      algumas vezes referidas por <quote>ajustes dos
       dispositivos</quote>, ou <literal>device hints</literal>.
       Estes <quote>ajustes dos dispositivos</quote> são usados pelos
-      <literal>drivers</literal> dos dispositivos para configurar os
-      dispositivos.</para>
+      <literal>drivers</literal> dos dispositivos para
+      configura-los.</para>
 
     <para>Os ajustes dos dispositivos podem ser especificados também
       no prompt da <link linkend="boot-loader">Etapa 3 da
