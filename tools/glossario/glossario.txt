@@ -67,10 +67,10 @@ bit -> peda&ccedil;o
 bits (se for bit de byte) -> <foreignphrase>bits</foreignphrase>
 byte -> <foreignphrase>byte</foreignphrase>
 boiler plate -> texto padronizado
-boot -> inicializar|processo de inicializa&ccedil;&atilde;o
-booting -> inicializa&ccedil;&atilde;o
+boot -> <literal>boot</literal>|inicializar|processo de inicializa&ccedil;&atilde;o
+booting -> <literal>boot</literal>|processo de <literal>boot</literal>|inicializa&ccedil;&atilde;o
 box set -> <foreignphrase>box sets</foreignphrase>
-branch -> ramo|s&eacute;rie
+branch -> <literal>branch</literal>|ramo|s&eacute;rie
 branch tag -> etiqueta de ramo (<foreignphrase>branch tag</foreignphrase>)
 browser -> navegador
 bug -> falha|defeito|erro|problema|<foreignphrase>bugs</foreignphrase>
@@ -174,8 +174,10 @@ layer -> camada
 legacy -> legado
 legally state -> representa legalmente
 link -> <foreignphrase>link</foreignphrase>|liga&ccedil;&atilde;o
+loader -> <literal>loader</literal>
+boot loader -> <literal>boot loader</literal>|carregador de <literal>boot</literal>
 load -> carga|demanda|carregar
-log -> registro
+log -> <literal>log</literal>|registro
 mail -> e-mail|correio eletr&ocric;nico|endere&ccedil;o de correio eletr&ocric;nico
 mailing list -> lista de discuss&atilde;o
 main source -> c&oacute;digo fonte principal|fonte principal
@@ -264,6 +266,7 @@ snapshot -> <foreignphrase>snapshot</foreignphrase>
 software -> programa|<foreignphrase>software</foreignphrase>
 source -> c&oacute;digo fonte
 source code -> c&oacute;digo fonte
+splash screen -> <literal>splash screen</literal>
 spoofed -> <foreignphrase>spoofed</foreignphrase>
 stall -> estagnar
 standards-compliant -> aderente ao padr&atilde;o|adequado a padr&otilde;es|de acordo com os padr&otilde;es
