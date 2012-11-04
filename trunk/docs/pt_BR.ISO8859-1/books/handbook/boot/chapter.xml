@@ -649,13 +649,13 @@ boot:</screen>
 	  um sistema não-unix poderia ter.</para>
 
 	<sect4 id="boot-splash-function">
-	  <title>Função da Tela de Abertura</title>
+	  <title>O Recurso de <literal>Splash Screen</literal></title>
 
-	  <para>A função da tela de abertura suporta arquivos de
+	  <para>O recurso de <literal>splash screen</literal> suporta arquivos de
 	    imagens bitmap de 256 cores (<filename>.bmp</filename>),
 	    ZSoft <acronym>PCX</acronym> (<filename>.pcx</filename>),
 	    ou TheDraw (<filename>.bin</filename>).  Além disso, o
-	    arquivo da imagem de abertura deve ter uma resolução de
+	    arquivo de imagem utilizado deve ter uma resolução de
 	    320 por 200 pixels, ou menos, para funcionar nos adaptadores
 	    de vídeo VGA padrão.</para>
 	
@@ -663,27 +663,29 @@ boot:</screen>
 	    resolução de 1024 por 768 pixels, ative o suporte ao
 	    <acronym>VESA</acronym> incluído no &os;.  Isso pode ser
 	    habilitado carregando o módulo <acronym>VESA</acronym>
-	    durante a inicialização do sistema, ou adicionando a
+	    durante o <literal>boot</literal> do sistema, ou adicionando a
 	    opção <literal>VESA</literal> na configuração do kernel e
 	    compilar um kernel customizado (veja <xref
 	    linkend="kernelconfig"/>).  O suporte ao
 	    <acronym>VESA</acronym> dá ao usuário a capacidade de
-	    exibir uma imagem de abertura que preenche toda a
+	    utilizar uma imagem no <literal>splash screen</literal> que preencha toda a
 	    tela.</para>
 
-	  <para>Enquanto a tela de abertura está sendo exibida durante
-	    o processo de inicialização, ela pode ser desligada a
+	  <para>Enquanto a <literal>splash screen</literal> está sendo exibida durante
+	    o processo de <literal>boot</literal>, ela pode ser desligada a
 	    qualquer momento pressionando qualquer tecla do
 	    teclado.</para>
 
-	  <para>A tela de abertura também é, por padrão, um protetor de
+	  <para>A <literal>splash screen</literal> também é, por padrão, um protetor de
 	    tela quando fora do ambiente gráfico.  Depois de um
-	    período de tempo sem usar o computador a tela irá mudar
-	    para a tela de abertura e percorrer passos mudando a
+	    certo período de ociosidade, a tela mudará
+	    para a <literal>splash screen</literal> e irá,
+	    ciclicamente, modificar a
 	    intensidade da imagem, de brilhante para muito escuro e
-	    começando novamente.  Esse comportamento padrão da tela de
-	    abertura (protetor de tela) pode ser sobrescrito
-	    adicionando a linha <literal>saver=</literal> no arquivo
+	    começando novamente.  Esse comportamento padrão da
+	    <literal>splash screen</literal>
+	    (protetor de tela) pode ser sobreescrito
+	    adicionando a linha <literal>saver=</literal> ao arquivo
 	    <filename>/etc/rc.conf</filename>.  A opção
 	    <literal>saver=</literal> tem vários protetores de telas
 	    embutidos para escolher, a lista completa pode ser
@@ -695,16 +697,18 @@ boot:</screen>
 
 	  <para>Algumas mensagens do <literal>boot loader</literal>, incluindo o menu
 	    de opções e o contador de tempo de espera, são exibidas
-	    durante a inicialização, mesmo quando a tela de abertura
+	    durante o <literal>boot</literal>, mesmo quando a
+	    <literal>splash screen</literal>
 	    está habilitada.</para>
 
-	  <para>Arquivos de exemplo de tela de abertura podem ser
+	  <para>Arquivos de exemplo da <literal>splash
+	    screen</literal> podem ser
 	    baixados da galeria em <ulink
 	    url="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</ulink>.
 	    Ao instalar o port <filename
 	    role="package">sysutils/bsd-splash-changer</filename>,
-	    imagens aleatórias podem ser escolhidas a cada
-	    inicialização a partir de uma coleção de imagens.</para>
+	    imagens aleatórias podem ser escolhidas de forma randomica a cada
+	    <literal>boot</literal> a partir de uma coleção de imagens.</para>
 	</sect4>
 
 	<sect4 id="boot-splash-enable">
