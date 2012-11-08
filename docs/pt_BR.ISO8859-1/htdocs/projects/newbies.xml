@@ -67,31 +67,35 @@
     <h2><a name="fbsd">Aprendendo sobre o &os;</a></h2>
 
     <ul>
-      <li><p>You should most probably look for the
-	  <a href="&u.rel.announce;">latest mainstream release</a>.
-          (See the Handbook for why you should <strong>not</strong> be tempted
-          by any of the other branches.) Before you begin, carefully read the
-          <a href="&url.books;/handbook/install.html">installation instructions</a>,
-          as well as each one of the *.TXT files in the FTP directory
-          or on the installation CD. They are there because they contain information
-          that you will need. Also pick up the latest
-          <a href="&base;/releases/index.html">errata file</a>
-          from the web site, in case it has been updated.</p></li>
-
-      <li><p>A number of <a href="&base;/docs/books.html#ARTICLES">short
-          articles and tutorials</a> are available.  The short tutorial,
-          <a href="&url.articles;/new-users/index.html">For
-          People New to Both &os; and Unix</a>, is popular with absolute
-          beginners.  You do not have to know much about anything to enjoy
-          this one.</p></li>
-
-      <li><p>There is a lot of documentation to help for setting up ppp.
-	  You might start with the <a
-	    href="&url.books;/handbook/ppp-and-slip.html">PPP and SLIP</a>
-	  chapter of the &os; Handbook and explore the
-          <a href="http://www.awfulhak.org/ppp.html">ppp page</a>
-          for links to the other valuable information and the latest updates.</p></li>
-
+      <li><p>Você deve procurar pela <a href="&u.rel.announce;">versão
+	mais recente e mais amplamente utilizada</a>. (Consulte o 
+	Handbook para saber o porque você <strong>não</strong> deve 
+	ficar tentado a começar por qualquer uma das outras versões) 
+	Antes de começar, leia atentamente as <a
+	href="&url.books;/handbook/install.html">instruções de
+	instalação</a>, bem como cada um dos arquivos *.TXT presentes
+	no diretório do FTP ou no CD de instalação.  Eles estão lá
+	porque possuem informações que você vai precisar.  Também
+	pegue o último <a href="&base;/releases/index.html">arquivo de
+	errata</a> disponibilizado no web site, caso ele tenha sido
+	atualizado.</p></li>
+      
+      <li><p>Estão disponíveis uma série de <a
+	href="&base;/docs/books.html#ARTICLES">tutorias e de artigos
+	curtos</a>. O curto tutorial, "<a
+	href="&url.articles;/new-users/index.html">Para os novatos em
+	FreeBSD e UNIX</a>", é muito popular entre os iniciantes.
+	Você não precisa ter nenhum conhecimento prévio para poder
+	desfrutá-lo.</p></li>
+      
+      <li><p>Existem diversos documentos para ajudá-lo a a configurar
+	uma conexão ppp.  Você pode começar pelo capítulo sobre <a
+	href="&url.books;/handbook/ppp-and-slip.html">PPP e SLIP</a>
+	do Handbook do &os; e explore esta <a
+	href="http://www.awfulhak.org/ppp.html">página sobre ppp</a>
+	para obter links para outras informações valiosas e para
+	conhecer as últimas atualizações.</p></li>
+      
       <li><p><a name="cfbsd" href="http://www.lemis.com/grog/Documentation/CFBSD/">The
 	    Complete &os;</a> by Greg Lehey, published by O'Reilly.
 	  This book assumes minimal UNIX experience and takes the
