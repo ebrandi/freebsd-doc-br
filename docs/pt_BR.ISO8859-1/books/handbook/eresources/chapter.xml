@@ -20,7 +20,7 @@
     eletrônico, fóruns na internet e notícias na USENET sendo a forma
     mais eficaz de desfrutar dessa comunidade.</para>
 
-  <para>Os pontos mais importantes de contato com a comunidade de
+  <para>As formas mais importantes de contato com a comunidade de
     usuários do FreeBSD são descritos abaixo.  Se você está ciente de
     outros recursos não mencionados aqui, envie-as para a &a.doc; para
     que eles também possam ser incluídos.</para>
@@ -31,7 +31,7 @@
     <para>As listas de discussão são a forma mais direta de enviar
       dúvidas ou abrir uma discussão técnica para um público
       concentrado do FreeBSD.  Há uma grande variedade de listas com
-      uma variedade de diferentes temas do FreeBSD.  Enviando suas
+      uma variedade de diferentes temas do FreeBSD.  Enviar suas
       perguntas para a lista de discussão mais adequada vai garantir
       uma resposta mais rápida e precisa.</para>
 
@@ -39,8 +39,8 @@
       deste documento.  <emphasis>Por favor, leia o manual de conduta
       antes de entrar ou enviar mensagens para alguma
       lista</emphasis>.  A maioria dos assinantes das listas recebem
-      centenas de mensagens sobre o FreeBSD a cada dia, e por definir
-      manais de conduta e regras para o uso correto nós estamos nos
+      centenas de mensagens sobre o FreeBSD a cada dia, e ao definir
+      manuais de conduta e regras para o uso correto, nós estamos nos
       esforçando para manter as listas livre de ruídos.  Sem isto, as
       listas seriam um modo ineficiente de comunicação com o
       projeto.</para>
@@ -53,19 +53,19 @@
     </note>
 
     <para>Se estiver em dúvida para qual lista enviar uma pergunta,
-      verifique <ulink url="&url.articles.freebsd-questions;">Como
+      consulte <ulink url="&url.articles.freebsd-questions;">Como
       obter melhores resultados de uma lista de discussão do
       FreeBSD</ulink>.</para>
 
-    <para>Antes de postar em alguma lista, por favor aprenda como
+    <para>Antes de postar em alguma lista, por favor, aprenda como
       usar melhor as listas de discussão, tal como evitar discussões
-      frequentemente repetidas, lendo o documento (FAQ) <ulink
+      frequentemente repetidas, lendo o documento <ulink
       url="&url.articles.mailing-list-faq;">Perguntas Frequentes em
-      Listas de Discussão</ulink>.</para>
+      Listas de Discussão</ulink> (FAQ).</para>
 
     <para>Históricos são mantidos para todas as listas de discussão e
       podem ser pesquisados usando o <ulink
-      url="&url.base;/search/index.html">Servidor World Wide Web do
+      url="&url.base;/search/index.html">Servidor Web do
       FreeBSD</ulink>.  O histórico com pesquisa por palavra-chave
       oferece um modo excelente de encontrar respostas para perguntas
       frequentes e deve ser consultado antes de enviar uma pergunta.
