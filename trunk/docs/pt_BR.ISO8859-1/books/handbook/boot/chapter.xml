@@ -29,8 +29,8 @@
 
     <para>Este capítulo detalha as opções de configurações que você
       pode usar e como personalizar o processo de
-      <literal>boot</literal> do FreeBSD.  Isso inclui tudo o que
-      acontece até que o kernel do FreeBSD tenha iniciado, procurado
+      <literal>boot</literal> do &os;.  Isso inclui tudo o que
+      acontece até que o kernel do &os; tenha iniciado, procurado
       por dispositivos e iniciado o &man.init.8;.  Se você não tem
       certeza de quando isso acontece, isso ocorre quando a cor do
       texto muda de branco brilhante para cinza.</para>
@@ -44,8 +44,8 @@
       </listitem>
 
       <listitem>
-	<para>As opções que você pode passar para os componentes no
-	  <literal>boot</literal> do FreeBSD para controlar o
+	<para>As opções que você pode passar para os componentes do
+	  <literal>boot</literal> do &os; para controlar o
 	  processo.</para>
       </listitem>
 
@@ -58,7 +58,8 @@
       <title>Apenas para x86</title>
 
       <para>Este capítulo descreve apenas o processo de
-	<literal>boot</literal> do FreeBSD rodando em sistemas Intel x86.</para>
+	<literal>boot</literal> do &os; rodando em sistemas
+	compatíveis com Intel x86.</para>
     </note>
   </sect1>
 
@@ -179,16 +180,16 @@
       <para>O código no MBR, ou o <literal>boot manager</literal>, é
 	referido algumas vezes como a <emphasis>etapa zero</emphasis> do
 	processo de <literal>boot</literal>.  Essa subseção discute dois dos
-	<literal>boot managers</literal> mencionados anteriormente:
-	<application>boot0</application> e
+	<literal>boot managers</literal> mencionados anteriormente: o
+	<application>boot0</application> e o
 	<application>LILO</application>.</para>
 
       <formalpara>
 	<title>O <literal>Boot Manager</literal>
 	<application>boot0</application>:</title>
 
-	<para>O MBR instalado pelo instalador do &os; por padrão, ou seja, o
-	  &man.boot0cfg.8;, é baseado no
+	<para>O MBR utilizado por padrão pelo instalador do &os;, ou
+	  pelo &man.boot0cfg.8;, é baseado no
 	  <filename>/boot/boot0</filename>.  (O programa
 	  <application>boot0</application> é muito simples, pois o
 	  programa no <abbrev>MBR</abbrev> deve ter apenas 446 bytes
@@ -266,10 +267,10 @@ label=FreeBSD</programlisting>
 
       <para>Conceitualmente, a primeira e segunda etapa são partes do
 	mesmo programa, na mesma área do disco rígido.  Essa divisão é
-	devida à limitações de espaço, mas você sempre deve
-	instalá-las juntas.  As duas etapas são copiadas do arquivo
+	devida à limitações de espaço, mas você sempre deve instalar
+	as duas juntas.  As duas etapas são copiadas do arquivo
 	combinado <filename>/boot/boot</filename> pelo instalador ou
-	<application>bsdlabel</application> (veja abaixo).</para>
+	pelo <application>bsdlabel</application> (veja abaixo).</para>
 
       <para>Elas ficam armazenadas fora do sistema de arquivos, na
 	primeira trilha do <literal>slice</literal> de
@@ -290,13 +291,13 @@ label=FreeBSD</programlisting>
 
       <para>O <filename>boot2</filename> é ligeiramente mais
 	 sofisticado, e conhece o sistema de arquivos do &os; o
-	 suficiente para encontrar arquivos, e pode fornecer uma
+	 suficiente para encontrar arquivos e pode fornecer uma
 	 interface simples para escolher o arquivo do kernel para
 	 carregar e executar.</para>
 
       <para>O
 	<link linkend="boot-loader"><literal>loader</literal></link>
-	é muito mais sofisticado, e fornece uma configuração de
+	é muito mais sofisticado e fornece uma configuração de
 	inicialização fácil de usar, o <filename>boot2</filename>
 	executa o <literal>loader</literal>, mas anteriormente ele era
 	encarregado de executar o kernel diretamente.</para>
@@ -323,11 +324,11 @@ boot:</screen>
 	<title>O Arriscado Modo Dedicado</title>
 
 	<para>Se você usar apenas o nome do disco rígido, tal como
-	  <devicename>ad0</devicename>, no comando &man.bsdlabel.8;
-	  você irá criar um disco dedicado perigoso, sem
-	  <literal>slices</literal>.  É quase certo que não é isso que
+	  <devicename>ad0</devicename>, no comando &man.bsdlabel.8;,
+	  irá criar um disco dedicado, sem <literal>slices</literal>,
+	  e isso pode ser perigiso.  É quase certo que não é isso que
 	  você quer fazer, então tenha certeza que você verificou o
-	  comando &man.bsdlabel.8; antes de apertar Enter.</para>
+	  comando &man.bsdlabel.8; antes de pressionar Enter.</para>
       </warning>
     </sect2>
 
@@ -407,7 +408,7 @@ boot:</screen>
 	      <para>Prossegue imediatamente com o
 	        <literal>boot</literal> do kernel, com as opções
 		especificadas, se houver alguma, e com o nome do
-		kernel, se este foi especificado.  Somente é possível
+		kernel, se este foi informado.  Somente é possível
 		especificar o nome do kernel no prompt depois que o
 		comando <emphasis>unload</emphasis> for executado,
 		senão o kernel carregado anteriormente será
@@ -447,7 +448,7 @@ boot:</screen>
 	    <listitem>
 	      <para>Processa o arquivo especificado no comando.  O
 		arquivo é lido e interpretado linha por linha.  Quando
-		um erro é encontrado o comando para
+		um erro é encontrado o comando pára
 		imediatamente.</para>
 	    </listitem>
 	  </varlistentry>
@@ -470,9 +471,9 @@ boot:</screen>
 
 	    <listitem>
 	      <para>Exibe uma lista de arquivos no caminho
-		especificado, ou do diretório raiz, se um caminho não
+		especificado, ou do diretório raiz se um caminho não
 		for informado.  Se a opção <option>-l</option> é
-		usadai, o tamanho dos arquivos também é exibido.</para>
+		usada, o tamanho dos arquivos também é exibido.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -502,9 +503,9 @@ boot:</screen>
 	    <term>more <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Exibe o conteúdo do arquivo especificado, com uma pausa a cada
-		certo número de linhas, definido na variável
-		<varname>LINES</varname>.</para>
+	      <para>Exibe o conteúdo do arquivo especificado, com uma
+		pausa a cada certo número de linhas, definido na
+		variável <varname>LINES</varname>.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -522,7 +523,8 @@ boot:</screen>
 	      <replaceable>variável</replaceable>=<replaceable>valor</replaceable></term>
 
 	    <listitem>
-	      <para>Define os valores das variáveis de ambiente.</para>
+	      <para>Define os valores das variáveis de
+		ambiente.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -546,7 +548,7 @@ boot:</screen>
 	  <indexterm><primary>single-user mode</primary></indexterm>
 
 	  <listitem>
-	    <para>Para iniciar seu kernel habitual, mas em modo
+	    <para>Para iniciar seu kernel normalmente, mas em modo
 	      monousuário:</para>
 
 	    <screen><userinput>boot -s</userinput></screen>
@@ -582,7 +584,7 @@ boot:</screen>
 	  <listitem>
 	    <para>Para carregar um script de configuração do kernel
 	      (um script para automatizar aquilo que você faria para
-	      configurar o kernel em tempo de
+	      configurar o kernel durante o
 	      <literal>boot</literal>):</para>
 
 	    <screen><userinput>load -t userconfig_script <replaceable>/boot/kernel.conf</replaceable></userinput></screen>
@@ -604,10 +606,9 @@ boot:</screen>
 	<title>Utilizando <literal>Splash Screens</literal> Durante o
 	  <literal>Boot</literal></title>
 
-	<para>A <literal>splash screen</literal> (tela de abertura) cria uma tela de
-	  <literal>boot</literal> mais
-	  atraente em comparação com as mensagens de
-	  <literal>boot</literal>
+	<para>A <literal>splash screen</literal> (tela de abertura)
+	  cria uma tela de <literal>boot</literal> mais atraente em
+	  comparação com as mensagens de <literal>boot</literal>
 	  originais.  Essa tela será exibida até que o console, ou um
 	  gerenciador gráfico, exiba um prompt de login.</para>
 
@@ -625,63 +626,64 @@ boot:</screen>
 
 	<para>Alguns usuários preferem a tela de login gráfica X11 do
 	  que o tradicional prompt de login no modo texto.
-	  Gerenciadores gráficos, como o <application>XDM</application>
-	  para o &xorg;, o <application>gdm</application> para o
+	  Gerenciadores gráficos, como o
+	  <application>XDM</application> para o &xorg;, o
+	  <application>gdm</application> para o
 	  <application>GNOME</application>, e o
 	  <application>kdm</application> para o
-	  <application>KDE</application> (e qualquer outro da
-	  coleção do Ports), fornecem uma tela de login gráfico no
-	  lugar do prompt de login no console.  Após um login bem
-	  sucedido, eles apresentam ao usuário um
+	  <application>KDE</application> (e qualquer outro da coleção
+	  do Ports), fornecem uma tela de login gráfico no lugar do
+	  prompt de login no console.  Após um login bem sucedido
+	  eles apresentam ao usuário um
 	  <foreignphrase>desktop</foreignphrase> gráfico.</para>
 
 	<para>No ambiente de linha de comando, a <literal>splash
-	  screen</literal>
-	  deveria esconder todas as mensagens do processo de
-	  <literal>boot</literal> e das tarefas de inicialização antes de exibir
-	  o prompt de login.  No ambiente X11, os usuários podem
-	  visualizar uma inicialização mais limpa, semelhante à algo
-	  mais próximo que um usuário do &microsoft; &windows; ou de
-	  um sistema não-unix poderia ter.</para>
+	  screen</literal> deve esconder todas as mensagens do
+	  processo de <literal>boot</literal> e das tarefas de
+	  inicialização antes de exibir o prompt de login.  No
+	  ambiente X11, os usuários podem visualizar uma inicialização
+	  mais limpa, semelhante à algo mais próximo que um usuário do
+	  &microsoft; &windows; ou de um sistema não-unix poderia
+	  ter.</para>
 
 	<sect4 id="boot-splash-function">
 	  <title>O Recurso de <literal>Splash Screen</literal></title>
 
-	  <para>O recurso de <literal>splash screen</literal> suporta arquivos de
-	    imagens bitmap de 256 cores (<filename>.bmp</filename>),
-	    ZSoft <acronym>PCX</acronym> (<filename>.pcx</filename>),
-	    ou TheDraw (<filename>.bin</filename>).  Além disso, o
-	    arquivo de imagem utilizado deve ter uma resolução de
-	    320 por 200 pixels, ou menos, para funcionar nos adaptadores
-	    de vídeo VGA padrão.</para>
+	  <para>O recurso de <literal>splash screen</literal> suporta
+	    arquivos de imagens bitmap de 256 cores
+	    (<filename>.bmp</filename>), ZSoft <acronym>PCX</acronym>
+	    (<filename>.pcx</filename>), ou TheDraw
+	    (<filename>.bin</filename>).  Além disso, o arquivo de
+	    imagem utilizado deve ter uma resolução de 320 por 200
+	    pixels, ou menos, para funcionar nos adaptadores de vídeo
+	    VGA padrão.</para>
 	
-	  <para>Para usar imagens maiores, até do tamanho máximo de
-	    resolução de 1024 por 768 pixels, ative o suporte ao
+	  <para>Para usar imagens maiores, até a resolução máxima de
+	    1024 por 768 pixels, ative o suporte ao
 	    <acronym>VESA</acronym> incluído no &os;.  Isso pode ser
 	    habilitado carregando o módulo <acronym>VESA</acronym>
-	    durante o <literal>boot</literal> do sistema, ou adicionando a
-	    opção <literal>VESA</literal> na configuração do kernel e
-	    compilar um kernel customizado (veja <xref
-	    linkend="kernelconfig"/>).  O suporte ao
+	    durante o <literal>boot</literal> do sistema, ou
+	    adicionando a opção <literal>VESA</literal> na
+	    configuração do kernel e compilar um kernel customizado
+	    (veja <xref linkend="kernelconfig"/>).  O suporte ao
 	    <acronym>VESA</acronym> dá ao usuário a capacidade de
-	    utilizar uma imagem no <literal>splash screen</literal> que preencha toda a
-	    tela.</para>
+	    utilizar uma imagem no <literal>splash screen</literal>
+	    que preencha toda a tela.</para>
 
-	  <para>Enquanto a <literal>splash screen</literal> está sendo exibida durante
-	    o processo de <literal>boot</literal>, ela pode ser desligada a
-	    qualquer momento pressionando qualquer tecla do
-	    teclado.</para>
+	  <para>Enquanto a <literal>splash screen</literal> está sendo
+	    exibida durante o processo de <literal>boot</literal>, ela
+	    pode ser desligada a qualquer momento pressionando
+	    qualquer tecla do teclado.</para>
 
-	  <para>A <literal>splash screen</literal> também é, por padrão, um protetor de
-	    tela quando fora do ambiente gráfico.  Depois de um
-	    certo período de ociosidade, a tela mudará
-	    para a <literal>splash screen</literal> e irá,
-	    ciclicamente, modificar a
-	    intensidade da imagem, de brilhante para muito escuro e
-	    começando novamente.  Esse comportamento padrão da
-	    <literal>splash screen</literal>
-	    (protetor de tela) pode ser sobreescrito
-	    adicionando a linha <literal>saver=</literal> ao arquivo
+	  <para>A <literal>splash screen</literal> também é, por
+	    padrão, um protetor de tela quando fora do ambiente
+	    gráfico.  Depois de um certo período de ociosidade, a tela
+	    mudará para a <literal>splash screen</literal> e irá
+	    modificar a intensidade da imagem de brilhante para muito
+	    escuro repetidamente.  Esse comportamento padrão da
+	    <literal>splash screen</literal>, como protetor de tela,
+	    pode ser sobreescrito adicionando a linha
+	    <literal>saver=</literal> ao arquivo
 	    <filename>/etc/rc.conf</filename>.  A opção
 	    <literal>saver=</literal> tem vários protetores de telas
 	    embutidos para escolher, a lista completa pode ser
@@ -691,15 +693,14 @@ boot:</screen>
 	    consoles virtuais.  Ela não tem efeito nos gerenciadores
 	    gráficos X11.</para>
 
-	  <para>Algumas mensagens do <literal>boot loader</literal>, incluindo o menu
-	    de opções e o contador de tempo de espera, são exibidas
-	    durante o <literal>boot</literal>, mesmo quando a
-	    <literal>splash screen</literal>
-	    está habilitada.</para>
+	  <para>Algumas mensagens do <literal>boot loader</literal>,
+	    incluindo o menu de opções e o contador de tempo de
+	    espera, são exibidas durante o <literal>boot</literal>,
+	    mesmo quando a <literal>splash screen</literal> está
+	    habilitada.</para>
 
 	  <para>Arquivos de exemplo da <literal>splash
-	    screen</literal> podem ser
-	    baixados da galeria em <ulink
+	    screen</literal> podem ser baixados da galeria em <ulink
 	    url="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</ulink>.
 	    Ao instalar o port <filename
 	    role="package">sysutils/bsd-splash-changer</filename>,
@@ -717,10 +718,10 @@ boot:</screen>
 	    partição raiz, por exemplo, no diretório <filename
 	    class="directory">/boot</filename>.</para>
 
-	  <para>Para utilizar a resolução padrão do <literal>boot</literal> (256 cores,
-	    320 por 200 pixels, ou menos), edite o
-	    <filename>/boot/loader.conf</filename>, e adicione o
-	    seguinte:</para>
+	  <para>Para utilizar a resolução padrão do
+	    <literal>boot</literal> (256 cores, 320 por 200 pixels, ou
+	    menos), edite o <filename>/boot/loader.conf</filename>, e
+	    adicione o seguinte:</para>
 
 	  <programlisting>splash_bmp_load="YES"
 bitmap_load="YES"
@@ -738,9 +739,9 @@ bitmap_name="<replaceable>/boot/splash.bmp</replaceable>"</programlisting>
 
 	  <para>As linhas acima assumem que o
 	    <filename><replaceable>/boot/splash.bmp</replaceable></filename>
-	    é usado para <literal>splash screen</literal>.  Quando um arquivo
-	    <acronym>PCX</acronym> for utilizado, use a seguinte
-	    configuração, adicionando a linha
+	    é usado para <literal>splash screen</literal>.  Quando um
+	    arquivo <acronym>PCX</acronym> for utilizado, use a
+	    seguinte configuração, adicionando a linha
 	    <literal>vesa_load="YES"</literal> dependendo da
 	    resolução.</para>
 
@@ -757,8 +758,8 @@ bitmap_load="YES"
 bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
 	  <para>O nome do arquivo não está restrito a
-	    <quote>splash</quote>, como mostrado no exemplo acima.  Ele
-	    pode ser qualquer coisa, desde que seja um dos tipos
+	    <quote>splash</quote>, como mostrado no exemplo acima.
+	    Ele pode ter qualquer nome, desde que seja um dos tipos
 	    referidos acima, tal como
 	    <filename><replaceable>splash_640x400</replaceable>.bmp</filename>
 	    ou
@@ -773,11 +774,11 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
 	      <listitem>
 		<para>Isso fará com que o menu de opções do
-		  <literal>boot</literal> não seja exibido, mas a contagem
-		  regressiva estará presente.  Mesmo com a exibição do
-		  menu desativada, digitando uma opção de seleção
-		  durante a contagem regressiva irá executar a opção
-		  correspondente.</para>
+		  <literal>boot</literal> não seja exibido, mas a
+		  contagem regressiva estará presente.  Mesmo com a
+		  exibição do menu desativada, digitando uma opção de
+		  seleção durante a contagem regressiva irá executar a
+		  opção correspondente.</para>
 	      </listitem>
 	    </varlistentry>
 
@@ -850,7 +851,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
 	  <listitem>
 	    <para>executa o UserConfig, o configurador do kernel
-	      usado durante <literal>boot</literal>.</para>
+	      usado durante o <literal>boot</literal>.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -925,7 +926,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
     <para>A sintaxe do arquivo <filename>/boot/device.hints</filename>
       é uma variável por linha, usando o caractere padrão cerquilha
       <quote>#</quote> como indicador de comentário.  As linhas são
-      feitas como a seguir:</para>
+      escritas como a seguir:</para>
 
     <screen><userinput>hint.driver.unidade.palavrachave="<replaceable>valor</replaceable>"</userinput></screen>
 
@@ -1045,10 +1046,10 @@ console none                            unknown off insecure</programlisting>
       </example>
 
       <note>
-	<para>Um console marcado como <literal>insecure</literal> significa que você
-	  não confia na segurança física do console, e quer
-	  assegurar que apenas quem conhece a senha do
-	  <username>root</username> pode usar o modo monousuário, e
+	<para>Um console marcado como <literal>insecure</literal>
+	  significa que você não confia na segurança física do
+	  console, e quer assegurar que apenas quem conhece a senha do
+	  <username>root</username> pode usar o modo monousuário,
 	  não significa que você quer executar o seu console de forma
 	  insegura.  Portanto, se você quer segurança, escolha
 	  <literal>insecure</literal>, ao invés de
@@ -1112,12 +1113,12 @@ console none                            unknown off insecure</programlisting>
       <username>root</username> ou membro do grupo
       <groupname>operator</groupname> para executar &man.shutdown.8;.
       Os comandos &man.halt.8; e &man.reboot.8; também podem ser
-      usados, por favor, consulte as páginas deles do manual e também
+      usados, por favor, consulte as páginas de manual deles e também
       a página do &man.shutdown.8; para mais informações.</para>
 
     <note>
-      <para>O gerenciamento de energia precisa do suporte ao &man.acpi.4;
-	no kernel ou carregado como módulo.</para>
+      <para>O gerenciamento de energia precisa do suporte ao
+	&man.acpi.4; no kernel ou carregado como módulo.</para>
     </note>
   </sect1>
 </chapter>
