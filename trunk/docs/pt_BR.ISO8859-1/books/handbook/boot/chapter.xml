@@ -902,7 +902,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       <primary>device.hints</primary>
     </indexterm>
 
-    <para>Durante o <literal>boot</literal> do sistema, o
+    <para>Durante a inicialização do sistema, o
       <literal>boot</literal> &man.loader.8; lerá o arquivo
       &man.device.hints.5;.  Esse arquivo armazena informações do
       <literal>boot</literal> do kernel conhecidas como variáveis,
@@ -913,11 +913,11 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       configura-los.</para>
 
     <para>Os ajustes dos dispositivos podem ser especificados também
-      no prompt da <link linkend="boot-loader">Etapa 3 da
-      inicialização</link>.  Variáveis podem ser adicionadas usando o
-      comando <command>set</command>, removidas com o comando
-      <command>unset</command> e visualizadas com o comando
-      <command>show</command>.  Variáveis definidas no arquivo
+      no prompt da <link linkend="boot-loader">Etapa 3 do
+      <literal>boot loader</literal></link>.  Variáveis podem ser
+      adicionadas usando o comando <command>set</command>, removidas
+      com o comando <command>unset</command> e visualizadas com o
+      comando <command>show</command>.  Variáveis definidas no arquivo
       <filename>/boot/device.hints</filename> também podem ser
       sobrescritas no prompt.  Ajustes dos dispositivos definidos no
       carregador de inicialização não são permanentes e serão
@@ -933,11 +933,11 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
     <screen><userinput>hint.driver.unidade.palavrachave="<replaceable>valor</replaceable>"</userinput></screen>
 
-    <para>A sintaxe para a Etapa 3 da inicialização é:</para>
+    <para>A sintaxe para a Etapa 3 do <literal>boot loader</literal> é:</para>
 
     <screen><userinput>set hint.driver.unidade.palavrachave=<replaceable>valor</replaceable></userinput></screen>
 
-    <para><literal>driver</literal> é o nome do
+    <para>O <literal>driver</literal> é o nome do
       <literal>driver</literal> do dispositivo,
       <literal>unidade</literal> é o número da unidade do
       <literal>driver</literal> do dispositivo, e
@@ -946,7 +946,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
     <itemizedlist>
       <listitem>
-	<para><literal>at</literal>: especifica o barramento a qual o
+	<para><literal>at</literal>: especifica o barramento ao qual o
 	  dispositivo está ligado.</para>
       </listitem>
 
@@ -962,7 +962,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
 
       <listitem>
 	<para><literal>drq</literal>: especifica o número do canal
-	  DMA. </para>
+	  DMA.</para>
       </listitem>
 
       <listitem>
@@ -981,30 +981,31 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       </listitem>
     </itemizedlist>
 
-    <para>Drivers de dispositivos podem aceitar (ou precisar) mais
+    <para>Drivers de dispositivos podem aceitar, ou precisar, de mais
       ajustes que não estão listados aqui, é recomendado consultar a
-      página do manual deles.  Para mais informações, consulte as
-      páginas do manual &man.device.hints.5;, &man.kenv.1;,
+      página de manual deles.  Para mais informações, consulte as
+      páginas de manual &man.device.hints.5;, &man.kenv.1;,
       &man.loader.conf.5;, e &man.loader.8;.</para>
   </sect1>
 
   <sect1 id="boot-init">
-    <title>Init: Processo de Controle da Inicialização</title>
+    <title>Init: Inicialização do Controle de Processos</title>
 
     <indexterm>
       <primary><command>init</command></primary>
     </indexterm>
 
-    <para>Quando o kernel termina a inicialização, ele passa o
-      controle para o processo &man.init.8; do usuário, que está
+    <para>Quando o kernel finaliza o processo de
+      <literal>boot</literal>, ele passa o
+      controle para o processo de usuário &man.init.8;, que está
       localizado em <filename>/sbin/init</filename>, ou no caminho
       definido na variável <envar>init_path</envar> no
-      <command>carregador</command>.</para>
+      <command>loader</command>.</para>
 
     <sect2 id="boot-autoreboot">
-      <title>Sequência Automática de Reinicialização</title>
+      <title>Sequência de Reinicialização Automática</title>
 
-      <para>A sequência automática de reinicialização assegura que os
+      <para>A sequência de reinicialização automática assegura que os
 	sistemas de arquivos disponíveis no sistema estão
 	consistentes.  Se eles não estiverem, e o &man.fsck.8; não
 	consertar as inconsistências, o &man.init.8; põe o sistema no
@@ -1014,16 +1015,16 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
     </sect2>
 
     <sect2 id="boot-singleuser">
-      <title>Modo Mono-Usuário</title>
+      <title>Modo Monousuário</title>
       <indexterm><primary>single-user mode</primary></indexterm>
       <indexterm><primary>console</primary></indexterm>
 
       <para>Esse modo pode ser alcançado através da <link
-      	linkend="boot-autoreboot">sequência automática de
-	reinicialização</link>, ou pelo usuário iniciando com o
-	parâmetro <option>-s</option> ou definindo a variável
+      	linkend="boot-autoreboot">sequência de
+	reinicialização automática</link>, ou pelo usuário, utilizando
+	o parâmetro <option>-s</option> no <literal>boot</literal> ou definindo a variável
 	<envar>boot_single</envar> no
-	<command>carregador</command>.</para>
+	<command>loader</command>.</para>
 
       <para>Ele também pode ser alcançado por chamar &man.shutdown.8;
 	sem os parâmetros reiniciar (<option>-r</option>) ou desligar
