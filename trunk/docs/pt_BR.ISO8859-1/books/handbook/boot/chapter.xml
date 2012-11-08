@@ -74,8 +74,6 @@
       operacional está no disco rígido, como o sistema operacional é
       iniciado?</para>
 
-<!-- Este 'para' esta realmente muito ruim.
-       Gostaria de opiniões nele -->
     <para>Esse problema é similar ao apresentado no livro
       <citetitle>As aventuras do Barão Munchausen</citetitle>.  Um
       personagem caiu no fundo de um bueiro, e puxou a si mesmo para
@@ -106,8 +104,6 @@
 
     <indexterm><primary>Boot Loader</primary></indexterm>
 
-<!-- Gostaria de deixar mais claro a diferença entre boot manager e
-boot loader -->
     <para>O código dentro do MBR é normalmente referido por
       <emphasis><literal>boot manager</literal></emphasis>
       (gerenciador de inicialização), especialmente quando ele
@@ -327,8 +323,8 @@ boot:</screen>
 	<title>O Arriscado Modo Dedicado</title>
 
 	<para>Se você usar apenas o nome do disco rígido, tal como
-	  <devicename>ad0</devicename>, no comando
-	  &man.bsdlabel.8; você irá criar um disco dedicado perigoso, sem
+	  <devicename>ad0</devicename>, no comando &man.bsdlabel.8;
+	  você irá criar um disco dedicado perigoso, sem
 	  <literal>slices</literal>.  É quase certo que não é isso que
 	  você quer fazer, então tenha certeza que você verificou o
 	  comando &man.bsdlabel.8; antes de apertar Enter.</para>
@@ -395,10 +391,10 @@ boot:</screen>
 	    <term>autoboot <replaceable>segundos</replaceable></term>
 
 	    <listitem>
-	      <para>Prossegue com o <literal>boot</literal> do kernel se não for
-		interrompido no tempo especificado, em segundos.
-		Exibe uma contagem regressiva, o valor padrão é 10
-		segundos.</para>
+	      <para>Prossegue com o <literal>boot</literal> do kernel
+		se não for interrompido no tempo especificado em
+		segundos.  Exibe uma contagem regressiva, o valor
+		padrão é 10 segundos.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -409,13 +405,13 @@ boot:</screen>
 
 	    <listitem>
 	      <para>Prossegue imediatamente com o
-	        <literal>boot</literal> do
-		kernel, com as opções especificadas, se houver
-		alguma, e com o nome do kernel, se este foi 
-		especificado.  Somente é possível especificar o nome
-		do kernel no prompt depois que o comando
-		<emphasis>unload</emphasis> for executado, senão o kernel
-		carregado anteriormente será usado.</para>
+	        <literal>boot</literal> do kernel, com as opções
+		especificadas, se houver alguma, e com o nome do
+		kernel, se este foi especificado.  Somente é possível
+		especificar o nome do kernel no prompt depois que o
+		comando <emphasis>unload</emphasis> for executado,
+		senão o kernel carregado anteriormente será
+		usado.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -425,8 +421,8 @@ boot:</screen>
 	    <listitem>
 	      <para>Passa pela mesma configuração automática dos
 		módulos, baseando-se nas variáveis do mesmo modo que
-		acontece no <literal>boot</literal>.  Isso somente faz sentido
-		se você primeiramente executar o comando
+		acontece no <literal>boot</literal>.  Isso somente
+		faz sentido se você primeiramente executar o comando
 		<command>unload</command> e mudar algumas variáveis,
 		mais comumente o <envar>kernel</envar>.</para>
 	    </listitem>
@@ -449,9 +445,10 @@ boot:</screen>
 	      &hellip;</term>
 
 	    <listitem>
-	      <para>Processa o arquivo especificado no comando.  O arquivo é
-		lido e interpretado linha por linha.  Quando um erro
-		é encontrado o comando para imediatamente.</para>
+	      <para>Processa o arquivo especificado no comando.  O
+		arquivo é lido e interpretado linha por linha.  Quando
+		um erro é encontrado o comando para
+		imediatamente.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -461,10 +458,9 @@ boot:</screen>
 	      <replaceable>arquivo</replaceable></term>
 
 	    <listitem>
-	      <para>Carrega o kernel, módulo do kernel, ou o arquivo do
-		tipo e nome especificado.  Qualquer argumento
-		após o nome do arquivo é passado para o
-		arquivo.</para>
+	      <para>Carrega o kernel, módulo do kernel, ou o arquivo
+		do tipo e nome especificado.  Qualquer argumento após
+		o nome do arquivo é passado para o arquivo.</para>
 	    </listitem>
 	  </varlistentry>
 
@@ -920,7 +916,7 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       comando <command>show</command>.  Variáveis definidas no arquivo
       <filename>/boot/device.hints</filename> também podem ser
       sobrescritas no prompt.  Ajustes dos dispositivos definidos no
-      carregador de inicialização não são permanentes e serão
+      <literal>boot loader</literal> não são permanentes e serão
       esquecidos na próxima reinicialização.</para>
 
     <para>Depois que o sistema é iniciado, o comando &man.kenv.1; pode
