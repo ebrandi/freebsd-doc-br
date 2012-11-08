@@ -1019,14 +1019,14 @@ bitmap_name="<replaceable>/boot/splash.bin</replaceable>"</programlisting>
       <indexterm><primary>single-user mode</primary></indexterm>
       <indexterm><primary>console</primary></indexterm>
 
-      <para>Esse modo pode ser alcançado através da <link
+      <para>Esse modo pode ser iniciado através da <link
       	linkend="boot-autoreboot">sequência de
 	reinicialização automática</link>, ou pelo usuário, utilizando
 	o parâmetro <option>-s</option> no <literal>boot</literal> ou definindo a variável
 	<envar>boot_single</envar> no
 	<command>loader</command>.</para>
 
-      <para>Ele também pode ser alcançado por chamar &man.shutdown.8;
+      <para>Ele também pode ser iniciado executando &man.shutdown.8;
 	sem os parâmetros reiniciar (<option>-r</option>) ou desligar
 	(<option>-h</option>), no modo <link
 	linkend="boot-multiuser">multiusuário</link>.</para>
@@ -1049,8 +1049,8 @@ console none                            unknown off insecure</programlisting>
       </example>
 
       <note>
-	<para>Console <literal>insecure</literal> significa que você
-	  considera insegura a segurança física do console, e quer
+	<para>Um console marcado como <literal>insecure</literal> significa que você
+	  não confia na segurança física do console, e quer
 	  assegurar que apenas quem conhece a senha do
 	  <username>root</username> pode usar o modo monousuário, e
 	  não significa que você quer executar o seu console de forma
@@ -1075,7 +1075,7 @@ console none                            unknown off insecure</programlisting>
 
 	<indexterm><primary>rc files</primary></indexterm>
 
-	<para>A configuração de recursos do sistema e as
+	<para>O sistema de configuração de recursos lê as
 	  configurações padrões do
 	  <filename>/etc/defaults/rc.conf</filename>, e os detalhes
 	  específicos do sistema do <filename>/etc/rc.conf</filename>,
@@ -1088,7 +1088,7 @@ console none                            unknown off insecure</programlisting>
 
 	<para>A página do manual do &man.rc.8; é uma boa referência
 	  para a configuração de recursos do sistema, assim como
-	  também examinar os scripts dos recursos.</para>
+	  examinar os scripts dos recursos.</para>
       </sect3>
     </sect2>
   </sect1>
@@ -1110,17 +1110,17 @@ console none                            unknown off insecure</programlisting>
 
     <para>Para desligar uma máquina FreeBSD em arquiteturas e sistemas
       que suportam gerenciamento de energia, use o comando
-      <command>shutdown -p now</command> para desligar a energia
+      <command>shutdown -p now</command> para desligar a máquina
       imediatamente.  Para reiniciar o sistema FreeBSD, use o comando
       <command>shutdown -r now</command>.  Você precisa ser
       <username>root</username> ou membro do grupo
       <groupname>operator</groupname> para executar &man.shutdown.8;.
       Os comandos &man.halt.8; e &man.reboot.8; também podem ser
-      usados, por favor consulte as páginas deles do manual e também
+      usados, por favor, consulte as páginas deles do manual e também
       a página do &man.shutdown.8; para mais informações.</para>
 
     <note>
-      <para>O gerenciamento de energia precisa do suporte &man.acpi.4;
+      <para>O gerenciamento de energia precisa do suporte ao &man.acpi.4;
 	no kernel ou carregado como módulo.</para>
     </note>
   </sect1>
