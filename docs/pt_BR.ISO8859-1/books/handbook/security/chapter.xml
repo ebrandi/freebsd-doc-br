@@ -402,7 +402,6 @@
 	serviços como FTP frequentemente caem através de falhas.  Acesso direto
 	do <username>root</username> só deve ser permitido via console do sistema.
 		</para>
-      <para>
 
       <indexterm>
 	<primary><groupname>wheel</groupname></primary>
@@ -447,7 +446,6 @@
       <screen>&prompt.root; <userinput>pw lock <replaceable>staff</replaceable></userinput></screen>
 
 		<para>
-
 			Dessa forma irá proibio que o usuário se log usando qualquer
 	mecanismo, incluido &man.ssh.1;.
 		</para>
