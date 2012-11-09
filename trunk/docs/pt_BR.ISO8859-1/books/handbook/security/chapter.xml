@@ -12,12 +12,11 @@
   <chapterinfo>
     <authorgroup>
       <author>
-	<firstname>Matthew</firstname>
-	<surname>Dillon</surname>
-	<contrib>
-		Muito desse capítulo foi retirado da página do manual
-		security(7)
-	</contrib>
+			<firstname>Matthew</firstname>
+			<surname>Dillon</surname>
+			<contrib>
+				Muito desse capítulo foi retirado da página do manual security(7)
+			</contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -30,11 +29,11 @@
     <title>Sinopse</title>
 
 	<para>
-		Esse capítulo proverá uma introdução básica aos conceitos do
+		Este capítulo proverá uma introdução básica aos conceitos do
 		sistema de segurança, algumas regras gerais de manuseio,
 		e alguns tópicos avançados sobre &os;.  Muitos dos tópicos cobertos
 		aqui, podem ser aplicados para sistemas e segurança da Internet
-		no geral.  A internet não é mais um lugar <quote>amistoso</quote>
+		em geral.  A internet não é mais um lugar <quote>amistoso</quote>
 		no qual cada um gostaria de ter somente bons vizinhos.  A segurança 
 		do seu sistema é imperativa para proteger seus dados, propriedade
 		intelectual, tempo, e muito mais das mãos dos harckers e 
@@ -58,7 +57,7 @@
       <listitem>
 			<para>
 				Vários mecanismos de criptografia disponível no &os;,	
-				tais como <acronym>DES</acronym> and <acronym>MD5</acronym>.
+				tais como <acronym>DES</acronym> e <acronym>MD5</acronym>.
 			</para>
 		</listitem>
 
@@ -70,7 +69,7 @@
 
       <listitem>
 			<para>
-				Como configurar invólucro para <acronym>TCP</acronym> com
+				Como configurar <acronym>TCP</acronym> <quote>wrapper</quote> com
 				<application>inetd</application>.
 			</para>
       </listitem>
@@ -155,7 +154,7 @@
 		individual dos administradores de sistema.  Máquinas são tão seguras
 		quanto se pode fazer, e preocupações com a segurança estão sempre 
 		competindo com a necessidade humana por conveniência.  Sistemas
-		&unix;, em geral, são capaz de rodar um grande número de processos
+		&unix;, em geral, são capazes de rodar um grande número de processos
 		simultâneos e muitos desses processos operam como servidores &mdash;
 		habilitando diversas entitades externas a se conectarem e se comunicarem.
 		Como no passado mini-computadores e mainframes se tornam os computadores
@@ -188,7 +187,7 @@
 
       <listitem>
 			<para>
-				Comprometimento do usuário root através de contas de usuários.
+				Comprometimento do usuário root através de contas de outros usuários.
 			</para>
       </listitem>
 
@@ -200,36 +199,36 @@
     </orderedlist>
 
     <indexterm>
-      <primary>DoS attacks</primary>
-      <see>Denial of Service (DoS)</see>
+      <primary>Ataques DoS</primary>
+      <see>Negação de Serviço (DoS)</see>
     </indexterm>
     <indexterm>
-      <primary>security</primary>
-      <secondary>DoS attacks</secondary>
-      <see>Denial of Service (DoS)</see>
+      <primary>Segurança</primary>
+      <secondary>Ataques DoS</secondary>
+      <see>Negação de Serviço (DoS)</see>
     </indexterm>
-    <indexterm><primary>Denial of Service (DoS)</primary></indexterm>
+    <indexterm><primary>Negação de Serviço (DoS)</primary></indexterm>
 	<para>
 			O ataque de negação de serviço (DoS), é uma ação que priva a máquina
 		dos recursos necessários.  Tipicamente, os ataques de DoS são mecanismos
-		de força bruta que tentam travar ou  fazer a máquina ficar inutilizável 
+		de força bruta que tentam travar ou fazer a máquina ficar inutilizável 
 		através de uma sobrecarga a seus serviços ou a pilha da rede.  
 		Alguns ataques de DoS tentam tirar vantagens de falhas na pilha
-		de rede para travar a máquina com um único pacote,  Este uúltimo só
+		de rede para travar a máquina com um único pacote,  Este último só
 		pode ser corrigido através de aplicação de uma correção de falha no 
 		<literal>kernel</literal>.  Ataques à serviços podem ser 
 		corrigidos/evitados através de configurações de opções específicas para
 		limitar a carga destes serviços em sistemas sob condições adversas.
-		Ataques de bruta força são difíceis de se lidar.  Um ataque de 
+		Ataques de força bruta são difíceis de se lidar.  Um ataque de 
 		<literal>spoofed-packet</literal>, por exemplo, é praticamente impossível
-		de parar, retire seu sistema da rede por um beve intervalo de tempo.
+		de parar, retira seu sistema da rede por um beve intervalo de tempo.
 		Isso pode não retirar seu serviço do ar, mas pode saturar a sua conexão
 		com a Internet.
 		</para>
 
     <indexterm>
-      <primary>security</primary>
-      <secondary>account compromises</secondary>
+      <primary>segurança</primary>
+      <secondary>Comprometimento de contas</secondary>
     </indexterm>
 
 	<para>
@@ -265,7 +264,7 @@
 	</para> 
 
     <indexterm>
-      <primary>security</primary>
+      <primary>segurança</primary>
       <secondary>backdoors</secondary>
     </indexterm>
 
@@ -274,222 +273,239 @@
 	várias maneiras em potencial para obter credenciais do usuário
 	<username>root</username> na sua máquina.  O atacante pode conhecer
 	a senha do usuário <username>root</username>, pode ter encontrado
-	um erro em algun serviço que está sendo executado comprivilégios
-	de root e pode obter 
+	uma vulnerabilidade em algun serviço que está sendo executado com 
+	privilégios de root e pode compromete-lo através de uma conexão via 
+	rede para este serviço, ou o atacante pode conhecer uma vulnerabilidade
+	em um programa com privelégios de root que pode comprometer o usuário 
+	<username>root</username>.  Uma vez que o atacante tenha conseguido
+	um meio de comprometer o usuário <username>root</username>, ele poderá
+	não ter a necessidade de instalar um <quote>backdoor</quote>.  Muitas 
+	das falhas encontradas e fechadas relacionadas ao usuário 
+	<username>root</username>, demandam de muito trabalho do atacante e 
+	posterior limpeza de seus rastros, por isso que os atacantes instalam 
+	<quote>backdoors</quote>.  Um <quote>backdoor</quote> provê ao
+	atacante uma maneira simples de obter acesso ao usuário
+	 <username>root</username> do sistema, mas isso também permite a um 
+	administrador de sistema esperto um conveniente meio de detectar a 
+	invasão.  Tornando a instalação de um <quote>backdoor</quote> impossível 
+	para um atacante pode ser prejucicial para a segurança, porque você não 
+	fechou a falha encontrada inicialmente por ele.
 	</para>
-    <para>System administrators must keep in mind that there are
-      potentially many ways to break <username>root</username> on a
-      machine.  The attacker may know the <username>root</username>
-      password, the attacker may find a bug in a root-run server and
-      be able to break <username>root</username> over a network
-      connection to that server, or the attacker may know of a bug in
-      a suid-root program that allows the attacker to break
-      <username>root</username> once he has broken into a user's
-      account.  If an attacker has found a way to break
-      <username>root</username> on a machine, the attacker may not
-      have a need to install a backdoor.  Many of the
-      <username>root</username> holes found and closed to date involve
-      a considerable amount of work by the attacker to cleanup after
-      himself, so most attackers install backdoors.  A backdoor
-      provides the attacker with a way to easily regain
-      <username>root</username> access to the system, but it also
-      gives the smart system administrator a convenient way to detect
-      the intrusion.  Making it impossible for an attacker to install
-      a backdoor may actually be detrimental to your security, because
-      it will not close off the hole the attacker found to break in
-      the first place.</para>
-
-    <para>Security remedies should always be implemented with a
-      multi-layered <quote>onion peel</quote> approach and can be
-      categorized as follows:</para>
+	<para>
+		A segurança deve ser sempre implementada em camadas como <quote>uma
+	cebola</quote> e deve ser categorizada como segue:
+	</para>
 
     <orderedlist>
       <listitem>
-	<para>Securing <username>root</username> and staff
-	  accounts.</para>
+      	<para>
+				Protegendo a conta do usuário <username>root</username> 
+			e as contas da equipe
+			</para>
+     	</listitem>
+
+      <listitem>
+			<para>
+				Proteção do usuário <username>root</username>&ndash;executando
+			serviços e programas com suid/sgid.
+			</para>
       </listitem>
 
       <listitem>
-	<para>Securing <username>root</username>&ndash;run servers
-	  and suid/sgid binaries.</para>
+			<para>Protegendo de contas de usuários.</para>
       </listitem>
 
       <listitem>
-	<para>Securing user accounts.</para>
+			<para>Protegendo do arquivo de senhas.</para>
       </listitem>
 
       <listitem>
-	<para>Securing the password file.</para>
+			<para>
+				Protegendo o núcleo do kernel, dispositivos raw e do sistema 
+			de arquivos.
+			</para>
       </listitem>
 
       <listitem>
-	<para>Securing the kernel core, raw devices, and
-	  file systems.</para>
+			<para>
+				Dedecção rápida de mudanças inapropriadas no sistema.
+	  		</para>
       </listitem>
 
       <listitem>
-	<para>Quick detection of inappropriate changes made to the
-	  system.</para>
-      </listitem>
-
-      <listitem>
-	<para>Paranoia.</para>
+			<para>Paranóia.</para>
       </listitem>
     </orderedlist>
 
-    <para>The next section of this chapter will cover the above bullet
-      items in greater depth.</para>
+  	<para>
+		A próxima seção deste capítulo cobrirá itens acima de forma aprofundada.
+	</para>
   </sect1>
 
   <sect1 id="securing-freebsd">
-    <title>Securing &os;</title>
+    <title>Protegendo o &os;</title>
 
     <indexterm>
-      <primary>security</primary>
-      <secondary>securing &os;</secondary>
+      <primary>segurança</primary>
+      <secondary>Protegendo o &os;</secondary>
     </indexterm>
 
     <note>
-      <title>Command Versus Protocol</title>
+      <title>Comando Versus Protocolo</title>
 
-      <para>Throughout this document, we will use
-	<application>bold</application> text to refer to an
-	application, and a <command>monospaced</command> font to refer
-	to specific commands.  Protocols will use a normal font.  This
-	typographical distinction is useful for instances such as ssh,
-	since it is a protocol as well as command.</para>
+		<para>
+			No decorrer deste documento, iremos utilizar o texto em
+		<application>negrito</application> para referenciar uma aplicação
+		e texto <command>monoespaçado</command> para referenciar um 
+		comando específico.  Protocolos irão utilizar o texto normal.
+		Essa distinção tipográfica é útil para casos como ssh, que ao 
+		mesmo tempo é um comando e um protocolo.
+		</para>
     </note>
 
-    <para>The sections that follow will cover the methods of securing
-      your &os; system that were mentioned in the <link
-	linkend="security-intro">last section</link> of this
-      chapter.</para>
+		<para>
+			A seção que segue, cobrirá os métodos de proteção do seu
+		&os; que foi mencionado na 
+		 <link linkend="security-intro">seção anterior</link>
+		deste capítulo.
+		</para>
 
     <sect2 id="securing-root-and-staff">
-      <title>Securing the <username>root</username> Account and
-	Staff Accounts</title>
+      <title>
+			Protegendo a conta do usuário <username>root</username> 
+		e as contas da equipe
+		</title>
 
       <indexterm>
-	<primary><command>su</command></primary>
+			<primary><command>su</command></primary>
       </indexterm>
 
-      <para>First off, do not bother securing staff accounts if you
-	have not secured the <username>root</username> account.  Most
-	systems have a password assigned to the
-	<username>root</username> account.  The first thing you do is
-	assume that the password is <emphasis>always</emphasis>
-	compromised.  This does not mean that you should remove the
-	password.  The password is almost always necessary for console
-	access to the machine.  What it does mean is that you should
-	not make it possible to use the password outside of the
-	console or possibly even with the &man.su.1; command.  For
-	example, make sure that your ptys are specified as being
-	insecure in the <filename>/etc/ttys</filename> file so that
-	direct <username>root</username> logins via
-	<command>telnet</command> or <command>rlogin</command> are
-	disallowed.  If using other login services such as
-	<application>sshd</application>, make sure that direct
-	<username>root</username> logins are disabled there as well.
-	You can do this by editing your
-	<filename>/etc/ssh/sshd_config</filename> file, and making
-	sure that <literal>PermitRootLogin</literal> is set to
-	<literal>no</literal>.  Consider every access method &mdash;
-	services such as FTP often fall through the cracks.  Direct
-	<username>root</username> logins should only be allowed via
-	the system console.</para>
+		<para>
+			Primeiramente, não adianta ter segurança nas contas dos suparios
+	se não tem na conta de <username>root</username>.  A maioria dos sistemas
+	tem uma senha associada ao usuário <username>root</username>.  A primeira
+	coisa que você deve assumir é que <emphasis>sempre</emphasis> a senha 
+	é compremetida.  Não significa que você deva remover a senha.  A senha
+	é quase sempre necessária para o console de acesso à máquina.  Isto
+	significa que você não deve utilizar a senha fora do console ou 
+	até mesmo com o comando &man.su.1;.  Por exemplo, tenha certeza que seus
+	ptys estão especificados como inseguros no arquivo 
+	<filename>/etc/ttys</filename> impossibilitando o login diretamente
+	do <username>root</username> via 
+	<command>telnet</command> ou <command>rlogin</command>.  Se está 
+	utilizando outro serviço de login como <application>sshd</application>,
+	tenha certeza que esteja desabilitado o login do <username>root</username>
+	também.  Você pode fazer isso editando o arquivo de configuração 
+	<filename>/etc/ssh/sshd_config</filename>, e tenha certeza que a opção
+	<literal>PermitRootLogin</literal> esteja configurada como 
+	<literal>não</literal>.  Considere cada método de acesso &mdash; e 
+	serviços como FTP frequentemente caem através de falhas.  Acesso direto
+	do <username>root</username> só deve ser permitido via console do sistema.
+		</para>
+      <para>
 
       <indexterm>
 	<primary><groupname>wheel</groupname></primary>
       </indexterm>
 
-      <para>Of course, as a sysadmin you have to be able to get to
-	<username>root</username>, so we open up a few holes.  But we
-	make sure these holes require additional password verification
-	to operate.  One way to make <username>root</username>
-	accessible is to add appropriate staff accounts to the
-	<groupname>wheel</groupname> group (in
-	<filename>/etc/group</filename>).  The staff members placed in
-	the <groupname>wheel</groupname> group are allowed to
-	<command>su</command> to <username>root</username>.  You
-	should never give staff members native
-	<groupname>wheel</groupname> access by putting them in the
-	<groupname>wheel</groupname> group in their password entry.
-	Staff accounts should be placed in a
-	<groupname>staff</groupname> group, and then added to the
-	<groupname>wheel</groupname> group via the
-	<filename>/etc/group</filename> file.  Only those staff
-	members who actually need to have <username>root</username>
-	access should be placed in the <groupname>wheel</groupname>
-	group.  It is also possible, when using an authentication
-	method such as Kerberos, to use Kerberos'
-	<filename>.k5login</filename> file in the
-	<username>root</username> account to allow a &man.ksu.1; to
-	<username>root</username> without having to place anyone at
-	all in the <groupname>wheel</groupname> group.  This may be
-	the better solution since the <groupname>wheel</groupname>
-	mechanism still allows an intruder to break
-	<username>root</username> if the intruder has gotten hold of
-	your password file and can break into a staff account.  While
-	having the <groupname>wheel</groupname> mechanism is better
-	than having nothing at all, it is not necessarily the safest
-	option.</para>
+		<para>
+			Claro que como administrador do sistema, você tem que ter
+	acesso ao <username>root</username>, então nos temos algumas
+	falhas abertas, mas tenha certeza que essas falhas requerem verificações
+	adicionais de senha para operar. Um meio de ter credenciais de 
+	<username>root</username> é adicionar as contas da equipes ao
+	grupo <groupname>wheel</groupname>, no arquivo 
+	<filename>/etc/group</filename>.  Os membros da equipe colocados
+	no grupo <groupname>wheel</groupname> tem permissão para utilizar
+	o comando <command>su</command> para tornar-se <username>root</username>.
+	  Você nunca deve dar aos membros da equipe acesso nativo ao 
+	grupo <groupname>wheel</groupname>, inserindo este grupo diretamente
+	no arquivo de senhas.  Os membros da equipe devem ser colocados no
+	grupo <groupname>staff</groupname> e posteriormente adicionados ao 
+	grupo <groupname>wheel</groupname> via arquivo 
+	<filename>/etc/group</filename>.  Somente assim os membros da equipe
+	que atualmente necessitam ter acesso ao <username>root</username>
+	devem ser colocados no grupo <groupname>wheel</groupname>.  Isso 
+	também é possível quando usuamos um método de autendicação tipo
+	kerberos, o arquivo <filename>.k5login</filename> deve ficar na 
+	conta do usuário <username>root</username> para pqermitir um
+   &man.ksu.1; para o usuário <username>root</username> sen ter a 
+	necessidade de colocar cada membro no grupo <groupname>wheel</groupname>.
+	  Essa maneira é a melhor solução deste o mecnismo de grupos 
+	permite a um intruso comprometer o usuário  <username>root</username>
+	se tiver acesso ao arquivo de senhas ele pode invadir a conta de um 
+	membro da equipe.  Apesar deste mecanismo de grupo 
+	<groupname>wheel</groupname> ser melhor que nada, não é 
+	necessariamente melhor opção.
+		</para>
 
-      <para>To lock an account completely, the &man.pw.8; command
-	should be used:</para>
+		<para>
+			Para bloquear uma conta completamente, o comando &man.pw.8;
+	deve ser utilizado.
+		</para>
 
       <screen>&prompt.root; <userinput>pw lock <replaceable>staff</replaceable></userinput></screen>
 
-      <para>This will prevent the user from logging in using any
-	mechanism, including &man.ssh.1;.</para>
+		<para>
 
-      <para>Another method of blocking access to accounts would be to
-	replace the encrypted password with a single
-	<quote><literal>*</literal></quote> character.  This character
-	would never match the encrypted password and thus block user
-	access.  For example, the following staff account:</para>
+			Dessa forma irá proibio que o usuário se log usando qualquer
+	mecanismo, incluido &man.ssh.1;.
+		</para>
+
+		<para>
+			Outro método para bloquear o acesso à contas pode ser a troca
+	da senha criptografada por um único caracter
+	 <quote><literal>*</literal></quote>.  Esse caracter jamais coincidirá
+	com a senha criptograda e assim irá bloquear o acesso do usuário.
+	Por exemplo, a seguinte conta de um membro da equipe:
+		</para>
 
       <programlisting>foobar:R9DT/Fa1/LV9U:1000:1000::0:0:Foo Bar:/home/foobar:/usr/local/bin/tcsh</programlisting>
 
-      <para>Should be changed to this:</para>
+      <para>Deverá ser alterado para:</para>
 
       <programlisting>foobar:*:1000:1000::0:0:Foo Bar:/home/foobar:/usr/local/bin/tcsh</programlisting>
 
-      <para>This will prevent the <username>foobar</username> user
-	from logging in using conventional methods.  This method for
-	access restriction is flawed on sites using
-	<application>Kerberos</application> or in situations where the
-	user has set up keys with &man.ssh.1;.</para>
+      <para>
+			Assim previnindo o usuário <username>foobar</username> 
+	de logar usando métodos convencionais.  Esse método para restringir
+	o acesso é falho em sítios que utilizam <application>Kerberos</application>
+	ou em situações onde o usuário tem um conjunto de chaves definidos com 
+	&man.ssh.1;
 
-      <para>These security mechanisms also assume that you are logging
-	in from a more restrictive server to a less restrictive
-	server.  For example, if your main box is running all sorts of
-	servers, your workstation should not be running any.  In order
-	for your workstation to be reasonably secure you should run as
-	few servers as possible, up to and including no servers at
-	all, and you should run a password-protected screen blanker.
-	Of course, given physical access to a workstation an attacker
-	can break any sort of security you put on it.  This is
-	definitely a problem that you should consider, but you should
-	also consider the fact that the vast majority of break-ins
-	occur remotely, over a network, from people who do not have
-	physical access to your workstation or servers.</para>
+		<para>
+			Esses mecanismos de segurança também assume que você está
+	vindo de um servidor mais restritivo para um menos restritivo.
+	Por exemplo, se seu sistema principal está rodando vários serviços,
+	sua estação de trabalho deverá executar poucos ou nenhum.  Afim de 
+	que sua estação seja razoavelmente segura, você deve executar poucos 
+	ou nenhum serviço, e deverá contar com um protetor de telas com 
+	senha.  Claro que um acesso físico a estação de trabalho, o atacante
+	poderá invadir qualquer tipo de segurança que ela tiver.  Isso é 
+	definitivamente, um problema que você deve considerar, mas deve
+	também considerar que o fato grande maioria de infasões ocorrem
+	remotamente, através da rede, por pessoas que não rem  acesso
+	físico à suas estações de trabalho ou à seus servidores.
+		</para>	
 
-      <para>Using something like Kerberos also gives you the ability
-	to disable or change the password for a staff account in one
-	place, and have it immediately affect all the machines on
-	which the staff member may have an account.  If a staff
-	member's account gets compromised, the ability to instantly
-	change his password on all machines should not be underrated.
-	With discrete passwords, changing a password on N machines can
-	be a mess.  You can also impose re-passwording restrictions
-	with Kerberos: not only can a Kerberos ticket be made to
-	timeout after a while, but the Kerberos system can require
-	that the user choose a new password after a certain period of
-	time (say, once a month).</para>
+		<para>
+			Usando algo como o Kerberos que também permite que você
+	desabilite ou mude a senha de uma conta centralizada, e tem 
+	efeito imediatamente em todas as máquinas nas quais o membro da
+	equipe tenha conta.  Se a conta de usuário foi comprometida, a 
+	abilidade de mudar instantaneamente a senha em todas as máquinas 
+	não deve ser subestimada.  Com senhas descentralizadas, trocar a 
+	senha em N máquinas pode vira uma bagunça.  Você pode também impor 
+	restrições de reutilização de senhas com o Kerberos:  Não somente pode
+	um ticket autenticação ter vida curta, mas o systema kerberos pode
+	solicitar que o usuário troque sua senha de tempos em tempos (por
+	exemplo, de mês em mês).
+		</para>
     </sect2>
 
     <sect2>
-      <title>Securing Root-run Servers and SUID/SGID Binaries</title>
+      <title>Segurança de Serviços executados como root e Binários com
+		SUID/SGID</title>
 
       <indexterm>
 	<primary><command>ntalk</command></primary>
