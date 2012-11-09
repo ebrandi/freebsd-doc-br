@@ -472,6 +472,7 @@
 	o acesso é falho em sítios que utilizam <application>Kerberos</application>
 	ou em situações onde o usuário tem um conjunto de chaves definidos com 
 	&man.ssh.1;
+		</para>
 
 		<para>
 			Esses mecanismos de segurança também assume que você está
