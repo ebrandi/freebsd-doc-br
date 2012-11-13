@@ -997,36 +997,39 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
   <sect1 id="using-bsdinstall">
-    <title>Introducing <application>bsdinstall</application></title>
+    <title>Introdução ao <application>bsdinstall</application></title>
 
-    <para><application>bsdinstall</application> is a text-based &os;
-      installer program written by &a.nwhitehorn; and introduced in
-      2011 for &os;&nbsp;9.0.</para>
+    <para><application>bsdinstall</application> é um programa modo
+      texto usado para instalar o &os;, escrito por &a.nwhitehorn; e
+      introduzido em 2011 para o &os;&nbsp;9.0.</para>
 
     <note>
-      <para>&a.kmoore;'s <application>pc-sysinstall</application> is
-	included with <ulink url="http://pcbsd.org">PC-BSD</ulink>,
-	and can also be used to <ulink
-	  url="http://wiki.pcbsd.org/index.php/Use_PC-BSD_Installer_to_Install_FreeBSD">
-	  install &os;</ulink>.  Although sometimes confused with
-	<application>bsdinstall</application>, the two are not
-	related.</para>
+      <para><application>pc-sysinstall</application> escrito por
+	&a.kmoore; é usado pelo <ulink
+	url="http://pcbsd.org">PC-BSD</ulink> e também pode ser usado
+	para <ulink
+	url="http://wiki.pcbsd.org/index.php/Use_PC-BSD_Installer_to_Install_FreeBSD">instalar
+	o &os;</ulink>. Apesar de algumas vezes ser confundido com o
+	<application>bsdinstall</application>, os dois não são
+	relacionados.</para>
     </note>
 
-    <para>The <application>bsdinstall</application> menu system is
-      controlled by the arrow keys, <keycap>Enter</keycap>,
-      <keycap>Tab</keycap>, <keycap>Space</keycap>, and other
-      keys.</para>
+    <para>O sistema de menu do <application>bsdinstall</application> é
+      controlado pelas teclas direcionais, <keycap>Enter</keycap>,
+      <keycap>Tab</keycap>, <keycap>Space</keycap> e outras
+      teclas.</para>
 
     <sect2 id="bsdinstall-keymap">
-      <title>Selecting the Keymap Menu</title>
+      <title>Selecionando o Menu <literal>Keymap</literal>
+	(Layout de Teclado)</title>
 
-      <para>Depending on the system console being used,
-	<application>bsdinstall</application> may initially prompt to
-	select a non-default keyboard layout.</para>
+      <para>Dependendo do console do sistema usado,
+      	<application>bsdinstall</application> pode pedir inicialmente
+	para selecionar um layout de teclado que não seja o
+        padrão.</para>
 
       <figure id="bsdinstall-keymap-select-default">
-	<title>Keymap Selection</title>
+	<title>Selação do <literal>Keymap</literal></title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata
@@ -1036,13 +1039,13 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>If <guibutton>[&nbsp;YES&nbsp;]</guibutton> is selected,
-	the following keyboard selection screen will be displayed.
-	Otherwise, this selection menu will not be displayed, and a
-	default keyboard mapping will be used.</para>
+      <para>Se <guibutton>[&nbsp;YES&nbsp;]</guibutton> for
+	selecionado, a seguinte tela de seleção de teclado será
+	exibida.  Senão, esse menu de seleção não será exibido e o
+	layout padrão de teclado será usado.</para>
 
       <figure id="bsdinstall-config-keymap">
-	<title>Selecting Keyboard Menu</title>
+	<title>Menu de Seleção do Teclado</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-config-keymap"
@@ -1051,27 +1054,28 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Select the keymap that most closely represents the mapping
-	of the keyboard attached to the system, using the up/down
-	arrow keys and pressing <keycap>Enter</keycap>.</para>
+      <para>Selecione o layout de teclado que mais se aproxima ao
+	layout do teclado usado no sistema, utilizando as teclas
+	direcionais cima/baixo e pressionando
+	<keycap>Enter</keycap>.</para>
 
       <note>
-	<para>Pressing <keycap>Esc</keycap> will use the default
-	  keymap.  <guimenuitem>United States of America
-	    ISO-8859-1</guimenuitem> is also a safe option if the
-	  choice of keymap is not clear.</para>
+	<para>Pressionando <keycap>Esc</keycap> irá usar o layout
+	  padrão.  <guimenuitem>United States of America
+	  ISO-8859-1</guimenuitem> é uma opção segura se a escolha do
+	  layout de teclado não estiver clara.</para>
       </note>
     </sect2>
 
     <sect2 id="bsdinstall-hostname">
-      <title>Setting the Hostname</title>
+      <title>Definindo o <literal>Hostname</literal></title>
 
-      <para>Next, <application>bsdinstall</application> will prompt
-	for the hostname to be given to the newly installed
-	system.</para>
+      <para>Em seguida, <application>bsdinstall</application> pedirá o
+	<literal>hostname</literal> (nome da máquina) que será dado
+	para o novo sistema instalado.</para>
 
       <figure id="bsdinstall-config-hostname">
-	<title>Setting the Hostname</title>
+	<title>Definindo o <literal>Hostname</literal></title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-config-hostname"
@@ -1080,19 +1084,20 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>The entered hostname should be a fully-qualified hostname,
-	such as
-	<hostid role="fqdn">machine3.example.com</hostid></para>
+      <para>O <literal>hostname</literal> digitado deve ser um
+	<literal>hostname</literal> completo, tal como <hostid
+	role="fqdn">machine3.example.com</hostid></para>
     </sect2>
 
     <sect2 id="bsdinstall-components">
-      <title>Selecting Components to Install</title>
+      <title>Selecionando os Componentes para Instalar</title>
 
-      <para>Next, <application>bsdinstall</application> will prompt to
-	select optional components to install.</para>
+      <para>Em seguida, <application>bsdinstall</application> pedirá
+	para selecionar os componentes opcionais para
+	  instalar.</para>
 
       <figure id="bsdinstall-config-components">
-	<title>Selecting Components to Install</title>
+	<title>Selecionando os Componentes para Instalar</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata
@@ -1102,70 +1107,73 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Deciding which components to install will depend largely
-	on the intended use of the system and the amount of disk space
-	available.  The &os; Kernel and userland (collectively the
-	<quote>base system</quote>) are always installed.</para>
+      <para>Decidir quais componentes serão instalados depende muito
+	da intenção de uso para o sistema e do espaço em disco
+	disponível.  O Kernel do &os; e a
+	<literal>userland</literal> (coletivamente a <quote>base do
+	sistema</quote>) sempre são instalados.</para>
 
-      <para>Depending on the type of installation, some of these
-	components may not appear.</para>
+      <para>Dependendo do tipo da instalação, alguns componentes podem
+	não aparecer.</para>
 
       <itemizedlist>
-	<title>Optional Components</title>
+	<title>Componentes Opcionais</title>
 
 	<listitem>
-	  <para><literal>doc</literal> - Additional documentation,
-	    mostly of historical interest.  Documentation provided by
-	    the &os; Documentation Project may be installed
-	    later.</para>
+	  <para><literal>doc</literal> - Documentação adicional,
+	    geralmente de interesse histórico.  A documentação provida
+	    pelo Projeto de Documentação do &os; pode ser instalada
+	    depois.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>games</literal> - Several traditional BSD
-	    games, including <application>fortune</application>,
-	    <application>rot13</application>, and others.</para>
+	  <para><literal>games</literal> - Vários jogos BSD
+	    tradicionais, incluindo
+	    <application>fortune</application>,
+	    <application>rot13</application> e outros.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>lib32</literal> - Compatibility libraries for
-	    running 32-bit applications on a 64-bit version of
+	  <para><literal>lib32</literal> - Bibliotecas de
+	    compatibilidade para executar aplicativos 32-bit em uma
+	    versão 64-bit do &os;.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>ports</literal> - A Coleção Ports do
 	    &os;.</para>
-	</listitem>
 
-	<listitem>
-	  <para><literal>ports</literal> - The &os; Ports
-	    Collection.</para>
-
-	  <para>The ports collection is an easy and convenient way to
-	    install software.  The Ports Collection does not contain
-	    the source code necessary to compile the software.
-	    Instead, it is a collection of files which automates the
-	    downloading, compiling and installation of third-party
-	    software packages.  <xref linkend="ports"/> discusses how
-	    to use the ports collection.</para>
+	  <para>A coleção de ports é um modo fácil e conveniente de
+	    instalar software.  A Coleção Ports não contém o código
+	    fonte necessário para compilar o software.  Ao invés, ela
+	    é uma coleção de arquivos que automatiza o download,
+	    compilação e instalação de pacotes de software de
+	    terceiros. <xref linkend="ports" /> discute sobre como usar
+	    a coleção de ports.</para>
 
 	  <warning>
-	    <para>The installation program does not check to see if
-	      you have adequate space.  Select this option only if you
-	      have adequate hard disk space.  As of &os;&nbsp;9.0, the
-	      &os; Ports Collection takes up about &ports.size; of
-	      disk space.  You can safely assume a larger value for
-	      more recent versions of &os;.</para>
+	    <para>O programa de instalação não checa se você tem
+	      espaço suficiente.  Selecione essa opção somente se você
+	      tiver espaço suficiente no disco rígido.  No
+	      &os;&nbsp;9.0, a Coleção Ports usa cerca de &ports.size;
+	      de espaço em disco.  Você pode seguramente assumir um
+	      valor maior para versões mais recentes do &os;.</para>
 	  </warning>
 	</listitem>
 
 	<listitem>
-	  <para><literal>src</literal> - System source code.</para>
+	  <para><literal>src</literal> - Código fonte do sistema.</para>
 
-	  <para>&os; comes with full source code for both the kernel
-	    and the userland.  Although not required for the majority
-	    of applications, it may be required to build certain
-	    software supplied as source (for example, device drivers
-	    or kernel modules), or for developing &os; itself.</para>
+	  <para>&os; vem com o código fonte completo tanto do kernel
+	    quanto da base do sistema.  Embora não seja requerido
+	    para a maioria dos aplicativos, ele pode ser requerido
+	    para compilar alguns softwares (por exemplo, drivers de
+	    dispositivos ou módulos do kernel) ou para desenvolver o
+	    &os; em si.</para>
 
-	  <para>The full source tree requires 1&nbsp;GB of disk space,
-	    and recompiling the entire &os; system requires an
-	    additional 5&nbsp;GB of space.</para>
+	  <para>A árvore completa de código requer 1&nbsp;GB de espaço
+	    em disco e recompilar o sistema &os; inteiro requer um
+	    espaço adicional de 5&nbsp;GB.</para>
 	</listitem>
       </itemizedlist>
     </sect2>
