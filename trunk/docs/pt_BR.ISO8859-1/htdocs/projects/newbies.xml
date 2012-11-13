@@ -144,65 +144,78 @@
     <h2><a name="derived">Aprendendo sobre os projetos derivados do 
       &os;</a></h2>
 
-    <p>&os; is widely used as a building block for other commercial
-      and open-source operating systems.  Some of the most widely used
-      and publicly available systems are listed below.</p>
-
+    <p>O FreeBSD é amplamente utilizado como base para o
+      desenvolvimento de outros sistemas operacionais comerciais e de
+      código aberto.  Alguns dos sistemas mais amplamente utilizados e
+      publicamente disponíveis estão listados abaixo.</p>
+    
     <ul>
-      <li><p><a href="http://www.pcbsd.org">PC-BSD</a> is a &os;
-        derivative with a graphical installer and impressive desktop
-        tools aimed at ease of use for the casual computer
-        user.</p></li>
+      <li><p>O <a href="http://www.pcbsd.org">PC-BSD</a> é um derivado
+	do &os; o qual possui um instalador gráfico e um conjunto
+	impressionante de ferramentas de desktop destinadas a
+	facilitar o uso do sistema por parte de um usuário casual de
+	computadores.</p></li>
+      
+      <li><p>O <a href="http://www.freesbie.org/">FreeSBIE</a> é um 
+	LiveCD baseado no &os;.  Ele executa diretamente a partir de 
+	um CD, sem tocar no seu disco rígido.  Ele também inclui um 
+	conjunto de ferramentas simples e de fácil extensão, o qual 
+	pode ser utilizado para a criação de imagens 
+	embutidas.</p></li>
 
-      <li><p><a href="http://www.freesbie.org/">FreeSBIE</a> is a
-        LiveCD based on &os;.  It works directly from a CD, without
-        touching your hard drive.  It also includes a simple and easily
-        extendable toolkit used for the creation of embedded
-        images.</p></li>
-
-      <li><p>Apple's <a href="http://www.apple.com/macosx">Mac OS
-        X</a>
-        is <a href="http://www.apple.com/server/macosx/technology/unix.html">based
-        in part</a> on &os; and includes a rich &unix; foundation in
-        addition to the proprietary Apple user interface.</p></li>
+      <li><p>O <a href="http://www.apple.com/macosx">Mac OS
+        X</a> da Apple é <a 
+	href="http://www.apple.com/server/macosx/technology/unix.html">em 
+	parte baseado</a> no &os; e inclui uma rica base &unix; além
+	da interface de usuário proprietária da Apple.</p></li>
     </ul>
 
-    <h2><a name="unix">Learning about &unix;</a></h2>
+    <h2><a name="unix">Aprendendo sobre o &unix;</a></h2>
 
-    <p>Many of the problems we have as newbies come from being unfamiliar
-      with the UNIX commands, needed to fix our &os; problems.
-      Without a UNIX background you will be faced with two things to learn
-      at once. Fortunately a lot of resources are available to make this
-      easier.</p>
-
+    <p>Muitos dos problemas que nós temos quando somos iniciantes
+      ocorrem por não termos familiaridade com os comandos do &unix;,
+      necessários para corrigir os nossos problemas com o &os;.  Sem
+      um conhecimento prévio do universo &unix; você será confrontado
+      com duas coisas para aprender ao mesmo tempo.  Felizmente,
+      existe uma grande quantidade de recursos disponíveis para tornar
+      este processo de aprendizado mais fácil.</p>
+    
     <ul>
-      <li><p>The <a href="&url.books;/handbook/basics.html">&unix;
-	  Basics</a> chapter of the &os; Handbook covers the basic
-	  commands and functionality of &os; operating system.  Most
-	  of information provided in this document is also relevant for
-	  any other &unix;-like operating system.</p></li>
-
-      <li><p>There are many easy books, such as the "Dummies" guides, in any
-	  large book shop. If you want something really easy, take a look at
-	  what is available and pick one that seems to speak your language.
-	  Pretty soon you will want to move on to a book that gives more
-	  coverage.</p></li>
-
-      <li><p>One book mentioned frequently by newbies is <a name="ufti"><em>UNIX for
-	  the Impatient</em></a> by Paul W. Abrahams and Bruce R. Larson, published
-	  by Addison-Wesley. It is intended both as a book for learning UNIX
-	  and a reference, and includes an introduction to UNIX concepts and
-	  handy chapter on using the X Window System.</p></li>
-
-      <li><p>Another popular book is <em>UNIX Power Tools</em> by Jerry Peek,
-	  Tim O'Reilly and Mike Loukides, published by O'Reilly and
-	  Associates. It is organized as a series of short articles each of
-	  which solves a problem, and these articles are cross-referenced to
-	  other articles with related material. Though not specifically aimed
-	  at newbies, the design makes it ideal for a newbie with a burning
-	  question or the odd few minutes to browse. More elementary material
-	  is near the front of the book, but there are short easy articles
-	  throughout.</p></li>
+      <li><p> O capítulo <a href="&url.books;/handbook/basics.html">&unix;
+	Básico</a> do Handbook do &os; cobre os comandos e as
+	funcionalidades básicas do sistema operacional &os;.  A maior
+	parte das informações disponibilizadas neste documento também
+	são relevantes para qualquer outro sistema operacional similar
+	ao &unix;.</p></li>
+      
+      <li><p>Existem muitos livros fáceis, tais como os livros da
+	série "Guias para Leigos", em qualquer grande livraria.  Se
+	você quiser algo realmente fácil, dê uma olhada no que estiver
+	disponível na livraria e escolha um que pareça falar a sua
+	língua.  Muito em breve, você vai querer passar para um livro
+	que tenha uma cobertura mais completa do assunto.</p></li>
+	
+      <li><p>Um livro citado com frequência por novatos é o "<a
+	name="utfi"><em>&unix; para impacientes</em></a>" de 
+	autoria de Paul W. Abrahams e Bruce R. Larson, publicado 
+	pela Addison-Wesley. Este livro se propõe a
+	ser tanto um livro para aprendizado do &unix; quanto uma
+	referência sobre o sistema, e inclui uma introdução aos
+	conceitos do &unix; e um útil capítulo sobre a utilização do
+	sistema X Window.</p></li>
+      
+      <li><p>Outro livro popular é o <em>&unix; Power Tools</em> de 
+	autoria de Jerry Peek, Tim O'Reilly e Mike Loukides, publicado
+	pela O'Reilly e Associados. Ele está organizado na forma de 
+	uma série de pequenos artigos e cada um deles se propõe a 
+	resolver um problema, e eles são referenciados entre entre 
+	si quando os temas são complementares.  Embora não seja um 
+	livro dirigido especificamente para um usuário iniciante, o 
+	seu design o torna ideal para um novato que tenha alguma 
+	pergunta rápida ou que tenha apenas alguns minutos para 
+	navegar.  O material mais básico está concentrado no inicio 
+	do livro, porém existem artigos fáceis ao longo de toda a 
+	obra.</p></li>
 
       <li>
 	<p>A <a href="http://www.cs.duke.edu/csl/docs/unix_course/">UNIX
