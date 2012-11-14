@@ -289,28 +289,31 @@
 
     <h2><a name="people">Ajudando outras pessoas</a></h2>
 
-    <p>Everyone has something to contribute to the &os; community, even
-     newbies! Some are busy working with the new advocacy group and some have
-     become involved with the
-     <a href="&base;/docproj/docproj.html">Documentation Project</a> as reviewers.
-     Other &os; newbies might have particular skills and experiences to
-     share, either computer related or not, or just want to meet new
-     newbies and make them feel welcome. There are always people around
-     who help others simply because they like to.</p>
+    <p>Todos têm algo a contribuir para a comunidade FreeBSD, mesmo os
+      usuários iniciantes! Alguns estão ocupados trabalhando na
+      divulgação do sistema para outros usuários, outros estão
+      ajudando o <a href="&base;/docproj/docproj.html">Projeto de 
+      Documentação</a> atuando como revisores.
+      Outros novatos no FreeBSD podem ter habilidades específicas e
+      experiências para compartilhar, sejam elas relacionadas ou não a
+      computadores, muitos querem conhecer novos usuários iniciantes
+      para fazê-los se sentirem bem vindos. Sempre existem pessoas que
+      ajudam as outras pessoas que estão a sua volta simplesmente
+      porque gostam.</p>
+    
+    <p>Ter amigos que utilizem o &os; é valioso.  Nenhum livro
+      substitui uma conversa ao telefone ou durante uma pizza com
+      alguém que possui os mesmos interesses, que aprecia as mesmas
+      coisas e que enfrenta os mesmos desafios.  Se você não possui
+      muitos amigos que usem o &os;, considere usar os seus antigos
+      CDs do &os; para apresentar o sistema para outras pessoas.</p>
+    
+    <p>Os <a href="&base;/usergroups.html">grupos de usuários</a> são
+      ótimos lugares para se encontrar outros usuários do &os;.  Se
+      não existir nenhum próximo a você, considere iniciar um!</p>
 
-    <p>Friends who run &os; are a great resource. No book can replace
-      chatting on the phone or across a pizza with someone who has the
-      same interests, enjoys similar accomplishments, and faces the same
-      challenges. If you do not have many friends who use &os;,
-      consider using your old &os; CDs to create some more.</p>
-
-    <p><a href="&base;/usergroups.html">User groups</a> are
-      good places to meet other &os; users. If there is no one nearby,
-      you might consider starting one!</p>
-
-    <p>Before talking to real humans about your new skills, you might
-      want to check the <a
-      href="http://www.catb.org/jargon/">Jargon File</a>.</p>
-
+    <p>Antes de conversar com outras pessoas sobre as suas novas 
+      habilidades, você pode querer verificar antes o <a 
+      href="http://www.catb.org/jargon/">arquivo de jargões</a>.</p>
   </body>
 </html>
