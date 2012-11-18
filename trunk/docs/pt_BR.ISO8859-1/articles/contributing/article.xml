@@ -9,7 +9,7 @@
      The FreeBSD Documentation Project
      The FreeBSD Brazilian Portuguese Documentation Project
 
-     Original revision: r39955
+     Original revision: r39964
 
      $FreeBSD$
 -->
@@ -432,41 +432,24 @@
 
       <para>O formato preferido do &man.diff.1; para enviar um
 	<literal>patch</literal>, é o formato de saída
-	unificada gerado por <command>diff -u</command>.  No entando,
-	para <literal>patches</literal> que alterem substancialmente
-	uma região do código, o formato de saída
-	de contexto gerada por <command>diff -c</command> pode ser
-	mais legível e por isso preferido.</para>
+	unificada gerado por <command>diff -u</command>.</para>
 
       <indexterm>
 	<primary><command>diff</command></primary>
       </indexterm>
 
-      <para>Por exemplo:</para>
-
-      <screen>&prompt.user; <userinput>diff -c oldfile newfile</userinput></screen>
-
-      <para>ou</para>
-
-      <screen>&prompt.user; <userinput>diff -c -r olddir newdir</userinput></screen>
-
-      <para>geraria o tal conjunto de <literal>diffs</literal> de 
-	contexto para um dado arquivo de código ou para uma 
-	hierarquia de diretórios.</para>
-
-      <para>Da mesma forma,</para>
-
       <screen>&prompt.user; <userinput>diff -u oldfile newfile</userinput></screen>
 
       <para>ou</para>
 
-      <screen>&prompt.user; <userinput>diff -u -r olddir newdir</userinput></screen>
+      <screen>&prompt.user; <userinput>diff -u -r -N olddir newdir</userinput></screen>
 
-      <para>faria o mesmo, exceto que utilizando o formato de
-	<literal>diff</literal> unificado.</para>
+      <para>deverá gerar um conjunto de <literal>diffs</literal>
+	unificados para arquivo de origem informado ou hierarquia de
+	diretórios.</para>
 
       <para>Consulte o manual do &man.diff.1; para maiores
-	detalhes.</para>
+	informações.</para>
 
       <para>Uma vez que você tenha o conjunto de
 	<literal>diffs</literal> (os quais você pode testar com
@@ -498,15 +481,13 @@
 	com o &man.shar.1; também são bem vindos.</para>
 
       <para>Se suas mudanças são de uma natureza
-	potencialmente sensível, por ex.  você
-	está inseguro sob quais políticas de direito
+	potencialmente sensível, tais como você
+	estar inseguro sob quais políticas de direito
 	autoral as novas versões serão
-	distribuídas ou se você simplesmente não
-	está pronto para liberá-las sem realizar
-	primeiro uma revisão cuidadosa; então,
-	você deve enviá-las diretamente para o &a.core;
-	ao invés de submetê-las com o &man.send-pr.1;.  A
-	&a.core; alcança um grupo muito menor de pessoas que
+	distribuídas, então você deve enviá-las
+	diretamente para o &a.core; ao invés de
+	submetê-las com o &man.send-pr.1;.  A &a.core;
+	alcança um grupo muito menor de pessoas que
 	cuidam de muitas das tarefas diárias do FreeBSD.
 	Observe que este grupo também é <emphasis>muito
 	  ocupado</emphasis> e assim você só deve enviar
