@@ -1180,16 +1180,16 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
   <sect1 id="bsdinstall-netinstall">
-    <title>Installing from the Network</title>
+    <title>Instalando Pela Rede</title>
 
-    <para>The <emphasis>bootonly</emphasis> installation media does
-      not hold copies of the installation files.  When a
-      <emphasis>bootonly</emphasis> installation method is used, the
-      files must be retrieved over a network connection as they are
-      needed.</para>
+    <para>A mídia de instalação <emphasis>bootonly</emphasis> não
+      possui os arquivos de instalação.  Quando o método de instalação
+      <emphasis>bootonly</emphasis> é usando, os arquivos precisam ser
+      obtidos através da conexão de rede conforme são
+      requeridos.</para>
 
     <figure id="bsdinstall-netinstall-notify">
-      <title>Installing from the Network</title>
+      <title>Instalando Pela Rede</title>
 
       <mediaobject>
 	<imageobject>
@@ -1199,16 +1199,17 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </mediaobject>
     </figure>
 
-    <para>After the network connection has been configured as shown in
-      <xref linkend="bsdinstall-config-network-dev"/>, a mirror site is
-      selected.  Mirror sites cache copies of the &os; files.  Choose
-      a mirror site located in the same region of the world as the
-      computer on which &os; is being installed.  Files can be
-      retrieved more quickly when the mirror is close to the target
-      computer, and installation time will be reduced.</para>
+    <para>Após a conexão de rede ser configurada como mostrado em
+      <xref linkend="bsdinstall-config-network-dev"/>, um site espelho
+      é selecionado.  Sites espelhos possuem cópias dos arquivos do
+      &os;.  Escolha um site espelho localizado na mesma região do
+      mundo em que está o computador no qual o &os; será instalado.
+      Os arquivos podem ser obtidos mais rapidamente quando o espelho
+      está próximo ao computador alvo e o tempo de instalação será
+      reduzido.</para>
 
     <figure id="bsdinstall-netinstall-mirror">
-      <title>Choosing a Mirror</title>
+      <title>Escolhendo um Espelho</title>
 
       <mediaobject>
 	<imageobject>
@@ -1219,24 +1220,25 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </mediaobject>
     </figure>
 
-    <para>Installation will continue as if the installation files
-      were located on local media.</para>
+    <para>A instalação continuará como se os arquivos de instalação
+      estivessem localizados na mídia local.</para>
   </sect1>
 
   <sect1 id="bsdinstall-partitioning">
-    <title>Allocating Disk Space</title>
+    <title>Alocando Espaço em Disco</title>
 
-    <para>There are three ways to allocate disk space for &os;.
-      <emphasis>Guided</emphasis> partitioning automatically sets up
-      disk partitions, while <emphasis>Manual</emphasis> partitioning
-      allows advanced users to create customized partitions.  Finally,
-      there's the option of starting a shell where command-line
-      programs like &man.gpart.8;, &man.fdisk.8;, and &man.bsdlabel.8;
-      can be used directly.</para>
+    <para>Há três modos para alocar espaço em disco para o &os;.
+      Particionamento <emphasis>Guiado</emphasis> automaticamente
+      define partições no disco, enquanto particionamento
+      <emphasis>Manual</emphasis> permite que usuários avançados criem
+      partições personalizadas.  Finamente há a opção de iniciar um
+      shell onde programas de linha de comando como &man.gpart.8;,
+      &man.fdisk.8; e &man.bsdlabel.8; podem ser usados
+      diretamente.</para>
     <!-- WB: mention ZFS here? -->
 
     <figure id="bsdinstall-part-guided-manual">
-      <title>Selecting Guided or Manual Partitioning</title>
+      <title>Selecionando Particionamento Guiado ou Manual</title>
 
       <mediaobject>
 	<imageobject>
@@ -1248,13 +1250,13 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     </figure>
 
     <sect2 id="bsdinstall-part-guided">
-      <title>Guided Partitioning</title>
+      <title>Particionamento Guiado</title>
 
-      <para>If multiple disks are connected, choose the one where &os;
-	is to be installed.</para>
+      <para>Se múltiplos discos estão conectados, escolha aquele onde
+	o &os; será instalado.</para>
 
       <figure id="bsdinstall-part-guided-disk">
-	<title>Selecting from Multiple Disks</title>
+	<title>Selecionando Entre Múltiplos Discos</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata
@@ -1264,16 +1266,16 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>The entire disk can be allocated to &os;, or just a
-	portion of it.  If
-	<guibutton>[&nbsp;Entire&nbsp;Disk&nbsp;]</guibutton> is
-	chosen, a general partition layout filling the whole disk is
-	created.  Selecting
-	<guibutton>[&nbsp;Partition&nbsp;]</guibutton> creates a
-	partition layout in unused space on the disk.</para>
+      <para>O disco inteiro pode ser alocado para o &os; ou apenas uma
+	porção dele.  Se
+	<guibutton>[&nbsp;Entire&nbsp;Disk&nbsp;]</guibutton> é
+	selecionado, um layout genérico de partição preenchendo todo o
+	disco é criado.  Selecionando
+	<guibutton>[&nbsp;Partition&nbsp;]</guibutton> cria um layout
+	de partição no espaço não usado do disco.</para>
 
       <figure id="bsdinstall-part-entire-part">
-	<title>Selecting Entire Disk or Partition</title>
+	<title>Selecionando Disco Inteiro ou Partição</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1284,18 +1286,19 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>After the partition layout has been created, review it
-	carefully for accuracy.  If a mistake has been made, selecting
-	<guibutton>[&nbsp;Revert&nbsp;]</guibutton> will reset the
-	partitions as they were previously, or
-	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> will recreate the
-	automatic &os; partitions.  Partitions can be manually
-	created, modified, or deleted.  When the partitioning is
-	correct, select <guibutton>[&nbsp;Finish&nbsp;]</guibutton> to
-	continue with the installation.</para>
+      <para>Após o layout de partição ser criado, reveja
+	cuidadosamente.  Se um erro for cometido, selecione
+	<guibutton>[&nbsp;Revert&nbsp;]</guibutton> para reverter as
+	partições conforme elas estavam anteriormente ou
+	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> irá recriar as
+	partições automáticas do &os;.  As partições podem ser
+	criadas, modificadas ou deletadas manualmente.  Quando o
+	particionamento estiver correto, selecione
+	<guibutton>[&nbsp;Finish&nbsp;]</guibutton> para continuar com
+	a instalação.</para>
 
       <figure id="bsdinstall-part-review">
-	<title>Review Created Partitions</title>
+	<title>Revisão das Partições Criadas</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-part-review"
@@ -1306,13 +1309,12 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     </sect2>
 
     <sect2 id="bsdinstall-part-manual">
-      <title>Manual Partitioning</title>
-
-      <para>Manual partitioning goes straight to the partition
-	editor.</para>
+      <title>Particionamento Manual</title>
+      <para>Particionamento manual vai direto para o editor de
+	partições.</para>
 
       <figure id="bsdinstall-part-manual-create">
-	<title>Manually Create Partitions</title>
+	<title>Partições Criadas Manualmente</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1323,14 +1325,14 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Highlighting a drive (<devicename>ada0</devicename> in
-	this example) and selecting
-	<guibutton>[&nbsp;Create&nbsp;]</guibutton> displays a menu
-	for choosing the type of <firstterm>partitioning
-	  scheme</firstterm>.</para>
+      <para>Marcando uma unidade (neste exemplo
+	<devicename>ada0</devicename>) e selecionando
+	<guibutton>[&nbsp;Create&nbsp;]</guibutton> exibe um menu para
+	escolher o tipo de <firstterm>esquema de
+	particionamento</firstterm>.</para>
 
       <figure id="bsdinstall-part-manual-partscheme">
-	<title>Manually Create Partitions</title>
+	<title>Partições Criadas Manualmente</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1341,21 +1343,22 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para><acronym>GPT</acronym> partitioning is usually the most
-	appropriate choice for PC-compatible computers.  Older PC
-	operating systems that are not compatible with
-	<acronym>GPT</acronym> may require <acronym>MBR</acronym>
-	partitioning instead.  The other partitioning schemes are
-	generally used for uncommon or older computer systems.</para>
+      <para>Particionamento <acronym>GPT</acronym> é geralmente a
+	escolha mais apropriada para computadores PC-compatíveis.
+	Sistemas operacionais mais antigos de PC que não são
+	compatíveis com <acronym>GPT</acronym> podem exigir
+	particionamento <acronym>MBR</acronym>.  Os outros esquemas de
+	particionamento são geralmente usados para os sistemas de
+	computador incomuns ou mais velhos.</para>
 
       <table frame="none" rowsep="1" pgwide="1">
-	<title>Partitioning Schemes</title>
+	<title>Esquemas de Particionamento</title>
 
 	<tgroup cols="2" align="left">
 	  <thead>
 	    <row>
-	      <entry align="left">Abbreviation</entry>
-	      <entry align="left">Description</entry>
+	      <entry align="left">Abreviação</entry>
+	      <entry align="left">Descrição</entry>
 	    </row>
 	  </thead>
 
@@ -1363,55 +1366,57 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    <row>
 	      <entry>APM</entry>
 	      <entry><ulink
-		  url="http://support.apple.com/kb/TA21692">Apple
-		  Partition Map, used by &powerpc;
+		  url="http://support.apple.com/kb/TA21692"><literal>Apple
+		  Partition Map</literal>, usado por &powerpc;
 		  &macintosh;.</ulink></entry>
 	    </row>
 
 	    <row>
 	      <entry>BSD</entry>
-	      <entry>BSD Labels without an MBR, sometimes called
-		"dangerously dedicated mode".  See
-		&man.bsdlabel.8;.</entry>
+	      <entry><literal>BSD Labels</literal> sem um MBR,
+		algumas vezes chamado de "modo dedicado perigoso".
+		Veja man.bsdlabel.8;.</entry>
 	    </row>
 
 	    <row>
 	      <entry>GPT</entry>
 	      <entry><ulink
-		  url="http://en.wikipedia.org/wiki/GUID_Partition_Table">GUID
-		  Partition Table.</ulink></entry>
+		  url="http://en.wikipedia.org/wiki/GUID_Partition_Table"><literal>GUID
+		  Partition Table</literal>.</ulink></entry>
 	    </row>
 
 	    <row>
 	      <entry>MBR</entry>
 	      <entry><ulink
-		  url="http://en.wikipedia.org/wiki/Master_boot_record">Master
-		  Boot Record.</ulink></entry>
+		  url="http://en.wikipedia.org/wiki/Master_boot_record"><literal>Master
+		  Boot Record</literal>.</ulink></entry>
 	    </row>
 
 	    <row>
 	      <entry>PC98</entry>
 	      <entry><ulink
-		  url="http://en.wikipedia.org/wiki/Pc9801">MBR
-		  variant, used by NEC PC-98
-		  computers.</ulink></entry>
+		  url="http://en.wikipedia.org/wiki/Pc9801">Variação
+		  do MBR, usado por computadores NEC
+		  PC-98.</ulink></entry>
 	    </row>
 
 	    <row>
 	      <entry>VTOC8</entry>
-	      <entry>Volume Table Of Contents, used by Sun SPARC64 and
-		UltraSPARC computers.</entry>
+	      <entry><literal>Volume Table Of Contents</literal>,
+		usado por Sun SPARC64 e computadores
+		UltraSPARC.</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
       </table>
 
-      <para>After the partitioning scheme has been selected and
-	created, selecting <guibutton>[&nbsp;Create&nbsp;]</guibutton>
-	again will create new partitions.</para>
+      <para>Depois do esquema de particionamento ser escolhido e
+	criado, selecionando
+	<guibutton>[&nbsp;Create&nbsp;]</guibutton> novamente criará
+	novas partições.</para>
 
       <figure id="bsdinstall-part-manual-addpart">
-	<title>Manually Create Partitions</title>
+	<title>Partições Criadas Manualmente</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1422,113 +1427,118 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>A standard &os; <acronym>GPT</acronym> installation uses
-	at least three partitions:</para>
+      <para>Uma instalação padrão &os; <acronym>GPT</acronym> usa no
+	mínimo três partições:</para>
 
       <itemizedlist>
-	<title>Standard &os; <acronym>GPT</acronym> Partitions</title>
+	<title>Partições Padrão &os; <acronym>GPT</acronym></title>
 
 	<listitem>
-	  <para><literal>freebsd-boot</literal> - &os; boot
-	    code.</para>
+	  <para><literal>freebsd-boot</literal> - Código de
+	    inicialização &os;.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>freebsd-ufs</literal> - A &os; UFS
-	    filesystem.</para>
+	  <para><literal>freebsd-ufs</literal> - Um sistema de
+	    arquivos UFS &os;.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>freebsd-zfs</literal> - A &os; ZFS
-	    filesystem.  See <xref linkend="filesystems-zfs"/>.</para>
+	  <para><literal>freebsd-zfs</literal> - Um sistema de
+	    arquivos ZFS &os;. Veja <xref
+	    linkend="filesystems-zfs"/>.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>freebsd-swap</literal> - &os; swap
-	    space.</para>
+	  <para><literal>freebsd-swap</literal> - Espaço swap
+	    &os;.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>Multiple filesystem partitions can be used, and some
-	people may prefer a traditional layout with separate
-	partitions for the <filename>/</filename>,
-	<filename>/var</filename>, <filename>/tmp</filename>, and <filename>/usr</filename>
-	filesystems.  See <xref
-	  linkend="bsdinstall-part-manual-splitfs"/> for an
-	example.</para>
+      <para>Múltiplas partições de sistema de arquivos podem ser
+	usadas e algumas pessoas podem preferir um layout tradicional
+	com partições separadas para os sistemas de arquivos
+	<filename>/</filename>, <filename>/var</filename>,
+	<filename>/tmp</filename> e <filename>/usr</filename>.  Veja
+	<xref linkend="bsdinstall-part-manual-splitfs"/> para um
+	exemplo.</para>
 
-      <para>See &man.gpart.8; for a complete list of available
-	<acronym>GPT</acronym> partition types.</para>
+      <para>Veja &man.gpart.8; para uma lista completa dos tipos
+	disponíveis de partições <acronym>GPT</acronym>.</para>
 
-      <para>Size may be entered with common abbreviations:
-	<emphasis>K</emphasis> for kilobytes, <emphasis>M</emphasis>
-	for megabytes, or <emphasis>G</emphasis> for gigabytes.</para>
+      <para>O tamanho pode ser entrado com abreviações comuns:
+      <emphasis>K</emphasis> para kilobytes, <emphasis>M</emphasis>
+      para megabytes ou <emphasis>G</emphasis> para gigabytes.</para>
 
       <tip>
-	<para>Proper sector alignment provides the best performance,
-	  and making partition sizes even multiples of 4K bytes helps
-	  to ensure alignment on drives with either 512-byte or
-	  4K-byte sectors.  Generally, using partition sizes that are
-	  even multiples of 1M or 1G is the easiest way to make sure
-	  every partition starts at an even multiple of 4K.  One
-	  exception: at present, the <emphasis>freebsd-boot</emphasis>
-	  partition should be no larger than 512K due to boot code
-	  limitations.</para>
+	<para>Alinhamento adequado de setor proporciona um melhor
+	  desempenho e fazendo o tamanho das partições múltiplos de 4K
+	  bytes ajuda a garantir em unidades com setores de 512-bytes
+	  ou 4K-bytes.  Geralmente, usando tamanhos de partição que
+	  são múltiplos de 1M ou 1G é o modo mais fácil de garantir
+	  que toda partição comece em um múltiplo de 4K.  Uma exceção:
+	  No momento, a partição <emphasis>freebsd-boot</emphasis> não
+	  deve ser maior que 512K devido a limitações do código de
+	  inicialização.</para>
       </tip>
 
-      <para>A mountpoint is needed if this partition will contain a
-	filesystem.  If only a single UFS partition will be created,
-	the mountpoint should be <filename>/</filename>.</para>
+      <para>Um ponto de montagem é necessário se a partição conterá um
+	sistema de arquivos.  Se somente uma única partição UFS será
+	criada, o ponto de montagem deve ser
+	<filename>/</filename>.</para>
 
-      <para>A <firstterm>label</firstterm> is also requested.  A label
-	is a name by which this partition will be known.  Drive
-	names or numbers can change if the drive is connected to
-	a different controller or port, but the partition label does
-	not change.  Referring to labels instead of drive names
-	and partition numbers in files like
-	<filename>/etc/fstab</filename> makes the system more tolerant
-	of changing hardware.  GPT labels appear in
-	<filename>/dev/gpt/</filename> when a disk is attached.
-	Other partitioning schemes have different label
-	capabilities, and their labels appear in different directories
-	in <filename>/dev/</filename>.</para>
+      <para>Um <firstterm>label</firstterm> também é necessário.  Um
+	<literal>label</literal> é o nome pelo qual a partição será
+	conhecida.  Nomes ou números das unidades podem mudar se a
+	unidade for conectada em uma porta diferente da controladora,
+	mas o <literal>label</literal> da partição não muda.
+	Referindo-se a <literal>label</literal> ao invés de nomes de
+	unidades e números de partições em arquivos como
+	<filename>/etc/fstab</filename> torna o sistema mais tolerante
+	a mudanças de hardware.  Os <literal>label</literal> GPT
+	aparecem em <filename>/dev/gpt/</filename> quando um disco é
+	conectado.  Outros esquemas de particionamento possuem
+	diferentes capacidades de <literal>label</literal> e seus
+	<literal>label</literal> aparecem em diferentes diretórios em
+	<filename>/dev/</filename>.</para>
 
       <tip>
-	<para>Use a unique label on every filesystem to avoid
-	  conflicts from identical labels.  A few letters from the
-	  computer's name, use, or location can be added to the label.
-	  "labroot" or "rootfs-lab" for the UFS root partition on the
-	  lab's computer, for example.</para>
+        <para>Use um <literal>label</literal> único em cada sistema
+          de arquivos.  Poucas letras do nome do computador, uso ou
+          localização podem ser adicionadas no
+          <literal>label</literal>. "labroot" ou "rootfs-lab" para a
+          partição raiz no computador do laboratório, por
+          exemplo.</para>
       </tip>
 
       <example id="bsdinstall-part-manual-splitfs">
-	<title>Creating Traditional Split Filesystem
-	  Partitions</title>
+	<title>Criando Divisões Tradicionais de Partições do Sistema
+	  de Arquivos</title>
 
-	<para>For a traditional partition layout where the
-	  <filename>/</filename>, <filename>/var</filename>,
-	  <filename>/tmp</filename>, and <filename>/usr</filename>
-	  directories are separate filesystems on their own
-	  partitions, create a GPT partitioning scheme, then create
-	  the partitions as shown.  Partition sizes shown are typical
-	  for a 20G target disk.  If more space is available on the
-	  target disk, larger swap or <filename>/var</filename>
-	  partitions may be useful.  Labels shown here are prefixed
-	  with <literal>ex</literal> for "example", but readers
-	  should use other unique label values as described
-	  above.</para>
+	<para>Para um layout tradicional de partição onde os
+	  diretórios <filename>/</filename>,
+	  <filename>/var</filename>, <filename>/tmp</filename> e
+	  <filename>/usr</filename> são sistemas de arquivos separados
+	  em suas próprias partições, crie um esquema de
+	  particionamento GPT, então crie as partições como mostrado.
+	  Os tamanhos das partições mostradas são típicas de um disco
+	  de 20G.  Se mais espaço está disponível no disco, uma swap
+	  ou um <filename>/var</filename> maior pode ser útil.
+	  <literal>Labels</literal> mostrados aqui estão om o prefixo
+	  <literal>ex</literal> para "exemplo", mas leitores devem
+	  usar outros valores exclusivos como descrito acima.</para>
 
-	<para>By default, &os;'s <filename>gptboot</filename> expects
-	  the first UFS partition found to be the
-	  <filename>/</filename> partition.</para>
+	<para>Por padrão, o <filename>gptboot</filename> do &os;
+	  espera que a primeira partição UFS encontrada seja a
+	  partição <filename>/</filename>.</para>
 
 	<informaltable frame="none">
 	  <tgroup cols="4">
 	    <thead>
 	      <row>
-		<entry>Partition Type</entry>
-		<entry>Size</entry>
-		<entry>Mountpoint</entry>
+		<entry>Tipo de Partição</entry>
+		<entry>Tamanho</entry>
+		<entry>Ponto de Montagem</entry>
 		<entry>Label</entry>
 	      </row>
 	    </thead>
@@ -1569,8 +1579,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	      <row>
 		<entry><literal>freebsd-ufs</literal></entry>
-		<entry>accept the default (remainder of the
-		  disk)</entry>
+		<entry>aceita o padrão (restante do disco)</entry>
 		<entry><filename>/usr</filename></entry>
 		<entry><literal>exusrfs</literal></entry>
 	      </row>
@@ -1579,9 +1588,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</informaltable>
       </example>
 
-      <para>After the custom partitions have been created, select
-	<guibutton>[&nbsp;Finish&nbsp;]</guibutton> to continue with
-	the installation.</para>
+      <para>Depois que as partições personalizadas forem criadas,
+	selecione <guibutton>[&nbsp;Finish&nbsp;]</guibutton> para
+	continuar com a instalação.</para>
     </sect2>
   </sect1>
 
