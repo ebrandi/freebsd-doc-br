@@ -79,7 +79,7 @@
       <title>Sumário</title>
 
       <para><emphasis>Listas gerais:</emphasis> As listas a seguir são
-	gerais, qualquer um pode (e é incentivado a) entrar:</para>
+	gerais, todos são livres (e encorajados) para entrar:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
@@ -109,25 +109,25 @@
 	    <row>
 	      <entry>&a.bugbusters.name;</entry>
 	      <entry>Discussões sobre a manutenção da base de dados
-		dos relatos de problemas do FreeBSD e das ferramentas
+		de relatórios de problemas do &os; e das ferramentas
 		relacionadas</entry>
 	    </row>
 
     	    <row>
 	      <entry>&a.bugs.name;</entry>
-	      <entry>Relatos de <literal>bugs</literal></entry>
+	      <entry>Relatórios de <literal>bugs</literal></entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.chat.name;</entry>
-	      <entry>Discussões não técnicas relacionadas a comunidade
-		FreeBSD</entry>
+	      <entry>Discussões não técnicas relacionadas à comunidade
+		&os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.chromium.name;</entry>
-	      <entry>Questões sobre o Chromium específicas para o
-		FreeBSD</entry>
+	      <entry>Questões específicas sobre o Chromium no
+		&os;</entry>
 	    </row>
 
 	    <row>
@@ -138,13 +138,13 @@
 	    <row>
 	      <entry>&a.isp.name;</entry>
 	      <entry>Questões para os Provedores de Serviços de
-		Internet que usam FreeBSD</entry>
+		Internet que usam &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.jobs.name;</entry>
-	      <entry>Oportunidades de emprego e consultoria sobre o
-		FreeBSD</entry>
+	      <entry>Oportunidades de emprego e consultoria
+		relacionados ao &os;</entry>
 	    </row>
 
 	    <row>
@@ -174,7 +174,7 @@
       <para><emphasis>Listas técnicas:</emphasis> As listas a seguir
 	são para discussões técnicas.  Você deve ler cuidadosamente o
 	manual de conduta de cada lista antes de entrar ou enviar
-	mensagens, pois há diretrizes firmes para o uso e conteúdo
+	mensagens, pois existem regras rígidas para o uso e conteúdo
 	delas.</para>
 
       <informaltable frame="none" pgwide="1">
@@ -189,13 +189,13 @@
 	  <tbody>
 	    <row>
 	      <entry>&a.acpi.name;</entry>
-	      <entry>Desenvolvimento ACPI e de controle de
-		energia</entry>
+	      <entry>Desenvolvimento do controle de energia e do
+		ACPI</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.afs.name;</entry>
-	      <entry>Portabilidade do AFS para FreeBSD</entry>
+	      <entry>Portabilidade do AFS para &os;</entry>
 	    </row>
 
 	    <row>
@@ -218,34 +218,34 @@
 
 	    <row>
 	      <entry>&a.arm.name;</entry>
-	      <entry>Portabilidade do FreeBSD para processadores
+	      <entry>Portabilidade do &os; para processadores
 		&arm;</entry> 
 	    </row>
 
 	    <row>
 	      <entry>&a.atm.name;</entry>
-	      <entry>Usando redes ATM com FreeBSD</entry>
+	      <entry>Usando redes ATM com &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.bluetooth.name;</entry>
-	      <entry>Usando tecnologia &bluetooth; com FreeBSD</entry>
+	      <entry>Usando tecnologia &bluetooth; no &os;</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.cluster.name;</entry>
-	      <entry>Usando FreeBSD em um ambiente de cluster</entry>
+	      <entry>Usando &os; em um ambiente de cluster</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.cvsweb.name;</entry>
-	      <entry>Manutenção CVSweb</entry>
+	      <entry>Manutenção do CVSweb</entry>
 	    </row>
 
 	    <row>
 	      <entry>&a.database.name;</entry>
 	      <entry>Discutindo o uso e desenvolvimento de banco de
-		dados no FreeBSD</entry>
+		dados no &os;</entry>
 	    </row>
 
 	    <row>
@@ -257,7 +257,7 @@
 	    <row>
 	      <entry>&a.doc.name;</entry>
 	      <entry>Criando documentos relacionados ao
-		FreeBSD</entry>
+		&os;</entry>
 	    </row>
 
 	    <row>
