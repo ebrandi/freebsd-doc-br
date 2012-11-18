@@ -445,7 +445,7 @@
       <screen>&prompt.user; <userinput>diff -u -r -N olddir newdir</userinput></screen>
 
       <para>deverá gerar um conjunto de <literal>diffs</literal>
-	unificados para arquivo de origem informado ou hierarquia de
+	unificados para o arquivo de origem informado ou hierarquia de
 	diretórios.</para>
 
       <para>Consulte o manual do &man.diff.1; para maiores
