@@ -486,11 +486,11 @@
 	autoral as novas versões serão
 	distribuídas, então você deve enviá-las
 	diretamente para o &a.core; ao invés de
-	submetê-las com o &man.send-pr.1;.  A &a.core;
-	alcança um grupo muito menor de pessoas que
-	cuidam de muitas das tarefas diárias do FreeBSD.
-	Observe que este grupo também é <emphasis>muito
-	  ocupado</emphasis> e assim você só deve enviar
+	submetê-las com o &man.send-pr.1;.  O &a.core; é formado
+	por um grupo muito pequeno de pessoas as quais
+	cuidam de muitas das tarefas diárias de administração do 
+	projeto &os;.  Observe que este grupo também é <emphasis>muito
+	ocupado</emphasis> e assim você só deve enviar
 	um e-mail a eles se for realmente necessário.</para>
 
       <para>Por favor, consulte a &man.intro.9; e a &man.style.9; para
