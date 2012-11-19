@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40083
+  Original revision: r40091
 -->
 
 <article lang='pt_br'>
@@ -208,16 +208,6 @@
       <command>scripts/allgohans</command> pode ser usado para
       executar um comando em todos os clientes
       <replaceable>${arch}</replaceable>.</para>
-
-    <para>O <literal>script</literal>
-      <command>scripts/checkmachines</command> é usado para monitorar
-      a carga em todos os nós do <literal>cluster</literal> de
-      compilação, e agendar quais nós compilarão quais
-      <literal>ports</literal>.  Este <literal>script</literal> não é
-      muito robusto e tem uma tendência a morrer.  É melhor iniciar
-      este <literal>script</literal> no nó principal (por exemplo,
-      <hostid>pointyhat</hostid>) depois do <literal>boot</literal>
-      usando um <literal>loop</literal> com &man.while.1;.</para>
   </sect1>
 
   <sect1 id="setup">
@@ -740,7 +730,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       de compilação encontrar um diretório vazio, ambas as fases de
       compilação irão parar rapidamente, e um erro similar ao seguinte
       será adicionado para
-      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make.[0|1]</filename>:
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/journal</filename>:
     </para>
 
     <programlisting><literal>don't know how to make dns-all(continuing)</literal></programlisting>
@@ -858,7 +848,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
 	partir do conjunto de pacotes.  Isso pode ser feito executando
 	o seguinte comando:</para>
 
-      <para><command><replaceable>path</replaceable>/qmanager/packagebuild <replaceable>amd64</replaceable> <replaceable>7-exp</replaceable> <replaceable>20080904212103</replaceable> <replaceable>aclock-0.2.3_2.tbz</replaceable></command></para>
+      <para>&prompt.root; <command><replaceable>path</replaceable>/qmanager/packagebuild <replaceable>amd64</replaceable> <replaceable>7-exp</replaceable> <replaceable>20080904212103</replaceable> <replaceable>aclock-0.2.3_2.tbz</replaceable></command></para>
     </sect2>
   </sect1>
 
@@ -942,9 +932,9 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/journal</filename>
       (novo código base).  <literal>Ports</literal> individuais irão
       escrever seus <literal>logs</literal> de compilação em
-      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/logs</filename>
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/logs/</filename>
       e os seus <literal>logs</literal> de erros em
-      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors</filename>.
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors/</filename>.
     </para>
 
     <para>Anteriormente, a árvore <literal>docs</literal> também era
@@ -1042,12 +1032,12 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       &man.ssh.1; em todos os clientes deste ambiente de compilação.
       Por exemplo:</para>
 
-      <screen>ssh gohan24 df</screen>
+      <screen>&prompt.user; ssh gohan24 df</screen>
 
       <para>Vai lhe dar um <command>df</command>, e</para>
 
-<screen>allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports"
-allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/src"</screen>
+<screen>&prompt.user; allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/ports"
+&prompt.user; allgohans "umount -f pointyhat.freebsd.org:/var/portbuild/i386/8-exp/src"</screen>
 
       <para>Supostamente irá resolver o problema dos
 	<literal>mounts</literal>  que não foram desconectados pelo
@@ -1125,8 +1115,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       monitorar o status dos nós de compilação, e para listar as
       tarefas de compilação agendadas para execução:</para>
 
-    <para><command>python <replaceable>path</replaceable>/qmanager/qclient jobs</command></para>
-    <para><command>python <replaceable>path</replaceable>/qmanager/qclient status</command></para>
+    <screen>&prompt.user; <command>python <replaceable>path</replaceable>/qmanager/qclient jobs</command>
+&prompt.user; <command>python <replaceable>path</replaceable>/qmanager/qclient status</command></screen>
 
     <para>O comando
       <command>scripts/stats <replaceable>${branch}</replaceable></command>
@@ -1164,7 +1154,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <filename>.keep</filename> no diretório do 
       <literal>port</literal>, isso vai arquivar,
       comprimir, e copiar o <literal>WRKDIR</literal> para
-      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/wrkdirs</filename>.
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/wrkdirs/</filename>.
     </para>
 
     <para>Se você verificar que o sistema está compilando o mesmo 
@@ -1422,7 +1412,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       se o conjunto de pacotes foi transferido com sucesso, remova o
       conjunto de pacotes que o novo conjunto vai substituir (em
       <filename>~/w/ports/<replaceable>${arch}</replaceable></filename>),
-      e mova o novo conjunto para o local.  (<literal>w/</literal> é
+      e mova o novo conjunto para o local.  (<filename>w/</filename> é
       apenas um atalho.)</para>
 
     <para>Para compilações incrementais, o
@@ -1610,7 +1600,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
     <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportsvcs -nobuild -novcs -nofinish</userinput></screen>
 
     <para>As compilações devem ser executadas a partir do diretório
-      <literal>packages/All</literal>.  Este diretório deve estar
+      <filename>packages/All</filename>.  Este diretório deve estar
       vazio inicialmente, exceto pelo <literal>link</literal>
       simbólico do Makefile.  Se este <literal>link</literal>
       simbólico não existir, ele deve ser criado:</para>
@@ -1812,12 +1802,14 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	    <literal>PAE</literal>).</para>
 	  <para>Opção requeridas:</para>
 
-	  <screen>options         NULLFS
-options         TMPFS</screen>
+	  <programlisting>
+options         NULLFS
+options         TMPFS</programlisting>
 
 	  <para>Opções sugeridas:</para>
 
-	  <screen>options         GEOM_CONCAT
+	  <programlisting>
+options         GEOM_CONCAT
 options         GEOM_STRIPE
 options         SHMMAXPGS=65536
 options         SEMMNI=40
@@ -1825,23 +1817,25 @@ options         SEMMNS=240
 options         SEMUME=40
 options         SEMMNU=120
 
-options         ALT_BREAK_TO_DEBUGGER</screen>
+options         ALT_BREAK_TO_DEBUGGER</programlisting>
 
 	  <para>Para o <literal>PAE</literal>, atualmente não é 
 	    possível carregar módulos.  Portanto, se você está 
 	    executando uma arquitetura que suporta emulação binária
 	    do Linux, você precisará adicionar:</para>
 	    
-	  <screen>options         COMPAT_LINUX
-options         LINPROCFS</screen>
+	  <programlisting>
+options         COMPAT_LINUX
+options         LINPROCFS</programlisting>
 
 	  <para>Também para o <literal>PAE</literal>, a partir de
 	    12/09/2011 você precisa do seguinte.  Isso precisa ser
 	    investigado:</para>
 
-	  <screen>nooption        NFSD                    # New Network Filesystem Server
+	  <programlisting>
+nooption        NFSD                    # New Network Filesystem Server
 options         NFSCLIENT               # Network Filesystem Client
-options         NFSSERVER               # Network Filesystem Server</screen>
+options         NFSSERVER               # Network Filesystem Server</programlisting>
 	</step>
 
 	<step>
@@ -1849,10 +1843,10 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 	    usuais de compilação, por exemplo:</para>
 	    
 	  <screen>
-<userinput>make -j4 buildworld</userinput>
-<userinput>make buildkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
-<userinput>make installkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
-<userinput>make installworld</userinput></screen>
+&prompt.root; <userinput>make -j4 buildworld</userinput>
+&prompt.root; <userinput>make buildkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
+&prompt.root; <userinput>make installkernel KERNCONF=<replaceable>${kernconf}</replaceable></userinput>
+&prompt.root; <userinput>make installworld</userinput></screen>
 
 	  <para>Os passos de instalação usam o caminho especificado na
 	    da váriavel <makevar>DESTDIR</makevar>.</para>
@@ -1904,8 +1898,9 @@ options         NFSSERVER               # Network Filesystem Server</screen>
 	    <listitem>
 	      <para>Crie os usuários:</para>
 	      
-	      <screen>squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
-ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
+	      <programlisting>
+squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
+ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</programlisting>
 
 	      <para>E também os adicione ao arquivo 
 		<filename>etc/group</filename>.</para>
@@ -1920,7 +1915,7 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	      <para>Edite o <filename>etc/crontab</filename> e 
 		adicione o seguinte:</para>
 
-		<screen>*       *       *       *       *       root    /var/portbuild/scripts/client-metrics</screen>
+		<programlisting>*       *       *       *       *       root    /var/portbuild/scripts/client-metrics</programlisting>
 	    </listitem>
 
 	    <listitem>
@@ -1934,7 +1929,7 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	      <para>Edite o <filename>etc/inetd.conf</filename> e 
 		adicione o seguinte:</para>
 
-		<screen>infoseek        stream  tcp     nowait  nobody  /var/portbuild/scripts/reportload</screen>
+		<programlisting>infoseek        stream  tcp     nowait  nobody  /var/portbuild/scripts/reportload</programlisting>
 	    </listitem>
 
 	    <listitem>
@@ -1942,11 +1937,11 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 		no <literal>cluster</literal>.  Se você não configurou
 		o relógio para UTC:</para>
 
-		<screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
+		<programlisting>&prompt.root; cp /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
 	    </listitem>
 
 	    <listitem>
-	      <para>Crie um <filename>etc/rc.conf</filename>
+	      <para>Crie um <filename>/etc/rc.conf</filename>
 	        apropriado.  (Se você está usando
 		<literal>pxeboot</literal>, e tem várias máquinas
 		diferentes, você precisará colocar este arquivo nos
@@ -3097,7 +3092,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	    no <literal>cluster</literal>.  Se você não configurou o
 	    relógio para UTC:</para>
 
-	  <screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
+	  <programlisting>&prompt.root; cp /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
 	</step>
 
 	<step>
