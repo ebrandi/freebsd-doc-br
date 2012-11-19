@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r39807
+  Original revision: r40083
 -->
 
 <article lang='pt_br'>
@@ -155,9 +155,12 @@
 	oposição à <literal>antigo código base:</literal>.</para>
 
       <note>
-	<para>Como em dezembro de 2010, o <hostid>pointyhat</hostid>
-	  ainda está rodando sobre o antigo código base, até que o
-	  novo código base seja considerado estável.</para>
+	<para>Até novembro de 2012, o <hostid>pointyhat</hostid> ainda
+	  estava rodando sobre o antigo código base.  Esta instalação
+	  agora está permanetemente <literal>offline</literal>.
+	  Portanto, todas as instruções que fazem referência ao antigo
+	  código base estão <emphasis>obsoletas</emphasis>, e serão
+	  removidas em um futuro próximo.</para>
       </note>
 
       <note>
@@ -192,7 +195,7 @@
       nós desconectados durante a fase de configuração dos nós.  Em
       seguida, o diretório <literal>portbuild</literal> desconectado é
       montado como <literal>nullfs</literal> para compilações sob 
-      <literal>chroot</literal>.</para>
+      <literal>jail</literal>.</para>
 
     <para>O usuário
       <username>ports-<replaceable>${arch}</replaceable></username>
@@ -219,31 +222,33 @@
 
   <sect1 id="setup">
     <title>Configuração do Ambiente de Compilação sob
-      <literal>Chroot</literal></title>
+      <literal>Jail</literal></title>
 
     <para>A compilação de pacotes é realizada em um ambiente
-      <literal>chroot</literal>, configurado pelo
+      <literal>jail</literal>, configurado pelo
       <literal>script</literal> <filename>portbuild</filename> usando
       o arquivo
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
       </para>
 
-    <para>O seguinte comando faz o <literal>build world</literal>
-      a partir da árvore de diretórios em
+    <para>O comando <command>makeworld</command> compila o
+      <literal>world</literal> a partir da árvore de diretórios em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/src/</filename>
-      e o instala em <replaceable>${worlddir}</replaceable>.  A
-      árvore de diretórios será atualizada primeiro, a menos que a
-      opção <literal>-nocvs</literal> seja especificada.</para>
+      e o instala em
+      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable>/bindist.tar</filename>.
+      A árvore de diretórios será atualizada primeiro, a menos que a
+      opção <literal>-novcs</literal> seja especificada.  Isto deve
+      ser executado como <username>root</username>:</para>
 
-    <screen>/var/portbuild&prompt.root; <userinput>scripts/makeworld <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-nocvs]</userinput></screen>
+    <screen>&prompt.root; <userinput>scripts/makeworld <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> [-novcs]</userinput></screen>
 
     <para>O arquivo <filename>bindist.tar</filename> é criado a partir
       do <literal>world</literal>, instalado previamente, pelo
       <literal>script</literal> <command>mkbindist</command>.  Este
-      deve ser executado como <username>root</username> com o
-      seguinte comando:</para>
+      também deve ser executado como
+      <username>root</username>:</para>
 
-    <screen>/var/portbuild&prompt.root; <userinput>scripts/mkbindist <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable></userinput></screen>
+    <screen>&prompt.root; <userinput>scripts/mkbindist <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable></userinput></screen>
 
     <para>Os <literal>tarballs</literal> de cada máquina estão
       localizados em
@@ -310,7 +315,7 @@
       <para>(Neste caso, os conteúdos são idênticos para ambos,
         servidor e cliente.)</para>
 
-      <screen>RUBY_DEFAULT_VER= 1.9</screen>
+      <programlisting>RUBY_DEFAULT_VER= 1.9</programlisting>
     </example>
 
     <example>
@@ -321,7 +326,7 @@
       <para>(Neste caso, os conteúdos também são idênticos para ambos,
         servidor e cliente.)</para>
 
-      <screen>
+      <programlisting>
 .if !defined(CC) || ${CC} == "cc"
 CC=clang
 .endif
@@ -334,22 +339,22 @@ CPP=clang-cpp
 # Don't die on warnings
 NO_WERROR=
 WERROR=
-</screen>
+</programlisting>
     </example>
 
     <example>
       <title>Exemplo de <filename>make.conf.server</filename> para
         <application>pkgng</application></title>
 
-      <screen>WITH_PKGNG=yes
-PKG_BIN=/usr/local/sbin/pkg</screen>
+      <programlisting>WITH_PKGNG=yes
+PKG_BIN=/usr/local/sbin/pkg</programlisting>
     </example>
 
     <example>
       <title>Exemplo de <filename>make.conf.client</filename> para
 	<application>pkgng</application></title>
 
-      <screen>WITH_PKGNG=yes</screen>
+      <programlisting>WITH_PKGNG=yes</programlisting>
     </example>
 
     <example>
@@ -357,7 +362,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
 	testar uma versão nova do código base do
 	<application>sort</application></title>
 
-      <screen>WITH_BSD_SORT=yes</screen>
+      <programlisting>WITH_BSD_SORT=yes</programlisting>
     </example>
   </sect1>
 
@@ -469,7 +474,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
         diretamente, ao invés dos <literal>links</literal> simbólicos.
 	Por exemplo:</para>
 
-    <screen><command>dopackages.wrapper <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></command></screen>
+    <screen>&prompt.root; <userinput>dopackages.wrapper <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></userinput></screen>
 
     </sect3>
 
@@ -612,10 +617,10 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para><literal>-srccvs</literal> - Não atualiza a árvore do
+	<para><literal>-srcvcs</literal> - Não atualiza a árvore do
 	  <literal>src</literal> a partir do
 	  <literal>snapshot</literal> do ZFS, em vez disso ela é
-	  atualizada com o <literal>cvs update</literal>.
+	  atualizada com um novo <literal>checkout</literal>.
 	</para>
       </listitem>
 
@@ -628,10 +633,10 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para><literal>-portscvs</literal> - Não atualiza a árvore de
+	<para><literal>-portsvcs</literal> - Não atualiza a árvore de
 	  <literal>ports</literal> a partir do
 	  <literal>snapshot</literal> do ZFS, em vez disso ela é
-	  atualizada com o <literal>cvs update</literal>.
+	  atualizada com um novo <literal>checkout</literal>.
 	</para>
       </listitem>
 
@@ -695,7 +700,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       clientes executando:
     </para>
 
-    <para><command>build cleanup <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> -full</command></para>
+    <para>&prompt.user; <userinput>build cleanup <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> -full</userinput></para>
 
     <para>Os diretórios <filename>errors/</filename>, 
       <filename>logs/</filename>, <filename>packages/</filename>, e 
@@ -738,7 +743,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make.[0|1]</filename>:
     </para>
 
-    <screen><literal>don't know how to make dns-all(continuing)</literal></screen>
+    <programlisting><literal>don't know how to make dns-all(continuing)</literal></programlisting>
 
     <para>Para corrigir este problema, simplesmente comente ou remova
       as entradas <literal>SUBDIR</literal> que apontam para
@@ -759,24 +764,24 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       <title>Atualize a árvore i386-7 e faça uma compilação
         completa</title>
 
-      <para><command>dopackages.7 i386 -nosrc -norestr -nofinish</command></para>
-      <para><command>dopackages.wrapper i386 7 -nosrc -norestr -nofinish</command></para>
+      <screen>&prompt.user; <userinput>dopackages.7 i386 -nosrc -norestr -nofinish</userinput>
+&prompt.user; <userinput>dopackages.wrapper i386 7 -nosrc -norestr -nofinish</userinput></screen>
     </example>
 
     <example>
       <title>Reinicie uma compilação para amd64-8 interrompida sem
         atualizar</title>
 
-      <para><command>dopackages.8 amd64 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</command></para>
-      <para><command>dopackages.wrapper amd64 8 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</command></para>
+      <screen>&prompt.user; <userinput>dopackages.8 amd64 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</userinput>
+&prompt.user; <userinput>dopackages.wrapper amd64 8 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</userinput></screen>
     </example>
 
     <example>
       <title>Realize o pós-processamento de uma árvore sparc64-7
         concluída</title>
 
-      <para><command>dopackages.7 sparc64 -finish</command></para>
-      <para><command>dopackages.wrapper sparc64 7 -finish</command></para>
+      <screen>&prompt.user; <userinput>dopackages.7 sparc64 -finish</userinput>
+&prompt.user; <userinput>dopackages.wrapper sparc64 7 -finish</userinput></screen>
     </example>
 
     <para>Dica: geralmente é melhor executar o comando
@@ -965,7 +970,8 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       </listitem>
 
       <listitem>
-	<para>O <filename>qmanager</filename> falhou e reiniciado</para>
+	<para>O <filename>qmanager</filename> falhou e foi
+	  reiniciado</para>
       </listitem>
       </orderedlist>
 
@@ -1014,7 +1020,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
     <screen>&prompt.user; <userinput>/var/portbuild/scripts/build cleanup i386 8-exp 20080714120411 -full</userinput></screen>
 
     <para>Se você esquecer de fazer isso, então os
-      <literal>chroot</literal>s da compilação antiga não serão limpos
+      <literal>jail</literal>s da compilação antiga não serão limpos
       nas próximas 24 horas, e nenhum novo trabalho será iniciado no 
       seu lugar enquanto o <hostid>pointyhat</hostid> achar que esta 
       máquina ainda está ocupada.</para>
@@ -1036,7 +1042,7 @@ PKG_BIN=/usr/local/sbin/pkg</screen>
       &man.ssh.1; em todos os clientes deste ambiente de compilação.
       Por exemplo:</para>
 
-      <screen>ssh -l root gohan24 df</screen>
+      <screen>ssh gohan24 df</screen>
 
       <para>Vai lhe dar um <command>df</command>, e</para>
 
@@ -1221,10 +1227,10 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <listitem>
 	<para>A coluna <literal>missing</literal> mostra a diferença 
 	  entre o <filename>INDEX</filename> e as outras colunas.  
-	  Se você reiniciou uma compilação após um <command>cvs
-	  update</command>, provavelmente haverá duplicatas nos
-	  pacotes e colunas de erros, e esta coluna será inútil.  (O
-	  <literal>script</literal> é ingênuo).</para>
+	  Se você reiniciou uma compilação após atualizar a árvore de
+	  <literal>ports</literal>, provavelmente haverá duplicatas
+	  nos pacotes e colunas de erros, e esta coluna será inútil.
+	  (O <literal>script</literal> é ingênuo).</para>
       </listitem>
 
       <listitem>
@@ -1272,8 +1278,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       pode ser necessário atualizar manualmente as árvores do
       <literal>ports</literal> e do <literal>src</literal> para a
       <literal>tag</literal> da versão desejada e usar as opções
-      <literal>-nocvs</literal> e
-      <literal>-noportscvs</literal>.</para>
+      <literal>-novcs</literal> e
+      <literal>-noportsvcs</literal>.</para>
 
     <para>Para compilar conjuntos de pacotes que serão usados em um
       CD-ROM, use a opção <literal>-cdrom</literal> para o comando
@@ -1464,8 +1470,8 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       experimentais é executada da mesma forma que qualquer outra
       compilação, exceto que você deve primeiro atualizar a árvore de
       <literal>ports</literal> para a última versão e, em seguida,
-      aplicar os seus <literal>patches</literal>.  Para fazer o primeiro,
-      você pode usar o seguinte:</para>
+      aplicar os seus <literal>patches</literal>.  Para fazer o
+      primeiro, você pode usar o seguinte:</para>
 
       <screen>&prompt.user; <userinput>cvs -R update -dP > update.out</userinput>
 &prompt.user; <userinput>date > cvsdone</userinput></screen>
@@ -1601,7 +1607,7 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       <literal>branch</literal> de controle para a
       compilação parcial (antigo código base):</para>
 
-    <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportscvs -nobuild -nocvs -nofinish</userinput></screen>
+    <screen>&prompt.user; <userinput>/var/portbuild/scripts/dopackages.8 -noportsvcs -nobuild -novcs -nofinish</userinput></screen>
 
     <para>As compilações devem ser executadas a partir do diretório
       <literal>packages/All</literal>.  Este diretório deve estar
@@ -1749,9 +1755,14 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	<step>
 	  <para>Escolha um diretório para manter as configurações dos
 	    <literal>ports</literal> e os subdiretórios do
-	    <command>chroot</command>.  Pode ser melhor colocá-los em
+	    <filename>chroot</filename>.  Pode ser melhor colocá-los em
 	    uma partição dedicada.  (Por exemplo:
 	    <filename>/usr2/</filename>.)</para>
+
+	  <note>
+	    <para>Os diretórios chamados <filename>chroot</filename>
+	      são um legado histórico.</para>
+	  </note>
 	</step>
       </procedure>
 
@@ -1928,7 +1939,8 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 
 	    <listitem>
 	      <para>Nós utilizamos o timezone <acronym>UTC</acronym>
-		no <literal>cluster</literal>:</para>
+		no <literal>cluster</literal>.  Se você não configurou
+		o relógio para UTC:</para>
 
 		<screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
 	    </listitem>
@@ -2038,9 +2050,7 @@ squid_pidfile="<filename>/<replaceable>usr2</replaceable>/squid/logs/squid.pid</
 		<literal>@pointyhat.freebsd.org</literal>.</para>
 	    </listitem>
 	  </itemizedlist>
-
 	</step>
-
       </procedure>
 
     </sect2>
@@ -2230,7 +2240,7 @@ touch /tmp/.boot_finished</screen>
 	    compilações disponíveis no momento do boot (veja o
 	    <literal>script</literal> nas máquinas
 	    <literal>amd64</literal>).  Eles também devem limpar os
-	    <literal>chroots</literal> obsoletos das compilações
+	    <literal>jails</literal> obsoletos das compilações
 	    anteriores antes de criar o
 	    <filename>/tmp/.boot_finished</filename>.
 	  </para>
@@ -2455,57 +2465,77 @@ ssh_cmd="/usr/local/bin/ssh"
     <title>Como configurar um novo <literal>branch</literal> do
       &os;</title>
 
-    <para>Quando um novo <literal>branch</literal> é criado, é
-      necessário efetuar alguns ajustes no sistema para especificar 
-      que o <literal>branch</literal> anterior não mais corresponde ao
-      <literal>HEAD</literal>.  As seguintes instruções se aplicam ao
-      número do <literal>branch</literal>
-      <emphasis>anterior</emphasis>:</para>
+    <sect2 id="new-branch-pre-qmanager">
+      <title>Passos necessários antes do
+	<application>qmanager</application> ser iniciado</title>
 
-    <itemizedlist>
-      <listitem>
-	<para>(novo código base) Edite o
-	  <filename>/var/portbuild/conf/server.conf</filename>
-	  e faça as seguintes alterações:</para>
+      <para>Quando um novo <literal>branch</literal> é criado, é
+        necessário efetuar alguns ajustes no sistema para especificar 
+        que o <literal>branch</literal> anterior não mais corresponde ao
+        <literal>HEAD</literal>.</para>
 
-	<itemizedlist>
-	  <listitem>
-	    <para>Adicione o <replaceable>new-branch</replaceable> 
-	      na variável <makevar>SRC_BRANCHES</makevar>.</para>
-	  </listitem>
+      <itemizedlist>
+        <listitem>
+	  <para>(novo código base) Edite o
+	    <filename>/var/portbuild/conf/server.conf</filename>
+	    e faça as seguintes alterações:</para>
 
-	  <listitem>
-	    <para>Para o <literal>branch</literal> que anteriormente
-	      era o <literal>head</literal>, mude o
-	      <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
-	      para
-	      <literal>RELENG_<replaceable>branch</replaceable>_0</literal>.</para>
-	  </listitem>
+	  <itemizedlist>
+	    <listitem>
+	      <para>Adicione o <replaceable>new-branch</replaceable> 
+		na variável <makevar>SRC_BRANCHES</makevar>.</para>
+	    </listitem>
 
-	  <listitem>
-	    <para>Adicione 
-	      <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
-	      (o ponto é literal).</para>
-	  </listitem>
-	</itemizedlist>
-      </listitem>
+	    <listitem>
+	      <para>(Antigo código base) Para o
+		<literal>branch</literal> que anteriormente era o
+		<literal>head</literal>, mude o
+		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
+		para
+		<literal>RELENG_<replaceable>branch</replaceable>_0</literal>
+		(zero literal).</para>
+	    </listitem>
 
-      <listitem>
-	<para>(novo código base) Execute o 
-	<command>/var/portbuild/updatesnap</command> 
-	manualmente.</para>
-      </listitem>
+	    <listitem>
+	      <para>(Antigo código base) Adicione 
+		<makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
+		(o ponto é literal).</para>
+	    </listitem>
 
-      <listitem>
-	<para>(Apenas para o antigo código base) Crie um novo sistema
-	  de arquivos <application>zfs</application> para os
-	  fontes:</para>
+	    <listitem>
+	      <para>(Novo código base) Para o
+	        <literal>branch</literal> que anteriormente era o
+		<literal>head</literal>, mude o
+		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_SUBDIR</makevar>
+		para
+		<literal>releng/<replaceable>branch</replaceable>.0</literal>
+		(zero literal).</para>
+	    </listitem>
 
-	  <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
+	    <listitem>
+	      <para>(Novo código base) Adicione
+	        <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_SUBDIR</makevar>
+		<literal>=head</literal>.</para>
+	    </listitem>
+	  </itemizedlist>
+        </listitem>
+
+        <listitem>
+	  <para>(novo código base) Execute o 
+	    <command>/var/portbuild/updatesnap</command> 
+	    manualmente.</para>
+        </listitem>
+
+        <listitem>
+	  <para>(Apenas para o antigo código base) Crie um novo sistema
+	    de arquivos <application>zfs</application> para os
+	    fontes:</para>
+
+	    <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
       
-      </listitem>
+        </listitem>
 
-      <listitem>
+        <listitem>
 	  <para>(Necessário apenas para o antigo código base):
 	    Obtenha uma cópia da árvore de fontes do 
 	    <literal>src</literal> apartir do SVN e deposite a mesma
@@ -2513,73 +2543,98 @@ ssh_cmd="/usr/local/bin/ssh"
 
 	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
       
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Edite a
-	  cópia principal do
-	  <filename>Tools/portbuild/portbuild.conf</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Edite a
+	    cópia principal do
+	    <filename>Tools/portbuild/portbuild.conf</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Edite a
-	cópia do arquivo acima para cada uma das arquiteturas em
-	<filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Edite a
+	  cópia do arquivo acima para cada uma das arquiteturas em
+	  <filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
+	</listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Edite o
-	  <filename>/var/portbuild/scripts/buildenv</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Edite o
+	    <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Adicione
-	  um <literal>link</literal> simbólico de 
-	  <filename>/var/portbuild/scripts/dopackages</filename> para
-	  <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
-	</para>  
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Adicione
+	    um <literal>link</literal> simbólico de 
+	    <filename>/var/portbuild/scripts/dopackages</filename> para
+	    <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
+	  </para>  
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Modifique
-	  as variáveis <makevar>HEAD_BRANCH</makevar> e
-	  <makevar>NON_HEAD_BRANCHES</makevar> no arquivo
-	  <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Modifique
+	    as variáveis <makevar>HEAD_BRANCH</makevar> e
+	    <makevar>NON_HEAD_BRANCHES</makevar> no arquivo
+	    <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Adicione
-	  o diretório <literal>snap</literal> ao arquivo
-	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Adicione
+	    o diretório <literal>snap</literal> ao arquivo
+	    <filename>/var/portbuild/scripts/zexpire</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Crie os
-	  <literal>links</literal> simbólicos para uso do servidor 
-	  web no diretório
-	  <filename>/var/portbuild/errorlogs/</filename>:</para>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Crie os
+	    <literal>links</literal> simbólicos para uso do servidor 
+	    web no diretório
+	    <filename>/var/portbuild/errorlogs/</filename>:</para>
 	  
-      <screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
+	  <screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>Inicie a compilação para o <literal>branch</literal>
-	executando:</para> 
+      </itemizedlist>
+
+    </sect2>
+
+    <sect2 id="new-branch-post-qmanager">
+      <title>Passos necessários após
+        <application>qmanager</application> ser iniciado</title>
+
+      <note>
+	<para>Novamente como o usuário
+	  <literal>ports-<replaceable>arch</replaceable></literal>:</para>
+      </note>
+
+      <itemizedlist>
+        <listitem>
+	  <para>Para cada <literal>branch</literal> que será suportado
+	    faça o seguinte:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Inicie a compilação para o <literal>branch</literal>
+		executando:</para> 
 	  
-	<screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
+	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
       
-      </listitem>
+            </listitem>
 
-      <listitem>
-	<para><link linkend="setup">Crie o 
-	  <filename>bindist.tar</filename></link>.</para>
-      </listitem>
-    </itemizedlist>
+	    <listitem>
+	      <para><link linkend="setup">Crie o 
+	        <filename>bindist.tar</filename></link>.</para>
+            </listitem>
+          </itemizedlist>
+
+	</listitem>
+      </itemizedlist>
+
+    </sect2>
+
   </sect1>
 
   <sect1 id="old-branch">
@@ -2623,6 +2678,7 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 	  encontrará os seguintes arquivos e <literal>links</literal>
 	  simbólicos em <filename>/var/portbuild/errorlogs/</filename>
 	  os quais podem ser removidos:</para>
+
 	  <itemizedlist>
 	    <listitem>
 	      <para>Arquivos chamados
@@ -2647,7 +2703,6 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 		<filename>*-<replaceable>old_branch</replaceable>-latest*</filename>
 	      </para>
 	    </listitem>
-
 	  </itemizedlist>
       </listitem>
     </itemizedlist>
@@ -2709,7 +2764,6 @@ dopackages</command> com a opção <literal>-nobuild</literal>.</para>
 	<para>Agora você já pode executar o <command>
 dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
       </listitem>
-
     </itemizedlist>
 
     <para>O procedimento para o antigo código base fica como um
@@ -2720,186 +2774,189 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
   <sect1 id="new-arch">
     <title>Como configurar uma nova arquitetura</title>
 
-    <note>
-      <para>Os passos iniciais precisam ser feitos usando
-	<application>sudo</application>.</para>
-    </note>
+    <sect2 id="new-arch-pre-qmanager">
+      <title>Passos necessários antes do
+        <application>qmanager</application> ser iniciado</title>
 
-    <itemizedlist>
-      <listitem>
-	<para>Crie um novo usuário e grupo
-	  <literal>ports-<replaceable>arch</replaceable></literal>.</para>
-      </listitem>
+      <note>
+	<para>Os passos iniciais precisam ser feitos usando
+	  <application>sudo</application>.</para>
+      </note>
 
-      <listitem>
+      <itemizedlist>
+        <listitem>
+	  <para>Crie um novo usuário e grupo
+	    <literal>ports-<replaceable>arch</replaceable></literal>.</para>
+        </listitem>
+
+        <listitem>
 	  <screen>mkdir /var/portbuild/<replaceable>arch</replaceable></screen>
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>Crie um novo sistema de arquivo
-	  <application>zfs</application>:</para>
+        <listitem>
+	  <para>Crie um novo sistema de arquivo
+	    <application>zfs</application>:</para>
 
-	<screen>zfs create -o mountpoint=/a/portbuild/<replaceable>arch</replaceable> a/portbuild/<replaceable>arch</replaceable></screen>
+	  <screen>zfs create -o mountpoint=/a/portbuild/<replaceable>arch</replaceable> a/portbuild/<replaceable>arch</replaceable></screen>
       
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<screen>
+        <listitem>
+	  <screen>
 chown ports-<replaceable>arch</replaceable>:portmgr /var/portbuild/<replaceable>arch</replaceable>;
 chmod 755 /var/portbuild/<replaceable>arch</replaceable>;
 cd /var/portbuild/<replaceable>arch</replaceable></screen>
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>Crie e popule o diretório
-	  <filename>.ssh</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>Crie e popule o diretório
+	    <filename>.ssh</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>Crie um diretório para os <literal>logs</literal> de
-	  compilação e para os <literal>logs</literal> de
-	  erros:</para>
+        <listitem>
+	  <para>Crie um diretório para os <literal>logs</literal> de
+	    compilação e para os <literal>logs</literal> de
+	    erros (XXX MCL específico para o
+	    <literal>pointyhat</literal>; corrigir isto!):</para>
 
-	  <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
+          <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
 
-	<note>
-	  <para>É possível que
-	    <filename>/dumpster/pointyhat</filename> não tenha mais
-	    espaço suficiente.  Neste caso, crie o diretório dos
-	    arquivos como
-	    <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
-	    e crie um <literal>link</literal> simbólico para ele.
-	    (Isso precisa ser resolvido.)
-	  </para>
-	</note>
-      </listitem>
+	  <note>
+	    <para>É possível que
+	      <filename>/dumpster/pointyhat</filename> não tenha mais
+	      espaço suficiente.  Neste caso, crie o diretório dos
+	      arquivos como
+	      <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
+	      e crie um <literal>link</literal> simbólico para ele.
+	      (Isso precisa ser resolvido.)
+	    </para>
+	  </note>
+	</listitem>
 
-      <listitem>
-	<para>Crie um <literal>link</literal> para o diretório acima
-	  para o servidor web:</para>
+        <listitem>
+	  <para>Crie um <literal>link</literal> para o diretório acima
+	    para o servidor web (XXX MCL específico para o
+	    <literal>pointyhat</literal>; corrigir isto!):</para>
 
 	  <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
 
-      </listitem>
-    </itemizedlist>
+        </listitem>
+      </itemizedlist>
 
-    <note>
-      <para>Os próximos passos são mais fáceis de serem realizados
-	como o usuário
-	<literal>ports-<replaceable>arch</replaceable></literal>.</para>
-    </note>
+      <note>
+	<para>Os próximos passos são mais fáceis de serem realizados
+	  como o usuário
+	  <literal>ports-<replaceable>arch</replaceable></literal>.</para>
+      </note>
 
-    <itemizedlist>
-      <listitem>
-	<para>No diretório
-	  <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
-	  execute:</para>
-	  <screen>mkdir clients</screen>
-      </listitem>
+      <itemizedlist>
+	<listitem>
+	  <para>No diretório
+	    <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
+	    execute:</para>
+	    <screen>mkdir clients</screen>
+        </listitem>
 
-      <listitem>
-	<para>Popule o diretório <filename>clients</filename> como de costume.</para>
-      </listitem>
+        <listitem>
+	  <para>Popule o diretório <filename>clients</filename> como de
+	    costume.</para>
+        </listitem>
 
-      <listitem>
-	<screen>mkdir loads</screen>
-      </listitem>
+        <listitem>
+	  <screen>mkdir loads</screen>
+        </listitem>
 
-      <listitem>
-	<screen>mkdir lockfiles</screen>
-      </listitem>
+        <listitem>
+	  <screen>mkdir lockfiles</screen>
+        </listitem>
 
-      <listitem>
-	<para>Crie um <filename>make.conf</filename> local.  Nos casos
-	  mais comuns você pode executar:</para>
+        <listitem>
+	  <para>Crie um <filename>make.conf</filename> local.  Nos
+	    casos mais comuns você pode executar:</para>
 
 	  <screen>ln ../make.conf ./make.conf</screen>
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>Crie um arquivo vazio <filename>mlist</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>Crie um arquivo vazio
+	    <filename>mlist</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base) Crie o
-	  <filename>pnohang.<replaceable>arch</replaceable></filename>.
-	  (O modo mais fácil é fazer isso em um cliente,
-	  e depois copiar o arquivo de volta):</para>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base) Crie o
+	    <filename>pnohang.<replaceable>arch</replaceable></filename>.
+	    (O modo mais fácil é fazer isso em um cliente,
+	    e depois copiar o arquivo de volta):</para>
 
 	  <screen>cc pnohang.c -o pnohang-<replaceable>arch</replaceable></screen>
-      </listitem>
+        </listitem>
 
-      <listitem>
-	<para>Crie um novo arquivo <filename>portbuild.conf</filename>
-	  a partir de um existente para uma outra arquitetura.</para>
-      </listitem>
+        <listitem>
+	  <para>Crie um novo arquivo
+	    <filename>portbuild.conf</filename> a partir de um
+	    existente para uma outra arquitetura.</para>
+        </listitem>
 
-      <listitem>
-	<para>Crie os arquivos
-	  <filename>portbuild.<replaceable>machinename</replaceable>.conf</filename>
-	  personalizando-os de forma adequada.</para>
-      </listitem>
+        <listitem>
+	  <para>Crie os arquivos
+	    <filename>portbuild.<replaceable>machinename</replaceable>.conf</filename>
+	    personalizando-os de forma adequada.</para>
+        </listitem>
 
-      <listitem>
-	<para><screen>cd .ssh && ssh-keygen</screen></para>
-      </listitem>
+        <listitem>
+	  <para><screen>cd .ssh && ssh-keygen</screen></para>
+        </listitem>
 
-      <listitem>
-	<para>Edite o arquivo <filename>.ssh/config</filename> para 
-	  tornar mais conveniênte o uso do
-	  <application>ssh</application>.</para>
-      </listitem>
+        <listitem>
+	  <para>Edite o arquivo <filename>.ssh/config</filename> para 
+	    tornar mais conveniênte o uso do
+	    <application>ssh</application>.</para>
+        </listitem>
 
-      <listitem>
-	<para>Crie o diretório de configuração privada:</para>
+        <listitem>
+	  <para>Se necessário, crie o diretório de configuração
+	    privada:</para>
 
-	<screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
-      </listitem>
+	  <screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
+        </listitem>
 
-      <listitem>
-	<para>Crie os <literal>scripts</literal>
-	  <filename>dotunnel.*</filename> que forem necessários 
-	  dentro do diretorio acima.</para>
-      </listitem>
-    </itemizedlist>
+        <listitem>
+	  <para>Crie os <literal>scripts</literal>
+	    <filename>dotunnel.*</filename> que forem necessários 
+	    dentro do diretorio acima.</para>
+        </listitem>
+      </itemizedlist>
 
-    <note>
-      <para>Mais uma vez usando
-        <application>sudo</application>:</para>
-    </note>
+      <note>
+	<para>Mais uma vez usando
+	  <application>sudo</application>:</para>
+      </note>
 
-    <itemizedlist>
-      <listitem>
-	<para>Informe o <application>qmanager</application> sobre a
-	  arquitetura:</para>
+      <itemizedlist>
+        <listitem>
+	  <para>(Necessário apenas para o novo código base):
+	    Adicione a <replaceable>arch</replaceable> na variável 
+	    <makevar>SUPPORTED_ARCHS</makevar> do arquivo
+	    <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
+        </listitem>
 
-	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen>
-      </listitem>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Edite o
+	    <filename>/var/portbuild/scripts/buildenv</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o novo código base):
-	  Adicione a <replaceable>arch</replaceable> na variável 
-	  <makevar>SUPPORTED_ARCHS</makevar> do arquivo
-	  <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
-      </listitem>
+        <listitem>
+	  <para>Adicione o diretório <replaceable>arch</replaceable> no
+	    <filename>/var/portbuild/scripts/zbackup</filename> e no
+	    <filename>/var/portbuild/scripts/zexpire</filename>.</para>
+        </listitem>
 
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Edite o
-	  <filename>/var/portbuild/scripts/buildenv</filename>.</para>
-      </listitem>
-
-      <listitem>
-	<para>Adicione o diretório <replaceable>arch</replaceable> no
-	  <filename>/var/portbuild/scripts/zbackup</filename> e no
-	  <filename>/var/portbuild/scripts/zexpire</filename>.</para>
-      </listitem>
-
-      <listitem>
-	<para>Necessário apenas para o antigo código base): Como no 
-	  procedimento para criação de um novo 
-	  <literal>branch</literal>: crie os <literal>links</literal>
-	  para o servidor web no diretório
-	  <filename>/var/portbuild/errorlogs/</filename>:</para>
+        <listitem>
+	  <para>Necessário apenas para o antigo código base): Como no 
+	    procedimento para criação de um novo 
+	    <literal>branch</literal>: crie os <literal>links</literal>
+	    para o servidor web no diretório
+	    <filename>/var/portbuild/errorlogs/</filename>:</para>
 	  
 	<screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
@@ -2907,74 +2964,105 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
 ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
-      </listitem>
+	</listitem>
 
-      <listitem>
-        <para>
-	  Crie mais dois <literal>links</literal> simbólicos para o 
-	  servidor web dentro do diretório
-	  <filename>/var/portbuild/errorlogs/</filename>:</para>
+	<listitem>
+	  <para>
+	    Crie mais dois <literal>links</literal> simbólicos para o 
+	    servidor web dentro do diretório
+	    <filename>/var/portbuild/errorlogs/</filename>:</para>
 	  
-	<screen>ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
+	  <screen>ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
 ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</replaceable>-errorlogs</screen>
-      </listitem>
-    </itemizedlist>
+        </listitem>
+      </itemizedlist>
 
-    <note>
-      <para>Novamente como
-        <literal>ports-<replaceable>arch</replaceable></literal>:</para>
-    </note>
+      <note>
+        <para>Uma última vez usando
+          <application>sudo</application>:</para>
+      </note>
 
-    <itemizedlist>
-      <listitem>
-	<para>Para cada <literal>branch</literal> que será suportado,
-	  faça o seguinte:</para>
+      <itemizedlist>
+        <listitem>
+	  <para>Adicione uma entrada <replaceable>arch</replaceable>
+	    apropriada para o
+	    <filename>/var/portbuild/scripts/dologs</filename> na raiz
+	    do <filename>crontab</filename>. (Está é uma solução
+	    paleativa.)</para>
+        </listitem>
+      </itemizedlist>
 
-	<itemizedlist>
-	  <listitem>
-	    <para>Inicie a compilação para o <literal>branch</literal>
-	      com:</para>
+    </sect2>
+
+    <sect2 id="new-arch-post-qmanager">
+      <title>Passos necessários após o
+	<application>qmanager</application> ser iniciado</title>
+
+      <note>
+	<para>Novamente usando
+	  <application>sudo</application>:</para>
+      </note>
+
+      <itemizedlist>
+	<listitem>
+	  <para>Informe o <application>qmanager</application> sobre
+	    a arquitetura:</para>
+
+	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen>
+	</listitem>
+      </itemizedlist>
+
+      <note>
+	<para>Novamente como
+	  <literal>ports-<replaceable>arch</replaceable></literal>:</para>
+      </note>
+
+      <itemizedlist>
+        <listitem>
+	  <para>Para cada <literal>branch</literal> que será suportado,
+	    faça o seguinte:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Inicie a compilação para o <literal>branch</literal>
+	        com:</para>
 
 	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
-	  </listitem>
+	    </listitem>
 
-	  <listitem>
-	    <para><link linkend="setup">Crie o
-	      <filename>bindist.tar</filename></link>.</para>
-	  </listitem>
-	</itemizedlist>
+	    <listitem>
+	      <para><link linkend="setup">Crie o
+	        <filename>bindist.tar</filename></link>.</para>
+	    </listitem>
+	  </itemizedlist>
 
-      </listitem>
-    </itemizedlist>
+        </listitem>
+      </itemizedlist>
 
-    <note>
-      <para>Uma última vez usando o
-        <application>sudo</application>:</para>
-    </note>
+      <note>
+        <para>Uma última vez usando o
+          <application>sudo</application>:</para>
+      </note>
 
-    <itemizedlist>
-      <listitem>
-	<para>(Necessário apenas para o antigo código base): Só depois
-	  que a primeira execução do 
-	  <application>dopackages</application> for feita para a
-	  arquitetura: adicione a arquitetura ao
-	  <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
-      </listitem>
-
-      <listitem>
-	<para>Adicione uma entrada <replaceable>arch</replaceable>
-	  apropriada para o 
-	  <filename>/var/portbuild/scripts/dologs</filename> no 
-	  <filename>crontab</filename> do usuário root.  (Esta é uma 
-	  solução paliativa)
-	</para>
-      </listitem>
-    </itemizedlist>
+      <itemizedlist>
+        <listitem>
+	  <para>(Necessário apenas para o antigo código base): Só depois
+	    que a primeira execução do 
+	    <application>dopackages</application> for feita para a
+	    arquitetura: adicione a arquitetura ao
+	    <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
+	</listitem>
+      </itemizedlist>
+    </sect2>
   </sect1>
 
   <sect1 id="new-head-node">
     <title>Como configurar um novo nó principal (instância do
       pointyhat)</title>
+
+    <para>Esta seção aplica-se apenas para o novo código base.  Novas
+      instalações usando o antigo código base <emphasis>não</emphasis>
+      são suportadas.</para>
 
     <para>Esta seção está em progresso.</para>
 
@@ -2985,38 +3073,80 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
       <title>Instalação básica</title>
 
       <procedure>
-
 	<step>
 	  <para>Instale o &os;.</para>
 	</step>
 
 	<step>
-	  <para>Para cada arquitetura suportada, adicione um usuário e
-	    grupo
-	    <literal>ports-<replaceable>${arch}</replaceable></literal>.
-	    Adicione os usuários ao grupo <literal>wheel</literal>.
-	    Eles devem ter um <literal>'*'</literal> como senha.
-	    Crie também, de modo similar, o usuário
-	    <literal>ports</literal> e
-	    <literal>portmgr</literal>.</para>
-	</step>
-
-	<step>
-	  <para>Para cada arquitetura suportada, crie o
-	    <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
-	    e popule o <filename>authorized_keys</filename>.</para>
-	</step>
-
-	<step>
-	  <para>Crie os arquivos apropriados em
-	    <filename>/etc/.ssh/</filename>.</para>
+	  <para>Crie um usuário para ser dono do repositório
+	    <application>portbuild</application>, tal como
+	    <literal>portmgr</literal>, e o adicione ao grupo
+	    <literal>wheel</literal>.  Ele deve ter a senha definida
+	    para <literal>'*'</literal>.</para>
 	</step>
 
 	<step>
 	  <para>Adicione a seguinte linha ao arquivo
 	    <filename>/boot/loader.conf</filename>:</para>
-	    
+
 	  <screen>console="vidconsole,comconsole"</screen>
+	</step>
+
+	<step>
+          <para>Nós utilizamos o timezone <acronym>UTC</acronym>
+	    no <literal>cluster</literal>.  Se você não configurou o
+	    relógio para UTC:</para>
+
+	  <screen>cp /usr/share/zoneinfo/Etc/UTC etc/localtime</screen>
+	</step>
+
+	<step>
+	  <para>Crie o <filename>etc/rc.conf</filename>
+	    apropriado.</para>
+
+	  <para>Entradas obrigatórias:</para>
+
+	  <screen>hostname="<replaceable>${hostname}</replaceable>"
+sshd_enable="YES"</screen>
+
+	  <para>Entradas recomendadas:</para><screen>
+background_fsck="NO"
+clear_tmp_enable="YES"
+dumpdev="AUTO"
+fsck_y_enable="YES"
+
+apache22_enable="YES"
+apache_flags=""
+apache_pidfile="/var/run/httpd.pid"
+gmetad_enable="YES"
+gmond_enable="YES"
+inetd_enable="YES"
+# XXX MCL these don't work!
+#inetd_flags="-R 10000 -lw"
+mountd_enable="YES"
+nfs_server_enable="YES"
+nfs_server_flags="-u -t -n 12"
+nfs_remote_port_only="YES"
+ntpd_enable="YES"
+ntpdate_enable="YES"
+ntpdate_flags="north-america.pool.ntp.org"
+rpcbind_enable="YES"
+rpc_lockd_enable="NO"
+rpc_statd_enable="YES"
+sendmail_enable="NONE"
+smartd_enable="YES"
+</screen>
+
+	</step>
+
+	<step>
+	  <para>Se necessário, crie o
+	    <filename>etc/resolv.conf</filename>.</para>
+	</step>
+
+	<step>
+	  <para>Crie os arquivos apropriados em
+	    <filename>/etc/.ssh/</filename>.</para>
 	</step>
 
 	<step>
@@ -3033,10 +3163,6 @@ kern.maxfilesperproc=38000</screen>
 
 	  <screen>ttyu0   "/usr/libexec/getty std.9600"   vt100   on secure</screen>
 	</step>
-
-	<step>
-	  <para>Ainda a ser definido.</para>
-	</step>
       </procedure>
 
     </sect2>
@@ -3045,27 +3171,36 @@ kern.maxfilesperproc=38000</screen>
       <title>Configurando o disco</title>
 
       <procedure>
-
 	<step>
 	  <para>Crie um volume <application>zfs</application> chamado
 	    <filename>a</filename> e monte-o em
-	    <filename>/a</filename>:</para>
+	    <filename>/a</filename>.  Um exemplo:</para>
 
-	  <screen># zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	  <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	</step>
+
+	<step>
+	  <para>Crie o diretório do
+	    <literal>portbuild</literal>:</para>
+	    
+	  <screen>&prompt.root; mkdir -p /a/portbuild</screen>
+	</step>
+
+	<step>
+	  <para>Crie e monte um novo sistema de arquivos
+	    <application>zfs</application> no diretório criado:</para>
+	  <screen>zfs create -o mountpoint=/a/portbuild a/portbuild</screen>
 	</step>
 
 	<step>
 	  <para>Configure o diretório base do
 	    <literal>portbuild</literal>:</para>
-	    
-	  <screen># mkdir -p /a/portbuild
-# cd /a/portbuild
-# chown portmgr:portmgr .
-# chmod 775 .</screen>
-	</step>
-
-	<step>
-	  <para>Ainda a ser definido.</para>
+	         
+<screen>&prompt.root; mkdir -p /a/portbuild
+&prompt.root; cd /a/portbuild
+&prompt.root; chown portmgr:portmgr .
+&prompt.root; chmod 775 .
+&prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
 	</step>
 
       </procedure>
@@ -3075,13 +3210,8 @@ kern.maxfilesperproc=38000</screen>
     <sect2 id="pointyhat-src">
       <title>Configurando o <literal>src</literal></title>
 
-      <procedure>
-
-	<step>
-	  <para>Ainda a ser definido.</para>
-	</step>
-
-      </procedure>
+      <para>Você deve ser capaz de instalar a partir da versão mais
+        recente.</para>
 
     </sect2>
 
@@ -3093,8 +3223,8 @@ kern.maxfilesperproc=38000</screen>
 	  <para>Os seguintes <literal>ports</literal> (ou seus
 	    sucessores mais recentes) são obrigatórios:</para>
 
-	  <screen>databases/py-pysqlite23
-databases/py-sqlalchemy
+	  <screen>databases/py-sqlite3
+databases/py-sqlalchemy (only SQLITE is needed)
 devel/git (WITH_SVN)
 devel/py-configobj
 devel/py-setuptools
@@ -3103,52 +3233,277 @@ net/nc
 net/rsync
 sysutils/ganglia-monitor-core (with GMETAD off)
 sysutils/ganglia-webfrontend (WITHOUT_X11)
-www/apache22 (with EXT_FILTER and THREADS)</screen>
+www/apache22 (with EXT_FILTER)</screen>
 
 	  <para>Os ports acima também irão instalar:</para>
 	  
 	  <screen>databases/sqlite3
-lang/perl-5.12
-lang/python27</screen>
+lang/perl-5.14 (or successor)
+lang/python27  (or sucessor)</screen>
 
 	  <para>Os seguintes <literal>ports</literal> (ou seus
 	    sucessores mais recentes) são fortemente
 	    recomendados:</para>
 	    
-	  <screen>benchmarks/bonnie++
-devel/ccache
+	  <screen>devel/ccache
 mail/postfix
 net/isc-dhcp41-server
-ports-mgmt/pkg_cutleaves
-ports-mgmt/pkg_tree
+ports-mgmt/pkg
 ports-mgmt/portaudit
 ports-mgmt/portmaster
 security/sudo
 shells/bash
 shells/zsh
-sysutils/screen
+sysutils/screen</screen>
+
+	  <para>Os seguintes <literal>ports</literal> (ou seus
+	    sucessores mais recentes) são úteis:</para>
+
+	  <screen>benchmarks/bonnie++
+ports-mgmt/pkg_tree
+sysutils/dmidecode
 sysutils/smartmontools</screen>
 	</step>
 
 	<step>
+	  <para>Se ainda não foram criados, adicione os seguintes
+	    usuários:</para><screen>
+squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
+ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
+
+	  <para>Adicione-os ao <filename>/etc/group</filename>
+	    também.</para>
+	</step>
+
+	<step>
 	  <para>Configure o e-mail fazendo o seguinte: (ainda a ser
-	    definido).
-	  </para>
+	    definido).</para>
 	</step>
       </procedure>
 
     </sect2>
 
-    <sect2 id="pointyhat-other">
-      <title>Outros</title>
+    <sect2 id="pointyhat-repo">
+      <title>Instalando e configurando o repositório do
+        <application>portbuild</application></title>
 
       <procedure>
-
 	<step>
-	  <para>Ainda a ser definido.</para>
+	  <para>Configure uma conta de usuário com os arquivos de
+	  configuração do Subversion instalados.  Normalmente o
+	  <replaceable>portmgr</replaceable> é usado para este
+	  fim.</para>
 	</step>
 
+	<step>
+	  <para>Como o usuário criado acima, inicie o
+	    repositório:</para>
+
+	  <screen>&prompt.user; svn checkout svn://svn.freebsd.org/base/projects/portbuild /a/portbuild</screen>
+	</step>
+
+	<step>
+	  <para>Configure como seus clientes de compilação se
+	    comunicarão com seu servidor fazendo as seguintes
+	    alterações em
+	    <filename>/var/portbuild/conf/client.conf</filename>:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Defina <makevar>CLIENT_NFS_MASTER</makevar> para a
+		partir de onde seus clientes de compilação vão efetuar o
+		<literal>PXE boot</literal>.  (Possivelmente o
+	        <literal>hostname</literal> do seu servidor.)</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Defina <makevar>CLIENT_BACKUP_FTP_SITE</makevar>
+	        para um site <literal>backup</literal> para
+		requisições FTP; possivelmente o
+		<literal>hostname</literal> do seu servidor
+		novamente.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para> Defina <makevar>CLIENT_UPLOAD_HOST</makevar> para
+	        onde os pacotes finalizados serão enviados.</para>
+	    </listitem>
+	  </itemizedlist>
+
+	  <para>A maioria dos outros valores padrões deve ser o
+	    bastante.</para>
+
+	</step>
+
+	<step>
+	  <para>A maioria dos valores padrões em
+	    <filename>/var/portbuild/conf/common.conf</filename> deve
+	    ser o bastante.  Este arquivo contém definições usadas
+	    pelo servidor e todos os seus clientes.</para>
+	</step>
+
+	<step>
+	  <para>O <filename>/var/portbuild/conf/make.conf</filename>
+	    muito provavelmente está obsoleto.</para>
+	</step>
+
+	<step>
+	  <para>Configure o servidor fazendo as seguintes mudanças em
+	    <filename>/var/portbuild/conf/server.conf</filename>:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Defina <makevar>SUPPORTED_ARCHS</makevar> para a
+	        lista de arquiteturas para as quais você deseja
+		realizar a compilação de pacotes.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Para cada <literal>branch</literal> de origem para
+	        o qual você realizará compilações, defina
+		<makevar>SRC_BRANCHES</makevar> e
+		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>,
+		como detalhado na <xref
+		linkend="new-branch-pre-qmanager"/>.  Você não precisa
+		alterar
+		<makevar>SRC_BRANCHES_PATTERN</makevar>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Defina <makevar>UPLOAD_DIRECTORY</makevar>,
+	        <makevar>UPLOAD_TARGET</makevar>, e
+		<makevar>UPLOAD_USER</makevar> para seu site de forma
+		apropriada.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Defina <makevar>MASTER_URL</makevar> para a URL
+	        http do seu servidor.  Isto será registrado nos
+		<literal>logs</literal> de compilação de pacotes e nos
+		seus índices.</para>
+	    </listitem>
+	  </itemizedlist>
+
+	  <para>A maioria dos outros valores padrões deve ser o
+	    bastante.</para>
+	</step>
       </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-pre-qmanager">
+      <title>Antes de iniciar o <application>qmanager</application></title>
+
+      <procedure>
+	<step>
+	  <para>Para cada arquitetura, siga os passos descritos na
+	    <xref linkend="new-arch-pre-qmanager"/>.</para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-qmanager">
+      <title>Configurando o
+        <application>qmanager</application></title>
+
+      <procedure>
+	<step>
+	  <para>Copie os seguintes arquivos a partir de
+	    <filename>/var/portbuild/conf/etc/rc.d</filename> para
+	    <filename>/usr/local/etc/rc.d</filename>:</para>
+
+	  <screen>buildproxy.sh
+pollmachine.sh
+qmanager.sh</screen>
+
+	  <para>Como <literal>root</literal> execute cada um dos
+	    <literal>scripts</literal>.  Você pode achar útil
+	    iniciá-los sob o <application>screen</application> para
+	    fins de depuração.</para>
+	</step>
+
+	<step>
+	  <para>Inicialize a base de dados da lista de acl do
+	    <application>qmanager</application>:</para>
+
+	  <screen>&prompt.root; python /var/portbuild/qmanager/qclient add_acl name=deny_all uidlist= gidlist= sense=0</screen>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-src-ports-repos">
+      <title>Criando os repositórios do <literal>src</literal> e do
+        <literal>ports</literal></title>
+
+      <procedure>
+	<step>
+	  <para>Execute os seguintes comandos manualmente para criar
+	    os repositórios do <literal>src</literal> e do
+	    <literal>ports</literal>, respectivamente:</para>
+
+	  <screen>&prompt.user; sudo /var/portbuild/scripts/updatesnap
+&prompt.user; sudo /var/portbuild/scripts/updatesnap.ports
+</screen>
+	  <para>Eles serão executados periodicamente a partir da raiz
+	    do <filename>crontab</filename>, que você vai configurar
+	    abaixo.</para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-other-services">
+      <title>Outros serviços</title>
+
+      <procedure>
+	<step>
+	  <para>Configure o
+	    <filename>/usr/local/etc/apache22/httpd.conf</filename>
+	    para seu site de forma apropriada.</para>
+	</step>
+
+	<step>
+	  <para> Copie o
+	    <filename>/var/portbuild/conf/apache.conf</filename> para
+	    o subdiretório <filename>Includes</filename> apropriado,
+	    por exemplo,
+	    <filename>/usr/local/etc/apache22/Includes/apache.conf</filename>.
+	    Configure isto para seu site de forma apropriada.</para>
+	</step>
+
+	<step>
+	  <para>Configure o
+	    <filename>/var/portbuild/crontab/root</filename> como a
+	    raiz do <application>crontab</application> com o
+	    <command>crontab -e</command>.  Se você não suporta todas
+	    as arquiteturas listadas, certifique-se de comentar as
+	    entradas <application>dologs</application>
+	    apropriadas.</para>
+	</step>
+
+	<step>
+	  <para>Se seus clientes de compilação efetuarão o
+	    <literal>boot</literal> via PXE, certifique-se de
+	    habilitar as entradas do <application>tftp</application>
+	    em <filename>/etc/inetd.conf</filename>.</para>
+	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-finishing-up">
+      <title>Finalizando a configuração</title>
+
+      <procedure>
+	<step>
+	  <para>Para cada arquitetura siga os passos descritos na
+	    <xref linkend="new-arch-post-qmanager"/>.</para>
+	</step>
+      </procedure>
+
+      <para>Agora você deve estar pronto para compilar pacotes.</para>
 
     </sect2>
 
