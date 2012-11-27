@@ -48,10 +48,11 @@
 
     <indexterm><primary>installation</primary></indexterm>
 
-    <para>O &os; vem com programa de instalação fácil de usar baseado
-      texto.  O &os;&nbsp;9.0-RELEASE e posterior usa um programa de
-      instalação chamado <application>bsdinstall</application>,
-      enquanto as versões anteriores a &os;&nbsp;9.0-RELEASE usam o
+    <para>O &os; vem um com programa de instalação baseado em texto
+      fácil de usar.  O &os;&nbsp;9.0-RELEASE e posterior usa um
+      programa de instalação chamado
+      <application>bsdinstall</application>, enquanto as versões
+      anteriores a &os;&nbsp;9.0-RELEASE usam o
       <application>sysinstall</application> para a instalação.  Esse
       capítulo descreve o uso do
       <application>bsdinstall</application>.  O uso do
@@ -67,7 +68,7 @@
 
       <listitem>
 	<!-- WB: verify this, including GPT partition notation (ada0p2) -->
-	<para>Como o &os; subdivide e refere aos discos
+	<para>Como o &os; subdivide e se refere aos discos
 	  rígidos.</para>
       </listitem>
 
@@ -88,7 +89,7 @@
     <itemizedlist>
       <listitem>
 	<para>Ler a lista de hardware suportado que vem com a versão
-	  do &os; que você está instalando e verifique se seu hardware
+	  do &os; que você está instalando e verificar se seu hardware
 	  é suportado.</para>
       </listitem>
     </itemizedlist>
@@ -116,7 +117,7 @@
       <para>Um resumo dessa informação está nas seções seguintes.
 	Dependendo do método que você escolher para instalar o &os;,
 	você pode precisar de uma unidade de CDROM e em alguns casos
-	um adaptador de rede.  Isso será coberto pelo <xref
+	um adaptador de rede.  Isso será coberto pela <xref
 	linkend="bsdinstall-installation-media"/>.</para>
 
       <sect3>
@@ -129,7 +130,7 @@
 
 	<note>
 	  <para>Em computadores antigos, aumentar a RAM e o espaço no
-	    disco rígido é geralmente mais eficaz em melhorar o
+	    disco rígido é geralmente mais eficaz para melhorar o
 	    desempenho do que instalar um processador mais
 	    rápido.</para>
 	</note>
@@ -157,7 +158,7 @@
 	  <literal>IO APIC</literal>.  Se você não tem uma opção para
 	  fazer isso, você deve desabilitar o <literal>ACPI</literal>
 	  no lugar.  Há <literal>bugs</literal> no
-	  <literal>chipset</literal>Pro-150 que nós ainda não
+	  <literal>chipset</literal> Pro-150 que nós ainda não
 	  encontramos uma solução.</para>
       </sect3>
 
@@ -180,7 +181,7 @@
 	listados no Projeto <ulink
 	url="http://www.freebsd.org/platforms/sparc.html">FreeBSD/sparc64</ulink>.</para>
 
-	<para>Um disco dedicado é requerido para o
+	<para>Um disco dedicado é necessário para o
 	  &os;/&arch.sparc64;.  Atualmente não é possível compartilhar
 	  um disco com outro sistema operacional.</para>
       </sect3>
@@ -193,7 +194,7 @@
 	versão do &os; estão listados no arquivo Notas de Hardware.
 	Geralmente com o nome <filename>HARDWARE.TXT</filename>, o
 	arquivo é localizado no diretório raiz da mídia da versão.
-	Cópias da lista de hardware suportada também estão disponíveis
+	Cópias da lista de hardware suportado também estão disponíveis
 	na página <ulink
 	url="http://www.FreeBSD.org/releases/index.html">Informação da
 	Versão</ulink> do web site do &os;</para>
@@ -251,8 +252,8 @@
 	  <acronym role="GUID Partition Table">GPT</acronym> é muito
 	  mais versátil do que a tradicional tabela de partição MBR.
 	  Implementações comuns do <acronym>GPT</acronym> permite até
-	  128 partições por disco, eliminando a necessidade adaptações
-	  inconvenientes como as partições lógicas.</para>
+	  128 partições por disco, eliminando a necessidade de
+	  adaptações inconvenientes como as partições lógicas.</para>
 
 	<warning>
 	  <para>Alguns sistemas operacionais antigos como o
@@ -320,7 +321,7 @@
 	  <para>Um computador &windows; tem um único disco de
 	    40&nbsp;GB e uma partição grande usando o disco inteiro. O
 	    &windows; mostra essa partição de 40&nbsp;GB como
-	    <devicename>C:</devicename>.  15&nbsp;GB de espaço estão
+	    <devicename>C:</devicename>.  15&nbsp;GB de espaço está
 	    sendo usado.  O objetivo é acabar com o &windows; em uma
 	    partição de 20&nbsp;GB e outra partição de 20&nbsp;GB para
 	    o &os;.</para>
@@ -409,7 +410,7 @@
 	de instalar para ter certeza de que não há problemas que podem
 	afetar a instalação.</para>
       
-      <para>Informações e errata para todas as versões podem ser
+      <para>Informações e erratas para todas as versões podem ser
 	encontradas na seção de <ulink
 	url="&url.base;/releases/index.html">informação de
 	versão</ulink> do <ulink url="&url.base;/index.html">site web
@@ -420,9 +421,9 @@
       <title>Preparar a Mídia de Instalação</title>
 
       <para>A instalação do &os; começa por inicializar o computador
-	o CD, DVD ou pendrive de instalação do &os;.  O instalador não
-	é um programa que pode ser executado a partir de outro sistema
-	operacional.</para>
+	com o CD, DVD ou pendrive de instalação do &os;.  O instalador
+	não é um programa que pode ser executado a partir de outro
+	sistema operacional.</para>
 
       <para>Além da mídia de instalação padrão que contém cópias de
 	todos os arquivos de instalação do &os;, há uma variante
@@ -478,7 +479,7 @@
 
 	  <para>A imagem de pendrive tem a extensão
 	    <filename>.img</filename>.  O diretório <filename
-	    class="directory">ISO-IMAGES/</filename>contém um número de
+	    class="directory">ISO-IMAGES/</filename> contém um número de
 	    imagens diferentes, a imagem que você precisa depende da
 	    versão do &os; que irá instalar e em alguns casos do
 	    hardware também.</para>
@@ -525,9 +526,9 @@
 	    <title>Usando o &windows; para Gravar a Imagem</title>
 
 	    <warning>
-	      <para>Tenha certeza de dar a letra do drive correto como
-		destino de saída ou você pode sobrescrever e destruir
-		os dados existentes.</para>
+	      <para>Tenha certeza de usar a letra do drive correto
+		como destino de saída ou você pode sobrescrever e
+		destruir os dados existentes.</para>
 	    </warning>
 
 	    <step>
@@ -617,22 +618,20 @@ commit your changes?</literallayout>
 	      permite a seleção de um dispositivo específico para a
 	      inicialização.  A maioria dos sistemas também prove a
 	      seleção do dispositivo de inicialização após o
-	      computador ser ligado, tipicamente pressionando
+	      computador ser ligado, geralmente pressionando
 	      <keycap>F10</keycap>, <keycap>F11</keycap>,
-	      <keycap>F12</keycap>, ou <keycap>Escape</keycap>.</para>
+	      <keycap>F12</keycap> ou <keycap>Escape</keycap>.</para>
 	  </step>
 
 	  <step>
 	    <para>Se o seu computador iniciar normalmente e carregar o
 	      seu sistema operacional, então:</para>
-	    <para>If your computer starts up as normal and loads your
-	      existing operating system, then either:</para>
 
 	    <orderedlist>
 	      <listitem>
 		<para>O disco não foi inserido cedo o suficiente no
-		  durante o processo de inicialização.  Deixe o disco
-		  dentro e tente reiniciar seu computador.</para>
+		  processo de inicialização.  Deixe o disco dentro e
+		  tente reiniciar seu computador.</para>
 	      </listitem>
 
 	      <listitem>
@@ -644,7 +643,7 @@ commit your changes?</literallayout>
 
 	      <listitem>
 		<para>O seu <acronym>BIOS</acronym> específico não
-		  suporte iniciar a partir da mídia escolhida.  O
+		  permite iniciar a partir da mídia escolhida.  O
 		  <ulink
 		  url="http://www.plop.at/en/bootmanager.html">Gerenciador
 		  de Inicialização Plop</ulink> pode ser usado para
@@ -725,7 +724,7 @@ Loading /boot/defaults/loader.conf
 	    <keycap>F</keycap>
 	  </keycombo>
 	  nos teclados que não são da &apple;  No prompt <prompt>0
-	    ></prompt>digite</para>
+	    ></prompt> digite</para>
 
 	<screen><userinput>boot cd:,\ppc\loader cd:0</userinput></screen>
 
@@ -754,14 +753,14 @@ Copyright 1998-2001 Sun Microsystems, Inc.  All rights reserved.
 OpenBoot 4.2, 128 MB memory installed, Serial #51090132.
 Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
 
-	<para>Se seu sistema proceder com a inicialização a partir do
+	<para>Se seu sistema continuar com a inicialização a partir do
 	  disco rígido, você precisa apertar
 	  <keycombo
 	    action="simul"><keycap>L1</keycap><keycap>A</keycap></keycombo>
 	  ou
 	  <keycombo
 	    action="simul"><keycap>Stop</keycap><keycap>A</keycap></keycombo>
-	  no teclado, ou enviar um <command>BREAK</command> através do
+	  no teclado ou enviar um <command>BREAK</command> através do
 	  console serial (usando por exemplo <command>~#</command> no
 	  &man.tip.1; ou &man.cu.1;) para obter o prompt <acronym
 	  role="Programmable Read Only Memory">PROM</acronym>.  Ele se
@@ -812,7 +811,7 @@ Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
       <para>Faça isso agora para rever o texto que saiu da tela quando
 	o kernel estava fazendo a busca pelos dispositivos.  Você verá
 	um texto semelhante a <xref linkend="bsdinstall-dev-probe"/>,
-	embora o texto preciso será diferente dependendo dos
+	embora o texto exato será diferente dependendo dos
 	dispositivos que você tem em seu computador.</para>
 
       <figure id="bsdinstall-dev-probe">
@@ -1290,7 +1289,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	cuidadosamente.  Se um erro for cometido, selecione
 	<guibutton>[&nbsp;Revert&nbsp;]</guibutton> para reverter as
 	partições conforme elas estavam anteriormente ou
-	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> irá recriar as
+	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> para recriar as
 	partições automáticas do &os;.  As partições podem ser
 	criadas, modificadas ou deletadas manualmente.  Quando o
 	particionamento estiver correto, selecione
@@ -1375,7 +1374,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	      <entry>BSD</entry>
 	      <entry><literal>BSD Labels</literal> sem um MBR,
 		algumas vezes chamado de "modo dedicado perigoso".
-		Veja man.bsdlabel.8;.</entry>
+		Veja &man.bsdlabel.8;.</entry>
 	    </row>
 
 	    <row>
@@ -1466,20 +1465,20 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>Veja &man.gpart.8; para uma lista completa dos tipos
 	disponíveis de partições <acronym>GPT</acronym>.</para>
 
-      <para>O tamanho pode ser entrado com abreviações comuns:
+      <para>O tamanho pode ser digitado com abreviações comuns:
       <emphasis>K</emphasis> para kilobytes, <emphasis>M</emphasis>
       para megabytes ou <emphasis>G</emphasis> para gigabytes.</para>
 
       <tip>
 	<para>Alinhamento adequado de setor proporciona um melhor
 	  desempenho e fazendo o tamanho das partições múltiplos de 4K
-	  bytes ajuda a garantir em unidades com setores de 512-bytes
-	  ou 4K-bytes.  Geralmente, usando tamanhos de partição que
-	  são múltiplos de 1M ou 1G é o modo mais fácil de garantir
-	  que toda partição comece em um múltiplo de 4K.  Uma exceção:
-	  No momento, a partição <emphasis>freebsd-boot</emphasis> não
-	  deve ser maior que 512K devido a limitações do código de
-	  inicialização.</para>
+	  bytes ajuda a garantir o alinhamento em unidades com setores
+	  de 512-bytes ou 4K-bytes.  Geralmente, usando tamanhos de
+	  partição que são múltiplos de 1M ou 1G é o modo mais fácil
+	  de garantir que toda partição comece em um múltiplo de 4K.
+	  Uma exceção: No momento, a partição
+	  <emphasis>freebsd-boot</emphasis> não deve ser maior que
+	  512K devido a limitações do código de inicialização.</para>
       </tip>
 
       <para>Um ponto de montagem é necessário se a partição conterá um
@@ -1524,7 +1523,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  Os tamanhos das partições mostradas são típicas de um disco
 	  de 20G.  Se mais espaço está disponível no disco, uma swap
 	  ou um <filename>/var</filename> maior pode ser útil.
-	  <literal>Labels</literal> mostrados aqui estão om o prefixo
+	  <literal>Labels</literal> mostrados aqui estão com o prefixo
 	  <literal>ex</literal> para "exemplo", mas leitores devem
 	  usar outros valores exclusivos como descrito acima.</para>
 
@@ -1645,7 +1644,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     </figure>
 
     <para>Após, a integridade dos arquivos de distribuição é
-      verificada, para garantir que eles não foram corrompidos durante
+      verificada para garantir que eles não foram corrompidos durante
       o download ou mal lidos da mídia de instalação.</para>
 
     <figure id="bsdinstall-distfile-verify">
@@ -1743,7 +1742,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<title>Configurando uma Interface de Rede Sem Fio</title>
 
 	<para>Se uma interface de rede sem fio
-	  (<literal>wireless</literal> for escolhida, a identificação
+	  (<literal>wireless</literal>) for escolhida, a identificação
 	  da rede sem fio e os parâmetros de segurança devem ser
 	  inseridos para permitir conectar à rede.</para>
 
@@ -1756,7 +1755,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<para>A maioria das redes sem fio criptografam os dados
 	  transmitidos para proteger a informação de observadores não
 	  autorizados.  A criptografia <acronym role="Wi-Fi Protected
-	  Access II">WPA2</acronym>é fortemente recomendada.  Tipos
+	  Access II">WPA2</acronym> é fortemente recomendada.  Tipos
 	  antigos de criptografia, como <acronym role="Wired
 	  Equivalent Privacy">WEP</acronym>, oferecem pouca
 	  segurança.</para>
@@ -1900,7 +1899,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para><literal>Endereço IP</literal> - O endereço IPv4
+	      <para><literal>IP Address</literal> - O endereço IPv4
 		atribuído manualmente que será atribuído a esse
 		computador.  Esse endereço deve ser único e não pode
 		estar em uso por outro equipamento na rede
@@ -1908,13 +1907,13 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    </listitem>
 
 	    <listitem>
-	      <para><literal>Máscara de Sub Rede</literal> - A máscara
+	      <para><literal>Subnet Mask</literal> - A máscara
 		de sub rede usada para a rede local.  Normalmente ela
 		é <literal>255.255.255.0</literal>.</para>
 	    </listitem>
 
 	    <listitem>
-	      <para><literal>Roteador Padrão</literal> - O endereço IP
+	      <para><literal>Default Router</literal> - O endereço IP
 		do roteador padrão da rede.  Geralmente esse é o
 		endereço o roteador ou outro equipamento da rede que
 		conecta a rede local à Internet.  Também conhecido
@@ -1994,7 +1993,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para><literal>Endereço IPv6</literal> - O endereço
+	      <para><literal>IPv6 Address</literal> - O endereço
 		<acronym>IP</acronym> atribuído manualmente que será
 		atribuído a esse computador.  Esse endereço deve ser
 		único e não pode estar em uso por outro equipamento na
@@ -2002,7 +2001,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    </listitem>
 
 	    <listitem>
-	      <para><literal>Roteador Padrão</literal> - O endereço
+	      <para><literal>Default Router</literal> - O endereço
 		IPv6 do roteador padrão da rede.  Geralmente esse é o
 		endereço do roteador ou de outro equipamento da rede
 		que conecta a rede local à Internet.  Também conhecido
@@ -2232,7 +2231,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Entre a informação do usuário que será adicionado.</para>
+      <para>Entrar a informação do usuário que será adicionado.</para>
 
       <figure id="bsdinstall-add-user2">
 	<title>Entre a Informação do Usuário</title>
@@ -2285,8 +2284,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	<listitem>
 	  <para><literal>Shell</literal> - O <literal>shell</literal>
-	    interativa para o usuário.  Neste exemplo, &man.csh.1; foi
-	    escolhida.</para>
+	    interativo para o usuário.  Neste exemplo, &man.csh.1; foi
+	    escolhido.</para>
 	</listitem>
 
 	<listitem>
@@ -2318,8 +2317,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	<listitem>
 	  <para><literal>Enter password</literal> - A senha atual para
-	    este atual para esse usuário.  Os caracteres digitados não
-	    serão exibidos na tela.</para>
+	    esse usuário.  Os caracteres digitados não serão exibidos
+	    na tela.</para>
 	</listitem>
 
 	<listitem>
@@ -2340,7 +2339,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	criar o novo usuário.</para>
 
       <figure id="bsdinstall-add-user3">
-	<title>Saia do Gerenciamento do Usuário e Grupo</title>
+	<title>Sair do Gerenciamento do Usuário e Grupo</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -2670,7 +2669,7 @@ login:</screen>
 	  rápidas.</para>
 
 	<para>&os; não instala ambientes gráficos por padrão, mas
-	  vários estão disponíveis..  Veja <xref linkend="x11"/> para
+	  vários estão disponíveis.  Veja <xref linkend="x11"/> para
 	  mais informações.</para>
       </sect3>
     </sect2>
@@ -2714,7 +2713,7 @@ login:</screen>
 
       <para>Devido a várias limitações da arquitetura PC, é impossível
 	ter um reconhecimento 100% confiável, entretanto, há algumas
-	coisa que você pode fazer em caso de falha.</para>
+	coisas que você pode fazer em caso de falha.</para>
 
       <para>Verifique o documento de <ulink
 	  url="http://www.FreeBSD.org/releases/index.html">Notas de
@@ -2740,8 +2739,8 @@ login:</screen>
 	desabilitada.</para>
 
       <note>
-	<para>Alguns problemas de instalação podem ser evitados
-	  aliviados atualizando a firmware de vários componentes de
+	<para>Alguns problemas de instalação podem ser evitados ou
+	  reduzidos atualizando o firmware de vários componentes de
 	  hardware, principalmente a placa mãe.  O firmware da placa
 	  mãe é geralmente referido como o <acronym>BIOS</acronym>.  A
 	  maioria dos fabricantes de placa mãe e computadores possuem
@@ -2768,12 +2767,12 @@ login:</screen>
 	  </question>
 
 	  <answer>
-	    <para>O &os; faz uso extensivo do sistema ACPI nas
+	    <para>Se o sistema ACPI for detectado durante a
+	      inicialização, o &os; fará uso extensivo dele nas
 	      plataformas i386, amd64 e ia64 para ajudar na
-	      configuração, se ele for detectado durante a
-	      inicialização.  Infelizmente, ainda existem alguns
+	      configuração.  Infelizmente, ainda existem alguns
 	      defeitos, tanto no driver ACPI quanto no sistema das
-	      placas mãe e na firmware do <acronym>BIOS</acronym>.  O
+	      placas mãe e no firmware do <acronym>BIOS</acronym>.  O
 	      ACPI pode ser desabilitado definindo o ajuste
 	      <literal>hint.acpi.0.disabled</literal> no terceiro
 	      estágio do <literal>boot loader</literal>:</para>
