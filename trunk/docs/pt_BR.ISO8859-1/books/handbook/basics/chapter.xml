@@ -20,81 +20,94 @@
     <!-- 10 Mar 2000 -->
   </chapterinfo>
 
-  <title>UNIX Basics</title>
+  <title>Básico do UNIX</title>
 
   <sect1 id="basics-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
-   <para>The following chapter will cover the basic commands and
-     functionality of the FreeBSD operating system.  Much of this
-     material is relevant for any &unix;-like operating system.  Feel
-     free to skim over this chapter if you are familiar with the
-     material.  If you are new to FreeBSD, then you will definitely
-     want to read through this chapter carefully.</para>
+    <para>O capítulo seguinte cobrirá os comandos e funcionalidades
+      básicas do sistema operacional FreeBSD.  Muito desse material é
+      relevante para todo sistema operacional
+      <foreignphrase>&unix;-like</foreignphrase>.  Sinta-se livre para
+      pular esse capítulo se você está familiarizado com o material.
+      Se você é novo no FreeBSD, então você definitivamente vai querer
+      ler cuidadosamente esse capítulo.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler esse capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-        <para>How to use the <quote>virtual consoles</quote> of
+        <para>Como usar os <quote>consoles virtuais</quote> do
 	  FreeBSD.</para>
       </listitem>
+
       <listitem>
-	<para>How &unix; file permissions work along with
-	  understanding file flags in &os;.</para>
+	<para>Como funcionam as permissões de arquivos do &unix;
+	  juntamente com o entendimento das sinalizações de arquivos
+	  no &os;.</para>
       </listitem>
+      
       <listitem>
-	<para>The default &os; file system layout.</para>
+	<para>O layout padrão do sistema de arquivos do &os;.</para>
       </listitem>
+      
       <listitem>
-	<para>The &os; disk organization.</para>
+	<para>A organização de disco do &os;.</para>
       </listitem>
+      
       <listitem>
-	<para>How to mount and unmount file systems.</para>
+	<para>Como montar e desmontar sistemas de arquivos.</para>
       </listitem>
+      
       <listitem>
-	<para>What processes, daemons, and signals are.</para>
+	<para>O que processos, daemons and sinais são.</para>
       </listitem>
+      
       <listitem>
-	<para>What a shell is, and how to change your default login
-	environment.</para>
+	<para>O que é um shell e como mudar o seu ambiente padrão de
+	login.</para>
       </listitem>
+      
       <listitem>
-	<para>How to use basic text editors.</para>
+	<para>Como usar editores básicos de texto.</para>
       </listitem>
+      
       <listitem>
-	<para>What devices and device nodes are.</para>
+	<para>O que são dispositivos e nós de dispositivos.</para>
       </listitem>
+      
       <listitem>
-	<para>What binary format is used under &os;.</para>
+	<para>Qual formato binário é usado no &os;.</para>
       </listitem>
+      
       <listitem>
-	<para>How to read manual pages for more information.</para>
+	<para>Como ler páginas do manual e mais informações.</para>
       </listitem>
     </itemizedlist>
-
   </sect1>
 
   <sect1 id="consoles">
-    <title>Virtual Consoles and Terminals</title>
+    <title>Consoles Virtuais e Terminais</title>
     <indexterm><primary>virtual consoles</primary></indexterm>
     <indexterm><primary>terminals</primary></indexterm>
 
-    <para>FreeBSD can be used in various ways.  One of them is typing commands
-      to a text terminal.  A lot of the flexibility and power of a &unix;
-      operating system is readily available at your hands when using FreeBSD
-      this way.  This section describes what <quote>terminals</quote> and
-      <quote>consoles</quote> are, and how you can use them in FreeBSD.</para>
+    <para>O FreeBSD pode ser usado de várias maneiras.  Uma delas é
+      digitando comandos em um terminal de texto.  Muita flexibilidade
+      e poder de um sistema operacional &unix; está disponível em suas
+      mãos quando usando o FreeBSD desta maneira.  Essa seção descreve
+      o que são <quote>terminais</quote> e <quote>consoles</quote> e
+      como você pode usá-los no FreeBSD.</para>
 
     <sect2 id="consoles-intro">
-      <title>The Console</title>
+      <title>O Console</title>
       <indexterm><primary>console</primary></indexterm>
 
-      <para>If you have not configured FreeBSD to automatically start a
-	graphical environment during startup, the system will present you with
-	a login prompt after it boots, right after the startup scripts finish
-	running.  You will see something similar to:</para>
-
+      <para>Se você não configurou o FreeBSD para iniciar um ambiente
+	gráfico automaticamente durante a inicialização, o sistema
+	apresentará para você um prompt de login depois que ele
+	iniciar, logo após que os scripts de inicialização terminarem
+	de executar.  Você verá algo similar a:</para>
+	
       <screen>Additional ABI support:.
 Local package initialization:.
 Additional TCP options:.
@@ -105,85 +118,96 @@ FreeBSD/i386 (pc3.example.org) (ttyv0)
 
 login:</screen>
 
-      <para>The messages might be a bit different on your system, but you will
-	see something similar.  The last two lines are what we are interested
-	in right now.  The second last line reads:</para>
+      <para>As mensagens podem ser um pouco diferentes no seu sistema,
+	mas você verá algo parecido.  As duas últimas linhas são o que
+	nos interessa agora.  Na penúltima linha lê-se:</para>
 
-      <programlisting>FreeBSD/i386 (pc3.example.org) (ttyv0)</programlisting>
+      <programlisting>FreeBSD/i386 (pc3.example.org)
+        (ttyv0)</programlisting>
 
-      <para>This line contains some bits of information about the system you
-        have just booted.  You are looking at a <quote>FreeBSD</quote>
-	console, running on an Intel or compatible processor of the x86
-	architecture<footnote>
-	  <para>This is what <literal>i386</literal> means.  Note that even if
-	    you are not running FreeBSD on an Intel 386 CPU, this is going to
-	    be <literal>i386</literal>.  It is not the type of your processor,
-	    but the processor <quote>architecture</quote> that is shown
-	    here.</para>
-	</footnote>.  The name of this machine (every &unix; machine has a
-	name) is <hostid>pc3.example.org</hostid>, and you are now looking
-	at its system console&mdash;the <devicename>ttyv0</devicename>
-	terminal.</para>
+      <para>Essa linha contém alguns bits de informação sobre o
+	sistema que você acabou de iniciar.  Você está olhando para um
+	console <quote>FreeBSD</quote> sendo executando em um
+	processador Intel ou outro compatível com a arquitetura
+	x86<footnote>
+	  <para>Isso é o que <literal>i386</literal> significa.  Note
+	  que mesmo se você não estiver executando o FreeBSD em um CPU
+	  Intel 386, isso ainda será <literal>i386</literal>.  Não é o
+	  tipo do seu processador que é exibido aqui, mas sim a
+	  <quote>arquitetura</quote> do processador.</para>
+	</footnote>.  O nome dessa máquina é
+	<hostid>pc3.example.org</hostid> (toda máquina &unix; tem um
+	nome) e você está olhando agora para o console do
+	sistema&mdash;o terminal
+	<devicename>ttyv0</devicename>.</para>
 
-      <para>Finally, the last line is always:</para>
+      <para>Finalmente, a última linha sempre é:</para>
 
       <programlisting>login:</programlisting>
 
-      <para>This is the part where you are supposed to type in your
-	<quote>username</quote> to log into FreeBSD.  The next section
-	describes how you can do this.</para>
+      <para>Essa é a parte que você deve digitar o seu
+	<quote>nome de usuário</quote> para entrar no FreeBSD.  A
+	próxima seção descreve como você pode fazer isso.</para>
     </sect2>
 
     <sect2 id="consoles-login">
-      <title>Logging into FreeBSD</title>
+      <title>Entrando no FreeBSD</title>
 
-      <para>FreeBSD is a multiuser, multiprocessing system.  This is
-	the formal description that is usually given to a system that can be
-	used by many different people, who simultaneously run a lot of
-	programs on a single machine.</para>
+      <para>O FreeBSD é um sistema multiusuário e com
+	multiprocessamento.  Essa é a descrição formal que é
+	geralmente dada a um sistema que pode ser usada por diferentes
+	pessoas, que simultaneamente executam vários programas em uma
+	única máquina.</para>
 
-      <para>Every multiuser system needs some way to distinguish one
-	<quote>user</quote> from the rest.  In FreeBSD (and all the
-	&unix;-like operating systems), this is accomplished by requiring that
-	every user must <quote>log into</quote> the system before being able
-	to run programs.  Every user has a unique name (the
-	<quote>username</quote>) and a personal, secret key (the
-	<quote>password</quote>).  FreeBSD will ask for these two before
-	allowing a user to run any programs.</para>
+      <para>Todo sistema multiusuário precisa de alguma maneira de
+	distinguir um <quote>usuário</quote> dos outros.  No FreeBSD
+	(e em todos os sistemas operacionais &unix;-like), isso é
+	conseguido exigindo que todo usuário <quote>entre no
+	sistema</quote> antes de ser capaz de executar programas.
+	Todo usuário tem um nome único (o <quote>nome de
+	usuário</quote>) e uma chave secreta pessoal (a
+	<quote>senha</quote>).  O FreeBSD perguntará por essas duas
+	informações antes de permitir que um usuário execute qualquer
+	programa.</para>
 
       <indexterm><primary>startup scripts</primary></indexterm>
-      <para>Right after FreeBSD boots and finishes running its startup
-	scripts<footnote>
-	  <para>Startup scripts are programs that are run automatically by
-	    FreeBSD when booting.  Their main function is to set things up for
-	    everything else to run, and start any services that you have
-	    configured to run in the background doing useful things.</para>
-	</footnote>, it will present you with a prompt and ask for a valid
-	username:</para>
+      <para>Logo após o FreeBSD iniciar e terminar de executar os
+	scripts de inicialização<footnote>
+	  <para>Scripts de inicialização são programas que são
+	    executados automaticamente pelo FreeBSD quando inicia.
+	    Sua função principal é definir as coisas para que todo o
+	    resto execute e iniciar os serviços que você configurou
+	    para executar em segundo plano fazendo coisas
+	    úteis.</para>
+	</footnote>, será apresentado para você um prompt perguntando
+	por um nome de usuário válido:</para>
 
       <screen>login:</screen>
 
-      <para>For the sake of this example, let us assume that your username is
-	<username>john</username>.  Type <literal>john</literal> at this prompt and press
-	<keycap>Enter</keycap>.  You should then be presented with a prompt to
-	enter a <quote>password</quote>:</para>
+      <para>Para este exemplo, vamos propor que o seu nome de usuário
+	é <username>john</username>.  Digite <literal>john</literal>
+	no prompt e aperte <keycap>Enter</keycap>.  Então será
+	mostrado um prompt para você digitar a
+	<quote>senha</quote>:</para>
 
       <screen>login: <userinput>john</userinput>
 Password:</screen>
 
-      <para>Type in <username>john</username>'s password now, and press
-	<keycap>Enter</keycap>.  The password is <emphasis>not
-	echoed!</emphasis>  You need not worry about this right now.  Suffice
-	it to say that it is done for security reasons.</para>
+      <para>Agora digite a senha do <username>john</username> e aperte
+	<keycap>Enter</keycap>.  A senha <emphasis>não é
+	exibida!</emphasis>  Você não precisa se preocupar com isto
+	agora.  Basta dizer que isto é feito por razões de
+	segurança.</para>
 
-      <para>If you have typed your password correctly, you should by now be
-	logged into FreeBSD and ready to try out all the available
-	commands.</para>
+      <para>Se você digitou corretamente a sua senha, neste momento
+	você deve ter entrado no FreeBSD e está pronto para
+	experimentar todos os comandos disponíveis.</para>
 
-      <para>You should see the <acronym>MOTD</acronym> or message of
-	the day followed by a command prompt (a <literal>#</literal>,
-	<literal>$</literal>, or <literal>%</literal> character).  This
-	indicates you have successfully logged into FreeBSD.</para>
+      <para>Você deve ver a <acronym>MOTD</acronym> ou mensagem do dia
+	seguida pelo prompt de comando (um caractere
+	<literal>#</literal>, <literal>$</literal> ou
+	<literal>%</literal>).  Isso indica que você entrou com
+	sucesso no FreeBSD.</para>
     </sect2>
 
     <sect2 id="consoles-virtual">
@@ -230,11 +254,11 @@ Password:</screen>
       <title>The <filename>/etc/ttys</filename> File</title>
 
       <para>The default configuration of FreeBSD will start up with eight
-        virtual consoles.  This is not a hardwired setting though, and
-        you can easily customize your installation to boot with more
-        or fewer virtual consoles.  The number and settings of the
-        virtual consoles are configured in the
-        <filename>/etc/ttys</filename> file.</para>
+	virtual consoles.  This is not a hardwired setting though, and
+	you can easily customize your installation to boot with more
+	or fewer virtual consoles.  The number and settings of the
+	virtual consoles are configured in the
+	<filename>/etc/ttys</filename> file.</para>
 
       <para>You can use the <filename>/etc/ttys</filename> file to configure
 	the virtual consoles of FreeBSD.  Each uncommented line in this file
@@ -280,7 +304,7 @@ ttyv8   "/usr/X11R6/bin/xdm -nodaemon"  xterm   off secure</programlisting>
 console none                            unknown off secure</programlisting>
 
       <note>
-        <para>As the comments above the <literal>console</literal> line
+	<para>As the comments above the <literal>console</literal> line
 	  indicate, you can edit this line and change <literal>secure</literal> to
 	  <literal>insecure</literal>.  If you do that, when FreeBSD boots
 	  into single user mode, it will still ask for the
@@ -454,7 +478,7 @@ total 530
       of the file's permission.</para>
 
     <para>This is all well and good, but how does the system control
-      permissions on devices? FreeBSD actually treats most hardware
+      permissions on devices?  FreeBSD actually treats most hardware
       devices as a file that programs can open, read, and write data to
       just like any other file.  These special device files are stored on
       the <filename>/dev</filename> directory.</para>
@@ -832,7 +856,7 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
     <para>
       <informaltable frame="none" pgwide="1">
-        <tgroup cols="2">
+	<tgroup cols="2">
 	  <thead>
 	    <row>
 	      <entry>Directory</entry>
@@ -840,10 +864,10 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	    </row>
 	  </thead>
 	  <tbody valign="top">
-            <row>
+	    <row>
 	      <entry><filename class="directory">/</filename></entry>
 	      <entry>Root directory of the file system.</entry>
-            </row>
+	    </row>
 
 	    <row>
 	      <entry><filename class="directory">/bin/</filename></entry>
@@ -983,15 +1007,15 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	      class="directory">/usr/local/</filename></entry>
 
 	      <entry>Local executables, libraries, etc.  Also used as
-	        the default destination for the FreeBSD ports
-	        framework.  Within <filename>/usr/local</filename>,
-	        the general layout sketched out by &man.hier.7; for
-	        <filename>/usr</filename> should be used.  Exceptions
-	        are the man directory, which is directly under
-	        <filename>/usr/local</filename> rather than under
-	        <filename>/usr/local/share</filename>, and the ports
-	        documentation is in
-	        <filename>share/doc/<replaceable>port</replaceable></filename>.
+		the default destination for the FreeBSD ports
+		framework.  Within <filename>/usr/local</filename>,
+		the general layout sketched out by &man.hier.7; for
+		<filename>/usr</filename> should be used.  Exceptions
+		are the man directory, which is directly under
+		<filename>/usr/local</filename> rather than under
+		<filename>/usr/local/share</filename>, and the ports
+		documentation is in
+		<filename>share/doc/<replaceable>port</replaceable></filename>.
 	      </entry>
 	    </row>
 
@@ -1071,7 +1095,7 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	  </tbody>
 	</tgroup>
       </informaltable>
-    </para>
+</para>
 
   </sect1>
 
@@ -1664,27 +1688,27 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	<varlistentry>
 	  <term><literal>dumpfreq</literal></term>
 
-         <listitem><para>This is used by &man.dump.8; to determine which
-             file systems require dumping.  If the field is missing,
-             a value of zero is assumed.</para>
-         </listitem>
+	 <listitem><para>This is used by &man.dump.8; to determine which
+	     file systems require dumping.  If the field is missing,
+	     a value of zero is assumed.</para>
+	 </listitem>
        </varlistentry>
 
        <varlistentry>
-         <term><literal>passno</literal></term>
+	 <term><literal>passno</literal></term>
 
-         <listitem>
-           <para>This determines the order in which file systems should
-           be checked.  File systems that should be skipped should have
-           their <literal>passno</literal> set to zero.  The root
-           file system (which needs to be checked before everything
-           else) should have its <literal>passno</literal> set to
-           one, and other file systems' <literal>passno</literal>
-           should be set to values greater than one.  If more than one
-           file systems have the same <literal>passno</literal> then
-           &man.fsck.8; will attempt to check file systems in parallel
-           if possible.</para>
-         </listitem>
+	 <listitem>
+	   <para>This determines the order in which file systems should
+	   be checked.  File systems that should be skipped should have
+	   their <literal>passno</literal> set to zero.  The root
+	   file system (which needs to be checked before everything
+	   else) should have its <literal>passno</literal> set to
+	   one, and other file systems' <literal>passno</literal>
+	   should be set to values greater than one.  If more than one
+	   file systems have the same <literal>passno</literal> then
+	   &man.fsck.8; will attempt to check file systems in parallel
+	   if possible.</para>
+	 </listitem>
 	</varlistentry>
       </variablelist>
 
@@ -2374,7 +2398,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
       <command>ee /etc/rc.conf</command>.  Once inside of
       <command>ee</command>, all of the
       commands for manipulating the editor's functions are listed at the
-      top of the display. The caret <literal>^</literal> character represents
+      top of the display.  The caret <literal>^</literal> character represents
       the <keycap>Ctrl</keycap> key on the keyboard, so <literal>^e</literal> expands to the key combination
       <keycombo action="simul"><keycap>Ctrl</keycap><keycap>e</keycap></keycombo>.  To leave
       <application>ee</application>, hit the <keycap>Esc</keycap> key, then choose leave
@@ -2439,7 +2463,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
       <sect3>
 	<title><literal>DEVFS</literal> (DEVice File System)</title>
 
-	<para> The device file system, or <literal>DEVFS</literal>, provides access to
+	<para>The device file system, or <literal>DEVFS</literal>, provides access to
 	  kernel's device namespace in the global file system namespace.
 	  Instead of having to create and modify device nodes,
 	  <literal>DEVFS</literal> maintains this particular file system for you.</para>
@@ -2607,7 +2631,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
       <screen>&prompt.user; <userinput>man <replaceable>command</replaceable></userinput></screen>
 
       <para><literal>command</literal> is the name of the command you
-        wish to learn about.  For example, to learn more about
+	wish to learn about.  For example, to learn more about
 	<command>ls</command> command type:</para>
 
       <screen>&prompt.user; <userinput>man ls</userinput></screen>
@@ -2662,7 +2686,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
       <screen>&prompt.user; <userinput>man 1 chmod</userinput></screen>
 
       <para>This will display the manual page for the user command
-        <command>chmod</command>. References to a particular section of
+	<command>chmod</command>.  References to a particular section of
 	the online manual are traditionally placed in parenthesis in
 	written documentation, so &man.chmod.1; refers to the
 	<command>chmod</command> user command and &man.chmod.2; refers to
@@ -2677,7 +2701,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
       <screen>&prompt.user; <userinput>man -k mail</userinput></screen>
 
       <para>With this command you will be presented with a list of
-        commands that have the keyword <quote>mail</quote> in their
+	commands that have the keyword <quote>mail</quote> in their
 	descriptions.  This is actually functionally equivalent to using
 	the <command>apropos</command> command.</para>
 
