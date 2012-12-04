@@ -1614,16 +1614,16 @@ doc/zh_*</screen>
 	  <term><literal>cvs-all release=cvs</literal></term>
 
 	  <listitem>
-	    <para>The main &os; CVS repository, including the
-	      cryptography code.</para>
+	    <para>Repositório CVS principal do &os;, incluindo o 
+		códigos de criptografia.</para>
 
 	    <variablelist>
 	      <varlistentry>
 		<term><literal>distrib release=cvs</literal></term>
 
 		<listitem>
-		  <para>Files related to the distribution and mirroring
-		    of &os;.</para>
+		  <para>Arquivos relacionados à distribuição e 
+			espelhamento do &os;.</para>
 		</listitem>
 	      </varlistentry>
 
@@ -1681,7 +1681,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Software to help disabled users.</para>
+			<para>Software para ajudar os usuários com 
+				necessidades especiais.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1690,7 +1691,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Arabic language support.</para>
+			<para>Suporte ao idioma Árabe.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1699,7 +1700,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Archiving tools.</para>
+			<para>Softwares para usar e trabalhar com 
+				arquivamento de dados.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1708,7 +1710,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Astronomical ports.</para>
+			<para>Softwares relacionados com astronomia.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1717,7 +1719,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Sound support.</para>
+			<para>Suporte a áudio e som.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1726,10 +1728,10 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>The Ports Collection build infrastructure -
-			  various files located in the
-			  <filename>Mk/</filename> and
-			  <filename>Tools/</filename> subdirectories of
+			<para>Infraestrutura base para a Coleção de 
+			  Ports. Vários arquivos pertencentes aos 
+			  diretórios <filename>Mk</filename> e
+			  <filename>Tools</filename>, dois importantes subdiretórios de
 			  <filename>/usr/ports</filename>.</para>
 
 			<note>
@@ -1750,7 +1752,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Benchmarks.</para>
+			<para>Softwares para execução de benchmarks.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1759,7 +1761,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Biology.</para>
+			<para>Softwares ligados a área de Biologia.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1768,7 +1770,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Computer aided design tools.</para>
+			<para>Softwares de design assistidos por 
+			computador.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1777,7 +1780,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Chinese language support.</para>
+			<para>Suporte ao idioma Chinês.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1786,7 +1789,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Communication software.</para>
+			<para>Softwares viabilizadores de meios de comunicação.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1795,7 +1798,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>character code converters.</para>
+			<para>Conversores de códigos de caracteres.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1804,7 +1807,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Databases.</para>
+			<para>Softwares ligados a uso de Banco de Dados.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1813,8 +1816,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Things that used to be on the desktop
-			  before computers were invented.</para>
+			<para>Softwares úteis que existiam num 
+			ambiente de trabalho antes do computador ser inventado.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1823,7 +1826,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Development utilities.</para>
+			<para>Softwares para desenvolvimento.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1832,7 +1835,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>DNS related software.</para>
+			<para>Softwares ligados a DNS.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1841,7 +1844,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Editors.</para>
+			<para>Softwares para edição de textos.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1850,8 +1853,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Emulators for other operating
-			  systems.</para>
+			<para>Emuladores em geral.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1860,7 +1862,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Monetary, financial and related applications.</para>
+			<para>Softwares ligados a finanças, sistemas 
+			monetários e afins.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1869,7 +1872,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>FTP client and server utilities.</para>
+			<para>Softwares clientes e servidores FTP.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1878,7 +1881,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Games.</para>
+			<para>Jogos.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1887,7 +1890,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>German language support.</para>
+			<para>Suporte ao idioma Alemão.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1896,7 +1899,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Graphics utilities.</para>
+			<para>Softwares que trabalhem, de alguma 
+			forma, com design gráfico.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1905,7 +1909,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Hebrew language support.</para>
+			<para>Suporte ao idioma Hebraico.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1914,7 +1918,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Hungarian language support.</para>
+			<para>Suporte ao idioma Húngaro.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1923,7 +1927,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Internet Relay Chat utilities.</para>
+			<para>Internet Relay Chat.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1932,7 +1936,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Japanese language support.</para>
+			<para>Suporte ao idioma Japonês.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1941,7 +1945,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>&java; utilities.</para>
+			<para>Softwares para uso do &java;.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1950,7 +1954,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Korean language support.</para>
+			<para>Suporte ao idioma Coreano.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1959,7 +1963,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Programming languages.</para>
+			<para>Linguagens de programação.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1968,7 +1972,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Mail software.</para>
+			<para>Softwares para uso de e-mail, seja 
+			como cliente ou servidor.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1977,7 +1982,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Numerical computation software.</para>
+			<para>Softwares de computação numérica.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1986,7 +1991,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Miscellaneous utilities.</para>
+			<para>Miscelânia.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1995,7 +2000,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Multimedia software.</para>
+			<para>Softwares para uso de multimedia.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2004,7 +2009,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Networking software.</para>
+			<para>Softwares ligados a rede de 
+			computadores e conectividade.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2013,7 +2019,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Instant messaging software.</para>
+			<para>Softwares para uso de mensagens instantâneas.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2022,7 +2028,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Network management software.</para>
+			<para>Softwares para gerenciamento de redes.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2031,7 +2037,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Peer to peer networking.</para>
+			<para>Softwares voltados ao uso de redes ponto-a-ponto.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2040,7 +2046,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>USENET news software.</para>
+			<para>Softwares para uso da USENET.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2049,8 +2055,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Software support for <trademark class="trade">Palm</trademark>
-			  series.</para>
+			<para>Softwares de suporte para 
+			<trademark class="trade">Palm</trademark></para>
 		      </listitem>
 		    </varlistentry>
 
