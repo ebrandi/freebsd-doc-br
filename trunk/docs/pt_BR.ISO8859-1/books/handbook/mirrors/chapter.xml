@@ -1614,7 +1614,7 @@ doc/zh_*</screen>
 	  <term><literal>cvs-all release=cvs</literal></term>
 
 	  <listitem>
-	    <para>Repositório CVS principal do &os;, incluindo o 
+	    <para>Repositório CVS principal do &os;, incluindo os 
 		códigos de criptografia.</para>
 
 	    <variablelist>
@@ -1631,7 +1631,7 @@ doc/zh_*</screen>
 		<term><literal>ports-all release=cvs</literal></term>
 
 		<listitem>
-		  <para>A Coleção de Ports do &os;</para>
+		  <para>Coleção de Ports do &os;</para>
 
 		  <important id="cvsup-collec-pbase-warn">
 
@@ -1681,7 +1681,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Software para ajudar os usuários com 
+			<para>Softwares para ajudar usuários com 
 				necessidades especiais.</para>
 		      </listitem>
 		    </varlistentry>
@@ -1761,7 +1761,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares ligados a área de Biologia.</para>
+			<para>Softwares ligados a área de biologia.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1789,7 +1789,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares viabilizadores de meios de comunicação.</para>
+			<para>Softwares viabilizadores de meios de 
+			comunicação.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1816,8 +1817,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares úteis que existiam num 
-			ambiente de trabalho antes do computador ser inventado.</para>
+			<para>Softwares úteis para seu
+			ambiente de trabalho.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1872,7 +1873,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares clientes e servidores FTP.</para>
+			<para>Softwares ligados a FTP (clientes e servidores).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1927,7 +1928,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Internet Relay Chat.</para>
+			<para>IRC - Internet Relay Chat.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -1972,8 +1973,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares para uso de e-mail, seja 
-			como cliente ou servidor.</para>
+			<para>Softwares para uso de Correio 
+			Eletrônico, seja como cliente ou servidor.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2019,7 +2020,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares para uso de mensagens instantâneas.</para>
+			<para>Softwares de mensagens instantâneas.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2028,7 +2029,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares para gerenciamento de redes.</para>
+			<para>Softwares para gerenciamento e 
+			monitoramento de redes.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2037,7 +2039,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Softwares voltados ao uso de redes ponto-a-ponto.</para>
+			<para>Softwares voltados ao uso de redes 
+			ponto-a-ponto.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2065,7 +2068,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Polish language support.</para>
+			<para>Suporte ao idioma Polonês.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2074,7 +2077,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Utilities to manage ports and packages.</para>
+			<para>Utilitários para gerenciar ports e 
+			pacotes.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2083,7 +2087,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Portuguese language support.</para>
+			<para>Suporte ao idioma Português.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2092,7 +2096,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Printing software.</para>
+			<para>Softwares que forneçam suporte a 
+			impressão.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2101,7 +2106,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Russian language support.</para>
+			<para>Suporte ao idioma Russo.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2110,7 +2115,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Science.</para>
+			<para>Softwares ligados ao meio científicos.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2119,7 +2124,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Security utilities.</para>
+			<para>Softwares para segurança da informação.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2128,7 +2133,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Command line shells.</para>
+			<para>Shells.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2137,7 +2142,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>System utilities.</para>
+			<para>Utilitários diversos para o sistema.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2146,8 +2151,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>text processing utilities (does not
-			  include desktop publishing).</para>
+			<para>Utilitários para processamento de 
+			textos. (edição para ambiente desktop não 
+			inclusa).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2156,7 +2162,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Ukrainian language support.</para>
+			<para>Suporte ao idioma Ucraniano.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2165,7 +2171,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Vietnamese language support.</para>
+			<para>Suporte ao idioma Vietnamita.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2174,8 +2180,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Software related to the World Wide
-			  Web.</para>
+			<para>Softwares relacionados com a World 
+			Wide Web.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2184,8 +2190,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Ports to support the X window
-			  system.</para>
+			<para>Softwares de suporte ao ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2194,7 +2199,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 clocks.</para>
+			<para>Relógios para ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2203,7 +2208,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 drivers.</para>
+			<para>Drivers para ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2212,7 +2217,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 file managers.</para>
+			<para>Gerenciadores de arquivos para 
+			ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2221,7 +2227,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 fonts and font utilities.</para>
+			<para>Fontes, e ferramentas relacionadas, 
+			para ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2230,7 +2237,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 toolkits.</para>
+			<para>Toolkits (ferramentas) para ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2239,7 +2246,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 servers.</para>
+			<para>Softwares provedores (servidores) de 
+			ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2248,7 +2256,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 themes.</para>
+			<para>Temas para ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2257,7 +2265,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>X11 window managers.</para>
+			<para>Gerenciadores de janelas para 
+			ambiente X11.</para>
 		      </listitem>
 		    </varlistentry>
 		  </variablelist>
@@ -2267,7 +2276,7 @@ doc/zh_*</screen>
 	      <varlistentry>
 		<term><literal>projects-all release=cvs</literal></term>
 		<listitem>
-		  <para>Sources for the &os; projects repository.</para>
+		  <para>Códigos fonte do repositório de projetos do &os;.</para>
 		</listitem>
 	      </varlistentry>
 
@@ -2275,8 +2284,8 @@ doc/zh_*</screen>
 		<term><literal>src-all release=cvs</literal></term>
 
 		<listitem>
-		  <para>The main &os; sources, including the
-		    cryptography code.</para>
+		  <para>Código fonte do &os;, incluindo os códigos 
+			de criptografia.</para>
 
 		  <variablelist>
 		    <varlistentry>
@@ -2284,8 +2293,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Miscellaneous files at the top of
-			  <filename>/usr/src</filename>.</para>
+			<para>Arquivos diversos pertencentes a 
+			<filename>/usr/src</filename>.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2294,9 +2303,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>User utilities that may be needed in
-			  single-user mode
-			  (<filename>/usr/src/bin</filename>).</para>
+			<para>Softwares e ferramentas que podem ser 
+			utilizadas em modo single-user 
+			(<filename>/usr/src/bin</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2305,9 +2314,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Utilities and libraries covered by the
-			  CDDL license
-			  (<filename>/usr/src/cddl</filename>).</para>
+			<para>Softwares e bibliotecas sob licença 
+			CDDL (<filename>/usr/src/cddl</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2316,9 +2324,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Utilities and libraries from outside the
-			  &os; project, used relatively unmodified
-			  (<filename>/usr/src/contrib</filename>).</para>
+			<para>Softwares e bibliotecas pertencentes a 
+			projetos incorporados ao &os;, geralmente 
+			sem sofrer modificações no código (<filename>/usr/src/contrib</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2326,10 +2334,9 @@ doc/zh_*</screen>
 		      <term><literal>src-crypto release=cvs</literal></term>
 
 		      <listitem>
-			<para>Cryptography utilities and libraries from
-			  outside the &os; project, used relatively
-			  unmodified
-			  (<filename>/usr/src/crypto</filename>).</para>
+			<para>Softwares e bibliotecas criptográficas 
+			incorporados ao &os;, geralmente sem sofrer 
+			modificalções no código (<filename>/usr/src/crypto</filename>).</para>
 			  </listitem>
 		    </varlistentry>
 
@@ -2337,9 +2344,9 @@ doc/zh_*</screen>
 		      <term><literal>src-eBones release=cvs</literal></term>
 
 		      <listitem>
-			<para>Kerberos and DES
-			  (<filename>/usr/src/eBones</filename>).  Not
-			  used in current releases of &os;.</para>
+			<para>Kerberos e DES 
+			(<filename>/usr/src/eBones</filename>). 
+			Não utilizados nas versões correntes do &os;.</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2348,8 +2355,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>System configuration files
-			  (<filename>/usr/src/etc</filename>).</para>
+			<para>Arquivos de configuração do sistema 
+			(<filename>/usr/src/etc</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2358,8 +2365,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Games
-			  (<filename>/usr/src/games</filename>).</para>
+			<para>Jogos (<filename>/usr/src/games</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2368,8 +2374,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Utilities covered by the GNU Public
-			  License (<filename>/usr/src/gnu</filename>).</para>
+			<para>Softwares e bibliotecas sob licença 
+			GPL (<filename>/usr/src/gnu</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2378,8 +2384,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Header files
-			  (<filename>/usr/src/include</filename>).</para>
+			<para>Arquivos de cabeçalhos dos códigos fonte 
+			(<filename>/usr/src/include</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2388,8 +2394,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Kerberos5 security package
-			  (<filename>/usr/src/kerberos5</filename>).</para>
+			<para>Pacotes de segurança para Kerberos5 
+			(<filename>/usr/src/kerberos5</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2398,8 +2404,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>KerberosIV security package
-			  (<filename>/usr/src/kerberosIV</filename>).</para>
+			<para>Pacotes de segurança para KerberosIV 
+			(<filename>/usr/src/kerberosIV</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2408,8 +2414,8 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Libraries
-			  (<filename>/usr/src/lib</filename>).</para>
+			<para>Bibliotecas do sistema 
+			(<filename>/usr/src/lib</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2418,9 +2424,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>System programs normally executed by other
-			  programs
-			  (<filename>/usr/src/libexec</filename>).</para>
+			<para>Softwares normalmente executados por 
+			outros programas 
+			(<filename>/usr/src/libexec</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2429,9 +2435,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Files required to produce a &os;
-			  release
-			  (<filename>/usr/src/release</filename>).</para>
+			<para>Arquivos necessários para produção de 
+			uma release do &os; 
+			(<filename>/usr/src/release</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2440,9 +2446,10 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Statically linked programs for emergency
-			   recovery; see &man.rescue.8;
-			  (<filename>/usr/src/rescue</filename>).</para>
+			<para>Softwares estáticos, utilizados num 
+			procedimento de resgate. Consulte a página 
+			de manual &man.rescue.8; para mais detalhes 
+			(<filename>/usr/src/rescue</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2450,7 +2457,8 @@ doc/zh_*</screen>
 		      <term><literal>src-sbin release=cvs</literal></term>
 
 		      <listitem>
-			<para>System utilities for single-user mode
+			<para>Softwares e ferramentas que podem ser 
+			utilizadas em modo single-user
 			  (<filename>/usr/src/sbin</filename>).</para>
 		      </listitem>
 		    </varlistentry>
@@ -2460,8 +2468,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Cryptographic libraries and commands
-			  (<filename>/usr/src/secure</filename>).</para>
+			<para>Bibliotecas criptograficas e 
+			softwares relacionados 
+			(<filename>/usr/src/secure</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2470,9 +2479,9 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Files that can be shared across multiple
-			  systems
-			  (<filename>/usr/src/share</filename>).</para>
+			<para>Arquivos que são compartilhados por 
+			diversas aplicações 
+			(<filename>/usr/src/share</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2481,7 +2490,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>The kernel
+			<para>O kernel do &os; 
 			  (<filename>/usr/src/sys</filename>).</para>
 		      </listitem>
 		    </varlistentry>
@@ -2491,8 +2500,9 @@ doc/zh_*</screen>
 			release=cvs</literal></term>
 
 		      <listitem>
-			<para>Kernel cryptography code
-			  (<filename>/usr/src/sys/crypto</filename>).</para>
+			<para>Códigos de criptografia ligados ao 
+			kernel do &os; 
+			(<filename>/usr/src/sys/crypto</filename>).</para>
 		      </listitem>
 		    </varlistentry>
 
@@ -2501,8 +2511,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>Various tools for the maintenance of
-			  &os;
+			<para>Diversas ferramentas para manutenção do &os;
 			  (<filename>/usr/src/tools</filename>).</para>
 		      </listitem>
 		    </varlistentry>
@@ -2512,7 +2521,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>User utilities
+			<para>Utilitários providos aos usuários 
 			  (<filename>/usr/src/usr.bin</filename>).</para>
 		      </listitem>
 		    </varlistentry>
@@ -2522,7 +2531,7 @@ doc/zh_*</screen>
 			  release=cvs</literal></term>
 
 		      <listitem>
-			<para>System utilities
+			<para>Utilitários do sistema 
 			  (<filename>/usr/src/usr.sbin</filename>).</para>
 		      </listitem>
 		    </varlistentry>
@@ -2537,9 +2546,9 @@ doc/zh_*</screen>
 	  <term><literal>distrib release=self</literal></term>
 
 	  <listitem>
-	    <para>The <application>CVSup</application> server's own
-	      configuration files.  Used by <application>CVSup</application>
-	      mirror sites.</para>
+	    <para>Arquivos de configuração para o servidor 
+		<application>CVSup</application> utilizados por 
+		servidores espelho.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -2547,7 +2556,7 @@ doc/zh_*</screen>
 	  <term><literal>gnats release=current</literal></term>
 
 	  <listitem>
-	    <para>The GNATS bug-tracking database.</para>
+	    <para>Base de dados GNATS para rastreamento e controle de bugs.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -2555,7 +2564,7 @@ doc/zh_*</screen>
 	  <term><literal>mail-archive release=current</literal></term>
 
 	  <listitem>
-	    <para>&os; mailing list archive.</para>
+	    <para>Histórico das listas de discussão do &os;.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -2563,8 +2572,9 @@ doc/zh_*</screen>
 	  <term><literal>www release=current</literal></term>
 
 	  <listitem>
-	    <para>The pre-processed &os; WWW site files (not the
-	      source files).  Used by WWW mirror sites.</para>
+	    <para>Arquivos précompilados do sítio web do &os; 
+		utilizados por servidores espelho (códigos fonte 
+		não estão inclusos).</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
