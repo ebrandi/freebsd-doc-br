@@ -211,62 +211,69 @@ Password:</screen>
     </sect2>
 
     <sect2 id="consoles-virtual">
-      <title>Multiple Consoles</title>
+      <title>Múltiplos Consoles</title>
 
-      <para>Running &unix; commands in one console is fine, but FreeBSD can
-	run many programs at once.  Having one console where commands can be
-	typed would be a bit of a waste when an operating system like FreeBSD
-	can run dozens of programs at the same time.  This is where
-	<quote>virtual consoles</quote> can be very helpful.</para>
+      <para>Executar comandos &unix; em um console é bom , mas o
+	FreeBSD pode executar vários programas de uma vez.  Ter um
+	console onde comandos podem ser digitados seria um pouco de
+	desperdício enquanto um sistema operacional como o FreeBSD
+	pode executar dúzias de programas ao mesmo tempo.  Nisto é
+	onde <quote>console virtuais</quote> podem ser muito
+	úteis.</para>
 
-      <para>FreeBSD can be configured to present you with many different
-	virtual consoles.  You can switch from one of them to any other
-	virtual console by pressing a couple of keys on your keyboard.  Each
-	console has its own different output channel, and FreeBSD takes care
-	of properly redirecting keyboard input and monitor output as you
-	switch from one virtual console to the next.</para>
+      <para>FreeBSD pode ser configurado para disponibilizar para você
+	vários consoles virtuais diferentes.  Você pode trocar de um
+	para outro console virtual pressionando algumas teclas no seu
+	teclado.  Cada console tem o seu próprio canal de saída e
+	FreeBSD cuida de redirecionar adequadamente a entrada do
+	teclado e a saída do monitor conforme você troca de um console
+	virtual para o próximo.</para>
 
-      <para>Special key combinations have been reserved by FreeBSD for
-	switching consoles<footnote>
-	  <para>A fairly technical and accurate description of all the details
-	    of the FreeBSD console and keyboard drivers can be found in the
-	    manual pages of &man.syscons.4;, &man.atkbd.4;, &man.vidcontrol.1;
-	    and &man.kbdcontrol.1;.  We will not expand on the details here,
-	    but the interested reader can always consult the manual pages for
-	    a more detailed and thorough explanation of how things
-	    work.</para>
-	</footnote>.  You can use
+      <para>Combinações especiais de teclas foram reservadas pelo
+	FreeBSD para trocar de console<footnote>
+	  <para>Uma descrição precisa e técnica de todos os detalhes
+	  do console FreeBSD e drivers de teclado pode ser encontrada
+	  nas páginas do manual do &man.syscons.4;, &man.atkbd.4;,
+	  &man.vidcontrol.1; e &man.kbdcontrol.1;.  Nós não iremos
+	  mostrar detalhes aqui, mas o leitor interessado pode sempre
+	  consultar as páginas do manual para uma explicação mais
+	  detalhada de como as coisas funcionam.</para>
+	</footnote>.  Você pode usar
 	<keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo>,
-	<keycombo><keycap>Alt</keycap><keycap>F2</keycap></keycombo>, through
-	<keycombo><keycap>Alt</keycap><keycap>F8</keycap></keycombo> to switch
-	to a different virtual console in FreeBSD.</para>
+	<keycombo><keycap>Alt</keycap><keycap>F2</keycap></keycombo>,
+	até
+	<keycombo><keycap>Alt</keycap><keycap>F8</keycap></keycombo>
+	para trocar para um console virtual diferente no
+	FreeBSD.</para>
 
-      <para>As you are switching from one console to the next, FreeBSD takes
-	care of saving and restoring the screen output.  The result is an
-	<quote>illusion</quote> of having multiple <quote>virtual</quote>
-	screens and keyboards that you can use to type commands for
-	FreeBSD to run.  The programs that you launch on one virtual console
-	do not stop running when that console is not visible.  They continue
-	running when you have switched to a different virtual console.</para>
+      <para>Conforme você for trocando de um console para o outro,
+	o FreeBSD cuida de salvar e restaurar a saída da tela.  O
+	resultado é uma <quote>ilusão</quote> de ter múltiplas telas e
+	teclados <quote>virtuais</quote> que você pode usar para
+	digitar comandos para o FreeBSD executar.  Os programas que
+	você inicia em um console virtual não para de executar quando
+	o console não está visível.  Eles continuam executando quando
+	você troca para um console virtual diferente.</para>
     </sect2>
 
     <sect2 id="consoles-ttys">
-      <title>The <filename>/etc/ttys</filename> File</title>
+      <title>O Arquivo <filename>/etc/ttys</filename></title>
 
-      <para>The default configuration of FreeBSD will start up with eight
-	virtual consoles.  This is not a hardwired setting though, and
-	you can easily customize your installation to boot with more
-	or fewer virtual consoles.  The number and settings of the
-	virtual consoles are configured in the
-	<filename>/etc/ttys</filename> file.</para>
+      <para>A configuração padrão do FreeBSD irá iniciar com oito
+	consoles virtuais.  Isto não não é uma configuração fixa e
+	você pode facilmente customizar a sua instalação para
+	iniciar com mais ou menos consoles virtuais.  O número e as
+	configurações dos consoles virtuais estão no arquivo
+	<filename>/etc/ttys</filename>.</para>
 
-      <para>You can use the <filename>/etc/ttys</filename> file to configure
-	the virtual consoles of FreeBSD.  Each uncommented line in this file
-	(lines that do not start with a <literal>#</literal> character) contains
-	settings for a single terminal or virtual console.  The default
-	version of this file that ships with FreeBSD configures nine virtual
-	consoles, and enables eight of them.  They are the lines that start with
-	<literal>ttyv</literal>:</para>
+      <para>Você pode usar o arquivo <filename>/etc/ttys</filename>
+	para configurar os consoles virtuais do FreeBSD.  Cada linha
+	descomentada neste arquivo (linhas que não começam com um
+	caractere <literal>#</literal>) contém configurações para um
+	terminal ou um console virtual.  A versão padrão deste arquivo
+	que é distribuída com o FreeBSD configura nove consoles
+	virtuais e habilita oito deles.  Eles estão nas linhas que
+	começam com <literal>ttyv</literal>:</para>
 
       <programlisting># name  getty                           type    status          comments
 #
@@ -281,21 +288,23 @@ ttyv6   "/usr/libexec/getty Pc"         cons25  on  secure
 ttyv7   "/usr/libexec/getty Pc"         cons25  on  secure
 ttyv8   "/usr/X11R6/bin/xdm -nodaemon"  xterm   off secure</programlisting>
 
-      <para>For a detailed description of every column in this file and all
-	the options you can use to set things up for the virtual consoles,
-	consult the &man.ttys.5; manual page.</para>
+      <para>Para uma descrição detalhada de cada coluna neste arquivo
+	e todas as opções você que você pode usar para configurar os
+	consoles virtuais, consulte a página do manual
+	&man.ttys.5;.</para>
     </sect2>
 
     <sect2 id="consoles-singleuser">
-      <title>Single User Mode Console</title>
+      <title>Console no Modo Mono Usuário</title>
 
-      <para>A detailed description of what <quote>single user mode</quote> is
-	can be found in <xref linkend="boot-singleuser"/>.  It is worth noting
-	that there is only one console when you are running FreeBSD in single
-	user mode.  There are no virtual consoles available.  The settings of
-	the single user mode console can also be found in the
-	<filename>/etc/ttys</filename> file.  Look for the line that starts
-	with <literal>console</literal>:</para>
+      <para>Uma descrição detalhada do que é o <quote>modo mono
+	usuário</quote> pode ser encontrada em <xref
+	linkend="boot-singleuser"/>.  Vale a pena notar que há apenas
+	um console quando você está executando o FreeBSD no modo mono
+	usuário.  Não há consoles virtuais disponíveis.  As
+	configurações do console no modo mono usuário também pode ser
+	encontrada no arquivo <filename>/etc/ttys</filename>.  Procure
+	pela linha que começa com <literal>console</literal>:</para>
 
       <programlisting># name  getty                           type    status          comments
 #
@@ -304,49 +313,54 @@ ttyv8   "/usr/X11R6/bin/xdm -nodaemon"  xterm   off secure</programlisting>
 console none                            unknown off secure</programlisting>
 
       <note>
-	<para>As the comments above the <literal>console</literal> line
-	  indicate, you can edit this line and change <literal>secure</literal> to
-	  <literal>insecure</literal>.  If you do that, when FreeBSD boots
-	  into single user mode, it will still ask for the
-	  <username>root</username> password.</para>
+	<para>Como os comentários acima da linha
+	  <literal>console</literal> indicam, você pode editar essa
+	  linha e mudar <literal>secure</literal> para
+	  <literal>insecure</literal>.  Se você fizer isso, quando o
+	  FreeBSD iniciar no modo mono usuário, ele ainda irá
+	  perguntar pela senha do <username>root</username>.</para>
 
-	<para><emphasis>Be careful when changing this to
-	  <literal>insecure</literal></emphasis>.  If you ever forget
-	  the <username>root</username> password, booting into single user
-	  mode is a bit involved.  It is still possible, but it might be a bit
-	  hard for someone who is not very comfortable with the FreeBSD
-	  booting process and the programs involved.</para>
+	<para><emphasis>Seja cuidadoso quando mudar isto para
+	  <literal>insecure</literal></emphasis>.  Se você esquecer a
+	  senha do <username>root</username>, iniciar no modo mono
+	  usuário será um pouco complicado.  Ainda será possível, mas
+	  será um pouco difícil para alguém que não é muito
+	  confortável com o processo de inicialização do FreeBSD e os
+	  programas envolvidos.</para>
       </note>
     </sect2>
 
     <sect2 id="consoles-vidcontrol">
-      <title>Changing Console Video Modes</title>
+      <title>Mudando os Modos de Vídeo do Console</title>
 
-      <para>The FreeBSD console default video mode may be adjusted to
-	1024x768, 1280x1024, or any other size supported by your
-	graphics chip and monitor.  To use a different video mode, you
-	first must recompile your kernel and include two additional
-	options:</para>
+      <para>O modo de vídeo padrão do console do FreeBSD pode ser
+	ajustado para 1024x768, 1280x1024 ou qualquer outro tamanho
+	suportado pela sua placa de vídeo e monitor.  Para usar um
+	modo de vídeo diferente, você primeiro deve recompilar o
+	kernel e incluir duas opções adicionais:</para>
 
       <programlisting>options VESA
 options SC_PIXEL_MODE</programlisting>
 
-      <para>Once the kernel has been recompiled with these two
-	options, you can then determine what video modes are supported
-	by your hardware by using the &man.vidcontrol.1; utility.  To
-	get a list of supported video modes issue the following:</para>
+      <para>Uma vez que o kernel tenha sido recompilado com essas duas
+	opções, você pode então determinar quais modos de vídeos são
+	suportados pelo seu hardware, usando a ferramenta
+	&man.vidcontrol.1;.  Para obter a lista dos modos de vídeos
+	suportados faça o seguinte:</para>
 
       <screen>&prompt.root; <userinput>vidcontrol -i mode</userinput></screen>
 
-      <para>The output of this command is a list of video modes that
-	are supported by your hardware.  You can then choose to use a
-	new video mode by passing it to &man.vidcontrol.1; in a <username>root</username> console:</para>
+      <para>A saída deste comando é uma lista dos modos de vídeo que
+	são suportados pelo seu hardware.  Você pode então escolher
+	usar um novo modo de vídeo passando ele para o
+	&man.vidcontrol.1; em um console
+	<username>root</username>:</para>
 
       <screen>&prompt.root; <userinput>vidcontrol MODE_279</userinput></screen>
 
-      <para>If the new video mode is acceptable, it can be permanently
-	set on boot by setting it in the <filename>/etc/rc.conf</filename>
-	file:</para>
+      <para>Se o novo modo de vídeo for aceito, ele pode ser
+	configurado permanentemente na inicialização, definindo no
+	arquivo <filename>/etc/rc.conf</filename>:</para>
 
       <programlisting>allscreens_flags="MODE_279"</programlisting>
     </sect2>
