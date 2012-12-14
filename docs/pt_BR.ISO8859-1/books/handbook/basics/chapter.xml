@@ -367,24 +367,25 @@ options SC_PIXEL_MODE</programlisting>
   </sect1>
 
   <sect1 id="permissions">
-    <title>Permissions</title>
+    <title>Permissões</title>
     <indexterm><primary>UNIX</primary></indexterm>
 
-    <para>FreeBSD, being a direct descendant of BSD &unix;, is based on
-      several key &unix; concepts.  The first and
-      most pronounced is that FreeBSD is a multi-user operating system.
-      The system can handle several users all working simultaneously on
-      completely unrelated tasks.  The system is responsible for properly
-      sharing and managing requests for hardware devices, peripherals,
-      memory, and CPU time fairly to each user.</para>
+    <para>O FreeBSD, sendo um descendente direto do BSD &unix;, é
+      baseado em vários conceitos chaves do &unix;.  O primeiro e mais
+      evidente é que o FreeBSD é um sistema operacional multi-usuário.
+      O sistema pode lidar com vários usuário trabalhando
+      simultaneamente em tarefas completamente diferentes.  O sistema
+      é responsável por compartilhar de forma adequada e gerenciar as
+      requisições do dispositivos do hardware, periféricos, memória e
+      tempo do CPU de forma justa para cada usuário.</para>
 
-    <para>Because the system is capable of supporting multiple users,
-      everything the system manages has a set of permissions governing who
-      can read, write, and execute the resource.  These permissions are
-      stored as three octets broken into three pieces, one for the owner of
-      the file, one for the group that the file belongs to, and one for
-      everyone else.  This numerical representation works like
-      this:</para>
+    <para>Como o sistema é capaz de suportar múltiplos usuários, tudo
+      que o sistema gerencia tem um conjunto de permissões que dizem
+      quem pode ler, escrever e executar o recurso.  Essas permissões
+      são armazenadas como três octetos divididos em três pedaços, um
+      para o proprietário do arquivo, um para o grupo que o arquivo
+      pertence e um para todo o resto.  Essa representação numérica
+      funciona assim:</para>
 
     <indexterm><primary>permissions</primary></indexterm>
     <indexterm>
@@ -394,58 +395,58 @@ options SC_PIXEL_MODE</programlisting>
       <tgroup cols="3">
 	<thead>
 	  <row>
-	    <entry>Value</entry>
-	    <entry>Permission</entry>
-	    <entry>Directory Listing</entry>
+	    <entry>Valor</entry>
+	    <entry>Permissão</entry>
+	    <entry>Listagem de Diretório</entry>
 	  </row>
 	</thead>
 
 	<tbody>
 	  <row>
 	    <entry>0</entry>
-	    <entry>No read, no write, no execute</entry>
+	    <entry>Sem leitura, sem escrita, sem execução</entry>
 	    <entry><literal>---</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>1</entry>
-	    <entry>No read, no write, execute</entry>
+	    <entry>Sem leitura, sem escrita, com execução</entry>
 	    <entry><literal>--x</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>2</entry>
-	    <entry>No read, write, no execute</entry>
+	    <entry>Sem leitura, com escrita, sem execução</entry>
 	    <entry><literal>-w-</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>3</entry>
-	    <entry>No read, write, execute</entry>
+	    <entry>Sem leitura, com escrita, com execução</entry>
 	    <entry><literal>-wx</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>4</entry>
-	    <entry>Read, no write, no execute</entry>
+	    <entry>Com leitura, sem escrita, sem execução</entry>
 	    <entry><literal>r--</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>5</entry>
-	    <entry>Read, no write, execute</entry>
+	    <entry>Com leitura, sem escrita, com execução</entry>
 	    <entry><literal>r-x</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>6</entry>
-	    <entry>Read, write, no execute</entry>
+	    <entry>Com leitura, com escrita, sem execução</entry>
 	    <entry><literal>rw-</literal></entry>
 	  </row>
 
 	  <row>
 	    <entry>7</entry>
-	    <entry>Read, write, execute</entry>
+	    <entry>Com leitura, com escrita, com execução</entry>
 	    <entry><literal>rwx</literal></entry>
 	  </row>
 	</tbody>
@@ -456,11 +457,12 @@ options SC_PIXEL_MODE</programlisting>
     </indexterm>
     <indexterm><primary>directories</primary></indexterm>
 
-    <para>You can use the <option>-l</option> command line
-      argument to &man.ls.1; to view a long directory listing that
-      includes a column with information about a file's permissions
-      for the owner, group, and everyone else.  For example, a
-      <command>ls -l</command> in an arbitrary directory may show:</para>
+    <para>Você pode usar o argumento <option>-l</option> na linha de
+      comando para o &man.ls.1; para exibir a listagem completa de
+      diretório que inclui uma coluna com informações sobre as
+      permissões dos arquivos para o usuário, grupo e o resto.  Por
+      exemplo, o comando <command>ls -l</command> em um diretório
+      qualquer pode mostrar:</para>
 
     <screen>&prompt.user; <userinput>ls -l</userinput>
 total 530
@@ -469,54 +471,58 @@ total 530
 -rw-r--r--  1 root  wheel    7680 Sep  5 12:31 email.txt
 ...</screen>
 
-    <para>Here is how the first column of <command>ls -l</command> is
-      broken up:</para>
+    <para>Aqui é como a primeira coluna do <command>ls -l</command> é
+      dividida:</para>
 
     <screen>-rw-r--r--</screen>
 
-    <para>The first (leftmost) character
-      tells if this file is a regular file, a directory, a special
-      character device, a socket, or any other special
-      pseudo-file device.  In this case, the <literal>-</literal>
-      indicates a regular file.  The next three characters,
-      <literal>rw-</literal> in this example, give the permissions for the owner of the
-      file.  The next three characters, <literal>r--</literal>, give the
-      permissions for the group that the file belongs to.  The final three
-      characters, <literal>r--</literal>, give the permissions for the
-      rest of the world.  A dash means that the permission is turned off.
-      In the case of this file, the permissions are set so the owner can
-      read and write to the file, the group can read the file, and the
-      rest of the world can only read the file.  According to the table
-      above, the permissions for this file would be
-      <literal>644</literal>, where each digit represents the three parts
-      of the file's permission.</para>
+    <para>O primeiro (na extrema esquerda) caractere diz se este
+      arquivo é um arquivo, um diretório, um caractere especial de
+      dispositivo, um socket ou qualquer outro pseudo-arquivo especial
+      de dispositivo.  Neste caso, o <literal>-</literal> indica que é
+      um arquivo normal.  Os próximos três caracteres,
+      <literal>rw-</literal> neste exemplo, indicam as permissões para
+      o proprietário do arquivo.  Os próximos três caracteres,
+      <literal>r--</literal>, indicam as permissões para o grupo a
+      qual o arquivo pertence.  Os três caracteres finais,
+      <literal>r--</literal>, indicam as permissões para o resto do
+      mundo.  Um hífen significa que a permissão está desligada.  No
+      caso deste arquivo, as permissões definidas dizem que o
+      proprietário pode ler e escrever no arquivo, o grupo pode ler o
+      arquivo e o resto do mundo pode somente ler o arquivo.  De
+      acordo com a tabela acima, as permissões para este arquivo
+      seriam <literal>644</literal>, onde cada digito representa as
+      três partes das permissões do arquivo.</para>
 
-    <para>This is all well and good, but how does the system control
-      permissions on devices?  FreeBSD actually treats most hardware
-      devices as a file that programs can open, read, and write data to
-      just like any other file.  These special device files are stored on
-      the <filename>/dev</filename> directory.</para>
+    <para>Isto ficou claro e bom, mas como o sistema controla as
+      permissões nos dispositivos?  O FreeBSD na verdade trata a
+      maioria dos dispositivos de hardware como um arquivo que os
+      programas podem abrir, ler e escrever dados assim como em
+      qualquer outro arquivo.  Esses arquivos especiais de
+      dispositivos são armazenados no diretório
+      <filename>/dev</filename>.</para>
 
-    <para>Directories are also treated as files.  They have read, write,
-      and execute permissions.  The executable bit for a directory has a
-      slightly different meaning than that of files.  When a directory is
-      marked executable, it means it can be traversed into, that is, it is
-      possible to <quote>cd</quote> (change directory) into it.  This also means that
-      within the directory it is possible to access files whose names are
-      known (subject, of course, to the permissions on the files
-      themselves).</para>
+    <para>Os diretórios também são tratados como arquivos.  Eles
+      possuem permissões de leitura, escrita e execução.  O bit de
+      execução para um diretório tem um significado diferente do que
+      em arquivos.  Quando um diretório está marcado como executável,
+      isto significa que ele pode ser atravessado, isto é, é possível
+      <quote>cd</quote> (mudar o diretório) para ele.  Isto também
+      significa que é possível acessar arquivos do diretório cujo os
+      nomes são conhecidos (respeitando, naturalmente, as permissões
+      destes arquivos).</para>
 
-    <para>In particular, in order to perform a directory listing,
-      read permission must be set on the directory, whilst to delete a file
-      that one knows the name of, it is necessary to have write
-      <emphasis>and</emphasis> execute permissions to the directory
-      containing the file.</para>
+    <para>Em particular, para poder executar a listagem de um
+      diretório, a permissão de leitura deve ser definida no
+      diretório, enquanto para apagar um arquivo de nome conhecido, é
+      necessário ter permissão de escrita <emphasis>e</emphasis>
+      execução no diretório que contém o arquivo.</para>
 
-    <para>There are more permission bits, but they are primarily used in
-      special circumstances such as setuid binaries and sticky
-      directories.  If you want more information on file permissions and
-      how to set them, be sure to look at the &man.chmod.1; manual
-      page.</para>
+    <para>Há mais bits de permissão, mas eles são usados
+      principalmente em circunstâncias especiais, como em binários com
+      setuid e diretórios com o bit sticky ativado.  Se você quer mais
+      informações sobre permissões de arquivos e como defini-las,
+      consulte a página do manual &man.chmod.1;.</para>
 
     <sect2>
       <sect2info>
@@ -529,120 +535,117 @@ total 530
 	</authorgroup>
       </sect2info>
 
-      <title>Symbolic Permissions</title>
+      <title>Permissões Simbólicas</title>
       <indexterm><primary>permissions</primary><secondary>symbolic</secondary></indexterm>
 
-      <para>Symbolic permissions, sometimes referred to as symbolic expressions,
-	use characters in place of octal values to assign permissions to files
-	or directories.  Symbolic expressions use the syntax of (who) (action)
-	(permissions), where the following values are available:</para>
+      <para>Permissões simbólicas, algumas vezes referidas como
+	expressões simbólicas, usam caracteres no lugar dos valores
+	octais para definir permissões aos arquivos ou diretórios.
+	Expressões simbólicas usam a sintaxe de (quem) (ação)
+	(permissão), onde os seguintes valores estão
+	disponíveis:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="3">
 	  <thead>
 	    <row>
-	      <entry>Option</entry>
-	      <entry>Letter</entry>
-	      <entry>Represents</entry>
+	      <entry>Opção</entry>
+	      <entry>Letra</entry>
+	      <entry>Representa</entry>
 	    </row>
 	  </thead>
 
 	<tbody>
 	  <row>
-	    <entry>(who)</entry>
+	    <entry>(quem)</entry>
 	    <entry>u</entry>
-	    <entry>User</entry>
+	    <entry>Usuário</entry>
 	  </row>
 
 	  <row>
-	    <entry>(who)</entry>
+	    <entry>(quem)</entry>
 	    <entry>g</entry>
-	    <entry>Group owner</entry>
+	    <entry>Grupo Proprietário</entry>
 	  </row>
 
 	  <row>
-	    <entry>(who)</entry>
+	    <entry>(quem)</entry>
 	    <entry>o</entry>
-	    <entry>Other</entry>
+	    <entry>Outros</entry>
 	  </row>
 
 	  <row>
-	    <entry>(who)</entry>
+	    <entry>(quem)</entry>
 	    <entry>a</entry>
-	    <entry>All (<quote>world</quote>)</entry>
+	    <entry>Todos (<quote>o mundo</quote>)</entry>
 	  </row>
 
 	  <row>
-	    <entry>(action)</entry>
+	    <entry>(ação)</entry>
 	    <entry>+</entry>
-	    <entry>Adding permissions</entry>
+	    <entry>adicionar permissões</entry>
 	  </row>
 
 	  <row>
-	    <entry>(action)</entry>
+	    <entry>(ação)</entry>
 	    <entry>-</entry>
-	    <entry>Removing permissions</entry>
+	    <entry>Remover permissões</entry>
 	  </row>
 
 	  <row>
-	    <entry>(action)</entry>
+	    <entry>(ação)</entry>
 	    <entry>=</entry>
-	    <entry>Explicitly set permissions</entry>
+	    <entry>Definir permissões explicitamente</entry>
 	  </row>
 
 	  <row>
-	    <entry>(permissions)</entry>
+	    <entry>(permissão)</entry>
 	    <entry>r</entry>
-	    <entry>Read</entry>
+	    <entry>Leitura</entry>
 	  </row>
 
 	  <row>
-	    <entry>(permissions)</entry>
+	    <entry>(permissão)</entry>
 	    <entry>w</entry>
-	    <entry>Write</entry>
+	    <entry>Escrita</entry>
 	  </row>
 
 	  <row>
-	    <entry>(permissions)</entry>
+	    <entry>(permissão)</entry>
 	    <entry>x</entry>
-	    <entry>Execute</entry>
+	    <entry>Execução</entry>
 	  </row>
 
 	  <row>
-	    <entry>(permissions)</entry>
+	    <entry>(permissão)</entry>
 	    <entry>t</entry>
-	    <entry>Sticky bit</entry>
+	    <entry>Bit sticky</entry>
 	  </row>
 
 	  <row>
-	    <entry>(permissions)</entry>
+	    <entry>(permissão)</entry>
 	    <entry>s</entry>
-	    <entry>Set UID or GID</entry>
+	    <entry>Set UID ou GID</entry>
 	  </row>
 	</tbody>
       </tgroup>
     </informaltable>
 
-    <para>These values are used with the &man.chmod.1; command
-      just like before, but with letters.  For an example, you could use
-      the following command to block other users from accessing
-      <replaceable>FILE</replaceable>:</para>
+    <para>Esses valores são usados com o comando &man.chmod.1; do
+      mesmo como de antes, mas com letras.  Por exemplo, você pode
+      usar o seguinte comando para impedir que outros usuários acessem
+      o <replaceable>ARQUIVO</replaceable>:</para>
 
-    <screen>&prompt.user; <userinput>chmod go= FILE</userinput></screen>
+    <screen>&prompt.user; <userinput>chmod go= ARQUIVO</userinput></screen>
 
-    <para>A comma separated list can be provided when more than one set
-      of changes to a file must be made.  For example the following command
-      will remove the group and <quote>world</quote> write permission
-      on <replaceable>FILE</replaceable>, then it adds the execute
-      permissions for everyone:</para>
+    <para>Uma lista separada por vírgula pode ser usada quando deve
+      ser feito mais de um conjunto de mudanças para um arquivo.  Por
+      exemplo, o seguinte comando irá remover a permissão de escrita
+      do grupo e do <quote>mundo</quote> no
+      <replaceable>ARQUIVO</replaceable>, então irá adicionar a
+      permissão de execução para todos:</para>
 
-    <screen>&prompt.user; <userinput>chmod go-w,a+x <replaceable>FILE</replaceable></userinput></screen>
-
-<!--
-    <para>Most users will not notice this, but it should be pointed out
-      that using the octal method will only set or assign permissions to
-      a file; it does not add or delete them.</para>
--->
+    <screen>&prompt.user; <userinput>chmod go-w,a+x <replaceable>ARQUIVO</replaceable></userinput></screen>
     </sect2>
 
     <sect2>
@@ -656,44 +659,47 @@ total 530
 	</authorgroup>
       </sect2info>
 
-      <title>&os; File Flags</title>
+      <title>Opções de Arquivo do &os;</title>
 
-      <para>In addition to file permissions discussed previously, &os;
-	supports the use of <quote>file flags.</quote>  These flags
-	add an additional level of security and control over files, but
-	not directories.</para>
+      <para>Além das permissões de arquivos discutidas anteriormente,
+	o &os; suporta o uso de <quote>opções de arquivos.</quote>
+	Essas opções adicionam um outro nível de segurança e controle
+	sobre os arquivos, mas não sobre os diretórios.</para>
 
-      <para>These file flags add an additional level of control over
-	files, helping to ensure that in some cases not even the
-	<username>root</username> can remove or alter files.</para>
+      <para>Essas opções de arquivos adicional um outro nível de
+	controle sobre os arquivos, ajudando a garantir que em alguns
+	casos nem mesmo o <username>root</username> possa remover ou
+	alterar os arquivos.</para>
 
-      <para>File flags are altered by using the &man.chflags.1; utility,
-	using a simple interface.  For example, to enable the system
-	undeletable flag on the file <filename>file1</filename>,
-	issue the following command:</para>
+      <para>As opções de arquivos são alteradas usando a ferramenta
+	&man.chflags.1;, com uma interface simples.  Por exemplo, para
+	habilitar a opção não-removível do sistema no arquivo
+	<filename>arquivo1</filename>, execute o seguinte
+	comando:</para>
 
-      <screen>&prompt.root; <userinput>chflags sunlink <filename>file1</filename></userinput></screen>
+      <screen>&prompt.root; <userinput>chflags sunlink <filename>arquivo1</filename></userinput></screen>
 
-      <para>And to disable the system undeletable flag,
-	issue the previous command with <quote>no</quote> in
-	front of the <option>sunlink</option>.  Observe:</para>
+      <para>E para desabilitar a opção não-removível do sistema,
+	execute o comando anterior com <quote>no</quote> na frente de
+	<option>sunlink</option>.  Observe:</para>
 
-      <screen>&prompt.root; <userinput>chflags nosunlink <filename>file1</filename></userinput></screen>
+      <screen>&prompt.root; <userinput>chflags nosunlink <filename>arquivo1</filename></userinput></screen>
 
-      <para>To view the flags of this file, use the &man.ls.1; command
-	with the <option>-lo</option> flags:</para>
+      <para>Para exibir as opções deste arquivo, use o comando
+	&man.ls.1; com a opção <option>-lo</option>:</para>
 
-      <screen>&prompt.root; <userinput>ls -lo <filename>file1</filename></userinput></screen>
+      <screen>&prompt.root; <userinput>ls -lo <filename>arquivo1</filename></userinput></screen>
 
-      <para>The output should look like the following:</para>
+      <para>A saída deve se parecer com o seguinte:</para>
 
-      <programlisting>-rw-r--r--  1 trhodes  trhodes  sunlnk 0 Mar  1 05:54 file1</programlisting>
+      <programlisting>-rw-r--r--  1 trhodes  trhodes  sunlnk 0 Mar  1 05:54 arquivo1</programlisting>
 
-      <para>Several flags may only added or removed to files by the
-	<username>root</username> user.  In other cases, the file owner
-	may set these flags.  It is recommended that administrators read
-	over the &man.chflags.1; and &man.chflags.2; manual pages for
-	more information.</para>
+      <para>Muitas opções devem ser adicionadas ou removidas dos
+	arquivos somente pelo usuário <username>root</username>.  Em
+	outros casos, o dono do arquivo pode definir essas opções.  É
+	recomendado que os administradores leiam as páginas do manual
+	do &man.chflags.1; e &man.chflags.2; para mais
+	informações.</para>
     </sect2>
 
     <sect2>
@@ -707,132 +713,136 @@ total 530
 	</authorgroup>
       </sect2info>
 
-      <title>The setuid, setgid, and sticky Permissions</title>
+      <title>As permissões setuid, setgid e sticky</title>
 
-      <para>Other than the permissions already discussed, there are
-	three other specific settings that all administrators should
-	know about.  They are the <literal>setuid</literal>,
-	<literal>setgid</literal> and <literal>sticky</literal>
-	permissions.</para>
+      <para>Além das permissões já discutidas, há outras três
+	configurações específicas que todos os administradores
+	deveriam conhecer.  Elas são as permissões
+	<literal>setuid</literal>, <literal>setgid</literal> e
+	<literal>sticky</literal>.</para>
 
-      <para>These settings are important for some &unix; operations
-	as they provide functionality not normally granted to normal
-	users.  To understand them, the difference between the real
-	user ID and effective user ID must also be noted.</para>
+      <para>Essas configurações são importantes para algumas operações
+	&unix;, pois elas provêem funcionalidades que normalmente não
+	são dadas aos usuários comuns.  Para entendê-las, a diferença
+	entre o ID real do usuário e o ID efetivo do usuário deve ser
+	entendida.</para>
 
-      <para>The real user ID is the <acronym>UID</acronym> who owns
-	or starts the process.  The effective <acronym>UID</acronym>
-	is the user ID the process runs as.  As an example, the
-	&man.passwd.1; utility runs with the real user ID as the
-	user changing their password; however, to manipulate the
-	password database, it runs as the effective ID of the
-	<username>root</username> user.  This is what allows normal
-	users to change their passwords without seeing a
-	<errorname>Permission Denied</errorname> error.</para>
+      <para>O ID real do usuário é o <acronym>UID</acronym> que possui
+	ou inicia um processo.  O <acronym>UID</acronym> efetivo é o
+	ID do usuário que o processo é executado.  Como um exemplo, a
+	ferramenta &man.passwd.1; executa com o ID real do usuário que
+	está alterando a sua senha; entretanto, para manipular o banco
+	de dados das senhas, ele executa com o ID efetivo do usuário
+	<username>root</username>.  Isto é o que permite um usuário
+	comum alterar a sua senha sem ver um erro de
+	<errorname>Permission Denied</errorname> (Permissão
+	Negada).</para>
 
       <note>
-	<para>The <literal>nosuid</literal> &man.mount.8; option will
-	  cause these binaries to silently fail.  That is, they will
-	  fail to execute without ever alerting the user.  That option
-	  is also not completely reliable as a <literal>nosuid</literal>
-	  wrapper may be able to circumvent it; according to the
-	  &man.mount.8; manual page.</para>
+	<para>A opção <literal>nosuid</literal> do &man.mount.8; irá
+	  fazer esses binários falhar silenciosamente.  Isto é, eles
+	  irão falhar sem nunca alertar o usuário.  Essa opção não é
+	  completamente confiável, pois um wrapper
+	  <literal>nosuid</literal> pode ser capaz de contornar isto;
+	  de acordo com a página do manual.</para>
       </note>
 
-      <para>The setuid permission may be set by prefixing a permission
-	set with the number four (4) as shown in the following
-	example:</para>
+      <para>A permissão setuid pode ser definida colocando o número
+	quatro (4) como prefixo, como mostrado no exemplo a
+	seguir:</para>
 
-      <screen>&prompt.root; <userinput>chmod 4755 suidexample.sh</userinput></screen>
+      <screen>&prompt.root; <userinput>chmod 4755 exemplosuid.sh</userinput></screen>
 
-      <para>The permissions on the
-	<filename><replaceable>suidexample.sh</replaceable></filename>
-	file should now look like the following:</para>
+      <para>A permissão no arquivo
+	<filename><replaceable>exemplosuid.sh</replaceable></filename>
+        deve se parecer com o seguinte:</para>
 
-      <programlisting>-rwsr-xr-x   1 trhodes  trhodes    63 Aug 29 06:36 suidexample.sh</programlisting>
+      <programlisting>-rwsr-xr-x   1 trhodes  trhodes    63 Aug 29 06:36 exemplosuid.sh</programlisting>
 
-      <para>It should be noticeable from this example that an
-	<literal>s</literal> is now part of the permission set
-	designated for the file owner, replacing the executable
-	bit.  This allows utilities which need elevated permissions,
-	such as <command>passwd</command>.</para>
+      <para>Deve ser notado neste exemplo que um <literal>s</literal>
+	é parte do conjunto de permissão para o proprietário deste
+	arquivo, substituindo o bit de execução.  Isto permite
+	ferramentas que precisam de permissões elevadas, tal como o
+	<command>passwd</command>.</para>
 
-      <para>To view this in real time, open two terminals.  On
-	one, start the <command>passwd</command> process as a normal
-	user.  While it waits for a new password, check the process
-	table and look at the user information of the
-	<command>passwd</command> command.</para>
+      <para>Para ver isto em tempo real, abra dois terminais.  No
+	primeiro, inicie o <command>passwd</command> como um usuário
+	comum.  Enquanto ele aguarda por uma nova senha, verifique o
+	a tabela de processos e procure pela informação de usuário no
+	comando <command>passwd</command>.</para>
 
-      <para>In terminal A:</para>
+      <para>No primeiro terminal:</para>
 
       <screen>Changing local password for trhodes
 Old Password:</screen>
 
-      <para>In terminal B:</para>
+      <para>No segundo terminal:</para>
 
       <screen>&prompt.root; <userinput>ps aux | grep passwd</userinput></screen>
 
       <screen>trhodes  5232  0.0  0.2  3420  1608   0  R+    2:10AM   0:00.00 grep passwd
 root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
-      <para>As stated above, the <command>passwd</command> is run
-	by a normal user, but is using the effective
-	<acronym>UID</acronym> of <username>root</username>.</para>
+      <para>Como mostrado acima, o <command>passwd</command> é
+	executado por um usuário comum, mas usa o
+	<acronym>UID</acronym> efetivo do
+	<username>root</username>.</para>
 
-      <para>The <literal>setgid</literal> permission performs the
-	same function as the <literal>setuid</literal> permission;
-	except that it alters the group settings.  When an application
-	or utility is ran with this setting, it will be granted the
-	permissions based on the group that owns the file, not
-	the user who started the process.</para>
+      <para>A permissão <literal>setgid</literal> tem a mesma função
+	que a permissão <literal>setuid</literal>; exceto que ela
+	altera as configurações do grupo.  Quando uma aplicação ou
+	ferramenta é executada com essa configuração, ela irá ter as
+	permissões baseadas no grupo que possui o arquivo, não no
+	usuário que iniciou o processo.</para>
 
-      <para>To set the <literal>setgid</literal> permission on a
-	file, provide the <command>chmod</command> command with a
-	leading two (2) as in the following example:</para>
+      <para>Para definir a permissão <literal>setgid</literal> em um
+	arquivo, execute o comando <command>chmod</command> com o
+	número dois (2) no inicio, como no exemplo a seguir:</para>
 
-      <screen>&prompt.root; <userinput>chmod 2755 sgidexample.sh</userinput></screen>
+      <screen>&prompt.root; <userinput>chmod 2755 exemplosgid.sh</userinput></screen>
 
-      <para>The new setting may be viewed as before, notice the
-	<literal>s</literal> is now in the field designated for the
-	group permission settings:</para>
+      <para>A nova permissão pode ser vista como antes, perceba o
+	<literal>s</literal> que está nas configurações de permissões
+	do grupo:</para>
 
-      <screen>-rwxr-sr-x   1 trhodes  trhodes    44 Aug 31 01:49 sgidexample.sh</screen>
+      <screen>-rwxr-sr-x   1 trhodes  trhodes    44 Aug 31 01:49 exemplosgid.sh</screen>
 
       <note>
-	<para>In these examples, even though the shell script in
-	  question is an executable file, it will not run with
-	  a different <acronym>EUID</acronym> or effective user ID.
-	  This is because shell scripts may not access the
-	  &man.setuid.2; system calls.</para>
+	<para>Nestes exemplos, mesmo que o shell script é um arquivo
+	  executável, ele não irá executar com um
+	  <acronym>EUID</acronym> ou ID efetivo do usuário diferente.
+	  Isto ocorre pois os shell scripts não acessam as chamadas do
+	  sistema do &man.setuid.2;.</para>
       </note>
 
-      <para>The first two special permission bits we discussed
-	(the <literal>setuid</literal> and <literal>setgid</literal>
-	permission bits) may lower system security, by allowing for
-	elevated permissions.  There is a third special permission bit
-	that can strengthen the security of a system: the
-	<literal>sticky bit</literal>.</para>
+      <para>Os dois primeiros bits especiais de permissão que nós
+	discutimos (os bits de permissão <literal>setuid</literal> e
+	<literal>setgid</literal>) pode diminuir a segurança do
+	sistema, pois permite permissões elevadas.  Há um terceiro bit
+	especial de permissão que pode deixar mais forte a segurança
+	do sistema: o <literal>bit sticky</literal>.</para>
 
-      <para>The <literal>sticky bit</literal>, when set on a directory,
-	allows file deletion only by the file owner.  This
-	permission set is useful to prevent file deletion in public
-	directories, such as
-	<filename class="directory">/tmp</filename>, by users who do
-	not own the file.  To utilize this permission, prefix the
-	permission with a one (1).  For example:</para>
+      <para>O <literal>bit sticky</literal>, quando definido em um
+        diretório, permite que apenas o proprietário de um arquivo o
+	remova.  Esta configuração de permissão é útil para prevenir a
+	remoção de arquivos em diretórios públicos, tal como
+	<filename class="directory">/tmp</filename>, por usuários que
+	não são proprietários do arquivo.  Para usar essa permissão,
+	coloque como prefixo da permissão o um (1).  Por
+	exemplo:</para>
 
       <screen>&prompt.root; <userinput>chmod 1777 /tmp</userinput></screen>
 
-      <para>Now, it is possible to see the effect by using the
-	<command>ls</command> command:</para>
+      <para>Agora, é possível ver o efeito usando o comando
+	<command>ls</command>:</para>
 
       <screen>&prompt.root; <userinput>ls -al / | grep tmp</userinput></screen>
 
       <screen>drwxrwxrwt  10 root  wheel         512 Aug 31 01:49 tmp</screen>
 
-      <para>The <literal>sticky bit</literal> permission is
-	distinguishable from the <literal>t</literal> at the very
-	end of the set.</para>
+      <para>A permissão do <literal>bit sticky</literal> é vista pelo
+	<literal>t</literal> no final do conjunto de
+	permissões.</para>
     </sect2>
   </sect1>
 
