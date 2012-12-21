@@ -1083,7 +1083,7 @@
   </entry>
 
   <entry id="mirrors-nl">
-    <country>Netherlands</country>
+    <country>Holanda</country>
     <host type="www">
       <name>www.nl.FreeBSD.org</name>
       <url proto="http">http://www.nl.FreeBSD.org/</url>
