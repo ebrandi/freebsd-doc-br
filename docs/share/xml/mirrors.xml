@@ -5,7 +5,7 @@
     </cvs:keyword>
 
   <entry id="central">
-    <country role="primary">Central Servers</country>
+    <country role="primary">Servidores Centrais</country>
     <host type="www">
       <name>www.FreeBSD.org</name>
       <url proto="http">http://www.FreeBSD.org/</url>
@@ -14,7 +14,7 @@
     <host type="ftp">
       <name>ftp.FreeBSD.org</name>
       <url proto="ftp">ftp://ftp.FreeBSD.org/pub/FreeBSD/</url>
-      <url proto="ftpv6"></url>
+      <url proto="ftpv6">ftp://ftp.FreeBSD.org/pub/FreeBSD/</url>
       <url proto="http">http://ftp.FreeBSD.org/pub/FreeBSD/</url>
       <url proto="httpv6">http://ftp.FreeBSD.org/pub/FreeBSD/</url>
     </host>
@@ -25,7 +25,7 @@
   </entry>
 
   <entry id="mirrors-primary">
-    <country role="primary">Primary Mirror Sites</country>
+    <country role="primary">Sítios Primários</country>
     <host type="ftp">
       <name>ftp1.FreeBSD.org</name>
       <url proto="ftp">ftp://ftp1.FreeBSD.org/pub/FreeBSD/</url>
@@ -175,7 +175,7 @@
   </entry>
 
   <entry id="mirrors-am">
-    <country>Armenia</country>
+    <country>Arménia</country>
     <host type="www">
       <name>www1.am.FreeBSD.org</name>
       <url proto="http">http://www1.am.FreeBSD.org/</url>
@@ -197,7 +197,7 @@
   </entry>
 
   <entry id="mirrors-au">
-    <country>Australia</country>
+    <country>Austrália</country>
     <host type="www">
       <name>www.au.FreeBSD.org</name>
       <url proto="http">http://www.au.FreeBSD.org/</url>
@@ -231,7 +231,7 @@
   </entry>
 
   <entry id="mirrors-at">
-    <country>Austria</country>
+    <country>Áustria</country>
     <host type="www">
       <name>www.at.FreeBSD.org</name>
       <url proto="http">http://www.at.FreeBSD.org/</url>
@@ -263,7 +263,7 @@
   </entry>
 
   <entry id="mirrors-br">
-    <country>Brazil</country>
+    <country>Brasil</country>
     <host type="www">
       <name>www.br.FreeBSD.org</name>
       <url proto="http">http://www.br.FreeBSD.org/</url>
@@ -342,7 +342,7 @@
   </entry>
 
   <entry id="mirrors-ca">
-    <country>Canada</country>
+    <country>Canadá</country>
     <host type="www">
       <name>www.ca.FreeBSD.org</name>
       <url proto="http">http://www.ca.FreeBSD.org/</url>
@@ -413,7 +413,7 @@
   </entry>
 
   <entry id="mirrors-cz">
-    <country>Czech Republic</country>
+    <country>República Checa</country>
     <host type="www">
       <name>www.cz.FreeBSD.org</name>
       <url proto="http">http://www.cz.FreeBSD.org/</url>
@@ -444,7 +444,7 @@
   </entry>
 
   <entry id="mirrors-dk">
-    <country>Denmark</country>
+    <country>Dinamarca</country>
     <host type="www">
       <name>www.dk.FreeBSD.org</name>
       <url proto="http">http://www.dk.FreeBSD.org/</url>
@@ -490,7 +490,7 @@
   </entry>
 
   <entry id="mirrors-fi">
-    <country>Finland</country>
+    <country>Finlândia</country>
     <host type="www">
       <name>www.fi.FreeBSD.org</name>
       <url proto="http">http://www.fi.FreeBSD.org/</url>
@@ -712,7 +712,7 @@
   </entry>
 
   <entry id="mirrors-gr">
-    <country>Greece</country>
+    <country>Grécia</country>
     <host type="www">
       <name>www.gr.FreeBSD.org</name>
       <url proto="http">http://www.gr.FreeBSD.org/</url>
@@ -773,7 +773,7 @@
   </entry>
 
   <entry id="mirrors-is">
-    <country>Iceland</country>
+    <country>Islândia</country>
     <host type="www">
       <name>www.is.FreeBSD.org</name>
       <url proto="http">http://www.is.FreeBSD.org/</url>
@@ -793,7 +793,7 @@
   </entry>
 
   <entry id="mirrors-ie">
-    <country>Ireland</country>
+    <country>Irlanda</country>
 <!--
     <host type="www">
       <name>www.ie.FreeBSD.org</name>
@@ -851,7 +851,7 @@
   </entry>
 
   <entry id="mirrors-it">
-    <country>Italy</country>
+    <country>Itália</country>
     <host type="www">
       <name>www.it.FreeBSD.org</name>
       <url proto="http">http://www.it.FreeBSD.org/</url>
@@ -889,7 +889,7 @@
   </entry>
 
   <entry id="mirrors-jp">
-    <country>Japan</country>
+    <country>Japão</country>
     <host type="www">
       <name>www.jp.FreeBSD.org</name>
       <url proto="http">http://www.jp.FreeBSD.org/www.FreeBSD.org/</url>
@@ -969,7 +969,7 @@
   </entry>
 
   <entry id="mirrors-kr">
-    <country>Korea</country>
+    <country>Coréia</country>
     <host type="www">
       <name>www.kr.FreeBSD.org</name>
       <url proto="http">http://www.kr.FreeBSD.org/</url>
@@ -1021,7 +1021,7 @@
   </entry>
 
   <entry id="mirrors-lv">
-    <country>Latvia</country>
+    <country>Letônia</country>
     <host type="www">
       <name>www.lv.FreeBSD.org</name>
       <url proto="http">http://www.lv.FreeBSD.org/</url>
@@ -1055,7 +1055,7 @@
   </entry>
 
   <entry id="mirrors-lt">
-    <country>Lithuania</country>
+    <country>Lituânia</country>
     <host type="www">
       <name>www.lt.FreeBSD.org</name>
       <url proto="http">http://www.lt.FreeBSD.org/</url>
@@ -1122,7 +1122,7 @@
   </entry>
 
   <entry id="mirrors-nz">
-    <country>New Zealand</country>
+    <country>Nova Zelândia</country>
     <host type="cvsup">
       <name>cvsup.nz.FreeBSD.org</name>
     </host>
@@ -1136,7 +1136,7 @@
   </entry>
 
   <entry id="mirrors-no">
-    <country>Norway</country>
+    <country>Noruega</country>
     <host type="www">
       <name>www.no.FreeBSD.org</name>
       <url proto="http">http://www.no.FreeBSD.org/</url>
@@ -1317,7 +1317,7 @@
   </entry>
 
   <entry id="mirrors-ru">
-    <country>Russia</country>
+    <country>Rússia</country>
     <host type="www">
       <name>www.ru.FreeBSD.org</name>
       <url proto="http">http://www.ru.FreeBSD.org/</url>
@@ -1424,7 +1424,7 @@
   </entry>
 
   <entry id="mirrors-sa">
-    <country>Saudi Arabia</country>
+    <country>Arábia Saudita</country>
     <host type="ftp">
       <name>ftp.isu.net.sa</name>
       <url proto="ftp">ftp://ftp.isu.net.sa/pub/ftp.freebsd.org/</url>
@@ -1434,7 +1434,7 @@
   </entry>
 
   <entry id="mirrors-sk">
-    <country>Slovak Republic</country>
+    <country>Eslováquia</country>
     <host type="www">
       <name>www.sk.FreeBSD.org</name>
       <url proto="http">http://www.sk.FreeBSD.org/</url>
@@ -1466,7 +1466,7 @@
   </entry>
 
   <entry id="mirrors-si">
-    <country>Slovenia</country>
+    <country>Eslovênia</country>
     <host type="www">
       <name>www.si.FreeBSD.org</name>
       <url proto="http">http://www.si.FreeBSD.org/</url>
@@ -1499,7 +1499,7 @@
   </entry>
 
   <entry id="mirrors-za">
-    <country>South Africa</country>
+    <country>África do Sul</country>
     <host type="www">
       <name>www.za.FreeBSD.org</name>
       <url proto="http">http://www.za.FreeBSD.org/</url>
@@ -1542,7 +1542,7 @@
   </entry>
 
   <entry id="mirrors-es">
-    <country>Spain</country>
+    <country>Espanha</country>
     <host type="www">
       <name>www.es.FreeBSD.org</name>
       <url proto="http">http://www.es.FreeBSD.org/</url>
@@ -1590,7 +1590,7 @@
   </entry>
 
   <entry id="mirrors-se">
-    <country>Sweden</country>
+    <country>Suécia</country>
     <host type="www">
       <name>www.se.FreeBSD.org</name>
       <url proto="http">http://www.se.FreeBSD.org/</url>
@@ -1647,7 +1647,7 @@
   </entry>
 
   <entry id="mirrors-ch">
-    <country>Switzerland</country>
+    <country>Suíça</country>
     <host type="www">
       <name>www.ch.FreeBSD.org</name>
       <url proto="http">http://www.ch.FreeBSD.org/</url>
@@ -1868,7 +1868,7 @@
   </entry>
 
   <entry id="mirrors-tr">
-    <country>Turkey</country>
+    <country>Turquia</country>
     <host type="www">
       <name>www.tr.FreeBSD.org</name>
       <url proto="http">http://www.tr.FreeBSD.org/</url>
@@ -1909,7 +1909,7 @@
   </entry>
 
   <entry id="mirrors-ua">
-    <country>Ukraine</country>
+    <country>Ucrânia</country>
     <host type="www">
       <name>www.ua.FreeBSD.org</name>
       <url proto="http">http://www.ua.FreeBSD.org/</url>
@@ -1981,7 +1981,7 @@
   </entry>
 
   <entry id="mirrors-uk">
-    <country>United Kingdom</country>
+    <country>Reino Unido</country>
     <host type="www">
       <name>www1.uk.FreeBSD.org</name>
       <url proto="http">http://www1.uk.FreeBSD.org/</url>
@@ -2044,7 +2044,7 @@
   </entry>
 
   <entry id="mirrors-us">
-    <country>USA</country>
+    <country>Estados Unidos da América</country>
     <host type="www">
       <name>www2.us.FreeBSD.org</name>
       <url proto="http">http://www2.us.FreeBSD.org/</url>
