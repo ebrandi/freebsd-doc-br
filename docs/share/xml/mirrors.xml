@@ -254,7 +254,7 @@
   </entry>
 
   <entry id="mirrors-be">
-    <country>Belgium</country>
+    <country>Bélgica</country>
     <host type="www">
       <name>freebsd.unixtech.be</name>
       <url proto="http">http://freebsd.unixtech.be/</url>
@@ -518,7 +518,7 @@
   </entry>
 
   <entry id="mirrors-fr">
-    <country>France</country>
+    <country>França</country>
     <host type="www">
       <name>www.fr.FreeBSD.org</name>
       <url proto="http">http://www.fr.FreeBSD.org/</url>
@@ -618,7 +618,7 @@
   </entry>
 
   <entry id="mirrors-de">
-    <country>Germany</country>
+    <country>Alemanha</country>
     <host type="www">
       <name>www.de.FreeBSD.org</name>
       <url proto="http">http://www.de.FreeBSD.org/</url>
@@ -754,7 +754,7 @@
   </entry>
 
   <entry id="mirrors-hu">
-    <country>Hungary</country>
+    <country>Hungria</country>
     <host type="www">
       <name>www.hu.FreeBSD.org</name>
       <url proto="http">http://www.hu.FreeBSD.org/</url>
@@ -1174,7 +1174,7 @@
   </entry>
 
   <entry id="mirrors-pl">
-    <country>Poland</country>
+    <country>Polônia</country>
     <host type="ftp">
       <name>ftp.pl.FreeBSD.org</name>
       <url proto="ftp">ftp://ftp.pl.FreeBSD.org/pub/FreeBSD/</url>
@@ -1263,7 +1263,7 @@
   </entry>
 
   <entry id="mirrors-ro">
-    <country>Romania</country>
+    <country>Roménia</country>
     <host type="www">
       <name>www.ro.FreeBSD.org</name>
       <url proto="http">http://www.ro.FreeBSD.org/</url>

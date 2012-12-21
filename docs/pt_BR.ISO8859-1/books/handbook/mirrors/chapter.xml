@@ -2844,8 +2844,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_5</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.5, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.5, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2853,8 +2853,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_4</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.4, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.4, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2862,8 +2862,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_3</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.3, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.3, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2871,8 +2871,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_2</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.2 and &os;-5.2.1, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.2 and &os;-5.2.1, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2880,8 +2880,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_1</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.1, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.1, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2889,8 +2889,8 @@ doc/zh_*</screen>
 	<term>RELENG_5_0</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-5.0, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-5.0, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2907,8 +2907,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_11</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.11, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.11, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2916,8 +2916,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_10</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.10, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.10, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2925,8 +2925,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_9</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.9, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.9, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2934,8 +2934,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_8</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.8, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.8, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2943,8 +2943,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_7</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.7, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.7, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2952,9 +2952,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_6</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.6 and &os;-4.6.2,
-            used only for security advisories and other
-            critical fixes.</para>
+	  <para>Galho de release para o &os;-4.6 and &os;-4.6.2, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2962,8 +2961,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_5</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.5, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.5, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2971,8 +2970,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_4</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.4, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.4, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2980,8 +2979,8 @@ doc/zh_*</screen>
 	<term>RELENG_4_3</term>
 
 	<listitem>
-	  <para>Galho de release para o &os;-4.3, used only
-	    for security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-4.3, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2989,8 +2988,8 @@ doc/zh_*</screen>
 	<term>RELENG_3</term>
 
 	<listitem>
-	  <para>Linha de desenvolvimento do &os;-3.X, also known
-	    as 3.X-STABLE.</para>
+	  <para>Linha de desenvolvimento do &os;-3.X, também conhecido
+	    como 3.X-STABLE.</para>
 	</listitem>
       </varlistentry>
 
@@ -2998,8 +2997,9 @@ doc/zh_*</screen>
 	<term>RELENG_2_2</term>
 
 	<listitem>
-	  <para>Linha de desenvolvimento do &os;-2.2.X, also known
-	    as 2.2-STABLE.  This branch is mostly obsolete.</para>
+	  <para>Linha de desenvolvimento do &os;-2.2.X, também conhecido
+	    como 2.2-STABLE.  Esta linha de desenvolvimento é 
+	    considerada obsoleta.</para>
 	</listitem>
       </varlistentry>
     </variablelist>

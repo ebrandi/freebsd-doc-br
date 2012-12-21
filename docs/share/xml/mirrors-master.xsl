@@ -53,8 +53,9 @@
   <xsl:template name="mirrors-docbook-contact">
     <xsl:param name="email" select="'someone@somewhere'"/>
 
-    <para>In case of problems, please contact the hostmaster
-      <email><xsl:value-of select="$email" /></email> for this domain.</para>
+    <para>Em caso de incidentes, dúvidas ou sugestões, entre em 
+	contato com o hostmaster deste domínio 
+	<email><xsl:value-of select="$email" /></email>.</para>
   </xsl:template>
 
   <!-- template: "mirrors-lastmodified" -->
