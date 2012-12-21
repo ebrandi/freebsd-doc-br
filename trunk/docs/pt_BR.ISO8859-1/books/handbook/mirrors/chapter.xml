@@ -2583,15 +2583,15 @@ doc/zh_*</screen>
     <sect2>
       <title>Mais Informações</title>
 
-      <para>For the <application>CVSup</application> FAQ and other
-	information about <application>CVSup</application>, see
-	<ulink url="http://www.cvsup.org">The
-	  CVSup Home Page</ulink>.</para>
+      <para>Para consultar as FAQ e outras informações sobre o 
+	<application>CVSup</application>, consulte a 
+	<ulink url="http://www.cvsup.org">página oficial do 
+	CVSup</ulink>.</para>
 
-      <para>Most &os;-related discussion of
-	<application>CVSup</application> takes place on the
-	&a.hackers;.  New versions of the software are announced there,
-	as well as on the &a.announce;.</para>
+      <para>A maioria das discussões relacionadas a 
+	<application>CVSup</application> no &os; acontece na 
+	&a.hackers;. Novas versões do software são anunciadas lá 
+	e na &a.announce;.</para>
 
       <para>Para obter respostas às perguntas mais frequentes a 
 	respeito do <application>CVSup</application>, ou saber sobre 
@@ -2664,8 +2664,8 @@ doc/zh_*</screen>
 	<term>RELENG_9</term>
 
 	<listitem>
-	  <para>The line of development for &os;-9.X, also known
-	    as &os; 9-STABLE</para>
+	  <para>Linha de desenvolvimento do &os;-9.X, também conhecido
+	    como &os; 9-STABLE</para>
 	</listitem>
       </varlistentry>
 
@@ -2673,8 +2673,8 @@ doc/zh_*</screen>
 	<term>RELENG_9_0</term>
 
 	<listitem>
-	  <para>The release branch for &os;-9.0, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-9.0, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2682,8 +2682,8 @@ doc/zh_*</screen>
 	<term>RELENG_8</term>
 
 	<listitem>
-	  <para>The line of development for &os;-8.X, also known
-	    as &os; 8-STABLE</para>
+	  <para>Linha de desenvolvimento do &os;-8.X, também conhecido
+	    como &os; 8-STABLE</para>
 	</listitem>
       </varlistentry>
 
@@ -2691,8 +2691,8 @@ doc/zh_*</screen>
 	<term>RELENG_8_3</term>
 
 	<listitem>
-	  <para>The release branch for &os;-8.3, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-8.3, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2700,8 +2700,8 @@ doc/zh_*</screen>
 	<term>RELENG_8_2</term>
 
 	<listitem>
-	  <para>The release branch for &os;-8.2, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-8.2, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2709,8 +2709,8 @@ doc/zh_*</screen>
 	<term>RELENG_8_1</term>
 
 	<listitem>
-	  <para>The release branch for &os;-8.1, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-8.1, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2718,8 +2718,8 @@ doc/zh_*</screen>
 	<term>RELENG_8_0</term>
 
 	<listitem>
-	  <para>The release branch for &os;-8.0, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-8.0, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2727,8 +2727,8 @@ doc/zh_*</screen>
 	<term>RELENG_7</term>
 
 	<listitem>
-	  <para>The line of development for &os;-7.X, also known
-	    as &os; 7-STABLE</para>
+	  <para>Linha de desenvolvimento do &os;-7.X, também conhecido
+	    como &os; 7-STABLE</para>
 	</listitem>
       </varlistentry>
 
@@ -2736,8 +2736,8 @@ doc/zh_*</screen>
 	<term>RELENG_7_4</term>
 
 	<listitem>
-	  <para>The release branch for &os;-7.4, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-7.4, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2745,8 +2745,8 @@ doc/zh_*</screen>
 	<term>RELENG_7_3</term>
 
 	<listitem>
-	  <para>The release branch for &os;-7.3, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-7.3, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2754,8 +2754,8 @@ doc/zh_*</screen>
 	<term>RELENG_7_2</term>
 
 	<listitem>
-	  <para>The release branch for &os;-7.2, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-7.2, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2763,8 +2763,8 @@ doc/zh_*</screen>
 	<term>RELENG_7_1</term>
 
 	<listitem>
-	  <para>The release branch for &os;-7.1, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-7.1, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2772,8 +2772,8 @@ doc/zh_*</screen>
 	<term>RELENG_7_0</term>
 
 	<listitem>
-	  <para>The release branch for &os;-7.0, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-7.0, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2781,8 +2781,8 @@ doc/zh_*</screen>
 	<term>RELENG_6</term>
 
 	<listitem>
-	  <para>The line of development for &os;-6.X, also known
-	    as &os; 6-STABLE</para>
+	  <para>Linha de desenvolvimento do &os;-6.X, também conhecido
+	    como &os; 6-STABLE</para>
 	</listitem>
       </varlistentry>
 
@@ -2790,8 +2790,8 @@ doc/zh_*</screen>
 	<term>RELENG_6_4</term>
 
 	<listitem>
-	  <para>The release branch for &os;-6.4, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-6.4, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2799,8 +2799,8 @@ doc/zh_*</screen>
 	<term>RELENG_6_3</term>
 
 	<listitem>
-	  <para>The release branch for &os;-6.3, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-6.3, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2808,8 +2808,8 @@ doc/zh_*</screen>
 	<term>RELENG_6_2</term>
 
 	<listitem>
-	  <para>The release branch for &os;-6.2, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-6.2, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2817,8 +2817,8 @@ doc/zh_*</screen>
 	<term>RELENG_6_1</term>
 
 	<listitem>
-	  <para>The release branch for &os;-6.1, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-6.1, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2826,8 +2826,8 @@ doc/zh_*</screen>
 	<term>RELENG_6_0</term>
 
 	<listitem>
-	  <para>The release branch for &os;-6.0, used only for
-	    security advisories and other critical fixes.</para>
+	  <para>Galho de release para o &os;-6.0, utilizaddo apenas para
+	    alertas de segurança e atualizações críticas.</para>
 	</listitem>
       </varlistentry>
 
@@ -2835,8 +2835,8 @@ doc/zh_*</screen>
 	<term>RELENG_5</term>
 
 	<listitem>
-	  <para>The line of development for &os;-5.X, also known
-	    as &os; 5-STABLE.</para>
+	  <para>Linha de desenvolvimento do &os;-5.X, também conhecido
+	    como &os; 5-STABLE.</para>
 	</listitem>
       </varlistentry>
 
@@ -2844,7 +2844,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_5</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.5, used only
+	  <para>Galho de release para o &os;-5.5, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2853,7 +2853,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_4</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.4, used only
+	  <para>Galho de release para o &os;-5.4, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2862,7 +2862,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_3</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.3, used only
+	  <para>Galho de release para o &os;-5.3, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2871,7 +2871,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_2</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.2 and &os;-5.2.1, used only
+	  <para>Galho de release para o &os;-5.2 and &os;-5.2.1, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2880,7 +2880,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_1</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.1, used only
+	  <para>Galho de release para o &os;-5.1, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2889,7 +2889,7 @@ doc/zh_*</screen>
 	<term>RELENG_5_0</term>
 
 	<listitem>
-	  <para>The release branch for &os;-5.0, used only
+	  <para>Galho de release para o &os;-5.0, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2898,8 +2898,8 @@ doc/zh_*</screen>
 	<term>RELENG_4</term>
 
 	<listitem>
-	  <para>The line of development for &os;-4.X, also known
-	    as &os; 4-STABLE.</para>
+	  <para>Linha de desenvolvimento do &os;-4.X, também conhecido
+	    como &os; 4-STABLE.</para>
 	</listitem>
       </varlistentry>
 
@@ -2907,7 +2907,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_11</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.11, used only
+	  <para>Galho de release para o &os;-4.11, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2916,7 +2916,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_10</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.10, used only
+	  <para>Galho de release para o &os;-4.10, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2925,7 +2925,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_9</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.9, used only
+	  <para>Galho de release para o &os;-4.9, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2934,7 +2934,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_8</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.8, used only
+	  <para>Galho de release para o &os;-4.8, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2943,7 +2943,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_7</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.7, used only
+	  <para>Galho de release para o &os;-4.7, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2952,7 +2952,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_6</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.6 and &os;-4.6.2,
+	  <para>Galho de release para o &os;-4.6 and &os;-4.6.2,
             used only for security advisories and other
             critical fixes.</para>
 	</listitem>
@@ -2962,7 +2962,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_5</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.5, used only
+	  <para>Galho de release para o &os;-4.5, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2971,7 +2971,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_4</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.4, used only
+	  <para>Galho de release para o &os;-4.4, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2980,7 +2980,7 @@ doc/zh_*</screen>
 	<term>RELENG_4_3</term>
 
 	<listitem>
-	  <para>The release branch for &os;-4.3, used only
+	  <para>Galho de release para o &os;-4.3, used only
 	    for security advisories and other critical fixes.</para>
 	</listitem>
       </varlistentry>
@@ -2989,7 +2989,7 @@ doc/zh_*</screen>
 	<term>RELENG_3</term>
 
 	<listitem>
-	  <para>The line of development for &os;-3.X, also known
+	  <para>Linha de desenvolvimento do &os;-3.X, also known
 	    as 3.X-STABLE.</para>
 	</listitem>
       </varlistentry>
@@ -2998,7 +2998,7 @@ doc/zh_*</screen>
 	<term>RELENG_2_2</term>
 
 	<listitem>
-	  <para>The line of development for &os;-2.2.X, also known
+	  <para>Linha de desenvolvimento do &os;-2.2.X, also known
 	    as 2.2-STABLE.  This branch is mostly obsolete.</para>
 	</listitem>
       </varlistentry>
