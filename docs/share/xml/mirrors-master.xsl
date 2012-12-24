@@ -53,15 +53,15 @@
   <xsl:template name="mirrors-docbook-contact">
     <xsl:param name="email" select="'someone@somewhere'"/>
 
-    <para>Em caso de incidentes, dÃºvidas ou sugestÃµes, entre em 
-	contato com o hostmaster deste domÃ­nio 
+    <para>Em caso de incidentes, dúvidas ou sugestões, entre em 
+	contato com o hostmaster deste domínio 
 	<email><xsl:value-of select="$email" /></email>.</para>
   </xsl:template>
 
   <!-- template: "mirrors-lastmodified" -->
 
   <xsl:template name="mirrors-lastmodified">
-    <xsl:text>as of </xsl:text>
+    <xsl:text>ordenados por </xsl:text>
     <xsl:call-template name="mirrors-lastmodified-utc" />
   </xsl:template>
 
