@@ -25,7 +25,7 @@
   </entry>
 
   <entry id="mirrors-primary">
-    <country role="primary">S√≠tios Prim√°rios</country>
+    <country role="primary">SÌtios Prim·rios</country>
     <host type="ftp">
       <name>ftp1.FreeBSD.org</name>
       <url proto="ftp">ftp://ftp1.FreeBSD.org/pub/FreeBSD/</url>
@@ -175,7 +175,7 @@
   </entry>
 
   <entry id="mirrors-am">
-    <country>Arm√©nia</country>
+    <country>ArmÈnia</country>
     <host type="www">
       <name>www1.am.FreeBSD.org</name>
       <url proto="http">http://www1.am.FreeBSD.org/</url>
@@ -197,7 +197,7 @@
   </entry>
 
   <entry id="mirrors-au">
-    <country>Austr√°lia</country>
+    <country>Austr·lia</country>
     <host type="www">
       <name>www.au.FreeBSD.org</name>
       <url proto="http">http://www.au.FreeBSD.org/</url>
@@ -231,7 +231,7 @@
   </entry>
 
   <entry id="mirrors-at">
-    <country>√Åustria</country>
+    <country>¡ustria</country>
     <host type="www">
       <name>www.at.FreeBSD.org</name>
       <url proto="http">http://www.at.FreeBSD.org/</url>
@@ -254,7 +254,7 @@
   </entry>
 
   <entry id="mirrors-be">
-    <country>B√©lgica</country>
+    <country>BÈlgica</country>
     <host type="www">
       <name>freebsd.unixtech.be</name>
       <url proto="http">http://freebsd.unixtech.be/</url>
@@ -342,7 +342,7 @@
   </entry>
 
   <entry id="mirrors-ca">
-    <country>Canad√°</country>
+    <country>Canad·</country>
     <host type="www">
       <name>www.ca.FreeBSD.org</name>
       <url proto="http">http://www.ca.FreeBSD.org/</url>
@@ -413,7 +413,7 @@
   </entry>
 
   <entry id="mirrors-cz">
-    <country>Rep√∫blica Checa</country>
+    <country>Rep˙blica Checa</country>
     <host type="www">
       <name>www.cz.FreeBSD.org</name>
       <url proto="http">http://www.cz.FreeBSD.org/</url>
@@ -490,7 +490,7 @@
   </entry>
 
   <entry id="mirrors-fi">
-    <country>Finl√¢ndia</country>
+    <country>Finl‚ndia</country>
     <host type="www">
       <name>www.fi.FreeBSD.org</name>
       <url proto="http">http://www.fi.FreeBSD.org/</url>
@@ -518,7 +518,7 @@
   </entry>
 
   <entry id="mirrors-fr">
-    <country>Fran√ßa</country>
+    <country>FranÁa</country>
     <host type="www">
       <name>www.fr.FreeBSD.org</name>
       <url proto="http">http://www.fr.FreeBSD.org/</url>
@@ -712,7 +712,7 @@
   </entry>
 
   <entry id="mirrors-gr">
-    <country>Gr√©cia</country>
+    <country>GrÈcia</country>
     <host type="www">
       <name>www.gr.FreeBSD.org</name>
       <url proto="http">http://www.gr.FreeBSD.org/</url>
@@ -773,7 +773,7 @@
   </entry>
 
   <entry id="mirrors-is">
-    <country>Isl√¢ndia</country>
+    <country>Isl‚ndia</country>
     <host type="www">
       <name>www.is.FreeBSD.org</name>
       <url proto="http">http://www.is.FreeBSD.org/</url>
@@ -851,7 +851,7 @@
   </entry>
 
   <entry id="mirrors-it">
-    <country>It√°lia</country>
+    <country>It·lia</country>
     <host type="www">
       <name>www.it.FreeBSD.org</name>
       <url proto="http">http://www.it.FreeBSD.org/</url>
@@ -875,7 +875,7 @@
   </entry>
 
   <entry id="mirrors-kg">
-    <country>Kyrgyzstan</country>
+    <country>Quirguist„o</country>
     <host type="www">
       <name>www.kg.FreeBSD.org</name>
       <url proto="http">http://www.kg.FreeBSD.org/</url>
@@ -889,7 +889,7 @@
   </entry>
 
   <entry id="mirrors-jp">
-    <country>Jap√£o</country>
+    <country>Jap„o</country>
     <host type="www">
       <name>www.jp.FreeBSD.org</name>
       <url proto="http">http://www.jp.FreeBSD.org/www.FreeBSD.org/</url>
@@ -969,7 +969,7 @@
   </entry>
 
   <entry id="mirrors-kr">
-    <country>Cor√©ia</country>
+    <country>CorÈia</country>
     <host type="www">
       <name>www.kr.FreeBSD.org</name>
       <url proto="http">http://www.kr.FreeBSD.org/</url>
@@ -1021,7 +1021,7 @@
   </entry>
 
   <entry id="mirrors-lv">
-    <country>Let√¥nia</country>
+    <country>LetÙnia</country>
     <host type="www">
       <name>www.lv.FreeBSD.org</name>
       <url proto="http">http://www.lv.FreeBSD.org/</url>
@@ -1055,7 +1055,7 @@
   </entry>
 
   <entry id="mirrors-lt">
-    <country>Litu√¢nia</country>
+    <country>Litu‚nia</country>
     <host type="www">
       <name>www.lt.FreeBSD.org</name>
       <url proto="http">http://www.lt.FreeBSD.org/</url>
@@ -1122,7 +1122,7 @@
   </entry>
 
   <entry id="mirrors-nz">
-    <country>Nova Zel√¢ndia</country>
+    <country>Nova Zel‚ndia</country>
     <host type="cvsup">
       <name>cvsup.nz.FreeBSD.org</name>
     </host>
@@ -1161,7 +1161,7 @@
   </entry>
 
   <entry id="mirrors-ph">
-    <country>Philippines</country>
+    <country>Filipinas</country>
     <host type="www">
       <name>www.FreeBSD.org.ph</name>
       <url proto="http">http://www.FreeBSD.org.ph/</url>
@@ -1174,7 +1174,7 @@
   </entry>
 
   <entry id="mirrors-pl">
-    <country>Pol√¥nia</country>
+    <country>PolÙnia</country>
     <host type="ftp">
       <name>ftp.pl.FreeBSD.org</name>
       <url proto="ftp">ftp://ftp.pl.FreeBSD.org/pub/FreeBSD/</url>
@@ -1263,7 +1263,7 @@
   </entry>
 
   <entry id="mirrors-ro">
-    <country>Rom√©nia</country>
+    <country>RomÈnia</country>
     <host type="www">
       <name>www.ro.FreeBSD.org</name>
       <url proto="http">http://www.ro.FreeBSD.org/</url>
@@ -1317,7 +1317,7 @@
   </entry>
 
   <entry id="mirrors-ru">
-    <country>R√∫ssia</country>
+    <country>R˙ssia</country>
     <host type="www">
       <name>www.ru.FreeBSD.org</name>
       <url proto="http">http://www.ru.FreeBSD.org/</url>
@@ -1411,7 +1411,7 @@
   </entry>
 
   <entry id="mirrors-sm">
-    <country>San Marino</country>
+    <country>S„o Marino</country>
     <host type="www">
       <name>www.sm.FreeBSD.org</name>
       <url proto="http">http://www.sm.FreeBSD.org/</url>
@@ -1424,7 +1424,7 @@
   </entry>
 
   <entry id="mirrors-sa">
-    <country>Ar√°bia Saudita</country>
+    <country>Ar·bia Saudita</country>
     <host type="ftp">
       <name>ftp.isu.net.sa</name>
       <url proto="ftp">ftp://ftp.isu.net.sa/pub/ftp.freebsd.org/</url>
@@ -1434,7 +1434,7 @@
   </entry>
 
   <entry id="mirrors-sk">
-    <country>Eslov√°quia</country>
+    <country>Eslov·quia</country>
     <host type="www">
       <name>www.sk.FreeBSD.org</name>
       <url proto="http">http://www.sk.FreeBSD.org/</url>
@@ -1466,7 +1466,7 @@
   </entry>
 
   <entry id="mirrors-si">
-    <country>Eslov√™nia</country>
+    <country>EslovÍnia</country>
     <host type="www">
       <name>www.si.FreeBSD.org</name>
       <url proto="http">http://www.si.FreeBSD.org/</url>
@@ -1499,7 +1499,7 @@
   </entry>
 
   <entry id="mirrors-za">
-    <country>√Åfrica do Sul</country>
+    <country>¡frica do Sul</country>
     <host type="www">
       <name>www.za.FreeBSD.org</name>
       <url proto="http">http://www.za.FreeBSD.org/</url>
@@ -1590,7 +1590,7 @@
   </entry>
 
   <entry id="mirrors-se">
-    <country>Su√©cia</country>
+    <country>SuÈcia</country>
     <host type="www">
       <name>www.se.FreeBSD.org</name>
       <url proto="http">http://www.se.FreeBSD.org/</url>
@@ -1647,7 +1647,7 @@
   </entry>
 
   <entry id="mirrors-ch">
-    <country>Su√≠√ßa</country>
+    <country>SuÌÁa</country>
     <host type="www">
       <name>www.ch.FreeBSD.org</name>
       <url proto="http">http://www.ch.FreeBSD.org/</url>
@@ -1854,7 +1854,7 @@
   </entry>
 
   <entry id="mirrors-th">
-    <country>Thailand</country>
+    <country>Tail‚ndia</country>
     <host type="www">
       <name>www.th.FreeBSD.org</name>
       <url proto="http">http://www.th.FreeBSD.org/</url>
@@ -1909,7 +1909,7 @@
   </entry>
 
   <entry id="mirrors-ua">
-    <country>Ucr√¢nia</country>
+    <country>Ucr‚nia</country>
     <host type="www">
       <name>www.ua.FreeBSD.org</name>
       <url proto="http">http://www.ua.FreeBSD.org/</url>
@@ -2044,7 +2044,7 @@
   </entry>
 
   <entry id="mirrors-us">
-    <country>Estados Unidos da Am√©rica</country>
+    <country>Estados Unidos da AmÈrica</country>
     <host type="www">
       <name>www2.us.FreeBSD.org</name>
       <url proto="http">http://www2.us.FreeBSD.org/</url>
