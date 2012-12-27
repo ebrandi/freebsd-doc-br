@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40113
+  Original revision: r40119
 -->
 
 <article lang='pt_br'>
@@ -76,22 +76,28 @@
     <para>A maior parte da mágica na compilação de pacotes ocorre sob
       o diretório <filename>/var/portbuild</filename>.  A menos que
       seja especificado o contrário, todos os caminhos serão relativos
-      à este diretório.  O <replaceable>${arch}</replaceable> será usado
-      para determinar uma das arquiteturas de pacotes (amd64, &i386;,
-      ia64, powerpc, e &sparc64;), e
+      à este diretório.  O <replaceable>${arch}</replaceable> será
+      usado para determinar uma das arquiteturas de pacotes (por
+      exemplo: amd64, arm, &i386;, ia64, powerpc, e &sparc64;), e
       <replaceable>${branch}</replaceable> será usado para determinar
       o <literal>branch</literal> (ramo de desenvolvimento) de
-      compilação (7, 7-exp, 8, 8-exp, 9, 9-exp, 10, 10-exp).</para>
+      compilação (por exemplo: 7, 7-exp, 8, 8-exp, 9, 9-exp, 10,
+      10-exp).  O conjunto de <literal>branchs</literal> que o
+      <username>portmgr</username> suporta atualmente é o mesmo
+      suportado pelo <ulink
+      url="http://www.freebsd.org/security/index.html#supported-branches">time
+      de segurança</ulink> do &os;.</para>
 
     <note>
-      <para>Não são mais compilados pacotes para as versões 4, 5 ou 6,
-        e para a arquitetura alpha</para>
+      <para>Não são mais compilados pacotes para os
+        <literal>branchs</literal>  4, 5 ou 6, e para a arquitetura
+	alpha</para>
     </note>
 
     <para>Os <literal>scripts</literal> que controlam todo o processo
       estão localizados em <filename
       class="directory">/var/portbuild/scripts/</filename>.  Eles são
-      cópias obtidas do repositório Subversion <ulink
+      cópias obtidas do repositório Subversion em <ulink
       url="http://svnweb.freebsd.org/base/projects/portbuild/scripts/">
       <filename
       class="directory">base/projects/portbuild/scripts/</filename></ulink>.</para>
@@ -108,8 +114,12 @@
       <listitem><para>periodicamente, para testar mudanças realizadas
 	no <literal>-CURRENT</literal></para></listitem>
 
-      <listitem><para>para compilações experimentais</para></listitem>
+      <listitem><para>para compilações experimentais
+        (<literal>"exp-"</literal>)</para></listitem>
     </itemizedlist>
+
+    <para>Não é feito o <literal>upload</literal> dos pacote gerados a
+      partir de compilações experimentais</para>
 
     </sect2>
 
@@ -117,11 +127,11 @@
       <title>Observações sobre o código base</title>
 
       <para>Até meados de 2010, os <literal>scripts</literal>
-	apontavam especificamente para <hostid>pointyhat</hostid> como
-	o nó principal (dispatch).  Durante o verão de 2010, mudanças
-	significativas foram feitas a fim de aceitar outros
-	<literal>hosts</literal> como nós principais.  Entre estas
-	mudanças estão:</para>
+	apontavam especificamente para
+	<hostid>pointyhat.FreeBSD.org</hostid> como o nó principal
+	(dispatch).  Durante o verão de 2010, mudanças significativas
+	foram feitas a fim de aceitar outros <literal>hosts</literal>
+	como nós principais.  Entre estas  mudanças estão:</para>
 
       <itemizedlist>
 	<listitem><para>remoção da <literal>string</literal>
@@ -359,17 +369,19 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
   <sect1 id="starting">
     <title>Iniciando a Compilação</title>
 
-    <para>Várias compilações separadas para cada arquitetura - a
-      combinação de <literal>branchs</literal> é suportada.  Todos os
-      dados privados para uma compilação (árvore de
+    <para>Compilações separadas para várias combinações de
+      arquiteturas e <literal>branchs</literal> são suportadas. Todos
+      os dados privados para uma compilação (árvore de
       <literal>ports</literal>, árvore do <literal>src</literal>,
       pacotes, <literal>distfiles</literal>, arquivos de
       <literal>log</literal>, <literal>bindist</literal>,
-      <literal>Makefile</literal>, etc) estão localizados sob
+      <literal>Makefile</literal>, etc) estão localizados sob o
+      diretório
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/builds/<replaceable>${buildid}</replaceable></filename>.
-      Alternativamente, a última compilação pode ser referenciada sob
-      o <literal>buildid</literal> <literal>latest</literal>, e a
-      anterior a esta é chamada <literal>previous</literal>.</para>
+      Alternativamente, a compilação mais recente pode ser
+      referenciada sob o <literal>buildid</literal>
+      <literal>latest</literal>, e a anterior a esta usando
+      <literal>previous</literal>.</para>
 
     <para>Novas compilações são clonadas a partir da
       <literal>latest</literal>, o que é rápido, uma vez que ele usa 
@@ -656,8 +668,8 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       <listitem>
 	<para><literal>-fetch-original</literal> - Baixa o
 	  <literal>distfile</literal> a partir do
-	  <literal>MASTER_SITES</literal> original, em vez do
-	  <hostid>ftp-master</hostid>.
+	  <literal>MASTER_SITES</literal> original, em vez de qualquer
+	  cache como o <hostid>ftp-master</hostid>.
 	</para>
       </listitem>
 
@@ -692,10 +704,11 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
 
     <para>&prompt.user; <userinput>build cleanup <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> -full</userinput></para>
 
-    <para>Os diretórios <filename>errors/</filename>, 
-      <filename>logs/</filename>, <filename>packages/</filename>, e 
-      assim por diante, são limpos pelos <literal>scripts</literal>.  
-      Se você está com pouco espaço, também pode limpar o
+    <para>Quando uma nova compilação é criada, os diretórios
+      <filename>errors/</filename>, <filename>logs/</filename>,
+      <filename>packages/</filename>, e assim por diante, são limpos
+      pelos <literal>scripts</literal>.  Se você está com pouco
+      espaço, também pode limpar o
       <filename>ports/distfiles/</filename>.  Não altere o diretório
       <filename>latest/</filename>; ele é um link simbólico para o
       servidor web.</para>
@@ -3063,9 +3076,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
       instalações usando o antigo código base <emphasis>não</emphasis>
       são suportadas.</para>
 
-    <para>Esta seção está em progresso.</para>
-
-    <para>Por favor, consulte o Mark Linimon antes de efetuar qualquer
+    <para>Por favor, consulte Mark Linimon antes de efetuar qualquer
       mudança.</para>
 
     <sect2 id="pointyhat-basics">
