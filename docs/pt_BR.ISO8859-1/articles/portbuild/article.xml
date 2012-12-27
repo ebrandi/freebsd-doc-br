@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40122
+  Original revision: r40123
 -->
 
 <article lang='pt_br'>
@@ -2843,31 +2843,40 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         <listitem>
 	  <para>Crie um diretório para os <literal>logs</literal> de
 	    compilação e para os <literal>logs</literal> de
-	    erros (XXX MCL específico para o
-	    <literal>pointyhat</literal>; corrigir isto!):</para>
+	    erros.</para>
 
-          <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
+	  <para>Se você vai armazenar o histórico dos
+	    <literal>logs</literal> de compilação e
+	    <literal>logs</literal> de erros no disco rígido do nó
+	    principal, você pode pular este passo.  Caso
+	    contrário:</para>
+
+	  <para>Crie um diretório externo e um <literal>link</literal>
+	    para ele:</para>
+
+	  <example>
+	    <title>Criando um diretório de arquivos externo e seu
+	      <literal>link</literal></title>
+
+	    <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
+	    <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
+	  </example>
 
 	  <note>
+	    <para>(Nota histórica que apenas se aplica à instalação do
+	      <hostid>pointyhat.FreeBSD.org</hostid> original)
+	    </para>
+
 	    <para>É possível que
 	      <filename>/dumpster/pointyhat</filename> não tenha mais
 	      espaço suficiente.  Neste caso, crie o diretório dos
 	      arquivos como
 	      <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
 	      e crie um <literal>link</literal> simbólico para ele.
-	      (Isso precisa ser resolvido.)
 	    </para>
 	  </note>
 	</listitem>
 
-        <listitem>
-	  <para>Crie um <literal>link</literal> para o diretório acima
-	    para o servidor web (XXX MCL específico para o
-	    <literal>pointyhat</literal>; corrigir isto!):</para>
-
-	  <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
-
-        </listitem>
       </itemizedlist>
 
       <note>
@@ -2937,16 +2946,21 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <para>Edite o arquivo <filename>.ssh/config</filename> para 
-	    tornar mais conveniênte o uso do
+	  <para>Se desejar, edite o arquivo
+	    <filename>.ssh/config</filename> para tornar mais
+	    conveniênte o uso do
 	    <application>ssh</application>.</para>
         </listitem>
 
         <listitem>
-	  <para>Se necessário, crie o diretório de configuração
-	    privada:</para>
+	  <para>Se você precisar criar qualquer túnel:</para>
 
-	  <screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
+	  <procedure>
+	    <step>
+	      <para>Crie o diretório de configuração privada:</para>
+	      <screen>mkdir /var/portbuild/conf/<replaceable>arch</replaceable></screen>
+	    </step>
+	  </procedure>
         </listitem>
 
         <listitem>
@@ -2996,7 +3010,7 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 	</listitem>
 
 	<listitem>
-	  <para>
+	  <para>(Necessário apenas para o antigo código base):
 	    Crie mais dois <literal>links</literal> simbólicos para o 
 	    servidor web dentro do diretório
 	    <filename>/var/portbuild/errorlogs/</filename>:</para>
