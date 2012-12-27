@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40119
+  Original revision: r40122
 -->
 
 <article lang='pt_br'>
@@ -2406,8 +2406,7 @@ ssh_cmd="/usr/local/bin/ssh"
 
       <para>Estes passos precisam ser executados por um
         <literal>portmgr</literal> autenticado como
-	<literal>ports-<replaceable>arch</replaceable></literal> no 
-	<hostid>pointyhat</hostid>.
+	<literal>ports-<replaceable>arch</replaceable></literal>:
       </para>
 
       <procedure>
@@ -2423,7 +2422,7 @@ ssh_cmd="/usr/local/bin/ssh"
 	</step>
 
 	<step>
-	  <para>Crie as cópias dos arquivos do nó em
+	  <para>Crie as cópias dos arquivos do cliente em
 	    <filename>/var/portbuild/scripts/</filename> executando
 	    algo como <command>/var/portbuild/scripts/dosetupnode
 	    <replaceable>arch</replaceable>
@@ -2448,7 +2447,7 @@ ssh_cmd="/usr/local/bin/ssh"
 
       <para>Esses passos precisam ser executados por um
         <literal>portmgr</literal> autenticado como
-	<literal>root</literal> no <hostid>pointyhat</hostid>.
+	<literal>root</literal>.
       </para>
 
       <procedure>
@@ -2468,6 +2467,22 @@ ssh_cmd="/usr/local/bin/ssh"
 	    pools="package all" maxjobs=1
 	    acl="ports-<replaceable>arch</replaceable>,deny_all"
 	    </command></para>
+	</step>
+      </procedure>
+
+      <para>Finalmente, novamente como <literal>portmgr</literal>
+	autenticado como
+	<literal>ports-<replaceable>arch</replaceable></literal>:
+      </para>
+
+      <procedure>
+	<step>
+	  <para>Quando tiver certeza de que o cliente está funcionando
+	    informe
+	    <application>pollmachine</application> adicionando-o
+	    em
+	    <filename>/var/portbuild/<replaceable>${arch}</replaceable>/mlist</filename>.
+	  </para>
 	</step>
       </procedure>
     </sect2>
@@ -2875,11 +2890,13 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <screen>mkdir loads</screen>
+	  <para><screen>mkdir loads</screen></para>
         </listitem>
 
         <listitem>
-	  <screen>mkdir lockfiles</screen>
+	  <para>(Necessário apenas para antigo código base)
+	    <screen>mkdir lockfiles</screen>
+	  </para>
         </listitem>
 
         <listitem>
