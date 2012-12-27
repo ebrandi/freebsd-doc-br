@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40124
+  Original revision: r40125
 -->
 
 <article lang='pt_br'>
@@ -2801,6 +2801,11 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
   <sect1 id="new-arch">
     <title>Como configurar uma nova arquitetura</title>
 
+    <note>
+      <para>O trabalho para automatizar a criação do diretório da
+        próxima seção está em andamento.</para>
+    </note>
+
     <sect2 id="new-arch-pre-qmanager">
       <title>Passos necessários antes do
         <application>qmanager</application> ser iniciado</title>
@@ -2843,7 +2848,7 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         <listitem>
 	  <para>Crie um diretório para os <literal>logs</literal> de
 	    compilação e para os <literal>logs</literal> de
-	    erros.</para>
+	    erros sob <filename>archive/</filename>.</para>
 
 	  <para>Se você vai armazenar o histórico dos
 	    <literal>logs</literal> de compilação e
