@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40125
+  Original revision: r40126
 -->
 
 <article lang='pt_br'>
@@ -2801,11 +2801,6 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
   <sect1 id="new-arch">
     <title>Como configurar uma nova arquitetura</title>
 
-    <note>
-      <para>O trabalho para automatizar a criação do diretório da
-        próxima seção está em andamento.</para>
-    </note>
-
     <sect2 id="new-arch-pre-qmanager">
       <title>Passos necessários antes do
         <application>qmanager</application> ser iniciado</title>
@@ -2844,6 +2839,21 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	  <para>Crie e popule o diretório
 	    <filename>.ssh</filename>.</para>
         </listitem>
+      </itemizedlist>
+
+      <note>
+	<para>Os próximos passos são mais fáceis de serem realizados
+	  com o usuário
+	  <literal>ports-<replaceable>arch</replaceable></literal>.
+	</para>
+      </note>
+
+      <itemizedlist>
+	<listitem>
+	  <para>Crie um novo arquivo
+	    <filename>portbuild.conf</filename> a partir de um
+	    existente para uma outra arquitetura.</para>
+	</listitem>
 
         <listitem>
 	  <para>Crie um diretório para os <literal>logs</literal> de
@@ -2882,29 +2892,17 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	  </note>
 	</listitem>
 
-      </itemizedlist>
-
-      <note>
-	<para>Os próximos passos são mais fáceis de serem realizados
-	  como o usuário
-	  <literal>ports-<replaceable>arch</replaceable></literal>.</para>
-      </note>
-
-      <itemizedlist>
 	<listitem>
-	  <para>No diretório
+	  <para>(Necessário apenas para o antigo código base) No
+	    diretório
 	    <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
 	    execute:</para>
 	    <screen>mkdir clients</screen>
         </listitem>
 
         <listitem>
-	  <para>Popule o diretório <filename>clients</filename> como de
-	    costume.</para>
-        </listitem>
-
-        <listitem>
-	  <para><screen>mkdir loads</screen></para>
+	  <para>(Necessário apenas para o antigo código base)</para>
+	  <screen>mkdir loads</screen>
         </listitem>
 
         <listitem>
@@ -2914,8 +2912,8 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <para>Crie um arquivo vazio
-	    <filename>mlist</filename>.</para>
+	  <para>(Necessário apenas para o antigo código base) Crie um
+	    arquivo vazio <filename>mlist</filename>.</para>
         </listitem>
 
         <listitem>
@@ -2928,10 +2926,22 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <para>Crie um novo arquivo
-	    <filename>portbuild.conf</filename> a partir de um
-	    existente para uma outra arquitetura.</para>
+	  <para>Para cada <literal>branch</literal> que será
+	    suportado, faça o seguinte:</para>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para>Inicie a compilação para o
+	        <literal>branch</literal> com:</para>
+	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
+	    </listitem>
+	  </itemizedlist>
         </listitem>
+
+	<listitem>
+	  <para>Popule o diretório <filename>clients</filename> como
+	    de costume.</para>
+	</listitem>
 
         <listitem>
 	  <para>Crie os arquivos
@@ -3051,26 +3061,12 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 
 	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen>
 	</listitem>
-      </itemizedlist>
 
-      <note>
-	<para>Novamente como
-	  <literal>ports-<replaceable>arch</replaceable></literal>:</para>
-      </note>
-
-      <itemizedlist>
         <listitem>
 	  <para>Para cada <literal>branch</literal> que será suportado,
 	    faça o seguinte:</para>
 
 	  <itemizedlist>
-	    <listitem>
-	      <para>Inicie a compilação para o <literal>branch</literal>
-	        com:</para>
-
-	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
-	    </listitem>
-
 	    <listitem>
 	      <para><link linkend="setup">Crie o
 	        <filename>bindist.tar</filename></link>.</para>
@@ -3078,14 +3074,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	  </itemizedlist>
 
         </listitem>
-      </itemizedlist>
 
-      <note>
-        <para>Uma última vez usando o
-          <application>sudo</application>:</para>
-      </note>
-
-      <itemizedlist>
         <listitem>
 	  <para>(Necessário apenas para o antigo código base): Só depois
 	    que a primeira execução do 
