@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40123
+  Original revision: r40124
 -->
 
 <article lang='pt_br'>
@@ -2909,13 +2909,6 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <para>Crie um <filename>make.conf</filename> local.  Nos
-	    casos mais comuns você pode executar:</para>
-
-	  <screen>ln ../make.conf ./make.conf</screen>
-        </listitem>
-
-        <listitem>
 	  <para>Crie um arquivo vazio
 	    <filename>mlist</filename>.</para>
         </listitem>
@@ -3381,11 +3374,6 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	    <filename>/var/portbuild/conf/common.conf</filename> deve
 	    ser o bastante.  Este arquivo contém definições usadas
 	    pelo servidor e todos os seus clientes.</para>
-	</step>
-
-	<step>
-	  <para>O <filename>/var/portbuild/conf/make.conf</filename>
-	    muito provavelmente está obsoleto.</para>
 	</step>
 
 	<step>
