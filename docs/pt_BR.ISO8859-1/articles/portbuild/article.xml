@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40091
+  Original revision: r40113
 -->
 
 <article lang='pt_br'>
@@ -1941,7 +1941,7 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</programlisting>
 	    </listitem>
 
 	    <listitem>
-	      <para>Crie um <filename>/etc/rc.conf</filename>
+	      <para>Crie um <filename>etc/rc.conf</filename>
 	        apropriado.  (Se você está usando
 		<literal>pxeboot</literal>, e tem várias máquinas
 		diferentes, você precisará colocar este arquivo nos
@@ -2180,8 +2180,8 @@ touch /tmp/.boot_finished</screen>
 
 	    <listitem>
 	      <para>Configure o <command>ssh</command>: copie os
-	        arquivos do <filename>/etc/ssh</filename> para
-		<filename>/usr/local/etc/ssh</filename> e adicione
+	        arquivos do <filename>etc/ssh</filename> para
+		<filename>usr/local/etc/ssh</filename> e adicione
 		<literal>NoneEnabled yes</literal> ao
 		<filename>sshd_config</filename>.</para>
 	    </listitem>
@@ -2401,12 +2401,16 @@ ssh_cmd="/usr/local/bin/ssh"
 	<step>
 	  <para>Certifique-se que o <literal>ssh</literal> está
 	    funcionando executando <command>ssh
-	    <replaceable>hostname</replaceable></command>.
+	    <replaceable>hostname</replaceable> uname -a</command>.  O
+	    comando executado não é importante; o importante é
+	    confirmar que a configuração está correta, e também
+	    adicionar uma entrada em <filename>known_hosts</filename>
+	    depois de ter confirmado a identidade do nó.
 	  </para>
 	</step>
 
 	<step>
-	  <para>Crie os arquivos em
+	  <para>Crie as cópias dos arquivos do nó em
 	    <filename>/var/portbuild/scripts/</filename> executando
 	    algo como <command>/var/portbuild/scripts/dosetupnode
 	    <replaceable>arch</replaceable>
@@ -3470,10 +3474,21 @@ qmanager.sh</screen>
 
 	<step>
 	  <para>Configure o
-	    <filename>/var/portbuild/crontab/root</filename> como a
-	    raiz do <application>crontab</application> com o
-	    <command>crontab -e</command>.  Se você não suporta todas
-	    as arquiteturas listadas, certifique-se de comentar as
+	    <filename>/var/portbuild/crontab/root</filename> como o
+	    <application>crontab</application> do
+	    <username>root</username> com o <command>crontab
+	    -e</command>.  Se você não suporta todas as arquiteturas
+	    listadas, certifique-se de comentar as entradas
+	    <application>dologs</application> apropriadas.</para>
+	</step>
+
+	<step>
+	  <para>Configure o
+	    <filename>/var/portbuild/crontabs/portmgr</filename> como
+	    o <application>crontab</application> do
+	    <username>portmgr</username> com o <command>crontab -u
+	    portmgr -e</command>.  Se você não suporta todas as
+	    arquiteturas listadas, certifique-se de comentar as
 	    entradas <application>dologs</application>
 	    apropriadas.</para>
 	</step>
