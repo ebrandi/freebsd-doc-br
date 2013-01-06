@@ -847,280 +847,327 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
   </sect1>
 
   <sect1 id="dirstructure">
-    <title>Directory Structure</title>
+    <title>Estrutura de Diretório</title>
     <indexterm><primary>directory hierarchy</primary></indexterm>
 
-    <para>The FreeBSD directory hierarchy is fundamental to obtaining
-      an overall understanding of the system.  The most important
-      concept to grasp is that of the root directory,
-      <quote>/</quote>.  This directory is the first one mounted at
-      boot time and it contains the base system necessary to prepare
-      the operating system for multi-user operation.  The root
-      directory also contains mount points for other file systems
-      that are mounted during the transition to multi-user
-      operation.</para>
+    <para>A hierarquia de diretório do FreeBSD é fundamental para
+      obter o entendimento completo do sistema.  O conceito mais
+      importante para entender é do diretório raiz, <quote>/</quote>.
+      Esse diretório é o primeiro montado na inicialização e ele
+      contém o sistema base necessário para preparar o sistema
+      operacional para o modo multi-usuário.  O diretório raiz também
+      contém os pontos de montagem para outros sistemas de arquivos
+      que são montados durante a transição para o modo
+      multi-usuário.</para>
 
-    <para>A mount point is a directory where additional file systems can
-      be grafted onto a parent file system (usually the root file system).
-      This is further described in <xref linkend="disk-organization"/>.
-      Standard mount points include
-      <filename>/usr</filename>, <filename>/var</filename>, <filename>/tmp</filename>,
-      <filename>/mnt</filename>, and <filename>/cdrom</filename>.  These
-      directories are usually referenced to entries in the file
-      <filename>/etc/fstab</filename>.  <filename>/etc/fstab</filename> is
-      a table of various file systems and mount points for reference by the
-      system.  Most of the file systems in <filename>/etc/fstab</filename>
-      are mounted automatically at boot time from the script &man.rc.8;
-      unless they contain the <option>noauto</option> option.
-      Details can be found in <xref linkend="disks-fstab"/>.</para>
+    <para>Um ponto de montagem é um diretório onde um sistema de
+      arquivo adicional pode ser enxertado em um sistema de arquivo
+      pai (normalmente o sistema de arquivos raiz).  Isso é descrito
+      melhor em <xref linkend="disk-organization"/>.  Pontos de
+      montagens padrão incluem <filename>/usr</filename>,
+      <filename>/var</filename>, <filename>/tmp</filename>,
+      <filename>/mnt</filename> e <filename>/cdrom</filename>.  Esses
+      diretórios são normalmente referenciados em entradas no arquivo
+      <filename>/etc/fstab</filename>.  O arquivo
+      <filename>/etc/fstab</filename> é uma tabela dos vários sistemas
+      de arquivos e pontos de montagem para referência do sistema.  A
+      maioria dos sistemas de arquivos no
+      <filename>/etc/fstab</filename> são montados automaticamente na
+      inicialização do sistema a partir do script &man.rc.8; a menos
+      que eles tenham a oção <option>noauto</option>.  Detalhes podem
+      ser encontrados em <xref linkend="disks-fstab"/>.</para>
 
-    <para>A complete description of the file system hierarchy is
-      available in &man.hier.7;.  For now, a brief overview of the
-      most common directories will suffice.</para>
+    <para>Uma descrição completa da hierarquia do sistema de arquivos
+      está disponível em &man.hier.7;.  Por agora, uma breve descrição
+      dos diretórios mais comuns será suficiente.</para>
 
     <para>
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>Directory</entry>
-	      <entry>Description</entry>
+	      <entry>Diretório</entry>
+	      <entry>Descrição</entry>
 	    </row>
 	  </thead>
 	  <tbody valign="top">
 	    <row>
 	      <entry><filename class="directory">/</filename></entry>
-	      <entry>Root directory of the file system.</entry>
+	      <entry>Diretório raiz do sistema de arquivos.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/bin/</filename></entry>
-	      <entry>User utilities fundamental to both single-user
-	      and multi-user environments.</entry>
+	      <entry><filename
+		class="directory">/bin/</filename></entry>
+	      <entry>Utilidades do usuário, fundamentais para os
+		ambientes mono-usuário e multi-usuário.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/boot/</filename></entry>
-	      <entry>Programs and configuration files used during
-	      operating system bootstrap.</entry>
+	      <entry><filename
+		class="directory">/boot/</filename></entry>
+	      <entry>Programas e arquivos de configuração usados
+		durante a inicialização do sistema
+		operacional.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/boot/defaults/</filename></entry>
-	      <entry>Default bootstrapping configuration files; see
-	      &man.loader.conf.5;.</entry>
+	      <entry><filename
+		class="directory">/boot/defaults/</filename></entry>
+	      <entry>Arquivos padrão de configuração da inicialização;
+		veja &man.loader.conf.5;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/dev/</filename></entry>
-	      <entry>Device nodes; see &man.intro.4;.</entry>
+	      <entry><filename
+		class="directory">/dev/</filename></entry>
+	      <entry>Nós dos dispositivos; veja &man.intro.4;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/</filename></entry>
-	      <entry>System configuration files and scripts.</entry>
+	      <entry><filename
+		class="directory">/etc/</filename></entry>
+	      <entry>Arquivos de configuração do sistema e
+		scripts.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/defaults/</filename></entry>
-	      <entry>Default system configuration files; see &man.rc.8;.</entry>
+	      <entry><filename
+		class="directory">/etc/defaults/</filename></entry>
+	      <entry>Arquivos de configuração padrão do sistema; veja
+		&man.rc.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/mail/</filename></entry>
-	      <entry>Configuration files for mail transport agents such
-		as &man.sendmail.8;.</entry>
+	      <entry><filename
+		class="directory">/etc/mail/</filename></entry>
+	      <entry>Arquivos de configuração para agentes de email
+		tal como &man.sendmail.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/namedb/</filename></entry>
-	      <entry><command>named</command> configuration files; see
-	      &man.named.8;.</entry>
+	      <entry><filename
+		class="directory">/etc/namedb/</filename></entry>
+	      <entry>Arquivos de configuração do
+		<command>named</command>; veja &man.named.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/periodic/</filename></entry>
-	      <entry>Scripts that are run daily, weekly, and monthly,
-		via &man.cron.8;; see &man.periodic.8;.</entry>
+	      <entry><filename
+		class="directory">/etc/periodic/</filename></entry>
+	      <entry>Scripts que são executados diariamente,
+		semanalmente e mensalmente pelo &man.cron.8;; veja
+		&man.periodic.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/etc/ppp/</filename></entry>
-	      <entry><command>ppp</command> configuration files; see
-	      &man.ppp.8;.</entry>
+	      <entry><filename
+		class="directory">/etc/ppp/</filename></entry>
+	      <entry>Arquivos de configuração do
+		<command>ppp</command>; veja &man.ppp.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/mnt/</filename></entry>
-	      <entry>Empty directory commonly used by system administrators as a
-		temporary mount point.</entry>
+	      <entry><filename
+		class="directory">/mnt/</filename></entry>
+	      <entry>Diretório vazio normalmente usado pelos
+		administradores de sistema como um ponto de montagem
+		temporário.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/proc/</filename></entry>
-	      <entry>Process file system; see &man.procfs.5;,
-	      &man.mount.procfs.8;.</entry>
+	      <entry><filename
+		class="directory">/proc/</filename></entry>
+	      <entry>Sistema de arquivos dos processos; veja
+		&man.procfs.5; e &man.mount.procfs.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/rescue/</filename></entry>
-	      <entry>Statically linked programs for emergency recovery; see
-		&man.rescue.8;.</entry>
+	      <entry><filename
+		class="directory">/rescue/</filename></entry>
+	      <entry>Programas linkados estaticamente para emergências
+		de recuparação; veja &man.rescue.8;.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/root/</filename></entry>
-	      <entry>Home directory for the <username>root</username>
-	      account.</entry>
+	      <entry><filename
+		class="directory">/root/</filename></entry>
+	      <entry>Diretório inicial para a conta
+		<username>root</username>.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/sbin/</filename></entry>
-	      <entry>System programs and administration utilities fundamental to
-		both single-user and multi-user environments.</entry>
+	      <entry><filename
+		class="directory">/sbin/</filename></entry>
+	      <entry>Programas do sistema e utilidades fundamentais de
+		administração para os ambientes mono-usuário e
+		multi-usuário.</entry>
+	    </row>
+
+	    <row>
+	      <entry><filename
+		class="directory">/tmp/</filename></entry>
+	      <entry>Arquivos temporários.  O conteúdo do <filename
+		class="directory">/tmp</filename> normalmente NÃO é
+		preservado entre reinicializações do sistema.  Um
+		sistema de arquivos baseado em memória é comumente
+		montado no <filename
+		class="directory">/tmp</filename>.  Isso pode ser
+		automatizado usando as variáveis relacionadas ao
+		tmpmfs do &man.rc.conf.5; (ou com uma entrada no
+		<filename>/etc/fstab</filename>; veja
+		&man.mdmfs.8;).</entry>
+	    </row>
+
+	    <row>
+	      <entry><filename
+		class="directory">/usr/</filename></entry>
+	      <entry>A maioria das utilidades do usuário e
+		aplicativos.</entry>
+	    </row>
+
+	    <row>
+	      <entry><filename
+		class="directory">/usr/bin/</filename></entry>
+	      <entry>Utilitários comuns, ferramentas de programação e
+		aplicativos.</entry>
+	    </row>
+
+	    <row>
+	      <entry><filename
+		class="directory">/usr/include/</filename></entry>
+	      <entry>Arquivos padrão de cabeçalhos C.</entry>
+	    </row>
+
+	    <row>
+	      <entry><filename
+		class="directory">/usr/lib/</filename></entry>
+	      <entry>Arquivos de bibliotecas.</entry>
 	    </row>
 
 
 	    <row>
-	      <entry><filename class="directory">/tmp/</filename></entry>
-	      <entry>Temporary files.  The contents of
-		<filename class="directory">/tmp</filename> are usually NOT
-		preserved across a system reboot.  A memory-based file system
-		is often mounted at
-		<filename class="directory">/tmp</filename>.
-		This can be automated using the tmpmfs-related variables of
-		&man.rc.conf.5; (or with an entry in
-		<filename>/etc/fstab</filename>; see &man.mdmfs.8;).</entry>
-	    </row>
-
-
-	    <row>
-	      <entry><filename class="directory">/usr/</filename></entry>
-	      <entry>The majority of user utilities and applications.</entry>
+	      <entry><filename
+		class="directory">/usr/libdata/</filename></entry>
+	      <entry>Arquivos de dados de utilidades diversas.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/bin/</filename></entry>
-	      <entry>Common utilities, programming tools, and applications.</entry>
-	    </row>
-
-	    <row>
-	      <entry><filename class="directory">/usr/include/</filename></entry>
-	      <entry>Standard C include files.</entry>
-	    </row>
-
-	    <row>
-	      <entry><filename class="directory">/usr/lib/</filename></entry>
-	      <entry>Archive libraries.</entry>
-	    </row>
-
-
-	    <row>
-	      <entry><filename class="directory">/usr/libdata/</filename></entry>
-	      <entry>Miscellaneous utility data files.</entry>
-	    </row>
-
-	    <row>
-	      <entry><filename class="directory">/usr/libexec/</filename></entry>
-	      <entry>System daemons &amp; system utilities (executed by other
-		programs).</entry>
+	      <entry><filename
+		class="directory">/usr/libexec/</filename></entry>
+	      <entry>Daemons &amp; utilitários do sistema (executados
+		por outros programas).</entry>
 	    </row>
 
 	    <row>
 	      <entry><filename
 	      class="directory">/usr/local/</filename></entry>
 
-	      <entry>Local executables, libraries, etc.  Also used as
-		the default destination for the FreeBSD ports
-		framework.  Within <filename>/usr/local</filename>,
-		the general layout sketched out by &man.hier.7; for
-		<filename>/usr</filename> should be used.  Exceptions
-		are the man directory, which is directly under
-		<filename>/usr/local</filename> rather than under
-		<filename>/usr/local/share</filename>, and the ports
-		documentation is in
+	      <entry>Executáveis locais, bibliotecas e etc.  Também
+		usado como destino padrão para o framework do ports do
+		FreeBSD.  Dentro do <filename>/usr/local</filename>, o
+		layout geral esboçado pelo &man.hier.7; para o
+		<filename>/usr</filename> deve ser usado.  Exceções
+		são o diretório do manual, que está diretamente no
+		<filename>/usr/local</filename> ao invés de estar no
+		<filename>/usr/local/share</filename> e a documentação
+		do ports que está em
 		<filename>share/doc/<replaceable>port</replaceable></filename>.
 	      </entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/obj/</filename></entry>
-	      <entry>Architecture-specific target tree produced by building
-		the <filename>/usr/src</filename> tree.</entry>
+	      <entry><filename
+		class="directory">/usr/obj/</filename></entry>
+	      <entry>Árvore especifica para a arquitetura alvo
+		produzido pela compilação do
+		<filename>/usr/src</filename>.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/ports/</filename></entry>
-	      <entry>The FreeBSD Ports Collection (optional).</entry>
+	      <entry><filename
+		class="directory">/usr/ports/</filename></entry>
+	      <entry>A coleção de Ports do FreeBSD (opcional).</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/sbin/</filename></entry>
-	      <entry>System daemons &amp; system utilities (executed by users).</entry>
+	      <entry><filename
+		class="directory">/usr/sbin/</filename></entry>
+	      <entry>Daemons &amp; utilitários do sistema (executados
+		por usuários).</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/share/</filename></entry>
-	      <entry>Architecture-independent files.</entry>
+	      <entry><filename
+		class="directory">/usr/share/</filename></entry>
+	      <entry>Arquivos independentes de arquitetura.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/usr/src/</filename></entry>
-	      <entry>BSD and/or local source files.</entry>
+	      <entry><filename
+		class="directory">/usr/src/</filename></entry>
+	      <entry>Arquivos fontes do BSD e/ou locais.</entry>
 	    </row>
 
 	    <row>
 	      <entry><filename
 	      class="directory">/usr/X11R6/</filename></entry>
-	      <entry>X11R6 distribution executables, libraries, etc
-	      (optional).</entry>
+	      <entry>Executáveis, bibliotecas e etc da distribuição
+	      X11R6 (opcional).</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/var/</filename></entry>
-	      <entry>Multi-purpose log, temporary, transient, and spool files.
-		A memory-based file system is sometimes mounted at
-		<filename class="directory">/var</filename>.
-		This can be automated using the varmfs-related variables of
-		&man.rc.conf.5; (or with an entry in
-		<filename>/etc/fstab</filename>; see &man.mdmfs.8;).</entry>
-	    </row>
-
-
-	    <row>
-	      <entry><filename class="directory">/var/log/</filename></entry>
-	      <entry>Miscellaneous system log files.</entry>
+	      <entry><filename
+		class="directory">/var/</filename></entry>
+	      <entry>Arquivos de log multi-propósito, temporário,
+		transitivo e de spool.  Um sistema de arquivos
+		baseado em memória é montado algumas vezes no
+		<filename class="directory">/var</filename>.  Isso
+		pode ser automatizado usando os variáveis
+		relacionadas ao varmfs do &man.rc.conf.5; (ou com
+		uma entrada em <filename>/etc/fstab</filename>; veja
+		&man.mdmfs.8;).</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/var/mail/</filename></entry>
-	      <entry>User mailbox files.</entry>
+	      <entry><filename
+		class="directory">/var/log/</filename></entry>
+	      <entry>Arquivos diversos de log do sistema.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/var/spool/</filename></entry>
-	      <entry>Miscellaneous printer and mail system spooling directories.
-	      </entry>
+	      <entry><filename
+		class="directory">/var/mail/</filename></entry>
+	      <entry>Arquivos da caixa de mensagens do
+		usuário.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/var/tmp/</filename></entry>
-	      <entry>Temporary files.
-		The files are usually preserved across a system reboot,
-		unless <filename class="directory">/var</filename>
-		is a memory-based file system.</entry>
+	      <entry><filename
+		class="directory">/var/spool/</filename></entry>
+	      <entry>Diretórios diversos de impressão e de
+		email.</entry>
 	    </row>
 
 	    <row>
-	      <entry><filename class="directory">/var/yp/</filename></entry>
-	      <entry>NIS maps.</entry>
+	      <entry><filename
+		class="directory">/var/tmp/</filename></entry>
+	      <entry>Arquivos temporários.  Os arquivos normalmente
+		são preservados entre reinicializações do sistema,
+		exceto se o sistema de arquivos <filename
+		class="directory">/var</filename> for baseado em
+		memória.</entry>
 	    </row>
 
+	    <row>
+	      <entry><filename
+		class="directory">/var/yp/</filename></entry>
+	      <entry>Mapeamentos NIS.</entry>
+	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
 </para>
-
   </sect1>
 
   <sect1 id="disk-organization">
