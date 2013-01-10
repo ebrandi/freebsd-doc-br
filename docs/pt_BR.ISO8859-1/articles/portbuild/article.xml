@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40136
+  Original revision: r40137
 -->
 
 <article lang='pt_br'>
@@ -2685,8 +2685,8 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 
 	    <listitem>
 	      <para>Remova o
-		<makevar>SRC_BRANCH_<replaceable>old-branch</replaceable>_TAG</makevar>
-		<literal>=<replaceable>whatever</replaceable></literal></para>
+		<makevar>SRC_BRANCH_<replaceable>old-branch</replaceable>_SUBDIR</makevar><literal>=</literal>
+		  <replaceable>whatever</replaceable></para>
 	    </listitem>
 	  </itemizedlist>
       </listitem>
@@ -2764,8 +2764,8 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 	  <itemizedlist>
 	    <listitem>
 	      <para>Altere o 
-	        <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar> para
-	        <literal>RELENG_<replaceable>branch</replaceable>_<replaceable>N</replaceable></literal>
+	        <makevar>SRC_BRANCH_<replaceable>branch</replaceable>_SUBDIR</makevar> para
+	        <literal>releng/</literal><replaceable>branch</replaceable>.<replaceable>N</replaceable>
 		no qual o <literal>N</literal> é versão menor 
 		mais antiga para este ramo.</para>
 	    </listitem>
@@ -3398,7 +3398,7 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	      <para>Para cada <literal>branch</literal> de origem para
 	        o qual você realizará compilações, defina
 		<makevar>SRC_BRANCHES</makevar> e
-		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>,
+		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_SUBDIR</makevar>,
 		como detalhado na <xref
 		linkend="new-branch-pre-qmanager"/>.  Você não precisa
 		alterar
