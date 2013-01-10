@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40137
+  Original revision: r40138
 -->
 
 <article lang='pt_br'>
@@ -2831,7 +2831,7 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
         <listitem>
 	  <screen>
 chown ports-<replaceable>arch</replaceable>:portmgr /var/portbuild/<replaceable>arch</replaceable>;
-chmod 755 /var/portbuild/<replaceable>arch</replaceable>;
+chmod 775 /var/portbuild/<replaceable>arch</replaceable>;
 cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
