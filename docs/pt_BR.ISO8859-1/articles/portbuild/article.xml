@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40135
+  Original revision: r40136
 -->
 
 <article lang='pt_br'>
@@ -1946,11 +1946,11 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</programlisting>
 	    </listitem>
 
 	    <listitem>
-	      <para>Nós utilizamos o timezone <acronym>UTC</acronym>
-		no <literal>cluster</literal>.  Se você não configurou
-		o relógio para UTC:</para>
+	      <para>Você deve utilizar o <literal>timezone</literal>
+	        <acronym>UTC</acronym> no <literal>cluster</literal>.
+		Se você não configurou o relógio para UTC:</para>
 
-		<programlisting>&prompt.root; cp /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
+		<programlisting>&prompt.root; cp -p /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
 	    </listitem>
 
 	    <listitem>
@@ -3121,15 +3121,15 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	</step>
 
 	<step>
-          <para>Nós utilizamos o timezone <acronym>UTC</acronym>
-	    no <literal>cluster</literal>.  Se você não configurou o
-	    relógio para UTC:</para>
+          <para>Você dev utilizar o <literal>timezone</literal>
+	    <acronym>UTC</acronym> no <literal>cluster</literal>.
+	    Se você não configurou o relógio para UTC:</para>
 
-	  <programlisting>&prompt.root; cp /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
+	  <programlisting>&prompt.root; cp -p /usr/share/zoneinfo/Etc/UTC etc/localtime</programlisting>
 	</step>
 
 	<step>
-	  <para>Crie o <filename>etc/rc.conf</filename>
+	  <para>Crie o <filename>/etc/rc.conf</filename>
 	    apropriado.</para>
 
 	  <para>Entradas obrigatórias:</para>
@@ -3169,7 +3169,7 @@ smartd_enable="YES"
 
 	<step>
 	  <para>Se necessário, crie o
-	    <filename>etc/resolv.conf</filename>.</para>
+	    <filename>/etc/resolv.conf</filename>.</para>
 	</step>
 
 	<step>
@@ -3282,12 +3282,17 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
             <filename>a</filename> e monte-o em
             <filename>/a</filename>.  Um exemplo:</para>
 
-          <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	  <example>
+	    <title>Criando um volume <application>zfs</application>
+	      para o <literal>portbuild</literal></title>
+
+	    <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	  </example>
         </step>
 
         <step>
-          <para>Crie o diretório do
-            <literal>portbuild</literal>:</para>
+          <para>Crie o diretório
+            <filename>portbuild</filename>:</para>
 
           <screen>&prompt.root; mkdir -p /a/portbuild</screen>
         </step>
@@ -3307,6 +3312,12 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 &prompt.root; chown portmgr:portmgr .
 &prompt.root; chmod 775 .
 &prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
+
+	  <note>
+	    <para>O <command>ln</command> é necessário devido ao
+	      número de referências ao diretório embutidas no
+	      código.</para>
+	  </note>
         </step>
 
       </procedure>
@@ -3435,8 +3446,8 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
       <procedure>
 	<step>
 	  <para>Copie os seguintes arquivos a partir de
-	    <filename>/var/portbuild/conf/etc/rc.d</filename> para
-	    <filename>/usr/local/etc/rc.d</filename>:</para>
+	    <filename>/var/portbuild/conf/etc/rc.d/</filename> para
+	    <filename>/usr/local/etc/rc.d/</filename>:</para>
 
 	  <screen>buildproxy.sh
 pollmachine.sh
@@ -3492,7 +3503,7 @@ qmanager.sh</screen>
 	<step>
 	  <para> Copie o
 	    <filename>/var/portbuild/conf/apache.conf</filename> para
-	    o subdiretório <filename>Includes</filename> apropriado,
+	    o subdiretório <filename>Includes/</filename> apropriado,
 	    por exemplo,
 	    <filename>/usr/local/etc/apache22/Includes/apache.conf</filename>.
 	    Configure isto para seu site de forma apropriada.</para>
