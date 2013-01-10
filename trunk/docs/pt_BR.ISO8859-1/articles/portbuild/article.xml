@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40134
+  Original revision: r40135
 -->
 
 <article lang='pt_br'>
@@ -3195,47 +3195,6 @@ kern.maxfilesperproc=38000</screen>
 
     </sect2>
 
-    <sect2 id="pointyhat-portbuild-volume">
-      <title>Configurando o volume do
-	<literal>portbuild</literal></title>
-
-      <procedure>
-	<step>
-	  <para>Crie um volume <application>zfs</application> chamado
-	    <filename>a</filename> e monte-o em
-	    <filename>/a</filename>.  Um exemplo:</para>
-
-	  <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
-	</step>
-
-	<step>
-	  <para>Crie o diretório do
-	    <literal>portbuild</literal>:</para>
-	    
-	  <screen>&prompt.root; mkdir -p /a/portbuild</screen>
-	</step>
-
-	<step>
-	  <para>Crie e monte um novo sistema de arquivos
-	    <application>zfs</application> no diretório criado:</para>
-	  <screen>zfs create -o mountpoint=/a/portbuild a/portbuild</screen>
-	</step>
-
-	<step>
-	  <para>Configure o diretório base do
-	    <literal>portbuild</literal>:</para>
-	         
-<screen>&prompt.root; mkdir -p /a/portbuild
-&prompt.root; cd /a/portbuild
-&prompt.root; chown portmgr:portmgr .
-&prompt.root; chmod 775 .
-&prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
-	</step>
-
-      </procedure>
-
-    </sect2>
-
     <sect2 id="pointyhat-src">
       <title>Configurando o <literal>src</literal></title>
 
@@ -3309,6 +3268,47 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	  <para>Configure o e-mail fazendo o seguinte: (ainda a ser
 	    definido).</para>
 	</step>
+      </procedure>
+
+    </sect2>
+
+    <sect2 id="pointyhat-portbuild-volume">
+      <title>Configurando o volume do
+        <literal>portbuild</literal></title>
+
+      <procedure>
+        <step>
+          <para>Crie um volume <application>zfs</application> chamado
+            <filename>a</filename> e monte-o em
+            <filename>/a</filename>.  Um exemplo:</para>
+
+          <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+        </step>
+
+        <step>
+          <para>Crie o diretório do
+            <literal>portbuild</literal>:</para>
+
+          <screen>&prompt.root; mkdir -p /a/portbuild</screen>
+        </step>
+
+        <step>
+          <para>Crie e monte um novo sistema de arquivos
+            <application>zfs</application> no diretório criado:</para>
+          <screen>zfs create -o mountpoint=/a/portbuild a/portbuild</screen>
+        </step>
+
+        <step>
+          <para>Configure o diretório base do
+            <literal>portbuild</literal>:</para>
+
+<screen>&prompt.root; mkdir -p /a/portbuild
+&prompt.root; cd /a/portbuild
+&prompt.root; chown portmgr:portmgr .
+&prompt.root; chmod 775 .
+&prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
+        </step>
+
       </procedure>
 
     </sect2>
