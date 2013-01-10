@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40143
+  Original revision: r40145
 -->
 
 <article lang='pt_br'>
@@ -3207,8 +3207,8 @@ kern.maxfilesperproc=38000</screen>
       <title>Configurando o <literal>src</literal></title>
 
       <para>Você deve ser capaz de instalar a partir da versão mais
-        recente sem quaisquer modificações no
-	<literal>kernel</literal>.</para>
+        recente ando apenas a configuração do
+	<literal>kernel</literal> padrão.</para>
 
     </sect2>
 
@@ -3262,20 +3262,6 @@ sysutils/dmidecode
 sysutils/smartmontools</screen>
 	</step>
 
-	<step>
-	  <para>Se ainda não foram criados, adicione os seguintes
-	    usuários:</para><screen>
-squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
-ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
-
-	  <para>Adicione-os ao <filename>/etc/group</filename>
-	    também.</para>
-	</step>
-
-	<step>
-	  <para>Configure o e-mail fazendo o seguinte: (ainda a ser
-	    definido).</para>
-	</step>
       </procedure>
 
     </sect2>
@@ -3544,6 +3530,23 @@ qmanager.sh</screen>
 	    habilitar as entradas do <application>tftp</application>
 	    em <filename>/etc/inetd.conf</filename>.</para>
 	</step>
+
+        <step>
+          <para>Se ainda não foram criados, adicione os seguintes
+            usuários:</para><screen>
+squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
+ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
+
+          <para>Adicione-os ao <filename>/etc/group</filename>
+            também.</para>
+        </step>
+
+        <step>
+          <para>Configure o e-mail fazendo o seguinte:</para>
+
+	  <para>Execute <command>newaliases</command>.</para>
+        </step>
+
       </procedure>
 
     </sect2>
