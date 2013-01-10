@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40126
+  Original revision: r40134
 -->
 
 <article lang='pt_br'>
@@ -3195,8 +3195,9 @@ kern.maxfilesperproc=38000</screen>
 
     </sect2>
 
-    <sect2 id="pointyhat-disk">
-      <title>Configurando o disco</title>
+    <sect2 id="pointyhat-portbuild-volume">
+      <title>Configurando o volume do
+	<literal>portbuild</literal></title>
 
       <procedure>
 	<step>
@@ -3239,7 +3240,8 @@ kern.maxfilesperproc=38000</screen>
       <title>Configurando o <literal>src</literal></title>
 
       <para>Você deve ser capaz de instalar a partir da versão mais
-        recente.</para>
+        recente sem quaisquer modificações no
+	<literal>kernel</literal>.</para>
 
     </sect2>
 
