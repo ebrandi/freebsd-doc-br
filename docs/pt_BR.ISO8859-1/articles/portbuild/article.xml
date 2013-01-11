@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40147
+  Original revision: r40154
 -->
 
 <article lang='pt_br'>
@@ -336,7 +336,7 @@ CXX=clang++
 .if !defined(CPP) || ${CPP} == "cpp"
 CPP=clang-cpp
 .endif
-# Don't die on warnings
+# Do not die on warnings
 NO_WERROR=
 WERROR=
 </programlisting>
@@ -1976,8 +1976,6 @@ inetd_enable="YES"
 linux_enable="YES"
 nfs_client_enable="YES"
 ntpd_enable="YES"
-ntpdate_enable="YES"
-ntpdate_flags="north-america.pool.ntp.org"
 sendmail_enable="NONE"
 sshd_enable="YES"
 sshd_program="/usr/local/sbin/sshd"
@@ -3157,15 +3155,13 @@ apache_pidfile="/var/run/httpd.pid"
 gmetad_enable="YES"
 gmond_enable="YES"
 inetd_enable="YES"
-# XXX MCL these do not work!
-#inetd_flags="-R 10000 -lw"
+# XXX MCL try these instead.
+#inetd_flags="-R 10000 -l -w"
 mountd_enable="YES"
 nfs_server_enable="YES"
 nfs_server_flags="-u -t -n 12"
 nfs_remote_port_only="YES"
 ntpd_enable="YES"
-ntpdate_enable="YES"
-ntpdate_flags="north-america.pool.ntp.org"
 rpcbind_enable="YES"
 rpc_lockd_enable="NO"
 rpc_statd_enable="YES"
