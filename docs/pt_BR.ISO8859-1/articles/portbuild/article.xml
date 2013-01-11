@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40154
+  Original revision: r40155
 -->
 
 <article lang='pt_br'>
@@ -2145,7 +2145,7 @@ scratchdir=<filename>/<replaceable>usr2</replaceable></filename>
 ln -sf ${scratchdir}/portbuild /var/
 
 # Identify builds ready for use
-cd /var/portbuild/<replaceable>${arch}</replaceable>
+cd /var/portbuild/<replaceable>arch</replaceable>
 for i in */builds/*; do
     if [ -f ${i}/.ready ]; then
         mkdir /tmp/.setup-${i##*/}
@@ -2275,24 +2275,27 @@ touch /tmp/.boot_finished</screen>
     </sect2>
 
     <sect2 id="pointyhat-configuration">
-      <title>Configuração no <literal>pointyhat</literal></title>
+      <title>Configuração no servidor</title>
 
       <para>Estes passos precisam ser feitos por um
         <literal>portmgr</literal>, autenticado como o usuário
 	<literal>ports-<replaceable>${arch}</replaceable></literal>,
-	no <hostid>pointyhat</hostid>.
+	no servidor.
       </para>
 
       <procedure>
 	<step>
 	  <para>Se alguma das portas <acronym>TCP</acronym> padrão não
 	    estiver disponível (veja acima), você precisará criar um
-	    túnel <command>ssh</command> para ela e deverá incluí-lo 
-	    no <filename>crontab</filename>.</para>
+	    túnel <command>ssh</command> para ela e deverá incluir o
+	    comando usado para criá-lo no <filename>crontab</filename>
+	    do
+	    <literal>ports-<replaceable>${arch}</replaceable></literal>.</para>
 	</step>
 
 	<step>
-	  <para>Adicione uma entrada em
+	  <para>A menos que você possa usar os padrões, adicione uma
+	    entrada em
 	    <filename>/home/ports-<replaceable>${arch}</replaceable>/.ssh/config</filename>
 	    para especificar o endereço IP público, a porta TCP para o
 	    <command>ssh</command>, o usuário, e qualquer outra
