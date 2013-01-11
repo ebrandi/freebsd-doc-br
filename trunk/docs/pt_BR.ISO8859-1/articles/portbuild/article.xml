@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40193
+  Original revision: r40260
 -->
 
 <article lang='pt_br'>
@@ -3168,6 +3168,7 @@ rpc_lockd_enable="NO"
 rpc_statd_enable="YES"
 sendmail_enable="NONE"
 smartd_enable="YES"
+zfs_enable="YES"
 </screen>
 
 	</step>
