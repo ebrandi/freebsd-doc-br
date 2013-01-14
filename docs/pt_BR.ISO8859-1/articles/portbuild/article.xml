@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40414
+  Original revision: r40415
 -->
 
 <article lang='pt_br'>
@@ -3123,6 +3123,12 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	</step>
 
 	<step>
+	  <para>Exporte o valor a seguir para a inicialização de um
+	    passo posterior:</para>
+	  <programlisting>&prompt.root; export PORTBUILD_USER=<replaceable>portbuild</replaceable></programlisting>
+	</step>
+
+	<step>
 	  <para>Adicione a seguinte linha ao arquivo
 	    <filename>/boot/loader.conf</filename>:</para>
 
@@ -3296,7 +3302,7 @@ sysutils/zfs-stats</screen>
 
         <step>
 	  <para>Crie o ponto de montagem.</para>
-	  <programlisting>&prompt.root; mkdir -p /<replaceable>a</replaceable></programlisting>
+	  <programlisting>&prompt.root; mkdir -p ${ZFS_MOUNTPOINT}</programlisting>
 	</step>
 
 	<step>
@@ -3306,41 +3312,58 @@ sysutils/zfs-stats</screen>
 	    <title>Criando um volume <application>zfs</application>
 	      para o <literal>portbuild</literal></title>
 
-	    <screen>&prompt.root; zpool create <replaceable>a</replaceable> mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	    <screen>&prompt.root; zpool create ${ZFS_VOLUME} mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
 	  </example>
         </step>
 
       </procedure>
 
+      <note>
+	<para>Nós vamos definir um <application>zfs</application>
+	  <literal>permission set</literal> abaixo, de modo que o
+	  usuário <replaceable>portbuild</replaceable> possa
+	  administrar este volume sem precisar de privilégios de
+	  <username>root</username>.</para>
+      </note>
+
     </sect2>
 
-    <sect2 id="pointyhat-repo">
-      <title>Instalando e configurando o repositório do
+    <sect2 id="pointyhat-repoi-setup">
+      <title>Configurando o repositório do
         <application>portbuild</application></title>
 
+      <para>Os passos a seguir precisam ser feitos como o usuário
+        <username>root</username>.</para>
+
       <procedure>
+
+	<step>
+	  <para>Selecione um repositório
+	    <application>svn</application> e exporte-o.  Consulte o
+	    <ulink url="&url.books.handbook;/mirrors-svn.html">&os;
+	    Handbook</ulink> para obter uma lista atualizada.</para>
+	  <programlisting>&prompt.root; export VCS_REPOSITORY=<replaceable>svn://svn0.us-east.FreeBSD.org</replaceable></programlisting>
+	</step>
 
         <step>
           <para>Crie o diretório
             <filename>portbuild</filename>:</para>
-          <screen>&prompt.root; mkdir -p /<replaceable>a</replaceable>/portbuild</screen>
+          <screen>&prompt.root; mkdir -p ${ZFS_MOUNTPOINT}/portbuild</screen>
         </step>
 
         <step>
           <para>Crie e monte um novo sistema de arquivos
             <application>zfs</application> no diretório criado:</para>
-          <screen>zfs create -o mountpoint=/<replaceable>a</replaceable>/portbuild <replaceable>a</replaceable>/portbuild</screen>
+          <screen>zfs create -o mountpoint=${ZFS_MOUNTPOINT}/portbuild ${ZFS_VOLUME}/portbuild</screen>
         </step>
 
         <step>
           <para>Configure o diretório base do
             <literal>portbuild</literal>:</para>
 
-<screen>&prompt.root; cd /<replaceable>a</replaceable>/portbuild
-&prompt.root; cd /<replaceable>a</replaceable>/portbuild
-&prompt.root; chown <replaceable>portbuild</replaceable>:<replaceable>portbuild</replaceable> .
-&prompt.root; chmod 775 .
-&prompt.root; ln -sf /<replaceable>a</replaceable>/portbuild /var/portbuild</screen>
+<screen>&prompt.root; chown ${PORTBUILD_USER}:${PORTBUILD_USER} ${ZFS_MOUNTPOINT}/portbuild
+&prompt.root; chmod 775 ${ZFS_MOUNTPOINT}/portbuild
+&prompt.root; ln -sf ${ZFS_MOUNTPOINT}/portbuild /var/portbuild</screen>
 
 	  <note>
 	    <para>O <command>ln</command> é necessário devido ao
@@ -3349,19 +3372,27 @@ sysutils/zfs-stats</screen>
 	  </note>
         </step>
 
-	<step>
-	  <para>Configure uma conta de usuário com os arquivos de
-	  configuração do Subversion instalados.  Normalmente o
-	  <replaceable>portbuild</replaceable> é usado para este
-	  fim.</para>
-	</step>
+      </procedure>
+
+      <para>Os passos a seguir precisam ser feitos como o usuário
+        <replaceable>portbuild</replaceable>.</para>
+
+      <procedure>
 
 	<step>
-	  <para>Como o usuário criado acima, inicie o
-	    repositório:</para>
+	  <para>Inicie o repositório:</para>
 
-	  <screen>&prompt.user; svn checkout svn://svn.freebsd.org/base/projects/portbuild /<replaceable>a</replaceable>/portbuild</screen>
+	  <screen>&prompt.user; svn checkout svn://${VCS_REPOSITORY}/base/projects/portbuild ${ZFS_MOUNTPOINT}/portbuild</screen>
 	</step>
+
+      </procedure>
+    </sect2>
+
+    <sect2 id="portbuild-repo-configuration">
+      <title>Configurando os arquivos do
+        <application>portbuild</application></title>
+
+      <procedure>
 
 	<step>
 	  <para>Configure como seus clientes de compilação se
@@ -3439,6 +3470,11 @@ sysutils/zfs-stats</screen>
 	    </listitem>
 
 	    <listitem>
+	      <para>Defina <makevar>VCS_REPOSITORY</makevar> para o
+	        valor escolhido acima.</para>
+	    </listitem>
+
+	    <listitem>
 	      <para>Defina <makevar>MASTER_URL</makevar> para a URL
 	        http do seu servidor.  Isto será registrado nos
 		<literal>logs</literal> de compilação de pacotes e nos
@@ -3457,6 +3493,14 @@ sysutils/zfs-stats</screen>
       <title>Antes de iniciar o <application>qmanager</application></title>
 
       <procedure>
+
+	<step>
+	  <para>Como usuário <username>root</username>, configure o
+	    <application>zfs</application> <literal>permission
+	    set</literal>:</para>
+	  <programlisting>&prompt.root; ${ZFS_MOUNTPOINT}/tools/zfsadmin</programlisting>
+	</step>
+
 	<step>
 	  <para>Para cada arquitetura, siga os passos descritos na
 	    <xref linkend="new-arch-pre-qmanager"/>.</para>
@@ -3489,8 +3533,14 @@ qmanager.sh</screen>
 	  <para>Inicialize a base de dados da lista de acl do
 	    <application>qmanager</application>:</para>
 
+	  <note>
+	    <para>Isso deve ser feito automáticamente para você pelo
+	      primeiro comando <command>build</command>.</para>
+	  </note>
+
 	  <screen>&prompt.root; python /var/portbuild/qmanager/qclient add_acl name=deny_all uidlist= gidlist= sense=0</screen>
 	</step>
+
       </procedure>
 
     </sect2>
@@ -3501,16 +3551,18 @@ qmanager.sh</screen>
 
       <procedure>
 	<step>
-	  <para>Execute os seguintes comandos manualmente para criar
-	    os repositórios do <literal>src</literal> e do
+	  <para>Como o usuário <replaceable>portbuild</replaceable>,
+	    execute os seguintes comandos manualmente para criar os
+	    repositórios do <literal>src</literal> e do
 	    <literal>ports</literal>, respectivamente:</para>
 
-	  <screen>&prompt.user; sudo /var/portbuild/scripts/updatesnap
-&prompt.user; sudo /var/portbuild/scripts/updatesnap.ports
-</screen>
-	  <para>Eles serão executados periodicamente a partir da raiz
-	    do <filename>crontab</filename>, que você vai configurar
-	    abaixo.</para>
+	  <screen>&prompt.user; /<replaceable>a</replaceable>/portbuild/scripts/updatesnap.ports
+&prompt.user; /<replaceable>a</replaceable>/portbuild/scripts/updatesnap</screen>
+
+	  <para>Eles serão executados periodicamente a partir do
+	    <filename>crontab</filename> do
+	    <replaceable>portbuild</replaceable>, que você vai
+	    configurar abaixo.</para>
 	</step>
       </procedure>
 
