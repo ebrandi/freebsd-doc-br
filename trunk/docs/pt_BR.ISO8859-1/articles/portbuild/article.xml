@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40415
+  Original revision: r40416
 -->
 
 <article lang='pt_br'>
@@ -3641,6 +3641,14 @@ ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 	<step>
 	  <para>Para cada arquitetura siga os passos descritos na
 	    <xref linkend="new-arch-post-qmanager"/>.</para>
+	</step>
+
+	<step>
+	  <para>Em algum momento, você provavelmente achará útil
+	    acrescentar o seguinte à definição de
+	    <makevar>PATH</makevar> para o usuário
+	    <replaceable>portbuild</replaceable>:</para>
+	  <programlisting>/<replaceable>a</replaceable>/portbuild/scripts:/<replaceable>a</replaceable>/portbuild/tools</programlisting>
 	</step>
       </procedure>
 
