@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40416
+  Original revision: r40430
 -->
 
 <article lang='pt_br'>
@@ -2865,43 +2865,6 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	    existente para uma outra arquitetura.</para>
 	</listitem>
 
-        <listitem>
-	  <para>Crie um diretório para os <literal>logs</literal> de
-	    compilação e para os <literal>logs</literal> de
-	    erros sob <filename>archive/</filename>.</para>
-
-	  <para>Se você vai armazenar o histórico dos
-	    <literal>logs</literal> de compilação e
-	    <literal>logs</literal> de erros no disco rígido do nó
-	    principal, você pode pular este passo.  Caso
-	    contrário:</para>
-
-	  <para>Crie um diretório externo e um <literal>link</literal>
-	    para ele:</para>
-
-	  <example>
-	    <title>Criando um diretório de arquivos externo e seu
-	      <literal>link</literal></title>
-
-	    <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
-	    <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
-	  </example>
-
-	  <note>
-	    <para>(Nota histórica que apenas se aplica à instalação do
-	      <hostid>pointyhat.FreeBSD.org</hostid> original)
-	    </para>
-
-	    <para>É possível que
-	      <filename>/dumpster/pointyhat</filename> não tenha mais
-	      espaço suficiente.  Neste caso, crie o diretório dos
-	      arquivos como
-	      <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
-	      e crie um <literal>link</literal> simbólico para ele.
-	    </para>
-	  </note>
-	</listitem>
-
 	<listitem>
 	  <para>(Necessário apenas para o antigo código base) No
 	    diretório
@@ -2946,6 +2909,43 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	      <screen>build create <replaceable>arch</replaceable> <replaceable>branch</replaceable></screen>
 	    </listitem>
 	  </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para>Crie um diretório para os <literal>logs</literal> de
+            compilação e para os <literal>logs</literal> de
+            erros sob <filename>archive/</filename>.</para>
+
+          <para>Se você vai armazenar o histórico dos
+            <literal>logs</literal> de compilação e
+            <literal>logs</literal> de erros no disco rígido do nó
+            principal, você pode pular este passo.  Caso
+            contrário:</para>
+
+          <para>Crie um diretório externo e um <literal>link</literal>
+            para ele:</para>
+
+          <example>
+            <title>Criando um diretório de arquivos externo e seu
+              <literal>link</literal></title>
+
+            <screen>mkdir /dumpster/pointyhat/<replaceable>arch</replaceable>/archive</screen>
+            <screen>ln -s /dumpster/pointyhat/<replaceable>arch</replaceable>/archive archive</screen>
+          </example>
+
+          <note>
+            <para>(Nota histórica que apenas se aplica à instalação do
+              <hostid>pointyhat.FreeBSD.org</hostid> original)
+            </para>
+
+            <para>É possível que
+              <filename>/dumpster/pointyhat</filename> não tenha mais
+              espaço suficiente.  Neste caso, crie o diretório dos
+              arquivos como
+              <filename>/dumpster/pointyhat/<replaceable>arch</replaceable>/archive</filename>
+              e crie um <literal>link</literal> simbólico para ele.
+            </para>
+          </note>
         </listitem>
 
 	<listitem>
