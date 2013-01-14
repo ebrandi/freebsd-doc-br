@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40260
+  Original revision: r40413
 -->
 
 <article lang='pt_br'>
@@ -1905,9 +1905,8 @@ options         NFSSERVER               # Network Filesystem Server</programlist
 	    <listitem>
 	      <para>Crie um usuário e grupo
 	        <literal>ports-<replaceable>${arch}</replaceable></literal>.
-		Adicione o usuário ao grupo
-		<literal>wheel</literal>.  Ele pode ter um
-		<literal>'*'</literal> no lugar da senha.</para>
+		Ele pode ter um <literal>'*'</literal> no lugar da
+		senha.</para>
 
 	      <para>Crie o
 	        <filename>/home/ports-<replaceable>${arch}/.ssh/</replaceable></filename>
@@ -2206,6 +2205,10 @@ touch /tmp/.boot_finished</screen>
 	    </listitem>
 
 	    <listitem>
+	      <note>
+		<para>Este passo está sob revisão.</para>
+	      </note>
+
 	      <para>Crie o
 	        <filename>usr/local/etc/sudoers/sudoers.d/portbuild</filename>:</para>
 
@@ -2837,7 +2840,7 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
 
         <listitem>
 	  <screen>
-chown ports-<replaceable>arch</replaceable>:portmgr /var/portbuild/<replaceable>arch</replaceable>;
+chown ports-<replaceable>arch</replaceable>:portbuild /var/portbuild/<replaceable>arch</replaceable>;
 chmod 775 /var/portbuild/<replaceable>arch</replaceable>;
 cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
@@ -3066,7 +3069,7 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	  <para>Informe o <application>qmanager</application> sobre
 	    a arquitetura:</para>
 
-	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portmgr sense=1</screen>
+	  <screen>python <replaceable>path</replaceable>/qmanager/qclient add_acl name=ports-<replaceable>arch</replaceable> uidlist=ports-<replaceable>arch</replaceable> gidlist=portbuild sense=1</screen>
 	</listitem>
 
         <listitem>
@@ -3115,9 +3118,8 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 	<step>
 	  <para>Crie um usuário para ser dono do repositório
 	    <application>portbuild</application>, tal como
-	    <literal>portmgr</literal>, e o adicione ao grupo
-	    <literal>wheel</literal>.  Ele deve ter a senha definida
-	    para <literal>'*'</literal>.</para>
+	    <literal>portbuild</literal>.  Ele deve ter a senha
+	    definida para <literal>'*'</literal>.</para>
 	</step>
 
 	<step>
@@ -3257,7 +3259,8 @@ sysutils/screen</screen>
 	  <screen>benchmarks/bonnie++
 ports-mgmt/pkg_tree
 sysutils/dmidecode
-sysutils/smartmontools</screen>
+sysutils/smartmontools
+sysutils/zfs-stats</screen>
 	</step>
 
       </procedure>
@@ -3269,6 +3272,11 @@ sysutils/smartmontools</screen>
         <literal>portbuild</literal></title>
 
       <procedure>
+
+	<step>
+	  <para>Crie o <filename>/a</filename>.</para>
+	</step>
+
         <step>
           <para>Crie um volume <application>zfs</application> chamado
             <filename>a</filename> e monte-o em
@@ -3301,7 +3309,7 @@ sysutils/smartmontools</screen>
 
 <screen>&prompt.root; mkdir -p /a/portbuild
 &prompt.root; cd /a/portbuild
-&prompt.root; chown portmgr:portmgr .
+&prompt.root; chown portbuild:portbuild .
 &prompt.root; chmod 775 .
 &prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
 
@@ -3324,7 +3332,7 @@ sysutils/smartmontools</screen>
 	<step>
 	  <para>Configure uma conta de usuário com os arquivos de
 	  configuração do Subversion instalados.  Normalmente o
-	  <replaceable>portmgr</replaceable> é usado para este
+	  <replaceable>portbuild</replaceable> é usado para este
 	  fim.</para>
 	</step>
 
@@ -3438,7 +3446,7 @@ sysutils/smartmontools</screen>
       <procedure>
 	<step>
 	  <para>Copie os seguintes arquivos a partir de
-	    <filename>/var/portbuild/conf/etc/rc.d/</filename> para
+	    <filename>/var/portbuild/etc/rc.d/</filename> para
 	    <filename>/usr/local/etc/rc.d/</filename>:</para>
 
 	  <screen>buildproxy.sh
@@ -3513,10 +3521,10 @@ qmanager.sh</screen>
 
 	<step>
 	  <para>Configure o
-	    <filename>/var/portbuild/crontabs/portmgr</filename> como
-	    o <application>crontab</application> do
-	    <username>portmgr</username> com o <command>crontab -u
-	    portmgr -e</command>.  Se você não suporta todas as
+	    <filename>/var/portbuild/crontabs/portbuild</filename>
+	    como o <application>crontab</application> do
+	    <username>portbuild</username> com o <command>crontab -u
+	    portbuild -e</command>.  Se você não suporta todas as
 	    arquiteturas listadas, certifique-se de comentar as
 	    entradas <application>dologs</application>
 	    apropriadas.</para>
@@ -3532,7 +3540,6 @@ qmanager.sh</screen>
         <step>
           <para>Se ainda não foram criados, adicione os seguintes
             usuários:</para><screen>
-squid:*:100:100::0:0:User &amp;:/usr/local/squid:/bin/sh
 ganglia:*:102:102::0:0:User &amp;:/usr/local/ganglia:/bin/sh</screen>
 
           <para>Adicione-os ao <filename>/etc/group</filename>
