@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40413
+  Original revision: r40414
 -->
 
 <article lang='pt_br'>
@@ -3267,57 +3267,47 @@ sysutils/zfs-stats</screen>
 
     </sect2>
 
-    <sect2 id="pointyhat-portbuild-volume">
-      <title>Configurando o volume do
-        <literal>portbuild</literal></title>
+    <sect2 id="pointyhat-zfs-volume">
+      <title>Configurando o volume
+        <literal>zfs</literal></title>
+
+      <para>Os seguintes passos precisam ser feitos como o usuário
+        <username>root</username>.</para>
 
       <procedure>
 
 	<step>
-	  <para>Crie o <filename>/a</filename>.</para>
+	  <para>Escolha um nome para o volume
+	    <application>zfs</application> e exporte-o.  Nós temos
+	    usado <replaceable>a</replaceable> até a presente
+	    data.</para>
+
+	  <programlisting>&prompt.root; export ZFS_VOLUME=<replaceable>a</replaceable></programlisting>
+	</step>
+
+	<step>
+	  <para>Escolha um ponto de montagem e exporte-o.  Nós
+	    temos usado
+	    <filename>/<replaceable>a</replaceable></filename> até a
+	    presente data.</para>
+
+	  <programlisting>&prompt.root; export ZFS_MOUNTPOINT=/<replaceable>a</replaceable></programlisting>
 	</step>
 
         <step>
-          <para>Crie um volume <application>zfs</application> chamado
-            <filename>a</filename> e monte-o em
-            <filename>/a</filename>.  Um exemplo:</para>
+	  <para>Crie o ponto de montagem.</para>
+	  <programlisting>&prompt.root; mkdir -p /<replaceable>a</replaceable></programlisting>
+	</step>
+
+	<step>
+	  <para>Crie o volume <application>zfs</application> e monte-o.</para>
 
 	  <example>
 	    <title>Criando um volume <application>zfs</application>
 	      para o <literal>portbuild</literal></title>
 
-	    <screen>&prompt.root; zpool create a mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
+	    <screen>&prompt.root; zpool create <replaceable>a</replaceable> mirror da1 da2 mirror da3 da4 mirror da5 da6 mirror da7 da8</screen>
 	  </example>
-        </step>
-
-        <step>
-          <para>Crie o diretório
-            <filename>portbuild</filename>:</para>
-
-          <screen>&prompt.root; mkdir -p /a/portbuild</screen>
-        </step>
-
-        <step>
-          <para>Crie e monte um novo sistema de arquivos
-            <application>zfs</application> no diretório criado:</para>
-          <screen>zfs create -o mountpoint=/a/portbuild a/portbuild</screen>
-        </step>
-
-        <step>
-          <para>Configure o diretório base do
-            <literal>portbuild</literal>:</para>
-
-<screen>&prompt.root; mkdir -p /a/portbuild
-&prompt.root; cd /a/portbuild
-&prompt.root; chown portbuild:portbuild .
-&prompt.root; chmod 775 .
-&prompt.root; ln -sf /a/portbuild /var/portbuild</screen>
-
-	  <note>
-	    <para>O <command>ln</command> é necessário devido ao
-	      número de referências ao diretório embutidas no
-	      código.</para>
-	  </note>
         </step>
 
       </procedure>
@@ -3329,6 +3319,36 @@ sysutils/zfs-stats</screen>
         <application>portbuild</application></title>
 
       <procedure>
+
+        <step>
+          <para>Crie o diretório
+            <filename>portbuild</filename>:</para>
+          <screen>&prompt.root; mkdir -p /<replaceable>a</replaceable>/portbuild</screen>
+        </step>
+
+        <step>
+          <para>Crie e monte um novo sistema de arquivos
+            <application>zfs</application> no diretório criado:</para>
+          <screen>zfs create -o mountpoint=/<replaceable>a</replaceable>/portbuild <replaceable>a</replaceable>/portbuild</screen>
+        </step>
+
+        <step>
+          <para>Configure o diretório base do
+            <literal>portbuild</literal>:</para>
+
+<screen>&prompt.root; cd /<replaceable>a</replaceable>/portbuild
+&prompt.root; cd /<replaceable>a</replaceable>/portbuild
+&prompt.root; chown <replaceable>portbuild</replaceable>:<replaceable>portbuild</replaceable> .
+&prompt.root; chmod 775 .
+&prompt.root; ln -sf /<replaceable>a</replaceable>/portbuild /var/portbuild</screen>
+
+	  <note>
+	    <para>O <command>ln</command> é necessário devido ao
+	      número de referências ao diretório embutidas no
+	      código.</para>
+	  </note>
+        </step>
+
 	<step>
 	  <para>Configure uma conta de usuário com os arquivos de
 	  configuração do Subversion instalados.  Normalmente o
@@ -3340,14 +3360,14 @@ sysutils/zfs-stats</screen>
 	  <para>Como o usuário criado acima, inicie o
 	    repositório:</para>
 
-	  <screen>&prompt.user; svn checkout svn://svn.freebsd.org/base/projects/portbuild /a/portbuild</screen>
+	  <screen>&prompt.user; svn checkout svn://svn.freebsd.org/base/projects/portbuild /<replaceable>a</replaceable>/portbuild</screen>
 	</step>
 
 	<step>
 	  <para>Configure como seus clientes de compilação se
 	    comunicarão com seu servidor fazendo as seguintes
 	    alterações em
-	    <filename>/var/portbuild/conf/client.conf</filename>:</para>
+	    <filename>/<replaceable>a</replaceable>/portbuild/conf/client.conf</filename>:</para>
 
 	  <itemizedlist>
 	    <listitem>
@@ -3378,14 +3398,14 @@ sysutils/zfs-stats</screen>
 
 	<step>
 	  <para>A maioria dos valores padrões em
-	    <filename>/var/portbuild/conf/common.conf</filename> deve
-	    ser o bastante.  Este arquivo contém definições usadas
-	    pelo servidor e todos os seus clientes.</para>
+	    <filename>/<replaceable>a</replaceable>/portbuild/conf/common.conf</filename>
+	    deve ser o bastante.  Este arquivo contém definições
+	    usadas pelo servidor e todos os seus clientes.</para>
 	</step>
 
 	<step>
 	  <para>Configure o servidor fazendo as seguintes mudanças em
-	    <filename>/var/portbuild/conf/server.conf</filename>:</para>
+	    <filename>/<replaceable>a</replaceable>/portbuild/conf/server.conf</filename>:</para>
 
 	  <itemizedlist>
 	    <listitem>
@@ -3403,6 +3423,12 @@ sysutils/zfs-stats</screen>
 		linkend="new-branch-pre-qmanager"/>.  Você não precisa
 		alterar
 		<makevar>SRC_BRANCHES_PATTERN</makevar>.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Defina <makevar>ZFS_VOLUME</makevar> e
+	        <makevar>ZFS_MOUNTPOINT</makevar> para os valores
+		escolhidos acima.</para>
 	    </listitem>
 
 	    <listitem>
