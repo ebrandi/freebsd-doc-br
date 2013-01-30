@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40430
+  Original revision: r40431
 -->
 
 <article lang='pt_br'>
@@ -2803,9 +2803,6 @@ dopackages</command> sem a opção <literal>-nobuild</literal>.</para>
       </listitem>
     </itemizedlist>
 
-    <para>O procedimento para o antigo código base fica como um
-      exercício para o leitor.</para>
-
   </sect1>
 
   <sect1 id="new-arch">
@@ -2846,7 +2843,7 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-	  <para>Crie e popule o diretório
+	  <para>Crie o diretório
 	    <filename>.ssh</filename>.</para>
         </listitem>
       </itemizedlist>
@@ -2860,9 +2857,9 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 
       <itemizedlist>
 	<listitem>
-	  <para>Crie um novo arquivo
-	    <filename>portbuild.conf</filename> a partir de um
-	    existente para uma outra arquitetura.</para>
+	  <para>Crie um diretório para os <literal>logs</literal> de
+	  compilação e para os <literal>logs</literal> de erros sob
+	  <filename>archive/</filename>.</para>
 	</listitem>
 
 	<listitem>
@@ -2912,10 +2909,6 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
         </listitem>
 
         <listitem>
-          <para>Crie um diretório para os <literal>logs</literal> de
-            compilação e para os <literal>logs</literal> de
-            erros sob <filename>archive/</filename>.</para>
-
           <para>Se você vai armazenar o histórico dos
             <literal>logs</literal> de compilação e
             <literal>logs</literal> de erros no disco rígido do nó
@@ -2951,6 +2944,12 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	<listitem>
 	  <para>Popule o diretório <filename>clients</filename> como
 	    de costume.</para>
+	</listitem>
+
+	<listitem>
+	  <para>Crie um novo arquivo
+	    <filename>portbuild.conf</filename> a partir de um existente
+	    para uma outra arquitetura.</para>
 	</listitem>
 
         <listitem>
