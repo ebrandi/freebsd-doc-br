@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40434
+  Original revision: r40450
 -->
 
 <article lang='pt_br'>
@@ -490,8 +490,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       <listitem>
 	<para><literal>-nochecksubdirs</literal> - Não verifica o
 	  <makevar>SUBDIRS</makevar> para os <literal>ports</literal>
-	  que não estão ligados à compilação.  (Apenas para o novo
-	  código base).
+	  que não estão ligados à compilação.
 	</para>
       </listitem>
 
@@ -2921,7 +2920,9 @@ zfs_enable="YES"
 	    <filename>/etc/sysctl.conf</filename>:</para>
 
 	  <screen>kern.maxfiles=40000
-kern.maxfilesperproc=38000</screen>
+kern.maxfilesperproc=38000
+sysctl vfs.usermount=1
+sysctl vfs.zfs.super_owner=1</screen>
 	</step>
 
 	<step>
@@ -3107,7 +3108,7 @@ sysutils/zfs-stats</screen>
 	<step>
 	  <para>Inicie o repositório:</para>
 
-	  <screen>&prompt.user; svn checkout svn://${VCS_REPOSITORY}/base/projects/portbuild ${ZFS_MOUNTPOINT}/portbuild</screen>
+	  <screen>&prompt.user; svn checkout ${VCS_REPOSITORY}/base/projects/portbuild ${ZFS_MOUNTPOINT}/portbuild</screen>
 	</step>
 
       </procedure>
