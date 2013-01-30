@@ -10,7 +10,7 @@
   The FreeBSD Documentation Project
   The FreeBSD Brazilian Portuguese Documentation Project
 
-  Original revision: r40431
+  Original revision: r40434
 -->
 
 <article lang='pt_br'>
@@ -169,8 +169,7 @@
 	  estava rodando sobre o antigo código base.  Esta instalação
 	  agora está permanetemente <literal>offline</literal>.
 	  Portanto, todas as instruções que fazem referência ao antigo
-	  código base estão <emphasis>obsoletas</emphasis>, e serão
-	  removidas em um futuro próximo.</para>
+	  código base estão foram removidas.</para>
       </note>
 
       <note>
@@ -259,20 +258,13 @@
       cada passagem do <literal>script</literal>
       <command>dopackages</command>.</para>
 
-    <sect2>
-      <title>Novo Código Base</title>
-
-      <para>Para ambos os comandos acima, se o
-        <replaceable>${buildid}</replaceable> estiver definido como
-	<literal>latest</literal>, ele pode ser omitido.</para>
-    </sect2>
+    <para>Para ambos os comandos acima, se o
+      <replaceable>${buildid}</replaceable> estiver definido como
+      <literal>latest</literal>, ele pode ser omitido.</para>
   </sect1>
 
   <sect1 id="customizing">
     <title>Customizando Sua Compilação</title>
-
-    <para>(O trecho a seguir aplica-se apenas ao novo código
-      base.)</para>
 
     <para>Você pode customizar sua compilação providenciando versões
       locais do <filename>make.conf</filename> e/ou
@@ -391,98 +383,12 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       <title>Os <literal>Scripts</literal>
         <command>dopackages</command></title>
 
-    <para>Os <literal>scripts</literal>
-      <filename>scripts/dopackages</filename> são usados para executar
-      as compilações.</para>
-
-    <sect3>
-      <title>Código base antigo</title>
-      <para>Para o código base antigo, os mais úteis são:</para>
-
-    <itemizedlist>
-      <listitem>
-	<para><command>dopackages.7</command> - Executa a compilação
-	  para a série 7.X
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.7-exp</command> - Executa a
-	  compilação para a série 7.X com <literal>patches</literal>
-	  experimentais (<literal>branch</literal> 7-exp)
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.8</command> - Executa a
-	  compilação para a série 8.X.
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.8-exp</command> - Executa a
-	  compilação para a série 8.X com <literal>patches</literal>
-	  experimentais (<literal>branch</literal> 8-exp)
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.9</command> - Executa a
-	  compilação para a série 9.X.
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.9-exp</command> - Executa a
-	  compilação para a série 9.X com <literal>patches</literal>
-	  experimentais (<literal>branch</literal> 9-exp)
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.10</command> - Executa a
-	  compilação para a série 10.X.
-	</para>
-      </listitem>
-
-      <listitem>
-	<para><command>dopackages.10-exp</command> - Executa a
-	  compilação para a série 10.X com <literal>patches</literal>
-	  experimentais (<literal>branch</literal> 10-exp)
-	</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>Esses são <literal>wrappers</literal> para o
-      <command>dopackages</command> e todos são
-      <literal>links</literal> simbólicos para
-      <command>dopackages.wrapper</command>.
-      <literal>Wrappers</literal> de <literal>scripts</literal> para
-      um novo <literal>branch</literal> podem ser criados com
-      <literal>links</literal> simbólicos
-      <command>dopackages.${branch}</command> para
-      <command>dopackages.wrapper</command>.  Esses
-      <literal>scripts</literal> tem uma série de argumentos.  Por
-      exemplo:</para>
-
-    <screen><command>dopackages.7 <replaceable>${arch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></command></screen>
-
-    </sect3>
-
-    <sect3>
-      <title>Novo código base</title>
-
-      <para>Você pode usar o <command>dopackages.wrapper</command>
-        diretamente, ao invés dos <literal>links</literal> simbólicos.
-	Por exemplo:</para>
+    <para>O <literal>script</literal>
+      <filename>scripts/dopackages.wrapper</filename> é usado para
+      executar as compilações.</para>
 
     <screen>&prompt.root; <userinput>dopackages.wrapper <replaceable>${arch}</replaceable> <replaceable>${branch}</replaceable> <replaceable>${buildid}</replaceable> <literal>[-options]</literal></userinput></screen>
-
-    </sect3>
-
-    <sect3>
-      <title>Para ambos os códigos base</title>
-
+    
     <para>Frequentemente você usará <literal>latest</literal> como
       valor para o <replaceable>buildid</replaceable>.</para>
 
@@ -605,8 +511,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
 	<note>
 	  <para>Com <literal>-trybroken</literal>, provavelmente você
 	    também vai querer usar <literal>-fetch-original</literal>
-	    (e, no novo código base,
-	    <literal>-unlimited-errors</literal>).</para>
+	    e <literal>-unlimited-errors</literal>).</para>
 	</note>
       </listitem>
 
@@ -674,13 +579,13 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       </listitem>
 
       <listitem>
-	<para><literal>-unlimited-errors</literal> (apenas no novo
-	  código base) - anula a verificação de limites do qmanager
-	  para compilações descontroladas.  Você pode querer isso
-	  principalmente quando usar <literal>-restart</literal> em
-	  uma compilação que provavelmente vai falhar, ou talvez
-	  quando executar <literal>-trybroken</literal>.  A
-	  A limitação é realizada por padrão.</para>
+	<para><literal>-unlimited-errors</literal> - anula a
+	  verificação de limites do qmanager para compilações
+	  descontroladas.  Você pode querer isso principalmente quando
+	  usar <literal>-restart</literal> em uma compilação que
+	  provavelmente vai falhar, ou talvez quando executar
+	  <literal>-trybroken</literal>.  A A limitação é realizada
+	  por padrão.</para>
       </listitem>
     </itemizedlist>
 
@@ -767,30 +672,27 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       <title>Atualize a árvore i386-7 e faça uma compilação
         completa</title>
 
-      <screen>&prompt.user; <userinput>dopackages.7 i386 -nosrc -norestr -nofinish</userinput>
-&prompt.user; <userinput>dopackages.wrapper i386 7 -nosrc -norestr -nofinish</userinput></screen>
+      <screen>&prompt.user; <userinput>dopackages.wrapper i386 7 -nosrc -norestr -nofinish</userinput></screen>
     </example>
 
     <example>
       <title>Reinicie uma compilação para amd64-8 interrompida sem
         atualizar</title>
 
-      <screen>&prompt.user; <userinput>dopackages.8 amd64 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</userinput>
-&prompt.user; <userinput>dopackages.wrapper amd64 8 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</userinput></screen>
+      <screen>&prompt.user; <userinput>dopackages.wrapper amd64 8 -nosrc -noports -norestr -continue -noindex -noduds -nofinish</userinput></screen>
     </example>
 
     <example>
       <title>Realize o pós-processamento de uma árvore sparc64-7
         concluída</title>
 
-      <screen>&prompt.user; <userinput>dopackages.7 sparc64 -finish</userinput>
-&prompt.user; <userinput>dopackages.wrapper sparc64 7 -finish</userinput></screen>
+      <screen>&prompt.user; <userinput>dopackages.wrapper sparc64 7 -finish</userinput></screen>
     </example>
 
     <para>Dica: geralmente é melhor executar o comando
       <command>dopackages</command> dentro do
       <command>screen(1)</command>.</para>
-    </sect3>
+
     </sect2>
 
     <sect2 id="build-command">
@@ -809,10 +711,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
 	    <replaceable>newid</replaceable> (ou um
 	    <literal>datestamp</literal>, se não for especificado).
 	    Só é necessário quando da criação de um novo
-	    <literal>branch</literal> ou uma nova arquitetura.  (TODO:
-	    documentar se <literal>newid</literal> deve ser
-	    especificado como <literal>latest</literal> no novo código
-	    base.)
+	    <literal>branch</literal> ou uma nova arquitetura.
 	  </para>
 	</listitem>
 
@@ -940,19 +839,14 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       encerrada.</para>
 
     <para>[++] O status destes passos pode ser encontrado em
-      <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/make</filename>
-      (antigo código base) ou
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/journal</filename>
-      (novo código base).  <literal>Ports</literal> individuais irão
-      escrever seus <literal>logs</literal> de compilação em
+      <literal>Ports</literal> individuais irão escrever seus
+      <literal>logs</literal> de compilação em 
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/logs/</filename>
       e os seus <literal>logs</literal> de erros em
       <filename><replaceable>${arch}</replaceable>/<replaceable>${branch}</replaceable>/errors/</filename>.
     </para>
 
-    <para>Anteriormente, a árvore <literal>docs</literal> também era
-      verificada, no entanto, isso se mostrou desnecessário.
-    </para>
   </sect1>
 
   <sect1 id="build-maintenance">
@@ -968,7 +862,7 @@ PKG_BIN=/usr/local/sbin/pkg</programlisting>
       </listitem>
 
       <listitem>
-	<para>O <hostid>pointyhat</hostid> foi reiniciado enquanto uma
+	<para>O nó principal foi reiniciado enquanto uma
 	  compilação estava executando.</para>
       </listitem>
 
@@ -1109,12 +1003,6 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
 	  </para>
 	</listitem>
 
-	<listitem>
-	  <para><literal>build upload <replaceable>arch</replaceable>
-	    <replaceable>branch</replaceable></literal> - ainda não
-	    implementado.
-	  </para>
-	</listitem>
       </itemizedlist>
 
     </sect2>
@@ -1184,8 +1072,9 @@ umount: Cleanup of /x/tmp/8-exp/chroot/53837/compat/linux/proc failed!
       arquivos do <filename>/var/portbuild</filename> ficar cheio,
       coisas ruins acontecem.</para>
 
-    <para>O status de todas as compilações é gerado periodicamente e
-      postado em <ulink
+    <para>O status de todas as compilações é gerado periodicamente no
+      arquivo <filename>packagestats.html</filename>, por exemplo,
+      <ulink
       url="http://pointyhat.FreeBSD.org/errorlogs/packagestats.html"></ulink>.
       Para cada <literal>buildenv</literal> é apresentado o
       seguinte:</para>
@@ -2513,7 +2402,7 @@ ssh_cmd="/usr/local/bin/ssh"
 
       <itemizedlist>
         <listitem>
-	  <para>(novo código base) Edite o
+	  <para>Edite o
 	    <filename>/var/portbuild/conf/server.conf</filename>
 	    e faça as seguintes alterações:</para>
 
@@ -2524,25 +2413,8 @@ ssh_cmd="/usr/local/bin/ssh"
 	    </listitem>
 
 	    <listitem>
-	      <para>(Antigo código base) Para o
-		<literal>branch</literal> que anteriormente era o
-		<literal>head</literal>, mude o
-		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_TAG</makevar>
-		para
-		<literal>RELENG_<replaceable>branch</replaceable>_0</literal>
-		(zero literal).</para>
-	    </listitem>
-
-	    <listitem>
-	      <para>(Antigo código base) Adicione 
-		<makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_TAG</makevar><literal>=.</literal>
-		(o ponto é literal).</para>
-	    </listitem>
-
-	    <listitem>
-	      <para>(Novo código base) Para o
-	        <literal>branch</literal> que anteriormente era o
-		<literal>head</literal>, mude o
+	      <para>Para o <literal>branch</literal> que anteriormente
+	        era o <literal>head</literal>, mude o
 		<makevar>SRC_BRANCH_<replaceable>branch</replaceable>_SUBDIR</makevar>
 		para
 		<literal>releng/<replaceable>branch</replaceable>.0</literal>
@@ -2550,7 +2422,7 @@ ssh_cmd="/usr/local/bin/ssh"
 	    </listitem>
 
 	    <listitem>
-	      <para>(Novo código base) Adicione
+	      <para>Adicione
 	        <makevar>SRC_BRANCH_<replaceable>new-branch</replaceable>_SUBDIR</makevar>
 		<literal>=head</literal>.</para>
 	    </listitem>
@@ -2558,80 +2430,9 @@ ssh_cmd="/usr/local/bin/ssh"
         </listitem>
 
         <listitem>
-	  <para>(novo código base) Execute o 
+	  <para>Execute o 
 	    <command>/var/portbuild/updatesnap</command> 
 	    manualmente.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Apenas para o antigo código base) Crie um novo sistema
-	    de arquivos <application>zfs</application> para os
-	    fontes:</para>
-
-	    <screen>zfs create a/snap/src-<replaceable>branch</replaceable></screen>
-      
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base):
-	    Obtenha uma cópia da árvore de fontes do 
-	    <literal>src</literal> apartir do SVN e deposite a mesma
-	    no novo sistema de arquivos:</para>
-
-	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
-      
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Edite a
-	    cópia principal do
-	    <filename>Tools/portbuild/portbuild.conf</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Edite a
-	  cópia do arquivo acima para cada uma das arquiteturas em
-	  <filename>/var/portbuild/<replaceable>arch</replaceable>/portbuild.conf</filename>.</para>
-	</listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Edite o
-	    <filename>/var/portbuild/scripts/buildenv</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Adicione
-	    um <literal>link</literal> simbólico de 
-	    <filename>/var/portbuild/scripts/dopackages</filename> para
-	    <filename>/var/portbuild/scripts/dopackages.<replaceable>branch</replaceable></filename>.
-	  </para>  
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Modifique
-	    as variáveis <makevar>HEAD_BRANCH</makevar> e
-	    <makevar>NON_HEAD_BRANCHES</makevar> no arquivo
-	    <filename>/var/portbuild/scripts/updatesnap</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Adicione
-	    o diretório <literal>snap</literal> ao arquivo
-	    <filename>/var/portbuild/scripts/zexpire</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Crie os
-	    <literal>links</literal> simbólicos para uso do servidor 
-	    web no diretório
-	    <filename>/var/portbuild/errorlogs/</filename>:</para>
-	  
-	  <screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
         </listitem>
 
       </itemizedlist>
@@ -2684,7 +2485,7 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
 
     <itemizedlist>
       <listitem>
-	<para>(novo código base) Edite o
+	<para>Edite o
 	  <filename>/var/portbuild/conf/server.conf</filename> e faça
 	  as seguintes alterações:</para>
 	  <itemizedlist>
@@ -2702,7 +2503,7 @@ ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/build
       </listitem>
 
       <listitem>
-	<para>(novo e antigo código base):
+	<para>
 <command>umount a/snap/src-<replaceable>old-branch</replaceable>/src;
 umount a/snap/src-<replaceable>old-branch</replaceable>;
 zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
@@ -2711,10 +2512,10 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
 
     <itemizedlist>
       <listitem>
-	<para>(novo e antigo código base) Provavelmente você
-	  encontrará os seguintes arquivos e <literal>links</literal>
-	  simbólicos em <filename>/var/portbuild/errorlogs/</filename>
-	  os quais podem ser removidos:</para>
+	<para>Provavelmente você encontrará os seguintes arquivos e
+	  <literal>links</literal> simbólicos em
+	  <filename>/var/portbuild/errorlogs/</filename> os quais
+	  podem ser removidos:</para>
 
 	  <itemizedlist>
 	    <listitem>
@@ -2763,8 +2564,7 @@ zfs destroy -r a/snap/src-<replaceable>old-branch</replaceable></command></para>
       uma compilação completa (não incremental!) dos pacotes deve ser
       realizada e enviada para os servidores de distribuição.</para>
 
-    <para>Os procedimentos para o novo código base são os que
-      seguem abaixo:</para>
+    <para>Os procedimentos são os que seguem abaixo:</para>
 
     <itemizedlist>
       <listitem>
@@ -2861,39 +2661,6 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	  compilação e para os <literal>logs</literal> de erros sob
 	  <filename>archive/</filename>.</para>
 	</listitem>
-
-	<listitem>
-	  <para>(Necessário apenas para o antigo código base) No
-	    diretório
-	    <filename>/var/portbuild/<replaceable>arch</replaceable></filename>
-	    execute:</para>
-	    <screen>mkdir clients</screen>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base)</para>
-	  <screen>mkdir loads</screen>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para antigo código base)
-	    <screen>mkdir lockfiles</screen>
-	  </para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base) Crie um
-	    arquivo vazio <filename>mlist</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base) Crie o
-	    <filename>pnohang.<replaceable>arch</replaceable></filename>.
-	    (O modo mais fácil é fazer isso em um cliente,
-	    e depois copiar o arquivo de volta):</para>
-
-	  <screen>cc pnohang.c -o pnohang-<replaceable>arch</replaceable></screen>
-        </listitem>
 
         <listitem>
 	  <para>Para cada <literal>branch</literal> que será
@@ -2994,15 +2761,9 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 
       <itemizedlist>
         <listitem>
-	  <para>(Necessário apenas para o novo código base):
-	    Adicione a <replaceable>arch</replaceable> na variável 
+	  <para>Adicione a <replaceable>arch</replaceable> na variável
 	    <makevar>SUPPORTED_ARCHS</makevar> do arquivo
 	    <filename>/var/portbuild/<replaceable>arch</replaceable>/server.conf</filename>.</para>
-        </listitem>
-
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Edite o
-	    <filename>/var/portbuild/scripts/buildenv</filename>.</para>
         </listitem>
 
         <listitem>
@@ -3011,30 +2772,6 @@ cd /var/portbuild/<replaceable>arch</replaceable></screen>
 	    <filename>/var/portbuild/scripts/zexpire</filename>.</para>
         </listitem>
 
-        <listitem>
-	  <para>Necessário apenas para o antigo código base): Como no 
-	    procedimento para criação de um novo 
-	    <literal>branch</literal>: crie os <literal>links</literal>
-	    para o servidor web no diretório
-	    <filename>/var/portbuild/errorlogs/</filename>:</para>
-	  
-	<screen>ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-full-logs
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/errors <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/logs <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-latest-logs
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/bak/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-full
-ln -s ../<replaceable>arch</replaceable>/<replaceable>branch</replaceable>/builds/latest/packages <replaceable>arch</replaceable>-<replaceable>branch</replaceable>-packages-latest</screen>
-	</listitem>
-
-	<listitem>
-	  <para>(Necessário apenas para o antigo código base):
-	    Crie mais dois <literal>links</literal> simbólicos para o 
-	    servidor web dentro do diretório
-	    <filename>/var/portbuild/errorlogs/</filename>:</para>
-	  
-	  <screen>ln -s ../<replaceable>arch</replaceable>/archive/buildlogs <replaceable>arch</replaceable>-buildlogs
-ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</replaceable>-errorlogs</screen>
-        </listitem>
       </itemizedlist>
 
       <note>
@@ -3084,13 +2821,6 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
 
         </listitem>
 
-        <listitem>
-	  <para>(Necessário apenas para o antigo código base): Só depois
-	    que a primeira execução do 
-	    <application>dopackages</application> for feita para a
-	    arquitetura: adicione a arquitetura ao
-	    <filename>/var/portbuild/scripts/dopackagestats</filename>.</para>
-	</listitem>
       </itemizedlist>
     </sect2>
   </sect1>
@@ -3099,12 +2829,8 @@ ln -s ../<replaceable>arch</replaceable>/archive/errorlogs <replaceable>arch</re
     <title>Como configurar um novo nó principal (instância do
       pointyhat)</title>
 
-    <para>Esta seção aplica-se apenas para o novo código base.  Novas
-      instalações usando o antigo código base <emphasis>não</emphasis>
-      são suportadas.</para>
-
     <para>Por favor, consulte Mark Linimon antes de efetuar qualquer
-      mudança.</para>
+      mudança nesta seção.</para>
 
     <sect2 id="pointyhat-basics">
       <title>Instalação básica</title>
