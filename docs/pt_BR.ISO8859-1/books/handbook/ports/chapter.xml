@@ -9,100 +9,100 @@
 -->
 
 <chapter id="ports">
-  <title>Installing Applications: Packages and Ports</title>
+  <title>Instalação de Softwares: Pacotes e Ports</title>
 
   <sect1 id="ports-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>ports</primary></indexterm>
     <indexterm><primary>packages</primary></indexterm>
-    <para>FreeBSD is bundled with a rich collection of system tools as
-      part of the base system.  However, there is only so much one can
-      do before needing to install an additional third-party
-      application to get real work done.  FreeBSD provides two
-      complementary technologies for installing third-party software
-      on your system: the FreeBSD Ports Collection (for installing from
-      source), and packages (for installing from pre-built binaries).
-      Either method may be used to install the
-      newest version of your favorite applications from local media or
-      straight off the network.</para>
+    <para>O &os; vem com uma rica coleção de ferramentas que fazem 
+	parte do sistema base. No entanto, há muito o que se fazer antes 
+	de iniciar a instalação de uma aplicação de terceiros para 
+	deixa-la funcionando corretamente. O &os; oferece duas tecnologias 
+	complementares para a instalação de softwares de terceiros
+	em seu sistema: a Coleção de Ports (para realizar instalações a 
+	partir dos códigos fonte) e a Coleção de Pacotes (para a instalação 
+	de binários pré-compilados). Qualquer método pode ser usado para 
+	instalar a mais recente versão de seus aplicativos favoritos através 
+	de uma mídia local ou através da rede.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Depois de ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>How to install third-party binary software packages.</para>
+	<para>Como instalar softwares de terceiros usando os pacotes binários.</para>
       </listitem>
       <listitem>
-	<para>How to build third-party software from source by using the ports
-	collection.</para>
+	<para>Como compilar e instalar softwares de terceiros usando a 
+	Coleção de Ports.</para>
       </listitem>
       <listitem>
-	<para>How to remove previously installed packages or ports.</para>
+	<para>Como remover pacotes ou ports instalados anteriormente.</para>
       </listitem>
       <listitem>
-	<para>How to override the default values that the ports
-	  collection uses.</para>
+	<para>Como sobrescrever valores e configurações padrões utilizadas pela 
+	Coleção de Ports.</para>
       </listitem>
       <listitem>
-	<para>How to find the appropriate software package.</para>
+	<para>Como localizar o pacote adequado para ser instalado.</para>
       </listitem>
       <listitem>
-	<para>How to upgrade your applications.</para>
+	<para>Como atualizar seus softwares instalados.</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="ports-overview">
-    <title>Overview of Software Installation</title>
+    <title>Visão da Instalação de Software</title>
 
-    <para>If you have used a &unix; system before you will know that
-      the typical procedure for installing third-party software goes
-      something like this:</para>
+    <para>Se você já usou um sistema &unix; antes, você já sabe que 
+	o procedimento típico para a instalação de softwares de 
+	terceiros assemelha-se com o seguinte procedimento: </para>
 
     <procedure>
       <step>
-	<para>Download the software, which might be distributed in
-	  source code format, or as a binary.</para>
+	<para>Obtenha o software, que pode ser distribuído em
+	  formato de código fonte ou como um binário.</para>
       </step>
 
       <step>
-	<para>Unpack the software from its distribution format
-	  (typically a tarball compressed with &man.compress.1;,
-	  &man.gzip.1;, or &man.bzip2.1;).</para>
+	<para>Descompacte o software de seu formato de distribuição
+	  (tipicamente um tarball comprimido com &man.compress.1;,
+	  &man.gzip.1;., ou &man.bzip2.1;)</para>
       </step>
 
       <step>
-	<para>Locate the documentation (perhaps an
-	  <filename>INSTALL</filename> or <filename>README</filename>
-	  file, or some files in a <filename>doc/</filename>
-	  subdirectory) and read up on how to install the
+	<para>Localize a documentação (talvez um arquivo chamado 
+	  <filename>INSTALL</filename> ou <filename>README</filename>, 
+	  ou alguns arquivos presentes em subdiretórios como 
+	  <filename>doc/</filename>) e leia sobre como instalar o 
 	  software.</para>
       </step>
 
       <step>
-	<para>If the software was distributed in source format,
-	  compile it.  This may involve editing a
-	  <filename>Makefile</filename>, or running a
-	  <command>configure</command> script, and other work.</para>
+	<para>Se o software foi distribuído em formato de código fonte, 
+	  compile-o. Isso pode envolver a edição de um 
+	  <filename>Makefile</filename>, a execução de um script 
+	  <command>configure</command> e outros passos adicionais.</para>
       </step>
 
       <step>
-	<para>Test and install the software.</para>
+	<para>Teste e instale o software.</para>
       </step>
     </procedure>
 
-    <para>And that is only if everything goes well.  If you are
-      installing a software package that was not deliberately ported
-      to FreeBSD you may even have to go in and edit the code to make
-      it work properly.</para>
+    <para>E isso é assim só se tudo correr bem. Se você está tentando 
+     realizar a instalação de um pacote de software que não foi 
+     deliberadamente portado para &os;, você pode até ter de editar o 
+     código fonte para fazer com que ele funcione corretamente.</para>
 
-    <para>Should you want to, you can continue to install software the
-      <quote>traditional</quote> way with FreeBSD.  However, FreeBSD
-      provides two technologies which can save you a lot of effort:
-      packages and ports.  At the time of writing, over &os.numports;
-      third-party applications have been made available in this
-      way.</para>
+    <para>Se você quiser, você pode continuar a instalar o software 
+      de maneira <quote>tradicional</quote>. Entretanto, o &os; 
+      disponibiliza duas tecnologias que podem lhe fazer economizar 
+      muito tempo e esforço: pacotes e ports. 
+      Até o presente momento, cerca de &os.numports; aplicativos de 
+      terceiros foram disponibilizados desta maneira para &os;.</para>
 
     <para>For any given application, the FreeBSD package for that
       application is a single file which you must download.  The
@@ -114,40 +114,50 @@
       on.  Installing a new application can be carried out with a
       single command.</para>
 
-    <para>A FreeBSD port for an application is a collection of files
-      designed to automate the process of compiling an application
-      from source code.</para>
+    <para>Para qualquer aplicação dada, o pacote para &os; é constituído de
+      um único arquivo que você deve obter para efetuar a instalação. O pacote 
+      contém cópias pré-compiladas de todos os comandos para a aplicação, 
+      bem como arquivos de configuração ou documentação. Um pacote 
+      desses pode ser manipulado com comandos como 
+      &man.pkg.add.1;, &man.pkg.delete.1;, &man.pkg.info.1; e assim por 
+      diante. A instalação de uma nova aplicação pode ser realizada com 
+      um único comando.</para>
 
-    <para>Remember that there are a number of steps you would normally
-      carry out if you compiled a program yourself (downloading,
-      unpacking, patching, compiling, installing).  The files that
-      make up a port contain all the necessary information to allow
-      the system to do this for you.  You run a handful of simple
-      commands and the source code for the application is
-      automatically downloaded, extracted, patched, compiled, and
-      installed for you.</para>
+    <para>Um port para &os; é uma coleção de arquivos designados a 
+      automatizar o processo de compilação e instalação de uma 
+      aplicação a partir do código fonte.</para>
 
-    <para>In fact, the ports system can also be used to generate packages
-      which can later be manipulated with <command>pkg_add</command>
-      and the other package management commands that will be introduced
-      shortly.</para>
+    <para>Lembre-se de que há uma série de passos que você normalmente 
+      deve realizar se você compilou e instalou um programa manualmente 
+      (obtenção do código, descompactação, aplicação de patches, 
+      compilação e instalação). Os arquivos que formam um port já contém 
+      todas as informações necessárias para permitir ao sistema fazer 
+      tudo isso por você. Você executa um conjunto bem simples de 
+      comandos e o código-fonte do aplicativo é automaticamente obtido, 
+      descompactado, recebe patches, é compilado e instalado para você.</para>
 
-    <para>Both packages and ports understand
-      <emphasis>dependencies</emphasis>.  Suppose you want to install
-      an application that depends on a specific library being
-      installed.  Both the application and the library have been made
-      available as FreeBSD ports and packages.  If you use the
-      <command>pkg_add</command> command or the ports system to add
-      the application, both will notice that the library has not been
-      installed, and automatically install the library first.</para>
+    <para>De fato, o sistema de ports pode, também, ser utilizados 
+      para gerar os pacotes que, mais tarde, poderão ser manipulados 
+      com o <command>pkg_add</command> e com um outro comando para 
+      gestão de pacotes que será introduzido em breve.</para>
 
-    <para>Given that the two technologies are quite similar, you might
-      be wondering why FreeBSD bothers with both.  Packages and ports
-      both have their own strengths, and which one you use will depend
-      on your own preference.</para>
+    <para>Ambos, pacotes e ports, compreendem e resolvem necessidade de 
+      <emphasis>dependências</emphasis>. Suponha que você deseja 
+      instalar uma aplicação que depende de uma biblioteca específica 
+      que deveria ser instalada antes. Tanto a aplicação quanto a 
+      biblioteca estão disponíveis em forma de pacotes e ports no &os;. 
+      Se você usar o <command>pkg_add</command> ou fizer uso da 
+      Coleção de Ports para instalar o aplicativo, ambos irão lhe informar 
+      que a biblioteca necessária não está instalada e, antes de instalar 
+      a aplicação solicitada, irão instalar a biblioteca para você automaticamente.</para>
+
+    <para>Dado que as duas tecnologias são muito similares, você pode 
+      estar se perguntando por que o &os; se preocupa com ambas. Tanto 
+      os pacotes quanto os ports têm seus próprios benefícios, e qual 
+      você irá utilizar dependerá da sua preferência pessoal.</para>
 
     <itemizedlist>
-      <title>Package Benefits</title>
+      <title>Benfícios do Pacote</title>
 
       <listitem>
 	<para>A compressed package tarball is typically smaller than
@@ -171,7 +181,7 @@
     </itemizedlist>
 
     <itemizedlist>
-      <title>Ports Benefits</title>
+      <title>Benefícios do Port</title>
 
       <listitem>
 	<para>Packages are normally compiled with conservative options,
@@ -247,7 +257,7 @@
   </sect1>
 
   <sect1 id="ports-finding-applications">
-    <title>Finding Your Application</title>
+    <title>Localizando o Software</title>
 
     <para>Before you can install any applications you need to know what you
       want, and what the application is called.</para>
@@ -372,7 +382,7 @@ R-deps: </screen>
     <!-- 30 Mar 2001 -->
     </sect1info>
 
-    <title>Using the Packages System</title>
+    <title>Utilizando o Sistema de Pacotes</title>
 
     <para>There are several different tools used to manage packages on
       FreeBSD:</para>
@@ -387,7 +397,7 @@ R-deps: </screen>
     </itemizedlist>
 
     <sect2>
-      <title>Installing a Package</title>
+      <title>Instalando um Pacote</title>
       <indexterm>
         <primary>packages</primary>
         <secondary>installing</secondary>
@@ -574,7 +584,7 @@ docbook                     =
     </sect2>
 
     <sect2>
-      <title>Deleting a Package</title>
+      <title>Removendo um Pacote</title>
       <indexterm>
         <primary><command>pkg_delete</command></primary>
       </indexterm>
@@ -612,7 +622,7 @@ docbook                     =
   </sect1>
 
   <sect1 id="ports-using">
-    <title>Using the Ports Collection</title>
+    <title>Utilizando a Coleção de Ports</title>
 
     <para>The following sections provide basic instructions on using the
       Ports Collection to install or remove programs from your
@@ -633,7 +643,7 @@ docbook                     =
     </warning>
 
     <sect2 id="ports-tree">
-      <title>Obtaining the Ports Collection</title>
+      <title>Obtendo a Coleção de Ports</title>
 
       <para>The Ports Collection is a set of
 	<filename>Makefiles</filename>, patches, and description files
