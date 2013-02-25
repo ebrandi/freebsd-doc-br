@@ -160,23 +160,22 @@
       <title>Benfícios do Pacote</title>
 
       <listitem>
-	<para>A compressed package tarball is typically smaller than
-	  the compressed tarball containing the source code for the
-	  application.</para>
+	<para>Um pacote tarball comprimido é tipicamente menor do que um 
+	  tarball compactado contendo o código fonte da aplicação.</para>
       </listitem>
 
       <listitem>
-	<para>Packages do not require any additional compilation.  For
-	  large applications, such as
+	<para>O uso de pacotes não requer nenhuma compilação adicional. Para
+	  aplicações de grande porte, tais como
 	  <application>Mozilla</application>,
-	  <application>KDE</application>, or
-	  <application>GNOME</application> this can be important,
-	  particularly if you are on a slow system.</para>
+	  <application>KDE</application> ou
+	  <application>GNOME</application> isso pode ser importante,
+	  especialmente se você estiver em um sistema lento.</para>
       </listitem>
 
       <listitem>
-	<para>Packages do not require any understanding of the process
-	  involved in compiling software on FreeBSD.</para>
+	<para>O uso de pacotes não requer nenhum conhecimento do processo
+	  envolvido na compilação de softwares no &os;.</para>
       </listitem>
     </itemizedlist>
 
@@ -184,76 +183,71 @@
       <title>Benefícios do Port</title>
 
       <listitem>
-	<para>Packages are normally compiled with conservative options,
-	  because they have to run on the maximum number of systems.  By
-	  installing from the port, you can tweak the compilation options to
-	  (for example) generate code that is specific to a Pentium
-	  4 or Athlon processor.</para>
+	<para>Pacotes são compilados normalmente com opções conservadoras
+	  porque eles têm que ser executados no maior número de sistemas possíveis. 
+	  A instalação de um port lhe possibilita ajustar opções de compilação para 
+	  (por exemplo) geração de código específico para ser executado num 
+	  processador Pentium4 ou Athlon.</para>
       </listitem>
 
       <listitem>
-	<para>Some applications have compile-time options relating to
-	  what they can and cannot do.  For example,
-	  <application>Apache</application> can be configured with a
-	  wide variety of different built-in options.  By building
-	  from the port you do not have to accept the default options,
-	  and can set them yourself.</para>
+	  (compile-time) relativas ao que podem e não podem fazer. Por exemplo, 
+	  o <application>Apache</application> pode ser configurado com uma
+	  ampla variedade de diferentes opções embutidas. Ao compilá-lo
+	  a partir do port você não tem que aceitar as opções padrão
+	  e pode definir suas próprias customizações.</para>
 
-	<para>In some cases, multiple packages will exist for the same
-	  application to specify certain settings.  For example,
-	  <application>Ghostscript</application> is available as a
-	  <filename>ghostscript</filename> package and a
-	  <filename>ghostscript-nox11</filename> package, depending on
-	  whether or not you have installed an X11 server.  This sort
-	  of rough tweaking is possible with packages, but rapidly
-	  becomes impossible if an application has more than one or
-	  two different compile-time options.</para>
+	<para>Em alguns casos, vários pacotes podem existir para a mesma aplicação, 
+	  especificando, assim, diferentes customizações. Por exemplo, o 
+	  <application>Ghostscript</application> está disponível em forma de pacote 
+	  como <filename>ghostscript</filename> e como <filename>ghostscript-nox11</filename>, 
+	  para lhe atender se você tem ou não um servidor X11 instalado. Este tipo 
+	  de ajuste fino é possível com pacotes, mas torna-se inviável se o aplicativo 
+	  tem mais de uma ou duas opções de compilação.</para>
       </listitem>
 
       <listitem>
-	<para>The licensing conditions of some software distributions forbid
-	  binary distribution.  They must be distributed as source
-	  code.</para>
+	<para>As condições de licenciamento de distribuição de alguns software 
+	  proíbem sua distribuição em formato binãrio. Eles devem ser 
+	  distribuídos apenas em formato de código fonte.</para>
       </listitem>
 
       <listitem>
-	<para>Some people do not trust binary distributions.  At least
-	  with source code, you can (in theory) read through it and
-	  look for potential problems yourself.</para>
+	<para>Algumas pessoas não confiam em distribuições binárias. Pelo menos
+	  com o código fonte, você pode (em teoria) lê-lo e
+	  procurar por potenciais problemas.</para>
       </listitem>
 
       <listitem>
-	<para>If you have local patches, you will need the source in order to
-	  apply them.</para>
+	<para>Se você tem patches a serem aplicados, será necessário o código 
+	  fonte para aplicá-los.</para>
       </listitem>
 
       <listitem>
-	<para>Some people like having code around, so they can read it
-	  if they get bored, hack it, borrow from it (license
-	  permitting, of course), and so on.</para>
+	<para>Algumas pessoas gostam de ter o código fonte para que possam lê-lo
+	  se ficarem entediadas, implementar alguma modificação, reutilizar 
+	  (caso a licença permita, é claro) e assim por diante.</para>
       </listitem>
     </itemizedlist>
 
-    <para>To keep track of updated ports, subscribe to the
-      &a.ports; and the &a.ports-bugs;.</para>
+    <para>Para manter-se altualizado em relação aos ports, assine as listas
+      &a.ports; e &a.ports-bugs;.</para>
 
     <warning>
-      <para>Before installing any application, you should check <ulink
-	url="http://vuxml.freebsd.org/"></ulink> for security issues
-	related to your application.</para>
+      <para>Antes de instalar qualquer aplicativo, você deve verificar <ulink 
+        url="http://vuxml.freebsd.org/"></ulink> para considerar questões de segurança
+        relacionadas a aplicação.</para>
 
-      <para>You can also install <filename
-	role="package">ports-mgmt/portaudit</filename> which will
-	automatically check all installed applications for known
-	vulnerabilities; a check will be also performed before any port
-	build.  Meanwhile, you can use the command <command>portaudit
-	-F -a</command> after you have installed some
-	packages.</para>
+      <para>Você também pode instalar o 
+        <filename role="package">ports-mgmt/portaudit</filename>, que irá verificar 
+        automaticamente a existência de vulnerabilidade em todos os aplicativos 
+        instalados; uma verificação também será realizada antes de qualquer nova 
+        compilação de um port. Além disso, você pode usar o comando 
+        <command>portaudit -F -a</command> depois de ter instalado um pacote.</para>
     </warning>
 
-    <para>The remainder of this chapter will explain how to use
-      packages and ports to install and manage third-party software on
-      FreeBSD.</para>
+    <para>O restante deste capítulo irá explicar como usar pacotes e 
+      ports para instalar e gerenciar o softwares de terceiros no &os;.</para>
   </sect1>
 
   <sect1 id="ports-finding-applications">
