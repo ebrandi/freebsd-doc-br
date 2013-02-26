@@ -104,16 +104,6 @@
       Até o presente momento, cerca de &os.numports; aplicativos de 
       terceiros foram disponibilizados desta maneira para &os;.</para>
 
-    <para>For any given application, the FreeBSD package for that
-      application is a single file which you must download.  The
-      package contains pre-compiled copies of all the commands for the
-      application, as well as any configuration files or
-      documentation.  A downloaded package file can be manipulated
-      with FreeBSD package management commands, such as
-      &man.pkg.add.1;, &man.pkg.delete.1;, &man.pkg.info.1;, and so
-      on.  Installing a new application can be carried out with a
-      single command.</para>
-
     <para>Para qualquer aplicação dada, o pacote para &os; é constituído de
       um único arquivo que você deve obter para efetuar a instalação. O pacote 
       contém cópias pré-compiladas de todos os comandos para a aplicação, 
@@ -191,11 +181,11 @@
       </listitem>
 
       <listitem>
-	  (compile-time) relativas ao que podem e não podem fazer. Por exemplo, 
-	  o <application>Apache</application> pode ser configurado com uma
-	  ampla variedade de diferentes opções embutidas. Ao compilá-lo
-	  a partir do port você não tem que aceitar as opções padrão
-	  e pode definir suas próprias customizações.</para>
+	<para>Opções de compilação (compile-time) são relativas ao que os pacotes
+	  podem e não podem fazer. Por exemplo, o <application>Apache</application> 
+	  pode ser configurado com uma ampla variedade de diferentes opções 
+	  embutidas. Ao compilá-lo a partir do port você não tem que aceitar as 
+	  opções padrão e pode definir suas próprias customizações.</para>
 
 	<para>Em alguns casos, vários pacotes podem existir para a mesma aplicação, 
 	  especificando, assim, diferentes customizações. Por exemplo, o 
@@ -1555,71 +1545,68 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
   </sect1>
 
   <sect1 id="ports-broken">
-    <title>Dealing with Broken Ports</title>
+    <title>Lidando com Ports Quebrados</title>
 
-      <para>If you come across a port that does not work for you,
-        there are a few things you can do, including:</para>
+      <para>Se você se deparar com um port que não funcione,
+        existem algumas coisas que você pode fazer. Elas incluem:</para>
 
       <orderedlist>
 	<listitem>
-	  <para>Find out if there is a fix pending for the port in
-	    the <ulink url="&url.base;/support.html#gnats">Problem Report
-	    database</ulink>.  If so, you may be able to use the
-	    proposed fix.</para>
+	  <para>Descubra se há uma correção pendente para o port no
+	   <ulink url="&url.base;/support.html#gnats">Banco de Dados de 
+	   Problemas Reportados</ulink>. Se assim for, você pode usar a 
+	   correção proposta.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Ask the maintainer of the port for help.  Type
-	    <command>make <maketarget>maintainer</maketarget></command> or read
-	    the <filename>Makefile</filename> to find the maintainer's
-	    email address.  Remember to include the name and version
-	    of the port (send the <literal>&dollar;FreeBSD:</literal>
-	    line from the <filename>Makefile</filename>) and the
-	    output leading up to the error when you email the
-	    maintainer.</para>
+	  <para>Pergunte ao mantenedor do port se ele pode lhe ajudar. Utilize
+	    <command>make <maketarget>mantenedor</maketarget></command> ou consulte
+	    o <filename>Makefile</filename> para encontrar o endereço de e-mail 
+	    do mantenedor. Lembre-se de incluir o nome, a versão do port (envie a 
+	    linha do <filename>Makefile</filename> contendo 
+	    <literal>&dollar;&os;:</literal>) e a saída que conduz ao erro quando 
+	    você enviar um e-mail ao mantenedor solicitando ajuda.</para>
 
 	  <note>
-	    <para>Some ports are not maintained by an individual but
-	      instead by a <ulink
-	      url="&url.articles.mailing-list-faq;/article.html">mailing
-	      list</ulink>.  Many, but not all, of these addresses look like
-	      <email role="nolink">freebsd-listname@FreeBSD.org</email>.
-	      Please take this into account when phrasing your
-	      questions.</para>
+	    <para>Alguns ports não são mantidos por um únido indivíduo, mas
+	      por uma <ulink url="&url.articles.mailing-list-faq;/article.html">lista 
+	      de discussão</ulink>. Muitos, mas não todos, destes endereços 
+	      assemelham-se com <email role="nolink">freebsd-nomedalista@FreeBSD.org</email>.
+	      Por favor, leve isso em consideração quando estiver formulando suas 
+	      palavras e perguntas.</para>
 
-	    <para>In particular, ports shown as maintained by
-	      <email role="nolink">ports@FreeBSD.org</email> are
-	      actually not maintained by anyone.  Fixes and support, if
-	      any, come from the general community who subscribe to that
-	      mailing list.  More volunteers are always needed!</para>
+	    <para>Em casos particulares, ports que apontam o e-mail
+	      <email role="nolink">ports@FreeBSD.org</email> como mantenedor são,
+	      na verdade, órfãos. Não existem mantenedores para esses ports. 
+	      Correções e suporte, caso existam, vêm da comunidade em geral que 
+	      está presente nas listas de discussão. Mais voluntários são sempre 
+	      necessários e muito bem-vindos!</para>
 	  </note>
 
-	  <para>If you do not get a response,
-	    you can use &man.send-pr.1; to submit a bug
-	    report (see <ulink
-	    url="&url.articles.problem-reports;/article.html">Writing
-	    FreeBSD Problem Reports</ulink>).</para>
+	  <para>Se você não obtiver uma resposta, você pode usar o comando 
+	    &man.send-pr.1; para enviar um relatório de problemas (veja o artigo 
+	    <ulink url="&url.articles.problem-reports;/article.html">Escrevendo 
+	    Relatórios de Problemas para FreeBSD</ulink>).</para>
 	</listitem>
 
         <listitem>
-	  <para>Fix it!  The <ulink
-	    url="&url.books.porters-handbook;/index.html">Porter's
-	    Handbook</ulink> includes detailed information on the
-	    <quote>Ports</quote> infrastructure so that you can fix the
-	    occasional broken port or even submit your own!</para>
+	  <para>Corrija você mesmo! O 
+	    <ulink url="&url.books.porters-handbook;/index.html">Manual para 
+	    Mantenedores de Ports</ulink> inclui informações detalhadas sobre a 
+	    infraestrutura dos <quote>Ports</quote> para que você possa corrigir o
+	    port quebrado ou até mesmo enviar seu próprio port!</para>
 	</listitem>
 
 	<listitem>
-	  <para>Grab the package from an FTP site near you.  The
-	    <quote>master</quote> package collection is on <hostid
-	    role="fqdn">ftp.FreeBSD.org</hostid> in the <ulink
-	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/packages/">packages
-	    directory</ulink>, but be sure to check your closer <link
-	    linkend="mirrors-ftp">mirror sites</link>
-	    <emphasis>first</emphasis>!  These are more likely to work
-	    than trying to compile from source and are a lot faster as
-	    well.  Use the &man.pkg.add.1; program to install the
-	    package on your system.</para>
+	  <para>Obtenha o pacote de um sítio FTP perto de você. A coleção 
+	  <quote>primária</quote> está em <hostid role="fqdn">ftp.FreeBSD.org</hostid> 
+	    e está localizada no <ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/packages">
+	    diretório de pacotes</ulink>, mas não deixe de conferir o sítio mais próximo na 
+	    página de <link linkend="mirrors-ftp">Servidores Espelho</link> 
+	    <emphasis>antes</emphasis> de obter o pacote! Estes pacotes são mais propensos a 
+	    funcionar, melhor do que você tentar compilar a partir do código fonte e o 
+	    processo de instalação é mais agilizado. Use o &man.pkg.add.1; para instalar 
+	    o pacote em seu sistema.</para>
 	</listitem>
       </orderedlist>
   </sect1>
