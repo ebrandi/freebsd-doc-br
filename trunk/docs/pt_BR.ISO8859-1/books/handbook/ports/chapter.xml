@@ -243,41 +243,44 @@
   <sect1 id="ports-finding-applications">
     <title>Localizando o Software</title>
 
-    <para>Before you can install any applications you need to know what you
-      want, and what the application is called.</para>
+    <para>Antes de instalar quaisquer ports, você precisa saber o 
+      que você realmente quer e como se chama o port que 
+      você precisa.</para>
 
-    <para>FreeBSD's list of available applications is growing all the
-      time.  Fortunately, there are a number of ways to find what you
-      want:</para>
+    <para>A lista de ports disponíveis para o &os; cresce todo 
+      o tempo. Felizmente, existem diversas maneiras de 
+      localizar o que você precisa:</para>
 
     <itemizedlist>
       <listitem>
-	<para>The FreeBSD web site maintains an up-to-date searchable
-	  list of all the available applications, at <ulink
-	  url="&url.base;/ports/index.html">http://www.FreeBSD.org/ports/</ulink>.
-	  The ports are divided into categories, and you may either
-	  search for an application by name (if you know it), or see
-	  all the applications available in a category.</para>
+        <para>O sítio web do &os; disponibiliza uma lista de todos 
+          os ports disponíveis que pode ser consultada em <ulink
+	  url="&url.base;/ports/index.html">http://www.FreeBSD.org/ports</ulink>. 
+          Os ports são divididos em categorias; você pode consultar cada uma 
+          delas ou buscar diretamente pelo nome de um port existente 
+          (caso você o conheça).</para>
       </listitem>
 
       <listitem>
 	<indexterm><primary>FreshPorts</primary></indexterm>
 
-	<para>Dan Langille maintains FreshPorts, at <ulink
-	  url="http://www.FreshPorts.org/"></ulink>.  FreshPorts
-	  tracks changes to the applications in the ports tree as they
-	  happen, allows you to <quote>watch</quote> one or more
-	  ports, and can send you email when they are updated.</para>
+	<para>Dan Langille mantém o sítio FreshPorts em <ulink
+	  url="http://www.freshports.org"></ulink>. O FreshPorts
+	  rastrea alterações das aplicações na Coleção de Ports a 
+	  medida que são aplicadas, lhe oferecendo a possibilidade 
+	  de <quote>monitorar</quote> um ou mais ports e 
+	  enviar-lhe um e-mail quando forem atualizados.</para>
       </listitem>
 
       <listitem>
-      <indexterm><primary>Freecode</primary></indexterm>
+      <indexterm><primary>FreeCode</primary></indexterm>
 
-	<para>If you do not know the name of the application you want,
-	  try using a site like Freecode (<ulink
-	  url="http://www.freecode.com/"></ulink>) to find an
-	  application, then check back at the FreeBSD site to see if
-	  the application has been ported yet.</para>
+	<para>Se você não sabe o nome do aplicativo que você precisa, 
+	  tente usar um site como o FreeCode 
+	  (<ulink url = "http://www.freecode.com/"></ulink>) para 
+	  encontrar o que precisa e, em seguida, volte ao sítio com 
+	  a lista de ports oficial do &os; para ver se o aplicativo 
+	  está disponível.</para>
       </listitem>
 
       <listitem>
@@ -368,16 +371,19 @@ R-deps: </screen>
 
     <title>Utilizando o Sistema de Pacotes</title>
 
-    <para>There are several different tools used to manage packages on
-      FreeBSD:</para>
+    <para>Existem diferentes ferramentas que podem ser utilizadas 
+	no &os; para o gerenciamento de pacotes:</para>
 
     <itemizedlist>
-      <listitem><para>The <command>sysinstall</command> utility can be invoked on a
-        running system to install, delete, and list available and
-        installed packages. For more information, see <xref
-        linkend="packages"/>.</para></listitem>
-      <listitem><para>The package management command line tools, which are
-        the subject of the rest of this section.</para></listitem>
+      <listitem><para>O  utilitário <command>sysinstall</command> 
+        pode ser executado num sistema &os; que esteja em execução 
+        para instalar, excluir e listar pacotes já presentes no 
+        sistema. Para mais informações, visite a 
+        <xref linkend="packages"/>.</para></listitem>
+
+      <listitem><para>As ferramentas de gerenciamento de pacotes que 
+        podem ser executadas em linha de comando; tópico principal 
+        descrito no decorrer desta seção.</para></listitem>
     </itemizedlist>
 
     <sect2>
@@ -610,65 +616,73 @@ docbook                     =
   <sect1 id="ports-using">
     <title>Utilizando a Coleção de Ports</title>
 
-    <para>The following sections provide basic instructions on using the
-      Ports Collection to install or remove programs from your
-      system.  The detailed description of available <command>make</command>
-      targets and environment variables is available in &man.ports.7;.</para>
+    <para>As seções a seguir fornecem instruções básicas sobre como utilizar a
+      Coleção de Ports para instalar ou remover aplicações de seu 
+      &os;. Uma descrição detalhada de tudo que pode ser feito na 
+      Coleção de Ports com auxílio do comando <command>make</command> 
+      pode ser vista na página de manual &man.ports.7;. Da mesma forma, 
+      as variáveis de ambiente relacionadas a coleção também são 
+      descritas na mesma página.</para>
 
     <warning>
-      <para>As of late 2012, the &os; Ports Project is in the
-	process of migrating revision control systems from CVS to
-	Subversion.  As a result, these instructions are in a state of
-	change.  The preferred mechanism for general ports use is
-	<application>Portsnap</application>.  Users requiring local
-	customization of ports (that is, maintaining additional local
-	patches) will probably prefer to use Subversion directly.  The
-	<application>CVSup</application> service is being phased out
-	as of February 28, 2013, and further use is
-	discouraged.</para>
+      <para>Desde meados de 2012, o Projeto de Ports para &os; estava no
+	processo de migração do sistema de controle de revisão de CVS para
+	Subversion. Como resultado desse processo, algumas instruções 
+	aqui descritas ainda encontram-se em estágio de modificação 
+	e precisarão ser alteradas. Atualmente o mecanismo preferido 
+	para se trabalhar com a Coleção de Ports nesse sentido é o 
+	<application>Portsnap</application>. Usuários que necessitem 
+	de algum tipo de personalização a ser efetuada em algum port 
+	(por exemplo, para manter patches/correções adicionais locais) 
+	provavelmente vão preferir usar Subversion. O uso do 
+	<application>CVSup</application> é totalmente desencorajado, 
+	visto que seu serviço e suporte foi eliminado em 
+	28 de fevereiro de 2013.</para>
     </warning>
 
     <sect2 id="ports-tree">
       <title>Obtendo a Coleção de Ports</title>
 
-      <para>The Ports Collection is a set of
-	<filename>Makefiles</filename>, patches, and description files
-	stored in <filename>/usr/ports</filename>.  This set of files
-	is used for building and installing applications on &os;.  The
-	instructions below show several methods of obtaining the Ports
-	Collection if it was not installed during initial &os;
-	setup.</para>
+      <para>A Coleção de Ports é um conjunto de <filename>Makefiles</filename>, 
+	patches e arquivos de descrição das aplicações portadas que são 
+	armazenados, por padrão, no diretório <filename>/usr/ports</filename>. 
+	Este conjunto de arquivos é usado para a compilação e 
+	instalação de aplicativos no &os;. As instruções abaixo mostram 
+	vários métodos para se obter a Coleção de Ports caso ela não tenha 
+	sido adicionada ao sistema durante o processo de instalação 
+	ou configuração inicial do &os;.</para>
 
       <procedure>
 	<title>Utilizando o Portsnap</title>
 
-	<para><application>Portsnap</application> is a fast and
-	  user-friendly tool for retrieving the Ports Collection, the
-	  preferred choice for most users.  See
-	  <link linkend="updating-upgrading-portsnap">Using
-	    Portsnap</link> for a detailed description of
-	  <application>Portsnap</application>.</para>
+	<para>O <application>Portsnap</application> é uma ferramenta 
+	  amigável e rápida de se usar. Sendo assim, é a escolha 
+	  preferida de muitos usuários para se trabalhar com a 
+	  Coleção de Ports.  Veja a página <link 
+	  linkend="updating-upgrading-portsnap">Utilizando o Portsnap</link> 
+	  para informações detalhadas de como se trabalhar 
+	  com o <application>Portsnap</application>.</para>
 
 	<step>
-	  <para>Download a compressed snapshot of the Ports Collection
-	    into <filename
+	  <para>Obtenha um snapshot comprimido da Coleção de Ports, 
+	    armazenando-o em <filename
 	      class="directory">/var/db/portsnap</filename>.</para>
 
 	  <screen>&prompt.root; <userinput>portsnap fetch</userinput></screen>
 	</step>
 
 	<step>
-	  <para>When running <application>Portsnap</application>
-	    for the first time, extract the snapshot into
+	  <para>Quando estiver executando o <application>Portsnap</application>
+	    pela primeira vez, extraia o conteúdo do snapshot para
 	    <filename class="directory">/usr/ports</filename>:</para>
 
 	  <screen>&prompt.root; <userinput>portsnap extract</userinput></screen>
 
-	  <para>After the first use of
-	    <application>Portsnap</application> has been completed as
-	    shown above,
-	    <filename class="directory">/usr/ports</filename> can be
-	    updated with:</para>
+	  <para>Após o primeiro uso do 
+	    <application>Portsnap</application>, como descrito acima,
+	    atualizar a coleção em <filename 
+	    class="directory">/usr/ports</filename> pode ser feito 
+	    com o seguinte comando:</para>
 
 	  <screen>&prompt.root; <userinput>portsnap update</userinput></screen>
 	</step>
@@ -1523,15 +1537,17 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
       </listitem>
 
       <listitem>
-	<para>If the application has a web site, check it for
-	  additional documentation, frequently asked questions, and so
-	  forth.  If you are not sure of the web site address it may
-	  be listed in the output from</para>
+	<para>Se o aplicativo tem um sítio web, verifique se há
+	  alguma documentação adicional, se existe alguma página 
+	  com as perguntas mais freqüentes, e assim por diante. 
+	  Se você não tiver certeza do endereço do sítio ou até 
+	  mesmo desconhecer sua existencia, ele pode ser 
+	  listado da seguinte forma:</para>
 
 	<screen>&prompt.root; <userinput>pkg_info <replaceable>foopackage-1.0.0</replaceable></userinput></screen>
 
-	<para>A <literal>WWW:</literal> line, if present, should provide a URL
-	  for the application's web site.</para>
+	<para>Se presente, uma linha iniciando com <literal>WWW:</literal> 
+	  deve fornecer uma URL para o sítio web do aplicativo.</para>
       </listitem>
 
       <listitem>
