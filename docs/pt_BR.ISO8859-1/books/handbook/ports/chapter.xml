@@ -284,46 +284,46 @@
       </listitem>
 
       <listitem>
-	<para>If you know the exact name of the port, but just need to
-        find out which category it is in, you can use the
-        &man.whereis.1; command.
-	Simply type <command>whereis
-        <replaceable>file</replaceable></command>, where
-        <replaceable>file</replaceable> is the program you want to
-        install.  If it is found on your system, you will be told
-        where it is, as follows:</para>
+	<para>Se você já sabe exatamente como se chama o port que 
+	  precisa, mas ainda tem dúvida em qual categoria o port se 
+	  encontra, você pode utilizar o comando &man.whereis.1; 
+	  para descobrir. Basta que você execute 
+	  <command>whereis <replaceable>NOME</replaceable></command>, 
+	  onde <replaceable>NOME</replaceable> é o nome do port que 
+	  deseja instalar. Se ele existir, você verá algo como:</para>
 
       <screen>&prompt.root; <userinput>whereis lsof</userinput>
 lsof: /usr/ports/sysutils/lsof</screen>
 
-      <para>This tells us that <command>lsof</command> (a system
-	utility) can be found in the
-	<filename>/usr/ports/sysutils/lsof</filename>
-	directory.</para></listitem>
+      <para>Isso lhe informa que o port so <command>lsof</command> 
+	(uma ferramenta do sistema) encontra-se no diretório 
+	<filename>/usr/ports/sysutils/lsof</filename>.</para>
+</listitem>
 
       <listitem>
-	<para>Additionally, you can use a simple &man.echo.1; statement
-	  to find where a port exists in the ports tree.  For
-	  example:</para>
+	<para>Em contrapartida, você pode simplesmente fazer uso do 
+	  &man.echo.1; para ver em qual categoria o port está. Veja 
+	  o exemplo:</para>
 
 	<screen>&prompt.root; <userinput>echo /usr/ports/*/*lsof*</userinput>
 /usr/ports/sysutils/lsof</screen>
 
-	<para>Note that this will return any matched files downloaded into the
-	  <filename class="directory">/usr/ports/distfiles</filename>
-	  directory.</para>
+	<para>Note que o comando acima também lhe retornará quaisquer 
+	  arquivos presentes em <filename 
+	  class="directory">/usr/ports/distfiles</filename> que 
+	  satisfaçam a condição passada ao &man.echo.1;.</para>
       </listitem>
 
       <listitem>
-	<para>Yet another way to find a particular port is by using the
-        Ports Collection's built-in search mechanism.  To use the
-        search feature, you will need to be in the
-        <filename>/usr/ports</filename> directory.  Once in that
-        directory, run <command>make <maketarget>search</maketarget>
-        name=<replaceable>program-name</replaceable></command> where
-        <replaceable>program-name</replaceable> is the name of the
-        program you want to find.  For example, if you were looking
-        for <command>lsof</command>:</para>
+	<para>Uma outra maneira é fazer uso do mecanismo de busca 
+	imbutido na Coleção de Ports. Para utilizar o mecanismo 
+	você terá de estar no diretório <filename>/usr/ports</filename>. 
+	Uma vez estando em <filename>/usr/ports</filename> você 
+	pode executar <command>make <maketarget>search</maketarget> 
+	name=<replaceable>NOME</replaceable></command>, onde 
+	<replaceable>NOME</replaceable> é o nome do port que você 
+	deseja localizar. Por exemplo, se você estiver procurando 
+	pelo <command>lsof</command>, execute:</para>
 
       <screen>&prompt.root; <userinput>cd /usr/ports</userinput>
 &prompt.root; <userinput>make search name=lsof</userinput>
@@ -335,23 +335,24 @@ Index:  sysutils
 B-deps:
 R-deps: </screen>
 
-      <para>The part of the output you want to pay particular
-        attention to is the <quote>Path:</quote> line, since that
-        tells you where to find the port.  The other information
-        provided is not needed in order to install the port, so it
-        will not be covered here.</para>
+      <para>A parte da saída que você deve prestar atenção é a linha 
+	<quote>Path:</quote>, uma vez que é ela quem lhe onde 
+	encontrar o port. As outras informações fornecidas pela 
+	saída da consulta não são necessárias para efetuar a 
+	instalação e, visto isso, não serão abordadas aqui.</para>
 
-      <para>For more in-depth searching you can also use <command>make
-       <maketarget>search</maketarget> key=<replaceable>string</replaceable></command>
-       where <replaceable>string</replaceable> is some text to search for.
-       This searches port names, comments, descriptions and
-       dependencies and can be used to find ports which relate to a
-       particular subject if you do not know the name of the program
-       you are looking for.</para>
+      <para>Para uma busca mais aprofundada, você também pode usar 
+	<command>make <maketarget>search</maketarget> 
+	key=<replaceable>STRING</replaceable></command> (onde 
+	<replaceable>STRING</replaceable> é um texto a ser 
+	localizado). Isso procura nomes de ports, comentários, 
+	descrições e dependências, podendo ser utilizado para 
+	encontrar ports que se relacionam com um assunto ou 
+	uma palavra-chave em particular.</para>
 
-      <para>In both of these cases, the search string is case-insensitive.
-       Searching for <quote>LSOF</quote> will yield the same results as
-       searching for <quote>lsof</quote>.</para>
+      <para>Em ambos os casos, a pesquisa não é sensível a caracteres 
+	maiúsculos ou minúsculos. Buscar por <quote>LSOF</quote> 
+	trará os mesmos resultados que <quote>lsof</quote>.</para>
       </listitem>
 
     </itemizedlist>
@@ -1492,48 +1493,57 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
   <sect1 id="ports-nextsteps">
     <title>Atividades Pós-instalação</title>
 
-    <para>After installing a new application you will normally want to
-      read any documentation it may have included, edit any
-      configuration files that are required, ensure that the
-      application starts at boot time (if it is a daemon), and so
-      on.</para>
+    <para>Depois de instalar um novo port, normalmente você vai querer
+       ler toda a documentação incluida no pacote criado, editar quaisquer
+       arquivos de configuração que forem necessários para fazer a 
+       aplicação portada funcionar como você espera, 
+       vai querer garantir que o port seja iniciado no momento da 
+       inicialização do sistema (caso seja um daemon provedor de 
+       serviço) e assim por diante.</para>
 
-    <para>The exact steps you need to take to configure each
-      application will obviously be different.  However, if you have
-      just installed a new application and are wondering <quote>What
-      now?</quote> these tips might help:</para>
+    <para>As etapas exatas que você precisa seguir para configurar cada
+       aplicação serão, obviamente, diferentes umas das outras. 
+       No entanto, se você acabou de instalar um novo aplicativo e 
+       está se perguntando o que <quote>E agora?</quote> estas 
+       dicas podem ajudar:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Use &man.pkg.info.1; to find out which files were installed,
-	  and where.  For example, if you have just
-	  installed FooPackage version 1.0.0, then this command</para>
+        <para>Use o &man.pkg.info.1; para descobrir quais arquivos foram 
+	  instalados e onde foram instalados. Por exemplo, se você 
+	  instalou apenas o FooPackage versão 1.0.0 execute o 
+	  seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>pkg_info -L foopackage-1.0.0 | less</userinput></screen>
 
-	<para>will show all the files installed by the package.  Pay
-	  special attention to files in <filename>man/</filename>
-	  directories, which will be manual pages,
-	  <filename>etc/</filename> directories, which will be
-	  configuration files, and <filename>doc/</filename>, which
-	  will be more comprehensive documentation.</para>
+	<para>A saída do comando acima irá mostrar todos os arquivos 
+	  instalados pelo pacote. Preste atenção especial aos 
+	  arquivos listados no diretório <filename>man/</filename>, 
+	  pois esses arquivos são as páginas de manual que o port 
+	  lhe forneceu; no diretório <filename>etc/</filename> 
+	  estão os arquivos de configuração e não esqueça do 
+	  diretório <filename>doc/</filename>, que contém a 
+	  documentação mais abrangente ligada ao aplicativo 
+	  portado.</para>
 
-	<para>If you are not sure which version of the application was
-	  just installed, a command like this</para>
+	<para>Se você não estiver certo de qual versão foi instalada, 
+	  experimente o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>pkg_info | grep -i <replaceable>foopackage</replaceable></userinput></screen>
 
-	<para>will find all the installed packages that have
-	  <replaceable>foopackage</replaceable> in the package name.
-	  Replace <replaceable>foopackage</replaceable> in your
-	  command line as necessary.</para>
+	<para>A saída do comando acima vai te mostrar todos os 
+	  pacotes instalados que tiverem <replaceable>foopackage</replaceable> 
+	  em seu nome ou descrição. Substitua, quando necessário, 
+	  <replaceable>foopackage</replaceable> pelo nome do pacote 
+	  que você procura.</para>
       </listitem>
 
       <listitem>
-	<para>Once you have identified where the application's manual
-	  pages have been installed, review them using &man.man.1;.
-	  Similarly, look over the sample configuration files, and any
-	  additional documentation that may have been provided.</para>
+	<para>Depois de ter identificado onde as páginas de manual 
+	  foram instaladas, consulte-as usando o comando &man.man.1;. 
+	  Da mesma forma, dê uma olhada nos modelos de arquivos de 
+	  configuração e qualquer documentação adicional que pode 
+	  ter sido fornecida.</para>
       </listitem>
 
       <listitem>
