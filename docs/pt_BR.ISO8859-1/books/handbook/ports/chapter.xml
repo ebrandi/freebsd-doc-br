@@ -692,57 +692,52 @@ docbook                     =
       <procedure>
 	<title>Utilizando o Subversion</title>
 
-	<para>If more control over the ports tree is needed (for
-	  example, for maintaining local changes)
-	  <application>Subversion</application> can be used to
-	  obtain the Ports Collection.  Refer to <ulink
-	    url="&url.articles.committers-guide;/subversion-primer.html">the
-	    Subversion Primer</ulink> for a detailed description of
+	<para>Se for necessário que você tenha mais controle sobre a árvore 
+	  de ports (para manter a alterações locais, por exemplo) o 
+	  <application>Subversion</application> também pode ser usado para 
+	  obter a Coleção de Ports. Consulte o artigo 
+	  <ulink url="&url.articles.committers-guide;/subversion-primer.html">
+	  Subversion Primer</ulink> para uma descrição detalhada do 
 	  <application>Subversion</application>.</para>
 
 	<step>
-	  <para><application>Subversion</application> must be
-	    installed before it can be used to check out the ports
-	    tree.  If a copy of the ports tree is already present,
-	    install <application>Subversion</application> like
-	    this:</para>
+	  <para>O <application>Subversion</application> deve ser instalado 
+	    antes para que você possa consultar a árvore da Coleção de Ports. 
+	    Se uma cópia da árvore já está presente em seu sistema, 
+	    instale o <application>Subversion</application> da seguinte maneira:</para>
 
 	  <screen>&prompt.root; <userinput>cd /usr/ports/devel/subversion</userinput>
 &prompt.root; <userinput>make install clean</userinput></screen>
 
-	  <para>If the ports tree is not available,
-	    <application>Subversion</application> can be installed as
-	    a package:</para>
+	  <para>Caso a árvore não esteja disponível em seu sistema,
+	    você pode instalar o pacote do <application>Subversion</application>:</para>
 
 	  <screen>&prompt.root; <userinput>pkg_add -r subversion</userinput></screen>
 
-	  <para>If <application>pkgng</application> is being used to
-	    manage packages, <application>Subversion</application> can 
-	    be installed with it instead:</para>
+	  <para>Se você está fazendo uso do <application>pkgng</application> 
+	    para fazer o gerenciamento de pacotes, instale o pacote do 
+	    <application>Subversion</application> da seguinte maneira:</para>
 
 	  <screen>&prompt.root; <userinput>pkg install subversion</userinput></screen>
 	</step>
 
 	<step>
-	  <para>Check out a copy of the ports tree.  Use a specific
-	    <ulink
-	      url="&url.books.handbook;/mirrors-svn.html">Subversion
-	      mirror</ulink> close to your geographic location instead
-	    of <replaceable>svn.FreeBSD.org</replaceable> in the
-	    command below for better performance.  Committers should
-	    read the <ulink
-	      url="&url.articles.committers-guide;/subversion-primer.html">Subversion
-	      Primer</ulink> first to be sure the correct protocol is
-	    chosen.</para>
+	  <para>Obtenha da Coleção de Ports.  Utilize um 
+	    <ulink url="&url.books.handbook;/mirrors-svn.html">Mirror SVN</ulink> 
+		próximo a você ao invés de usar <replaceable>svn.FreeBSD.org</replaceable> 
+		para obter uma melhor performance. Desenvolvedores devem ler e 
+		consultar o <ulink 
+		url="&url.articles.committers-guide;/subversion-primer.html">Subversion Primer</ulink> 
+		para se certificar de que estam escolhendo o protocolo corretamente.</para>
 
 	  <screen>&prompt.root; <userinput>svn checkout svn://<replaceable>svn.FreeBSD.org</replaceable>/ports/head /usr/ports</userinput></screen>
 	</step>
 
 	<step>
-	  <para>To update
-	    <filename class="directory">/usr/ports</filename> after
-	    the initial <application>Subversion</application>
-	    checkout:</para>
+	  <para>Atualize
+	    <filename class="directory">/usr/ports</filename> 
+		após o <quote>checkout</quote> inicial do 
+		<application>Subversion</application>:</para>
 
 	  <screen>&prompt.root; <userinput>svn update /usr/ports</userinput></screen>
 	</step>
@@ -752,74 +747,77 @@ docbook                     =
 	<title>Utilizando o CVSup</title>
 
 	<warning>
-	  <para>The CVSup method of retrieving and synchronizing the
-	    Ports Collection is being deprecated as part of a
-	    migration to Subversion.  While it remains supported, the
-	    service will be discontinued as of February 28,
-	    2013.</para>
+	  <para>O uso de CVSup para se obter e sincronizar a Coleção de Ports 
+	  está descontinuado no &os; desde 28 de Fevereiro de 2013. 
+	  Recomenda-se que você utilize Subversion ao invés de 
+	  CVSup.</para>
 	</warning>
 
-	<para>This is a quick method for getting and keeping your copy of the
-	  Ports Collection up to date using <application>CVSup</application>
-	  protocol.  If you want to learn more about
-	  <application>CVSup</application>, see <link
-	    linkend="cvsup">Using CVSup</link>.</para>
+	<para>Este guia rápido para se obter uma cópia da Coleção de Ports via 
+	  <application>CVSup</application>. Caso deseje obter mais informações, 
+	  consulte a página <link linkend="cvsup">Utilizando o CVSup</link>.</para>
 
 	<note>
-	  <para>The implementation of <application>CVSup</application> protocol
-	    included with the &os; system is called
-	    <application>csup</application>.</para>
+	  <para>A implementação do protocolo <application>CVSup</application> 
+	  presente no &os; é chamada através do &man.csup.1;.</para>
 	</note>
 
-	<para>Make sure <filename class="directory">/usr/ports</filename>
-	  is empty before you run <application>csup</application> for
-	  the first time!  If you already have the Ports Collection present,
-	  obtained from another source, <application>csup</application>
-	  will not prune removed patch files.</para>
+	<para>Assegure-se de que o diretório <filename class="directory">/usr/ports</filename>
+	  esteja vazio antes de executar uma chamada do <application>csup</application> 
+	  pela primeira vez!  Se você já tem uma árvore da Coleção de Ports nesse diretório, 
+	  obtida através de uma outra fonte qualquer, o <application>csup</application> 
+	  não será capaz de efetuar procedimentos de <quote>podagem</quote> na árvore. 
+	  Isso significa que, se necessário, arquivos desnecessários que deveriam ser 
+	  apagados ou movidos na Coleção de Ports não serão tratados.</para>
 
 	<step>
-	  <para>Run <command>csup</command>:</para>
+	  <para>Execute o <command>csup</command>:</para>
 
 	  <screen>&prompt.root; <userinput>csup -L 2 -h <replaceable>cvsup.FreeBSD.org</replaceable> /usr/share/examples/cvsup/ports-supfile</userinput></screen>
 
-	  <para>Change
-	    <replaceable>cvsup.FreeBSD.org</replaceable> to a
-	    <application>CVSup</application> server near you.  See
-	    <link linkend="cvsup-mirrors">CVSup Mirrors</link> (<xref
-	    linkend="cvsup-mirrors"/>) for a complete listing of mirror
-	    sites.</para>
+	  <para>Altere
+	    <replaceable>cvsup.FreeBSD.org</replaceable> para um Mirror
+	    <application>CVSup</application> que esteja mais próximo de você. 
+	    Consulte a página sobre <link linkend="cvsup-mirrors">Mirrors CVSup</link> 
+	    (<xref linkend="cvsup-mirrors"/>) para ver a lista completa dos 
+	    sítios que oferecem esse serviço.</para>
 
 	  <note>
-	    <para>One may want to use his own
-	      <filename>ports-supfile</filename>, for example to avoid
-	      the need of passing the <application>CVSup</application>
-	      server on the command line.</para>
+	    <para>Você pode peferir customizar seu próprio arquivo 
+	      <filename>ports-supfile</filename> para, por exemplo, 
+	      não necessitar informar  manualmente ao 
+	      <application>CVSup</application> um servidor diferente 
+	      a cada execução via linha de comando.</para>
 
 	    <procedure>
 	      <step>
-		<para>In this case, as <username>root</username>, copy
+		<para>Nesse caso, como usuário <username>root</username>, 
+		  faça uma cópia de 
 		  <filename>/usr/share/examples/cvsup/ports-supfile</filename>
-		  to a new location, such as
-		  <filename>/root</filename> or your home
-		  directory.</para>
+		  para um outro diretório a sua escolha, como (por exemplo) 
+		  <filename>/root</filename> ou para o diretório 
+		  <filename>/home</filename> de algum outro usuário.</para>
 	      </step>
 
 	      <step>
-		<para>Edit <filename>ports-supfile</filename>.</para>
+		<para>Edite a cópia do <filename>ports-supfile</filename>.</para>
 	      </step>
 
 	      <step>
-		<para>Change
+		<para>Altere
 		  <replaceable>CHANGE_THIS.FreeBSD.org</replaceable>
-		  to a <application>CVSup</application> server near
-		  you.  See <link linkend="cvsup-mirrors">CVSup
-		  Mirrors</link> (<xref linkend="cvsup-mirrors"/>) for
-		  a complete listing of mirror sites.</para>
+		  para um servidor de <application>CVSup</application> 
+		  que voce deseja utilizar.
+		  Consulte os <link linkend="cvsup-mirrors">Mirrors CVSup</link> 
+		  (<xref linkend="cvsup-mirrors"/>) para obter uma lista 
+		  completa dos sítios que oferecem esse serviço.</para>
 	      </step>
 
 	      <step>
-		<para>And now to run <command>csup</command>, use the
-		  following:</para>
+		<para>Considerando que você fez uma cópia do 
+		  <filename>ports-supfile</filename> para o diretório 
+		  <filename>/root</filename>, execute o comando 
+		  <command>csup</command> da seguinte maneira:</para>
 
 		<screen>&prompt.root; <userinput>csup -L 2 <replaceable>/root/ports-supfile</replaceable></userinput></screen>
 	      </step>
@@ -828,61 +826,63 @@ docbook                     =
 	</step>
 
 	<step>
-	  <para>Running the &man.csup.1; command later will download and apply
-	    all the recent changes to your Ports Collection, except
-	    actually rebuilding the ports for your own system.</para>
+	  <para>Executar o &man.csup.1; daí em diante irá fazer com 
+		que sua árvore seja atualizada e todas alterações necessárias 
+		na Coleção de Ports sejam aplicadas, exceto o fato de 
+		recompilar os ports já instalados em seu sistema.</para>
 	</step>
       </procedure>
 
       <procedure>
 	<title>Utilizando o Sysinstall</title>
 
-	<para>This method involves using <application>sysinstall</application>
-	  to install the Ports Collection from the installation media.  Note
-	  that the old copy of Ports Collection from the date of the release
-	  will be installed.  If you have Internet access, you should always
-	  use one of the methods mentioned above.</para>
+	<para>Este método considera a utilização do <application>sysinstall</application>
+	  para instalar a Coleção de Ports através de uma mídia de instalação. 
+	  Leve em consideração que a cópia da Coleção de Ports que será 
+	  instalada em seu sistema reflete o conteúdo exato da árvore que 
+	  foi copiada durante a geração da sua mídia de instalação. Caso você 
+	  tenha conexão com a Internet, recomenda-se que você utilize um 
+	  dos métodos citados anteriormente.</para>
 
 	<step>
-	  <para>As <username>root</username>, run
-	    <command>sysinstall</command> as shown below:</para>
+	  <para>Como usuário <username>root</username>, execute o 
+	    <command>sysinstall</command>:</para>
 
 	  <screen>&prompt.root; <userinput>sysinstall</userinput></screen>
 	</step>
 
 	<step>
-	  <para>Scroll down and select <guimenuitem>Configure</guimenuitem>,
-	    press <keycap>Enter</keycap>.</para>
+	  <para>Selecione o item <guimenuitem>Configure</guimenuitem> 
+	    e precione <keycap>Enter</keycap>.</para>
 	</step>
 
 	<step>
-	  <para>Scroll down and select
-	    <guimenuitem>Distributions</guimenuitem>, press
+	  <para>Selecione o item 
+	    <guimenuitem>Distributions</guimenuitem> e precione 
 	    <keycap>Enter</keycap>.</para>
 	</step>
 
 	<step>
-	  <para>Scroll down to <guimenuitem>ports</guimenuitem>, press
-	    <keycap>Space</keycap>.</para>
+	  <para>Selecione a opção <guimenuitem>ports</guimenuitem> e precione
+	    <keycap>Barra de Espaço</keycap>.</para>
 	</step>
 
 	<step>
-	  <para>Scroll up to <guimenuitem>Exit</guimenuitem>, press
+	  <para>Selecione o item <guimenuitem>Exit</guimenuitem> e precione 
 	    <keycap>Enter</keycap>.</para>
 	</step>
 
 	<step>
-	  <para>Select your desired installation media, such as CDROM,
-	    FTP, and so on.</para>
+	  <para>Selecione sua mídia de instalação: CD-ROM, FTP e etc.</para>
 	</step>
 
 	<step>
-	  <para>Scroll up to <guimenuitem>Exit</guimenuitem> and press
+	  <para>Selecione o item <guimenuitem>Exit</guimenuitem> e precione
 	    <keycap>Enter</keycap>.</para>
 	</step>
 
 	<step>
-	  <para>Press <keycap>X</keycap> to exit
+	  <para>Precione a tecla <keycap>X</keycap> para sair do 
 	    <application>sysinstall</application>.</para>
 	</step>
       </procedure>
@@ -1417,8 +1417,8 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
         ===>>> 83 have new versions available
 </screen>
 
-	<para>All the installed ports can be upgraded using this simple
-	  command:</para>
+	<para>Todos os ports instalados em seu sistema podem ser 
+	  atualizados com a execução de um simples comando:</para>
 
 	<screen>&prompt.root; <userinput>portmaster -a</userinput></screen>
 
@@ -1443,7 +1443,7 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 
 	<screen>&prompt.root; <userinput>portmaster <replaceable>shells/bash</replaceable></userinput></screen>
 
-	<para>Please see &man.portmaster.8; for more information.</para>
+	<para>Por favor, consulte a página de manual &man.portmaster.8; para obter mais informações.</para>
       </sect3>
     </sect2>
 
@@ -1454,38 +1454,38 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 	<primary>ports</primary>
 	<secondary>disk-space</secondary>
       </indexterm>
-      <para>Using the Ports Collection will use up disk
-	space over time.  After building and installing software from the
-	ports, you should always remember to clean up
-	the temporary <filename class="directory">work</filename> directories
-	using the <command>make	<maketarget>clean</maketarget></command>
-	command.  You can sweep the whole Ports Collection with the following
-	command:</para>
+      <para>Usar a Coleção de Ports irá, certamente, utilizar espaço em 
+	disco. Depois de compilar e instalar o softwares, você deve 
+	sempre se lembrar de limpar o diretório 
+	<filename class="directory">work</filename> através da execução 
+	do comando <command> make <maketarget>clean</maketarget></command>. 
+	Você pode percorrer toda a Coleção de Ports e limpar todos 
+	esses diretórios com a seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>portsclean -C</userinput></screen>
 
-      <para>You will accumulate a lot of old source distribution files in the
-	<filename class="directory">distfiles</filename> directory over time.
-	You can remove them by hand, or you can use the following command to
-	delete all the distfiles that are no longer referenced by any
-	ports:</para>
+      <para>Você certamente irá acumular muitos arquivos velhos de códigos 
+	fonte no diretório 
+	<filename class="directory">/usr/ports/distfiles</filename> com o 
+	passar do tempo. Você pode remover esses arquivos manualmente 
+	ou deletar todos eles através do seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>portsclean -D</userinput></screen>
 
-      <para>Or to remove all distfiles not referenced by any port
-	currently installed on your system:</para>
+      <para>Ou, para remover todos os distfiles não referenciados pelos 
+	ports instalados em seu sistema, faça uso do seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>portsclean -DD</userinput></screen>
 
       <note>
-	<para>The <command>portsclean</command> utility is part of the
-	  <application>portupgrade</application> suite.</para>
+	<para>O utilitário <command>portsclean</command> faz parte da suíte
+	  <application>portupgrade</application>.</para>
       </note>
 
-      <para>Do not forget to remove the installed ports once you no longer need
-	them.  A nice tool to help automate this task is available from the
-	<filename role="package">ports-mgmt/pkg_cutleaves</filename>
-	port.</para>
+      <para>Não esqueça de remover ports que você não necessita mais. Uma 
+	ótima ferramenta que pode lhe ajudar nesta terefa está disponível 
+	através do port 
+	<filename role="package">ports-mgmt/pkg_cutleaves</filename>.</para>
     </sect2>
 
   </sect1>
