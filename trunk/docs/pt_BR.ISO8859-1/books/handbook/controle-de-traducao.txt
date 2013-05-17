@@ -21,7 +21,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 5011   # install             # r39550  # Marcos Alves, 16/10/2012 
 2731   # bsdinstall          # r39550  # Liberado para revisão
 2716   # basics              # r39544  # Marcelo Rossi, 27/11/2012
-1623   # ports               # r39649  # Vinicius Zavam, 21/12/2012
+1623   # ports               # r39649  # Liberado para revisao
 1743   # x11                 # r39595  #
 ##################################################################
 14.834 Linhas
