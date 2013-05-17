@@ -1085,120 +1085,130 @@ docbook                     =
 
 	<note>
 	  <para>Quando se está instalando um port, utilizando 
-	    <command>make <maketarget>install</maketarget></command> como 
-	    primeiro passo para efetuar o processo de instalação é notório 
-	    que você irá aguardar mais tempo para interagir com o sistema 
-	    do que de costume, visto que o procedimento padrão de cada um 
-	    dos passos é solicitar opções de configuração ao usuário. Se 
-	    existirem muitas dependencias a se cumprir, geralmente o 
-	    processo de compilação se torna problemático. Para evitar isso, 
-	    antes de tudo procure executar <command>make 
-	    <maketarget>config-recursive</maketarget></command> para efetuar 
-	    configuração de todos os ports e dependências de uma vez. Em 
-	    seguida execute <command>make <maketarget>install 
-	    clean</maketarget></command>.</para>
+	  <command>make <maketarget>install</maketarget></command> como 
+	  primeiro passo para efetuar o processo de instalação é notório 
+	  que você irá aguardar mais tempo para interagir com o sistema 
+	  do que de costume, visto que o procedimento padrão de cada um 
+	  dos passos é solicitar opções de configuração ao usuário. Se 
+	  existirem muitas dependencias a se cumprir, geralmente o 
+	  processo de compilação se torna problemático. Para evitar isso, 
+	  antes de tudo procure executar <command>make 
+	  <maketarget>config-recursive</maketarget></command> para efetuar 
+	  configuração de todos os ports e dependências de uma vez. Em 
+	  seguida execute <command>make <maketarget>install 
+	  clean</maketarget></command>.</para>
 	</note>
 
 	<tip>
 	  <para>Quando se utiliza <maketarget>config-recursive</maketarget>, 
-	    a lista de ports à serem configurados é obtida através de um 
-	    <maketarget>all-depends-list</maketarget> utilizado pelo 
-	    comando &man.make.1;. É recomendado que se execute 
-	    <command>make <maketarget>config-recursive</maketarget></command> 
-	    até que todas as opções das dependências de um port sejam 
-	    configuradas e nenhuma das janelas de configuração exibidas 
-	    via &man.dialog.1; sejam mostradas novamente. Assim você se 
-	    certifica de que todas as opções de todas as dependencias 
-	    já foram configuradas.</para>
+	  a lista de ports à serem configurados é obtida através de um 
+	  <maketarget>all-depends-list</maketarget> utilizado pelo 
+	  comando &man.make.1;. É recomendado que se execute 
+	  <command>make <maketarget>config-recursive</maketarget></command> 
+	  até que todas as opções das dependências de um port sejam 
+	  configuradas e nenhuma das janelas de configuração exibidas 
+	  via &man.dialog.1; sejam mostradas novamente. Assim você se 
+	  certifica de que todas as opções de todas as dependencias 
+	  já foram configuradas.</para>
 	</tip>
 
 	<note>
 	  <para>Algumas shells mantém um cache dos comandos que estão 
-	    listados nos diretórios presentes na variável de ambiente 
-	    <envar>PATH</envar> para acelerar a busca por operações 
-	    executadas por esses comandos. Se você estiver utilizando 
-	    uma destas shells, é provável que você deva executar o comando 
-	    <command>rehash</command> após a instalação de um port antes 
-	    que os novos comandos instalados pelo port possam ser 
-	    utilizados. O <command>rehash</command> irá funcionar para 
-	    shells como <command>tcsh</command>. Utilize 
-	    <command>hash -r</command> para shells como <command>sh</command>. 
-	    Consulte a documentação de sua shell para mais informações.</para>
+	  listados nos diretórios presentes na variável de ambiente 
+	  <envar>PATH</envar> para acelerar a busca por operações 
+	  executadas por esses comandos. Se você estiver utilizando 
+	  uma destas shells, é provável que você deva executar o comando 
+	  <command>rehash</command> após a instalação de um port antes 
+	  que os novos comandos instalados pelo port possam ser 
+	  utilizados. O <command>rehash</command> irá funcionar para 
+	  shells como <command>tcsh</command>. Utilize 
+	  <command>hash -r</command> para shells como <command>sh</command>. 
+	  Consulte a documentação de sua shell para mais informações.</para>
 	</note>
 
 	<para>Alguns produtos de terceiros, tais como os Kits de 
-	    DVD-ROM do &os; da <ulink url="http://www.freebsdmall.com">
-	    FreeBSD Mall</ulink> podem conter distfiles. Eles podem 
-	    ser utilizados com a Coleção de Ports. Monte o DVD-ROM em 
-	    <filename>/cdrom</filename>. Se você usar um ponto de 
-	    montagem diferente, defina a variável 
-	    <makevar>CD_MOUNTPTS</makevar>. Os distfiles necessários 
-	    serão utilizados automaticamente se eles estiverem 
-	    presentes no disco.</para>
+	  DVD-ROM do &os; da <ulink url="http://www.freebsdmall.com">
+	  FreeBSD Mall</ulink> podem conter distfiles. Eles podem 
+	  ser utilizados com a Coleção de Ports. Monte o DVD-ROM em 
+	  <filename>/cdrom</filename>. Se você usar um ponto de 
+	  montagem diferente, defina a variável 
+	  <makevar>CD_MOUNTPTS</makevar>. Os distfiles necessários 
+	  serão utilizados automaticamente se eles estiverem 
+	  presentes no disco.</para>
 
 	<note>
-	  <para>Please be aware that the licenses of a few ports do
-	    not allow for inclusion on the CD-ROM.  This could be
-	    because a registration form needs to be filled out before
-	    downloading or redistribution is not allowed, or for
-	    another reason.  If you wish to install a port not
-	    included on the CD-ROM, you will need to be online in
-	    order to do so.</para>
+	  <para>Por favor, esteja ciente de que as licenças de alguns 
+	  ports podem fazer com que sua inclusão em CD-ROM não seja 
+	  permitida. Isso pode se dar, por exemplo, pela necessidade 
+	  de se preencher um formulário de inscrição antes de uma 
+	  transferência ou redistribuição do software. Claro, 
+	  outros motivos também podem impedir a adição de ports 
+	  específicos em mídias de CD-ROM. Se você deseja instalar 
+	  um port que não esteja presente num CD-ROM, você precisa 
+	  ter conexão com a Internet para fazer isso.</para>
 	</note>
 
-	<para>The ports system uses &man.fetch.1; to download the
-	  files, which honors various environment variables, including
-	  <envar>FTP_PASSIVE_MODE</envar>, <envar>FTP_PROXY</envar>,
-	  and <envar>FTP_PASSWORD</envar>.  You may need to set one or
-	  more of these if you are behind a firewall, or need to use
-	  an FTP/HTTP proxy.  See &man.fetch.3; for the complete
-	  list.</para>
+	<para>O sistema de ports faz uso do &man.fetch.1; para obter 
+	  conteúdo da Internet, e é influenciado por diversas variáveis 
+	  de ambiente. Dentre essas variáveis pode-se citar a 
+	  <envar>FTP_PASSIVE_MODE</envar>, a <envar>FTP_PROXY</envar> e a 
+	  <envar>FTP_PASSWORD</envar>. Talvez seja necessário que você 
+	  altere alguma dessas variáveis caso esteja por trás de um 
+	  firewall ou de um proxy HTTP/FTP. Consulte a página de manual 
+	  &man.fetch.3; para a lista completa de variáveis.</para>
 
-	<para>For users which cannot be connected all the time, the
-	  <command>make <maketarget>fetch</maketarget></command> option is
-	  provided.  Just run this command at the top level directory
-	  (<filename>/usr/ports</filename>) and the required files
-	  will be downloaded for you.  This command will also work in
-	  the lower level categories, for example:
-	  <filename>/usr/ports/net</filename>.
-	  Note that if a port depends on libraries or other ports this will
-	  <emphasis>not</emphasis> fetch the distfiles of those ports too.
-	  Replace <maketarget>fetch</maketarget> with
-	  <maketarget>fetch-recursive</maketarget>
-	  if you want to fetch all the dependencies of a port too.</para>
+	<para>Para usuários que não possam estar conectados o tempo 
+	  inteiro à Internet, uma opção é executar 
+	  <command>make <maketarget>fetch</maketarget></command>. 
+	  Executando este comando na raíz a Coleção de Ports irá 
+	  fazer com que todos os distfiles necessários para se 
+	  proceder com o processo de instalação de todos os ports sejam 
+	  obtidos através da Internet para você. Este comano também 
+	  funciona em categorias específicas. Por exemplo: 
+	  <filename>/usr/ports/net</filename>. Note que se um port 
+	  depender da existência de um outro port ou de uma 
+	  bibliotece específica, ele NÃO irá obter esses arquivos 
+	  como dependência. Você deve sobstituir 
+	  <maketarget>fetch</maketarget> por <maketarget>fetch-recursive</maketarget>, 
+	  caso queira alterar esse comportamento e obter todos os 
+	  distfiles das dependências.</para>
 
-	<note><para>You can build all the ports in a category or as a
-	  whole by running <command>make</command> in the top level
-	  directory, just like the aforementioned <command>make
-	  <maketarget>fetch</maketarget></command> method.  This is
-	  dangerous, however, as some ports cannot co-exist.  In other
-	  cases, some ports can install two different files with the
-	  same filename.</para></note>
+	<note><para>Você pode compilar todos os ports em uma categoria 
+	  específica ou todos de uma única vez executando 
+	  <command>make</command> no diretório que corresponda a categoria 
+	  desejada ou no diretório raíz da Coleção de Ports, da mesma 
+	  forma que pode executar <command>make 
+	  <maketarget>fetch</maketarget></command> (mencionado 
+	  anteriormente). Isso é perigoso, pelo simples fato de 
+	  que alguns ports não podem co-existir no sistema. Em outros 
+	  casos, alguns ports podem instalar dois arquivos diferentes 
+	  com o mesmo nome.</para></note>
 
-	<para>In some rare cases, users may need to acquire the
-	  tarballs from a site other than the
-	  <makevar>MASTER_SITES</makevar> (the location where files
-	  are downloaded from).  You can override the
-	  <makevar>MASTER_SITES</makevar> option with the following
-	  command:</para>
+	<para>Em alguns casos raros, o usuário deverá obter um tarball 
+	  de um sítio diferente do listado na vairável 
+	  <makevar>MASTER_SITES</makevar> (que aponta o sítio 
+	  principal de onde serão obtidos os distfiles). Você pode 
+	  sobrescrever a <makevar>MASTER_SITES</makevar> com o 
+	  seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>cd /usr/ports/<replaceable>directory</replaceable></userinput>
 &prompt.root; <userinput>make MASTER_SITE_OVERRIDE=\
 	ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 
-	<para>In this example we change the
-	  <makevar>MASTER_SITES</makevar> option to <hostid
+	<para>Neste exemplo é alterada a variável de ambiente 
+	  <makevar>MASTER_SITES</makevar> para refletir <hostid
 	  role="fqdn">ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/</hostid>.</para>
 
-	<note><para>Some ports allow (or even require) you to provide
-	  build options which can enable/disable parts of the
-	  application which are unneeded, certain security options,
-	  and other customizations.  A few which come to mind are
-	  <filename role="package">www/firefox</filename>, <filename
-	  role="package">security/gpgme</filename>, and <filename
-	  role="package">mail/sylpheed-claws</filename>.  A message
-	  will be displayed when options such as these are
-	  available.</para></note>
+	<note><para>Alguns ports permitem (ou exigem) que você forneça 
+	  opções que podem habilitar/desabilitar funcionalidades da 
+	  aplicação que possam ser desnecessárias, que possam conter 
+	  certas opções ligadas a segurança e outras opções mais. 
+	  Alguns desses ports que podem lhe vir a mente são: 
+	  <filename role="package">www/firefox</filename>, 
+	  <filename role="package">security/gpgme</filename> e 
+	  <filename role="package">mail/sylpheed-claws</filename>. 
+	  Uma mensagem será exibida quando tais opções possam ser 
+	  customizadas.</para></note>
 
       <sect3>
         <title>Alterando diretórios padrões da Coleção de Ports</title>
