@@ -56,7 +56,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
 943    # l10n                # r39544  #
 3180   # cutting-edge        # r39544  #
-387    # dtrace              # r39544  #
+387    # dtrace              # r39544  # Vinicius Zavam, 13/06/2013
 ##################################################################
 27.419 Linhas
 
