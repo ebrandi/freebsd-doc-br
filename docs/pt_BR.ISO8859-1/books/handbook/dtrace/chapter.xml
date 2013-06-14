@@ -220,7 +220,7 @@ that might make this chapter too large.
        <filename role="package">shells/pdksh </filename> ou do
        <filename role="package">shells/mksh</filename>.</para>
 
-    <para>Por fim, obtenha o kit de ferramentas (<literal>Toolkit</literal>) mais recente do &dtrace;, 
+    <para>Por fim, obtenha o <literal>Toolkit</literal> mais recente do &dtrace;, 
       disponível em 
       <ulink url="http://www.opensolaris.org/os/community/dtrace/dtracetoolkit/"></ulink>.
       Existe um mecanismo de instalação incluído; no entanto, a instalação
@@ -231,27 +231,29 @@ that might make this chapter too large.
   <sect1 id="dtrace-using">
     <title>Utilizando o &dtrace;</title>
 
-    <para>Before making use of &dtrace; functionality, the &dtrace; device
-      must exist.  To load the device, issue the following
-      command:</para>
+    <para>Antes de fazer uso de funcionalidade do &dtrace;, o 
+       dispositivo do &dtrace; deve existir em seu sistema. Para 
+       carregar o dispositivo, execute o seguinte comando:</para>
 
     <screen>&prompt.root; <userinput>kldload dtraceall</userinput></screen>
 
-    <para>&dtrace; support should now be available.  To view all probes
-      the administrator may now execute the following command:</para>
+    <para>A partir deste momento, o suporte ao &dtrace; já deve estar 
+      disponível. Para ver todas as sondas, você pode executar o 
+      seguinte comando:</para>
 
     <screen>&prompt.root; <userinput>dtrace -l | more</userinput></screen>
 
-    <para>All output is passed to the <command>more</command>
-      utility as it will quickly overflow the screen buffer.  At
-      this point, &dtrace; should be considered working.  It is now
-      time to review the toolkit.</para>
+    <para>Toda a saída é passada para o comando 
+      <command>more</command>, visto que a saída do comando iria, 
+      rapidamente, estourar o buffer da tela. Neste ponto, já se 
+      considera que o &dtrace; está em funcionamento. Agora já se pode
+      analisar o <literal>Toolkit</literal>.</para>
 
-    <para>The toolkit is a collection of ready-made scripts to run
-      with &dtrace; to collect system information.  There are scripts
-      to check open files, memory, <acronym>CPU</acronym> usage and
-      a lot more.  Extract the scripts with the following
-      command:</para>
+    <para>O <literal>Toolkit</literal> é um conjunto de scripts prontos para 
+      coletar informações do sistema. Existem scripts
+      para verificar arquivos abertos, uso de memória, uso de 
+      <acronym>CPU</acronym> e muito mais. Extraia-os com o seguinte
+      comando:</para>
 
     <screen>&prompt.root; <userinput>gunzip -c DTraceToolkit* | tar xvf -</userinput></screen>
 
@@ -326,7 +328,8 @@ kernel`sched_idletd                                       137   0.3%
 
     <!-- XXXTR: I attempted to use objdump and nm on /boot/kernel/kernel
         to find 0xc10981a5, but to no avail.  It would be nice to know
-	how we should look that up. -->
+	how we should look that up.
+	-->
 
     <para>This script will also work with kernel modules.  To use this
       feature, run the script with the <option>-m</option> flag:</para>
@@ -350,7 +353,8 @@ kernel                                                    874   0.4%
 
     <!-- XXXTR: I was unable to match these up with output from
         kldstat and kldstat -v and grep.  Maybe I'm missing something
-	seriously obvious.  It is 5AM btw. -->
+	seriously obvious.  It is 5AM btw.
+	-->
 
     <para>The <filename>procsystime</filename> script captures and
       prints the system call time usage for a given
@@ -395,7 +399,7 @@ Elapsed Times for processes csh,
   <sect1 id="dtrace-language">
     <title>A Linguagem D</title>
 
-    <para>O kit de ferramentas do &dtrace; inclui vários scripts 
+    <para>O <literal>Toolkit</literal> do &dtrace; inclui vários scripts 
       escritos numa linguagem especial utilizada pelo &dtrace;. 
       Essa linguagem, de acordo com documentações da &sun;, é chamada de 
       <quote>Linguagem D</quote> e é muito semelhante a C++. Uma abordagem 
@@ -408,4 +412,5 @@ Elapsed Times for processes csh,
     <!-- XXXTR: Should probably put links and resources here.  I'm
         nervous about this chapter as it may require a partial
 	re-write and large modification once DTrace is complete, but
-	at least we can get everyone started ... -->
+	at least we can get everyone started ...
+	-->
