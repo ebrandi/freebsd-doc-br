@@ -22,7 +22,7 @@ that might make this chapter too large.
       <author>
 	<firstname>Tom</firstname>
 	<surname>Rhodes</surname>
-	<contrib>Written by </contrib>
+	<contrib>Escrito por </contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -199,13 +199,11 @@ that might make this chapter too large.
          the extra screen.
          -->
 
-    <screen>
-	&prompt.root; <userinput>cd /usr/src</userinput>
-	<!-- &prompt.root; <userinput>make WITH_CTF=1 buildworld</userinput> -->
-	&prompt.root; <userinput>make WITH_CTF=1 kernel</userinput>
-	<!-- &prompt.root; <userinput>make WITH_CTF=1 installworld</userinput>
-		&prompt.root; <userinput>mergemaster -Ui</userinput>
-		--></screen>
+    <screen>&prompt.root; <userinput>cd /usr/src</userinput>
+<!-- &prompt.root; <userinput>make WITH_CTF=1 buildworld</userinput> -->
+&prompt.root; <userinput>make WITH_CTF=1 kernel</userinput>
+<!-- &prompt.root; <userinput>make WITH_CTF=1 installworld</userinput>
+&prompt.root; <userinput>mergemaster -Ui</userinput> --></screen>
 
     <para>Após término de toda compilação, o sistema precisará ser reiniciado.</para>
 
@@ -222,7 +220,7 @@ that might make this chapter too large.
 
     <para>Por fim, obtenha o <literal>Toolkit</literal> mais recente do &dtrace;, 
       disponível em 
-      <ulink url="http://www.opensolaris.org/os/community/dtrace/dtracetoolkit/"></ulink>.
+      <ulink url="http://www.opensolaris.org/os/community/dtrace/dtracetoolkit"></ulink>.
       Existe um mecanismo de instalação incluído; no entanto, a instalação
       não é necessária para fazer uso de algumas ferramentas já disponíveis no pacote.</para>
 
@@ -257,47 +255,54 @@ that might make this chapter too large.
 
     <screen>&prompt.root; <userinput>gunzip -c DTraceToolkit* | tar xvf -</userinput></screen>
 
-    <para>Change into that directory with the <command>cd</command>
-      and change the execution permissions on all files, designated
-      as those files with lower case names, to
-      <literal>755</literal>.</para>
+    <para>Entre no diretório criado pela descompactação do conteúdo 
+      do <literal>Toolkit</literal> com ajuda do comando 
+      <command>cd</command> e altere a permissão de execução em 
+      todos os arquivos que tenham seus caracteres em letras 
+      minúsculas utilizando o comando <command>chmod</command> 
+      para <literal>755</literal>.</para>
 
-    <para>All of these scripts will need modifications to their
-      contents.  The ones which refer to
-      <filename>/usr/bin/ksh</filename> need that changed to
-      <filename>/usr/local/bin/ksh</filename>, the others which
-      use <filename>/usr/bin/sh</filename> need to be altered to use
-      <filename>/bin/sh</filename>, and finally the ones which
-      use <filename>/usr/bin/perl</filename> will need altered to
-      use <filename>/usr/local/bin/perl</filename>.</para>
+    <para>Todos os scripts necessitarão de modificações no código.
+      Aqueles que fizerem referência ao uso de 
+      <filename>/usr/bin/ksh</filename> precisarão referenciar 
+      <filename>/usr/local/bin/ksh</filename>, os que usarem
+      <filename>/usr/bin/sh</filename> deverão ser alterados para usar 
+      <filename>/bin/sh</filename> e, finalmente, os que estiverem 
+      fazendo uso de <filename>/usr/bin/perl</filename> 
+      deverão usar <filename>/usr/local/bin/perl</filename>.</para>
 
     <important>
-      <para>At this point it is prudent to remind the reader that
-	&dtrace; support in &os; is <emphasis>incomplete</emphasis>
-	and <emphasis>experimental</emphasis>.  Many of these scripts
-	will not work as they are either too &solaris;-specific or
-	use probes which are unsupported at this time.</para>
+      <para>Nesse ponto é prudente que você pare e pense no fato de 
+	que o suporte a &dtrace; no &os; ainda está 
+        <emphasis>INCOMPLETO</emphasis> e é 
+        <emphasis>EXPERIMENTAL</emphasis>.  Muitos dos scripts 
+        presentes no <literal>Toolkit</literal> não funcionarão 
+        como devem funcionar junto ao &solaris; ou tentarão explorar 
+        funcionalidades ainda não suportadas pelo &os; no 
+        momento.</para>
     </important>
 
-    <para>At the time of this writing only two of the scripts of the
-      &dtrace; Toolkit are fully supported in &os;:
-      the <filename>hotkernel</filename>
-      and <filename>procsystime</filename> scripts.  These are the two
-      we will explore in the following parts of this section.</para>
+    <para>Até o presente momento em que se escreve este documento, 
+      apenas doisa dos scripts do <literal>Toolkit</literal> para 
+      &dtrace; são suportados pelo &os;: 
+      <filename>hotkernel</filename> e <filename>procsystime</filename>.  
+      Esses dois são os scripts que você irá explorar neste 
+      documento.</para>
 
-    <para>The <filename>hotkernel</filename> is designed to identify
-      which function is using the most kernel time.  Run normally, it
-      will produce output similar to the following:</para>
+    <para>O <filename>hotkernel</filename> está destinado a identificar
+      qual função está usando mais tempo de acordo com o escalonador 
+      do kernel. Executado sem argumentos, ele produzirá uma saída 
+      similar a esta:</para>
 
     <screen>&prompt.root; <userinput>./hotkernel</userinput>
 Sampling... Hit Ctrl-C to end.</screen>
 
-    <para>The system administrator must use the
+    <para>Você deve usar a combinação de teclas 
       <keycombo action="simul"><keycap>Ctrl</keycap><keycap>C</keycap>
-      </keycombo> key combination to stop the process.  Upon
-      termination, the script will display a list of kernel functions and
-      timing information, sorting the output in increasing order of
-      time:</para>
+      </keycombo> para parar o processo.  Ao término do processo, 
+      o script exibirá uma lista de funções e as informações de 
+      tempo, ordenada de forma crescente de acordo com o tempo. Veja 
+      um exemplo:</para>
 
     <screen>kernel`_thread_lock_flags                                   2   0.0%
 0xc1097063                                                  2   0.0%
@@ -331,8 +336,8 @@ kernel`sched_idletd                                       137   0.3%
 	how we should look that up.
 	-->
 
-    <para>This script will also work with kernel modules.  To use this
-      feature, run the script with the <option>-m</option> flag:</para>
+    <para>Esse script também funcionará para analisar módulos do kernel. 
+      Para utilizar essa funcionalidade, execute-o com o parâmetro <option>-m</option>:</para>
 
     <screen>&prompt.root; <userinput>./hotkernel -m</userinput>
 Sampling... Hit Ctrl-C to end.
@@ -356,14 +361,15 @@ kernel                                                    874   0.4%
 	seriously obvious.  It is 5AM btw.
 	-->
 
-    <para>The <filename>procsystime</filename> script captures and
-      prints the system call time usage for a given
-      <acronym>PID</acronym> or process name.  In the following
-      example, a new instance of <filename>/bin/csh</filename>
-      was spawned.  The <filename>procsystime</filename> was executed
-      and remained waiting while a few commands were typed on the
-      other incarnation of <command>csh</command>.  These are the
-      results of this test:</para>
+    <para>O <filename>procsystime</filename> captura e exibe quanto 
+      tempo as syscalls de um determinado <acronym>PID</acronym> ou 
+      nome de processo estão usando. No exemplo a seguir, uma 
+      instância do <filename>/bin/csh</filename> é escolhida para 
+      ser analisada. O <filename>procsystime</filename> é executado e 
+      permanece aguardando por alguns segundos enquanto alguns 
+      comando são processados por um processo que esteja a fazer 
+      uso do <command>csh</command>. Os resultados deste exemplo 
+      foram os seguintes:</para>
 
     <screen>&prompt.root; <userinput>./procsystime -n csh</userinput>
 Tracing... Hit Ctrl-C to end...
@@ -391,9 +397,10 @@ Elapsed Times for processes csh,
       sigsuspend            6985124
             read         3988049784</screen>
 
-    <para>As shown, the <function>read()</function> system call seems to use the
-      most time in nanoseconds with the <function>getpid()</function>
-      system call used the least amount of time.</para>
+    <para>Como mostrado, a syscall <function>read()</function> 
+      parece ser utilizada na maior parte do tempo (nanosegundos) 
+      e a syscall <function>getpid()</function> está a ser 
+      utilizada por muito pouco tempo.</para>
   </sect1>
 
   <sect1 id="dtrace-language">
@@ -404,8 +411,8 @@ Elapsed Times for processes csh,
       Essa linguagem, de acordo com documentações da &sun;, é chamada de 
       <quote>Linguagem D</quote> e é muito semelhante a C++. Uma abordagem 
       mais aprofundada a respeito dessa linguagem está fora do âmbito deste 
-      documento. Ela é amplamente discutida em <ulink 
-      url="http://wikis.sun.com/display/DTrace/Documentation"> </ulink>.</para>
+      documento. Ela é amplamente discutida em 
+      <ulink url="http://wikis.sun.com/display/DTrace/Documentation"></ulink>.</para>
   </sect1>
 </chapter>
 
