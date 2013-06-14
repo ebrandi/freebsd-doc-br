@@ -169,54 +169,63 @@ that might make this chapter too large.
   <sect1 id="dtrace-enable">
     <title>Habilitando Suporte ao &dtrace;</title>
 
-    <para>To enable support for &dtrace;, add the following lines to
-      the kernel configuration file:</para>
+    <para>Para habilitar o suporte ao &dtrace;, adicione as 
+      seguintes entradas no arquivo de configuração do kernel:</para>
 
-    <programlisting>options         KDTRACE_HOOKS
-options         DDB_CTF</programlisting>
+    <programlisting>
+        options        KDTRACE_HOOKS
+        options        DDB_CTF</programlisting>
 
     <note>
-      <para>Users of the AMD64 architecture will want to add the
-	following line to their kernel configuration file:</para>
+      <para>Usuários de arquitetura amd64 podem desejar adicionar, 
+	também, a seguinte opção:</para>
 
-      <programlisting>options         KDTRACE_FRAME</programlisting>
+      <programlisting>options        KDTRACE_FRAME</programlisting>
 
-      <para>This option provides support for the <acronym>FBT</acronym>
-	feature.  &dtrace; will work without this option; however, there
-	will be limited support for function boundary tracing.</para>
+      <para>Esta opção fornece suporte para o uso de <acronym>FBT</acronym>. 
+       O &dtrace; funciona normalmente sem essa opção; no entanto, 
+       haverá suporte limitado para rastreamento de determinadas 
+       funções em fronteira/limite (<literal>boundary</literal>).</para>
       </note>
 
-    <para>All sources must be rebuilt and installed with <acronym>CTF</acronym> options.
-      To accomplish this task, rebuild the &os; sources using:</para>
+    <para>Todos os códigos fonte devem ser recompilados e instalados 
+      com as opções de <acronym>CTF</acronym> habilitadas. Para 
+      executar esse procedimento, recompile o kernel do &os; usando 
+      os seguintes comandos:</para>
 
     <!-- XXXTR: WITH_CTF has been reported to leave a user with a
          broken system when used with buildworld.  Until this is
          fixed, comment out those parts.  When uncommenting, kill
          the extra screen.
-    -->
+         -->
 
-    <screen>&prompt.root; <userinput>cd /usr/src</userinput>
-<!-- &prompt.root; <userinput>make WITH_CTF=1 buildworld</userinput> -->
-&prompt.root; <userinput>make WITH_CTF=1 kernel</userinput></screen>
-<!-- &prompt.root; <userinput>make WITH_CTF=1 installworld</userinput>
-&prompt.root; <userinput>mergemaster -Ui</userinput></screen> -->
+    <screen>
+	&prompt.root; <userinput>cd /usr/src</userinput>
+	<!-- &prompt.root; <userinput>make WITH_CTF=1 buildworld</userinput> -->
+	&prompt.root; <userinput>make WITH_CTF=1 kernel</userinput>
+	<!-- &prompt.root; <userinput>make WITH_CTF=1 installworld</userinput>
+		&prompt.root; <userinput>mergemaster -Ui</userinput>
+		--></screen>
 
-    <para>The system will need to be restarted.</para>
+    <para>Após término de toda compilação, o sistema precisará ser reiniciado.</para>
 
-    <para>After rebooting and allowing the new kernel to be loaded
-      into memory, support for the Korn shell should be added.  This
-      is needed as the &dtrace; toolkit has several utilities written
-      in <command>ksh</command>.  Install the
-      <filename role="package">shells/ksh93</filename>.  It is also
-      possible to run these tools under
-      <filename role="package">shells/pdksh</filename> or
-      <filename role="package">shells/mksh</filename>.</para>
+    <para>Depois de reiniciar o sistema e permitir que o novo kernel 
+       seja carregado na memória, deve ser adicionado o suporte 
+       para o shell Korn. Ele é necessário porque o kit de ferramentas (<literal>Toolkit</literal>)
+       do &dtrace; tem várias funcionalidades que necessitam ser 
+       executadas via <command>ksh</command>. Instale o pacote 
+       <filename role="package">shells/ksh93</filename> 
+       para possibilitar essa execução. Também é possível executar essas 
+       funcionalidades com ajuda do pacote  
+       <filename role="package">shells/pdksh </filename> ou do
+       <filename role="package">shells/mksh</filename>.</para>
 
-    <para>Finally, obtain the current &dtrace; toolkit.  The current
-      version is available at
+    <para>Por fim, obtenha o kit de ferramentas (<literal>Toolkit</literal>) mais recente do &dtrace;, 
+      disponível em 
       <ulink url="http://www.opensolaris.org/os/community/dtrace/dtracetoolkit/"></ulink>.
-      There is an install mechanism included; however, installation
-      is not required to make use of the bundled utilities.</para>
+      Existe um mecanismo de instalação incluído; no entanto, a instalação
+      não é necessária para fazer uso de algumas ferramentas já disponíveis no pacote.</para>
+
   </sect1>
 
   <sect1 id="dtrace-using">
