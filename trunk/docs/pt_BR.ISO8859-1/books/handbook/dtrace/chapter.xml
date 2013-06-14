@@ -30,7 +30,7 @@ that might make this chapter too large.
   <title>&dtrace;</title>
 
   <sect1 id="dtrace-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>&dtrace;</primary></indexterm>
     <indexterm>
@@ -38,58 +38,60 @@ that might make this chapter too large.
       <see>&dtrace;</see>
     </indexterm>
 
-  <para>&dtrace;, also known as Dynamic Tracing, was developed by
-    &sun; as a tool for locating performance bottlenecks
-    in production and pre-production systems.  It is not, in any way,
-    a debugging tool, but a tool for real time system analysis to
-    locate performance and other issues.</para>
+  <para>&dtrace;, também conhecido como Dynamic Tracing, foi 
+     desenvolvido pela &sun; como uma ferramenta para localizar 
+     gargalos de desempenho  em sistemas de produção e pré-produção. 
+     Não é, de forma alguma, uma ferramenta de depuração, mas uma 
+     ferramenta para a análise do sistema em tempo real para localizar 
+     o desempenho e outras questões.</para>
 
-  <para>&dtrace; is a remarkable profiling tool, with an impressive
-    array of features for diagnosing system issues.  It may also be
-    used to run pre-written scripts to take advantage of its
-    capabilities.  Users may even author their own utilities using
-    the &dtrace; D Language, allowing them to customize their profiling
-    based on specific needs.</para>
+  <para>&dtrace; é uma ferramenta notável de análise, com uma impressionante
+     variedade de recursos para o diagnóstico de problemas no sistema. Pode também ser
+     usado para executar scripts pré-programados para tirar maior vantagem de sua
+     capacidades. Os usuários podem até mesmo ser autores de seus próprios utilitários 
+     fazendo uso da &dtrace; D Language, o que lhes permite personalizar o seu perfil
+     com base nas necessidades específicas.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Após ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>What &dtrace; is and what features it provides.</para>
+	<para>O que é e quais funcionalidades o &dtrace; oferece.</para>
       </listitem>
 
       <listitem>
-	<para>Differences between the &solaris; &dtrace; implementation
-	  and the one provided by &os;.</para>
+	<para>As diferenças entre o &solaris; &dtrace; e o &dtrace; 
+	  oferecido no &os;.</para>
       </listitem>
 
       <listitem>
-	<para>How to enable and use &dtrace; on &os;.</para>
+	<para>Como habilitar e utilizar o &dtrace; no &os;.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, você deveria:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand &unix; and &os; basics
+	<para>Compreender conceitos básicos sobre &unix; e &os;
 	  (<xref linkend="basics"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Be familiar with
-	  the basics of kernel configuration/compilation
+	<para>Estar familiarizado com procedimentos básicos 
+	  de configuração/compilação do kernel do &os; 
 	  (<xref linkend="kernelconfig"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Have some familiarity with security and how it
-	  pertains to &os; (<xref linkend="security"/>).</para>
+	<para>Ter certa familiaridade com conceitos de segurança 
+	  e como eles se aplicam no &os; 
+          (<xref linkend="security"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Understand how to obtain and rebuild the &os; sources
-	  (<xref linkend="updating-upgrading"/>).</para>
+	<para>Compreender como obter e recompilar os códigos fonte 
+	  do &os; (<xref linkend="updating-upgrading"/>).</para>
       </listitem>
     </itemizedlist>
 
@@ -98,66 +100,74 @@ that might make this chapter too large.
       and production versions of FreeBSD with this technology.
     -->
     <warning>
-      <para>This feature is considered experimental.  Some options
-	may be lacking in functionality, other parts may not work
-	at all.  In time, this feature will be considered production
-	ready and this documentation will be altered to fit that
-	situation.</para>
+      <para>Este recurso é considerado experimental. Algumas opções 
+	podem faltar em termos de funcionalidade, outras partes 
+	podem não funcionar de jeito nenhum. Com o tempo, esse 
+	recurso será considerado como algo que possa ser utilizado 
+	em produção e esta documentação será alterada para 
+	refletir tal situação.</para>
     </warning>
   </sect1>
 
   <sect1 id="dtrace-implementation">
-    <title>Implementation Differences</title>
+    <title>Diferenças de Implementação</title>
 
-    <para>While the &dtrace; in &os; is very similar to that found
-      in &solaris;, differences exist that should be explained before
-      continuing.  The primary difference users will notice is that
-      on &os;, &dtrace; needs to be specifically enabled.  There are
-      kernel options and modules which must be enabled for &dtrace; to
-      work properly.  These will be explained later.</para>
+    <para>Embora o &dtrace; no &os; seja muito semelhante ao 
+      encontrado no &solaris;, existem diferenças que devem ser 
+      explicadas antes de você continuar. A principal diferença que 
+      os usuários irão notar é que, no &os;, o &dtrace; precisa ser 
+      habilitado de uma forma específica para ser utilizado. 
+      Existem opções adicionais no kernel e módulos que devem ser 
+      habilitados para que o &dtrace; funcione corretamente. Essas 
+      opções e esses módulos serão explicados mais tarde.</para>
 
-    <para>There is a <literal>DDB_CTF</literal> kernel option which
-      is used to enable support for loading the <acronym>CTF</acronym>
-      data from kernel modules and the kernel itself.
-      <acronym>CTF</acronym> is the &solaris; Compact C Type Format
-      which encapsulates a reduced form of debugging information
-      similar to <acronym>DWARF</acronym> and the venerable stabs.
-      This <acronym>CTF</acronym> data is added to the binaries by the
-      <command>ctfconvert</command> and <command>ctfmerge</command>
-      build tools.  The <command>ctfconvert</command> utility parses
-      <acronym>DWARF</acronym> <acronym>ELF</acronym> debug sections
-      created by the compiler and <command>ctfmerge</command> merges
-      <acronym>CTF</acronym> <acronym>ELF</acronym> sections from
-      objects into either executables or shared libraries.  More on
-      how to enable this for the kernel and &os; build is
-      forthcoming.</para>
+    <para>Existe uma opção no kernel (<literal>DDB_CTF</literal>) que
+      é usada para ativar o suporte a <acronym>CTF</acronym> 
+      (Compact C Type Format) do &solaris;. O uso dessa opção permite 
+      que seja possível obter determinados dados de módulos 
+      e do próprio kernel. O <acronym>CTF</acronym>
+      encapsula uma forma reduzida de informações de depuração
+      semelhante ao <acronym>DWARF</acronym> e aos stabs.
+      Este dados <acronym>CTF</acronym> são adicionados aos binários 
+      pelas ferramentas <command>ctfconvert</command> e 
+      <command>ctfmerge</command>. A ferramenta 
+      <command>ctfconvert</command> analisa as seções de depuração em 
+      formato <acronym>DWARF</acronym> <acronym>ELF</acronym> criadas 
+      pelo compilador e a ferramenta <command>ctfmerge</command> 
+      funde seções dos objetos <acronym>CTF</acronym> 
+      <acronym>ELF</acronym> em quaisquer executáveis ou bibliotecas 
+      compartilhadas. Mais detalhes sobre como habilitar essa 
+      funcionalidade no kernel do &os; ainda estão por vir.</para>
 
-    <para>Some different providers exist for &os; than for &solaris;.
-      Most notable is the <literal>dtmalloc</literal> provider, which
-      allows tracing <function>malloc()</function> by type in the
-      &os; kernel.</para>
+    <para>Diferentes provedores existem para &os; e para &solaris;.
+       O mais notável é o <literal>dtmalloc</literal>, que
+       permite traçar chamadas a função <function>malloc()</function> 
+       por tipo no kernel do &os;.</para>
 
-    <para>Only <username>root</username> may use &dtrace; on &os;.
-      This is related to security differences, &solaris; has a few
-      low level security checks which do not yet exist in &os;.  As
-      such, the <devicename>/dev/dtrace/dtrace</devicename> is strictly
-      limited to <username>root</username> users only.</para>
+    <para>Apenas o usuário <username>root</username> pode usar o 
+       &dtrace; no &os;. Isso está relacionado com diferenças ligadas 
+       a segurança. O &solaris; executa algumas verificações de 
+       segurança em baixo nível que ainda não existem no &os;. Visto isso, 
+       o uso do <devicename>/dev/dtrace/dtrace</devicename> é estritamente
+       limitado ao <username>root</username>.</para>
 
-    <para>Finally, the &dtrace; software falls under &sun;'s
-      <acronym>CDDL</acronym> license.  The <literal>Common Development
-      and Distribution License</literal> comes with &os;, see the
-      <filename>/usr/src/cddl/contrib/opensolaris/OPENSOLARIS.LICENSE</filename>
-      or view it online at
+    <para>Por fim, o &dtrace; está sob licença <acronym>CDDL</acronym> 
+      (<literal>Common Development and Distribution License</literal>) 
+      da &sun;. Os termos da <acronym>CDDL</acronym> estão disponíveis no 
+      código fonte do &os; em 
+      <filename>/usr/src/cddl/contrib/opensolaris/OPENSOLARIS.LICENSE</filename>. 
+      Você também pode consultar os termos online em 
       <ulink url="http://www.opensolaris.org/os/licensing"></ulink>.</para>
 
-    <para>This license means that a &os; kernel with the &dtrace; options
-      is still <acronym>BSD</acronym> licensed; however the
-      <acronym>CDDL</acronym> kicks in when the modules are distributed
-      in binary form, or the binaries are loaded.</para>
+    <para>Esta licença diz que um &os; que tenha opções para uso do 
+      &dtrace; habilitadas no kernel ainda está licenciado sob licença 
+      <acronym>BSD</acronym>, mas ela acaba com tudo isso quando 
+      exige que módulos sejam distribuídos em formato binário, ou 
+      quando esses binários são carregados pelo sistema.</para>
   </sect1>
 
   <sect1 id="dtrace-enable">
-    <title>Enabling &dtrace; Support</title>
+    <title>Habilitando Suporte ao &dtrace;</title>
 
     <para>To enable support for &dtrace;, add the following lines to
       the kernel configuration file:</para>
@@ -210,7 +220,7 @@ options         DDB_CTF</programlisting>
   </sect1>
 
   <sect1 id="dtrace-using">
-    <title>Using &dtrace;</title>
+    <title>Utilizando o &dtrace;</title>
 
     <para>Before making use of &dtrace; functionality, the &dtrace; device
       must exist.  To load the device, issue the following
@@ -374,14 +384,15 @@ Elapsed Times for processes csh,
   </sect1>
 
   <sect1 id="dtrace-language">
-    <title>The D Language</title>
+    <title>A Linguagem D</title>
 
-    <para>The &dtrace; Toolkit includes many scripts in the special language of
-      &dtrace;.  This language is called <quote>the D language</quote> by &sun;
-      documentation, and it is very similar to C++.  An in depth
-      discussion of the language is beyond the scope of this document.  It is
-      extensively discussed
-      at <ulink url="http://wikis.sun.com/display/DTrace/Documentation"></ulink>.</para>
+    <para>O kit de ferramentas do &dtrace; inclui vários scripts 
+      escritos numa linguagem especial utilizada pelo &dtrace;. 
+      Essa linguagem, de acordo com documentações da &sun;, é chamada de 
+      <quote>Linguagem D</quote> e é muito semelhante a C++. Uma abordagem 
+      mais aprofundada a respeito dessa linguagem está fora do âmbito deste 
+      documento. Ela é amplamente discutida em <ulink 
+      url="http://wikis.sun.com/display/DTrace/Documentation"> </ulink>.</para>
   </sect1>
 </chapter>
 
