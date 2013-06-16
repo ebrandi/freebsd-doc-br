@@ -14,97 +14,110 @@
       <author>
 	<firstname>Andrey</firstname>
 	<surname>Chernov</surname>
-	<contrib>Contributed by </contrib>
+	<contrib>Uma Contribuição de </contrib>
       </author>
     </authorgroup>
     <authorgroup>
       <author>
 	<firstname>Michael C.</firstname>
 	<surname>Wu</surname>
-	<contrib>Rewritten by </contrib>
+	<contrib>Reescrito por </contrib>
       </author>
       <!-- 30 Nv 2000 -->
     </authorgroup>
   </chapterinfo>
 
-  <title>Localization - I18N/L10N Usage and Setup</title>
+  <title>Localização - Utilização e Configuração de I18N/L10N</title>
 
   <sect1 id="l10n-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
-    <para>FreeBSD is a very distributed project with users and
-      contributors located all over the world.  This chapter discusses
-      the internationalization and localization features of FreeBSD
-      that allow non-English speaking users to get real work done.
-      There are many aspects of the i18n implementation in both the system
-      and application levels, so where applicable we refer the reader
-      to more specific sources of documentation.</para>
+    <para>O projeto &os; é um projeto muito distribuído, com usuários e
+       colaboradores localizados em diferentes partes do mundo. Este 
+       capítulo discute os recursos de internacionalização e localização do &os;
+       que permitem aos usuários que não falam/leem/escrevem Inglês a 
+       realizar seus trabalhos. Existem muitos aspectos da implementação 
+       ligados a i18n, tanto a níveis de sistema quanto a níveis de 
+       aplicação, de modo que serão fornecidas a você outras fontes 
+       mais específicas de documentação.</para>
 
-    <para>After reading this chapter, you will know:</para>
+
+    <para>Após ler este capítulo, você saberá:</para>
     <itemizedlist>
-      <listitem><para>How different languages and locales are encoded
-      on modern operating systems.</para></listitem>
-      <listitem><para>How to set the locale for your login
+      <listitem><para>Como diferentes idiomas e caracteres/formatos 
+      específicos (<literal>Locales</literal>) de diferentes países
+      são codificados nos sistemas operacionais modernos.</para></listitem>
+      <listitem><para>Como configurar os locales para seu 
       shell.</para></listitem>
-      <listitem><para>How to configure your console for non-English
-      languages.</para></listitem>
-      <listitem><para>How to use X Window System effectively with different
-      languages.</para></listitem>
-      <listitem><para>Where to find more information about writing
-      i18n-compliant applications.</para></listitem>
+      <listitem><para>Como configurar seu console para idiomas 
+      diferentes do idioma Inglês.</para></listitem>
+      <listitem><para>Como utilizado o X Window System de forma efetiva
+      com outros idiomas.</para></listitem>
+      <listitem><para>Onde achar mais informações sobre como escrever
+      aplicações que trabalhem com i18n.</para></listitem>
    </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, você deveria saber:</para>
 
     <itemizedlist>
-      <listitem><para>Know how to install additional third-party
-        applications (<xref linkend="ports"/>).</para></listitem>
+      <listitem><para>Como instalar aplicações de terceiros 
+        no &os; (<xref linkend="ports"/>).</para></listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="l10n-basics">
-    <title>The Basics</title>
+    <title>O Básico</title>
 
     <sect2>
-      <title>What Is I18N/L10N?</title>
+      <title>O que é I18N/L10N?</title>
     <indexterm>
       <primary>internationalization</primary>
       <see>localization</see>
     </indexterm>
     <indexterm><primary>localization</primary></indexterm>
 
-      <para>Developers shortened internationalization into the term I18N,
-	counting the number of letters between the first and the last
-	letters of internationalization.  L10N uses the same naming
-	scheme, coming from <quote>localization</quote>.  Combined
-	together, I18N/L10N methods, protocols, and applications allow
-	users to use languages of their choice.</para>
+      <para>Desenvolvedores encurtaram o termo em Inglês 
+	<quote>internationalization</quote> para I18N, indicando, 
+	com o número aí presente, a quantidade de caracteres entre 
+	a primeira e a última letra. L10N utiliza o mesmo esquema 
+	de nomenclatura, vindo do termo <quote>localization</quote>. 
+	Juntos, na forma I18N/L10N, estabelecem métodos, protocolos 
+	e aplicativos que permitem aos usuários utilizem idiomas 
+	de sua escolha.</para>
 
-      <para>I18N applications are programmed using I18N kits under
-	libraries.  It allows for developers to write a simple file and
-	translate displayed menus and texts to each language.  We strongly
-	encourage programmers to follow this convention.</para>
+      <para>Aplicações I18N são desenvolvidas com ajuda de kits I18N 
+	e bibliotecas. Eles permitem que os desenvolvedores escrevam 
+	um arquivo simples e possam ter menus e textos traduzidos sendo 
+	exibidos em cada idioma que esteja sendo suportado. É 
+	altamente incentivado que desenvolvedores sigam essa 
+	convenção.</para>
     </sect2>
 
     <sect2>
-      <title>Why Should I Use I18N/L10N?</title>
+      <title>Por que eu deveria utilizar I18N/L10N?</title>
 
-      <para>I18N/L10N is used whenever you wish to either view, input, or
-	process data in non-English languages.</para>
+      <para>I18N/L10N é utilizado onde quer que você deseje ver, 
+	processar ou digitar dados e caracteres que não estejam 
+	presentes no idioma Inglês.</para>
     </sect2>
 
     <sect2>
-      <title>What Languages Are Supported in the I18N Effort?</title>
+      <title>Quais idiomas são suportados por I18N?</title>
 
-      <para>I18N and L10N are not FreeBSD specific.  Currently, one can
-	choose from most of the major languages of the World, including
-	but not limited to:  Chinese, German, Japanese, Korean, French,
-	Russian, Vietnamese and others.</para>
+      <para>I18N e L10N não são específicos do &os;. 
+	Atualmente você pode escolher e utilizar os principais 
+	idiomas do mundo, incluindo, mas não limitando-se a: 
+	Alemão, Chinês, Coreano, Francês, Japonês, Russo, 
+	Vietnamita e vários outros.</para>
     </sect2>
   </sect1>
 
   <sect1 id="using-localization">
-    <title>Using Localization</title>
+    <title>Utilizando Localização</title>
+
+    <!-- XXX: Localization (L10N) != Internationalization (I18N). 
+	 Was this section written with some kind of typo? Here 
+	 you can see references to I18N but not to L10N. -->
 
     <para>In all its splendor, I18N is not FreeBSD-specific and is a
       convention.  We encourage you to help FreeBSD in following this
