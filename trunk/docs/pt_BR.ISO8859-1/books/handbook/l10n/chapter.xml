@@ -14,7 +14,7 @@
       <author>
 	<firstname>Andrey</firstname>
 	<surname>Chernov</surname>
-	<contrib>Uma Contribui��o de </contrib>
+	<contrib>Uma Contribuição de </contrib>
       </author>
     </authorgroup>
     <authorgroup>
@@ -27,145 +27,152 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>Localiza��o - Utiliza��o e Configura��o de I18N/L10N</title>
+  <title>Localização - Utilização e Configuração de I18N/L10N</title>
 
   <sect1 id="l10n-synopsis">
     <title>Sinopse</title>
 
-    <para>O projeto &os; � um projeto muito distribu�do, com usu�rios e
+    <para>O projeto &os; é um projeto muito distribuído, com usuários e
        colaboradores localizados em diferentes partes do mundo. Este 
-       cap�tulo discute os recursos de internacionaliza��o e localiza��o do &os;
-       que permitem aos usu�rios que n�o falam/leem/escrevem Ingl�s a 
-       realizar seus trabalhos. Existem muitos aspectos da implementa��o 
-       ligados a i18n, tanto a n�veis de sistema quanto a n�veis de 
-       aplica��o, de modo que ser�o fornecidas a voc� outras fontes 
-       mais espec�ficas de documenta��o.</para>
+       capítulo discute os recursos de internacionalização e localização do &os;
+       que permitem aos usuários que não falam/leem/escrevem Inglês a 
+       realizar seus trabalhos. Existem muitos aspectos da implementação 
+       ligados a i18n, tanto a níveis de sistema quanto a níveis de 
+       aplicação, de modo que serão fornecidas a você outras fontes 
+       mais específicas de documentação.</para>
 
 
-    <para>Ap�s ler este cap�tulo, voc� saber�:</para>
+    <para>Após ler este capítulo, você saberá:</para>
     <itemizedlist>
       <listitem><para>Como diferentes idiomas e caracteres/formatos 
-      espec�ficos (<literal>Locales</literal>) de diferentes pa�ses
-      s�o codificados nos sistemas operacionais modernos.</para></listitem>
+      específicos (<literal>Locales</literal>) de diferentes países
+      são codificados nos sistemas operacionais modernos.</para></listitem>
       <listitem><para>Como configurar os locales para seu 
       shell.</para></listitem>
       <listitem><para>Como configurar seu console para idiomas 
-      diferentes do idioma Ingl�s.</para></listitem>
+      diferentes do idioma Inglês.</para></listitem>
       <listitem><para>Como utilizado o X Window System de forma efetiva
       com outros idiomas.</para></listitem>
-      <listitem><para>Onde achar mais informa��es sobre como escrever
-      aplica��es que trabalhem com i18n.</para></listitem>
+      <listitem><para>Onde achar mais informações sobre como escrever
+      aplicações que trabalhem com i18n.</para></listitem>
    </itemizedlist>
 
-    <para>Antes de ler este cap�tulo, voc� deveria saber:</para>
+    <para>Antes de ler este capítulo, você deveria saber:</para>
 
     <itemizedlist>
-      <listitem><para>Como instalar aplica��es de terceiros 
+      <listitem><para>Como instalar aplicações de terceiros 
         no &os; (<xref linkend="ports"/>).</para></listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="l10n-basics">
-    <title>O B�sico</title>
+    <title>O Básico</title>
 
     <sect2>
-      <title>O que � I18N/L10N?</title>
+      <title>O que é I18N/L10N?</title>
     <indexterm>
       <primary>internationalization</primary>
       <see>localization</see>
     </indexterm>
     <indexterm><primary>localization</primary></indexterm>
 
-      <para>Desenvolvedores encurtaram o termo em Ingl�s 
+      <para>Desenvolvedores encurtaram o termo em Inglês 
 	<quote>internationalization</quote> para I18N, indicando, 
-	com o n�mero a� presente, a quantidade de caracteres entre 
-	a primeira e a �ltima letra. L10N utiliza o mesmo esquema 
+	com o número aí presente, a quantidade de caracteres entre 
+	a primeira e a última letra. L10N utiliza o mesmo esquema 
 	de nomenclatura, vindo do termo <quote>localization</quote>. 
-	Juntos, na forma I18N/L10N, estabelecem m�todos, protocolos 
-	e aplicativos que permitem aos usu�rios utilizem idiomas 
+	Juntos, na forma I18N/L10N, estabelecem métodos, protocolos 
+	e aplicativos que permitem aos usuários utilizem idiomas 
 	de sua escolha.</para>
 
-      <para>Aplica��es I18N s�o desenvolvidas com ajuda de kits I18N 
+      <para>Aplicações I18N são desenvolvidas com ajuda de kits I18N 
 	e bibliotecas. Eles permitem que os desenvolvedores escrevam 
 	um arquivo simples e possam ter menus e textos traduzidos sendo 
-	exibidos em cada idioma que esteja sendo suportado. � 
+	exibidos em cada idioma que esteja sendo suportado. É 
 	altamente incentivado que desenvolvedores sigam essa 
-	conven��o.</para>
+	convenção.</para>
     </sect2>
 
     <sect2>
       <title>Por que eu deveria utilizar I18N/L10N?</title>
 
-      <para>I18N/L10N � utilizado onde quer que voc� deseje ver, 
-	processar ou digitar dados e caracteres que n�o estejam 
-	presentes no idioma Ingl�s.</para>
+      <para>I18N/L10N é utilizado onde quer que você deseje ver, 
+	processar ou digitar dados e caracteres que não estejam 
+	presentes no idioma Inglês.</para>
     </sect2>
 
     <sect2>
-      <title>Quais idiomas s�o suportados por I18N?</title>
+      <title>Quais idiomas são suportados por I18N?</title>
 
-      <para>I18N e L10N n�o s�o espec�ficos do &os;. 
-	Atualmente voc� pode escolher e utilizar os principais 
-	idiomas do mundo, incluindo, mas n�o limitando-se a: 
-	Alem�o, Chin�s, Coreano, Franc�s, Japon�s, Russo, 
-	Vietnamita e v�rios outros.</para>
+      <para>I18N e L10N não são específicos do &os;. 
+	Atualmente você pode escolher e utilizar os principais 
+	idiomas do mundo, incluindo, mas não limitando-se a: 
+	Alemão, Chinês, Coreano, Francês, Japonês, Russo, 
+	Vietnamita e vários outros.</para>
     </sect2>
   </sect1>
 
   <sect1 id="using-localization">
-    <title>Utilizando Localiza��o</title>
+    <title>Utilizando Convenções de Localização</title>
 
     <!-- XXX: Localization (L10N) != Internationalization (I18N). 
 	 Was this section written with some kind of typo? Here 
-	 you can see references to I18N but not to L10N. -->
+	 you can see references to I18N but not to L10N. 
+	 I've changed it from i18n to l10n. / egypcio -->
 
-    <para>In all its splendor, I18N is not FreeBSD-specific and is a
-      convention.  We encourage you to help FreeBSD in following this
-      convention.</para>
+    <para>Mesmo com todo seu esplendor, L10N não é algo específico 
+      utilizado no &os;, mas sim uma convensão. É encorajado que 
+      você ajude o projeto &os; a continuar seguindo esta 
+      convensão.</para>
+
     <indexterm><primary>locale</primary></indexterm>
 
-    <para>Localization settings are based on three main terms:
-      Language Code, Country Code, and Encoding.  Locale names are
-      constructed from these parts as follows:</para>
+    <para>Configurações de localização são baseadas em três termos 
+      principais: Código do Idioma, Código do País e Codificação.
+      Os nomes dos <literal>locales</literal> se formam com base 
+      nesses termos da seguinte forma:</para>
 
-    <programlisting><replaceable>LanguageCode</replaceable>_<replaceable>CountryCode</replaceable>.<replaceable>Encoding</replaceable></programlisting>
+    <programlisting><replaceable>CódigoIdioma</replaceable>_<replaceable>CódigoPaís</replaceable>.<replaceable>Codificação</replaceable></programlisting>
 
     <sect2>
-      <title>Language and Country Codes</title>
+      <title>Códigos do Idioma e País</title>
       <indexterm><primary>language codes</primary></indexterm>
       <indexterm><primary>country codes</primary></indexterm>
 
-      <para>In order to localize a FreeBSD system to a specific language
-	(or any other I18N-supporting &unix; like systems), the user needs to find out
-	the codes for the specific country and language (country
-	codes tell applications what variation of given
-	language to use).  In addition, web
-	browsers, SMTP/POP servers, web servers, etc. make decisions based on
-	them.  The following are examples of language/country codes:</para>
+      <para>Para fazer com que um sistema &os;, ou qualquer outro 
+	sistema &unix; que suporte I18N/L10N, compreenda caracteres 
+	específicos de um determinado idioma (ou país), os usuários 
+	precisam descobrir qual código utilizar. Esses códigos 
+	dirão para as aplicações quais variações de caracteres e 
+	codificações devem utilizar. Além disso, navegadores, 
+	servidores de e-mail, servidores web e diversos outros 
+	serviços tomarão decisões baseando-se nesses códigos 
+	(<literal>locales</literal>). Veja alguns exemplos de 
+	códigos de idiomas/países:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>Language/Country Code</entry>
-	      <entry>Description</entry>
+	      <entry>Código do Idioma/País</entry>
+	      <entry>Descrição</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
 	      <entry>en_US</entry>
-	      <entry>English - United States</entry>
+	      <entry>Inglês - Estados Unidos da América</entry>
 	    </row>
 
 	    <row>
 	      <entry>ru_RU</entry>
-	      <entry>Russian for Russia</entry>
+	      <entry>Russo - Rússia</entry>
 	    </row>
 
 	    <row>
 	      <entry>zh_TW</entry>
-	      <entry>Traditional Chinese for Taiwan</entry>
+	      <entry>Chinês (Tradicional) - Taiwan</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
@@ -174,74 +181,85 @@
     </sect2>
 
     <sect2>
-      <title>Encodings</title>
+      <title>Codificação</title>
       <indexterm><primary>encodings</primary></indexterm>
       <indexterm><primary>ASCII</primary></indexterm>
 
-      <para>Some languages use non-ASCII encodings that are 8-bit, wide
-	or multibyte characters, see &man.multibyte.3; for more
-	details. Older applications do not recognize them
-	and mistake them for control characters.  Newer applications
-	usually do recognize 8-bit characters.  Depending on the
-	implementation, users may be required to compile an application
-	with wide or multibyte characters support, or configure it correctly.
-	To be able to input and process wide or multibyte characters, the <ulink
-	url="&url.base;/ports/index.html">FreeBSD Ports Collection</ulink> has provided
-	each language with different programs.  Refer to the I18N
-	documentation in the respective FreeBSD Port.</para>
+      <para>Alguns idiomas utilizam codificações diferentes da 
+	codificação do padrão ASCII; com 8 bits, com caracteres 
+	mais espaçosos (<literal>wide</literal>), ou com número 
+	variado de bytes (<literal>multibyte</literal>). Veja a 
+	página de manual &man.multibyte.3; para obter mais detalhes a 
+	respeito desse assunto. Aplicativos mais antigos não reconhecem 
+	ou confundem esses idiomas, utilizando caracteres de controle 
+	ao invés dos caracteres corretos. Aplicações mais recentes 
+	geralmente não reconhecem os caracteres de 8 bits. Dependendo 
+	da implementação, os usuários podem precisar compilar um aplicativo 
+	para que ele suporte caracteres wide ou multibyte, ou precisarão 
+	configurá-lo corretamente. Para ser capaz de compreender esses 
+	caracteres wide ou multibyte, a 
+	<ulink url="&url.base;/ports/index.html">Coleção de Ports do &os;</ulink> 
+	oferece diversos aplicativos em diferentes idiomas. Consulte a 
+	documentação fornecida para I18N nos respectivos ports.</para>
 
-      <para>Specifically, the user needs to look at the application
-	documentation to decide on how to configure it correctly or to
-	pass correct values into the configure/Makefile/compiler.</para>
+      <para>Especificamente, o usuário precisa consultar a documentação 
+	fornecida junto com a aplicação para decidir sobre como 
+	configurá-la corretamente ou quais valores corretos deve passar 
+	para o compilador, para scripts de configuração ou, ainda, se 
+	deve alterar algo no <filename>Makefile</filename>.</para>
 
-      <para>Some things to keep in mind are:</para>
+      <para>Algumas coisas para se ter em mente são:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>Language specific single C chars character sets
-	  (see &man.multibyte.3;), e.g.
-	    ISO8859-1, ISO8859-15, KOI8-R, CP437.</para>
+	  <para>Ao se utilizar uma linguagem específica, como C, 
+	  define-se o conjunto de caracteres que podem ser utilizados 
+	  (veja &man.multibyte.3;); ISO8859-1, ISO8859-15, 
+	  KOI8-R ou CP437.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Wide or multibyte encodings, e.g., EUC, Big5.</para>
+	  <para>Codificações do tipo <literal>wide</literal> ou 
+	  <literal>multibyte<literal>: EUC ou Big5.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>You can check the active list of character sets at the
+      <para>Você pode checar a lista atual de conjuntos de caracteres nos
 	<ulink
-	url="http://www.iana.org/assignments/character-sets">IANA Registry</ulink>.</para>
+	url="http://www.iana.org/assignments/character-sets">Registros da IANA</ulink>.</para>
 
       <note>
-	<para>&os; uses X11-compatible locale encodings instead.</para>
+	<para>O &os;, por outro lado, faz uso de convenções compatíveis com X11.</para>
       </note>
 
     </sect2>
 
     <sect2>
-      <title>I18N Applications</title>
+      <title>Aplicações I18N</title>
 
-      <para>In the FreeBSD Ports and Package system, I18N applications
-	have been named with <literal>I18N</literal> in their names for
-	easy identification.  However, they do not always support the
-	language needed.</para>
+      <para>Na Coleção de Ports do &os;, aplicações I18N
+	foram nomeadas com o sufixo <literal>-i18n</ literal> para
+	fácil identificação. Entretanto, elas nem sempre suportam o
+	idioma desejado.</para>
     </sect2>
 
     <sect2 id="setting-locale">
-      <title>Setting Locale</title>
+      <title>Definindo o Locale</title>
 
-      <para>Usually it is sufficient to export the value of the locale name
-        as <envar>LANG</envar> in the login shell.  This could be done in
-	the user's <filename>~/.login_conf</filename> file or in the
-	startup file of the user's shell (<filename>~/.profile</filename>,
-	<filename>~/.bashrc</filename>, <filename>~/.cshrc</filename>).
-	There is no need to set the locale subsets such as
-	<envar>LC_CTYPE</envar>, <envar>LC_CTIME</envar>.  Please
-	refer to language-specific FreeBSD documentation for more
-	information.</para>
+      <para>Geralmente é o suficiente exportar o valor da localidade 
+	desejada na variável de ambiente <envar>LANG</envar> na shell 
+	de login. Isto pode ser feito no arquivo 
+	<filename>~/.login_conf</filename> ou no arquivo de 
+	inicialização do shell do usuário (<filename>~/.profile</filename>, 
+	<filename>~/.bashrc</filename>, <filename>~/.cshrc</filename> 
+	ou outro arquivo, dependendo da shell utilizada). Não há 
+	necessidade de definir os subconjuntos de locale, como 
+	<envar>LC_CTYPE</envar>, <envar>LC_CTIME</envar>. Por favor, 
+	consulte a documentação do idioma específico para mais 
+	informações.</para>
 
-      <para>You should set the following two environment variables in your configuration
-	files:</para>
+      <para>Você deve definir as seguintes variáveis ​​de ambiente 
+	em seus arquivos de configuração:</para>
 
       <itemizedlist>
         <indexterm><primary>POSIX</primary></indexterm>
@@ -948,11 +966,13 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
     </sect2>
 
     <sect2>
-      <title>Non-English FreeBSD Documentation</title>
+      <title>Documentação do &os; em Outros Idiomas</title>
 
-      <para>Some FreeBSD contributors have translated parts of FreeBSD documentation to
-	other languages.  They are available through links on the <ulink
-	url="&url.base;/index.html">main site</ulink> or in
+      <para>Algums colaboradores so projeto &os; traduzem várias das 
+	documentações para outros idiomas. Essas traduções estão 
+	disponíveis em páginas específicas no <ulink 
+	url="&url.base;/index.html">Sítio Web Oficial da Documentação 
+	do Projeto &os;</ulink> ou em 
 	<filename>/usr/share/doc</filename>.</para>
     </sect2>
   </sect1>
