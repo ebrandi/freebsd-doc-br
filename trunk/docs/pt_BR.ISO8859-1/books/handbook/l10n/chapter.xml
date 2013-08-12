@@ -117,8 +117,8 @@
 
     <!-- XXX: Localization (L10N) != Internationalization (I18N). 
 	 Was this section written with some kind of typo? Here 
-	 you can see references to I18N but not to L10N. 
-	 I've changed it from i18n to l10n. / egypcio -->
+	 I saw references to I18N but not to L10N. Now I've
+	 changed it from i18n to l10n. / egypcio -->
 
     <para>Mesmo com todo seu esplendor, L10N não é algo específico 
       utilizado no &os;, mas sim uma convensão. É encorajado que 
@@ -264,35 +264,36 @@
       <itemizedlist>
         <indexterm><primary>POSIX</primary></indexterm>
         <listitem>
-	  <para><envar>LANG</envar> for &posix; &man.setlocale.3; family
-	    functions</para>
+	  <para><envar>LANG</envar> para funções &man.setlocale.3; da 
+	    família &posix;</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>MIME</primary></indexterm>
 
-	  <para><envar>MM_CHARSET</envar> for applications' MIME character
-	    set</para>
+	  <para><envar>MM_CHARSET</envar> para conjuntos de caractedes 
+	    das aplicações MIME</para>
 	</listitem>
       </itemizedlist>
 
-      <para>This includes the user shell configuration, the specific application
-        configuration, and the X11 configuration.</para>
+      <para>Isso inclui as configurações de shell do usuário, configurações 
+	específicas de uma aplicação e configurações do ambiente X11.</para>
 
       <sect3>
-	<title>Setting Locale Methods</title>
+	<title>Definição de Métodos</title>
         <indexterm><primary>locale</primary></indexterm>
         <indexterm><primary>login class</primary></indexterm>
 
-	<para>There are two methods for setting locale, and both are
-	  described below.  The first (recommended one) is by assigning
-	  the environment variables in <link linkend="login-class">login
-	  class</link>, and the second is by adding the environment
-	  variable assignments to the system's shell <link
-	  linkend="startup-file">startup file</link>.</para>
+	<para>Existem dois métodos para definir localização e ambos são 
+	    descritos logo abaixo. O primeiro (e mais recomendado) é o 
+	    método que faz uso das variáveis de ambiente definidas na 
+	    <link linkend="login-class">classe de login</link>, o 
+	    segundo define as variáveis no 
+	    <link linkend="startup-file">arquivo de iniciação</link> 
+	    do shell de sistema</para>
 
 	<sect4 id="login-class">
-	  <title>Login Classes Method</title>
+	  <title>Método das Classes de Login</title>
 
 	  <para>This method allows environment variables needed for locale
 	    name and MIME character sets to be assigned once for every
