@@ -295,35 +295,41 @@
 	<sect4 id="login-class">
 	  <title>Método das Classes de Login</title>
 
-	  <para>This method allows environment variables needed for locale
-	    name and MIME character sets to be assigned once for every
-	    possible shell instead of adding specific shell assignments to
-	    each shell's startup file.  <link linkend="usr-setup">User
-	    Level Setup</link> can be done by an user himself and <link
-	    linkend="adm-setup">Administrator Level Setup</link> require
-	    superuser privileges.</para>
+	  <para>Este método permite o uso de variáveis de ambiente 
+	    pelas configurações de localização e conjunto de caracteres 
+	    MIME pelas shells presentes no sistema sem a necessidade 
+	    de se ter um arquivo de inicialização específico com 
+	    configurações para cada uma dessas shells. Um 
+	    <link linkend="usr-setup">setup a nível de usuário</link> 
+	    pode ser feito pelo próprio usuário sem necessiades de 
+	    privilégios de super usuário (root), diferente de um 
+	    <link linkend="adm-setup">setup a nível de administrador</link>.</para>
 
 	  <sect5 id="usr-setup">
-	    <title>User Level Setup</title>
+	    <title>Setup a Nível de Usuário</title>
 
-	    <para>Here is a minimal example of a
-	      <filename>.login_conf</filename> file in user's home
-	      directory which has both variables set for Latin-1
-	      encoding:</para>
+	    <para>Aqui está um pequeno exemplo do conteúdo configurado 
+	    no arquivo <filename>.login_conf</filename>, presente no 
+	    diretório home de um usuário qualquer, que define ambas 
+	    as variáveis para utilizar codificações tipo Latin-1:</para>
 
 	    <programlisting>me:\
 	:charset=ISO-8859-1:\
 	:lang=de_DE.ISO8859-1:</programlisting>
 
 	    <indexterm><primary>Traditional Chinese</primary><secondary>BIG-5 encoding</secondary></indexterm>
-	    <para>Here is an example of a
-	       <filename>.login_conf</filename> that sets the variables
-	       for Traditional Chinese in BIG-5 encoding.  Notice the many
-	       more variables set because some software does not respect
-	       locale variables correctly for Chinese, Japanese, and Korean.</para>
 
-	    <programlisting>#Users who do not wish to use monetary units or time formats
-#of Taiwan can manually change each variable
+	    <para>Aqui está um pequeno exemplo do conteúdo configurado 
+	    no arquivo <filename>.login_conf</filename>, presente no 
+	    diretório home de um usuário qualquer, que define 
+	    variáveis para utilizar codificações tipo BIG-5. Perceba 
+	    que muitas outras variáveis são utilizadas pelo fato de 
+	    que alguns softwares não respeitam os padrões de 
+	    localização corretamente para o uso de idiomas como 
+	    Chinês, Japonês e Coreano.</para>
+
+	    <programlisting># Users who do not wish to use monetary units or time formats
+# of Taiwan can manually change each variable
 me:\
 	:lang=zh_TW.Big5:\
 	:setenv=LC_ALL=zh_TW.Big5:\
@@ -334,40 +340,40 @@ me:\
 	:setenv=LC_NUMERIC=zh_TW.Big5:\
 	:setenv=LC_TIME=zh_TW.Big5:\
 	:charset=big5:\
-	:xmodifiers="@im=gcin": #Set gcin as the XIM Input Server</programlisting>
+	:xmodifiers="@im=gcin": # Define gcin como XIM Input Server</programlisting>
 
-	    <para>See <link linkend="adm-setup">Administrator Level
-	      Setup</link> and &man.login.conf.5; for more details.</para>
+	    <para>Consulte o <link linkend="adm-setup">Setup a Nível de 
+	    Administrador</link> e a página de manual &man.login.conf.5; 
+	    para obter mais detalhes.</para>
 	  </sect5>
 
 	  <sect5 id="adm-setup">
-	    <title>Administrator Level Setup</title>
+	    <title>Setup a Nível de Administrador</title>
 
-	    <para>Verify that the user's login class in
-	      <filename>/etc/login.conf</filename> sets the correct
-	      language.  Make sure these settings
-	      appear in <filename>/etc/login.conf</filename>:</para>
+	    <para>Verifique se as configurações na Classe de Login 
+	      do usuário apresentam definições para o idioma desejado. 
+	      Confirme se, no arquivo <filename>/etc/login.conf</filename>, 
+	      você tem as seguintes configurações:</para>
 
-	    <programlisting><replaceable>language_name</replaceable>|<replaceable>Account Type Description</replaceable>:\
-	:charset=<replaceable>MIME_charset</replaceable>:\
-	:lang=<replaceable>locale_name</replaceable>:\
+	    <programlisting><replaceable>nome_do_idioma</replaceable>|<replaceable>Descrição do Tipo da Conta</replaceable>:\
+	:charset=<replaceable>definição_de_charset_MIME</replaceable>:\
+	:lang=<replaceable>nome_da_localização</replaceable>:\
 	:tc=default:</programlisting>
 
-	    <para>So sticking with our previous example using Latin-1, it
-	      would look like this:</para>
+	    <para>Então, ainda utilizando um exemplo anterios, para 
+		Latin-1, suas configurações seriam parecidas com estas:</para>
 
-	    <programlisting>german|German Users Accounts:\
+	    <programlisting>alemao|Contas de Usuarios Alemaes:\
 	:charset=ISO-8859-1:\
 	:lang=de_DE.ISO8859-1:\
 	:tc=default:</programlisting>
 
-	    <para>Before changing users Login Classes execute
-	      the following command:</para>
+	    <para>Antes de alterar as Classes de Login dos usuários execute o seguinte comando:</para>
 
 	    <screen>&prompt.root; <userinput>cap_mkdb /etc/login.conf</userinput></screen>
 
-	    <para>to make new configuration in
-	      <filename>/etc/login.conf</filename> visible to the system.</para>
+	    <para>Assim você fará as alterações realizadas em
+	      <filename>/etc/login.conf</filename> visiveis para todo o sistema.</para>
 
 	    <bridgehead renderas="sect4">Changing Login Classes with &man.vipw.8;</bridgehead>
 
