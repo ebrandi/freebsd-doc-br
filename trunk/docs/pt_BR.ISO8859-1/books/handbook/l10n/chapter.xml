@@ -355,7 +355,7 @@ me:\
 	      Confirme se, no arquivo <filename>/etc/login.conf</filename>, 
 	      você tem as seguintes configurações:</para>
 
-	    <programlisting><replaceable>nome_do_idioma</replaceable>|<replaceable>Descrição do Tipo da Conta</replaceable>:\
+	    <programlisting><replaceable>nome_da_classe</replaceable>|<replaceable>Descrição do Tipo da Classe</replaceable>:\
 	:charset=<replaceable>definição_de_charset_MIME</replaceable>:\
 	:lang=<replaceable>nome_da_localização</replaceable>:\
 	:tc=default:</programlisting>
@@ -375,58 +375,60 @@ me:\
 	    <para>Assim você fará as alterações realizadas em
 	      <filename>/etc/login.conf</filename> visiveis para todo o sistema.</para>
 
-	    <bridgehead renderas="sect4">Changing Login Classes with &man.vipw.8;</bridgehead>
+	    <bridgehead renderas="sect4">Alterar Classes de Login com &man.vipw.8;</bridgehead>
 
 	    <indexterm>
         <primary><command>vipw</command></primary>
       </indexterm>
-	    <para>Use <command>vipw</command> to add new users, and make
-	      the entry look like this:</para>
+	    <para>Utilize o comando <command>vipw</command> para adicionar 
+		novos usuários e fazer com que entradas no 
+		registro de usuários se pareçam com a seguinte 
+		entrada:</para>
 
-	    <programlisting>user:password:1111:11:<replaceable>language</replaceable>:0:0:User Name:/home/user:/bin/sh</programlisting>
+	    <programlisting>usuario:senha:1111:11:<replaceable>nome_da_classe</replaceable>:0:0:Nome do Usuário:/home/usuario:/bin/sh</programlisting>
 
-	    <bridgehead renderas="sect4">Changing Login Classes with &man.adduser.8;</bridgehead>
+	    <bridgehead renderas="sect4">Alterar Classes de Login com &man.adduser.8;</bridgehead>
 
 	    <indexterm>
         <primary><command>adduser</command></primary>
       </indexterm>
 	    <indexterm><primary>login class</primary></indexterm>
-	    <para>Use <command>adduser</command> to add new users, and do
-	      the following:</para>
+	    <para>Utilize o comando <command>adduser</command> para adicionar 
+		novos usuários e faça o seguinte:</para>
 
 	    <itemizedlist>
 	      <listitem>
-		<para>Set <literal>defaultclass =
-		  <replaceable>language</replaceable></literal> in
-		  <filename>/etc/adduser.conf</filename>.  Keep in mind
-		  you must enter a <literal>default</literal> class for
-		  all users of other languages in this case.</para>
+		<para>Defina <literal>defaultclass =
+		  <replaceable>nome_do_idioma</replaceable></literal> no arquivo
+		  <filename>/etc/adduser.conf</filename>.  Tenha em mente que 
+		  você sempre deve definir uma classe <literal>default</literal> 
+		  para todos os usuários neste caso.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>An alternative variant is answering the specified
-		  language each time that
-<screen><prompt>Enter login class: default []: </prompt></screen>
-		  appears from &man.adduser.8;.</para>
+		<para>Uma alternativa ao procedimento descrito e esclarecido 
+		  acima é sempre alterar a classe quando lhe for solicitado 
+		  pelo &man.adduser.8; durante a adição de novos usuários.
+		  <screen><prompt>Enter login class: default []: </prompt></screen>.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>Another alternative is to use the following for each
-		  user of a different language that you wish to
-		  add:</para>
+		<para>Outro procedimento é especificar a Classe de Login 
+		  para cada usuário da seguinte maneira:</para>
 
-		<screen>&prompt.root; <userinput>adduser -class <replaceable>language</replaceable></userinput></screen>
+		<screen>&prompt.root; <userinput>adduser -class <replaceable>nome_da_classe</replaceable></userinput></screen>
 	      </listitem>
 	    </itemizedlist>
 
-	    <bridgehead renderas="sect4">Changing Login Classes with &man.pw.8;</bridgehead>
+	    <bridgehead renderas="sect4">Alterar Classes de Login com &man.pw.8;</bridgehead>
 	    <indexterm>
         <primary><command>pw</command></primary>
       </indexterm>
-	    <para>If you use &man.pw.8; for adding new users, call it in
-	      this form:</para>
+	    <para>Caso você utilize o comando &man.pw.8; para 
+		  adicionar novos usuários, execute-o da seguinte 
+		  forma:</para>
 
-	    <screen>&prompt.root; <userinput>pw useradd <replaceable>user_name</replaceable> -L <replaceable>language</replaceable></userinput></screen>
+	    <screen>&prompt.root; <userinput>pw useradd <replaceable>usuario</replaceable> -L <replaceable>nome_da_classe</replaceable></userinput></screen>
 	  </sect5>
 	</sect4>
 
