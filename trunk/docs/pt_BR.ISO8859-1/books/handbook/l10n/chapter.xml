@@ -14,7 +14,7 @@
       <author>
 	<firstname>Andrey</firstname>
 	<surname>Chernov</surname>
-	<contrib>Uma ContribuiÃ§Ã£o de </contrib>
+	<contrib>Uma Contribuição de </contrib>
       </author>
     </authorgroup>
     <authorgroup>
@@ -27,152 +27,152 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>LocalizaÃ§Ã£o - UtilizaÃ§Ã£o e ConfiguraÃ§Ã£o de I18N/L10N</title>
+  <title>Localização - Utilização e Configuração de I18N/L10N</title>
 
   <sect1 id="l10n-synopsis">
     <title>Sinopse</title>
 
-    <para>O projeto &os; Ã© um projeto muito distribuÃ­do, com usuÃ¡rios e
+    <para>O projeto &os; é um projeto muito distribuído, com usuários e
        colaboradores localizados em diferentes partes do mundo. Este 
-       capÃ­tulo discute os recursos de internacionalizaÃ§Ã£o e localizaÃ§Ã£o do &os;
-       que permitem aos usuÃ¡rios que nÃ£o falam/leem/escrevem InglÃªs a 
-       realizar seus trabalhos. Existem muitos aspectos da implementaÃ§Ã£o 
-       ligados a i18n, tanto a nÃ­veis de sistema quanto a nÃ­veis de 
-       aplicaÃ§Ã£o, de modo que serÃ£o fornecidas a vocÃª outras fontes 
-       mais especÃ­ficas de documentaÃ§Ã£o.</para>
+       capítulo discute os recursos de internacionalização e localização do &os;
+       que permitem aos usuários que não falam/leem/escrevem Inglês a 
+       realizar seus trabalhos. Existem muitos aspectos da implementação 
+       ligados a i18n, tanto a níveis de sistema quanto a níveis de 
+       aplicação, de modo que serão fornecidas a você outras fontes 
+       mais específicas de documentação.</para>
 
 
-    <para>ApÃ³s ler este capÃ­tulo, vocÃª saberÃ¡:</para>
+    <para>Após ler este capítulo, você saberá:</para>
     <itemizedlist>
       <listitem><para>Como diferentes idiomas e caracteres/formatos 
-      especÃ­ficos (<literal>Locales</literal>) de diferentes paÃ­ses
-      sÃ£o codificados nos sistemas operacionais modernos.</para></listitem>
+      específicos (<literal>Locales</literal>) de diferentes países
+      são codificados nos sistemas operacionais modernos.</para></listitem>
       <listitem><para>Como configurar os locales para seu 
       shell.</para></listitem>
       <listitem><para>Como configurar seu console para idiomas 
-      diferentes do idioma InglÃªs.</para></listitem>
+      diferentes do idioma Inglês.</para></listitem>
       <listitem><para>Como utilizado o X Window System de forma efetiva
       com outros idiomas.</para></listitem>
-      <listitem><para>Onde achar mais informaÃ§Ãµes sobre como escrever
-      aplicaÃ§Ãµes que trabalhem com i18n.</para></listitem>
+      <listitem><para>Onde achar mais informações sobre como escrever
+      aplicações que trabalhem com i18n.</para></listitem>
    </itemizedlist>
 
-    <para>Antes de ler este capÃ­tulo, vocÃª deveria saber:</para>
+    <para>Antes de ler este capítulo, você deveria saber:</para>
 
     <itemizedlist>
-      <listitem><para>Como instalar aplicaÃ§Ãµes de terceiros 
+      <listitem><para>Como instalar aplicações de terceiros 
         no &os; (<xref linkend="ports"/>).</para></listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="l10n-basics">
-    <title>O BÃ¡sico</title>
+    <title>O Básico</title>
 
     <sect2>
-      <title>O que Ã© I18N/L10N?</title>
+      <title>O que é I18N/L10N?</title>
     <indexterm>
       <primary>internationalization</primary>
       <see>localization</see>
     </indexterm>
     <indexterm><primary>localization</primary></indexterm>
 
-      <para>Desenvolvedores encurtaram o termo em InglÃªs 
+      <para>Desenvolvedores encurtaram o termo em Inglês 
 	<quote>internationalization</quote> para I18N, indicando, 
-	com o nÃºmero aÃ­ presente, a quantidade de caracteres entre 
-	a primeira e a Ãºltima letra. L10N utiliza o mesmo esquema 
+	com o número aí presente, a quantidade de caracteres entre 
+	a primeira e a última letra. L10N utiliza o mesmo esquema 
 	de nomenclatura, vindo do termo <quote>localization</quote>. 
-	Juntos, na forma I18N/L10N, estabelecem mÃ©todos, protocolos 
-	e aplicativos que permitem aos usuÃ¡rios utilizem idiomas 
+	Juntos, na forma I18N/L10N, estabelecem métodos, protocolos 
+	e aplicativos que permitem aos usuários utilizem idiomas 
 	de sua escolha.</para>
 
-      <para>AplicaÃ§Ãµes I18N sÃ£o desenvolvidas com ajuda de kits I18N 
+      <para>Aplicações I18N são desenvolvidas com ajuda de kits I18N 
 	e bibliotecas. Eles permitem que os desenvolvedores escrevam 
 	um arquivo simples e possam ter menus e textos traduzidos sendo 
-	exibidos em cada idioma que esteja sendo suportado. Ã‰ 
+	exibidos em cada idioma que esteja sendo suportado. É 
 	altamente incentivado que desenvolvedores sigam essa 
-	convenÃ§Ã£o.</para>
+	convenção.</para>
     </sect2>
 
     <sect2>
       <title>Por que eu deveria utilizar I18N/L10N?</title>
 
-      <para>I18N/L10N Ã© utilizado onde quer que vocÃª deseje ver, 
-	processar ou digitar dados e caracteres que nÃ£o estejam 
-	presentes no idioma InglÃªs.</para>
+      <para>I18N/L10N é utilizado onde quer que você deseje ver, 
+	processar ou digitar dados e caracteres que não estejam 
+	presentes no idioma Inglês.</para>
     </sect2>
 
     <sect2>
-      <title>Quais idiomas sÃ£o suportados por I18N?</title>
+      <title>Quais idiomas são suportados por I18N?</title>
 
-      <para>I18N e L10N nÃ£o sÃ£o especÃ­ficos do &os;. 
-	Atualmente vocÃª pode escolher e utilizar os principais 
-	idiomas do mundo, incluindo, mas nÃ£o limitando-se a: 
-	AlemÃ£o, ChinÃªs, Coreano, FrancÃªs, JaponÃªs, Russo, 
-	Vietnamita e vÃ¡rios outros.</para>
+      <para>I18N e L10N não são específicos do &os;. 
+	Atualmente você pode escolher e utilizar os principais 
+	idiomas do mundo, incluindo, mas não limitando-se a: 
+	Alemão, Chinês, Coreano, Francês, Japonês, Russo, 
+	Vietnamita e vários outros.</para>
     </sect2>
   </sect1>
 
   <sect1 id="using-localization">
-    <title>Utilizando ConvenÃ§Ãµes de LocalizaÃ§Ã£o</title>
+    <title>Utilizando Convenções de Localização</title>
 
     <!-- XXX: Localization (L10N) != Internationalization (I18N). 
 	 Was this section written with some kind of typo? Here 
 	 I saw references to I18N but not to L10N. Now I've
 	 changed it from i18n to l10n. / egypcio -->
 
-    <para>Mesmo com todo seu esplendor, L10N nÃ£o Ã© algo especÃ­fico 
-      utilizado no &os;, mas sim uma convensÃ£o. Ã‰ encorajado que 
-      vocÃª ajude o projeto &os; a continuar seguindo esta 
-      convensÃ£o.</para>
+    <para>Mesmo com todo seu esplendor, L10N não é algo específico 
+      utilizado no &os;, mas sim uma convensão. É encorajado que 
+      você ajude o projeto &os; a continuar seguindo esta 
+      convensão.</para>
 
     <indexterm><primary>locale</primary></indexterm>
 
-    <para>ConfiguraÃ§Ãµes de localizaÃ§Ã£o sÃ£o baseadas em trÃªs termos 
-      principais: CÃ³digo do Idioma, CÃ³digo do PaÃ­s e CodificaÃ§Ã£o.
+    <para>Configurações de localização são baseadas em três termos 
+      principais: Código do Idioma, Código do País e Codificação.
       Os nomes dos <literal>locales</literal> se formam com base 
       nesses termos da seguinte forma:</para>
 
-    <programlisting><replaceable>CÃ³digoIdioma</replaceable>_<replaceable>CÃ³digoPaÃ­s</replaceable>.<replaceable>CodificaÃ§Ã£o</replaceable></programlisting>
+    <programlisting><replaceable>CódigoIdioma</replaceable>_<replaceable>CódigoPaís</replaceable>.<replaceable>Codificação</replaceable></programlisting>
 
     <sect2>
-      <title>CÃ³digos do Idioma e PaÃ­s</title>
+      <title>Códigos do Idioma e País</title>
       <indexterm><primary>language codes</primary></indexterm>
       <indexterm><primary>country codes</primary></indexterm>
 
       <para>Para fazer com que um sistema &os;, ou qualquer outro 
 	sistema &unix; que suporte I18N/L10N, compreenda caracteres 
-	especÃ­ficos de um determinado idioma (ou paÃ­s), os usuÃ¡rios 
-	precisam descobrir qual cÃ³digo utilizar. Esses cÃ³digos 
-	dirÃ£o para as aplicaÃ§Ãµes quais variaÃ§Ãµes de caracteres e 
-	codificaÃ§Ãµes devem utilizar. AlÃ©m disso, navegadores, 
+	específicos de um determinado idioma (ou país), os usuários 
+	precisam descobrir qual código utilizar. Esses códigos 
+	dirão para as aplicações quais variações de caracteres e 
+	codificações devem utilizar. Além disso, navegadores, 
 	servidores de e-mail, servidores web e diversos outros 
-	serviÃ§os tomarÃ£o decisÃµes baseando-se nesses cÃ³digos 
+	serviços tomarão decisões baseando-se nesses códigos 
 	(<literal>locales</literal>). Veja alguns exemplos de 
-	cÃ³digos de idiomas/paÃ­ses:</para>
+	códigos de idiomas/países:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>CÃ³digo do Idioma/PaÃ­s</entry>
-	      <entry>DescriÃ§Ã£o</entry>
+	      <entry>Código do Idioma/País</entry>
+	      <entry>Descrição</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
 	      <entry>en_US</entry>
-	      <entry>InglÃªs - Estados Unidos da AmÃ©rica</entry>
+	      <entry>Inglês - Estados Unidos da América</entry>
 	    </row>
 
 	    <row>
 	      <entry>ru_RU</entry>
-	      <entry>Russo - RÃºssia</entry>
+	      <entry>Russo - Rússia</entry>
 	    </row>
 
 	    <row>
 	      <entry>zh_TW</entry>
-	      <entry>ChinÃªs (Tradicional) - Taiwan</entry>
+	      <entry>Chinês (Tradicional) - Taiwan</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
@@ -181,137 +181,137 @@
     </sect2>
 
     <sect2>
-      <title>CodificaÃ§Ã£o</title>
+      <title>Codificação</title>
       <indexterm><primary>encodings</primary></indexterm>
       <indexterm><primary>ASCII</primary></indexterm>
 
-      <para>Alguns idiomas utilizam codificaÃ§Ãµes diferentes da 
-	codificaÃ§Ã£o do padrÃ£o ASCII; com 8 bits, com caracteres 
-	mais espaÃ§osos (<literal>wide</literal>), ou com nÃºmero 
+      <para>Alguns idiomas utilizam codificações diferentes da 
+	codificação do padrão ASCII; com 8 bits, com caracteres 
+	mais espaçosos (<literal>wide</literal>), ou com número 
 	variado de bytes (<literal>multibyte</literal>). Veja a 
-	pÃ¡gina de manual &man.multibyte.3; para obter mais detalhes a 
-	respeito desse assunto. Aplicativos mais antigos nÃ£o reconhecem 
+	página de manual &man.multibyte.3; para obter mais detalhes a 
+	respeito desse assunto. Aplicativos mais antigos não reconhecem 
 	ou confundem esses idiomas, utilizando caracteres de controle 
-	ao invÃ©s dos caracteres corretos. AplicaÃ§Ãµes mais recentes 
-	geralmente nÃ£o reconhecem os caracteres de 8 bits. Dependendo 
-	da implementaÃ§Ã£o, os usuÃ¡rios podem precisar compilar um aplicativo 
-	para que ele suporte caracteres wide ou multibyte, ou precisarÃ£o 
-	configurÃ¡-lo corretamente. Para ser capaz de compreender esses 
+	ao invés dos caracteres corretos. Aplicações mais recentes 
+	geralmente não reconhecem os caracteres de 8 bits. Dependendo 
+	da implementação, os usuários podem precisar compilar um aplicativo 
+	para que ele suporte caracteres wide ou multibyte, ou precisarão 
+	configurá-lo corretamente. Para ser capaz de compreender esses 
 	caracteres wide ou multibyte, a 
-	<ulink url="&url.base;/ports/index.html">ColeÃ§Ã£o de Ports do &os;</ulink> 
+	<ulink url="&url.base;/ports/index.html">Coleção de Ports do &os;</ulink> 
 	oferece diversos aplicativos em diferentes idiomas. Consulte a 
-	documentaÃ§Ã£o fornecida para I18N nos respectivos ports.</para>
+	documentação fornecida para I18N nos respectivos ports.</para>
 
-      <para>Especificamente, o usuÃ¡rio precisa consultar a documentaÃ§Ã£o 
-	fornecida junto com a aplicaÃ§Ã£o para decidir sobre como 
-	configurÃ¡-la corretamente ou quais valores corretos deve passar 
-	para o compilador, para scripts de configuraÃ§Ã£o ou, ainda, se 
+      <para>Especificamente, o usuário precisa consultar a documentação 
+	fornecida junto com a aplicação para decidir sobre como 
+	configurá-la corretamente ou quais valores corretos deve passar 
+	para o compilador, para scripts de configuração ou, ainda, se 
 	deve alterar algo no <filename>Makefile</filename>.</para>
 
-      <para>Algumas coisas para se ter em mente sÃ£o:</para>
+      <para>Algumas coisas para se ter em mente são:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>Ao se utilizar uma linguagem especÃ­fica, como C, 
+	  <para>Ao se utilizar uma linguagem específica, como C, 
 	  define-se o conjunto de caracteres que podem ser utilizados 
 	  (veja &man.multibyte.3;); ISO8859-1, ISO8859-15, 
 	  KOI8-R ou CP437.</para>
 	</listitem>
 
 	<listitem>
-	  <para>CodificaÃ§Ãµes do tipo <literal>wide</literal> ou 
-	  <literal>multibyte<literal>: EUC ou Big5.</para>
+	  <para>Codificações do tipo <literal>wide</literal> ou 
+	  <literal>multibyte</literal>: EUC ou Big5.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>VocÃª pode checar a lista atual de conjuntos de caracteres nos
+      <para>Você pode checar a lista atual de conjuntos de caracteres nos
 	<ulink
 	url="http://www.iana.org/assignments/character-sets">Registros da IANA</ulink>.</para>
 
       <note>
-	<para>O &os;, por outro lado, faz uso de convenÃ§Ãµes compatÃ­veis com X11.</para>
+	<para>O &os;, por outro lado, faz uso de convenções compatíveis com X11.</para>
       </note>
 
     </sect2>
 
     <sect2>
-      <title>AplicaÃ§Ãµes I18N</title>
+      <title>Aplicações I18N</title>
 
-      <para>Na ColeÃ§Ã£o de Ports do &os;, aplicaÃ§Ãµes I18N
-	foram nomeadas com o sufixo <literal>-i18n</ literal> para
-	fÃ¡cil identificaÃ§Ã£o. Entretanto, elas nem sempre suportam o
+      <para>Na Coleção de Ports do &os;, aplicações I18N
+	foram nomeadas com o sufixo <literal>-i18n</literal> para
+	fácil identificação. Entretanto, elas nem sempre suportam o
 	idioma desejado.</para>
     </sect2>
 
     <sect2 id="setting-locale">
       <title>Definindo o Locale</title>
 
-      <para>Geralmente Ã© o suficiente exportar o valor da localidade 
-	desejada na variÃ¡vel de ambiente <envar>LANG</envar> na shell 
+      <para>Geralmente é o suficiente exportar o valor da localidade 
+	desejada na variável de ambiente <envar>LANG</envar> na shell 
 	de login. Isto pode ser feito no arquivo 
 	<filename>~/.login_conf</filename> ou no arquivo de 
-	inicializaÃ§Ã£o do shell do usuÃ¡rio (<filename>~/.profile</filename>, 
+	inicialização do shell do usuário (<filename>~/.profile</filename>, 
 	<filename>~/.bashrc</filename>, <filename>~/.cshrc</filename> 
-	ou outro arquivo, dependendo da shell utilizada). NÃ£o hÃ¡ 
+	ou outro arquivo, dependendo da shell utilizada). Não há 
 	necessidade de definir os subconjuntos de locale, como 
 	<envar>LC_CTYPE</envar>, <envar>LC_CTIME</envar>. Por favor, 
-	consulte a documentaÃ§Ã£o do idioma especÃ­fico para mais 
-	informaÃ§Ãµes.</para>
+	consulte a documentação do idioma específico para mais 
+	informações.</para>
 
-      <para>VocÃª deve definir as seguintes variÃ¡veis â€‹â€‹de ambiente 
-	em seus arquivos de configuraÃ§Ã£o:</para>
+      <para>Você deve definir as seguintes variáveis ¿¿de ambiente 
+	em seus arquivos de configuração:</para>
 
       <itemizedlist>
         <indexterm><primary>POSIX</primary></indexterm>
         <listitem>
-	  <para><envar>LANG</envar> para funÃ§Ãµes &man.setlocale.3; da 
-	    famÃ­lia &posix;</para>
+	  <para><envar>LANG</envar> para funções &man.setlocale.3; da 
+	    família &posix;</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>MIME</primary></indexterm>
 
 	  <para><envar>MM_CHARSET</envar> para conjuntos de caractedes 
-	    das aplicaÃ§Ãµes MIME</para>
+	    das aplicações MIME</para>
 	</listitem>
       </itemizedlist>
 
-      <para>Isso inclui as configuraÃ§Ãµes de shell do usuÃ¡rio, configuraÃ§Ãµes 
-	especÃ­ficas de uma aplicaÃ§Ã£o e configuraÃ§Ãµes do ambiente X11.</para>
+      <para>Isso inclui as configurações de shell do usuário, configurações 
+	específicas de uma aplicação e configurações do ambiente X11.</para>
 
       <sect3>
-	<title>DefiniÃ§Ã£o de MÃ©todos</title>
+	<title>Definição de Métodos</title>
         <indexterm><primary>locale</primary></indexterm>
         <indexterm><primary>login class</primary></indexterm>
 
-	<para>Existem dois mÃ©todos para definir localizaÃ§Ã£o e ambos sÃ£o 
-	    descritos logo abaixo. O primeiro (e mais recomendado) Ã© o 
-	    mÃ©todo que faz uso das variÃ¡veis de ambiente definidas na 
+	<para>Existem dois métodos para definir localização e ambos são 
+	    descritos logo abaixo. O primeiro (e mais recomendado) é o 
+	    método que faz uso das variáveis de ambiente definidas na 
 	    <link linkend="login-class">classe de login</link>, o 
-	    segundo define as variÃ¡veis no 
-	    <link linkend="startup-file">arquivo de iniciaÃ§Ã£o</link> 
+	    segundo define as variáveis no 
+	    <link linkend="startup-file">arquivo de iniciação</link> 
 	    do shell de sistema</para>
 
 	<sect4 id="login-class">
-	  <title>MÃ©todo das Classes de Login</title>
+	  <title>Método das Classes de Login</title>
 
-	  <para>Este mÃ©todo permite o uso de variÃ¡veis de ambiente 
-	    pelas configuraÃ§Ãµes de localizaÃ§Ã£o e conjunto de caracteres 
+	  <para>Este método permite o uso de variáveis de ambiente 
+	    pelas configurações de localização e conjunto de caracteres 
 	    MIME pelas shells presentes no sistema sem a necessidade 
-	    de se ter um arquivo de inicializaÃ§Ã£o especÃ­fico com 
-	    configuraÃ§Ãµes para cada uma dessas shells. Um 
-	    <link linkend="usr-setup">setup a nÃ­vel de usuÃ¡rio</link> 
-	    pode ser feito pelo prÃ³prio usuÃ¡rio sem necessiades de 
-	    privilÃ©gios de super usuÃ¡rio (root), diferente de um 
-	    <link linkend="adm-setup">setup a nÃ­vel de administrador</link>.</para>
+	    de se ter um arquivo de inicialização específico com 
+	    configurações para cada uma dessas shells. Um 
+	    <link linkend="usr-setup">setup a nível de usuário</link> 
+	    pode ser feito pelo próprio usuário sem necessiades de 
+	    privilégios de super usuário (root), diferente de um 
+	    <link linkend="adm-setup">setup a nível de administrador</link>.</para>
 
 	  <sect5 id="usr-setup">
-	    <title>Setup a NÃ­vel de UsuÃ¡rio</title>
+	    <title>Setup a Nível de Usuário</title>
 
-	    <para>Aqui estÃ¡ um pequeno exemplo do conteÃºdo configurado 
+	    <para>Aqui está um pequeno exemplo do conteúdo configurado 
 	    no arquivo <filename>.login_conf</filename>, presente no 
-	    diretÃ³rio home de um usuÃ¡rio qualquer, que define ambas 
-	    as variÃ¡veis para utilizar codificaÃ§Ãµes tipo Latin-1:</para>
+	    diretório home de um usuário qualquer, que define ambas 
+	    as variáveis para utilizar codificações tipo Latin-1:</para>
 
 	    <programlisting>me:\
 	:charset=ISO-8859-1:\
@@ -319,14 +319,14 @@
 
 	    <indexterm><primary>Traditional Chinese</primary><secondary>BIG-5 encoding</secondary></indexterm>
 
-	    <para>Aqui estÃ¡ um pequeno exemplo do conteÃºdo configurado 
+	    <para>Aqui está um pequeno exemplo do conteúdo configurado 
 	    no arquivo <filename>.login_conf</filename>, presente no 
-	    diretÃ³rio home de um usuÃ¡rio qualquer, que define 
-	    variÃ¡veis para utilizar codificaÃ§Ãµes tipo BIG-5. Perceba 
-	    que muitas outras variÃ¡veis sÃ£o utilizadas pelo fato de 
-	    que alguns softwares nÃ£o respeitam os padrÃµes de 
-	    localizaÃ§Ã£o corretamente para o uso de idiomas como 
-	    ChinÃªs, JaponÃªs e Coreano.</para>
+	    diretório home de um usuário qualquer, que define 
+	    variáveis para utilizar codificações tipo BIG-5. Perceba 
+	    que muitas outras variáveis são utilizadas pelo fato de 
+	    que alguns softwares não respeitam os padrões de 
+	    localização corretamente para o uso de idiomas como 
+	    Chinês, Japonês e Coreano.</para>
 
 	    <programlisting># Users who do not wish to use monetary units or time formats
 # of Taiwan can manually change each variable
@@ -342,37 +342,37 @@ me:\
 	:charset=big5:\
 	:xmodifiers="@im=gcin": # Define gcin como XIM Input Server</programlisting>
 
-	    <para>Consulte o <link linkend="adm-setup">Setup a NÃ­vel de 
-	    Administrador</link> e a pÃ¡gina de manual &man.login.conf.5; 
+	    <para>Consulte o <link linkend="adm-setup">Setup a Nível de 
+	    Administrador</link> e a página de manual &man.login.conf.5; 
 	    para obter mais detalhes.</para>
 	  </sect5>
 
 	  <sect5 id="adm-setup">
-	    <title>Setup a NÃ­vel de Administrador</title>
+	    <title>Setup a Nível de Administrador</title>
 
-	    <para>Verifique se as configuraÃ§Ãµes na Classe de Login 
-	      do usuÃ¡rio apresentam definiÃ§Ãµes para o idioma desejado. 
+	    <para>Verifique se as configurações na Classe de Login 
+	      do usuário apresentam definições para o idioma desejado. 
 	      Confirme se, no arquivo <filename>/etc/login.conf</filename>, 
-	      vocÃª tem as seguintes configuraÃ§Ãµes:</para>
+	      você tem as seguintes configurações:</para>
 
-	    <programlisting><replaceable>nome_da_classe</replaceable>|<replaceable>DescriÃ§Ã£o do Tipo da Classe</replaceable>:\
-	:charset=<replaceable>definiÃ§Ã£o_de_charset_MIME</replaceable>:\
-	:lang=<replaceable>nome_da_localizaÃ§Ã£o</replaceable>:\
+	    <programlisting><replaceable>nome_da_classe</replaceable>|<replaceable>Descrição do Tipo da Classe</replaceable>:\
+	:charset=<replaceable>definição_de_charset_MIME</replaceable>:\
+	:lang=<replaceable>nome_da_localização</replaceable>:\
 	:tc=default:</programlisting>
 
-	    <para>EntÃ£o, ainda utilizando um exemplo anterios, para 
-		Latin-1, suas configuraÃ§Ãµes seriam parecidas com estas:</para>
+	    <para>Então, ainda utilizando um exemplo anterios, para 
+		Latin-1, suas configurações seriam parecidas com estas:</para>
 
 	    <programlisting>alemao|Contas de Usuarios Alemaes:\
 	:charset=ISO-8859-1:\
 	:lang=de_DE.ISO8859-1:\
 	:tc=default:</programlisting>
 
-	    <para>Antes de alterar as Classes de Login dos usuÃ¡rios execute o seguinte comando:</para>
+	    <para>Antes de alterar as Classes de Login dos usuários execute o seguinte comando:</para>
 
 	    <screen>&prompt.root; <userinput>cap_mkdb /etc/login.conf</userinput></screen>
 
-	    <para>Assim vocÃª farÃ¡ as alteraÃ§Ãµes realizadas em
+	    <para>Assim você fará as alterações realizadas em
 	      <filename>/etc/login.conf</filename> visiveis para todo o sistema.</para>
 
 	    <bridgehead renderas="sect4">Alterar Classes de Login com &man.vipw.8;</bridgehead>
@@ -381,11 +381,11 @@ me:\
         <primary><command>vipw</command></primary>
       </indexterm>
 	    <para>Utilize o comando <command>vipw</command> para adicionar 
-		novos usuÃ¡rios e fazer com que entradas no 
-		registro de usuÃ¡rios se pareÃ§am com a seguinte 
+		novos usuários e fazer com que entradas no 
+		registro de usuários se pareçam com a seguinte 
 		entrada:</para>
 
-	    <programlisting>usuario:senha:1111:11:<replaceable>nome_da_classe</replaceable>:0:0:Nome do UsuÃ¡rio:/home/usuario:/bin/sh</programlisting>
+	    <programlisting>usuario:senha:1111:11:<replaceable>nome_da_classe</replaceable>:0:0:Nome do Usuário:/home/usuario:/bin/sh</programlisting>
 
 	    <bridgehead renderas="sect4">Alterar Classes de Login com &man.adduser.8;</bridgehead>
 
@@ -394,27 +394,27 @@ me:\
       </indexterm>
 	    <indexterm><primary>login class</primary></indexterm>
 	    <para>Utilize o comando <command>adduser</command> para adicionar 
-		novos usuÃ¡rios e faÃ§a o seguinte:</para>
+		novos usuários e faça o seguinte:</para>
 
 	    <itemizedlist>
 	      <listitem>
 		<para>Defina <literal>defaultclass =
 		  <replaceable>nome_do_idioma</replaceable></literal> no arquivo
 		  <filename>/etc/adduser.conf</filename>.  Tenha em mente que 
-		  vocÃª sempre deve definir uma classe <literal>default</literal> 
-		  para todos os usuÃ¡rios neste caso.</para>
+		  você sempre deve definir uma classe <literal>default</literal> 
+		  para todos os usuários neste caso.</para>
 	      </listitem>
 
 	      <listitem>
 		<para>Uma alternativa ao procedimento descrito e esclarecido 
-		  acima Ã© sempre alterar a classe quando lhe for solicitado 
-		  pelo &man.adduser.8; durante a adiÃ§Ã£o de novos usuÃ¡rios.
+		  acima é sempre alterar a classe quando lhe for solicitado 
+		  pelo &man.adduser.8; durante a adição de novos usuários.
 		  <screen><prompt>Enter login class: default []: </prompt></screen>.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>Outro procedimento Ã© especificar a Classe de Login 
-		  para cada usuÃ¡rio da seguinte maneira:</para>
+		<para>Outro procedimento é especificar a Classe de Login 
+		  para cada usuário da seguinte maneira:</para>
 
 		<screen>&prompt.root; <userinput>adduser -class <replaceable>nome_da_classe</replaceable></userinput></screen>
 	      </listitem>
@@ -424,8 +424,8 @@ me:\
 	    <indexterm>
         <primary><command>pw</command></primary>
       </indexterm>
-	    <para>Caso vocÃª utilize o comando &man.pw.8; para 
-		  adicionar novos usuÃ¡rios, execute-o da seguinte 
+	    <para>Caso você utilize o comando &man.pw.8; para 
+		  adicionar novos usuários, execute-o da seguinte 
 		  forma:</para>
 
 	    <screen>&prompt.root; <userinput>pw useradd <replaceable>usuario</replaceable> -L <replaceable>nome_da_classe</replaceable></userinput></screen>
@@ -975,12 +975,12 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
     </sect2>
 
     <sect2>
-      <title>DocumentaÃ§Ã£o do &os; em Outros Idiomas</title>
+      <title>Documentação do &os; em Outros Idiomas</title>
 
-      <para>Algums colaboradores so projeto &os; traduzem vÃ¡rias das 
-	documentaÃ§Ãµes para outros idiomas. Essas traduÃ§Ãµes estÃ£o 
-	disponÃ­veis em pÃ¡ginas especÃ­ficas no <ulink 
-	url="&url.base;/index.html">SÃ­tio Web Oficial da DocumentaÃ§Ã£o 
+      <para>Algums colaboradores so projeto &os; traduzem várias das 
+	documentações para outros idiomas. Essas traduções estão 
+	disponíveis em páginas específicas no <ulink 
+	url="&url.base;/index.html">Sítio Web Oficial da Documentação 
 	do Projeto &os;</ulink> ou em 
 	<filename>/usr/share/doc</filename>.</para>
     </sect2>
