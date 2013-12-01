@@ -659,73 +659,87 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
     <sect2>
       <title>Configuração de Ambiente X11</title>
 
-      <para>Although X11 is not part of the FreeBSD Project, we have
-	included some information here for FreeBSD users.  For more
-	details, refer to the <ulink
-	url="http://www.x.org/">&xorg;
-	web site</ulink> or whichever X11 Server you use.</para>
+      <para>Apesar do &xorg; não ser uma parte diretamente ligada ao 
+	projeto &os;, aqui estão algumas informações para usuários 
+	do &os; ligadas ao &xorg;. Para mais detalhes, por favor, 
+	recorram ao <ulink url="http://www.x.org">Sítio Web do 
+	Projeto &xorg;</ulink> ou a uma documentação auxiliar 
+	provida pelo ambiente/servidor X11 que você esteja a utilizar.</para>
 
-      <para>In <filename>~/.Xresources</filename>, you can additionally
-	tune application specific I18N settings (e.g., fonts, menus,
-	etc.).</para>
+      <para>No arquivo <filename>~/.Xresources</filename> você pode, 
+	de um jeito adicional, customizar configurações específicas 
+	ligadas a internacionalização (<literal>I18N</literal>) 
+	como fontes, menus e etc.</para>
 
       <sect3>
-	<title>Displaying Fonts</title>
+	<title>Exibição de Fontes</title>
 	<indexterm><primary>X11 True Type font server</primary></indexterm>
-	<para>Install <application>&xorg;</application> server
+	<para>Instale o servidor <application>&xorg;</application>
 	  (<filename role="package">x11-servers/xorg-server</filename>),
-	  then install the language &truetype; fonts.  Setting the correct
-	  locale should allow you to view your selected language in menus
-	  and such.</para>
+	  e então instale as fontes &truetype;. Configurar a localização 
+	  correta fará com que você veja menus e diversas outras 
+	  informações sendo exibidas em seu idioma.</para>
       </sect3>
 
       <sect3>
-	<title>Inputting Non-English Characters</title>
+	<title>Caracteres de Entrada para Ambiente X11</title>
 	<indexterm><primary>X11 Input Method (XIM)</primary></indexterm>
-	<para>The X11 Input Method (XIM) Protocol is a new standard for
-	  all X11 clients.  All X11 applications should be written as XIM
-	  clients that take input from XIM Input servers.  There are
-	  several XIM servers available for different languages.</para>
+	<para>O protocolo do método de entrada para X11 
+	  (<literal>X11 Input Method</literal>) é um nvo padrão 
+	  adotado por todos os clientes X11. Todas as aplicações 
+	  devem ser escritas de modo que o cliente do 
+	  <literal>X11 Input Method</literal> (XIM) seja utilizado 
+	  para realizar entrada de caracteres num ambiente X11 com 
+	  ajuda do servidor de entradas XIM. Existem vários 
+	  servidores XIM disponíveis para vários idiomas.</para>
       </sect3>
     </sect2>
 
     <sect2>
-      <title>Printer Setup</title>
+      <title>Configuração de Impressoras</title>
 
-      <para>Some single C chars character sets are usually hardware
-	coded into printers. Wide or multibyte
-	character sets require special setup and we recommend using
-	<application>apsfilter</application>.  You may also convert the
-	document to &postscript; or PDF formats using language specific
-	converters.</para>
+      <para>Alguns conjuntos de caracteres em C são normalmente 
+	programados em hardwares de impressoras. Conjuntos que 
+	usem caracteres estendidos ou multibyte necessitam de 
+	configurações especiais e nós recomendamos o uso do 
+	<application>apsfilter</application> para tal finalidade. 
+	Você talvez precise também converter algum documento para 
+	formato &postscript; ou PDF utilizando ferramentas de 
+	conversão mais específicas que esta sugerida por nós.</para>
     </sect2>
 
     <sect2>
-      <title>Kernel and File Systems</title>
+      <title>Kernel e Sistemas de Arquivos</title>
 
-      <para>The FreeBSD fast filesystem (FFS) is 8-bit clean, so it can be used
-	with any single C chars character set (see &man.multibyte.3;),
-	but there is no character set
-	name stored in the filesystem; i.e., it is raw 8-bit and does not
-	know anything about encoding order.  Officially, FFS does not
-	support any form of wide or multibyte character sets yet.  However, some
-	wide or multibyte character sets have independent patches for FFS
-	enabling such support.  They are only temporary unportable
-	solutions or hacks and we have decided to not include them in the
-	source tree.  Refer to respective languages' web sites for more
-	information and the patch files.</para>
+      <para>O sistema de arquivos do &os;, o Fast Filesystem (FFS), 
+	pode ser usado com diferentes conjuntos de caracteres mas 
+	não existe nenhum nome de conjunto de caracteres salvo no 
+	sistema de arquivos; isso significa que que ele não sabe 
+	sobre ordem a ser seguida para encoding num arquivo 
+	(consulte detalhes na página de manual do &man.multibyte.3;). 
+	Oficialmente o FFS não suporta conjuntos de caracteres 
+	estendidos ou multibyte ainda. Entretanto alguns dos conjuntos 
+	de caracteres estendidos/multibyte fornecem 
+	<literal>patches</literal> para habilitar esta funcionalidade 
+	no FFS. Estes <literal>patches</literal> são apenas 
+	soluções de contorno temporárias e não portadas ou algum 
+	tipo de hack que decidimos não adicionar na árvore do código 
+	fonte do &os;. Consulte os sítios web relacionados as 
+	respectivas funcionalidades e <literal>patches</literal> que 
+	sejam de seu interesse para obter maiores informações.</para>
 
       <indexterm><primary>DOS</primary></indexterm>
       <indexterm><primary>Unicode</primary></indexterm>
-      <para>The FreeBSD &ms-dos; filesystem has the configurable ability to
-	convert between &ms-dos;, Unicode character sets and chosen
-	FreeBSD filesystem character sets.  See &man.mount.msdosfs.8; for
-	details.</para>
+      <para>O sistema de arquivos &ms-dos; no &os; oferece a 
+	possibilidade de realizar converções entre formatos 
+	&ms-dos;, Unicode e conjuntos de caracteres utilizados pelo 
+	sistema de arquivos do &os;. Consulte a página de 
+	manual do &man.mount.msdosfs.8; para obter detalhes.</para>
     </sect2>
   </sect1>
 
   <sect1 id="l10n-compiling">
-    <title>Compiling I18N Programs</title>
+    <title>Compilando Programas com I18N</title>
 
     <para>Many FreeBSD Ports have been ported with I18N support.  Some
       of them are marked with -I18N in the port name.  These and many
