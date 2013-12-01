@@ -289,7 +289,7 @@
 	    método que faz uso das variáveis de ambiente definidas na 
 	    <link linkend="login-class">classe de login</link>, o 
 	    segundo define as variáveis no 
-	    <link linkend="startup-file">arquivo de iniciação</link> 
+	    <link linkend="startup-file">arquivo de inicialização</link> 
 	    do shell de sistema</para>
 
 	<sect4 id="login-class">
@@ -433,141 +433,153 @@ me:\
 	</sect4>
 
 	<sect4 id="startup-file">
-	  <title>Shell Startup File Method</title>
+	  <title>Método com Arquivo de Inicialização do Shell</title>
 
 	  <note>
-	    <para>This method is not recommended because it requires a
-	      different setup for each possible shell program chosen.  Use
-	      the <link linkend="login-class">Login Class Method</link>
-	      instead.</para>
+	    <para>Este método não é recomendado porque ele requer uma
+	      configuração diferente para cada shell utilizado. Recomenda-se o
+	      uso do <link linkend="login-class">Método das Classes de Login</link>
+	      ao invés de alterar o arquivo de inicialização do shell.</para>
 	  </note>
 
 	  <indexterm><primary>MIME</primary></indexterm>
 	  <indexterm><primary>locale</primary></indexterm>
-	  <para>To add the locale name and MIME character set, just set
-	    the two environment variables shown below in the
-	    <filename>/etc/profile</filename> and/or
-	    <filename>/etc/csh.login</filename> shell startup files.  We
-	    will use the German language as an example below:</para>
 
-	  <para>In <filename>/etc/profile</filename>:</para>
+	  <para>Para adicionar o nome do locale e o conjunto de caracteres MIME,
+	    basta configurar as variáveis de ambiente em
+	    <filename>/etc/profile</filename> e/ou
+	    <filename>/etc/csh.login</filename>. Nós iremos utilizar
+	    a língua alemã como exemplo a ser seguido.</para>
+
+	  <para>Configurações no arquivo <filename>/etc/profile</filename>:</para>
 
 	  <programlisting><envar>LANG=de_DE.ISO8859-1; export LANG</envar>
 <envar>MM_CHARSET=ISO-8859-1; export MM_CHARSET</envar></programlisting>
 
-	  <para>Or in <filename>/etc/csh.login</filename>:</para>
+	  <para>Configurações no arquivo <filename>/etc/csh.login</filename>:</para>
 
 	  <programlisting><envar>setenv LANG de_DE.ISO8859-1</envar>
 <envar>setenv MM_CHARSET ISO-8859-1</envar></programlisting>
 
-	  <para>Alternatively, you can add the above instructions to
-	    <filename>/usr/share/skel/dot.profile</filename> (similar to
-	    what was used in <filename>/etc/profile</filename> above), or
-	    <filename>/usr/share/skel/dot.login</filename> (similar to
-	    what was used in <filename>/etc/csh.login</filename>
-	    above).</para>
+	   <para>De uma maneira alternativa, você pode adicionar as instruções acima em
+	    <filename>/usr/share/skel/dot.profile</filename>
+	    (como utilizamos em <filename>/etc/profile</filename>), ou
+	    <filename>/usr/share/skel/dot.login</filename>
+	    (como utilizamos em <filename>/etc/csh.login</filename>). </para>
 
-	  <para>For X11:</para>
+	  <para>Para ambientes que façam uso de X11:</para>
 
-	  <para>In <filename>$HOME/.xinitrc</filename>:</para>
+	  <para>Configurações no arquivo <filename>$HOME/.xinitrc</filename>:</para>
 
 	  <programlisting><envar>LANG=de_DE.ISO8859-1; export LANG</envar></programlisting>
 
-	  <para>Or:</para>
+	  <para>Ou</para>
 
 	  <programlisting><envar>setenv LANG de_DE.ISO8859-1</envar></programlisting>
 
-	  <para>Depending on your shell (see above).</para>
+	  <para>Isso vai depender do shell que você utiliza (veja detalhes acima).</para>
 
 	</sect4>
       </sect3>
     </sect2>
 
     <sect2 id="setting-console">
-      <title>Console Setup</title>
+      <title>Configurações de Console</title>
 
-      <para>For all single C chars character sets, set the correct
-	console fonts in <filename>/etc/rc.conf</filename> for the
-	language in question with:</para>
+	<para>Para cada um dos conjuntos de caracteres em C, defina
+	  as fontes de console corretas em <filename>/etc/rc.conf</filename>
+	  para a língua em questão:</para>
 
-      <programlisting>font8x16=<replaceable>font_name</replaceable>
-font8x14=<replaceable>font_name</replaceable>
-font8x8=<replaceable>font_name</replaceable></programlisting>
+      <programlisting>font8x16=<replaceable>nome_da_fonte</replaceable>
+font8x14=<replaceable>nome_da_fonte</replaceable>
+font8x8=<replaceable>nome_da_fonte</replaceable></programlisting>
 
-      <para>The <replaceable>font_name</replaceable> here is taken from
-        the <filename>/usr/share/syscons/fonts</filename> directory,
-	without the <filename>.fnt</filename> suffix.</para>
+      <para>Aqui, <replaceable>nome_da_fonte</replaceable> é obtido 
+	listando-se o conteúdo do diretório
+        <filename>/usr/share/syscons/fonts</filename>. Utiliza-se
+	o nome sem fazer uso do sufixo <filename>.fnt</filename>.</para>
 
       <indexterm>
         <primary><application>sysinstall</application></primary>
       </indexterm>
       <indexterm><primary>keymap</primary></indexterm>
       <indexterm><primary>screenmap</primary></indexterm>
-      <para>If required, set the keymap and screenmap for your
-	single C chars character set through
+
+      <para>Se necessário, configure o keymap e screenmap através do
 	<command>sysinstall</command>.
-	Once inside <application>sysinstall</application>, choose <guimenuitem>Configure</guimenuitem>, then
-	<guimenuitem>Console</guimenuitem>.  Alternatively, you can add the
-	following to <filename>/etc/rc.conf</filename>:</para>
+	Uma vez com o <application>sysinstall</application> aberto, 
+	escolha a opção <guimenuitem>Configure</guimenuitem> e, em seguida,
+	a opção <guimenuitem>Console</guimenuitem>.  Se preferir, 
+	você pode adicionar o seguinte conteúdo em 
+	<filename>/etc/rc.conf</filename>:</para>
 
-      <programlisting>scrnmap=<replaceable>screenmap_name</replaceable>
-keymap=<replaceable>keymap_name</replaceable>
-keychange="<replaceable>fkey_number sequence</replaceable>"</programlisting>
+      <programlisting>scrnmap=<replaceable>nome_do_screenmap</replaceable>
+keymap=<replaceable>nome_do_keymap</replaceable>
+keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting>
 
-      <para>The <replaceable>screenmap_name</replaceable> here is taken
-        from the <filename>/usr/share/syscons/scrnmaps</filename>
-	directory, without the <filename>.scm</filename> suffix.  A
-	screenmap with a corresponding mapped font is usually needed as a
-	workaround for expanding bit 8 to bit 9 on a VGA adapter's font
-	character matrix in pseudographics area, i.e., to move letters out
-	of that area if screen font uses a bit 8 column.</para>
+      <para>Aqui, <replaceable>nome_do_screenmap</replaceable> pode ser obtido 
+	consultando o conteúdo do diretório
+        <filename>/usr/share/syscons/scrnmaps</filename>
+	(sem usar o sufixo <filename>.scm</filename>). Usar um
+	screenmap com uma fonte devidamente mapeada geralmente 
+	é necessário como solução de contorno para fazer a expansão 
+	do bit 8 para o bit 9 numa matriz de caracteres utilizada por 
+	adaptadores VGA em áreas fictícias (<literal>pseudographics area</literal>) 
+	para, por exemplo, mover letras para fora desta área caso a 
+	fonte do screenmap esteja mapeada para fazer uso da coluna 
+	com bit 8.</para>
 
-      <para>If you have the <application>moused</application> daemon
-	enabled by setting the following
-	in your <filename>/etc/rc.conf</filename>:</para>
+      <para>Caso você tenha o daemon do <application>moused</application>
+	habilitado em seu arquivo <filename>/etc/rc.conf</filename> com</para>
 
 <programlisting>moused_enable="YES"</programlisting>
 
-      <para>then examine the mouse cursor information in the next
-	paragraph.</para>
+      <para>verifique as informações sobre o cursor do mouse no 
+	próximo parágrafo.</para>
 
       <indexterm>
         <primary><application>moused</application></primary>
       </indexterm>
-      <para>By default the mouse cursor of the &man.syscons.4; driver occupies the
-	0xd0-0xd3 range in the character set.  If your language uses this
-	range, you need to move the cursor's range outside of it.  To enable
-	the workaround for &os;, add the following line to
+      <para>Por padrão, o cursor do mouse usado pelo driver so &man.syscons.4; 
+	ocupa o intervalo 0xd0-0xd3 do conjunto de caracteres utilizado.
+	Caso sua língua faça uso deste intervalo, você precisará alterar o 
+	intervalo utilizado para interpretar o cursor do mouse para 
+	fora deste intervalo. Uma solução de contorno utilizada no &os; 
+	para um caso como estes	fará você adicionar a seguinte linha no arquivo 
 	<filename>/etc/rc.conf</filename>:</para>
 
       <programlisting>mousechar_start=3</programlisting>
 
-      <para>The <replaceable>keymap_name</replaceable> here is taken from
-        the <filename>/usr/share/syscons/keymaps</filename> directory,
-	without the <filename>.kbd</filename> suffix.  If you are
-	uncertain which keymap to use, you use can &man.kbdmap.1; to test
-	keymaps without rebooting.</para>
+      <para>Aqui, <replaceable>nome_do_keymap</replaceable> pode ser obtido
+        no diretório <filename>/usr/share/syscons/keymaps</filename>(novamente,
+	sem utilizar o sufixo. <filename>.kbd</filename>, neste caso). 
+	Se estiver incerto de qual keymap deve utilizar, você pode 
+	usar o &man.kbdmap.1; para testar um keymap sem a necessidade 
+	de um reboot.</para>
 
-      <para>The <literal>keychange</literal> is usually needed to program
-        function keys to match the selected terminal type because
-	function key sequences cannot be defined in the key map.</para>
+	<para>Normalmente o <literal>keychange</literal> é necessário 
+	 para se ter compatibilidade entre teclas de função com o tipo 
+	 de terminal selecionado porque os números de sequência das 
+	 teclas de função não podem ser definidos no mapeamento do 
+	 keymap.</para>
 
-      <para>Also be sure to set the correct console terminal type in
-        <filename>/etc/ttys</filename> for all <literal>ttyv*</literal>
-	entries.  Current pre-defined correspondences are:</para>
+      <para>Certifique-se, também, de configurar o tipo de console 
+	correto em <filename>/etc/ttys</filename> para todas as
+	entradas do tipo <literal>ttyv*</literal>.
+	As configurações correspondentes atuais são:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>Character Set</entry>
-	      <entry>Terminal Type</entry>
+	      <entry>Conjunto de Caracteres</entry>
+	      <entry>Tipo do Console</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
-	      <entry>ISO8859-1 or ISO8859-15</entry>
+	      <entry>ISO8859-1 ou ISO8859-15</entry>
 	      <entry><literal>cons25l1</literal></entry>
 	    </row>
 
@@ -604,37 +616,39 @@ keychange="<replaceable>fkey_number sequence</replaceable>"</programlisting>
 	</tgroup>
       </informaltable>
 
-      <para>For wide or multibyte characters languages, use the correct
-	FreeBSD port in your
-	<filename>/usr/ports/<replaceable>language</replaceable></filename>
-	directory.  Some ports appear as console while the system sees it
-	as serial vtty's, hence you must reserve enough vtty's for both
-	X11 and the pseudo-serial console.  Here is a partial list of
-	applications for using other languages in console:</para>
+      <para>Para idiomas com suporte a caracteres estendidos ou 
+	multibyte, use um dos ports para &os; contidos no diretório 
+	<filename>/usr/ports/<replaceable>seu_idioma</substituível></filename> 
+	que seja o correto para você. Alguns ports aparecem como 
+	console, mas o &os; os vê como um terminal vtty serial. Deste 
+	modo, você deve reservar um número suficiente de terminais 
+	vtty tanto para X11 quanto para consoles pseudo-seriais. 
+	Aqui está uma lista parcial de aplicações para o uso de 
+	outros idiomas via console:</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
 	  <thead>
 	    <row>
-	      <entry>Language</entry>
-	      <entry>Location</entry>
+	      <entry>Idioma</entry>
+	      <entry>Localização</entry>
 	    </row>
 	  </thead>
 
 	  <tbody>
 	    <row>
-	      <entry>Traditional Chinese (BIG-5)</entry>
+	      <entry>Chinês Tradicional (BIG-5)</entry>
 	      <entry><filename role="package">chinese/big5con</filename></entry>
 	    </row>
 
 	    <row>
-	      <entry>Japanese</entry>
+	      <entry>Japonês</entry>
 	      <entry><filename role="package">japanese/kon2-16dot</filename> or
 	        <filename role="package">japanese/mule-freewnn</filename></entry>
 	    </row>
 
 	    <row>
-	      <entry>Korean</entry>
+	      <entry>Coreano</entry>
 	      <entry><filename role="package">korean/han</filename></entry>
 	    </row>
 	  </tbody>
@@ -643,7 +657,7 @@ keychange="<replaceable>fkey_number sequence</replaceable>"</programlisting>
     </sect2>
 
     <sect2>
-      <title>X11 Setup</title>
+      <title>Configuração de Ambiente X11</title>
 
       <para>Although X11 is not part of the FreeBSD Project, we have
 	included some information here for FreeBSD users.  For more
@@ -959,18 +973,18 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
     </sect2>
 
     <sect2>
-      <title>Japanese and Korean Language Localization</title>
+      <title>Localização para Japonês e Coreano</title>
       <indexterm>
 	<primary>localization</primary>
-	<secondary>Japanese</secondary>
+	<secondary>Japonês</secondary>
       </indexterm>
       <indexterm>
 	<primary>localization</primary>
-	<secondary>Korean</secondary>
+	<secondary>Coreano</secondary>
       </indexterm>
-      <para>For Japanese, refer to
-        <ulink url="http://www.jp.FreeBSD.org/"></ulink>,
-	and for Korean, refer to
+      <para>Para japonês, consulte
+      	<ulink url="http://www.jp.FreeBSD.org/"></ulink>.
+	Para coreano, consulte
 	<ulink url="http://www.kr.FreeBSD.org/"></ulink>.</para>
     </sect2>
 
