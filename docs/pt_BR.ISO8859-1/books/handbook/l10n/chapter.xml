@@ -741,24 +741,26 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
   <sect1 id="l10n-compiling">
     <title>Compilando Programas com I18N</title>
 
-    <para>Many FreeBSD Ports have been ported with I18N support.  Some
-      of them are marked with -I18N in the port name.  These and many
-      other programs have built in support for I18N and need no special
-      consideration.</para>
+    <para>Muitos ports do &os; foram desenvolvidos com suporte a I18N. 
+      Alguns destes ports apresentam o sufixo -i18n em seu nome. 
+      Estes ports, em específico, e alguns outros, já apresentam 
+      suporte embutido para I18N e não necessitam de consideração 
+      especial.</para>
 
     <indexterm>
       <primary><application>MySQL</application></primary>
     </indexterm>
-    <para>However, some applications such as
-      <application>MySQL</application> need to have their
-      <filename>Makefile</filename> configured with the specific
-      charset.  This is usually done in the
-      <filename>Makefile</filename> or done by passing a value to
-      <application>configure</application> in the source.</para>
+    <para>Entretanto, algumas aplicações, como é o caso do 
+      <application>MySQL</application>, necessitam que seu 
+      <filename>Makefile</filename> seja configurado com 
+      um charset específico. Isto é feito, geralmente, no 
+      próprio <filename>Makefile</filename> ou passando-se 
+      valores/parâmetros ao script de 
+      <application>configure</application>.</para>
   </sect1>
 
   <sect1 id="lang-setup">
-    <title>Localizing FreeBSD to Specific Languages</title>
+    <title>&os; e Idiomas Específicos</title>
 
     <sect2 id="ru-localize">
       <sect2info>
@@ -766,48 +768,50 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
 	  <author>
 	    <firstname>Andrey</firstname>
 	    <surname>Chernov</surname>
-	    <contrib>Originally contributed by </contrib>
+	    <contrib>Contribuição Original de </contrib>
 	  </author>
 	</authorgroup>
       </sect2info>
-      <title>Russian Language (KOI8-R Encoding)</title>
+      <title>Russo (KOI8-R)</title>
       <indexterm>
 	<primary>localization</primary>
 	<secondary>Russian</secondary>
       </indexterm>
 
-      <para>For more information about KOI8-R encoding, see the <ulink
-	url="http://koi8.pp.ru/">KOI8-R References
-	(Russian Net Character Set)</ulink>.</para>
+      <para>Para obter mais informações sobre a codificação 
+	<literal>(encoding)</literal> KOI8-R, consulte 
+	<ulink url="http://koi8.pp.ru">Referências de KOI8-R 
+	(Conjuntos de Caracteres Russos)</ulink>.</para>
 
       <sect3>
-	<title>Locale Setup</title>
+	<title>Configuração de Locale</title>
 
-	<para>Put the following lines into your
-	  <filename>~/.login_conf</filename> file:</para>
+	<para>Adicione as linhas abaixo no arquivo
+	  <filename>~/.login_conf</filename>:</para>
 
-	<programlisting>me:My Account:\
+	<programlisting>me:Minha Conta Russa:\
 	:charset=KOI8-R:\
 	:lang=ru_RU.KOI8-R:</programlisting>
 
-	<para>See earlier in this chapter for examples of setting up the
-	  <link linkend="setting-locale">locale</link>.</para>
+	<para>Consulte informações anteriores, disponíveis neste 
+	capítulo, para outros exemplos de 
+	<link linkend="setting-locale">Configuração de Locale</link>.</para>
       </sect3>
 
       <sect3>
-	<title>Console Setup</title>
+	<title>Configurações de Console</title>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>Add the following line
-	      to your <filename>/etc/rc.conf</filename> file:</para>
+	    <para>Adicione a seguinte linha no arquivo 
+	      <filename>/etc/rc.conf</filename>:</para>
 
 	    <programlisting>mousechar_start=3</programlisting>
 	  </listitem>
 
 	  <listitem>
-	    <para>Also, use following settings in
-	      <filename>/etc/rc.conf</filename>:</para>
+	    <para>Complementando, utilize as seguintes 
+	configurações em <filename>/etc/rc.conf</filename>:</para>
 
 	    <programlisting>keymap="ru.koi8-r"
 scrnmap="koi8-r2cp866"
@@ -818,105 +822,127 @@ font8x8="cp866-8x8"</programlisting>
 	  </listitem>
 
 	  <listitem>
-	    <para>For each <literal>ttyv*</literal> entry in
-	      <filename>/etc/ttys</filename>, use
-	      <literal>cons25r</literal> as the terminal type.</para>
+	    <para>Para cada uma das entradas <literal>ttyv*</literal>
+	      presentes em <filename>/etc/ttys</filename>, utilize 
+	      <literal>cons25r</literal> como tipo de terminal.</para>
 	  </listitem>
 	</itemizedlist>
 
-	<para>See earlier in this chapter for examples of setting up the
-	  <link linkend="setting-console">console</link>.</para>
+	<para>Consulte informações anteriores, disponíveis neste 
+	capítulo, para outros exemplos de 
+	<link linkend="setting-console">Configuração de Console</link>.</para>
+
       </sect3>
 
       <sect3>
-	<title>Printer Setup</title>
+	<title>Configuração de Impressora</title>
 	<indexterm><primary>printers</primary></indexterm>
-	<para>Since most printers with Russian characters come with
-	  hardware code page CP866, a special output filter is needed
-	  to convert from KOI8-R to CP866.  Such a filter is installed by
-	  default as <filename>/usr/libexec/lpr/ru/koi2alt</filename>.
-	  A Russian printer <filename>/etc/printcap</filename> entry
-	  should look like:</para>
+	<para>Uma vez que muitos dos hardwares presentes em 
+	  impressoras com suporte a caracteres do idioma Russo fazem 
+	  uso de uma codificação conhecida como CP866, faz-se 
+	  necessário o uso de filtros específicos/especiais para 
+	  converter KOI8-R para CP866. Por padrão, um filtro 
+	  destes é instalado em 
+	  <filename>/usr/libexec/lpr/ru/koi2alt</filename>. 
+	  Uma entrada em <filename>/etc/printcap</filename> para se 
+	  utilizar uma impressora russa deve ser semelhante a:</para>
 
-	<programlisting>lp|Russian local line printer:\
+	<programlisting>lp|Minha Impressora Russa:\
 	:sh:of=/usr/libexec/lpr/ru/koi2alt:\
 	:lp=/dev/lpt0:sd=/var/spool/output/lpd:lf=/var/log/lpd-errs:</programlisting>
 
-	<para>See &man.printcap.5; for a detailed description.</para>
+	<para>Para informações mais detalhadas, consulte a página de 
+	  manual &man.printcap.5;.</para>
       </sect3>
 
       <sect3>
-	<title>&ms-dos; FS and Russian Filenames</title>
+	<title>Sistema de Arquivos &ms-dos; e Arquivos em Russo</title>
 
-	<para>The following example &man.fstab.5; entry enables support
-	  for Russian filenames in mounted &ms-dos; filesystems:</para>
+	<para>A seguinte entrada utilizada, como exemplo, na 
+	  configuração do &man.fstab.5; habilita o suporte para que 
+	  arquivos em russo possam ser interpretados por sistemas 
+	  de arquivo &ms-dos;:</para>
 
-	<programlisting>/dev/ad0s2      /dos/c  msdos   rw,-Wkoi2dos,-Lru_RU.KOI8-R 0 0</programlisting>
+	<programlisting>/dev/ad0s2      /mnt/ms-dos/D  msdos   rw,-Wkoi2dos,-Lru_RU.KOI8-R 0 0</programlisting>
 
-	<para>The option <option>-L</option> selects the locale name
-	  used, and <option>-W</option> sets the character conversion
-	  table.  To use the <option>-W</option> option, be sure to
-	  mount <filename>/usr</filename> before the &ms-dos; partition
-	  because the conversion tables are located in
-	  <filename>/usr/libdata/msdosfs</filename>.  For more
-	  information, see the &man.mount.msdosfs.8; manual
-	  page.</para>
+	<para>A opção <option>-L</option> seleciona o nome do locale 
+	  a ser utilizado e a opção <option>-W</option> habilita o 
+	  uso da tabela de conversões do &ms-dos;.  Para utilizar a 
+	  opção <option>-W</option>, certifique-se de que a montagem 
+	  da partição que contenha a árvore de diretórios 
+	  <filename>/usr</filename> seja feita antes do ponto 
+	  de montagem que venha a utilizar o sistema de arquivo 
+	  &ms-dos; com suporte aos caracteres russos. A tabela de 
+	  conversões utilizada pelo &os; está armazenada, por padrão, em 
+	  <filename>/usr/libdata/msdosfs</filename>. Para mais 
+	  informações, consulte a página de manual 
+	  &man.mount.msdosfs.8;.</para>
       </sect3>
 
       <sect3>
-	<title>X11 Setup</title>
+	<title>Configuração de Ambiente X11 (&xorg;)</title>
 
 	<orderedlist>
 	  <listitem>
-	    <para>Do <link linkend="setting-locale">non-X locale
-	      setup</link> first as described.</para>
+	    <para>Antes de alterar configurações ligadas ao Ambiente 
+		X11 (<application>&xorg;</application>), siga passos descritos anteriormente 
+		cobrindo a <link linkend="setting-locale">Configuração de Locale</link>.</para>
 	  </listitem>
 
 	  <listitem>
-	    <para>If you use <application>&xorg;</application>,
-	    install
-	    <filename role="package">x11-fonts/xorg-fonts-cyrillic</filename>
-	    package.</para>
+	    <para>Caso você esteja a utilizar <application>&xorg;</application>,
+	    instale o pacote referente a 
+	    <filename role="package">x11-fonts/xorg-fonts-cyrillic</filename>.</para>
 
-	    <para>Check the <literal>"Files"</literal> section
-	      in your <filename>/etc/X11/xorg.conf</filename> file.
-	      The following
-	      line must be added <emphasis>before</emphasis> any other
-	      <literal>FontPath</literal> entries:</para>
+	    <para>Verifique a sessão <literal>"Files"</literal>
+	      em <filename>/etc/X11/xorg.conf</filename>.
+	      Adicione a seguinte linha <emphasis>ANTES</emphasis> 
+	      de quaisquer outras linhas que contenham entradas 
+	      do tipo <literal>FontPath</literal>:</para>
 
 	    <programlisting>FontPath   "/usr/local/lib/X11/fonts/cyrillic"</programlisting>
 
 	    <note>
-	      <para>See ports for more cyrillic fonts.</para></note>
+	      <para>Consulte a Coleção de Ports para obter mais 
+		fontes com caracteres em cirílico.</para></note>
 	  </listitem>
 
 	  <listitem>
-	    <para>To activate a Russian keyboard, add the following to the
-	      <literal>"Keyboard"</literal> section of your
-	      <filename>xorg.conf</filename> file:</para>
+	    <para>Para habilitar e utilizar um teclado russo, adicione as seguintes entradas na sessão
+	      <literal>"Keyboard"</literal> do arquivo
+	      <filename>/etc/X11/xorg.conf</filename>:</para>
 
 	    <programlisting>Option "XkbLayout"   "us,ru"
 Option "XkbOptions"  "grp:toggle"</programlisting>
 
-	    <para>Also make sure that <literal>XkbDisable</literal> is
-	      turned off (commented out) there.</para>
+	    <para>Certifique-se, também, que a opção 
+	      <literal>XkbDisable</literal> deve estar desativada 
+	      (comentada) nesta sessão.</para>
 
-	    <para>For <literal>grp:toggle</literal>
-	      the RUS/LAT switch will be <keycap>Right Alt</keycap>,
-	      for <literal>grp:ctrl_shift_toggle</literal> switch will be
-	      <keycombo action="simul"><keycap>Ctrl</keycap><keycap>Shift</keycap></keycombo>.
-	      For <literal>grp:caps_toggle</literal>
-	    the RUS/LAT switch will be <keycap>CapsLock</keycap>.
-	    The old <keycap>CapsLock</keycap> function is still
-	    available via <keycombo action="simul"><keycap>Shift</keycap><keycap>CapsLock</keycap></keycombo> (in LAT mode
-	      only).
-	    <literal>grp:caps_toggle</literal> does not work in
-	    <application>&xorg;</application> for unknown reason.</para>
+	    <para>O uso de <literal>grp:toggle</literal> especifica
+	      que pode-se alterar a codificação entre Russa e Latina 
+	      <literal>(RUS/LAT)</literal> com ajuda da tecla 
+	      <keycap>Alt Gr</keycap>. Caso seja utilizado 
+	      <literal>grp:ctrl_shift_toggle</literal>, esta alteração 
+	      será feita com o uso das teclas 
+	      <keycombo action="simul"><keycap>Ctrl</keycap><keycap>Shift</keycap></keycombo> 
+	      (simultaneamente precionadas). 
+	      <literal>grp:caps_toggle</literal> utilizará a tecla 
+	      <keycap>CapsLock</keycap> para realizar tal alteração.
+	      Sendo feita a configuração utilizando 
+	      <literal>grp:caps_toggle</literal>, a função padrão da 
+	      <keycap>CapsLock</keycap> ainda estará disponível se for 
+	      utilizada a combinação 
+	      <keycombo action="simul"><keycap>Shift</keycap><keycap>CapsLock</keycap></keycombo> 
+	      (apenas para modo Latino). 
+	      Por motivos desconhecidos, <literal>grp:caps_toggle</literal> 
+	      não funciona no <application>&xorg;</application>.</para>
 
-	    <para>If you have <quote>&windows;</quote> keys on your keyboard,
-	      and notice that some non-alphabetical keys are mapped
-	      incorrectly in RUS mode, add the following line in your
-	      <filename>xorg.conf</filename> file:</para>
+	    <para>Se seu teclado têm as <quote>teclas do &windows;</quote> e 
+	      você acaba percebendo que alguns caracteres estão sendo 
+	      mapeados de forma incorreta no modo Russo, adicione a 
+	      seguinte linha de configuração em 
+	      <filename>/etc/X11/xorg.conf</filename>:</para>
 
 	<programlisting>Option "XkbVariant" ",winkeys"</programlisting>
 
@@ -990,16 +1016,16 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
       <title>Localização para Japonês e Coreano</title>
       <indexterm>
 	<primary>localization</primary>
-	<secondary>Japonês</secondary>
+	<secondary>Japanese</secondary>
       </indexterm>
       <indexterm>
 	<primary>localization</primary>
-	<secondary>Coreano</secondary>
+	<secondary>Korean</secondary>
       </indexterm>
       <para>Para japonês, consulte
-      	<ulink url="http://www.jp.FreeBSD.org/"></ulink>.
+      	<ulink url="http://www.jp.FreeBSD.org"></ulink>.
 	Para coreano, consulte
-	<ulink url="http://www.kr.FreeBSD.org/"></ulink>.</para>
+	<ulink url="http://www.kr.FreeBSD.org"></ulink>.</para>
     </sect2>
 
     <sect2>
