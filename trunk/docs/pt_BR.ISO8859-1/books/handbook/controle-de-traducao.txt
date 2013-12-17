@@ -54,7 +54,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
 1296   # vinum               # r39544  #
 1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
-943    # l10n                # r39544  # Vinicius Zavam, 14/06/2013
+943    # l10n                # r39544  # Liberado para revisao
 3180   # cutting-edge        # r39544  #
 387    # dtrace              # r39544  # Liberado para revisao
 ##################################################################
