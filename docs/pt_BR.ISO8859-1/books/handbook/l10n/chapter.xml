@@ -618,7 +618,7 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
 
       <para>Para idiomas com suporte a caracteres estendidos ou 
 	multibyte, use um dos ports para &os; contidos no diretório 
-	<filename>/usr/ports/<replaceable>seu_idioma</substituível></filename> 
+	<filename>/usr/ports/<replaceable>seu_idioma</replaceable></filename> 
 	que seja o correto para você. Alguns ports aparecem como 
 	console, mas o &os; os vê como um terminal vtty serial. Deste 
 	modo, você deve reservar um número suficiente de terminais 
@@ -768,11 +768,11 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
 	  <author>
 	    <firstname>Andrey</firstname>
 	    <surname>Chernov</surname>
-	    <contrib>Contribuição Original de </contrib>
+	    <contrib>Uma Contribuição de </contrib>
 	  </author>
 	</authorgroup>
       </sect2info>
-      <title>Russo (KOI8-R)</title>
+      <title>Localização para Russo (KOI8-R)</title>
       <indexterm>
 	<primary>localization</primary>
 	<secondary>Russian</secondary>
@@ -947,69 +947,78 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
 	<programlisting>Option "XkbVariant" ",winkeys"</programlisting>
 
 	    <note>
-	      <para>The Russian XKB keyboard may not work with non-localized
-		applications.</para>
+	      <para>Um teclado russo pode não funcionar com aplicações 
+		não preparadas/desenvolvidas para trabalhar com 
+		localização russa.</para>
 	    </note>
 	  </listitem>
 	</orderedlist>
 	<note>
-	  <para>Minimally localized applications
-	    should call a <function>XtSetLanguageProc (NULL, NULL,
-	    NULL);</function> function early in the program.</para>
-	  <para>See <ulink
-	    url="http://koi8.pp.ru/xwin.html">
-	    KOI8-R for X Window</ulink> for more instructions on
-	    localizing X11 applications.</para>
+	  <para>Aplicações com um suporte mínimo de localização (l10n) 
+	    e internacionalização (i18n) devem realizar uma chamada 
+	    a função <function>XtSetLanguageProc (NULL, NULL, NULL);</function> 
+	    logo no início da aplicação.</para>
+
+	  <para>Consulte <ulink 
+	    url="http://koi8.pp.ru/xwin.html">KOI8-R for X Window</ulink> 
+	    para obter outras instruções e informações sobre o uso 
+	    de aplicações para um Ambiente X11 que usem codificação 
+	    KOI8-R.</para>
 	</note>
       </sect3>
     </sect2>
 
     <sect2>
-      <title>Traditional Chinese Localization for Taiwan</title>
+      <title>Localização para Chinês Tradicional de Taiwan</title>
       <indexterm>
 	<primary>localization</primary>
 	<secondary>Traditional Chinese</secondary>
       </indexterm>
-      <para>The FreeBSD-Taiwan Project has an Chinese HOWTO for
-	FreeBSD at <ulink url="http://netlab.cse.yzu.edu.tw/~statue/freebsd/zh-tut/"></ulink>
-	using many Chinese ports.
-	Current editor for the <literal>FreeBSD Chinese HOWTO</literal> is
+      <para>O Projeto &os;-Taiwan hospeda um tutorial 
+	(<ulink url="http://netlab.cse.yzu.edu.tw/~statue/freebsd/zh-tut"></ulink>) 
+	ensinando como utilizar o &os; em conjunto com vários ports 
+	desenvolvidos para trabalhar com o idioma chinês. O editor 
+	atual do material entitulado <literal>&os; Chinese HOWTO</literal> é
         Shen Chuan-Hsing <email>statue@freebsd.sinica.edu.tw</email>.
       </para>
 
-      <para>Chuan-Hsing Shen <email>statue@freebsd.sinica.edu.tw</email> has
-	created the <ulink url="http://netlab.cse.yzu.edu.tw/~statue/cfc/">
-	Chinese FreeBSD Collection (CFC)</ulink> using FreeBSD-Taiwan's
-	<literal>zh-L10N-tut</literal>.  The packages and the script files
-	are available at <ulink url="ftp://freebsd.csie.nctu.edu.tw/pub/taiwan/CFC/"></ulink>.</para>
+      <para>Chuan-Hsing Shen <email>statue@freebsd.sinica.edu.tw</email> 
+	criou a Coleção Chinesa do &os; 
+	<literal>(Chinese FreeBSD Collection - CFC)</literal> 
+	<ulink url="http://netlab.cse.yzu.edu.tw/~statue/cfc"></ulink> 
+	com ajuda do tutorial mantido pelo Projeto &os;-Taiwan 
+	<literal>(zh-L10N-tut)</literal>.  Os pacotes e scripts da CFC
+	são disponibilizados em 
+	<ulink url="ftp://freebsd.csie.nctu.edu.tw/pub/taiwan/CFC"></ulink>.</para>
     </sect2>
 
     <sect2>
-      <title>German Language Localization (for All ISO 8859-1
-	Languages)</title>
+      <title>Localização para Alemão (e Outros Idiomas com Codificação ISO-8859-1)</title>
       <indexterm>
 	<primary>localization</primary>
 	<secondary>German</secondary>
       </indexterm>
 
-      <para>Slaven Rezic <email>eserte@cs.tu-berlin.de</email> wrote a
-	tutorial on using umlauts on a FreeBSD machine.  The tutorial
-	is written in German and is available at
-	<ulink url="http://user.cs.tu-berlin.de/~eserte/FreeBSD/doc/umlaute/umlaute.html"></ulink>.</para>
+      <para>Slaven Rezic <email>eserte@cs.tu-berlin.de</email> 
+	escreveu um tutorial sobre o uso de trema <literal>(umlaut)</literal> 
+	em máquinas que estejam a operar um sistema &os;. Este tutorial 
+	está disponível em 
+	<ulink url="http://user.cs.tu-berlin.de/~eserte/FreeBSD/doc/umlaute/umlaute.html"></ulink> 
+	e foi escrito em alemão.</para>
     </sect2>
 
     <sect2>
-      <title>Greek Language Localization</title>
+      <title>Localização para Grego</title>
 
       <indexterm>
 	<primary>localization</primary>
 	<secondary>Greek</secondary>
       </indexterm>
-      <para>Nikos Kokkalis <email>nickkokkalis@gmail.com</email> has written
-	a complete article on Greek support in &os;.  It is available as
-	part of the official &os; Greek documentation, in <ulink
+      <para>Nikos Kokkalis <email>nickkokkalis@gmail.com</email> 
+	escreveu um artigo completo para se trabalhar com &os; 
+	utilizando o idioma grego. Este material está disponível em <ulink
 	  url="&url.doc.base;/el_GR.ISO8859-7/articles/greek-language-support/index.html">http://www.freebsd.org/doc/el_GR.ISO8859-7/articles/greek-language-support/index.html</ulink>.
-	Please note this is in Greek <emphasis>only</emphasis>.</para>
+	Considere, por favor, que este artigo está disponível <emphasis>APENAS</emphasis> em grego.</para>
     </sect2>
 
     <sect2>
