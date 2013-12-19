@@ -48,7 +48,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 4151   # security            # r39576  # Nilton Jose Rizzo, 13/10/2012
 988    # jails               # r39566  # Liberado para Revisão
 2075   # mac                 # r39544  #
-717    # audit               # r39544  # Leandro Silva, 25/09/2012
+717    # audit               # r39544  # Vinicius Zavam (adotado), 19/12/2013
 4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
 981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
 885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
