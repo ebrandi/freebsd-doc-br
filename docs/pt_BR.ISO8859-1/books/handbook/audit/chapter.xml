@@ -21,7 +21,7 @@ requirements. -->
       <author>
 	<firstname>Tom</firstname>
 	<surname>Rhodes</surname>
-	<contrib>Written by </contrib>
+	<contrib>Uma ContribuiÁ„o de </contrib>
       </author>
       <author>
 	<firstname>Robert</firstname>
@@ -209,29 +209,29 @@ requirements. -->
 
     <programlisting>auditd_enable="YES"</programlisting>
 
-    <para>O suporte de Auditoria deve ser iniciado pela reinicializa√ß√£o do
+    <para>O suporte de Auditoria deve ser iniciado pela reinicializaÁ„o do
       sistema ou manualmente iniciando o daemon de auditoria:</para>
 
     <programlisting>/etc/rc.d/auditd start</programlisting>
   </sect1>
 
   <sect1 id="audit-config">
-    <title>Configura√ß√£o de Auditoria</title>
+    <title>ConfiguraÁ„o de Auditoria</title>
 
-    <para>Todos os arquivos de configura√ß√£o para auditoria de seguran√ßa s√£o
+    <para>Todos os arquivos de configuraÁ„o para auditoria de seguran√ßa s„o
       encontrados em <filename class="directory">/etc/security</filename>.
       Os seguintes arquivos precisam estar presentes antes que o daemon de 
       auditoria seja iniciado:</para>
 
     <itemizedlist>
       <listitem>
-	<para><filename>audit_class</filename> - Contem as defini√ß√µes
+	<para><filename>audit_class</filename> - Contem as defini√ßıes
 	  das classes de auditoria.</para>
       </listitem>
 
       <listitem>
 	<para><filename>audit_control</filename> - Controla os aspectos
-	  do subsistema de auditoria, como as classes padr√£o,
+	  do subsistema de auditoria, como as classes padr„o,
     quantidade minima de espa√ßo em disco para se deixar no
     volume de log de auditoria, quantidade maxima do 
     tamanho dos rastros de auditoria, etc.</para>
@@ -239,36 +239,36 @@ requirements. -->
 
       <listitem>
 	<para><filename>audit_event</filename> - Nomes textuais e 
-	  descri√ß√µes dos eventos de auditoria, bem como a lista de
+	  descri√ßıes dos eventos de auditoria, bem como a lista de
     qual classe cada evento faz parte.</para>
       </listitem>
 
       <listitem>
 	<para><filename>audit_user</filename> - Requerimentos de
-    auditoria especificos de usu√°rio que s√£o combinados com o
-    padr√£o global no momento de login.</para>
+    auditoria especificos de usu√°rio que s„o combinados com o
+    padr„o global no momento de login.</para>
       </listitem>
 
       <listitem>
 	<para><filename>audit_warn</filename> - Um shell script
     customizado utilizado por <application>auditd</application> para
-    gerar mensagens de alerta em situa√ß√µes excepcionais, tais como
+    gerar mensagens de alerta em situa√ßıes excepcionais, tais como
     quando o espa√ßo para armazenar os registros de auditoria estiver baixo
     ou quando o arquivo de rastros de auditoria for rotacionado.</para>
       </listitem>
     </itemizedlist>
 
     <warning>
-      <para>Os arquivos de configura√ß√£o de auditoria devem ser editados e 
-  mantidos cuidadosamente, ja que erros de configura√ß√£o podem resultar no
-  registro impr√≥prio dos eventos.</para>
+      <para>Os arquivos de configuraÁ„o de auditoria devem ser editados e 
+  mantidos cuidadosamente, ja que erros de configuraÁ„o podem resultar no
+  registro imprÛprio dos eventos.</para>
     </warning>
 
     <sect2>
-      <title>Express√µes de sele√ß√£o de eventos</title>
+      <title>Expressıes de seleÁ„o de eventos</title>
 
-      <para>Express√µes de sele√ß√£o s√£o utilizados em diversos lugares
-  na configura√ß√£o de auditoria para determinar quais eventos devem ser
+      <para>Expressıes de seleÁ„o s„o utilizados em diversos lugares
+  na configuraÁ„o de auditoria para determinar quais eventos devem ser
   auditados.
 
  Selection expressions are used in a number of places in the
@@ -282,7 +282,7 @@ requirements. -->
 	combined by appending one onto the other.</para>
 
       <para>A seguinte lista contem as classes de evento de
-  auditoria padr√£o presentes no <filename>audit_class</filename>:</para>
+  auditoria padr„o presentes no <filename>audit_class</filename>:</para>
 
       <itemizedlist>
 	<listitem>
@@ -691,7 +691,7 @@ trailer,133</programlisting>
 
       <programlisting>0     */12       *       *       *       root    /usr/sbin/audit -n</programlisting>
 
-      <para>As altera√ß√µes ter√£o efeito assim que voc√™ salvar o novo <filename>/etc/crontab</filename>.</para>
+      <para>As altera√ßıes ter„o efeito assim que voc√™ salvar o novo <filename>/etc/crontab</filename>.</para>
 
       <para>Automatic rotation of the audit trail file based on file size is
 	possible via the <option>filesz</option> option in
