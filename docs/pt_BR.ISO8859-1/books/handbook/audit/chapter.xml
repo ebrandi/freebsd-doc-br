@@ -79,7 +79,7 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para>Estar familiarizado com o básico sobre configuração/compilação(<xref linkend="kernelconfig"/>) de kernel.</para>
+	<para>Estar familiarizado com o básico sobre configuração/compilação (<xref linkend="kernelconfig"/>) de kernel.</para>
       </listitem>
 
       <listitem>
@@ -89,22 +89,22 @@ requirements. -->
 
     <warning>
       <para>O serviço de auditoria tem algumas limitações conhecidas
-  tal qual nem todos os eventos relevantes de segurança podem ser
-  auditaveis, alguns mecanismos de autenticação como os baseados no
-  gerenciamento de telas x11 e outros daemons de terceiros não 
-  configuram propriamente o serviço de auditoria nas sessões de 
-  autenticação dos usuários.</para>
+	  tal qual nem todos os eventos relevantes de segurança podem ser
+	  auditaveis, alguns mecanismos de autenticação como os baseados no
+	  gerenciamento de telas x11 e outros daemons de terceiros não 
+	  configuram propriamente o serviço de auditoria nas sessões de 
+	  autenticação dos usuários.</para>
 
       <para>Os eventos de auditoria e segurança são capazes de gerar logs 
-  detalhados das atividades do sistema: em um sistema movimentado dados 
-  referentes ao rastreio de um arquivo podem se tornar muito grandes quando 
-  configurados com muitos detalhes excedendo gigabytes em uma semana em 
-  algumas configurações. Administradores devem considerar os requerimentos 
-  de espaço em disco associados ao alto volume de dados gerados devido ao 
-  tipo de configuração de auditoria. Por exemplo, é desejável que se dedique
-  um file system à arvore <filename>/var/audit</filename>, dessa
-  maneira outros file systems não são afetados caso o file system de 
-  auditoria fique cheio.</para>
+	  detalhados das atividades do sistema: em um sistema movimentado dados 
+	  referentes ao rastreio de um arquivo podem se tornar muito grandes quando 
+	  configurados com muitos detalhes excedendo gigabytes em uma semana em 
+	  algumas configurações. Administradores devem considerar os requerimentos 
+	  de espaço em disco associados ao alto volume de dados gerados devido ao 
+	  tipo de configuração de auditoria. Por exemplo, é desejável que se dedique
+	  um file system à arvore <filename>/var/audit</filename>, dessa
+	  maneira outros file systems não são afetados caso o file system de 
+	  auditoria fique cheio.</para>
     </warning>
 
   </sect1>
@@ -117,7 +117,7 @@ requirements. -->
 
     <itemizedlist>
       <listitem>
-	<para><emphasis>evento</emphasis>: Um evento auditavel é qualquer
+	<para><emphasis>evento</emphasis>: Um evento auditavel é qualquer 
     evento que possa ser logado utilizando o subsistema de auditoria.
 
     Exemplos relevantes de eventos de segurança incluem a criação de
@@ -440,18 +440,21 @@ requirements. -->
     <sect2>
       <title>Arquivos de Configuração</title>
 
-      <para>In most cases, administrators will need to modify only two files
-	when configuring the audit system: <filename>audit_control</filename>
-	and <filename>audit_user</filename>.  The first controls system-wide
-	audit properties and policies; the second may be used to fine-tune
-	auditing by user.</para>
+      <para>Na maioria dos casos envolvendo auditoria, administradores 
+	terão de modificar apenas dois arquivos ao configurar o sistema 
+	de auditoria: <filename>audit_control</filename> e 
+	<filename>audit_user</filename>. O primeiro controla todas as 
+	propriedades e políticas de auditoria do sistema, o segundo 
+	pode ser usado para realizar ajustes finos de auditoria por 
+	usuário.</para>
 
       <sect3 id="audit-auditcontrol">
-        <title>The <filename>audit_control</filename> File</title>
+        <title>O Arquivo <filename>audit_control</filename></title>
 
-	<para>The <filename>audit_control</filename> file specifies a number
-	  of defaults for the audit subsystem.  Viewing the contents of this
-	  file, we see the following:</para>
+	<para>O arquivo <filename>audit_control</filename> especifica 
+	  uma gama de padrões a serem utilizados pelo sistema de 
+	  auditoria. Caso você se interesse em verificar o conteúdo 
+	  do arquivo, ele deve se semelhante ao seguinte:</para>
 
 	<programlisting>dir:/var/audit
 flags:lo
@@ -460,67 +463,77 @@ naflags:lo
 policy:cnt
 filesz:0</programlisting>
 
-	<para>The <option>dir</option> option is used to set one or more
-	  directories where audit logs will be stored.  If more than one
-	  directory entry appears, they will be used in order as they fill.
-	  It is common to configure audit so that audit logs are stored on
-	  a dedicated file system, in order to prevent interference between
-	  the audit subsystem and other subsystems if the file system fills.
-	  </para>
+	<para>A opção <option>dir</option> é utilizada para especificar 
+	  em qual(is) diretório(os) os logs de auditoria serão 
+	  armazenados. Caso mais de um diretório seja especificado, 
+	  eles serão utilizados em ordem e na medida que forem 
+	  sendo preenchidos; de acordo com o uso do particionamento 
+	  onde esteja montado. É comum configurar o sistema de 
+	  auditoria para utilizar uma partição dedicada. Assim, 
+	  previne-se que outras partições sejam afetadas e seus 
+	  sistemas de arquivos não fiquem cheios.</para>
 
-	<para>The <option>flags</option> field sets the system-wide default
-	  preselection mask for attributable events.  In the example above,
-	  successful and failed login and logout events are audited for all
-	  users.</para>
+	<para>A opção <option>flags</option> define uma máscara de 
+	  pré-seleção padrão de todo o sistema de eventos. No 
+	  exemplo acima, eventos de login/logout bem e mal sucedidos 
+	  são auditados para todos os usuários.</para>
 
-	<para>The <option>minfree</option> option defines the minimum
-	  percentage of free space for the file system where the audit trail
-	  is stored.  When this threshold is exceeded, a warning will be
-	  generated.  The above example sets the minimum free space to
-	  twenty percent.</para>
+	<para>A opção <option>minfree</option> define o percentual 
+	  mínimo de espaço livre para o sistema de arquivos onde 
+	  rastros de auditoria serão armazenados. Quando este limiar 
+	  é excedido, um aviso será gerado. O exemplo acima define 
+	  o espaço livre mínimo de vinte por cento.</para>
 
-	<para>The <option>naflags</option> option specifies audit classes to
-	  be audited for non-attributed events, such as the login process
-	  and system daemons.</para>
+	<para>A opção <option>naflags</option> especifica classes de 
+	  auditoria a serem auditadas por eventos não 
+	  atribuídos/especificados, tais como o processo de login e 
+	  daemons do sistema.</para>
 
-	<para>The <option>policy</option> option specifies a comma-separated
-	  list of policy flags controlling various aspects of audit
-	  behavior.  The default <literal>cnt</literal> flag indicates that
-	  the system should continue running despite an auditing failure
-	  (this flag is highly recommended).  Another commonly used flag is
-	  <literal>argv</literal>, which causes command line arguments to
-	  the &man.execve.2; system call to be audited as part of command
-	  execution.</para>
+	<para>A opção <option>policy</option> especifica uma lista 
+	  de flags que controlam vários aspectos do comportamento 
+	  de auditoria. Essas flags são separadas por vírgulas. O 
+	  padrão, <literal>cnt</literal>, indica que o sistema 
+	  deve continuar funcionando apesar de uma falha de 
+	  auditoria (uma configuração altamente recomendada). 
+	  Outra flag comumente utilizada é a <literal>argv</literal>, 
+	  que faz com que argumentos de linha de comando 
+	  passados para a chamada de sistema (<literal>syscall</literal>) 
+	  &man.execve.2; sejam auditados como parte da execução 
+	  do comando.</para>
 
-	<para>The <option>filesz</option> option specifies the maximum size
-	  in bytes to allow an audit trail file to grow to before
-	  automatically terminating and rotating the trail file.  The
-	  default, 0, disables automatic log rotation.  If the requested
-	  file size is non-zero and below the minimum 512k, it will be
-	  ignored and a log message will be generated.</para>
+	<para>A opção <option>filesz</option> especifica o tamanho 
+	  máximo (em bytes) que um arquivo de rastros/logs de 
+	  auditoria pode ter antes que haja um rotacionamento 
+	  automático. O padrão, 0 (zero), desativa a rotação 
+	  automática. Se o tamanho do arquivo solicitado é diferente 
+	  de zero e estiver abaixo da 512k, ele será ignorado e 
+	  uma mensagem de log será gerada.</para>
       </sect3>
 
       <sect3 id="audit-audituser">
 	<title>O Arquivo <filename>audit_user</filename></title>
 
-	<para>The <filename>audit_user</filename> file permits the
-	  administrator to specify further audit requirements for specific
-	  users.
-	  Each line configures auditing for a user via two fields: the
-	  first is the <literal>alwaysaudit</literal> field, which specifies
-	  a set of events that should always be audited for the user, and
-	  the second is the <literal>neveraudit</literal> field, which
-	  specifies a set of events that should never be audited for the
-	  user.</para>
+	<para>As configurações neste arquivo permitem ao administrador 
+	  especificar requisitos adicionais de auditoria para usuários 
+	  específicos. Cada linha  configura a auditoria para um 
+	  usuário através de dois campos: o primeiro é o campo 
+	  <literal>alwaysaudit</literal>, que especifica um conjunto 
+	  de eventos que devem sempre ser auditados para o usuário e 
+	  o segundo é o <literal>neveraudit</literal>, que especifica 
+	  um conjunto de eventos que nunca devem ser auditados para 
+	  o usuário.</para>
 
-	<para>The following example <filename>audit_user</filename> file
-	  audits login/logout events and successful command execution for
-	  the <username>root</username> user, and audits file creation and successful command
-	  execution for the <username>www</username> user.
-	  If used with the example <filename>audit_control</filename> file
-	  above, the <literal>lo</literal> entry for <username>root</username>
-	  is redundant, and login/logout events will also be audited for the
-	  <username>www</username> user.</para>
+	<para>O exemplo do arquivo <filename>audit_user</filename> a 
+	  seguir auditaria eventos de login/logout e execução de 
+	  comandos bem sucedidos executados pelo usuário 
+	  <username>root</username> e auditaria criação de arquivos 
+	  e comandos bem sucedidos executados pelo usuário 
+	  <username>www</username>. Se usado junto com o exemplo 
+	  dado para o arquivo <filename>audit_control</filename> 
+	  acima, a entrada <literal>lo</literal> especificada 
+	  para o usuário <username>root</username> seria uma entrada 
+	  redundante e os eventos de login/logout também seriam 
+	  registrados para o usuário <username>www</username>.</para>
 
 	<programlisting>root:lo,+ex:no
 www:fc,+ex:no</programlisting>
@@ -535,30 +548,37 @@ www:fc,+ex:no</programlisting>
     <sect2>
       <title>Consultando Rastros de Auditoria</title>
 
-      <para>Audit trails are stored in the BSM binary format, so tools must
-	be used to modify or convert to text.  The &man.praudit.1;
-	command converts trail files to a simple text format; the
-	&man.auditreduce.1; command may be used to reduce the
-	audit trail file for analysis, archiving, or printing purposes.
-	<command>auditreduce</command> supports a variety of selection
-	parameters, including event type, event class, user, date or time of
-	the event, and the file path or object acted on.</para>
+      <para>Os rastros (<literal>trails</literal>) de auditoria são 
+	armazenados no formato binário BSM, por isso ferramentas 
+	adicionais devem ser utilizadas para modificar ou converter 
+	para um arquivo de texto. O comando &man.praudit.1; pode 
+	converter estes arquivos para um formato de texto plano. O 
+	comando &man.auditreduce.1; pode ser usado para reduzir o 
+	arquivo de rastros para uma futura análise, para arquivamento 
+	(backup), ou para fins impressão. O <command>auditreduce</command> 
+	suporta uma variedade parâmetros, incluindo tipo de evento, 
+	classe de evento, usuário, data e hora do evento, e o 
+	caminho do arquivo ou objeto a ser processado.</para>
 
-      <para>For example, the <command>praudit</command> utility will dump
-	the entire contents of a specified audit log in plain text:</para>
+      <para>Por exemplo, aqui o <command>praudit</command> irá 
+	descarregar todo o conteúdo em de um rastro/log de auditoria 
+	em texto plano:</para>
 
-      <screen>&prompt.root; <userinput>praudit /var/audit/AUDITFILE</userinput></screen>
+      <screen>&prompt.root; <userinput>praudit /var/audit/ARQUIVO</userinput></screen>
 
-      <para>Where <filename><replaceable>AUDITFILE</replaceable></filename> is the audit log to
-	dump.</para>
+      <para>Aqui, <filename><replaceable>ARQUIVO</replaceable></filename> 
+	é o nome do arquivo gerado pelo sistema de auditoria a ser 
+	descarregado.</para>
 
-      <para>Audit trails consist of a series of audit records made up of
-	tokens, which <command>praudit</command> prints sequentially one per
-	line.  Each token is of a specific type, such as
-	<literal>header</literal> holding an audit record header, or
-	<literal>path</literal> holding a file path from a name
-	lookup.  The following is an example of an
-	<literal>execve</literal> event:</para>
+      <para>Rastros de auditoria consistem em uma série de registros de 
+	auditoria compostos de tokens, que o <command>praudit</command> 
+	exibe de forma sequencial; um por linha. Cada token é de um 
+	tipo específico. O <literal>header</literal> consiste num registro 
+	de cabeçalho da auditoria, o token representado como 
+	<literal>path</literal> indica o caminho de um arquivo ou 
+	comando obtido a partir de uma consulta realizada usando o nome 
+	do arquivo/comando. O exemplo a seguir demonstra um 
+	evento <literal>execve</literal>:</para>
 
       <programlisting>header,133,10,execve(2),0,Mon Sep 25 15:58:03 2006, + 384 msec
 exec arg,finger,doug
@@ -568,41 +588,45 @@ subject,robert,root,wheel,root,wheel,38439,38032,42086,128.232.9.100
 return,success,0
 trailer,133</programlisting>
 
-      <para>This audit represents a successful <literal>execve</literal>
-	call, in which the command <literal>finger doug</literal> has been run.  The
-	arguments token contains both the processed command line presented
-	by the shell to the kernel.  The <literal>path</literal> token holds the path to the
-	executable as looked up by the kernel.  The <literal>attribute</literal> token
-	describes the binary, and in particular, includes the file mode
-	which can be used to determine if the application was setuid.
-	The <literal>subject</literal> token describes the subject process, and stores in
-	sequence the audit user ID, effective user ID and group ID, real
-	user ID and group ID, process ID, session ID, port ID, and login
-	address.  Notice that the audit user ID and real user ID differ:
-	the user <username>robert</username> has switched to the
-	<username>root</username> account before running this command, but
-	it is audited using the original authenticated user.  Finally, the
-	<literal>return</literal> token indicates the successful execution, and the <literal>trailer</literal>
-	concludes the record.</para>
+      <para>Essa auditoria representa uma execução bem sucedida 
+	feita na chamada de <literal>execve</literal> realizada pelo 
+	comando <literal>finger doug</literal>. O token de 
+	argumentos contém a linha de comando processada e apresentada pelo 
+	shell ao kernel. O token <literal>path</literal> indica o caminho 
+	para o executável localizado pelo kernel. O token <literal>attribute</literal> 
+	descreve o binário e, em particular, inclui os modos e permissões 
+	do arquivo de um jeito que pode-se saber se foi feita uma 
+	chamada setuid. O token <literal>subject</literal> descreve o 
+	assunto do processo e armazena, em sequência, o ID do usuário 
+	que realizou a auditoria, o ID do usuário efetivo 
+	(que executou o comando) e seu respectivo grupo, o ID do usuário 
+	real e grupo respectivo, ID do processo, ID da sessão, ID da 
+	porta e endereço de login. Observe que o ID do usuário de 
+	auditoria e o ID do usuário real ID são diferentes: o usuário 
+	<username>robert</username> mudou para <username>root</username>, 
+	mas foi auditado o usuário original antes da execução do comando. 
+	Finalmente, o token <literal>return</literal> indica a 
+	execução bem sucedida e o token <literal>trailer</literal> 
+	indica fim do registro.</para>
 
-      <para><command>praudit</command> also supports
-	an XML output format, which can be selected using the
-	<option>-x</option> argument.</para>
-
+      <para>O <command>praudit</command> também dá suporte à saídas 
+	em formato XML, que podem ser obtidas com o uso do argumento 
+	<option>-x</option>.</para>
     </sect2>
 
     <sect2>
       <title>Reduzindo Rastros de Auditoria</title>
 
-      <para>Since audit logs may be very large, an administrator will
-	likely want to select a subset of records for using, such as records
-	associated with a specific user:</para>
+      <para>Partindo do ponto que logs de auditoria podem se tornar 
+	muito grandes, um administrador pode desejar selecionar um 
+	subconjunto de registros para o análise, tais como registros 
+	associados a um usuário específico. Veja um exemplo:</para>
 
-      <screen>&prompt.root; <userinput>auditreduce -u trhodes /var/audit/AUDITFILE | praudit</userinput></screen>
+      <screen>&prompt.root; <userinput>auditreduce -u trhodes /var/audit/ARQUIVO | praudit</userinput></screen>
 
-      <para>This will select all audit records produced for the user
-	<username>trhodes</username> stored in the
-	<filename><replaceable>AUDITFILE</replaceable></filename> file.</para>
+      <para>A execução deste comando irá exibir apenas os registros vinculados ao usuário
+	<username>trhodes</username> que estejam armazenados em 
+	<filename>/var/audit/<replaceable>ARQUIVO</replaceable></filename>.</para>
     </sect2>
 
     <sect2>
