@@ -218,28 +218,28 @@ requirements. -->
   <sect1 id="audit-config">
     <title>Configuração de Auditoria</title>
 
-    <para>Todos os arquivos de configuração para auditoria de seguranÃ§a são
+    <para>Todos os arquivos de configuração para auditoria de segurança são
       encontrados em <filename class="directory">/etc/security</filename>.
       Os seguintes arquivos precisam estar presentes antes que o daemon de 
       auditoria seja iniciado:</para>
 
     <itemizedlist>
       <listitem>
-	<para><filename>audit_class</filename> - Contem as definiÃ§ões
+	<para><filename>audit_class</filename> - Contem as definições
 	  das classes de auditoria.</para>
       </listitem>
 
       <listitem>
 	<para><filename>audit_control</filename> - Controla os aspectos
 	  do subsistema de auditoria, como as classes padrão,
-    quantidade minima de espaÃ§o em disco para se deixar no
+    quantidade minima de espaço em disco para se deixar no
     volume de log de auditoria, quantidade maxima do 
     tamanho dos rastros de auditoria, etc.</para>
       </listitem>
 
       <listitem>
 	<para><filename>audit_event</filename> - Nomes textuais e 
-	  descriÃ§ões dos eventos de auditoria, bem como a lista de
+	  descrições dos eventos de auditoria, bem como a lista de
     qual classe cada evento faz parte.</para>
       </listitem>
 
@@ -252,8 +252,8 @@ requirements. -->
       <listitem>
 	<para><filename>audit_warn</filename> - Um shell script
     customizado utilizado por <application>auditd</application> para
-    gerar mensagens de alerta em situaÃ§ões excepcionais, tais como
-    quando o espaÃ§o para armazenar os registros de auditoria estiver baixo
+    gerar mensagens de alerta em situações excepcionais, tais como
+    quando o espaço para armazenar os registros de auditoria estiver baixo
     ou quando o arquivo de rastros de auditoria for rotacionado.</para>
       </listitem>
     </itemizedlist>
@@ -265,35 +265,31 @@ requirements. -->
     </warning>
 
     <sect2>
-      <title>Expressões de seleção de eventos</title>
+      <title>Expressões de Seleção de Eventos</title>
 
-      <para>Expressões de seleção são utilizados em diversos lugares
-  na configuração de auditoria para determinar quais eventos devem ser
-  auditados.
+      <para>Expressões de Seleção são utilizadas em diversos lugares 
+	na configuração de auditoria para determinar quais eventos 
+	devem serauditados. As expressões contém uma lista de classes 
+	de eventos a serem atendidos, cada um com um prefixo que 
+	indica se os registros correspondentes devem ser aceitos ou 
+	ignoradas e, opcionalmente, indicam se estes registros 
+	consideram operações bem sucedidas ou operações que apresentaram 
+	alguma falha. Expressões de Seleção são avaliadas da esquerda 
+	para a direita. Duas expressões são combinadas anexando-se 
+	uma a outra.</para>
 
- Selection expressions are used in a number of places in the
-	audit configuration to determine which events should be audited.
-  
-	Expressions contain a list of event classes to match, each with
-	a prefix indicating whether matching records should be accepted
-	or ignored, and optionally to indicate if the entry is intended
-	to match successful or failed operations.  Selection expressions
-	are evaluated from left to right, and two expressions are
-	combined by appending one onto the other.</para>
-
-      <para>A seguinte lista contem as classes de evento de
-  auditoria padrão presentes no <filename>audit_class</filename>:</para>
+      <para>A seguinte lista contém as classes de evento de auditoria 
+	padrão presentes em <filename>audit_class</filename>:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para><literal>all</literal> - <emphasis>all</emphasis> - Match all
-	    event classes.</para>
+	  <para><literal>all</literal> - <emphasis>all</emphasis> - 
+	    Corresponde a todas as classes.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>ad</literal> - <emphasis>administrative</emphasis>
-	    - Administrative actions performed on the system as a
-	    whole.</para>
+	  <para><literal>ad</literal> - <emphasis>administrative</emphasis> - 
+	    Ações administrativas realizadas no sistema como um todo.</para>
 	</listitem>
 
 	<listitem>
@@ -303,16 +299,17 @@ requirements. -->
 
 	<listitem>
 	  <para><literal>cl</literal> - <emphasis>file close</emphasis> -
-	    Audit calls to the <function>close</function> system
-	    call.</para>
+	    Audita chamadas de sistema <literal>(syscalls)</literal> 
+	    da função <function>close</function>.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>ex</literal> - <emphasis>exec</emphasis> - Audit
-	    program execution.  Auditing of command line arguments and
-	    environmental variables is controlled via &man.audit.control.5;
-	    using the <literal>argv</literal> and <literal>envv</literal>
-	    parameters to the <literal>policy</literal> setting.</para>
+	  <para><literal>ex</literal> - <emphasis>exec</emphasis> - 
+	    Audita execução de programas.  Auditorias de argumentos 
+	    repassados em linha de comando e variaveis de ambiente 
+	    são controladas via &man.audit.control.5; com auxílio 
+	    das políticas de <literal>argv</literal> e <literal>envv</literal>
+	    repassadas para a configuração de <literal>policy</literal>.</para>
 	</listitem>
 
 	<listitem>
@@ -601,7 +598,7 @@ trailer,133</programlisting>
     </sect2>
 
     <sect2>
-      <title>Reducing Audit Trails</title>
+      <title>Reduzindo Rastros de Auditoria</title>
 
       <para>Since audit logs may be very large, an administrator will
 	likely want to select a subset of records for using, such as records
@@ -615,7 +612,7 @@ trailer,133</programlisting>
     </sect2>
 
     <sect2>
-      <title>Delegating Audit Review Rights</title>
+      <title>Delegando Direitos de Revisão</title>
 
       <para>Members of the <groupname>audit</groupname> group are given
 	permission to read audit trails in <filename>/var/audit</filename>;
@@ -628,7 +625,7 @@ trailer,133</programlisting>
     </sect2>
 
     <sect2>
-      <title>Live Monitoring Using Audit Pipes</title>
+      <title>Monitoramento em Tempo Real com Audit Pipes</title>
 
       <para>Audit pipes are cloning pseudo-devices in the device file system
 	which allow applications to tap the live audit record stream.  This
@@ -664,7 +661,7 @@ trailer,133</programlisting>
     </sect2>
 
     <sect2>
-      <title>Rotating Audit Trail Files</title>
+      <title>Rotacionando Arquivos de Auditoria</title>
 
       <para>Audit trails are written to only by the kernel, and managed only
 	by the audit daemon, <application>auditd</application>.  Administrators
@@ -691,7 +688,7 @@ trailer,133</programlisting>
 
       <programlisting>0     */12       *       *       *       root    /usr/sbin/audit -n</programlisting>
 
-      <para>As alteraÃ§ões terão efeito assim que vocÃª salvar o novo <filename>/etc/crontab</filename>.</para>
+      <para>As alterações terão efeito assim que você salvar o arquivo.</para>
 
       <para>Automatic rotation of the audit trail file based on file size is
 	possible via the <option>filesz</option> option in
@@ -700,16 +697,19 @@ trailer,133</programlisting>
     </sect2>
 
     <sect2>
-      <title>Compressing Audit Trails</title>
+      <title>Compactação dos Rastros de Auditoria</title>
 
-      <para>As audit trail files can become very large, it is often desirable
-	to compress or otherwise archive trails once they have been closed by
-	the audit daemon.  The <filename>audit_warn</filename> script can be
-	used to perform customized operations for a variety of audit-related
-	events, including the clean termination of audit trails when they are
-	rotated.  For example, the following may be added to the
-	<filename>audit_warn</filename> script to compress audit trails on
-	close:</para>
+      <para>Visto que os arquivos de auditoria podem se tornar muito 
+	grandes, muitas vezes é desejável que estes arquivos e seus 
+	rastros <literal>(trails)</litera> sejam compactados ou 
+	armazenados em um outro local/dispositivo uma vez que já 
+	foram utilizados pelo daemon de auditoria. O script 
+	<filename>audit_warn </filename> pode ser utilizado para 
+	realizar operações personalizadas para uma variedade de 
+	eventos relacionados a auditoria, incluindo a rescisão de 
+	rastros de auditoria quando rotacionados. O seguinte conteúdo 
+	pode, por exemplo, ser adicionado ao <filename>audit_warn</filename> 
+	para compactar rastros de auditoria após uso dos arquivos:</para>
 
       <programlisting>#
 # Compress audit trail files on close.
@@ -718,11 +718,13 @@ if [ "$1" = closefile ]; then
         gzip -9 $2
 fi</programlisting>
 
-      <para>Other archiving activities might include copying trail files to
-	a centralized server, deleting old trail files, or reducing the audit
-	trail to remove unneeded records.  The script will be run only when
-	audit trail files are cleanly terminated, so will not be run on
-	trails left unterminated following an improper shutdown.</para>
+      <para>Outras atividades podem incluir a cópia dos arquivos para 
+	um servidor centralizado, apagar antigos arquivos de rastros 
+	ou reduzir rastros de auditoria para remover registros 
+	desnecessários. O script será executado apenas quando os arquivos 
+	de rastro de auditoria forem rescindidos, por isso não vai ser 
+	executado em arquivos de rastro que não forem interpretados 
+	até o fim.</para>
     </sect2>
   </sect1>
 </chapter>
