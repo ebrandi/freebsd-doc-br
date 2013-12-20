@@ -313,138 +313,132 @@ requirements. -->
 	</listitem>
 
 	<listitem>
-	  <para><literal>fa</literal> - <emphasis>file attribute access</emphasis>
-	    - Audit the access of object attributes such as
-	    &man.stat.1;, &man.pathconf.2; and similar events.</para>
+	  <para><literal>fa</literal> - <emphasis>file attribute access</emphasis> - 
+	    Audita o acesso a atributos de objetos como 
+	    &man.stat.1;, &man.pathconf.2; e eventos similares.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>fc</literal> - <emphasis>file create</emphasis>
-	    - Audit events where a file is created as a result.</para>
+	  <para><literal>fc</literal> - <emphasis>file create</emphasis> - 
+	    Audita eventos que resultaram na criação de um arquivo.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>fd</literal> - <emphasis>file delete</emphasis>
-	    - Audit events where file deletion occurs.</para>
+	  <para><literal>fd</literal> - <emphasis>file delete</emphasis> - 
+	    Audita eventos que resultaram na deleção de um arquivo.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>fm</literal> - <emphasis>file attribute modify</emphasis>
-	    - Audit events where file attribute modification occurs,
-	    such as &man.chown.8;, &man.chflags.1;, &man.flock.2;,
+	  <para><literal>fm</literal> - <emphasis>file attribute modify</emphasis> - 
+	    Audita eventos onde houve modificação de atributos/permissões de 
+	    arquivos através de &man.chown.8;, &man.chflags.1;, &man.flock.2;,
 	    etc.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>fr</literal> - <emphasis>file read</emphasis>
-	    - Audit events in which data is read, files are opened for
-	    reading, etc.</para>
+	  <para><literal>fr</literal> - <emphasis>file read</emphasis> - 
+	    Audita eventos onde houve acesso de abertura a dados/arquivos, leitura 
+	    de arquivos, etc.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>fw</literal> - <emphasis>file write</emphasis> -
-	    Audit events in which data is written, files are written
-	    or modified, etc.</para>
+	    Audita eventos onde houve escrita ou modificação de dados/arquivos e etc.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>io</literal> - <emphasis>ioctl</emphasis> - Audit
-	    use of the &man.ioctl.2; system call.</para>
+	  <para><literal>io</literal> - <emphasis>ioctl</emphasis> - 
+	    Audita uso da chamada de sistema (<literal>syscall</literal>) &man.ioctl.2;.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>ip</literal> - <emphasis>ipc</emphasis> - Audit
-	    various forms of Inter-Process Communication, including POSIX
-	    pipes and System V <acronym>IPC</acronym> operations.</para>
+	  <para><literal>ip</literal> - <emphasis>ipc</emphasis> - 
+	    Audita várias formas de Comunicação Inter-Processos, incluindo pipes POSIX
+	    e operações <acronym>IPC</acronym> em System V.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>lo</literal> - <emphasis>login_logout</emphasis> -
-	    Audit &man.login.1; and &man.logout.1; events occurring
-	    on the system.</para>
+	    Audita eventos onde ocorra uso de &man.login.1; e &man.logout.1; no sistema.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>na</literal> - <emphasis>non attributable</emphasis> -
-	    Audit non-attributable events.</para>
+	    Audita eventos não atribuíveis.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>no</literal> - <emphasis>invalid class</emphasis> -
-	    Match no audit events.</para>
+	    Não corresponde a evento de auditoria algum.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>nt</literal> - <emphasis>network</emphasis> -
-	    Audit events related to network actions, such as
-	    &man.connect.2; and &man.accept.2;.</para>
+	    Audita eventos relacionados a atividades de rede, tais 
+	    como as chamadas de sistema (<literal>syscalls</literal>) 
+	    &man.connect.2; e &man.accept.2;.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>ot</literal> - <emphasis>other</emphasis> -
-	    Audit miscellaneous events.</para>
+	    Audita eventos diversos.</para>
 	</listitem>
 
 	<listitem>
 	  <para><literal>pc</literal> - <emphasis>process</emphasis> -
-	    Audit process operations, such as &man.exec.3; and
+	    Audita operações ligadas a processos, tais como &man.exec.3; a
 	    &man.exit.3;.</para>
 	</listitem>
 
       </itemizedlist>
 
-      <para>These audit event classes may be customized by modifying the
-	<filename>audit_class</filename> and
-	<filename>audit_event</filename> configuration files.</para>
+      <para>Estes eventos de auditoria podem ser customizados se 
+	você modificar as configurações nos arquivos 
+	<filename>audit_class</filename> e <filename>audit_event</filename>.</para>
 
-      <para>Each audit class in the list is combined with a prefix
-	indicating whether successful/failed operations are matched, and
-	whether the entry is adding or removing matching for the class
-	and type.</para>
+      <para>Cada classe de auditoria nesta lista é combinada com um 
+	prefixo indicando onde uma operação (bem ou mal sucedida) 
+	deve ser considerada e se um novo registro é adicionado ou 
+	removido para determinada classe e tipo.</para>
 
       <itemizedlist>
 	<listitem>
-	  <para>(none) Audit both successful and failed instances of the
-	    event.</para>
+	  <para><literal>(none)</literal> Audita ambos os casos de 
+	    um evento; bem sucedidos e mal sucedidos.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>+</literal> Audit successful events in this
-	    class.</para>
+	  <para><literal>+</literal> Audita eventos bem sucedidos.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>-</literal> Audit failed events in this
-	    class.</para>
+	  <para><literal>-</literal> Audita eventos mal sucedidos.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>^</literal> Audit neither successful nor failed
-	    events in this class.</para>
+	  <para><literal>^</literal> Não audita evento algum.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>^+</literal> Do not audit successful events in this
-	    class.</para>
+	  <para><literal>^+</literal> Não audita eventos bem sucedidos.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>^-</literal> Do not audit failed events in this
-	    class.</para>
+	  <para><literal>^-</literal> Não audita eventos mal sucedidos.</para>
 	</listitem>
 
       </itemizedlist>
 
-      <para>The following example selection string selects both successful
-	and failed login/logout events, but only successful execution
-	events:</para>
+      <para>O exemplo a seguir seleciona tanto sucesso como falhas 
+	dos eventos de login/logout, mas apenas eventos bem sucedidos 
+	de execuções de programas:</para>
 
       <programlisting>lo,+ex</programlisting>
 
     </sect2>
 
     <sect2>
-      <title>Configuration Files</title>
+      <title>Arquivos de Configuração</title>
 
       <para>In most cases, administrators will need to modify only two files
 	when configuring the audit system: <filename>audit_control</filename>
@@ -507,7 +501,7 @@ filesz:0</programlisting>
       </sect3>
 
       <sect3 id="audit-audituser">
-	<title>The <filename>audit_user</filename> File</title>
+	<title>O Arquivo <filename>audit_user</filename></title>
 
 	<para>The <filename>audit_user</filename> file permits the
 	  administrator to specify further audit requirements for specific
@@ -536,10 +530,10 @@ www:fc,+ex:no</programlisting>
   </sect1>
 
   <sect1 id="audit-administration">
-    <title>Administering the Audit Subsystem</title>
+    <title>Administrando o Sistema de Auditoria</title>
 
     <sect2>
-      <title>Viewing Audit Trails</title>
+      <title>Consultando Rastros de Auditoria</title>
 
       <para>Audit trails are stored in the BSM binary format, so tools must
 	be used to modify or convert to text.  The &man.praudit.1;
@@ -614,86 +608,100 @@ trailer,133</programlisting>
     <sect2>
       <title>Delegando Direitos de Revisão</title>
 
-      <para>Members of the <groupname>audit</groupname> group are given
-	permission to read audit trails in <filename>/var/audit</filename>;
-	by default, this group is empty, so only the <username>root</username> user may read
-	audit trails.  Users may be added to the <groupname>audit</groupname>
-	group in order to delegate audit review rights to the user.  As
-	the ability to track audit log contents provides significant insight
-	into the behavior of users and processes, it is recommended that the
-	delegation of audit review rights be performed with caution.</para>
+      <para>Membros do grupo <groupname>audit</groupname> têm permissão 
+	para ler rastros/arquivos (<literal>trails</literal>) de auditoria 
+	disponíveis em <filename>/var/audit</filename>. Por padrão, este 
+	grupo está vazio. Portanto, inicialmente, apenas o usuário 
+	<username>root</username> terá este tipo de privilégio. Outros usuários 
+	podem ser adicionados ao grupo <groupname>audit</groupname> a fim de 
+	delegar direitos de revisão de auditoria a estes usuários. Como os 
+	privilégios de verificar o conteúdo dos logs de auditoria fornece uma 
+	visão significativa no comportamento dos utilizadores e dos processos 
+	do sistema, é recomendado que a delegação destes privilégios de 
+	auditoria seja realizada com muita cautela.</para>
     </sect2>
 
     <sect2>
       <title>Monitoramento em Tempo Real com Audit Pipes</title>
 
-      <para>Audit pipes are cloning pseudo-devices in the device file system
-	which allow applications to tap the live audit record stream.  This
-	is primarily of interest to authors of intrusion detection and
-	system monitoring applications.  However, for the administrator the
-	audit pipe device is a convenient way to allow live monitoring
-	without running into problems with audit trail file ownership or
-	log rotation interrupting the event stream.  To track the live audit
-	event stream, use the following command line:</para>
+      <para><literal>Audit Pipes</literal> são <quote>pseudo-devices</quote> 
+	disponíveis na árvore de dispositivos do sistema de arquivos 
+	que permitem que aplicativos aproveitem a transmissão ao vivo 
+	de registros de auditoria. Este é um dos principais interesses 
+	no uso conjunto com sistemas de detecção de intrusão e aplicações 
+	de monitoramento. Entretanto, para o administrador do sistema os 
+	<literal>Audit Pipes</literal> são uma forma conveniente para 
+	permitir o monitoramento ao vivo sem enfrentar problemas com 
+	permissões dos arquivos de auditoria ou rotação de logs, 
+	interrompendo o fluxo de eventos de auditoria. Para acompanhar 
+	a auditoria ao vivo, execute o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>praudit /dev/auditpipe</userinput></screen>
 
-      <para>By default, audit pipe device nodes are accessible only to the
-	<username>root</username> user.  To make them accessible to the members of the
-	<groupname>audit</groupname> group, add a <literal>devfs</literal> rule
-	to <filename>devfs.rules</filename>:</para>
+      <para>Por padrão, estes <quote>pseudo-devices</quote> são 
+	acessíveis apenas pelo usuário <username>root</username>. Para 
+	torná-los acessíveis aos membros do grupo 
+	<groupname>audit</groupname>, adicione uma regra de 
+	<literal>devfs</literal> em 
+	<filename>/etc/devfs.rules</filename>: </para>
 
       <programlisting>add path 'auditpipe*' mode 0440 group audit</programlisting>
 
-      <para>See  &man.devfs.rules.5; for more information on configuring
-	the devfs file system.</para>
+      <para>Consulte a página de manual &man.devfs.rules.5; para obter 
+	mais informações e detalhes de como configurar regras de 
+	<literal>devfs</literal> em seu sistema.</para>
 
       <warning>
-	<para>It is easy to produce audit event feedback cycles, in which
-	  the viewing of each audit event results in the generation of more
-	  audit events.  For example, if all network I/O is audited, and
-	  &man.praudit.1; is run from an SSH session, then a continuous stream of
-	  audit events will be generated at a high rate, as each event
-	  being printed will generate another event.  It is advisable to run
-	  <command>praudit</command> on an audit pipe device from sessions without fine-grained
-	  I/O auditing in order to avoid this happening.</para>
+        <para>É fácil produzir ciclos de feedbacks de eventos de 
+	  auditoria onde a visualização destes eventos pode gerar novos 
+	  eventos de auditoria. Por exemplo, se toda a atividade de 
+	  rede estiver sendo auditada e o &man.praudit.1; for executado 
+	  a partir de uma sessão SSH, então um fluxo contínuo de eventos 
+	  de auditoria será gerado a uma taxa elevada, já que cada 
+	  evento sendo impresso irá gerar outro evento. A fim de evitar 
+	  que isso aconteça, é aconselhável executar o 
+	  <command>praudit</command> em um <literal>Audit Pipe</literal> 
+	  em sessões que não gerem novos eventos de auditoria; 
+	  sessões com baixo índice de granularidade de auditoria.</para>
       </warning>
     </sect2>
 
     <sect2>
       <title>Rotacionando Arquivos de Auditoria</title>
 
-      <para>Audit trails are written to only by the kernel, and managed only
-	by the audit daemon, <application>auditd</application>.  Administrators
-	should not attempt to use &man.newsyslog.conf.5; or other tools to
-	directly rotate audit logs.  Instead, the <command>audit</command>
-	management tool may be used to shut down auditing, reconfigure the
-	audit system, and perform log rotation.  The following command causes
-	the audit daemon to create a new audit log and signal the kernel to
-	switch to using the new log.  The old log will be terminated and
-	renamed, at which point it may then be manipulated by the
-	administrator.</para>
+     <para>Rastros (<literal>trails</literal>) de auditoria são escritos 
+	apenas pelo kernel, e gerenciados apenas pelo daemon de auditoria, 
+	o <application>auditd</application>. Administradores não devem 
+	tentar usar o &man.newsyslog.conf.5; ou outras ferramentas para 
+	rotacionar logs e rastros de auditoria. Em vez disso, o comando 
+	<command>audit</command> pode ser utilizado como uma ferramenta de 
+	gestão para realizar rotação de logs, além de poder encerrar a 
+	auditoria ou reconfigurar o sistema de auditoria. O comando 
+	exemplificado abaixo, faz com que um novo registro de log seja 
+	criado e sinaliza ao kernel para que o use. O antigo log será 
+	encerrado e renomeado, podendo, assim, ser manipulado pelo 
+	administrador.</para>
 
       <screen>&prompt.root; <userinput>audit -n</userinput></screen>
 
       <warning>
-	<para>If the <application>auditd</application> daemon is not currently
-	  running, this command will fail and an error message will be
-	  produced.</para>
+	<para>Se o <application>auditd</application> não estiver em execução 
+	  no momento, este comando irá produzir uma mensagem de erro.</para>
       </warning>
 
-      <para>Adding the following line to
-	<filename>/etc/crontab</filename> will force the rotation
-	every twelve hours from &man.cron.8;:</para>
+      <para>Adicionar a seguinte linha ao arquivo
+	<filename>/etc/crontab</filename> forçará a rotação dos arquivos
+	a cada 12 (doze) horas com auxílio do &man.cron.8;:</para>
 
       <programlisting>0     */12       *       *       *       root    /usr/sbin/audit -n</programlisting>
 
       <para>As alterações terão efeito assim que você salvar o arquivo.</para>
 
-      <para>Automatic rotation of the audit trail file based on file size is
-	possible via the <option>filesz</option> option in
-	&man.audit.control.5;, and is described in the configuration files
-	section of this chapter.</para>
+      <para>Rotação automática do arquivo de auditoria com base no 
+	tamanho do arquivo é possível de se realizar através da opção 
+	<option>filesz</option> em &man.audit.control.5;, descrita 
+	na seção de arquivos de configuração deste capítulo.</para>
+
     </sect2>
 
     <sect2>
