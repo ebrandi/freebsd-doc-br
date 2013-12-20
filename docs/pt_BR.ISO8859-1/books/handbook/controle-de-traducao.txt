@@ -3,7 +3,7 @@
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 312    # book.xml            # r39544  # Liberado para revisão
-708    # preface             # r39544  # Rafael Aquino, 03/10/2012
+708    # preface             # r39544  # Vinicius Zavam (adotado), 20/12/2013
 3394   # mirrors             # r39575  # Liberado para revisao
 580    # bibliography        # r39544  # Liberado para revisão
 2142   # eresources          # r39544  # Liberado para revisão
@@ -48,10 +48,10 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 4151   # security            # r39576  # Nilton Jose Rizzo, 13/10/2012
 988    # jails               # r39566  # Liberado para Revisão
 2075   # mac                 # r39544  #
-717    # audit               # r39544  # Vinicius Zavam (adotado), 19/12/2013
+717    # audit               # r39544  # Liberado para revisao
 4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
 981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
-885    # filesystems         # r39544  # Luiz Gustavo, 21/09/2012
+885    # filesystems         # r39544  # Vinicius Zavam (adotado), 20/12/2013
 1296   # vinum               # r39544  #
 1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
 943    # l10n                # r39544  # Liberado para revisao
