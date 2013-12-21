@@ -30,14 +30,14 @@ requirements. -->
     </authorgroup>
   </chapterinfo>
 
-  <title>Evento de Segurança e Auditoria</title>
+  <title>Auditoria de Eventos e Segurança</title>
 
   <sect1 id="audit-synopsis">
     <title>Sinopse</title>
 
     <indexterm><primary>AUDIT</primary></indexterm>
     <indexterm>
-      <primary>Evento de Segurança e Auditoria</primary>
+      <primary>Auditoria de Eventos e Segurança</primary>
       <see>MAC</see>
     </indexterm>
 
@@ -110,7 +110,7 @@ requirements. -->
   </sect1>
 
   <sect1 id="audit-inline-glossary">
-    <title>Termos chave neste capítulo</title>
+    <title>Termos-Chave do Capítulo</title>
 
     <para>Antes de ler este capítulo alguns termos chave relacionados a 
       auditoria precisam ser explicados:</para>
