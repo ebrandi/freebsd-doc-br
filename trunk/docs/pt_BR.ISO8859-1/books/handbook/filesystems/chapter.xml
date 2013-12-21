@@ -13,7 +13,7 @@
       <author>
 	<firstname>Tom</firstname>
 	<surname>Rhodes</surname>
-	<contrib>Written by </contrib>
+	<contrib>Uma Contribuição de </contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -43,7 +43,7 @@
 
     <para>&os; também suporta uma variedade de sistemas de arquivo
       para prover suporte a acesso de dados de outros sistemas
-      operacionais local, por exemplo,&nbsp;dados armazenados em um
+      operacionais local, por exemplo, dados armazenados em um
       pendrive <acronym>USB</acronym>, disco flash ou outro disco
       rigido. Existe também suporte a sistemas de arquivos não nativo,
       esses sistemas de arquivo são desenvolvidos em outros sistemas
@@ -104,7 +104,7 @@
   <sect1 id="filesystems-zfs">
     <title>O Z File System (ZFS)</title>
 
-    <para>O Z&nbsp;file system (Sistema de Arquivo Z), desenvolvido
+    <para>O ZFS (Sistema de Arquivos Z), desenvolvido
       pela &sun;, é uma nova tecnologia desenvolvida para usar um
       método de armazenamento agrupado. Isto significa que o espaço
       somente é usado quando precisa armazenar dados. Ele também é
@@ -160,10 +160,10 @@
 	<para>Esta opção vai expandir o espaço do endereço do kernel,
       permitindo assim que o ajuste <varname>vm.kvm_size</varname>
       possa ser configurado para além do limite atual imposto de
-      1&nbsp;GB (2&nbsp;GB para <acronym>PAE</acronym>). Para
+      1 GB (2 GB para <acronym>PAE</acronym>). Para
       encontrar o valor mais adequado para esta opção, divida o
       espaço de endereço desejado em megabytes por quatro (4). Neste
-      caso, é <literal>512</literal> para 2&nbsp;GB.</para>
+      caso, é <literal>512</literal> para 2 GB.</para>
       </sect3>
 
       <sect3>
@@ -188,12 +188,13 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
     </sect2>
 
     <sect2>
-      <title>Usando <acronym>ZFS</acronym></title>
+      <title>Usando o <acronym>ZFS</acronym></title>
 
       <para>Existe um mecanismo de inicialização que permite ao &os;
-        montar os conjuntos (pools) do <acronym>ZFS</acronym> durante
-	a inicialização do sistema. Para isso, é preciso configurá-lo
-	através dos seguintes comandos:</para>
+        montar os conjuntos (<literal>pools</literal>) utilizados pelo 
+	<acronym>ZFS</acronym> durante a inicialização do sistema. 
+	Para isso, é preciso configurá-lo através dos seguintes 
+	comandos:</para>
 
 	<screen>&prompt.root; <userinput>echo 'zfs_enable="YES"' &gt;&gt; /etc/rc.conf</userinput>
 &prompt.root; <userinput>/etc/rc.d/zfs start</userinput></screen>
@@ -208,10 +209,10 @@ vfs.zfs.vdev.cache.size="5M"</programlisting>
 	  ao invés do dispositivo <acronym>SCSI</acronym>.</para>
 
       <sect3>
-	<title>Conjunto (Pool) em Disco Único</title>
+	<title><acronym>ZFS</acronym> Pool em um Único Disco</title>
 
-	<para>Para criar um simples e não redundante conjunto (pool)
-	  <acronym>ZFS</acronym> usando somente um dispositivo de
+	<para>Para criar um pool <acronym>ZFS</acronym> simples e 
+	  não redundante usando somente um único dispositivo de
 	  disco, basta usar o comando <command>zpool</command>:
 	  </para>
 
@@ -243,9 +244,9 @@ drwxr-xr-x   2 root  wheel    3 Aug 29 23:15 .
 drwxr-xr-x  21 root  wheel  512 Aug 29 23:12 ..
 -rw-r--r--   1 root  wheel    0 Aug 29 23:15 arquivo_teste</screen>
 
-	<para>Infelizmente este conjunto (pool) não tem nenhuma
+	<para>Infelizmente este pool não tem nenhuma
 	  vantagem em relação ao uso das funções do <acronym>ZFS</acronym>
-	  Crie um sistema de arquivo neste conjunto (pool) e habilite
+	  Crie um sistema de arquivo neste pool e habilite
 	  a compressão nele:</para>
 
 	<screen>&prompt.root; <userinput>zfs create exemplo/comprimido</userinput>
@@ -285,7 +286,7 @@ devfs                      1       1        0   100%    /dev
 example             17547008       0 17547008     0%    /exemplo
 example/compressed  17547008       0 17547008     0%    /exemplo/comprimido</screen>
 
-	<para>O conjunto (pool) e o sistema de arquivo podem ser
+	<para>O pool e o sistema de arquivo podem ser
 	  observados na saída do comando <command>mount</command>:
 	  </para>
 
@@ -321,17 +322,17 @@ exemplo             17547008       0 17547008     0%    /exemplo
 exemplo/comprimido  17547008       0 17547008     0%    /exemplo/comprimido
 exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 
-	<para>Observe que cada sistema de arquivo dentro do conjunto
-	  (pool) têm o mesmo espaço disponível. Essa é a razão de
+	<para>Observe que cada sistema de arquivo dentro do pool
+	  têm o mesmo espaço disponível. Essa é a razão de
 	  utilizar-mos o comando <command>df</command> em nossos
 	  exemplos, para mostrar a quantidade de espaço utilizada
 	  apenas pelo o sistema de arquivo, que é uma soma total
-	  disponível no conjunto (pool).
+	  disponível no pool.
 	  O sistema de arquivo <acronym>ZFS</acronym> acaba com
 	  alguns conceitos como volumes e partições e permite o uso
-	  de vários sistemas de arquivo no mesmo conjunto (pool).
-	  Vamos destruir o sistema de arquivo e destruir o conjunto
-	  (pool) já que não vamos mais precisar dele:</para>
+	  de vários sistemas de arquivo no mesmo pool.
+	  Vamos destruir o sistema de arquivo e destruir o pool
+	  já que não vamos mais precisar dele:</para>
 
 	<screen>&prompt.root; <userinput>zfs destroy exemplo/comprimido</userinput>
 &prompt.root; <userinput>zfs destroy exemplo/dados</userinput>
@@ -342,19 +343,19 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 	  perdidos. Um método para evitar essa perda de dados é a
 	  implementação de um <acronym>RAID</acronym>.
 	  <acronym>ZFS</acronym> suporta este recurso no ambiente de
-	  conjunto (pool) e é o que nós vamos abordar na próxima
+	  pools e é o que nós vamos abordar na próxima
 	  sessão.</para>
       </sect3>
 
       <sect3>
-	<title><acronym>ZFS</acronym> RAID-Z</title>
+	<title><acronym>ZFS</acronym> e RAID-Z</title>
 
 	<para>Como observado anteriormente, esta sessão assume a
 	  existência de três discos <acronym>SCSI</acronym> como
 	  dispositivos <devicename>da0</devicename>, <devicename>da1</devicename>
 	  e <devicename>da2</devicename> (ou <devicename>ad0</devicename>
 	  e outros discos IDE no caso de serem usados). Para criar um
-	  conjunto (pool) <acronym>RAID</acronym>-Z, execute o
+	  pool com <acronym>RAID</acronym>-Z, execute o
 	  seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool create storage raidz da0 da1 da2</userinput></screen>
@@ -362,19 +363,19 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 	<note><para>A &sun; recomenda que a quantidade de
 	  dispositivos utilizados em uma configuração <acronym>RAID</acronym>-Z
 	  esteja entre três e nove. Se você necessita usar 10 ou mais
-	  discos em um conjunto (pool) simples, pare e pense em usar
+	  discos em um pool simples, pare e pense em usar
 	  grupos de <acronym>RAID</acronym>-Z. Se você somente
 	  possuir dois discos e necessitar de redundância, considere
 	  usar o espelhamento (mirror) em <acronym>ZFS</acronym>.
 	  Veja as páginas de manual (&man.zpool.8;) para maiores
 	  detalhes.</para></note>
 
-	<para>O zpool <literal>storage</literal> foi criado com
+	<para>O pool <literal>storage</literal> foi criado com
 	  sucesso. Isto pode ser verificado utilizando o comando
 	  &man.mount.8; e o comando &man.df.1; conforme visto
 	  anteriormente. Mais dispositivos de disco podem ser
 	  alocados adicionando-os no final da lista acima. Crie um
-	  novo sistema de arquivo neste conjunto (pool), chamado
+	  novo sistema de arquivo neste pool, chamado
 	  <literal>home</literal>, local onde podem ser colocado
 	  arquivos eventuais de usuários:</para>
 
@@ -478,15 +479,13 @@ storage/home  26320512       0 26320512     0%    /home</screen>
 
 	<screen>&prompt.root; <userinput>zpool status -x</userinput></screen>
 
-	<para>Se todos os conjuntos (pools) estão saudáveis e tudo
-	  esta normal, uma mensagem semelhante a seguir, será
-	  mostrada:</para>
+	<para>Se todos os pools estiverem saudáveis e tudo estiver 
+	  normal, uma mensagem semelhante a esta será mostrada:</para>
 
 	<screen>all pools are healthy</screen>
 
 	<para>Se existir algum problema, um disco desligado, o estado
-	  do conjunto (pool) será semelhante ao que podemos ver
-	  abaixo:</para>
+	  do pool será semelhante ao que podemos ver abaixo:</para>
 
 	<screen>  pool: storage
  state: DEGRADED
@@ -545,7 +544,7 @@ errors: No known data errors</screen>
       </sect3>
 
       <sect3>
-	<title>Verificação de dados</title>
+	<title>Verificação de Dados</title>
 
 	<para>Como mencionado anteriormente, <acronym>ZFS</acronym>
 	  usa <literal>checagens</literal> para verificar a
@@ -563,7 +562,7 @@ errors: No known data errors</screen>
 	  checando a integridade dados usando verificação
 	  <literal>checksum</literal>. Este processo é conhecido
 	  como <quote>scrubbing.</quote> Para verificar a integridade
-	  dos dados do conjunto (pool) <literal>storage</literal>,
+	  dos dados do pool <literal>storage</literal>,
 	  execute o seguinte comando:</para>
 
 	<screen>&prompt.root; <userinput>zpool scrub storage</userinput></screen>
@@ -629,7 +628,7 @@ errors: No known data errors</screen>
 		  o espaço usado pelo os descendentes, como um sistema
 		  de arquivo ou snapshots.</para>
 
-		<para>Para forçar uma cota geral de 10&nbsp;GB para
+		<para>Para forçar uma cota geral de 10 GB para
 		  <filename>storage/home/bob</filename>, use o
 		  comando abaixo:</para>
 
@@ -666,7 +665,7 @@ errors: No known data errors</screen>
 	  	  </listitem>
 		</itemizedlist>
 
-		<para>Por exemplo, para forçar a cota de 50&nbsp;GB
+		<para>Por exemplo, para forçar a cota de 50 GB
 		  para um usuário com nome de <replaceable>jose</replaceable>,
 		  use o comando abaixo:</para>
 
@@ -692,7 +691,7 @@ errors: No known data errors</screen>
 
 		<para>Para configurar a cota do grupo
 		  <replaceable>primeiro_grupo</replaceable> para
-		  50&nbsp;GB, use:</para>
+		  50 GB, use:</para>
 
 		<screen>&prompt.root; <userinput>zfs set groupquota@primeiro_grupo=50G</userinput></screen>
 
@@ -739,9 +738,9 @@ errors: No known data errors</screen>
 		  configura se possível uma reserva uma quantidade de
 		  espaço mínima garantida para um conjunto de dados e
 		  seus descendentes. Isto significa que se fizermos
-		  uma reserva de 10&nbsp;GB para
+		  uma reserva de 10 GB para
 		  <filename>storage/home/bob</filename>, e se
-		  existir espaço mínimo para isso, os 10&nbsp;GB de
+		  existir espaço mínimo para isso, os 10 GB de
 		  espaço serão reservados para o conjunto de dados.
 		  A propriedade <literal>refreservation</literal>
 		  configura ou indica a quantidade de espaço minima
@@ -768,7 +767,7 @@ errors: No known data errors</screen>
 		<para>O formato geral da propriedade
 		  <literal>reservation</literal> é
 		  <literal>reservation=<replaceable>tamanho</replaceable></literal>,
-		  então, para configurar um reserva de 10&nbsp;GB em
+		  então, para configurar um reserva de 10 GB em
 		  <filename>storage/home/bob</filename> o comando
 		  abaixo deve ser usado:</para>
 
