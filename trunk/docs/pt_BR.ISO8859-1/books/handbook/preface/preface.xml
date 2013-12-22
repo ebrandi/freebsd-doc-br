@@ -75,68 +75,75 @@
 
   <bridgehead id="preface-changes-from2" renderas="sect1">Alterações da Segunda Edição (2004)</bridgehead>
 
-  <para>The third edition was the culmination of over two years of
-      work by the dedicated members of the &os; Documentation
-      Project.  The printed edition grew to such a size that it was
-      necessary to publish as two separate volumes.  The following are
-      the major changes in this new edition:</para>
+  <para>A terceira edição foi resultado de um esforço cumulativo de 
+    mais de dois anos de trabalho realizado pelos dedicados membros 
+    do Projeto de Documentação do &os;. A versão impressa precisou 
+    ser impressa em dois volumes, dado o aumento de conteúdo que seria 
+    publicado. Estas são as principais alterações que a terceira 
+    edição sofreu em relação a segunda:</para>
 
   <itemizedlist>
       <listitem>
-	<para><xref linkend="config-tuning"/>, Configuration and
-	  Tuning, has been expanded with new information about the
-	  ACPI power and resource management, the <command>cron</command> system utility,
-	  and more kernel tuning options.</para>
+	<para><xref linkend="config-tuning"/>, Configuração e Tuning,
+	  sofreu atualização e expansão de conteúdo com novas 
+	  informações relacionadas ao gerenciamento de recursos e 
+	  alimentação (elétrica) via ACPI, ao <command>cron</command> 
+	  e outras informações relacionadas a opções de tuning para 
+	  o kernel.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="security"/>, Security, has been expanded with
-	  new information about virtual private networks (VPNs), file
-	  system access control lists (ACLs), and security
-	  advisories.</para>
+	<para><xref linkend="security"/>, Segurança, adicionou novos 
+	  conteúdos sobre Redes Virtuais Privadas (VPN), Listas de 
+	  Controle de Acesso (ACL) em sistemas de arquivos e sobre 
+	  acompanhamento dos avisos sobre segurança.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="mac"/>, Mandatory Access Control (MAC), is
-	  a new chapter with this edition.  It explains what MAC is
-	  and how this mechanism can be used to secure a &os;
-	  system.</para>
+	<para><xref linkend="mac"/>, Controle de Acesso Mandatório (MAC), 
+	  novo capítulo adicionado nesta edição. Explica o que é o 
+	  MAC e como este mecanismo pode ser utilizado para prover 
+	  segurança a um sistema operacional &os;.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="disks"/>, Storage, has been expanded with
-	  new information about USB storage devices, file system
-	  snapshots, file system quotas, file and network backed
-	  filesystems, and encrypted disk partitions.</para>
+	<para><xref linkend="disks"/>, Armazenamento,
+	  apresenta, nesta edição, novas informações sobre dispositivos 
+	  de armazenamento USB, snapshots de sistemas de arquivos, 
+	  cotas em sistemas de arquivos, partições encriptadas e 
+	  sistemas de arquivo de rede.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="vinum-vinum"/>, Vinum, is a new chapter
-	with this edition.  It describes how to use Vinum, a logical
-	volume manager which provides device-independent logical
-	disks, and software RAID-0, RAID-1 and RAID-5.</para>
+	<para><xref linkend="vinum-vinum"/>, Vinum, outro novo 
+	  capítulo nesta edição. Ele descreve como se usa o Vinum, 
+	  um gerenciador de volumes lógicos que provê discos lógicos 
+	  independentes de um dispositivo além de RAID 0, 1 e 5 
+	  baseados em software.</para>
       </listitem>
 
       <listitem>
-	<para>A troubleshooting section has been added to <xref
-	  linkend="ppp-and-slip"/>, PPP and SLIP.</para>
+	<para>Uma sessão para solução de problemas foi adicionada ao capítulo <xref
+	  linkend="ppp-and-slip"/>, PPP e SLIP.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="mail"/>, Electronic Mail, has been
-	  expanded with new information about using alternative
-	  transport agents, SMTP authentication, UUCP, <application>fetchmail</application>,
-	  <application>procmail</application>, and other advanced topics.</para>
+	<para><xref linkend="mail"/>, Correio Eletrônico, contém, 
+	  nesta edição, informações para uso de agentes de transporte 
+	  alternativos, autenticação SMTP, UUCP, 
+	  <application>fetchmail</application>, <application>procmail</application> 
+	  e outros tópicos pouco mais avançados.</para>
       </listitem>
 
       <listitem>
-	<para><xref linkend="network-servers"/>, Network Servers, is
-	  all new with this edition.  This chapter includes
-	  information about setting up the <application>Apache HTTP Server</application>, <application>ftpd</application>,
-	  and setting up a server for &microsoft; &windows; clients with
-	  <application>Samba</application>.  Some sections from <xref
-	  linkend="advanced-networking"/>, Advanced Networking, were
-	  moved here to improve the presentation.</para>
+	<para><xref linkend="network-servers"/>, Servidores e Serviços de Rede, 
+	  foi reformulado nesta edição. Este capítulo cobre o setup de 
+	  um servidor <application>Apache</application>, de um servidor 
+	  <application>ftpd</application>, serviço para compartilhamento 
+	  de arquivos com clientes &microsoft; &windows; usando 
+	  <application>Samba</application>. Tópicos mais
+	  avançados foram movidos de capítulo a fim de prover melhor 
+	  apresentação deste tópico.</para>
       </listitem>
 
       <listitem>
