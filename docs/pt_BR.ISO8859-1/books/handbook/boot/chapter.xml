@@ -9,7 +9,7 @@
 -->
 
 <chapter id="boot">
-  <title>O Processo de Inicialização do FreeBSD</title>
+  <title>O Processo de Inicialização do &os;</title>
 
   <sect1 id="boot-synopsis">
     <title>Sinopse</title>
@@ -20,7 +20,7 @@
       operacional é referido como <quote>o processo de
       <literal>bootstrap</literal></quote>, ou simplesmente
       <literal>boot</literal> (inicialização).  O processo de
-      <literal>boot</literal> do FreeBSD oferece uma grande
+      <literal>boot</literal> do &os; oferece uma grande
       flexibilidade na personalização do que acontece quando você
       inicia o sistema, permitindo você selecionar diferentes sistemas
       operacionais instalados no mesmo computador, ou mesmo versões
@@ -40,7 +40,7 @@
     <itemizedlist>
       <listitem>
 	<para>Quais são os componentes do <literal>boot</literal>
-	  do FreeBSD e como eles interagem.</para>
+	  do &os; e como eles interagem.</para>
       </listitem>
 
       <listitem>
@@ -702,7 +702,7 @@ boot:</screen>
 
 	  <para>Arquivos de exemplo da <literal>splash
 	    screen</literal> podem ser baixados da galeria em <ulink
-	    url="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</ulink>.
+	    url="http://artwork.freebsdgr.org/node/3">http://artwork.freebsdgr.org</ulink>.
 	    Ao instalar o port <filename
 	    role="package">sysutils/bsd-splash-changer</filename>,
 	    imagens aleatórias podem ser escolhidas de forma randomica a cada
@@ -1108,10 +1108,10 @@ console none                            unknown off insecure</programlisting>
       <literal>KILL</literal> para todo processo que não terminar a
       tempo.</para>
 
-    <para>Para desligar uma máquina FreeBSD em arquiteturas e sistemas
+    <para>Para desligar uma máquina &os; em arquiteturas e sistemas
       que suportam gerenciamento de energia, use o comando
       <command>shutdown -p now</command> para desligar a máquina
-      imediatamente.  Para reiniciar o sistema FreeBSD, use o comando
+      imediatamente.  Para reiniciar o sistema &os;, use o comando
       <command>shutdown -r now</command>.  Você precisa ser
       <username>root</username> ou membro do grupo
       <groupname>operator</groupname> para executar &man.shutdown.8;.
