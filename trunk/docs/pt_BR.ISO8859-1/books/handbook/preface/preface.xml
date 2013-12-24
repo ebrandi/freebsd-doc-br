@@ -293,98 +293,103 @@
 <!-- Part I - Introduction -->
 
     <varlistentry>
-      <term><emphasis><xref linkend="introduction"/>, Introduction</emphasis></term>
+      <term><emphasis><xref linkend="introduction"/>, Introdução</emphasis></term>
       <listitem>
-	<para>Introduces &os; to a new user.  It describes the
-	history of the &os; Project, its goals and development model.</para>
+	<para>Introduz o &os; ao novo usuário. Descreve a história do 
+	  Projeto &os;, seus objetivos e modelo de desenvolvimento.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="install"/>, Installation of
-	&os;&nbsp;8.<replaceable>x</replaceable> and Earlier</emphasis></term>
+      <term><emphasis><xref linkend="install"/>, Instalando o 
+	&os; 8.<replaceable>X</replaceable> e Versões Anteriores</emphasis></term>
       <listitem>
-	<para>Walks a user through the entire installation process of
-	  &os;&nbsp;8.<replaceable>x</replaceable> and earlier using
-	  <application>sysinstall</application>.  Some advanced installation
-	  topics, such as installing through a serial console, are also
-	  covered.</para>
+	<para>Guia o usuário através de todo o processo de instalação 
+	  do &os; 8.<replaceable>X</replaceable> e suas versões 
+	  anteriores que utilizem o <application>sysinstall</application>. 
+	  Alguns tópicos avançados que cobrem o processo de 
+	  instalação via console serial também são abordados.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="bsdinstall"/>, Installation of
-	&os;&nbsp;9.<replaceable>x</replaceable> and Later</emphasis></term>
+      <term><emphasis><xref linkend="bsdinstall"/>, Instalando o &os; 
+	9.<replaceable>X</replaceable> e Versões Atuais</emphasis></term>
       <listitem>
-	<para>Walks a user through the entire installation process of
-	  &os;&nbsp;9.<replaceable>x</replaceable> and later using
-	  <application>bsdinstall</application>.</para>
+	<para>Guia o usuário através de todo o processo de instalação 
+	  do &os; 9.<replaceable>X</replaceable> e suas versões 
+	  mais recentes que utilizem o <application>bsdinstall</application>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="basics"/>, &unix; Basics</emphasis></term>
+      <term><emphasis><xref linkend="basics"/>, Conceitos Básicos do &unix;</emphasis></term>
       <listitem>
-	<para>Covers the basic commands and functionality of the
-	&os; operating system.  If you are familiar with &linux; or
-	another flavor of &unix; then you can probably skip this
-	chapter.</para>
+	<para>Aborda a utilização de comandos básicos e funcionalidades 
+	  do sistema operacional &os;. Caso você já esteja familiarizado 
+	  com sistemas baseados em &linux; ou algum outro de linhagem 
+	  &unix; então, provavelmente, você não precise ler este 
+	  capítulo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="ports"/>, Installing Applications</emphasis></term>
+      <term><emphasis><xref linkend="ports"/>, Instalação de Softwares: Pacotes e Ports</emphasis></term>
       <listitem>
-	<para>Covers the installation of third-party software with
-	both &os;'s innovative <quote>Ports Collection</quote> and standard
-	binary packages.</para>
+	<para>Cobre a instalação de softwares de terceiros, seja 
+	  utilizando a inovadora <quote>Coleção de Ports</quote> 
+	  do &os; ou pacotes binários.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="x11"/>, The X Window System</emphasis></term>
+      <term><emphasis><xref linkend="x11"/>, O Ambiente X11</emphasis></term>
       <listitem>
-	<para>Describes the X Window System in general and using
-	X11 on &os; in particular.  Also describes common
-	desktop environments such as <application>KDE</application> and <application>GNOME</application>.</para>
+	<para>Descreve o Ambiente X11 (&xorg;) e, em particular, como 
+	  ele pode ser utilizado no &os;. Também descreve os ambientes 
+	  de desktop comumente mais utilizados, como 
+	  <application>KDE</application> e <application>GNOME</application>.</para>
       </listitem>
     </varlistentry>
 
 <!-- Part II Common Tasks -->
 
     <varlistentry>
-      <term><emphasis><xref linkend="desktop"/>, Desktop Applications</emphasis></term>
+      <term><emphasis><xref linkend="desktop"/>, Aplicativos para Desktop</emphasis></term>
       <listitem>
-        <para>Lists some common desktop applications, such as web browsers
-         and productivity suites, and describes how to install them on
-         &os;.</para>
+        <para>Lista alguns dos aplicativos para uso num ambiente 
+	  desktop (navegadores web, utilitários para ganho de 
+	  produtividade, etc.) e descreve como instalar esses 
+	  aplicativos no &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="multimedia"/>, Multimedia</emphasis></term>
+      <term><emphasis><xref linkend="multimedia"/>, Multimídia</emphasis></term>
       <listitem>
-      <para>Shows how to set up sound and video playback support for your
-      system.  Also describes some sample audio and video applications.</para>
+      <para>Mostra como configurar suporte de áudio e vídeo no 
+	  sistema &os;. Também lista e descreve alguns aplicativos.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="kernelconfig"/>, Configuring the &os;
-      Kernel</emphasis></term>
+      <term><emphasis><xref linkend="kernelconfig"/>, Configurando o Kernel</emphasis></term>
       <listitem>
-	<para>Explains why you might need to configure a new kernel
-	and provides detailed instructions for configuring, building,
-	and installing a custom kernel.</para>
+	<para>Explica o porquê pode ser necessário configurar um novo 
+	  kernel e provê informações detalhadas para configuração, 
+	  compilação e instalação de um kernel personalizado.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="printing"/>, Printing</emphasis></term>
+      <term><emphasis><xref linkend="printing"/>, Impressão</emphasis></term>
       <listitem>
-	<para>Describes managing printers on &os;, including
-	information about banner pages, printer accounting, and
-	initial setup.</para>
+	<para>Descreve o gerenciamento de impressoras no &os;, 
+	  incluindo informações sobre páginas de 
+	  <literal>banner</literal>, contas de impressão e um 
+	  setup inicial.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="linuxemu"/>, &linux; Binary Compatibility</emphasis></term>
+      <term><emphasis><xref linkend="linuxemu"/>, Compatibilidade com &linux;</emphasis></term>
       <listitem>
-	<para>Describes the &linux; compatibility features of &os;.
-	Also provides detailed installation instructions for many
-	popular &linux; applications such as <application>&oracle;</application> and
+	<para>Descreve a compatibilidade do &os; com 
+	  aspéctos/funcionalidades de um sistema &linux;. Também 
+	  fornece intruções e informações detalhadas de aplicativos 
+	  populares utilizados em &linux;, tais como sistemas 
+	  <application>&oracle;</application> e 
 	  <application>&mathematica;</application>.</para>
       </listitem>
     </varlistentry>
@@ -392,80 +397,89 @@
 <!-- Part III - System Administration -->
 
     <varlistentry>
-      <term><emphasis><xref linkend="config-tuning"/>, Configuration and Tuning</emphasis></term>
+      <term><emphasis><xref linkend="config-tuning"/>, Configuração e Tuning</emphasis></term>
       <listitem>
-	<para>Describes the parameters available for system
-	administrators to tune a &os; system for optimum
-	performance.  Also describes the various configuration files
-	used in &os; and where to find them.</para>
+	<para>Descreve parâmetros disponíveis aos administradores de 
+	  sistemas &os; para que eles possam realizar ajustes 
+	  (<literal>tuning</literal>) a fim de conseguir melhor 
+	  performance. Também descreve vários arquivos de 
+	  configuração usados pelo &os; e diz onde encontrá-los.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="boot"/>, Booting Process</emphasis></term>
+      <term><emphasis><xref linkend="boot"/>, O Processo de Inicialização do &os;</emphasis></term>
       <listitem>
-	<para>Describes the &os; boot process and explains
-	how to control this process with configuration options.</para>
+	<para>Descreve todo o processo de inicialização do &os; e 
+	  explica como controlar este processo com opções de 
+	  configuração disponíveis.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="users"/>, Users and Basic Account
-      Management</emphasis></term>
+      <term><emphasis><xref linkend="users"/>, Gerenciamento Básico de Contas e Usuários</emphasis></term>
       <listitem>
-	<para>Describes the creation and manipulation of user
-	  accounts.  Also discusses resource limitations that can be
-	  set on users and other account management tasks.</para>
+	<para>Introduz e descreve a criação e manipulação de contas 
+	  de usuários. Também discute recursos disponíveis para impor 
+	  limitações aos usuários e outras tarefas de gerenciamento 
+	  de contas.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="security"/>, Security</emphasis></term>
+      <term><emphasis><xref linkend="security"/>, Segurança</emphasis></term>
       <listitem>
-	<para>Describes many different tools available to help keep your
-	&os; system secure, including Kerberos, IPsec and OpenSSH.</para>
+	<para>Apresenta e descreve diferentes ferramentas disponíveis 
+	  para manter seu &os; seguro; Kerberos, IPsec e OpenSSH 
+	  são alguns exemplos dessas ferramentas.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="jails"/>, Jails</emphasis></term>
       <listitem>
-	<para>Describes the jails framework, and the improvements of jails
-	  over the traditional chroot support of &os;.</para>
+	<para>Descreve o framework de jails utilizado pelo &os; e 
+	  suas melhorias e benefícios em relação ao tradicional 
+	  ambiente em chroot.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="mac"/>, Mandatory Access Control</emphasis></term>
+      <term><emphasis><xref linkend="mac"/>, Controle de Acesso Mandatório</emphasis></term>
       <listitem>
-	<para>Explains what Mandatory Access Control (MAC) is and how this
-	mechanism can be used to secure a &os; system.</para>
+	<para>Explica o que é o Controle de Acesso Mandatório 
+	  (<literal>Mandatory Access Control - MAC</literal>) e como 
+	  este mecanismo pode ser utilizado para prover segurança 
+	  a um sistema &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="audit"/>, Security Event Auditing</emphasis></term>
+      <term><emphasis><xref linkend="audit"/>, Auditoria de Eventos e Segurança</emphasis></term>
       <listitem>
-	<para>Describes what &os; Event Auditing is, how it can be installed,
-	  configured, and how audit trails can be inspected or monitored.</para>
+	<para>Mostra o que são eventos para auditoria no &os;, como 
+	  eles podem ser instalados, configurados e como rastros 
+	  (<literal>trails</literal>) podem ser inspecionados e 
+	  monitorados.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
-      <term><emphasis><xref linkend="disks"/>, Storage</emphasis></term>
+      <term><emphasis><xref linkend="disks"/>, Armazenamento</emphasis></term>
       <listitem>
-	<para>Describes how to manage storage media and filesystems
-  	  with &os;.  This includes physical disks, RAID arrays,
-  	  optical and tape media, memory-backed disks, and network
-  	  filesystems.</para>
+	<para>Descreve como gerenciar mídias de armazenamento e 
+	  sistemas de arquivo com &os;. Isso inclui discos físicos, 
+	  RAID, mídias de fita magnética ou ópticas, discos de 
+	  memória flash e sistemas de arquivo de rede (NFS).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="GEOM-synopsis"/>, GEOM</emphasis></term>
       <listitem>
-	<para>Describes what the GEOM framework in &os; is and how
-	  to configure various supported RAID levels.</para>
+	<para>Mostra o que é o framework GEOM e como ele pode ser 
+	  configurado para fornecer diversos níveis de RAID num 
+	  sistema &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="filesystems"/>, File Systems Support</emphasis></term>
+      <term><emphasis><xref linkend="filesystems"/>, Suporte a Sistemas de Arquivo</emphasis></term>
       <listitem>
-	<para>Examines support of non-native file systems in &os;, like the Z
-	  File System from &sun;.</para>
+	<para>Explora o suporte a sistemas de arquivo que não sejam 
+	  nativos do &os; como, por exemplo, o ZFS da &sun;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -477,14 +491,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="virtualization"/>, Virtualization</emphasis></term>
+      <term><emphasis><xref linkend="virtualization"/>, Virtualização</emphasis></term>
       <listitem>
 	<para>Describes what virtualization systems offer, and how they
 	  can be used with &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="l10n"/>, Localization</emphasis></term>
+      <term><emphasis><xref linkend="l10n"/>, Localização - I18n/L10n</emphasis></term>
       <listitem>
 	<para>Describes how to use &os; in languages other than
 	English.  Covers both system and application level
@@ -513,21 +527,21 @@
 <!-- Part IV - Network Communications -->
 
     <varlistentry>
-      <term><emphasis><xref linkend="serialcomms"/>, Serial Communications</emphasis></term>
+      <term><emphasis><xref linkend="serialcomms"/>, Comunicações Serial</emphasis></term>
       <listitem>
 	<para>Explains how to connect terminals and modems to your
   	&os; system for both dial in and dial out connections.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="ppp-and-slip"/>, PPP and SLIP</emphasis></term>
+      <term><emphasis><xref linkend="ppp-and-slip"/>, PPP e SLIP</emphasis></term>
       <listitem>
 	<para>Describes how to use PPP, SLIP, or PPP over Ethernet to
 	connect to remote systems with &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="mail"/>, Electronic Mail</emphasis></term>
+      <term><emphasis><xref linkend="mail"/>, Correio Eletrônico</emphasis></term>
       <listitem>
 	<para>Explains the different components of an email server and
 	dives into simple configuration topics for the most popular
@@ -536,7 +550,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="network-servers"/>, Network Servers</emphasis></term>
+      <term><emphasis><xref linkend="network-servers"/>, Servidores e Serviços de Rede</emphasis></term>
       <listitem>
 	<para>Provides detailed instructions and example configuration
 	  files to set up your &os; machine as a network filesystem
@@ -553,7 +567,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="advanced-networking"/>, Advanced Networking</emphasis></term>
+      <term><emphasis><xref linkend="advanced-networking"/>, Tópicos Avançados de Rede</emphasis></term>
       <listitem>
 	<para>Describes many networking topics, including sharing an
 	Internet connection with other computers on your LAN, advanced
@@ -565,7 +579,7 @@
 <!-- Part V - Appendices -->
 
     <varlistentry>
-      <term><emphasis><xref linkend="mirrors"/>, Obtaining &os; </emphasis></term>
+      <term><emphasis><xref linkend="mirrors"/>, Obtendo o &os; </emphasis></term>
       <listitem>
 	<para>Lists different sources for obtaining &os; media on CDROM
 	or DVD as well as different sites on the Internet that allow
@@ -573,7 +587,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="bibliography"/>, Bibliography </emphasis></term>
+      <term><emphasis><xref linkend="bibliography"/>, Biliografia </emphasis></term>
       <listitem>
 	<para>This book touches on many different subjects that may
 	leave you hungry for a more detailed explanation.  The
@@ -582,7 +596,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="eresources"/>, Resources on the Internet</emphasis></term>
+      <term><emphasis><xref linkend="eresources"/>, Recursos na Internet</emphasis></term>
       <listitem>
 	<para>Describes the many forums available for &os; users to
 	post questions and engage in technical conversations about
