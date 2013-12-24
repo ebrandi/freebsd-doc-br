@@ -147,114 +147,121 @@
       </listitem>
 
       <listitem>
-	<para><xref linkend="advanced-networking"/>, Advanced
-	  Networking, has been expanded with new information about
-	  using &bluetooth; devices with &os;, setting up wireless
-	  networks, and Asynchronous Transfer Mode (ATM)
-	  networking.</para>
+	<para><xref linkend="advanced-networking"/>, Tópicos Avançados de Rede, 
+	  foi expandido com novas informações sobre o uso de 
+	  dispositivos &bluetooth; com &os;, a criação de redes 
+	  wireless e redes ATM.</para>
       </listitem>
 
       <listitem>
-        <para>A glossary has been added to provide a central location
-	  for the definitions of technical terms used throughout the
-	  book.</para>
+	<para>Um glossário foi criado para proporcionar a localização 
+	  central para as definições e termos técnicos utilizados ao 
+	  longo deste manual.</para>
       </listitem>
 
       <listitem>
-        <para>A number of aesthetic improvements have been made to the
-          tables and figures throughout the book.</para>
+	<para>Uma série de melhorias estéticas foram feitas em 
+           tabelas e figuras ao longo do do manual.</para>
       </listitem>
     </itemizedlist>
 
   <bridgehead id="preface-changes" renderas="sect1">Alterações da Primeira Edição (2001)</bridgehead>
 
-    <para>The second edition was the culmination of over two years of
-      work by the dedicated members of the &os; Documentation
-      Project.  The following were the major changes in this
-      edition:</para>
+    <para>A segunda edição foi o culminar de mais de dois anos de
+       trabalho dos membros do dedicado Projeto de Documentação do 
+       &os;. Aqui encontravam-se as principais mudanças nesta
+       edição:</para>
 
 <!-- Talk a little about justification and other stylesheet changes? -->
 
     <itemizedlist>
       <listitem>
-	<para>A complete Index has been added.</para>
+	<para>Um novo índice foi adicionado.</para>
       </listitem>
       <listitem>
-	<para>All ASCII figures have been replaced by graphical diagrams.</para>
+	<para>Todos as representações em ASCII foram substituídas por diagramas gráficos.</para>
       </listitem>
       <listitem>
-	<para>A standard synopsis has been added to each chapter to
-	give a quick summary of what information the chapter contains,
-	and what the reader is expected to know.</para>
+	<para>Uma sinopse padrão foi adicionada a cada capítulo para 
+	introduzir um rápido resumo sobre a informação que capítulo 
+	contém, além de informar ao leitor sobre conhecimentos básicos 
+	que ele deve ter para continuar com a leitura.</para>
       </listitem>
       <listitem>
-	<para>The content has been logically reorganized into three
-	parts: <quote>Getting Started</quote>, <quote>System Administration</quote>, and
-	<quote>Appendices</quote>.</para>
+	<para>O conteúdo foi reorganizado de uma maneira lógica em três partes: 
+	<quote>Conceitos Básicos</quote>, 
+	<quote>Administração do Sistema</quote>, 
+	e <quote>Apêndices</quote>.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="install"/> (<quote>Installing &os;</quote>) was completely
-	rewritten with many screenshots to make it much easier for new
-	users to grasp the text.</para>
+	<para><xref linkend="install"/> (<quote>Instalando o &os;</quote>) 
+	foi completamenteo reescrito e foram adicionadas screenshots 
+	para auxiliar novos usuários no processo de instalação. 
+	Assim ficou muito mais fácil de acompanhar os textos e as 
+	instruções necessárias para instalação.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="basics"/> (<quote>&unix; Basics</quote>) has been expanded to contain
-	additional information about processes, daemons, and
-	signals.</para>
+	<para><xref linkend="basics"/> (<quote>Conceitos Básicos do &unix;</quote>) 
+	com conteúdo expandido e novas informações sobre processos, 
+	daemons e sinalização.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="ports"/> (<quote>Installing Applications</quote>) has been expanded
-	to contain additional information about binary package
-	management.</para>
+	<para><xref linkend="ports"/> (<quote>Instalação de Softwares: 
+	Pacotes e Ports</quote>) conta com um conteúdo adicional 
+	que cobre a instalação e o gerenciamento de pacotes binários.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="x11"/> (<quote>The X Window System</quote>) has been completely
- 	rewritten with an emphasis on using modern desktop
-	technologies such as <application>KDE</application> and <application>GNOME</application> on &xfree86; 4.X.</para>
+	<para><xref linkend="x11"/> (<quote>O Ambiente X11</quote>) 
+	foi completamente reescrito com uma ênfase em uso de modernas 
+	tecnologias para ambiente desktop como 
+	<application>KDE</application> e <application>GNOME</application> 
+	em &xfree86; 4.X.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="boot"/> (<quote>The &os; Booting Process</quote>) has been
-	expanded.</para>
+	<para><xref linkend="boot"/> (<quote>O Processo de Inicialização do &os;</quote>) 
+	foi expandido.</para>
       </listitem>
       <listitem>
-        <para><xref linkend="disks"/> (<quote>Storage</quote>) has been written from what used
-        to be two separate chapters on <quote>Disks</quote> and <quote>Backups</quote>.  We feel
-        that the topics are easier to comprehend when presented as a
-        single chapter.  A section on RAID (both hardware and
-        software) has also been added.</para>
+        <para><xref linkend="disks"/> (<quote>Armazenamento</quote>) 
+	foi escrito a partir do que costumava ser dois capítulos 
+	separados: <quote>Discos</quote> e <quote>Backups</quote>. 
+	Sentimos que os temas seriam mais fáceis de compreender 
+	quando apresentados num único capítulo. Também foi acrescentada 
+	uma seção sobre RAID (por hardware e por software).</para>
       </listitem>
       <listitem>
-	<para><xref linkend="serialcomms"/> (<quote>Serial Communications</quote>) has been completely
-	reorganized and updated for &os; 4.X/5.X.</para>
+	<para><xref linkend="serialcomms"/> (<quote>Comunicações Serial</quote>) 
+	foi completamente reorganizado e atualizado para funcionar 
+	com &os; das séries 4.X e 5.X.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="ppp-and-slip"/> (<quote>PPP and SLIP</quote>) has been substantially
-	updated.</para>
+	<para><xref linkend="ppp-and-slip"/> (<quote>PPP e SLIP</quote>) 
+	foi substancialmente atualizado.</para>
       </listitem>
       <listitem>
-	<para>Many new sections have been added to <xref linkend="advanced-networking"/>
-	(<quote>Advanced Networking</quote>).</para>
+	<para>Várias novas sessões foram adicionadas ao <xref linkend="advanced-networking"/>
+	(<quote>Tópicos Avançados de Rede</quote>).</para>
       </listitem>
       <listitem>
-	<para><xref linkend="mail"/> (<quote>Electronic Mail</quote>) has been expanded to
-	  include more information about configuring
-	  <application>sendmail</application>.</para>
+	<para><xref linkend="mail"/> (<quote>Correio Eletrônico</quote>) 
+	sofreu adição de conteúdo e novas informações sobre a 
+	configuração do <application>sendmail</application>.</para>
       </listitem>
       <listitem>
-	<para><xref linkend="linuxemu"/> (<quote>&linux; Compatibility</quote>) has been expanded to
-	  include information about installing
-	  <application>&oracle;</application> and
+	<para><xref linkend="linuxemu"/> (<quote>Compatibilidade com &linux;</quote>) 
+	abriga novas informações sobre instalação de sistemas 
+	<application>&oracle;</application> e 
 	<application>&sap.r3;</application>.</para>
       </listitem>
       <listitem>
-	<para>The following new topics are covered in this second
-	edition:</para>
+	<para>Os seguintes tópicos foram convertidos nesta 
+	segunda edição:</para>
 	<itemizedlist>
 	  <listitem>
-	    <para>Configuration and Tuning (<xref linkend="config-tuning"/>).</para>
+	    <para>Configuração e Tuning (<xref linkend="config-tuning"/>).</para>
 	  </listitem>
 	  <listitem>
-           <para>Multimedia (<xref linkend="multimedia"/>)</para>
+           <para>Multimídia (<xref linkend="multimedia"/>)</para>
 	  </listitem>
 	</itemizedlist>
       </listitem>
@@ -262,23 +269,24 @@
 
   <bridgehead id="preface-overview" renderas="sect1">Organização do Manual</bridgehead>
 
-  <para>This book is split into five logically distinct sections.
-    The first section, <emphasis>Getting Started</emphasis>, covers
-    the installation and basic usage of &os;.  It is expected that
-    the reader will follow these chapters in sequence, possibly
-    skipping chapters covering familiar topics.  The second section,
-    <emphasis>Common Tasks</emphasis>, covers some frequently used
-    features of &os;.  This section, and all subsequent sections,
-    can be read out of order.  Each chapter begins with a succinct
-    synopsis that
-    describes what the chapter covers and what the reader is expected
-    to already know.  This is meant to allow the casual reader to skip
-    around to find chapters of interest.  The third section,
-    <emphasis>System Administration</emphasis>, covers administration
-    topics.  The fourth section, <emphasis>Network
-    Communication</emphasis>, covers networking and server topics.
-    The fifth section contains
-    appendices of reference information.</para>
+  <para>Este manual é dividido em cinco sessões logicamente distintas. 
+    A primeira sessão, <emphasis>Conceitos Básicos</emphasis>, cobre 
+    a instalação e o uso básico do &os;. É esperado que o leitor 
+    acompanhe os capítulos na ordem, ocasionamente pulando capítulos 
+    de tópicos que ele já possa estar familiarizado. Na segunda sessão, 
+    <emphasis>Tarefas Comuns</emphasis>, cobrimos funcionalidades corriqueiras 
+    onde o &os; é utilizado. Os capítulos desta sessão não precisam 
+    ser, obrigatoriamente, lidos em ordem. Cada um destes capítulos 
+    contém uma sinopse que descreve seu conteúdo e quais conhecimentos 
+    necessários são esperados por parte do leitor. Assim o leitor pode 
+    saber o assunto de cada capítulo e pode se preparar para acompanhar 
+    os capítulos de seu interesse. A terceira sessão, 
+    <emphasis>Administração do Sistema</emphasis>, cobre tópicos 
+    relacionados a administração. A quarta sessão, 
+    <emphasis>Comunicação de Rede</emphasis>, aborda tópicos ligados a 
+    servidores e serviços de rede. Por último, na quinta sessão, são 
+    apresentados o apêndice e o tópico contendo informações de 
+    referência utilizadas na elaboração deste manual.</para>
 
   <variablelist>
 
@@ -626,10 +634,11 @@
   <bridgehead id="preface-conv-commands"
   renderas="sect2">Entradas do Usuário</bridgehead>
 
-  <para>Keys are shown in <keycap>bold</keycap> to stand out from
-    other text.  Key combinations that are meant to be typed
-    simultaneously are shown with `<literal>+</literal>' between
-    the keys, such as:</para>
+  <para>Teclas são exibidas em <keycap>negrito</keycap> para que 
+	estejam em destaque do restante do texto. Combinações de 
+	teclas que devem ser precionadas simultaneamente são 
+	exibidas com o caractere <literal>+</literal> entre elas, 
+	da seguinte forma:</para>
 
   <para>
     <keycombo action="simul">
@@ -639,12 +648,12 @@
     </keycombo>
   </para>
 
-  <para>Meaning the user should type the <keycap>Ctrl</keycap>,
-    <keycap>Alt</keycap>, and <keycap>Del</keycap> keys at the same
-    time.</para>
+  <para>Isso significa que o usuário deve precionar as teclas 
+    <keycap>Ctrl</keycap>, <keycap>Alt</keycap> e 
+    <keycap>Del</keycap> ao mesmo tempo.</para>
 
-  <para>Keys that are meant to be typed in sequence will be separated with
-    commas, for example:</para>
+  <para>Teclas que devem ser precionadas numa determinada sequencia 
+    estarão separadas por vírgula, como neste exemplo:</para>
 
   <para>
     <keycombo action="simul">
@@ -657,10 +666,11 @@
     </keycombo>
   </para>
 
-  <para>Would mean that the user is expected to type the
-    <keycap>Ctrl</keycap> and <keycap>X</keycap> keys simultaneously
-    and then to type the <keycap>Ctrl</keycap> and <keycap>S</keycap>
-    keys simultaneously.</para>
+  <para>Indica-se, aqui, que o usuário deve precionar as teclas 
+    <keycap>Ctrl</keycap> e <keycap>X</keycap> simultaneamente e logo 
+    depois disso ele deve precionar as teclas 
+    <keycap>Ctrl</keycap> e <keycap>S</keycap> 
+    também de maneira simultânea.</para>
 
 <!-- How to type in key stokes, etc.. -->
   <bridgehead id="preface-conv-examples"

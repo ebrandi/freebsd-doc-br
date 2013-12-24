@@ -13,8 +13,8 @@
       <author>
 	<firstname>Jim</firstname>
 	<surname>Mock</surname>
-	<contrib>Restructured, reorganized, and parts
-	  rewritten by </contrib>
+	<contrib>Reestruturado, Reorganizado e 
+		Reescrito por </contrib>
       </author>
     </authorgroup>
 
@@ -22,15 +22,14 @@
       <author>
 	<firstname>Randy</firstname>
 	<surname>Pratt</surname>
-	<contrib>The sysinstall walkthrough, screenshots, and general
-	  copy by </contrib>
+	<contrib>Passos do sysinstall, Screenshots e 
+		Legalização por </contrib>
       </author>
     </authorgroup>
     <!-- January 2000 -->
   </chapterinfo>
 
-  <title>Instalando &os;&nbsp;8.<replaceable>X</replaceable> e Anteriores
-  </title>
+  <title>Instalando o &os; 8.<replaceable>X</replaceable> e Versões Anteriores</title>
   <sect1 id="install-synopsis">
     <title>Resumo</title>
 
