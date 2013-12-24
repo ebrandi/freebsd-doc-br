@@ -14,7 +14,7 @@
       <author>
 	<firstname>Jim</firstname>
 	<surname>Mock</surname>
-	<contrib>Updated and restructured by </contrib>
+	<contrib>Atualizado e Reestruturado por </contrib>
 	<!-- Mar 2000 -->
       </author>
     </authorgroup>
@@ -22,13 +22,13 @@
       <author>
 	<firstname>Jake</firstname>
 	<surname>Hamby</surname>
-	<contrib>Originally contributed by </contrib>
+	<contrib>Contribuição Original de </contrib>
 	<!-- 6 Oct 1995 -->
       </author>
     </authorgroup>
   </chapterinfo>
 
-  <title>Configuring the FreeBSD Kernel</title>
+  <title>Configurando o Kernel</title>
 
   <sect1 id="kernelconfig-synopsis">
     <title>Synopsis</title>
