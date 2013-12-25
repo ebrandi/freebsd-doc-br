@@ -3,7 +3,7 @@
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 312    # book.xml            # r39544  # Liberado para revisão
-708    # preface             # r39544  # Vinicius Zavam (adotado), 20/12/2013
+708    # preface             # r39544  # Liberado para revisao
 3394   # mirrors             # r39575  # Liberado para revisao
 580    # bibliography        # r39544  # Liberado para revisão
 2142   # eresources          # r39544  # Liberado para revisão
@@ -17,7 +17,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
-1048   # introduction        # r39576  # Juliana Manczenko, 18/09/2012
+1048   # introduction        # r39576  # Vinícius Zavam (adotado), 25/12/2013
 5011   # install             # r39550  # Marcos Alves, 16/10/2012 
 2731   # bsdinstall          # r39550  # Liberado para revisão
 2716   # basics              # r39544  # Marcelo Rossi, 27/11/2012
@@ -53,7 +53,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
 885    # filesystems         # r39544  # Liberado para revisao
 1296   # vinum               # r39544  #
-1300   # virtualization      # r39595  # Rafael Aquino, 28/09/2012
+1300   # virtualization      # r39595  # Vinícius Zavam (adotado), 25/12/2013
 943    # l10n                # r39544  # Liberado para revisao
 3180   # cutting-edge        # r39544  #
 387    # dtrace              # r39544  # Liberado para revisao

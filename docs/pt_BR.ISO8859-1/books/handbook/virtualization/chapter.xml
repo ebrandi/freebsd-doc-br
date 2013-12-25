@@ -852,7 +852,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>Após clicar FInish (Finalizar), a VM irá reiniciar:</para>
+	<para>Após clicar em Finish (Finalizar), a VM irá reiniciar:</para>
 
 	<mediaobject>
 	  <imageobject>
@@ -883,8 +883,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
 	  </imageobject>
 	</mediaobject>
 
-	<para>The number of CPUs the VM will have access to:</para>
-	<para>O número de CPUs que a VM terá acesso:</para>
+	<para>O número de CPUs que a VM terá acesso a:</para>
 
 	<mediaobject>
 	  <imageobject>
