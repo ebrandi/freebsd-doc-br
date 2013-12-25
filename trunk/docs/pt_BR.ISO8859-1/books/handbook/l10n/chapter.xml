@@ -27,7 +27,7 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>Localização - Utilização e Configuração de I18N/L10N</title>
+  <title>Localização - Utilização e Configuração de I18n/L10n</title>
 
   <sect1 id="l10n-synopsis">
     <title>Sinopse</title>
@@ -69,7 +69,7 @@
     <title>O Básico</title>
 
     <sect2>
-      <title>O que é I18N/L10N?</title>
+      <title>O que é I18n/L10n?</title>
     <indexterm>
       <primary>internationalization</primary>
       <see>localization</see>
@@ -77,15 +77,15 @@
     <indexterm><primary>localization</primary></indexterm>
 
       <para>Desenvolvedores encurtaram o termo em Inglês 
-	<quote>internationalization</quote> para I18N, indicando, 
+	<quote>internationalization</quote> para I18n, indicando, 
 	com o número aí presente, a quantidade de caracteres entre 
-	a primeira e a última letra. L10N utiliza o mesmo esquema 
+	a primeira e a última letra. L10n utiliza o mesmo esquema 
 	de nomenclatura, vindo do termo <quote>localization</quote>. 
-	Juntos, na forma I18N/L10N, estabelecem métodos, protocolos 
+	Juntos, na forma I18n/L10n, estabelecem métodos, protocolos 
 	e aplicativos que permitem aos usuários utilizem idiomas 
 	de sua escolha.</para>
 
-      <para>Aplicações I18N são desenvolvidas com ajuda de kits I18N 
+      <para>Aplicações I18n são desenvolvidas com ajuda de kits I18n 
 	e bibliotecas. Eles permitem que os desenvolvedores escrevam 
 	um arquivo simples e possam ter menus e textos traduzidos sendo 
 	exibidos em cada idioma que esteja sendo suportado. É 
@@ -94,17 +94,17 @@
     </sect2>
 
     <sect2>
-      <title>Por que eu deveria utilizar I18N/L10N?</title>
+      <title>Por que eu deveria utilizar I18n/L10n?</title>
 
-      <para>I18N/L10N é utilizado onde quer que você deseje ver, 
+      <para>I18n/L10n é utilizado onde quer que você deseje ver, 
 	processar ou digitar dados e caracteres que não estejam 
 	presentes no idioma Inglês.</para>
     </sect2>
 
     <sect2>
-      <title>Quais idiomas são suportados por I18N?</title>
+      <title>Quais idiomas são suportados por I18n?</title>
 
-      <para>I18N e L10N não são específicos do &os;. 
+      <para>I18n e L10n não são específicos do &os;. 
 	Atualmente você pode escolher e utilizar os principais 
 	idiomas do mundo, incluindo, mas não limitando-se a: 
 	Alemão, Chinês, Coreano, Francês, Japonês, Russo, 
@@ -140,7 +140,7 @@
       <indexterm><primary>country codes</primary></indexterm>
 
       <para>Para fazer com que um sistema &os;, ou qualquer outro 
-	sistema &unix; que suporte I18N/L10N, compreenda caracteres 
+	sistema &unix; que suporte I18n/L10n, compreenda caracteres 
 	específicos de um determinado idioma (ou país), os usuários 
 	precisam descobrir qual código utilizar. Esses códigos 
 	dirão para as aplicações quais variações de caracteres e 
@@ -200,7 +200,7 @@
 	caracteres wide ou multibyte, a 
 	<ulink url="&url.base;/ports/index.html">Coleção de Ports do &os;</ulink> 
 	oferece diversos aplicativos em diferentes idiomas. Consulte a 
-	documentação fornecida para I18N nos respectivos ports.</para>
+	documentação fornecida para I18n nos respectivos ports.</para>
 
       <para>Especificamente, o usuário precisa consultar a documentação 
 	fornecida junto com a aplicação para decidir sobre como 
@@ -235,9 +235,9 @@
     </sect2>
 
     <sect2>
-      <title>Aplicações I18N</title>
+      <title>Aplicações I18n</title>
 
-      <para>Na Coleção de Ports do &os;, aplicações I18N
+      <para>Na Coleção de Ports do &os;, aplicações I18n
 	foram nomeadas com o sufixo <literal>-i18n</literal> para
 	fácil identificação. Entretanto, elas nem sempre suportam o
 	idioma desejado.</para>
@@ -668,7 +668,7 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
 
       <para>No arquivo <filename>~/.Xresources</filename> você pode, 
 	de um jeito adicional, customizar configurações específicas 
-	ligadas a internacionalização (<literal>I18N</literal>) 
+	ligadas a internacionalização (<literal>I18n</literal>) 
 	como fontes, menus e etc.</para>
 
       <sect3>
@@ -739,9 +739,9 @@ keychange="<replaceable>numero_sequencial_da_fkey</replaceable>"</programlisting
   </sect1>
 
   <sect1 id="l10n-compiling">
-    <title>Compilando Programas com I18N</title>
+    <title>Compilando Programas com I18n</title>
 
-    <para>Muitos ports do &os; foram desenvolvidos com suporte a I18N. 
+    <para>Muitos ports do &os; foram desenvolvidos com suporte a I18n. 
       Alguns destes ports apresentam o sufixo -i18n em seu nome. 
       Estes ports, em específico, e alguns outros, já apresentam 
       suporte embutido para I18N e não necessitam de consideração 
@@ -987,7 +987,7 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
 	<literal>(Chinese FreeBSD Collection - CFC)</literal> 
 	<ulink url="http://netlab.cse.yzu.edu.tw/~statue/cfc"></ulink> 
 	com ajuda do tutorial mantido pelo Projeto &os;-Taiwan 
-	<literal>(zh-L10N-tut)</literal>.  Os pacotes e scripts da CFC
+	<literal>(zh-l10n-tut)</literal>.  Os pacotes e scripts da CFC
 	são disponibilizados em 
 	<ulink url="ftp://freebsd.csie.nctu.edu.tw/pub/taiwan/CFC"></ulink>.</para>
     </sect2>

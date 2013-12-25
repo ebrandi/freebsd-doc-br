@@ -485,42 +485,45 @@
     <varlistentry>
       <term><emphasis><xref linkend="vinum-vinum"/>, Vinum</emphasis></term>
       <listitem>
-	<para>Describes how to use Vinum, a logical volume manager
-	  which provides device-independent logical disks, and
-	  software RAID-0, RAID-1 and RAID-5.</para>
+	<para>Descreve como se utilizar o Vinum, um gerenciador de 
+	  volumes que provê discos lógicos independentes de dispositivo 
+	  e suporte para RAID 0, 1 e 5 via software.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="virtualization"/>, Virtualização</emphasis></term>
       <listitem>
-	<para>Describes what virtualization systems offer, and how they
-	  can be used with &os;.</para>
+	<para>Descreve o que sistemas de virtualização oferecem e 
+	  como eles podem ser usados com &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="l10n"/>, Localização - I18n/L10n</emphasis></term>
       <listitem>
-	<para>Describes how to use &os; in languages other than
-	English.  Covers both system and application level
-	localization.</para>
+	<para>Descreve como utilizar o &os; em um outro idioma que 
+	  não o Inglês. O capítulo cobre o uso de um outro idioma 
+	  no sistema operacional em si e em aplicações que possam 
+	  ser instaladas com este tipo de suporte.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="updating-upgrading"/>, Updating and Upgrading &os;</emphasis></term>
+      <term><emphasis><xref linkend="updating-upgrading"/>, Processo de Atualização do &os;</emphasis></term>
       <listitem>
-	<para>Explains the differences between &os;-STABLE,
-	&os;-CURRENT, and &os; releases.  Describes which users
-	would benefit from tracking a development system and outlines
-	that process.  Covers the methods users may take to update their
-	system to the latest security release.</para>
+	<para>Explica a diferença entre &os;-CURRENT, &os;-STABLE e 
+	  uma versão -RELEASE do &os;. Mostra como os usuários podem 
+	  ser beneficiados com o acompanhamento do desenvolvimento 
+	  do sistema e descreve esse processo. Cobre pontos que 
+	  podem ser seguidos pelos usuários a fim de obter as últimas 
+	  atualizações de segurança e atualizar seus sistemas.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="dtrace"/>, &dtrace;</emphasis></term>
       <listitem>
-	<para>Describes how to configure and use the &dtrace; tool from &sun;
-	  in &os;.  Dynamic tracing can help locate performance issues, by
-	  performing real time system analysis.</para>
+	<para>Descreve como configurar e usar esta ferramenta da 
+	  &sun; no &os;. &dtrace; pode ajudar a localizar problemas 
+	  de performance fornecendo funcionalidades de análise 
+	  em tempo real do sistema.</para>
       </listitem>
     </varlistentry>
 
@@ -529,50 +532,53 @@
     <varlistentry>
       <term><emphasis><xref linkend="serialcomms"/>, Comunicações Serial</emphasis></term>
       <listitem>
-	<para>Explains how to connect terminals and modems to your
-  	&os; system for both dial in and dial out connections.</para>
+	<para>Explica como conectar terminais e modems em seu 
+	  sistema &os;, seja para conexões/discagens de entrada 
+	  ou saída.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="ppp-and-slip"/>, PPP e SLIP</emphasis></term>
       <listitem>
-	<para>Describes how to use PPP, SLIP, or PPP over Ethernet to
-	connect to remote systems with &os;.</para>
+	<para>Mostra e descreve como utilizar PPP, SLIP ou PPPoE 
+	  para se conectar a sistemas remotos através do &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="mail"/>, Correio Eletrônico</emphasis></term>
       <listitem>
-	<para>Explains the different components of an email server and
-	dives into simple configuration topics for the most popular
-	mail server software:
-	<application>sendmail</application>.</para>
+	<para>Explica os diferentes componentes que fazem parte de 
+	  um servidor de e-mail e guia o usuário através de tópicos 
+	  básicos para configuração de um dos mais populares 
+	  softwares para prover este serviço, o <application>sendmail</application>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="network-servers"/>, Servidores e Serviços de Rede</emphasis></term>
       <listitem>
-	<para>Provides detailed instructions and example configuration
-	  files to set up your &os; machine as a network filesystem
-	  server, domain name server, network information system
-	  server, or time synchronization server.</para>
+	<para>Provê informações detalhadas e exemplos de arquivos de 
+	  configuração para transformar seu &os; num Servidor de 
+	  Arquivos (NFS), Servidor de Resolução de Nomes (DNS) ou 
+	  num Servidor de Tempo/Hora (NTP). Outros exemplos de 
+	  serviços e servidores também são abordados neste capítulo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="firewalls"/>, Firewalls</emphasis></term>
       <listitem>
-        <para>Explains the philosophy behind software-based firewalls and
-          provides detailed information about the configuration of the
-          different firewalls available for &os;.</para>
+        <para>Explica a filosofia por trás de firewalls baseados em 
+	  software e provê informações detalhadas sobre as 
+	  diferentes soluções de firewall disponíveis no &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="advanced-networking"/>, Tópicos Avançados de Rede</emphasis></term>
       <listitem>
-	<para>Describes many networking topics, including sharing an
-	Internet connection with other computers on your LAN, advanced
-	routing topics, wireless networking, &bluetooth;, ATM, IPv6, and
-	much more.</para>
+	<para>Descreve diversos tópicos de rede, incluindo o 
+	  compartilhamento de conxão com a Internet com outros 
+	  computadores conectados numa LAN. Muitos outros tópicos 
+	  abordando roteamento avançado, redes sem fio, ATM, 
+	  &bluetooth; e IPv6 também são abordados.</para>
       </listitem>
     </varlistentry>
 
@@ -581,65 +587,73 @@
     <varlistentry>
       <term><emphasis><xref linkend="mirrors"/>, Obtendo o &os; </emphasis></term>
       <listitem>
-	<para>Lists different sources for obtaining &os; media on CDROM
-	or DVD as well as different sites on the Internet that allow
-	you to download and install &os;.</para>
+	<para>Lista diferentes maneiras de se obter o &os;, seja em 
+	  mídia óptica (CD ou DVD) ou através da Internet num dos 
+	  diversos servidores espelho espalhados pelo mundo que lhe 
+	  proporcionam a possibilidade de obter e instalar o &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="bibliography"/>, Biliografia </emphasis></term>
       <listitem>
-	<para>This book touches on many different subjects that may
-	leave you hungry for a more detailed explanation.  The
-	bibliography lists many excellent books that are referenced in
-	the text.</para>
+	<para>Este manual aborda vários assuntos que podem deixar o 
+	  leitor sedento por mais conhecimento. A bibliografia aqui 
+	  disponível cita excelentes livros que são e que serviram 
+	  de referência para este manual.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="eresources"/>, Recursos na Internet</emphasis></term>
       <listitem>
-	<para>Describes the many forums available for &os; users to
-	post questions and engage in technical conversations about
-	&os;.</para>
+	<para>Cita diversos fóruns disponíveis para que usuários do 
+	  &os; possam enviar suas dúvidas e se engajar em discussões 
+	  técnicas ou conversar sobre &os;.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><emphasis><xref linkend="pgpkeys"/>, PGP Keys</emphasis></term>
       <listitem>
-	<para>Lists the PGP fingerprints of several &os; Developers.</para>
+	<para>Lista as assinaturas PGP de diversos desenvolvedores 
+	  do &os; e assinaturas utilizadas por equipes do 
+	  Projeto &os;.</para>
       </listitem>
     </varlistentry>
   </variablelist>
 
   <bridgehead id="preface-conv" renderas="sect1">Convenções Utilizadas no Manual</bridgehead>
 
-    <para>To provide a consistent and easy to read text, several
-    conventions are followed throughout the book.</para>
+    <para>A fim de prover consistência para uma fácil leitura e 
+	  compreensão, diversas convenções foram adotadas por este 
+	  manual.</para>
 
   <bridgehead id="preface-conv-typographic" renderas="sect2">Convenções Tipográficas</bridgehead>
 
   <variablelist>
     <varlistentry>
-      <term><emphasis>Italic</emphasis></term>
+      <term><emphasis>Itálico</emphasis></term>
       <listitem>
-	<para>An <emphasis>italic</emphasis> font is used for filenames, URLs,
-	  emphasized text, and the first usage of technical terms.</para>
+	<para>Uma fonte em modo <emphasis>itálico</emphasis> é usada 
+	  para fazer mensão a: nomes de arquivos, endereços URL, 
+	  termos técnicos que estejam sendo utilizados pela primeira 
+	  vez. Também é utilizada a fonte em 
+	  <emphasis>itálico</emphasis> para fazer ênfase à alguns 
+	  trechos do texto.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><literal>Monospace</literal></term>
+      <term><literal>Fonte Monoespaçada</literal></term>
       <listitem>
-	  <para>A <literal>monospaced</literal> font is
-	  used for error messages, commands, environment variables,
-	  names of ports, hostnames, user names, group names, device
-	  names, variables, and code fragments.</para>
+	  <para>Uma fonte <literal>monoespaçada</literal> é usada 
+	  para mensagens de erro, comandos, variáveis de ambiente, 
+	  nomes de ports, hostnames, nomes de usuários ou grupos, 
+	  nomes de dispositivos e fragmentos de código.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><application>Bold</application></term>
+      <term><application>Negrito</application></term>
       <listitem>
-	<para>A <application>bold</application> font is used for
-	applications, commands, and keys.</para>
+	<para>O <application>negrito</application> é utilizado para 
+	  destacar comandos, aplicativos/softwares e teclas.</para>
       </listitem>
     </varlistentry>
   </variablelist>
