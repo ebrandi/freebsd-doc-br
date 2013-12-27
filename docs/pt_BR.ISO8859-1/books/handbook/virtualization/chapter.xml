@@ -1017,7 +1017,7 @@ xenbr1          8000.feffffffffff   no                  vif0.1
       <programlisting>vboxguest_enable="YES"
 vboxservice_enable="YES"</programlisting>
 
-      <para>Caso você pretenda utilizar o &man.ntpd.8; ou &man.ntpdate.8;, desabilite a sincronia de relógio utilizada pelo &virtuabox;. Para tal, utilize uma linha adicional em <filename>/etc/rc.conf</filename>:</para>
+      <para>Caso você pretenda utilizar o &man.ntpd.8; ou &man.ntpdate.8;, desabilite a sincronia de relógio utilizada pelo &virtualbox;. Para tal, utilize uma linha adicional em <filename>/etc/rc.conf</filename>:</para>
 
       <programlisting>vboxservice_flags="--disable-timesync"</programlisting>
 
