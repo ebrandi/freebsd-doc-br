@@ -733,7 +733,7 @@ trailer,133</programlisting>
 
       <para>Visto que os arquivos de auditoria podem se tornar muito 
 	grandes, muitas vezes é desejável que estes arquivos e seus 
-	rastros <literal>(trails)</litera> sejam compactados ou 
+	rastros <literal>(trails)</literal> sejam compactados ou 
 	armazenados em um outro local/dispositivo uma vez que já 
 	foram utilizados pelo daemon de auditoria. O script 
 	<filename>audit_warn </filename> pode ser utilizado para 
