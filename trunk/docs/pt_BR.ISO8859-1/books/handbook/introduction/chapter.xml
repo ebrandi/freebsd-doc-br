@@ -19,16 +19,16 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>IntroduÃ§Ã£o</title>
+  <title>Introdução</title>
 
   <sect1 id="introduction-synopsis">
     <title>Sinopse</title>
 
-    <para>Muito obrigado pelo seu interesse no &os;! O capÃ­tulo que 
-      aqui se segue, cobre vÃ¡rios aspectos do Projeto &os;: 
-      histÃ³ria, objetivos, modelo de desenvolvimento e outros.</para>
+    <para>Muito obrigado pelo seu interesse no &os;! O capítulo que 
+      aqui se segue, cobre vários aspectos do Projeto &os;: 
+      história, objetivos, modelo de desenvolvimento e outros.</para>
 
-    <para>Depois de ter lido este capÃ­tulo, vocÃª saberÃ¡ sobre:</para>
+    <para>Depois de ter lido este capítulo, você saberá sobre:</para>
 
     <itemizedlist>
       <listitem>
@@ -36,7 +36,7 @@
       </listitem>
 
       <listitem>
-	<para>A histÃ³ria do Projeto &os;;</para>
+	<para>A história do Projeto &os;;</para>
       </listitem>
 
       <listitem>
@@ -44,11 +44,11 @@
       </listitem>
 
       <listitem>
-	<para>O bÃ¡sico sobre o modelo de desenvolvimento Open Source adotado pelo &os;;</para>
+	<para>O básico sobre o modelo de desenvolvimento Open Source adotado pelo &os;;</para>
       </listitem>
 
       <listitem>
-	<para>E, Ã© claro, de onde vem o nome <quote>&os;</quote>.</para>
+	<para>E, é claro, de onde vem o nome <quote>&os;</quote>.</para>
       </listitem>
     </itemizedlist>
   </sect1>
@@ -57,75 +57,75 @@
     <title>Bem-vindo ao &os;!</title>
     <indexterm><primary>4.4BSD-Lite</primary></indexterm>
 
-    <para>O &os; Ã© um sistema operacional baseado no 4.4BSD-Lite e 
-	estÃ¡ disponÃ­vel para computadores de arquitetura &intel; 
-	(x86 ou &itanium;) AMD64 e &sun; &ultrasparc;. VersÃµes 
-	portadas para outras arquiteturas tambÃ©m estÃ£o em 
-	desenvolvimento. VocÃª pode ler um pouco mais sobre este 
-	assunto nas sessÃµes sobre a <link linkend="history">histÃ³ria</link> 
-	e sobre as <link linkend="relnotes">versÃµes mais atuais</link> 
-	do &os;. Se despertar em vocÃª o interesse em contribuir de 
+    <para>O &os; é um sistema operacional baseado no 4.4BSD-Lite e 
+	está disponível para computadores de arquitetura &intel; 
+	(x86 ou &itanium;) AMD64 e &sun; &ultrasparc;. Versões 
+	portadas para outras arquiteturas também estão em 
+	desenvolvimento. Você pode ler um pouco mais sobre este 
+	assunto nas sessões sobre a <link linkend="history">história</link> 
+	e sobre as <link linkend="relnotes">versões mais atuais</link> 
+	do &os;. Se despertar em você o interesse em contribuir de 
 	alguma forma com o projeto (programando, doando hardware 
-	ou com alguma doaÃ§Ã£o financeira), consulte o artigo 
+	ou com alguma doação financeira), consulte o artigo 
 	<ulink url="&url.articles.contributing;/index.html">Contribuindo com o &os;</ulink>.</para>
 
     <sect2 id="os-overview">
       <title>O Que o &os; Pode Fazer?</title>
 
-      <para>O &os; apresenta funcionalidades notÃ¡veis. Algumas 
-	destas funcionalidades sÃ£o:</para>
+      <para>O &os; apresenta funcionalidades notáveis. Algumas 
+	destas funcionalidades são:</para>
 
       <itemizedlist>
 	<listitem>
 	  <indexterm><primary>preemptive multitasking</primary></indexterm>
 
 	  <para><emphasis>Multitarefa Preemptiva</emphasis> com ajuste 
-	    dinÃ¢mico de prioridade para garantir o compartilhamento 
-	    justo e o mais suave possÃ­vel entre aplicaÃ§Ãµes ao usuÃ¡rio, 
-	    mesmo em situaÃ§Ãµes de altÃ­ssima carga ou processamento.</para>
+	    dinâmico de prioridade para garantir o compartilhamento 
+	    justo e o mais suave possível entre aplicações ao usuário, 
+	    mesmo em situações de altíssima carga ou processamento.</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>multi-user facilities</primary></indexterm>
 
-	  <para><emphasis>Ambientes MultiusuÃ¡rio</emphasis> permitem 
-	    que diversos usuÃ¡rios faÃ§am uso do &os; simultaneamente 
+	  <para><emphasis>Ambientes Multiusuário</emphasis> permitem 
+	    que diversos usuários façam uso do &os; simultaneamente 
 	    para executar uma variedade de tarefas. Isso significa 
-	    que se existirem perifÃ©ricos como uma impressora ou um 
-	    drive de fita magnÃ©tica corretamente compartilhados para 
-	    todos os usuÃ¡rios no sistema ou na rede e seus recursos 
-	    possam ser individualmente separados (por usuÃ¡rio ou grupo), 
-	    serÃ¡ garantida a limitaÃ§Ã£o do recurso utilizado por cada 
-	    usuÃ¡rio, protejendo-o dos demais.</para>
+	    que se existirem periféricos como uma impressora ou um 
+	    drive de fita magnética corretamente compartilhados para 
+	    todos os usuários no sistema ou na rede e seus recursos 
+	    possam ser individualmente separados (por usuário ou grupo), 
+	    será garantida a limitação do recurso utilizado por cada 
+	    usuário, protejendo-o dos demais.</para>
 	</listitem>
 	<listitem>
 	  <indexterm><primary>TCP/IP networking</primary></indexterm>
 
-	  <para>Robusta implementaÃ§Ã£o da pilha <emphasis>TCP/IP</emphasis> 
+	  <para>Robusta implementação da pilha <emphasis>TCP/IP</emphasis> 
 	    com suporte para diversos protocolos padronizados como 
 	    SCTP, DNS, DHCP, NFS, NIS, PPP, SLIP, IPsec e <emphasis>IPv6</emphasis>. 
 	    Isso significa que seu sistema &os; pode interoperar 
 	    tranquilamente com outros sistemas ou funcionar como um 
-	    servidor para prover serviÃ§os numa rede corporativa, 
-	    fornecendo serviÃ§os vitais como NFS (compartilhamento 
-	    remoto de arquivos) e correio eletrÃ´nico ou colocando sua 
-	    organizaÃ§Ã£o na Internet por meio de um sÃ­tio WWW, um servidor 
+	    servidor para prover serviços numa rede corporativa, 
+	    fornecendo serviços vitais como NFS (compartilhamento 
+	    remoto de arquivos) e correio eletrônico ou colocando sua 
+	    organização na Internet por meio de um sítio WWW, um servidor 
 	    FTP ou, ainda, fazendo roteamento de pacotes/dados ou 
-	    servindo como firewall (filtro) para seus serviÃ§os.</para>
+	    servindo como firewall (filtro) para seus serviços.</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>memory protection</primary></indexterm>
 
-	  <para>A <emphasis>ProteÃ§Ã£o em Ãreas de MemÃ³ria</emphasis> 
-	    existente no &os; garante que aplicaÃ§Ãµes (ou usuÃ¡rios) 
-	    nÃ£o possam interfirir diretamente entre si. O mal 
-	    funcionamento de uma aplicaÃ§Ã£o nÃ£o afeta outra de forma 
+	  <para>A <emphasis>Proteção em Áreas de Memória</emphasis> 
+	    existente no &os; garante que aplicações (ou usuários) 
+	    não possam interfirir diretamente entre si. O mal 
+	    funcionamento de uma aplicação não afeta outra de forma 
 	    alguma.</para>
 	</listitem>
 
 	<listitem>
-	  <para>O &os; Ã© um sistema operacional que foi escrito do 
+	  <para>O &os; é um sistema operacional que foi escrito do 
 	    zero para funcionar em computadores com arquitetura 
 	    <emphasis>32-bit</emphasis> (&intel;) ou <emphasis>64-bit</emphasis> 
 	    (&itanium;, AMD64 e &sun; &ultrasparc;).</para>
@@ -136,9 +136,9 @@
 	    <primary>X Window System</primary>
 	  </indexterm>
 
-	  <para>O <emphasis>Ambiente GrÃ¡fico X11</emphasis> (X11R7/&xorg;) 
-	    fornece uma interface grÃ¡fica ao usuÃ¡rio a custo do uso 
-	    de uma placa da vÃ­deo e um monitor.</para>
+	  <para>O <emphasis>Ambiente Gráfico X11</emphasis> (X11R7/&xorg;) 
+	    fornece uma interface gráfica ao usuário a custo do uso 
+	    de uma placa da vídeo e um monitor.</para>
 	</listitem>
 
 	<listitem>
@@ -163,39 +163,39 @@
 	  <secondary>NetBSD</secondary>
 	</indexterm>
 
-	  <para><emphasis>Compatibilidade BinÃ¡ria</emphasis> com 
+	  <para><emphasis>Compatibilidade Binária</emphasis> com 
 	    diversos softwares desenvolvidos para sistemas 
 	    &linux;, SCO, SVR4, BSDI e NetBSD.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Centenas de aplicaÃ§Ãµes <emphasis>prontas para uso</emphasis>
-	    sÃ£o disponibilizadas atravÃ©s da <emphasis>ColeÃ§Ã£o de Ports</emphasis> 
-	    e do sistema de <emphasis>Pacotes BinÃ¡rios</emphasis>. 
-	    Por quÃª procurar por uma aplicaÃ§Ã£o na Internet quando vocÃª 
-	    pode encontrÃ¡-la logo aqui?</para>
+	  <para>Centenas de aplicações <emphasis>prontas para uso</emphasis>
+	    são disponibilizadas através da <emphasis>Coleção de Ports</emphasis> 
+	    e do sistema de <emphasis>Pacotes Binários</emphasis>. 
+	    Por quê procurar por uma aplicação na Internet quando você 
+	    pode encontrá-la logo aqui?</para>
 	</listitem>
 
 	<listitem>
-	  <para>Outras centenas de aplicaÃ§Ãµes adicionais e 
-	    <emphasis>fÃ¡ceis de portar</emphasis> estÃ£o disponÃ­veis 
+	  <para>Outras centenas de aplicações adicionais e 
+	    <emphasis>fáceis de portar</emphasis> estão disponíveis 
 	    na Internet. O &os; pode compreender e interpretar o 
-	    cÃ³digo fonte de vÃ¡rias aplicaÃ§Ãµes desenvolvidas para 
+	    código fonte de várias aplicações desenvolvidas para 
 	    sistemas de linhagem &unix; e por este motivo muitas 
-	    aplicaÃ§Ãµes necessitam de muito poucas (ou nenhuma) 
-	    alteraÃ§Ãµes para que sejam compiladas.</para>
+	    aplicações necessitam de muito poucas (ou nenhuma) 
+	    alterações para que sejam compiladas.</para>
 	</listitem>
 	<listitem>
 	  <indexterm><primary>virtual memory</primary></indexterm>
 
 	  <para>Design eficiente do sistema para 
-	    <emphasis>PaginaÃ§Ã£o de MemÃ³ria Virtual</emphasis> e uma 
-	    integraÃ§Ã£o harmonioza entre <quote>Buffer</quote> e 
-	    <quote>Cache de MÃ¡quina Virtual</quote> interna 
+	    <emphasis>Paginação de Memória Virtual</emphasis> e uma 
+	    integração harmonioza entre <quote>Buffer</quote> e 
+	    <quote>Cache de Máquina Virtual</quote> interna 
 	    (<literal>merged vm/buffer cache</literal>) satisfaz o 
-	    apetite voraz de aplicaÃ§Ãµes por mais memÃ³ria e mantÃ©m o 
-	    sistema em operaÃ§Ã£o, garantindo entrega de resposta as 
-	    solicitaÃ§Ãµes feitas pelos usuÃ¡rios.</para>
+	    apetite voraz de aplicações por mais memória e mantém o 
+	    sistema em operação, garantindo entrega de resposta as 
+	    solicitações feitas pelos usuários.</para>
 	</listitem>
 
 	<listitem>
@@ -203,9 +203,9 @@
 	    <primary>Symmetric Multi-Processing (SMP)</primary>
 	  </indexterm>
 
-	  <para>Um suporte ao <emphasis>Multiprocessamento SimÃ©trico</emphasis> 
-	    (SMP) para mÃ¡quinas com multiplos processadores (CPU) 
-	    e/ou nÃºcleos de processamento.</para>
+	  <para>Um suporte ao <emphasis>Multiprocessamento Simétrico</emphasis> 
+	    (SMP) para máquinas com multiplos processadores (CPU) 
+	    e/ou núcleos de processamento.</para>
 	</listitem>
 
 	<listitem>
@@ -221,26 +221,26 @@
 	  <para>Um conjunto completo de ferramentas para 
 	    desenvolvimento utilizando <emphasis>C</emphasis> e 
 	    <emphasis>C++</emphasis>. Muitas outras linguagens para 
-	    pesquisa ou desenvolvimento tambÃ©m estÃ£o disponÃ­veis 
-	    atravÃ©s da ColeÃ§Ã£o de Ports ou do sistema de Pacotes 
-	    BinÃ¡rios.</para>
+	    pesquisa ou desenvolvimento também estão disponíveis 
+	    através da Coleção de Ports ou do sistema de Pacotes 
+	    Binários.</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>source code</primary></indexterm>
 
-	  <para>O <emphasis>CÃ³digo Fonte</emphasis> de todo o sistema 
-	    &os; estÃ¡ disponÃ­vel para vocÃª. 
-	    Isso significa que vocÃª tÃªm grandes chances para 
-	    conquistar o controle absoluto de seu ambiente. Por quÃª 
-	    estar trancafiado junto com uma soluÃ§Ã£o fechada 
-	    dependendo da misericÃ³rdia do proprietÃ¡rio 
-	    enquanto vocÃª pode se beneficiar de um sistema 
+	  <para>O <emphasis>Código Fonte</emphasis> de todo o sistema 
+	    &os; está disponível para você. 
+	    Isso significa que você têm grandes chances para 
+	    conquistar o controle absoluto de seu ambiente. Por quê 
+	    estar trancafiado junto com uma solução fechada 
+	    dependendo da misericórdia do proprietário 
+	    enquanto você pode se beneficiar de um sistema 
 	    inteiramente aberto e livre?</para>
 	</listitem>
 
 	<listitem>
-	  <para>Uma extensa <emphasis>DocumentaÃ§Ã£o Online</emphasis>.</para>
+	  <para>Uma extensa <emphasis>Documentação Online</emphasis>.</para>
 	</listitem>
 
 	<listitem>
@@ -253,58 +253,58 @@
 	<primary>Computer Systems Research Group (CSRG)</primary>
       </indexterm>
       <indexterm><primary>U.C. Berkeley</primary></indexterm>
-      <para>O &os; Ã© baseado no 4.4BSD-Lite criado pelo Grupo de 
+      <para>O &os; é baseado no 4.4BSD-Lite criado pelo Grupo de 
 	Pesquisa de Sistemas Computacionais (<literal>Computer 
 	Systems Research Group - CSRG</literal>) na Universidade da 
-	CalifÃ³rnia de Berkeley e carrega a tradiÃ§Ã£o de um distinto 
+	Califórnia de Berkeley e carrega a tradição de um distinto 
 	esquema de desenvolvimento dos sistemas BSD de Berkeley. 
-	AlÃ©m do belo trabalho realizado pelo CSRG, o Projeto &os; 
+	Além do belo trabalho realizado pelo CSRG, o Projeto &os; 
 	passou por muitas centenas de horas sofrendo ajustes a fim de 
 	melhorar sua performance e confiabilidade para funcionar em 
-	situaÃ§Ãµes em que se exige muita carga do sistema. Enquanto 
+	situações em que se exige muita carga do sistema. Enquanto 
 	diversos gigantes no mundo comercial de sistemas operacionais 
-	para PC estÃ£o se esforÃ§ando para prover tais funcionalidades, 
+	para PC estão se esforçando para prover tais funcionalidades, 
 	o &os; lhe oferece elas <emphasis>agora</emphasis>!</para>
 
-      <para>As aplicaÃ§Ãµes nas quais o &os; pode ser encaixado 
-	limitam-se apenas a sua imaginaÃ§Ã£o. Desde uma estaÃ§Ã£o de 
-	trabalho para desenvolvimento de cÃ³digo atÃ© um sistema para 
-	automaÃ§Ã£o industrial; de um sistema para controle de 
-	inventÃ¡rio atÃ© um sistema remoto de correÃ§Ã£o de azimute (Ã¢ngulo) 
-	para uma antena de satÃ©lite. Se Ã© possÃ­vel de ser feito por 
+      <para>As aplicações nas quais o &os; pode ser encaixado 
+	limitam-se apenas a sua imaginação. Desde uma estação de 
+	trabalho para desenvolvimento de código até um sistema para 
+	automação industrial; de um sistema para controle de 
+	inventário até um sistema remoto de correção de azimute (ângulo) 
+	para uma antena de satélite. Se é possível de ser feito por 
 	um sistema comercial de linhagem &unix;, pode, certamente, 
-	ser feito com &os;! O &os; tambÃ©m se beneficia significativamente 
-	de outras aplicaÃ§Ãµes desenvolvidas por centros de pesquisa e 
+	ser feito com &os;! O &os; também se beneficia significativamente 
+	de outras aplicações desenvolvidas por centros de pesquisa e 
 	universidades ao redor do mundo, geralmente a um baixo 
-	(ou nenhum) custo. AplicaÃ§Ãµes comerciais que surgem aos montes 
-	a cada dia tambÃ©m podem ser executadas no &os;.</para>
+	(ou nenhum) custo. Aplicações comerciais que surgem aos montes 
+	a cada dia também podem ser executadas no &os;.</para>
 
-      <para>Pelo fato do cÃ³digo fonte do &os; estar disponÃ­vel, o 
+      <para>Pelo fato do código fonte do &os; estar disponível, o 
 	sistema pode ser customizado para uma infinidade de 
-	funcionalidades ou projetos especiais atÃ© mesmo sem que 
-	fiquemos sabendo de sua existÃªncia. De maneira geral, isso 
-	nÃ£o Ã© possÃ­vel de ser feito utilizando um outro sistema 
-	operacional licenciado e vendido comercialmente. Aqui estÃ£o 
-	alguns dos exemplos de cenÃ¡rios onde as pessoas tem 
+	funcionalidades ou projetos especiais até mesmo sem que 
+	fiquemos sabendo de sua existência. De maneira geral, isso 
+	não é possível de ser feito utilizando um outro sistema 
+	operacional licenciado e vendido comercialmente. Aqui estão 
+	alguns dos exemplos de cenários onde as pessoas tem 
 	utilizado o &os; atualmente:</para>
 
       <itemizedlist>
 	<listitem>
-	  <para><emphasis>ServiÃ§os para Internet:</emphasis> com sua 
-		robusta pilha TCP/IP, o &os; Ã© a plataforma ideal 
-		para prover uma variedade de serviÃ§os na Internet.</para>
+	  <para><emphasis>Serviços para Internet:</emphasis> com sua 
+		robusta pilha TCP/IP, o &os; é a plataforma ideal 
+		para prover uma variedade de serviços na Internet.</para>
 
 	  <itemizedlist>
 	    <listitem>
 	      <indexterm><primary>FTP servers</primary></indexterm>
 
-	      <para>Servidores FTP (padrÃ£o ou com SSL)</para>
+	      <para>Servidores FTP (padrão ou com SSL)</para>
 	    </listitem>
 
 	    <listitem>
 	      <indexterm><primary>web servers</primary></indexterm>
 
-	      <para>Servidores WWW (padrÃ£o ou com SSL)</para>
+	      <para>Servidores WWW (padrão ou com SSL)</para>
 	    </listitem>
 
 	    <listitem>
@@ -329,48 +329,54 @@
 	      <primary>email</primary>
 	    </indexterm>
 
-	      <para>Servidores de Correio EletrÃ´nico (padrÃ£o ou com SSL)</para>
+	      <para>Servidores de Correio Eletrônico (padrão ou com SSL)</para>
 	    </listitem>
 
 	    <listitem>
 	      <indexterm><primary>USENET</primary></indexterm>
 
 	      <para>Sistemas de quadro de avisos e 
-		notÃ­cias da USENET</para>
+		notícias da USENET</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>E por aÃ­ vai...</para>
+	      <para>E por aí vai...</para>
 	    </listitem>
 	  </itemizedlist>
 
-	  <para>With &os;, you can easily start out small with an
-	    inexpensive 386 class PC and upgrade all the way up to a
-	    quad-processor Xeon with RAID storage as your enterprise
-	    grows.</para>
+	  <para>A medida que sua organização cresce, você pode 
+	    utilizar o &os; partindo de um simples e barato PC com 
+	    processador 386/&intel; e caminhar para uma máquina com 
+	    múltiplos processadores Xeon/&intel; com esquema de 
+	    armazenamento em RAID sem problema algum.</para>
 	</listitem>
 
 	<listitem>
-	  <para><emphasis>Education:</emphasis>  Are you a student of
-	    computer science or a related engineering field?  There is no
-	    better way of learning about operating systems, computer
-	    architecture and networking than the hands on, under the hood
-	    experience that &os; can provide.  A number of freely
-	    available CAD, mathematical and graphic design packages also
-	    make it highly useful to those whose primary interest in a
-	    computer is to get <emphasis>other</emphasis> work
-	    done!</para>
+	  <para><emphasis>Uso Educacional:</emphasis> Você é estudante 
+	    de Ciência da Computação ou alguma área de Engenharia? 
+	    Não existe uma outra maneira que seja melhor para se 
+	    estudar sobre sistemas operacionais, arquitetura de 
+	    computadores ou redes de computadores que não seja 
+	    <quote>botando as mãos na massa</quote> com ajuda do &os; 
+	    e sendo apadrinhado pela incrível experiência que ele 
+	    lhe proporciona. Um bom número de aplicações gratuitas 
+	    também estão disponíveis para trabalhar com CAD, 
+	    operações matemáticas e design gráfico para quem se interesse 
+	    em usar um computador apenas para finalizar um outro 
+	    tipo de trabalho, seja lá qual for!</para>
 	</listitem>
 
 	<listitem>
-	  <para><emphasis>Research:</emphasis>  With source code for the
-	    entire system available, &os; is an excellent platform for
-	    research in operating systems as well as other branches of
-	    computer science.  &os;'s freely available nature also makes
-	    it possible for remote groups to collaborate on ideas or
-	    shared development without having to worry about special
-	    licensing agreements or limitations on what may be discussed
-	    in open forums.</para>
+	  <para><emphasis>Utilização em Pesquisas:</emphasis> Com o 
+	    código fonte de todo o sistema estando disponível pra você, 
+	    o &os; se torna uma excelente escolha para pesquisas 
+	    relacionadas a sistemas operacionais e outros campos da 
+	    Ciência da Computação. A natureza do licenciamento livre em 
+	    que o &os; se enquadra possibilita à grupos de colaboradores 
+	    remotos iteragir e contribuir/compartilhar idéias sem se 
+	    preocupar com permissões especiais ligadas ao licenciamento, 
+	    termos de resposabilidade ou limitações de software 
+	    podendo, ainda, discuti-las em fórum aberto.</para>
 	</listitem>
 
 	<listitem>
@@ -378,11 +384,13 @@
 
 	  <indexterm><primary>DNS Server</primary></indexterm>
 
-	  <para><emphasis>Networking:</emphasis>  Need a new router?  A
-	    name server (DNS)? A firewall to keep people out of your
-	    internal network?  &os; can easily turn that unused 386 or
-	    486 PC sitting in the corner into an advanced router with
-	    sophisticated packet-filtering capabilities.</para>
+	  <para><emphasis>Roteamento, Servidor e Serviços de Rede:</emphasis> 
+	    Precisando de um novo roteador? Um servidor para resolução 
+	    de nomes (DNS)? Um firewall para manter acessos/tráfegos 
+	    desnecessários fora de sua rede? O &os; pode, tranquilamente, 
+	    fazer uso daquele seu antigo computador 386 (ou 486), que 
+	    caiu no esquecimento, e transformá-lo num avançado roteador 
+	    com sofisticadas capacidades de filtro de pacotes.</para>
 	</listitem>
 
 	<listitem>
@@ -394,29 +402,35 @@
 	  <secondary>Accelerated-X</secondary>
 	</indexterm>
 
-	  <para><emphasis>X Window workstation:</emphasis> &os; is a
-	    fine choice for an inexpensive X terminal solution,
-	    using the freely available X11 server.
-	    Unlike an X terminal, &os; allows many applications to be run
-	    locally if desired, thus relieving the burden on a central
-	    server.  &os; can even boot <quote>diskless</quote>, making
-	    individual workstations even cheaper and easier to
-	    administer.</para>
+	  <para><emphasis>Estação de Trabalho com Ambiente Gráfico:</emphasis> 
+	    É uma excelente escolha ter o &os; operando como sua 
+	    estação de trabalho e uma solução livre para ambiente e 
+	    servidor ou terminal X11 (&xorg;). Diferente de outros 
+	    terminais gráficos num ambiente X11, o &os; permite que 
+	    várias aplicações sejam executadas localmente se 
+	    necessário. Assim, alivia-se a necessidade de executar 
+	    todas elas num único servidor central. Além de todos 
+	    esses benefícios, o &os; ainda pode ser inicializado sem 
+	    que um disco rídigo seja utilizado, fazendo com que a 
+	    administração de um ambiente com diversas estações de trabalho 
+	    seja feita de uma maneira mais fácil e barata!</para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>GNU Compiler Collection</primary></indexterm>
 
-	  <para><emphasis>Software Development:</emphasis>  The basic
-	    &os; system comes with a full complement of development
-	    tools including the renowned GNU C/C++ compiler and
-	    debugger.</para>
+	  <para><emphasis>Desenvolvimento de Software:</emphasis> O 
+	    sistema básico que acompanha o &os; fornece um conjunto 
+	    completo de ferramentas para desenvolvimento, incluindo 
+	    célebres compiladores GNU C/C++ e utilitários para 
+	    depuração de softwares.</para>
 	</listitem>
       </itemizedlist>
 
-      <para>&os; is available in both source and binary form on CD-ROM,
-	DVD, and via anonymous FTP.  Please see <xref linkend="mirrors"/>
-	for more information about obtaining &os;.</para>
+      <para>O &os; é disponibilizado em formato de código fonte e 
+	    binários pré-compilados em CD, DVD ou via FTP. Por favor, 
+	    consulte o <xref linkend="mirrors"/> para mais 
+	    informações de como obter o &os;.</para>
     </sect2>
 
     <sect2 id="introduction-nutshell-users">
@@ -427,105 +441,106 @@
 	<secondary>large sites running &os;</secondary>
       </indexterm>
 
-      <para>&os; is used as a platform for devices and products from
-        many of the world's largest IT companies, including:</para>
+      <para>O &os; é a plataforma escolhida para compor dispositivos 
+	e produtos de grandes companias de TI do mundo como, por 
+	exemplo:</para>
 
       <itemizedlist>
 	<listitem>
 	  <indexterm><primary>Apple</primary></indexterm>
-	  <para><ulink url="http://www.apple.com/">Apple</ulink></para>
+	  <para><ulink url="http://www.apple.com">Apple</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Cisco</primary></indexterm>
-	  <para><ulink url="http://www.cisco.com/">Cisco</ulink></para>
+	  <para><ulink url="http://www.cisco.com">Cisco Systems</ulink></para>
 	</listitem>
 
 	<listitem>
-	  <para><ulink url="http://www.juniper.net/">Juniper</ulink></para>
+	  <para><ulink url="http://www.juniper.net">Juniper Networks</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>NetApp</primary></indexterm>
-	  <para><ulink url="http://www.netapp.com/">NetApp</ulink></para>
+	  <para><ulink url="http://www.netapp.com">NetApp</ulink></para>
 	</listitem>
       </itemizedlist>
 
-      <para>&os; is also used to power some of the biggest sites on the
-	Internet, including:</para>
+      <para>O &os; também é utilizado para prover serviços em alguns 
+	dos maiores sítios web na Internet. Alguns destes sítios são:</para>
 
       <itemizedlist>
 	<listitem>
 	  <indexterm><primary>Yahoo!</primary></indexterm>
-	  <para><ulink url="http://www.yahoo.com/">Yahoo!</ulink></para>
+	  <para><ulink url="http://www.yahoo.com">Yahoo!</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Yandex</primary></indexterm>
-	  <para><ulink url="http://www.yandex.ru/">Yandex</ulink></para>
+	  <para><ulink url="http://www.yandex.ru">Yandex</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Apache</primary></indexterm>
-	  <para><ulink url="http://www.apache.org/">Apache</ulink></para>
+	  <para><ulink url="http://www.apache.org">Apache Foundation</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Rambler</primary></indexterm>
-	  <para><ulink url="http://www.rambler.ru/">Rambler</ulink></para>
+	  <para><ulink url="http://www.rambler.ru">Rambler</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Sina</primary></indexterm>
-	  <para><ulink url="http://www.sina.com/">Sina</ulink></para>
+	  <para><ulink url="http://www.sina.com">Sina</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Pair Networks</primary></indexterm>
 
-	  <para><ulink url="http://www.pair.com/">Pair Networks</ulink></para>
+	  <para><ulink url="http://www.pair.com">Pair Networks</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Sony Japan</primary></indexterm>
 
-	  <para><ulink url="http://www.sony.co.jp/">Sony Japan</ulink></para>
+	  <para><ulink url="http://www.sony.co.jp">Sony Entertainment</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Netcraft</primary></indexterm>
 
-	  <para><ulink url="http://www.netcraft.com/">Netcraft</ulink></para>
+	  <para><ulink url="http://www.netcraft.com">Netcraft</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>NetEase</primary></indexterm>
 
-	  <para><ulink url="http://www.163.com/">NetEase</ulink></para>
+	  <para><ulink url="http://www.163.com">NetEase</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Weathernews</primary></indexterm>
 
-	  <para><ulink url="http://www.wni.com/">Weathernews</ulink></para>
+	  <para><ulink url="http://www.wni.com">Weathernews</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>TELEHOUSE America</primary></indexterm>
 
-	  <para><ulink url="http://www.telehouse.com/">TELEHOUSE
+	  <para><ulink url="http://www.telehouse.com">Telehouse
 	    America</ulink></para>
 	</listitem>
 
 	<listitem>
 	  <indexterm><primary>Experts Exchange</primary></indexterm>
 
-	  <para><ulink url="http://www.experts-exchange.com/">Experts
+	  <para><ulink url="http://www.experts-exchange.com">Experts
 	    Exchange</ulink></para>
 	</listitem>
       </itemizedlist>
 
-      <para>and many more.</para>
+      <para>E muitos outros!</para>
     </sect2>
   </sect1>
 
@@ -542,12 +557,12 @@
 	  <author>
 	    <firstname>Jordan</firstname>
 	    <surname>Hubbard</surname>
-	    <contrib>Contributed by </contrib>
+	    <contrib>Uma Contribuição de </contrib>
 	  </author>
 	</authorgroup>
       </sect2info>
 
-      <title>A HistÃ³ria do &os; em Resumo</title>
+      <title>A História do &os; em Resumo</title>
 
       <indexterm><primary>386BSD Patchkit</primary></indexterm>
       <indexterm><primary>Hubbard, Jordan</primary></indexterm>
@@ -977,7 +992,7 @@
     </sect2>
 
     <sect2 id="relnotes">
-      <title>VersÃµes Atuais do &os;</title>
+      <title>Versões Atuais do &os;</title>
 
       <indexterm><primary>NetBSD</primary></indexterm>
       <indexterm><primary>OpenBSD</primary></indexterm>
@@ -1066,7 +1081,7 @@
 	</varlistentry>
       </variablelist>
 
-      <para>VocÃª tambÃ©m pode consultar a cÃ³pia original (frequentemente 
+      <para>Você também pode consultar a cópia original (frequentemente 
 	atualizada) em <ulink url="http://www.FreeBSD.org"></ulink>.</para>
     </sect2>
   </sect1>
