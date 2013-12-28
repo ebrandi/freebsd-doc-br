@@ -1041,7 +1041,7 @@ vboxservice_enable="YES"</programlisting>
 EndSection</programlisting>
 
       <para>Para fazer uso do driver <literal>vboxmouse_drv</literal>, 
-	ajuste a sessão que configura o mouse no arquivo 
+	ajuste a seção que configura o mouse no arquivo 
 	<filename>xorg.conf</filename>:</para>
 
       <programlisting>Section "InputDevice"

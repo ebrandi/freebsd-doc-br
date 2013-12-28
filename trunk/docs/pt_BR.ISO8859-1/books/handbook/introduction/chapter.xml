@@ -62,7 +62,7 @@
 	(x86 ou &itanium;) AMD64 e &sun; &ultrasparc;. Versões 
 	portadas para outras arquiteturas também estão em 
 	desenvolvimento. Você pode ler um pouco mais sobre este 
-	assunto nas sessões sobre a <link linkend="history">história</link> 
+	assunto nas seções sobre a <link linkend="history">história</link> 
 	e sobre as <link linkend="relnotes">versões mais atuais</link> 
 	do &os;. Se despertar em você o interesse em contribuir de 
 	alguma forma com o projeto (programando, doando hardware 
@@ -547,9 +547,10 @@
   <sect1 id="history">
     <title>Sobre o Projeto &os;</title>
 
-    <para>The following section provides some background information on
-      the project, including a brief history, project goals, and the
-      development model of the project.</para>
+    <para>A seção a seguir fornece um algumas informações básicas 
+	sobre o projeto, incluindo um breve resumo sobre a história 
+	do &os;, seus objetivos e o modelo de desenvolvimento 
+	adotado pelo projeto.</para>
 
     <sect2 id="intro-history">
       <sect2info role="firstperson">
@@ -572,59 +573,71 @@
 	<primary>FreeBSD Project</primary>
 	<secondary>history</secondary>
       </indexterm>
-      <para>The &os;&nbsp;Project had its genesis in the early part of 1993,
-	partially as an outgrowth of the <quote>Unofficial 386BSD
-	Patchkit</quote> by the patchkit's last 3 coordinators: Nate
-	Williams, Rod Grimes and myself.</para>
+      <para>O Projeto &os; teve seu surgimento no início do ano de 
+	1993, como consequência do desenvolvimento do 
+	<quote>Kit de Correções não Oficial do 386BSD</quote> 
+	feito pelos 3 coordenadores do projeto de correções: 
+	Nate Williams, Rod Grimes e eu (Jordan Hubbard).</para>
 
       <indexterm><primary>386BSD</primary></indexterm>
-      <para>Our original goal was to produce an intermediate snapshot of
-	386BSD in order to fix a number of problems with it that the
-	patchkit mechanism just was not capable of solving.  Some of you
-	may remember the early working title for the project being
-	<quote>386BSD 0.5</quote> or <quote>386BSD Interim</quote> in
-	reference to that fact.</para>
+      <para>Nosso objetivo inicial era produzir um 
+	<emphasis>snapshot</emphasis> do 386BSD 
+	que contemplasse a correção de um certo número de problemas 
+	que não puderam ser corrigidos pelo <quote>Kit de Correções</quote>. 
+	Algumas pessoas até podem lembrar do nome inicial do projeto 
+	para criação desta <emphasis>snapshot</emphasis>: 
+	<quote>386BSD 0.5</quote> (ou <quote>386BSD Interim</quote>), 
+	que fazia referência a tal fato.</para>
 
       <indexterm><primary>Jolitz, Bill</primary></indexterm>
-      <para>386BSD was Bill Jolitz's operating system, which had been up
-	to that point suffering rather severely from almost a year's worth
-	of neglect.  As the patchkit swelled ever more uncomfortably with
-	each passing day, we were in unanimous agreement that something
-	had to be done and decided to assist Bill by providing
-	this interim <quote>cleanup</quote> snapshot.  Those plans came to
-	a rude halt when Bill Jolitz suddenly decided to withdraw his
-	sanction from the project without any clear indication of what
-	would be done instead.</para>
+      <para>O 386BSD foi o sistema operacional de Bill Jolitz e, até 
+	aquele momento, estava a ser severamente negligenciado por 
+	cerca de um ano. Como o <quote>Kit de Correções</quote> 
+	crescia ainda mais com o passar dos dias de forma não muito 
+	confortável, nós decidimos que algo deveria ser feito e resolvemos 
+	auxiliar Bill no desenvolvimento de uma <emphasis>snapshot</emphasis> 
+	interina mais enxuta o suficiente. Esses planos foram, de 
+	maneira rude e repentina, interrompidos quando Bill Jolitz 
+	decidiu se desligar do projeto sem qualquer indicação clara 
+	do que seria feito do projeto.</para>
 
       <indexterm><primary>Greenman, David</primary></indexterm>
       <indexterm><primary>Walnut Creek CDROM</primary></indexterm>
-      <para>It did not take us long to decide that the goal remained
-	worthwhile, even without Bill's support, and so we adopted the
-	name <quote>&os;</quote>, coined by David Greenman.  Our initial
-	objectives were set after consulting with the system's current
-	users and, once it became clear that the project was on the road
-	to perhaps even becoming a reality, I contacted Walnut Creek CDROM
-	with an eye toward improving &os;'s distribution channels for
-	those many unfortunates without easy access to the Internet.
-	Walnut Creek CDROM not only supported the idea of distributing
-	&os; on CD but also went so far as to provide the project with a
-	machine to work on and a fast Internet connection.  Without Walnut
-	Creek CDROM's almost unprecedented degree of faith in what was, at
-	the time, a completely unknown project, it is quite unlikely that
-	&os; would have gotten as far, as fast, as it has today.</para>
+      <para>Não demorou muito tempo para que nós pudessemos perceber 
+	que o objetivo inicial daquele projeto, mesmo sem a ajuda de 
+	Bill, valia a pena. Decidimos adotá-lo e nomeá-lo de <quote>&os;</quote> 
+	(nome sugerido por David Greenman). Nossos objetivos iniciais 
+	foram definidos depois de consultar os usuários do sistema 
+	naquela época e então, uma vez definido que nosso projeto estava 
+	dando seus primeiros passos para, provavelmente, se tornar 
+	realidade, entrei em contato com a <emphasis>Walnut Creek CD-ROM</emphasis> 
+	com interesse em melhorar o esquema de como o &os; seria repassado 
+	aos usuários que não contavam com fácil acesso à Internet 
+	naquele tempo. A <emphasis>Walnut Creek</emphasis> não só 
+	aceitou nos dar suporte na distribuição do &os; em mídia de 
+	CD como também nos conseguiu uma máquina que poderiamos utilizar 
+	para trabalhar no projeto e uma rápida conexão com a Internet. 
+	Sem este apoio e o depósito de fé que nos fora dado quase sem 
+	precedentes vindos da <emphasis>Walnut Creek</emphasis>, 
+	destinados a um projeto completamente desconhecido, seria 
+	quase improvável que o &os; tivesse chegado tão longe quanto 
+	chegou e, tão rápido, ter se tornado o que se tornou nos 
+	dias de hoje.</para>
 
       <indexterm><primary>4.3BSD-Lite</primary></indexterm>
       <indexterm><primary>Net/2</primary></indexterm>
       <indexterm><primary>U.C. Berkeley</primary></indexterm>
       <indexterm><primary>386BSD</primary></indexterm>
       <indexterm><primary>Free Software Foundation</primary></indexterm>
-      <para>The first CD-ROM (and general net-wide) distribution was
-	&os;&nbsp;1.0, released in December of 1993.  This was based on the
-	4.3BSD-Lite (<quote>Net/2</quote>) tape from U.C. Berkeley, with
-	many components also provided by 386BSD and the Free Software
-	Foundation.  It was a fairly reasonable success for a first
-	offering, and we followed it with the highly successful &os;
-	1.1 release in May of 1994.</para>
+      <para>O primeiro conjunto de CD-ROM (e cópia na Internet) do 
+	&os; foi de sua versão 1.0, lançada em Dezembro de 1993. 
+	Esta verão era baseada no conteúdo de uma fita magnética que 
+	continha o código do 4.3BSD-Lite (<quote>Net/2</quote>) da 
+	Universidade da Califórnia de Berkeley, junto com muitos 
+	componentes oriundos do 386BSD e da 
+	<emphasis>Free Software Foundation</emphasis>. Foi um 
+	sucesso bem razoável, logo seguido pelo lançamento da nova 
+	versão 1.1 do &os;, em Maio de 1994.</para>
 
       <indexterm><primary>Novell</primary></indexterm>
       <indexterm><primary>U.C. Berkeley</primary></indexterm>
@@ -731,7 +744,7 @@
 	in the 10.X-CURRENT (trunk) branch, and SNAPshot releases of 10.X on
 	CD-ROM (and, of course, on the net) are continually made available
 	from <ulink
-	  url="ftp://ftp.FreeBSD.org/pub/FreeBSD/snapshots/">the snapshot
+	  url="ftp://ftp.FreeBSD.org/pub/FreeBSD/snapshots">the snapshot
 	  server</ulink> as work progresses.</para>
     </sect2>
 

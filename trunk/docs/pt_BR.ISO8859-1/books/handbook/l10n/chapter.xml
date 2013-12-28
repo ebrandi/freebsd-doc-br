@@ -894,7 +894,7 @@ font8x8="cp866-8x8"</programlisting>
 	    instale o pacote referente a 
 	    <filename role="package">x11-fonts/xorg-fonts-cyrillic</filename>.</para>
 
-	    <para>Verifique a sessão <literal>"Files"</literal>
+	    <para>Verifique a seção <literal>"Files"</literal>
 	      em <filename>/etc/X11/xorg.conf</filename>.
 	      Adicione a seguinte linha <emphasis>ANTES</emphasis> 
 	      de quaisquer outras linhas que contenham entradas 
@@ -908,7 +908,7 @@ font8x8="cp866-8x8"</programlisting>
 	  </listitem>
 
 	  <listitem>
-	    <para>Para habilitar e utilizar um teclado russo, adicione as seguintes entradas na sessão
+	    <para>Para habilitar e utilizar um teclado russo, adicione as seguintes entradas na seção
 	      <literal>"Keyboard"</literal> do arquivo
 	      <filename>/etc/X11/xorg.conf</filename>:</para>
 
@@ -917,7 +917,7 @@ Option "XkbOptions"  "grp:toggle"</programlisting>
 
 	    <para>Certifique-se, também, que a opção 
 	      <literal>XkbDisable</literal> deve estar desativada 
-	      (comentada) nesta sessão.</para>
+	      (comentada) nesta seção.</para>
 
 	    <para>O uso de <literal>grp:toggle</literal> especifica
 	      que pode-se alterar a codificação entre Russa e Latina 

@@ -1298,7 +1298,7 @@ docbook                     =
 	um port por engano. Aqui você removerá o port instalado no 
 	exemplo anterior (<command>lsof</command>, caso não tenha 
 	prestado atenção). Ports são removidos da mesma maneira 
-	que pacotes (já discutido na sessão <link 
+	que pacotes (já discutido na seção <link 
 	linkend="packages-using">Utilizando o Sistema de 
 	Pacotes</link>), com o comando &man.pkg.delete.1;:</para>
 

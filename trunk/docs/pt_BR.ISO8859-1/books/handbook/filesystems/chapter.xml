@@ -344,13 +344,13 @@ exemplo/dados       17547008       0 17547008     0%    /exemplo/dados</screen>
 	  implementação de um <acronym>RAID</acronym>.
 	  <acronym>ZFS</acronym> suporta este recurso no ambiente de
 	  pools e é o que nós vamos abordar na próxima
-	  sessão.</para>
+	  seção.</para>
       </sect3>
 
       <sect3>
 	<title><acronym>ZFS</acronym> e RAID-Z</title>
 
-	<para>Como observado anteriormente, esta sessão assume a
+	<para>Como observado anteriormente, esta seção assume a
 	  existência de três discos <acronym>SCSI</acronym> como
 	  dispositivos <devicename>da0</devicename>, <devicename>da1</devicename>
 	  e <devicename>da2</devicename> (ou <devicename>ad0</devicename>
@@ -603,7 +603,7 @@ errors: No known data errors</screen>
 
 		<para>O ZFS suporta diferentes tipos de cota: 
 		  refquota, cota geral (general quota), cota por
-		  usuário e cota por grupo. Esta sessão irá explicar
+		  usuário e cota por grupo. Esta seção irá explicar
 		  o básico de cada uma e irá incluir algumas
 		  instruções de uso.</para>
 
@@ -731,7 +731,7 @@ errors: No known data errors</screen>
 		<title>Reservas no ZFS</title>
 
 		<para>O ZFS suporta dois tipos de reserva de espaço.
-		  Esta sessão irá explicar o básico de cada uma e vai
+		  Esta seção irá explicar o básico de cada uma e vai
 		  incluir algumas instruções de uso.</para>
 
 		<para>A propriedade <literal>reservation</literal>
@@ -799,7 +799,7 @@ errors: No known data errors</screen>
   <sect1 id="filesystems-linux">
     <title>Sistemas de Arquivo &linux;</title>
 
-    <para>Esta sessão irá descrever o uso de alguns sistemas de
+    <para>Esta seção irá descrever o uso de alguns sistemas de
       arquivos do &linux; suportados pelo o &os;.</para>
 
     <sect2>

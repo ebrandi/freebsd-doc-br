@@ -92,7 +92,7 @@ requirements. -->
 	  tal qual nem todos os eventos relevantes de segurança podem ser
 	  auditaveis, alguns mecanismos de autenticação como os baseados no
 	  gerenciamento de telas x11 e outros daemons de terceiros não 
-	  configuram propriamente o serviço de auditoria nas sessões de 
+	  configuram propriamente o serviço de auditoria nas seções de 
 	  autenticação dos usuários.</para>
 
       <para>Os eventos de auditoria e segurança são capazes de gerar logs 
@@ -600,7 +600,7 @@ trailer,133</programlisting>
 	assunto do processo e armazena, em sequência, o ID do usuário 
 	que realizou a auditoria, o ID do usuário efetivo 
 	(que executou o comando) e seu respectivo grupo, o ID do usuário 
-	real e grupo respectivo, ID do processo, ID da sessão, ID da 
+	real e grupo respectivo, ID do processo, ID da seção, ID da 
 	porta e endereço de login. Observe que o ID do usuário de 
 	auditoria e o ID do usuário real ID são diferentes: o usuário 
 	<username>robert</username> mudou para <username>root</username>, 
@@ -680,13 +680,13 @@ trailer,133</programlisting>
 	  auditoria onde a visualização destes eventos pode gerar novos 
 	  eventos de auditoria. Por exemplo, se toda a atividade de 
 	  rede estiver sendo auditada e o &man.praudit.1; for executado 
-	  a partir de uma sessão SSH, então um fluxo contínuo de eventos 
+	  a partir de uma seção SSH, então um fluxo contínuo de eventos 
 	  de auditoria será gerado a uma taxa elevada, já que cada 
 	  evento sendo impresso irá gerar outro evento. A fim de evitar 
 	  que isso aconteça, é aconselhável executar o 
 	  <command>praudit</command> em um <literal>Audit Pipe</literal> 
-	  em sessões que não gerem novos eventos de auditoria; 
-	  sessões com baixo índice de granularidade de auditoria.</para>
+	  em seções que não gerem novos eventos de auditoria; 
+	  seções com baixo índice de granularidade de auditoria.</para>
       </warning>
     </sect2>
 
