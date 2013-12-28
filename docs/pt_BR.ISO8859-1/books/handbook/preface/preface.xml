@@ -123,7 +123,7 @@
       </listitem>
 
       <listitem>
-	<para>Uma sessão para solução de problemas foi adicionada ao capítulo <xref
+	<para>Uma seção para solução de problemas foi adicionada ao capítulo <xref
 	  linkend="ppp-and-slip"/>, PPP e SLIP.</para>
       </listitem>
 
@@ -239,7 +239,7 @@
 	foi substancialmente atualizado.</para>
       </listitem>
       <listitem>
-	<para>Várias novas sessões foram adicionadas ao <xref linkend="advanced-networking"/>
+	<para>Várias novas seções foram adicionadas ao <xref linkend="advanced-networking"/>
 	(<quote>Tópicos Avançados de Rede</quote>).</para>
       </listitem>
       <listitem>
@@ -269,22 +269,22 @@
 
   <bridgehead id="preface-overview" renderas="sect1">Organização do Manual</bridgehead>
 
-  <para>Este manual é dividido em cinco sessões logicamente distintas. 
-    A primeira sessão, <emphasis>Conceitos Básicos</emphasis>, cobre 
+  <para>Este manual é dividido em cinco seções logicamente distintas. 
+    A primeira seção, <emphasis>Conceitos Básicos</emphasis>, cobre 
     a instalação e o uso básico do &os;. É esperado que o leitor 
     acompanhe os capítulos na ordem, ocasionamente pulando capítulos 
-    de tópicos que ele já possa estar familiarizado. Na segunda sessão, 
+    de tópicos que ele já possa estar familiarizado. Na segunda seção, 
     <emphasis>Tarefas Comuns</emphasis>, cobrimos funcionalidades corriqueiras 
-    onde o &os; é utilizado. Os capítulos desta sessão não precisam 
+    onde o &os; é utilizado. Os capítulos desta seção não precisam 
     ser, obrigatoriamente, lidos em ordem. Cada um destes capítulos 
     contém uma sinopse que descreve seu conteúdo e quais conhecimentos 
     necessários são esperados por parte do leitor. Assim o leitor pode 
     saber o assunto de cada capítulo e pode se preparar para acompanhar 
-    os capítulos de seu interesse. A terceira sessão, 
+    os capítulos de seu interesse. A terceira seção, 
     <emphasis>Administração do Sistema</emphasis>, cobre tópicos 
-    relacionados a administração. A quarta sessão, 
+    relacionados a administração. A quarta seção, 
     <emphasis>Comunicação de Rede</emphasis>, aborda tópicos ligados a 
-    servidores e serviços de rede. Por último, na quinta sessão, são 
+    servidores e serviços de rede. Por último, na quinta seção, são 
     apresentados o apêndice e o tópico contendo informações de 
     referência utilizadas na elaboração deste manual.</para>
 

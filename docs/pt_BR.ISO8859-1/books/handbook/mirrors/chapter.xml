@@ -653,7 +653,7 @@ Warning: Permanently added 'anoncvs1.freebsd.org' (DSA) to the list of known hos
 	  somente para uma release lançadas. Isto é um fator muito 
 	  importante, caso você opte por acompanhar o 
 	  desenvolvimento dos códigos fonte <quote>current</quote>. 
-	  É recomendado que você leia a sessão 
+	  É recomendado que você leia a seção 
 	  <link linkend="current">Mantendo o &os; atualizado</link>.</para>
       </sect2>
 
