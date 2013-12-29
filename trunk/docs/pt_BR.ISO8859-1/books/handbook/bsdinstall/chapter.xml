@@ -996,7 +996,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
   <sect1 id="using-bsdinstall">
-    <title>Introdução ao <application>bsdinstall</application></title>
+    <title>Introduzindo o <application>bsdinstall</application></title>
 
     <para><application>bsdinstall</application> é um programa modo
       texto usado para instalar o &os;, escrito por &a.nwhitehorn; e

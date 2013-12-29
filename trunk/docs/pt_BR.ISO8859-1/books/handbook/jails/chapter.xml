@@ -14,7 +14,7 @@
       <author>
 	<firstname>Matteo</firstname>
 	<surname>Riondato</surname>
-	<contrib>Contribuição de </contrib>
+	<contrib>Uma Contribuição de </contrib>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -24,7 +24,7 @@
   <indexterm><primary>jails</primary></indexterm>
 
   <sect1 id="jails-synopsis">
-    <title>Sumário</title>
+    <title>Sinopse</title>
 
     <para>Este capítulo irá fornecer uma explicação sobre o que são 
       <literal>jails</literal> &os; e sobre como utilizá-los.  Os
@@ -463,8 +463,8 @@ jail_<replaceable>www</replaceable>_devfs_ruleset="<replaceable>www_ruleset</rep
   </sect1>
 
   <sect1 id="jails-tuning">
-    <title>Administração e ajuste fino (<literal>fine
-      tuning)</literal></title>
+    <title>Administração e Ajuste Fino (<literal>Fine
+      Tuning)</literal></title>
 
     <para>Existem várias opções que podem ser configuradas para 
       qualquer <literal>jail</literal>, e várias formas de combinar 

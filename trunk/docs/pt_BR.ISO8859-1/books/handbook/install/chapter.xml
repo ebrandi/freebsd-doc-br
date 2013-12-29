@@ -31,7 +31,7 @@
 
   <title>Instalando o &os; 8.<replaceable>X</replaceable> e Versões Anteriores</title>
   <sect1 id="install-synopsis">
-    <title>Resumo</title>
+    <title>Sinopse</title>
 
     <indexterm><primary>instalação</primary></indexterm>
 
@@ -1270,7 +1270,7 @@ Mounting root from ufs:/dev/md0c
   </sect1>
 
   <sect1 id="using-sysinstall">
-    <title>introduzindo ao Sysinstall.</title>
+    <title>Introduzindo ao <application>sysinstall</application></title>
 
     <para>A utilidade <application>sysinstall</application> é a 
       aplicação fornecida pelo projeto FreeBSD. É uma aplicação baseada

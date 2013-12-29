@@ -23,7 +23,7 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>The X Window System</title>
+  <title>O Ambiente Gráfico X11</title>
 
   <sect1 id="x11-synopsis">
     <title>Synopsis</title>

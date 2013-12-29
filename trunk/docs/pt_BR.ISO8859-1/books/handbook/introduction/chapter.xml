@@ -169,7 +169,7 @@
 	</listitem>
 
 	<listitem>
-	  <para>Centenas de aplicações <emphasis>prontas para uso</emphasis>
+	  <para>Milhares de aplicações <emphasis>prontas para uso</emphasis>
 	    são disponibilizadas através da <emphasis>Coleção de Ports</emphasis> 
 	    e do sistema de <emphasis>Pacotes Binários</emphasis>. 
 	    Por quê procurar por uma aplicação na Internet quando você 
@@ -177,7 +177,7 @@
 	</listitem>
 
 	<listitem>
-	  <para>Outras centenas de aplicações adicionais e 
+	  <para>Outras milhares de aplicações adicionais e 
 	    <emphasis>fáceis de portar</emphasis> estão disponíveis 
 	    na Internet. O &os; pode compreender e interpretar o 
 	    código fonte de várias aplicações desenvolvidas para 
@@ -259,7 +259,7 @@
 	Califórnia de Berkeley e carrega a tradição de um distinto 
 	esquema de desenvolvimento dos sistemas BSD de Berkeley. 
 	Além do belo trabalho realizado pelo CSRG, o Projeto &os; 
-	passou por muitas centenas de horas sofrendo ajustes a fim de 
+	passou por muitas milhares de horas sofrendo ajustes a fim de 
 	melhorar sua performance e confiabilidade para funcionar em 
 	situações em que se exige muita carga do sistema. Enquanto 
 	diversos gigantes no mundo comercial de sistemas operacionais 
@@ -836,23 +836,23 @@
 	<primary>FreeBSD Project</primary>
 	<secondary>development model</secondary>
       </indexterm>
-      <para>The development of &os; is a very open and flexible
-	process, being literally built from the contributions
-	of hundreds of people around the world, as can be seen from
-	our <ulink
-	  url="&url.articles.contributors;/article.html">list of
-	  contributors</ulink>.  &os;'s development infrastructure allow
-	these hundreds of developers to collaborate over the Internet.
-	We are constantly on the lookout for
-	new developers and ideas, and those interested in becoming
-	more closely involved with the project need simply contact us
-	at the &a.hackers;.  The &a.announce; is also available to
-	those wishing to make other &os; users aware of major areas
-	of work.</para>
+      <para>O desenvolvimendo do &os; é um processo bem aberto e 
+	flexível, sendo, literalmente, feito por centenas de pessoas 
+	ao redor do mundo como pode ser visualizado na página com a 
+	<ulink url="&url.articles.contributors;/article.html">lista de colaboradores</ulink>. 
+	A infraestrutura de desenvolvimento do &os; permite que 
+	esses desenvolvedores possam contribuir e colaborar através 
+	da Internet. Estamos constantemente em busca de novos 
+	desenvolvedores e idéias. Para os interessados em se 
+	envolver com o projeto, é possível entrar em contato conosco 
+	através da &a.hackers;. A &a.announce; também está disponível 
+	para aqueles que desejam informar outros usuários de &os; 
+	sobre trabalhos realizados na área.</para>
 
-      <para>Useful things to know about the &os;&nbsp;Project and its
-	development process, whether working independently or in close
-	cooperation:</para>
+      <para>Alguns pontos interessantes para conhecer sobre o 
+	Projeto &os; e seu processo de desenvolvimento, seja 
+	trabalhando de forma independente ou em estreita 
+	coolaboração:</para>
 
       <variablelist>
 	<varlistentry>
@@ -878,48 +878,48 @@
 	      <see>SVN</see>
 	    </indexterm>
 
-	    <para>For several years, the central source tree for &os;
-	      was maintained by
-	      <ulink url="http://www.nongnu.org/cvs/">CVS</ulink>
-	      (Concurrent Versions System), a freely available source code
-	      control tool that comes bundled with &os;.  In June 2008, the
-	      Project switched to using <ulink
-		url="http://subversion.tigris.org">SVN</ulink> (Subversion).
-	      The switch was deemed necessary, as the technical limitations
-	      imposed by <application>CVS</application> were becoming obvious
-	      due to the rapid expansion of the source tree and the amount
-	      of history already stored.  The Documentation Project
-	      and Ports Collection repositories also moved from
-	      <application>CVS</application> to
-	      <application>SVN</application> in May 2012 and July
-	      2012, respectively.</para>
+	    <para>Durante muito anos a principal árvore de 
+	      desenvolvimento do &os; era mantida num repositório 
+	      <ulink url="http://www.nongnu.org/cvs">CVS</ulink> 
+	      (<literal>Concurrent Versions System</literal>), ferramenta 
+	      de código aberto livremente disponível para controle 
+	      de versionamento que acompanhava o &os;. Em Junho de 
+	      2008 o projeto passou a usar 
+	      <ulink url="http://subversion.tigris.org">SVN</ulink> (Subversion). 
+	      A mudança foi realmente necessária, vistas que algumas 
+	      limitações técnicas do <application>CVS</application> se 
+	      tornaram óbvias no decorrer da rápida expansão e ramificação 
+	      da árvore de desenvolvimento (como já relatado neste 
+	      capítulo). O Projeto de Documentação do &os; e a Coleção 
+	      de Ports também passaram a utilizar 
+	      <application>SVN</application> a partir de Maio de 2012 
+	      e Julho de 2012, respectivamente.</para>
 
-	    <para>While the <literal>src/</literal> and
-	      <literal>ports/</literal> repositories now use
-	      <application>SVN</application>, client side tools like
-	      <application>csup</application> that depend on the older
-	      <application>CVS</application> infrastructure, continue to
-	      work normally &mdash; changes in the
-	      <application>SVN</application> repository are backported to
-	      <application>CVS</application> for this purpose.
-	      Unlike <literal>src/</literal> and
-	      <literal>ports/</literal>,
-	      the documentation <application>SVN</application>
-	      repository is not backported to
+	    <para>Enquanto os diretórios <filename>src/</filename> e 
+	      <filename>ports/</filename> estão a utilizar 
+	      <application>SVN</application>, ferramentas como o 
+	      <application>csup</application> (utilizadas em modo cliente) 
+	      continuam funcionando normalmente &mdash; alterações 
+	      feitas no repositório <application>SVN</application> 
+	      são migradas e replicadas para <application>CVS</application> 
+	      a fim de manter esta compatibilidade. Deferente do que 
+	      ocorre com esses diretórios, o repositório 
+	      <application>SVN</application> que contém os 
+	      arquivos de documentação não é replicado para 
 	      <application>CVS</application>.</para>
 
-	    <para>The primary <application>CVS</application>
-	      <ulink
-		url="http://www.FreeBSD.org/cgi/cvsweb.cgi">repository</ulink>
-	      resides on a machine in Santa Clara CA, USA
-	      from where it is replicated to numerous mirror machines
-	      throughout the world.  The <application>SVN</application> tree,
-	      which contains the <link linkend="current">-CURRENT</link> and
-	      <link linkend="stable">-STABLE</link> trees,
-	      can all be easily replicated to your own machine as well.
-	      Please refer to the <link linkend="synching">Synchronizing
-	      your source tree</link> section for more information on
-	      doing this.</para>
+	    <para>O <ulink url="http://www.FreeBSD.org/cgi/cvsweb.cgi">
+	      repositório <application>CVS</application> principal</ulink> 
+	      está num servidor localizado na cidade de Santa Clara 
+	      (Califórnia, EUA) e é espelhado para vários outros repositórios 
+	      espalhados pelo mundo. O repositório SVN, que mantém as 
+	      árvores <link linkend="current">-CURRENT</link> e 
+	      <link linkend="stable">-STABLE</link>, também reside num 
+	      servidor próprio e pode ser facilmente replicado para 
+	      diversos outros espelhos. Consulte a seção 
+	      <link linkend="synching">Sincronizando sua Árvore de Códigos Fonte</link> 
+	      para obter mais informações de como você mesmo pode 
+	      realizar um procedimento desses.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -930,22 +930,25 @@
 	  <listitem>
 	    <indexterm><primary>committers</primary></indexterm>
 
-	    <para>The <firstterm>committers</firstterm>
-	      are the people who have <emphasis>write</emphasis> access to
-	      the Subversion tree, and are authorized to make modifications
-	      to the &os; source (the term <quote>committer</quote>
-	      comes from the source control <command>commit</command>
-	      command, which is used to bring new changes into the
-	      repository).  The best way of making submissions for review
-	      by the committers list is to use the &man.send-pr.1;
-	      command.  If something appears to be jammed in the
-	      system, then you may also reach them by sending mail to
-	      the &a.committers;.</para>
+	    <para>Os colaboradores (<firstterm>committers</firstterm>) 
+	      são pessoas que têm permissão de escriva em diversos e 
+	      diferentes ramos das  árvores do projeto e são autorizadas 
+	      a realizar modificações no código fonte do &os;. O termo 
+	      <quote>committer</quote> é oriundo do comando 
+	      <command>commit</command>, repassado ao 
+	      <application>Subversion</application> para realizar uma 
+	      alteração de conteúdo na árvore. A melhor maneira de se 
+	      enviar uma solicitação para que os colaboradores do 
+	      projeto é com auxílio do comando &man.send-pr.1;. Caso 
+	      haja alguma dificuldade que esteja a lhe impedir de 
+	      utilizar este comando, você também pode entrar em 
+	      contato com eles via e-mail através da &a.committers;.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term>O <literal>Core Team</literal><anchor id="development-core"/></term>
+	  <term>O <literal>Core Team</literal> do Projeto &os;<anchor 
+	      id="development-core"/></term>
 
 	  <listitem>
 	    <indexterm><primary>core team</primary></indexterm>
@@ -1064,27 +1067,31 @@
 	Fast e Gigabit Ethernet, melhorias no suporte para as últimas 
 	controladoras Adaptec e muitas centenas de correções de falhas.</para>
 
-      <para>In addition to the base distributions, &os; offers a
-	ported software collection with thousands of commonly
-	sought-after programs.  At the time of this printing, there
-	were over &os.numports; ports!  The list of ports ranges from
-	http (WWW) servers, to games, languages, editors, and almost
-	everything in between.  The entire Ports Collection requires
-	approximately &ports.size; of storage, all ports being expressed as
-	<quote>deltas</quote> to their original sources.  This makes
-	it much easier for us to update ports, and greatly reduces the
-	disk space demands made by the older 1.0 Ports Collection.  To
-	compile a port, you simply change to the directory of the
-	program you wish to install, type <command>make install</command>,
-	and let the system do the rest.  The full
-	original distribution for each port you build is retrieved
-	dynamically off the CD-ROM or a local FTP site, so you need
-	only enough disk space to build the ports you want.  Almost
-	every port is also provided as a pre-compiled
-	<quote>package</quote>, which can be installed with a simple
-	command (<command>pkg_add</command>) by those who do not wish
-	to compile their own ports from source.  More information on
-	packages and ports can be found in <xref linkend="ports"/>.</para>
+      <para>Além da distribuição do sistema base, o &os; oferece uma 
+	coleção com milhares de softwares portados que contém diversas 
+	aplicações comumente procuradas/desejadas pela comunidade. 
+	Até o presente momento desta publicação já são &os.numports;! 
+	A lista destas aplicações portadas vai desde servidores http 
+	(WWW), à jogos, linguagens de programação, editores de texto 
+	e praticamente tudo que se encaixe neste meio. A Coleção de 
+	Ports consome cerca de &ports.size; em espaço em disco, estando 
+	os ports expressos em <quote>deltas</quote> de seus arquivos 
+	de código fonte originais. Isso faz com que seja mais fácil 
+	para nós de atualizar algum port e reduz drásticamente o espaço 
+	em disco que era necessário durante os tempos da versão 1.0 da 
+	Coleção de Ports. Para se compilar um port, você simplesmente 
+	entra no diretório do programa que pretende instalar, digita 
+	<command>make install</command> e deixa o sistema fazer todo 
+	o resto por você. A obtenção de todos os fontes de ports que 
+	você compila é feita dinamicamente através de CD-ROM ou de um 
+	sítio FTP, então tudo que você vai precisar para concluir a 
+	compilação e instalação dos ports que você quiser é de espaço 
+	em disco. Quase todos os ports também são fornecidos em formato 
+	de <quote>pacote</quote> binário pré-compilado, que pode ser 
+	instalado com um simples comando (<command>pkg_add</command>) 
+	pelos que não desejam compilar ports a pasrtir do código fonte. 
+	Mais informações sobre pacotes e ports você pode obter no 
+	<xref linkend="ports"/>.</para>
 
       <para>Todas as versões mais recentes do &os; fornecem, através 
 	de seu instalador (seja o &man.sysinstall.8; ou o &man.bsdinstall.8;), 
@@ -1092,7 +1099,7 @@
 	<filename class="directory">/usr/local/share/doc/freebsd</filename> 
 	durante o procedimento de configuração inicial do sistema. 
 	Esta documentação também pode ser instalada a qualquer momento 
-	como descrito em <xref linkend="doc-ports-install-package"/>. 
+	como descrito na <xref linkend="doc-ports-install-package"/>. 
 	É possível que você consulte esta documentação com ajuda de 
 	quaisquer navegadores que interpretem HTML depois que sejam 
 	instalados os pacotes necessários. Para ver a documentação 
@@ -1100,7 +1107,7 @@
 
       <variablelist>
 	<varlistentry>
-	  <term>O Manual do &os;</term>
+	  <term>O Handbook do &os;</term>
 
 	  <listitem>
 	    <para><ulink type="html"
@@ -1109,7 +1116,7 @@
 	</varlistentry>
 
 	<varlistentry>
-	  <term>Perguntas Frequentemente Feitas</term>
+	  <term>&os; FAQ</term>
 
 	  <listitem>
 	    <para><ulink type="html"
