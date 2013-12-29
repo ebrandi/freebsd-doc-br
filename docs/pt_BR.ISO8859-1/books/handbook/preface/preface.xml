@@ -22,7 +22,7 @@
     forma que eles são introduzidos.</para>
 
   <para>Depois de ter chegado até aqui, a segunda (e maior)
-    seção deste manual é uma referência abrangente a todos os tipos
+    seção deste Handbook é uma referência abrangente a todos os tipos
     de temas de interesse para administradores de um sistema 
     operacional &os;. Alguns dos capítulos podem lhe recomendar que 
     você faça uma leitura prévia de conteúdos sugeridos e isto 
@@ -33,7 +33,7 @@
 
   <bridgehead id="preface-changes-from3" renderas="sect1">Alterações da Terceira Edição</bridgehead>
 
-  <para>Esta versão online deste manual representa o esforço 
+  <para>Esta versão online deste Handbook representa o esforço 
     cumulativo de muitas centenas de colaboradores ao longo dos últimos 
     10 anos. A seguir estão algumas das mudanças mais 
     significativas desde os dois volumes da terceira edição que foi 
@@ -42,7 +42,7 @@
   <itemizedlist>
       <listitem>
 	<para><xref linkend="dtrace"/>, &dtrace;, incorporado ao 
-	  manual contendo informações sobre a poderosa ferramenta 
+	  Handbook contendo informações sobre a poderosa ferramenta 
 	  de análise de performance &dtrace;.</para>
       </listitem>
 
@@ -156,12 +156,12 @@
       <listitem>
 	<para>Um glossário foi criado para proporcionar a localização 
 	  central para as definições e termos técnicos utilizados ao 
-	  longo deste manual.</para>
+	  longo deste Handbook.</para>
       </listitem>
 
       <listitem>
 	<para>Uma série de melhorias estéticas foram feitas em 
-           tabelas e figuras ao longo do do manual.</para>
+           tabelas e figuras ao longo do do Handbook.</para>
       </listitem>
     </itemizedlist>
 
@@ -267,9 +267,9 @@
       </listitem>
     </itemizedlist>
 
-  <bridgehead id="preface-overview" renderas="sect1">Organização do Manual</bridgehead>
+  <bridgehead id="preface-overview" renderas="sect1">Organização do Handbook</bridgehead>
 
-  <para>Este manual é dividido em cinco seções logicamente distintas. 
+  <para>Este Handbook é dividido em cinco seções logicamente distintas. 
     A primeira seção, <emphasis>Conceitos Básicos</emphasis>, cobre 
     a instalação e o uso básico do &os;. É esperado que o leitor 
     acompanhe os capítulos na ordem, ocasionamente pulando capítulos 
@@ -286,7 +286,7 @@
     <emphasis>Comunicação de Rede</emphasis>, aborda tópicos ligados a 
     servidores e serviços de rede. Por último, na quinta seção, são 
     apresentados o apêndice e o tópico contendo informações de 
-    referência utilizadas na elaboração deste manual.</para>
+    referência utilizadas na elaboração deste Handbook.</para>
 
   <variablelist>
 
@@ -596,10 +596,10 @@
     <varlistentry>
       <term><emphasis><xref linkend="bibliography"/>, Biliografia </emphasis></term>
       <listitem>
-	<para>Este manual aborda vários assuntos que podem deixar o 
+	<para>Este Handbook aborda vários assuntos que podem deixar o 
 	  leitor sedento por mais conhecimento. A bibliografia aqui 
 	  disponível cita excelentes livros que são e que serviram 
-	  de referência para este manual.</para>
+	  de referência para este Handbook.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -620,11 +620,11 @@
     </varlistentry>
   </variablelist>
 
-  <bridgehead id="preface-conv" renderas="sect1">Convenções Utilizadas no Manual</bridgehead>
+  <bridgehead id="preface-conv" renderas="sect1">Convenções Utilizadas no Handbook</bridgehead>
 
     <para>A fim de prover consistência para uma fácil leitura e 
 	  compreensão, diversas convenções foram adotadas por este 
-	  manual.</para>
+	  Handbook.</para>
 
   <bridgehead id="preface-conv-typographic" renderas="sect2">Convenções Tipográficas</bridgehead>
 
@@ -733,7 +733,7 @@
   <bridgehead id="preface-acknowledgements"
   renderas="sect1">Agradecimentos</bridgehead>
 
-  <para>O manual que você lê agora é o resultado dos esforços de 
+  <para>O Handbook que você lê agora é o resultado dos esforços de 
     muitas centenas de pessoas ao redor do mundo. Se foram enviadas 
     correções referentes a erros de digitação ou capítulos inteiros, 
     todas as contribuições foram muito úteis.</para>
@@ -744,7 +744,7 @@
     (posteriormente adquirida pela 
     <ulink url="http://www.windriver.com">Wind River Systems</ulink>) 
     pagava membros do Projeto de Documentação do &os; para trabalhar 
-    com este manual em tempo integral a fim de melhorar a qualidade do 
+    com este Handbook em tempo integral a fim de melhorar a qualidade do 
     documento para realizar a publicação da primeira edição impressa, 
     em Março de 2000 (ISBN 1-57176-241-8). A Wind River Systems, 
     então, pagou diversos autores adicionais para fazer uma
@@ -753,6 +753,6 @@
     publicação da segunda edição impressa, em Novembro de 2001 
     (ISBN 1-57176-303-1). Em 2003-2004, a <ulink
     url="http://www.freebsdmall.com">&os; Mall, Inc.</ulink>, pagou
-    vários colaboradores para melhorar o manual, preparando-o para
+    vários colaboradores para melhorar o Handbook, preparando-o para
     sua terceira edição impressa.</para>
 </preface>

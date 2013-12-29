@@ -144,17 +144,17 @@
 	</listitem>
 
 	<listitem>
-	  <para>Lhe ensinar os fundamentos e principios básicos do
+	  <para>Ensiná-lo os fundamentos e principios básicos do
 	    &unix;.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Lhe mostrar como instalar as inúmeras aplicações
+	  <para>Mostrá-lo como instalar as inúmeras aplicações
 	    de terceiros disponíveis para o FreeBSD.</para>
 	</listitem>
 
 	<listitem>
-	  <para>Apresentá-lo ao X, o sistema de janelas do &unix;, e 
+	  <para>Apresentá-lo ao X11 (&xorg;), o sistema de janelas do &unix;, e 
 	    lhe ensinar como configurar o seu ambiente de trabalho 
 	    para torná-lo mais produtivo.</para>
 	</listitem>
@@ -272,11 +272,11 @@
       
       <itemizedlist>
 	<listitem>
-	  <para>Comunicação Serial</para>
+	  <para>Comunicações Serial</para>
 	</listitem>
 
 	<listitem>
-	  <para>PPP e PPP sobre Ethernet</para>
+	  <para>PPP e PPPoE</para>
 	</listitem>
 
 	<listitem>
@@ -284,7 +284,7 @@
 	</listitem>
 
 	<listitem>
-	  <para>Execução de Servidores de Rede</para>
+	  <para>Servidores e Serviços de Rede</para>
 	</listitem>
 
 	<listitem>
@@ -292,7 +292,7 @@
 	</listitem>
 
 	<listitem>
-	  <para>Outros tópicos avançados de rede</para>
+	  <para>Tópicos Avançados de Rede</para>
 	</listitem>
       </itemizedlist>
 

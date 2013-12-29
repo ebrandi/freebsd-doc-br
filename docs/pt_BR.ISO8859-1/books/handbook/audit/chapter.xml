@@ -117,23 +117,21 @@ requirements. -->
 
     <itemizedlist>
       <listitem>
-	<para><emphasis>evento</emphasis>: Um evento auditavel é qualquer 
-    evento que possa ser logado utilizando o subsistema de auditoria.
-
-    Exemplos relevantes de eventos de segurança incluem a criação de
-    um arquivo, criar uma conexão de rede ou o login de um usuário.
-
-    Eventos podem ser <quote>atribuíveis</quote>, o que significa
-	  poder ser rastreado a um usuário autenticado ou 
-	  <quote>não atribuíveis</quote> significando que não podem.
-
-    Exemplos de eventos não atribuíveis são aqueles que ocorrem
-    antes da autenticação no processo de login, tal qual tentativas
-    invalidas de senha.</para>
+	<para><emphasis>evento</emphasis> (<literal>event</literal>): 
+    Um evento auditavel é qualquer evento que possa ser logado 
+    utilizando o subsistema de auditoria. Exemplos relevantes de 
+    eventos de segurança incluem a criação de um arquivo, criar 
+    uma conexão de rede ou o login de um usuário. Eventos podem ser 
+    <quote>atribuíveis</quote>, o que significa poder ser rastreado 
+    a um usuário autenticado ou <quote>não atribuíveis</quote> 
+    significando que não podem. Exemplos de eventos não atribuíveis 
+    são aqueles que ocorrem antes da autenticação no processo de 
+    login, tal qual tentativas inválidas de senha.</para>
       </listitem>
 
       <listitem>
-        <para><emphasis>classe</emphasis>: Classes de evento são 
+        <para><emphasis>classe</emphasis> (<literal>class</literal>): 
+    Classes de evento são 
     conjuntos de nomes de eventos relacionados e são utilizados 
     nas expressões de seleção.
     Classes de evento geralmente utilizadas são <quote>file creation</quote>
@@ -141,7 +139,7 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para><emphasis>registro</emphasis>: Um registro é uma entrada no 
+	<para><emphasis>registro</emphasis> (<literal>record</literal>): Um registro é uma entrada no 
     no log de auditoria descrevendo um evento de segurança. Registros
     contém um campo do tipo de evento, informação do assunto (usuário)
     ocasionando a ação, informação de data e hora, informação de 
@@ -149,7 +147,8 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para><emphasis>rastro</emphasis>: Um rastro de auditoria ou 
+	<para><emphasis>rastro</emphasis> (<literal>trail</literal>): 
+    Um rastro de auditoria ou 
     arquivo de log consiste em uma série de registros de auditoria
     descrevendo eventos de segurança. Normalmente os rastros estão em
     ordem cronológica respeitando o horário dos eventos completos.
@@ -158,13 +157,16 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para><emphasis>expressões de seleção</emphasis>: Uma expressão de 
+	<para><emphasis>expressões de seleção</emphasis> 
+    (<literal>selection expression</literal>): 
+    Uma expressão de 
     seleção é uma string contendo uma lista de prefixos e nomes de classes 
     de evento de auditoria utilizados para combinar eventos.</para>
       </listitem>
 
       <listitem>
-	<para><emphasis>pré-seleção</emphasis>: Processo pelo qual o sistema
+	<para><emphasis>pré-seleção</emphasis> (<literal>preselection</literal>): 
+    Processo pelo qual o sistema
     identifica quais eventos são de interesse do administrador afim de 
     evitar gerar registros de auditoria descrevendo eventos que não são 
     de seu interesse. A configuração de pré-seleção utiliza uma série
@@ -175,7 +177,8 @@ requirements. -->
       </listitem>
 
       <listitem>
-	<para><emphasis>redução</emphasis>: Processo o qual registros dos 
+	<para><emphasis>redução</emphasis> (<literal>reduction</literal>): 
+    Processo o qual registros dos 
     rastros de auditoria existentes são selecionados à serem preservados, 
     impressos ou analisados. Bem como o processo pelo qual registros
     indesejados de auditoria são removidos dos rastros de auditoria.
