@@ -715,7 +715,7 @@
 	de 2003. Resultado de quase 3 anos de trabalho, esta versão 
 	do &os; deu início ao suporte a multiprocessamento avançado e 
 	<emphasis>threads</emphasis>, além de introduzir suporte 
-	para as plataformas &sun; &ultrasparc; e <literal>ia64<literal> 
+	para as plataformas &sun; &ultrasparc; e <literal>ia64</literal> 
 	(&itanium;). Essa versão, então, foi seguida pela versão 5.1 
 	(lançada em Junho de 2003). A última versão da série 5.X que 
 	fazia parte do ramo de desenvolvimento -CURRENT foi a 
