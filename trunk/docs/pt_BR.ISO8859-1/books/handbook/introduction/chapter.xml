@@ -643,109 +643,129 @@
       <indexterm><primary>U.C. Berkeley</primary></indexterm>
       <indexterm><primary>Net/2</primary></indexterm>
       <indexterm><primary>AT&amp;T</primary></indexterm>
-      <para>Around this time, some rather unexpected storm clouds formed
-	on the horizon as Novell and U.C. Berkeley settled their
-	long-running lawsuit over the legal status of the Berkeley Net/2
-	tape.  A condition of that settlement was U.C. Berkeley's
-	concession that large parts of Net/2 were <quote>encumbered</quote>
-	code and the property of Novell, who had in turn acquired it from
-	AT&amp;T some time previously.  What Berkeley got in return was
-	Novell's <quote>blessing</quote> that the 4.4BSD-Lite release, when
-	it was finally released, would be declared unencumbered and all
-	existing Net/2 users would be strongly encouraged to switch.  This
-	included &os;, and the project was given until the end of July
-	1994 to stop shipping its own Net/2 based product.  Under the
-	terms of that agreement, the project was allowed one last release
-	before the deadline, that release being &os;&nbsp;1.1.5.1.</para>
+      <para>Nesse tempo, algumas inesperadas nuvens tempestuosas se 
+	formavam no horizonte enquanto a <emphasis>Novell</emphasis> 
+	e a Universidade de Berkeley enfrentavam disputas legais nos 
+	tribunais para discutir sobre o status do sistema Net/2 
+	utilizado na universidade. A condição estabelecida na concessão 
+	desta batalha foi motivada pelo fato de que em grande parte do 
+	código do Net/2 haviam trechos de código <quote>embutidos</quote> 
+	que eram de propriedade da Novell, que os tinha adiquirido da 
+	<emphasis>AT&amp;T</emphasis> um tempo atrás. O que a 
+	Universidade de Berkeley ganhou em troca foi uma <quote>benção</quote> 
+	da Novell para que pudesse ser lançado o 4.4BSD-Lite sem que 
+	fosse considerada a utilização de códigos embutidos da Novell, 
+	encorajando os usuários do sistema Net/2 a migrarem para um 
+	outro sistema operacional. Isso incluia o &os;, destinado a 
+	não mais ser entregue com códigos oriundos do Net/2 até o fim 
+	de Julho de 1994. Até que fosse cumprido o prazo dos acordos 
+	realizados, ainda foi autorizado o lançamento de uma versão 
+	neste meio tempo, o &os; 1.1.5.1.</para>
 
-      <para>&os; then set about the arduous task of literally
-	re-inventing itself from a completely new and rather incomplete
-	set of 4.4BSD-Lite bits.  The <quote>Lite</quote> releases were
-	light in part because Berkeley's CSRG had removed large chunks of
-	code required for actually constructing a bootable running system
-	(due to various legal requirements) and the fact that the Intel
-	port of 4.4 was highly incomplete.  It took the project until
-	November of 1994 to make this transition, at which point it
-	released &os;&nbsp;2.0 to the net and on CD-ROM (in late December).
-	Despite being still more than a little rough around the edges,
-	the release was a significant success and was followed by the
-	more robust and easier to install &os;&nbsp;2.0.5 release in June of
-	1995.</para>
+      <para>O Projeto &os;, então, concentrou-se na árdua tarefa de 
+	ser praticamente reinventado do zero podendo utilizar apenas 
+	alguns bits de código aproveitados do 4.4BSD-Lite. Esta 
+	versão, rotulada como <quote>Lite</quote>, teve trechos de 
+	código removidos pelo CSRG (por vários motivos legais); códigos, 
+	estes, que deveriam construir o sistema de inicialização para o 
+	&os;. Também existia o fato de que a versão 4.4, portada para 
+	&intel;, estava bem incompleta. Levamos até Novembro de 1994 
+	para completar toda a transição e poder lançar o &os; 2.0 na 
+	Internet e em mídias de CD (que vieram apenas em Dezembro). 
+	Mesmo tendo sido um caminho duro de se percorrer sobre as 
+	pedras, o lançamento desta versão foi um grande sucesso e foi 
+	seguido por uma outra versão ainda mais robusta e fácil de 
+	ser instalada, o &os; 2.0.5 (lançado em Junho de 1995).</para>
 
-      <para>We released &os;&nbsp;2.1.5 in August of 1996, and it appeared
-	to be popular enough among the ISP and commercial communities that
-	another release along the 2.1-STABLE branch was merited.  This was
-	&os;&nbsp;2.1.7.1, released in February 1997 and capping the end of
-	mainstream development on 2.1-STABLE.  Now in maintenance mode,
-	only security enhancements and other critical bug fixes will be
-	done on this branch (RELENG_2_1_0).</para>
+      <para>Nós lançamos o &os; 2.1.5 em Agosto de 1996 e esta versão 
+	nos pareceu bem popular entre Provedores de Serviços da 
+	Internet e outras organizações desde a criação do ramo 
+	2.1-STABLE na árvore de desenvolvimento. O &os; 2.1.7.1, lançado 
+	em Fevereiro de 1997, marcou o fim de atualizações e novos 
+	códigos nesse ramo da árvore (RELENG_2_1_0), que sofria apenas 
+	alterações de manutenção e correções ligadas a falhas de 
+	segurança e outras falhas críticas ao sistema.</para>
 
-      <para>&os;&nbsp;2.2 was branched from the development mainline
-	(<quote>-CURRENT</quote>) in November 1996 as the RELENG_2_2
-	branch, and the first full release (2.2.1) was released in April
-	1997.  Further releases along the 2.2 branch were done in the
-	summer and fall of '97, the last of which (2.2.8) appeared in
-	November 1998.  The first official 3.0 release appeared in
-	October 1998 and spelled the beginning of the end for the 2.2
-	branch.</para>
+      <para>O &os; 2.2 foi criado a partir do ramo principal de 
+	desenvolvimento (o <quote>-CURRENT</quote>) em Novembro de 
+	1996 e criou-se a ramificação RELENG_2_2, que teve sua primeira 
+	versão lançada em Abril de 1997 (&os; 2.2.1). Demais versões 
+	foram sendo lançadas no decorrer do verão e primavera do ano 
+	de 1997 e, em Novembro de 1998, apresentamos o &os; 2.2.8 como 
+	sendo a última versão na árvore do ramo RELENG_2_2. O surgimento 
+	oficial do &os; 3.0 foi em Outubro de 1998 e viu-se o fim do 
+	desenvolvimento ativo para versões 2.2.X, do RELENG_2_2.</para>
 
-      <para>The tree branched again on Jan 20, 1999, leading to the
-	4.0-CURRENT and 3.X-STABLE branches.  From 3.X-STABLE, 3.1 was
-	released on February 15, 1999, 3.2 on May 15, 1999, 3.3 on
-	September 16, 1999, 3.4 on December 20, 1999, and 3.5 on
-	June 24, 2000, which was followed a few days later by a minor
-	point release update to 3.5.1, to incorporate some last-minute
-	security fixes to Kerberos.  This will be the final release in the
-	3.X branch.</para>
+      <para>A árvore se ramificou novamente em 20 de Janeiro de 1999, 
+	dando origem aos ramos do 4.0-CURRENT e 3.X-STABLE. As versões 
+	lançadas oficialmente no ramo 3.X-STABLE foram feitas em 15 
+	de Fevereiro de 1999 (versão 3.1), 15 de Maio de 1999 (versão 3.2), 
+	16 de Setembro de 1999 (versão 3.3), 20 de Dezembro de 1999 
+	(versão 3.4) e em 24 de Junho do ano 2000 (versão 3.5, logo 
+	seguida pela 3.5.1 que incorporava correções de última hora 
+	ligadas a falhas de segurança do Kerberos). Este foi o fim do 
+	desenvolvimento no ramo 3.X.</para>
 
-      <para>There was another branch on March 13, 2000, which saw the
-	emergence of the 4.X-STABLE branch.  There have been several releases
-	from it so far: 4.0-RELEASE was introduced in March 2000, and
-	the last 4.11-RELEASE came out in January 2005.</para>
+      <para>Um outro ramo emergiu na árvore em 13 de Março de 2000, 
+	o 4.X-STABLE. Houveram diversas versões lançadas neste ramo, 
+	deste a 4.0-RELEASE (introduzida em Março de 2000) até a 
+	4.11-RELEASE que foi lançada em Janeiro de 2005.</para>
 
-      <para>The long-awaited 5.0-RELEASE was announced on January 19,
-	2003.  The culmination of nearly three years of work, this
-	release started &os; on the path of advanced multiprocessor
-	and application thread support and introduced support for the
-	&ultrasparc; and <literal>ia64</literal> platforms.  This release
-	was followed by 5.1 in June of 2003.  The last 5.X release from the
-	-CURRENT branch was 5.2.1-RELEASE, introduced in February 2004.</para>
+      <para>A tão aguardada 5.0-RELEASE foi anunciada em 19 de Janeiro 
+	de 2003. Resultado de quase 3 anos de trabalho, esta versão 
+	do &os; deu início ao suporte a multiprocessamento avançado e 
+	<emphasis>threads</emphasis>, além de introduzir suporte 
+	para as plataformas &sun; &ultrasparc; e <literal>ia64<literal> 
+	(&itanium;). Essa versão, então, foi seguida pela versão 5.1 
+	(lançada em Junho de 2003). A última versão da série 5.X que 
+	fazia parte do ramo de desenvolvimento -CURRENT foi a 
+	5.2.1-RELEASE, que surgiu em Fevereiro de 2004.</para>
 
-      <para>The RELENG_5 branch, created in August 2004, was followed by
-	5.3-RELEASE, which marked the beginning of the 5-STABLE branch
-	releases.  The most recent 5.5-RELEASE release came out in May 2006.
-	There will be no additional releases from the RELENG_5 branch.</para>
+      <para>O ramo para RELENG_5, criado em Agosto de 2004, deu 
+	seguimento para uma nova versão do &os;, a 5.3-RELEASE. O 
+	lançamento desta nova versão marcou a criação do ramo para 
+	desenvolvimento 5-STABLE. Oriundo deste ramo, apareceu, em 
+	Maio de 2006, o &os; 5.5-RELEASE. A partir deste ponto não 
+	mais seriam incorporadas versões adicionais na árvore do 
+	ramo RELENG_5.</para>
 
-      <para>The tree was branched again in July 2005, this time for RELENG_6.
-	6.0-RELEASE, the first release of the 6.X branch, was released in
-	November 2005.  The most recent 6.4-RELEASE came out in
-	November 2008.  There will be no additional releases from the
-	RELENG_6 branch.  This branch is the last branch to support the
-	Alpha architecture.</para>
+      <para>A árvore sofreria uma modificação novamente em Julho de 
+	2005, para a criação do ramo RELENG_6. O &os; 6.0-RELEASE, a 
+	primeira versão da série 6.X, foi lançado em Novembro de 
+	2005. 3 anos depois, em Novembro de 2008, veio o &os; 
+	6.4-RELEASE e não mais haveriam novas versões ligadas ao ramo 
+	RELENG_6. Este seria o último dos ramos de desenvolvimento 
+	do &os; a dar suporte para computadores de arquitetura 
+	<emphasis>Alpha</emphasis>.</para>
 
-      <para>The RELENG_7 branch was created in October 2007.  The first
-	release of this branch was 7.0-RELEASE, which came
-	out in February 2008.  The most recent 7.4-RELEASE came out
-	in February 2011.  There will be no additional releases from the
-	RELENG_7 branch.</para>
+      <para>Um novo ramo então criado, o RELENG_7, surgiu na árvore 
+	de desenvolvimento em Outubro de 2007. A primeira versão 
+	lançada vinda deste ramo foi a 7.0-RELEASE (em Fevereiro de 
+	2008). A última das versões nesta série 7.X foi a 7.4-RELEASE, 
+	surgida em Fevereiro de 2011. Daí em diante, não mais seriam 
+	feitas novas versões no ramo RELENG_7.</para>
 
-      <para>The tree was branched again in August 2009, this time for
-	RELENG_8.  8.0-RELEASE, the first release of the 8.X branch, was
-	released in November 2009.  The most recent
-	&rel2.current;-RELEASE came out in &rel2.current.date;.  There will
-	be additional releases from the RELENG_8 branch.</para>
+      <para>Novamente a árvore sofreu modificações! Agosto de 2009 
+	foi o mês em que veio ao mundo o ramo RELENG_8. O &os; 
+	8.0-RELEASE foi a primeira versão deste ramo e foi lançado 
+	em Novembro de 2009. O &rel2.current;-RELEASE é a última 
+	das versões suportadas nesta série 8.X e foi lançado em 
+	&rel2.current.date;. A partir desta data ainda é possível 
+	que sejam lançadas novas versões no ramo RELENG_8.</para>
 
-      <para>The RELENG_9 branch was created in September 2011.  The first
-	release of this branch was &rel.current;-RELEASE, which came
-	out in &rel.current.date;.  There will be additional releases
-	from the RELENG_9 branch.</para>
+      <para>RELENG_9 é um dos mais recentes ramos de desenvolvimento 
+	da árvode e foi criado em Setembro de 2011. A primeira 
+	versão deste ramo a aparecer foi o &rel.current;-RELEASE, 
+	lançado em &rel.current.date;. Ainda é possível 
+	que sejam lançadas novas versões no ramo RELENG_9.</para>
 
-      <para>For now, long-term development projects continue to take place
-	in the 10.X-CURRENT (trunk) branch, and SNAPshot releases of 10.X on
-	CD-ROM (and, of course, on the net) are continually made available
-	from <ulink
-	  url="ftp://ftp.FreeBSD.org/pub/FreeBSD/snapshots">the snapshot
-	  server</ulink> as work progresses.</para>
+      <para>Atualmente, o ativo desenvolvimento do &os; 
+	está focado no ramo 10.X-CURRENT (<literal>trunk</literal>) e 
+	<emphasis>snapshots</emphasis> das versões ligadas a série 
+	10.X estão disponíveis em CD-ROM e, é claro, através da 
+	Internet. Confira as imagens dessas snapshots em 
+	<ulink url="ftp://ftp.FreeBSD.org/pub/FreeBSD/snapshots">
+	ftp://ftp.FreeBSD.org/pub/FreeBSD/snapshots</ulink>.</para>
     </sect2>
 
     <sect2 id="goals">
@@ -754,7 +774,7 @@
 	  <author>
 	    <firstname>Jordan</firstname>
 	    <surname>Hubbard</surname>
-	    <contrib>Contributed by </contrib>
+	    <contrib>Uma Contribuição de </contrib>
 	  </author>
 	</authorgroup>
       </sect2info>
@@ -765,17 +785,19 @@
 	<primary>FreeBSD Project</primary>
 	<secondary>goals</secondary>
       </indexterm>
-      <para>The goals of the &os;&nbsp;Project are to provide software that
-	may be used for any purpose and without strings attached.  Many of
-	us have a significant investment in the code (and project) and
-	would certainly not mind a little financial compensation now and
-	then, but we are definitely not prepared to insist on it.  We
-	believe that our first and foremost <quote>mission</quote> is to
-	provide code to any and all comers, and for whatever purpose, so
-	that the code gets the widest possible use and provides the widest
-	possible benefit.  This is, I believe, one of the most fundamental
-	goals of Free Software and one that we enthusiastically
-	support.</para>
+      <para>Os objetivos do Projeto &os; são prover um software que 
+	possa ser utilizado para diversos propósito e não fazer com 
+	que você se sinta amarrado em relação a suas escolhas. Muitos 
+	de nós que nos empenhamos e investimos significativamente no 
+	código (e no projeto) certamente não nos importamos em receber 
+	algum tipo de incentivo ou doações financeiras, mas não fazemos 
+	questão no recebimento de tais auxílios. Definitivamente não 
+	insistimos nisso. Acreditamos que nossa primeira e principal 
+	<quote>missão</quote> é prover código para tudo e todos, para 
+	qualquer finalidade; assim nosso código pode ser utilizado da 
+	forma mais ampla possível e trazer benefícios ainda mais amplos. 
+	Este é, acredito, um dos objetivos fundamentais do Software Livre 
+	e o motivo que apoiamos com entusiasmo.</para>
 
       <indexterm>
 	<primary>GNU General Public License (GPL)</primary>
@@ -784,14 +806,17 @@
 	<primary>GNU Lesser General Public License (LGPL)</primary>
       </indexterm>
       <indexterm><primary>BSD Copyright</primary></indexterm>
-      <para>That code in our source tree which falls under the GNU
-	General Public License (GPL) or Library General Public License
-	(LGPL) comes with slightly more strings attached, though at
-	least on the side of enforced access rather than the usual
-	opposite.  Due to the additional complexities that can evolve
-	in the commercial use of GPL software we do, however, prefer
-	software submitted under the more relaxed BSD copyright when
-	it is a reasonable option to do so.</para>
+      <para>O código fonte em nossa árvore de desenvolvimento que 
+	está sob licença <literal>GNU General Public License (GPL)</literal> 
+	ou sob licença <literal>Library General Public License (LGPL)</literal> 
+	acompanha uma certa limitação atrelada a este tipo de código. 
+	Pelo menos é permitido um certo tipo de acesso as aplicações, 
+	ao invés de outros tipos habituais de limitação. Devido a 
+	complexidades adicionais que podem envolver o uso comercial 
+	de softwares licenciados sob uma licença GPL que está em posse 
+	do Projeto &os;, preferimos o uso de softwares apresentados e 
+	licenciados sob licença BSD quando é possível se realizar 
+	tal escolha.</para>
     </sect2>
 
     <sect2 id="development">
@@ -800,7 +825,7 @@
 	  <author>
 	    <firstname>Satoshi</firstname>
 	    <surname>Asami</surname>
-	    <contrib>Contributed by </contrib>
+	    <contrib>Uma Contribuição de </contrib>
 	  </author>
 	</authorgroup>
       </sect2info>
@@ -831,8 +856,7 @@
 
       <variablelist>
 	<varlistentry>
-	  <term>The SVN and CVS repositories<anchor
-	    id="development-cvs-repository"/></term>
+	  <term>Repositórios<anchor id="development-cvs-repository"/> CVS e SVN</term>
 	  <listitem>
 	    <indexterm>
 	      <primary>CVS</primary>
@@ -900,7 +924,7 @@
 	</varlistentry>
 
 	<varlistentry>
-	  <term>The committers list<anchor
+	  <term>A Lista de <literal>Committers</literal><anchor
 	    id="development-committers"/></term>
 
 	  <listitem>
@@ -921,12 +945,12 @@
 	</varlistentry>
 
 	<varlistentry>
-	  <term>The FreeBSD core team<anchor id="development-core"/></term>
+	  <term>O <literal>Core Team</literal><anchor id="development-core"/></term>
 
 	  <listitem>
 	    <indexterm><primary>core team</primary></indexterm>
 
-	    <para>The <firstterm>&os; core team</firstterm>
+	    <para>O <firstterm>Core Team</firstterm> do Projeto &os;
 	      would be equivalent to the board of directors if the
 	      &os;&nbsp;Project were a company.  The primary task of the core
 	      team is to make sure the project, as a whole, is in good shape
@@ -961,7 +985,7 @@
 	</varlistentry>
 
 	<varlistentry>
-	  <term>Outside contributors</term>
+	  <term>Colaboradores Externos ao Projeto</term>
 
 	  <listitem>
 	    <indexterm><primary>contributors</primary></indexterm>
@@ -1015,31 +1039,30 @@
       <indexterm>
 	<primary>Computer Systems Research Group (CSRG)</primary>
       </indexterm>
-      <para>&os; is a freely available, full source 4.4BSD-Lite based
-	release for Intel &i386;, &i486;, &pentium;,
-	&pentium;&nbsp;Pro,
-	&celeron;,
-	&pentium;&nbsp;II,
-	&pentium;&nbsp;III,
-	&pentium;&nbsp;4 (or compatible),
-	&xeon;,
-	and Sun &ultrasparc; based computer
-	systems.  It is based primarily on software from U.C. Berkeley's
-	CSRG group, with some enhancements from NetBSD, OpenBSD, 386BSD, and
-	the Free Software Foundation.</para>
+      <para>O &os; está disponível de maneira livre. É uma versão 
+	completa do sistema 4.4BSD-Lite lançado para arquiteturas 
+	&intel; &i386;, &i486;, &celeron;, &pentium;, 
+	&pentium; Pro, &pentium; II, &pentium; III, 
+	&pentium; 4 (ou compatível), &xeon; e &sun; &ultrasparc;. 
+	Baseado principalmente no software desenvolvido pelo CSRG 
+	da Universidade de Berkeley, com algumas melhorias vindas do 
+	386BSD, NetBSD, OpenBSD e da Free Software Foundation.</para>
 
-      <para>Since our release of &os;&nbsp;2.0 in late 1994, the performance,
-	feature set, and stability of &os; has improved dramatically.
+      <para>Desde o lançamento do &os; 2.0, em 1994, o desempenho, 
+	o conjunto de funcionalidades e a estabilidade do &os; 
+	tem melhorado drasticamente. 
 	<!-- XXX is the rest of this paragraph still true ? -->
-	The largest change is a revamped virtual memory system with a merged
-	VM/file buffer cache that not only increases performance, but also
-	reduces &os;'s memory footprint, making a 5&nbsp;MB configuration a
-	more acceptable minimum.  Other enhancements include full NIS client
-	and server support, transaction TCP support, dial-on-demand PPP,
-	integrated DHCP support, an improved SCSI subsystem, ISDN support,
-	support for ATM, FDDI, Fast and Gigabit Ethernet (1000&nbsp;Mbit)
-	adapters, improved support for the latest Adaptec controllers, and
-	many thousands of bug fixes.</para>
+	A última grande mudança foi a reformulação no sistema de 
+	gerenciamento de memória virtual, incorporado a um esquema 
+	de cache de buffer, que não apenas aumentou a performance mas 
+	também reduziu o consumo de memória do &os;, fazendo sua 
+	instalação mínima ainda mais aceitável. Outras melhorias 
+	incluem suporte completo para NIS (cliente e servidor), melhor 
+	suporte para transações TCP, discagem PPP sob demanda, suporte 
+	integrado a DHCP, aperfeiçoamento de suporte interno a SCSI, 
+	suporte para ISDN, ATM e FDDI, melhor suporte a adaptadores 
+	Fast e Gigabit Ethernet, melhorias no suporte para as últimas 
+	controladoras Adaptec e muitas centenas de correções de falhas.</para>
 
       <para>In addition to the base distributions, &os; offers a
 	ported software collection with thousands of commonly
@@ -1063,20 +1086,21 @@
 	to compile their own ports from source.  More information on
 	packages and ports can be found in <xref linkend="ports"/>.</para>
 
-      <para>All recent &os; versions provide an option in the installer
-	(either &man.sysinstall.8; or &man.bsdinstall.8;) to install
-	additional documentation under <filename
-	  class="directory">/usr/local/share/doc/freebsd</filename> during
-	the initial system setup.  Documentation may also be installed at
-	any later time using packages as described in <xref
-	  linkend="doc-ports-install-package"/>.
-	You may view the locally installed
-	manuals with any HTML capable browser using the following
-	URLs:</para>
+      <para>Todas as versões mais recentes do &os; fornecem, através 
+	de seu instalador (seja o &man.sysinstall.8; ou o &man.bsdinstall.8;), 
+	a opção de adicionar uma documentação adicional em 
+	<filename class="directory">/usr/local/share/doc/freebsd</filename> 
+	durante o procedimento de configuração inicial do sistema. 
+	Esta documentação também pode ser instalada a qualquer momento 
+	como descrito em <xref linkend="doc-ports-install-package"/>. 
+	É possível que você consulte esta documentação com ajuda de 
+	quaisquer navegadores que interpretem HTML depois que sejam 
+	instalados os pacotes necessários. Para ver a documentação 
+	instalada, localmente, em sua máquina, acesse:</para>
 
       <variablelist>
 	<varlistentry>
-	  <term>The FreeBSD Handbook</term>
+	  <term>O Manual do &os;</term>
 
 	  <listitem>
 	    <para><ulink type="html"
@@ -1085,7 +1109,7 @@
 	</varlistentry>
 
 	<varlistentry>
-	  <term>The FreeBSD FAQ</term>
+	  <term>Perguntas Frequentemente Feitas</term>
 
 	  <listitem>
 	    <para><ulink type="html"
