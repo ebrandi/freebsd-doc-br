@@ -11,15 +11,15 @@
       <author>
 	<firstname>Tom</firstname>
 	<surname>Rhodes</surname>
-	<contrib>Written by </contrib>
+	<contrib>Uma Colaboração de </contrib>
       </author>
     </authorgroup>
   </chapterinfo>
 
-  <title>GEOM: Modular Disk Transformation Framework</title>
+  <title>GEOM: Framework Modular para Trasformação de Discos</title>
 
   <sect1 id="GEOM-synopsis">
-    <title>Synopsis</title>
+    <title>Sinopse</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -29,68 +29,70 @@
       <see>GEOM</see>
     </indexterm>
 
-    <para>This chapter covers the use of disks under the GEOM
-      framework in &os;.  This includes the major <acronym
-	role="Redundant Array of Inexpensive Disks">RAID</acronym>
-      control utilities which use the framework for configuration.
-      This chapter will not go into in depth discussion on how GEOM
-      handles or controls I/O, the underlying subsystem, or code.
-      This information is provided through the &man.geom.4; manual
-      page and its various SEE ALSO references.  This chapter is also
-      not a definitive guide to <acronym>RAID</acronym>
-      configurations.  Only GEOM-supported <acronym>RAID</acronym>
-      classifications will be discussed.</para>
+    <para>Este capítulo aborda o uso de discos com o framework GEOM no 
+	&os;. Isso inclui a maioria das utilidades de controle para 
+	utilização de <acronym role="Redundant Array of Inexpensive Disks">
+	RAID</acronym>, que podem fazer uso das configurações desse 
+	framework. Este capítulo não entrará em detalhes de como o 
+	GEOM manipula ou controla I/O, como funciona seu sistema 
+	subjacente ou código. Essas informações você pode obter na 
+	página de manual &man.geom.4; e suas referências. Este capítulo, 
+	também, não é um guia definitivo para configurações de 
+	<acronym>RAID</acronym>. Apenas as configurações de 
+	<acronym>RAID</acronym> suportadas pelo GEOM serão discutidas 
+	aqui.</para>
 
-    <para>After reading this chapter, you will know:</para>
+    <para>Depois de ler este capítulo, você saberá:</para>
 
     <itemizedlist>
       <listitem>
-	<para>What type of <acronym>RAID</acronym> support is
-	  available through GEOM.</para>
+	<para>Quais tipos de <acronym>RAID</acronym> são suportados 
+	  e disponíveis através do uso do GEOM.</para>
       </listitem>
 
       <listitem>
-	<para>How to use the base utilities to configure, maintain,
-	  and manipulate the various <acronym>RAID</acronym>
-	  levels.</para>
+	<para>Como utilizar os utilitários básicos para configurar, 
+	  manter e manipular vários níveis de 
+	  <acronym>RAID</acronym>.</para>
       </listitem>
 
       <listitem>
-	<para>How to mirror, stripe, encrypt, and remotely connect
-	  disk devices through GEOM.</para>
+	<para>Como espelhar, dividir, encriptar e conectar 
+	  dispositivos de disco remotamente com GEOM.</para>
       </listitem>
 
       <listitem>
-	<para>How to troubleshoot disks attached to the GEOM
-	  framework.</para>
+	<para>Como solucionar problemas com discos interligados 
+	  com uso do framework GEOM.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Before reading this chapter, you should:</para>
+    <para>Antes de ler este capítulo, você deve:</para>
 
     <itemizedlist>
       <listitem>
-	<para>Understand how &os; treats disk devices
+	<para>Compreender como o &os; trata dispositivos de disco 
 	  (<xref linkend="disks"/>).</para>
       </listitem>
 
       <listitem>
-	<para>Know how to configure and install a new &os; kernel
+	<para>Saber como configurar e instalar um novo kernel 
 	  (<xref linkend="kernelconfig"/>).</para>
       </listitem>
     </itemizedlist>
   </sect1>
 
   <sect1 id="GEOM-intro">
-    <title>GEOM Introduction</title>
+    <title>Introduzindo o GEOM</title>
 
-    <para>GEOM permits access and control to classes &mdash; Master
-      Boot Records, <acronym>BSD</acronym> labels, etc &mdash; through
-      the use of providers, or the special files in
-      <filename class="directory">/dev</filename>.  Supporting various
-      software <acronym>RAID</acronym> configurations, GEOM will
-      transparently provide access to the operating system and
-      operating system utilities.</para>
+    <para>O GEOM permite acessar e controlar classes &mdash; Master 
+	Boot Records (MBR), labels tipo <acronym>BSD</acronym> e etc 
+	&mdash; através do uso de chamadas ou arquivos especiais 
+	presentes no diretório <filename class="directory">/dev</filename> 
+	que venham a prover tais funcionalidades. Suportando vários 
+	tipos de configuração de <acronym>RAID</acronym> por 
+	software, o GEOM fornecerá acesso para utilitários usados pelo 
+	sistema operacional de forma transparente.</para>
   </sect1>
 
   <sect1 id="GEOM-striping">
@@ -99,7 +101,7 @@
 	<author>
 	  <firstname>Tom</firstname>
 	  <surname>Rhodes</surname>
-	  <contrib>Written by </contrib>
+	  <contrib>Uma Contribuição de </contrib>
 	</author>
 	<author>
 	  <firstname>Murray</firstname>
@@ -108,7 +110,7 @@
       </authorgroup>
     </sect1info>
 
-    <title>RAID0 - Striping</title>
+    <title>RAID 0 - Divisão (<literal>Striping</literal>)</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -117,23 +119,28 @@
       <primary>Striping</primary>
     </indexterm>
 
-    <para>Striping is a method used to combine several disk drives
-      into a single volume.  In many cases, this is done through the
-      use of hardware controllers.  The GEOM disk subsystem provides
-      software support for <acronym>RAID</acronym>0, also known as
-      disk striping.</para>
+    <para>Divisão (<literal>Striping</literal>) é o método utilizado 
+	para combinar diversos dispositivos de disco num volume único. 
+	Em muitos casos isso é feito através do uso de controladoras 
+	de hardware. O subsistema de discos do GEOM fornecem a 
+	possibilidade de se usar <acronym>RAID</acronym> 0 
+	(<literal>striping</literal>) por software.</para>
 
-    <para>In a <acronym>RAID</acronym>0 system, data are split up in
-      blocks that get written across all the drives in the array.
-      Instead of having to wait on the system to write 256k to one
-      disk, a <acronym>RAID</acronym>0 system can simultaneously write
-      64k to each of four different disks, offering superior I/O
-      performance.  This performance can be enhanced further by using
-      multiple disk controllers.</para>
+    <para>Num sistema com <acronym>RAID</acronym> 0, os dados são 
+	divididos em blocos que, por sua vez, são escritos pelos 
+	dispositivos que compoem o array do volume criado. Ao invés de 
+	ter que esperar o sistema escrever 256k num único disco, um 
+	sistema com <acronym>RAID</acronym> 0 pode, por exemplo, 
+	escrever 64k em quatro diferentes discos simultaneamente 
+	oferecendo uma performance superior. Esta performance pode ser 
+	ainda mais incrementada com uso de múltiplas controladoras 
+	de disco.</para>
 
-    <para>Each disk in a <acronym>RAID</acronym>0 stripe must be of
-      the same size, since I/O requests are interleaved to read or
-      write to multiple disks in parallel.</para>
+    <para>Cada disco num <acronym>RAID</acronym> 0 
+	(<literal>stripe</literal>) deve ser exatamente do mesmo 
+	tamanho, visto que as operações e requisições de I/O são 
+	intrelaçadas de forma a ler ou escrever dados nos discos 
+	em paralelo.</para>
 
     <mediaobject>
       <imageobject>
@@ -146,30 +153,31 @@
     </mediaobject>
 
     <procedure>
-      <title>Creating a Stripe of Unformatted ATA Disks</title>
+      <title>Criando RAID 0 com Discos ATA não Formatados</title>
 
       <step>
-	<para>Load the <filename>geom_stripe.ko</filename>
-	  module:</para>
+	<para>Carregue o módulo <filename>geom_stripe.ko</filename>:</para>
 
 	<screen>&prompt.root; <userinput>kldload geom_stripe</userinput></screen>
       </step>
 
       <step>
-	<para>Ensure that a suitable mount point exists.  If this
-	  volume will become a root partition, then temporarily use
-	  another mount point such as <filename
-	    class="directory">/mnt</filename>:</para>
+	<para>Certifique-se de que existe um ponto de montagem hábil 
+	  a receber o volume que será criado. Se este volume for 
+	  receber alguma partição raíz, então use um outro ponto de 
+	  montagem temporário (<filename 
+	  class="directory">/mnt</filename>, neste exemplo):</para>
 
 	<screen>&prompt.root; <userinput>mkdir /mnt</userinput></screen>
       </step>
 
       <step>
-	<para>Determine the device names for the disks which will
-	  be striped, and create the new stripe device.  For example,
-	  to stripe two unused and unpartitioned
-	  <acronym>ATA</acronym> disks, for example
-	  <filename>/dev/ad2</filename> and
+	<para>Descubra como os discos que você pretende usar foram 
+	  identificados pelo &os; e crie a divisão 
+	  (<literal>stripe</literal>). Para este exemplo foram 
+	  utilizados dois discos <acronym>ATA</acronym> não 
+	  particionados e identificados pelo sistema como 
+	  <filename>/dev/ad2</filename> e 
 	  <filename>/dev/ad3</filename>:</para>
 
 	<screen>&prompt.root; <userinput>gstripe label -v st0 /dev/ad2 /dev/ad3</userinput>
@@ -179,31 +187,32 @@ Done.</screen>
       </step>
 
       <step>
-	<para>Write a standard label, also known as a partition
-	  table, on the new volume and install the default
-	  bootstrap code:</para>
+	<para>Grave um particionamento (<literal>BSD Label</literal>) 
+	  padrão neste novo volume e instale o código de 
+	  bootstrap (inicialização) padrão:</para>
 
 	<screen>&prompt.root; <userinput>bsdlabel -wB /dev/stripe/st0</userinput></screen>
       </step>
 
       <step>
-	<para>This process should have created two other devices
-	  in the <filename class="directory">/dev/stripe</filename>
-	  directory in addition to the <devicename>st0</devicename>
-	  device.  Those include <devicename>st0a</devicename> and
-	  <devicename>st0c</devicename>.  At this point a file system
-	  may be created on the <devicename>st0a</devicename> device
-	  with the <command>newfs</command> utility:</para>
+	<para>Esse processo deve ter criado outros dois dispositivos 
+	  no diretório <filename class="directory">/dev/stripe</filename> 
+	  fazendo referência ao <devicename>st0</devicename> que foi 
+	  criado anteriormente. Os novos dispositivos são 
+	  <devicename>st0a</devicename> e 
+	  <devicename>st0c</devicename>. Neste ponto um sistema de 
+	  arquivos já pode ser criado em <devicename>st0a</devicename> 
+	  com o utilitário <command>newfs</command>:</para>
 
 	<screen>&prompt.root; <userinput>newfs -U /dev/stripe/st0a</userinput></screen>
 
-	<para>Many numbers will glide across the screen, and after a
-	  few seconds, the process will be complete.  The volume has
-	  been created and is ready to be mounted.</para>
+	<para>Vários números irão aparecer na tela e, depois de 
+	  alguns segundos, o processo estará terminado. Seu volume 
+	  terá sido criado e estará pronto para uso.</para>
       </step>
     </procedure>
 
-    <para>To manually mount the created disk stripe:</para>
+    <para>Para montar manualmente o novo volume criado:</para>
 
     <screen>&prompt.root; <userinput>mount /dev/stripe/st0a /mnt</userinput></screen>
 
@@ -226,7 +235,7 @@ Done.</screen>
   </sect1>
 
   <sect1 id="GEOM-mirror">
-    <title>RAID1 - Mirroring</title>
+    <title>RAID 1 - Espelhamento (<literal>Mirroring</literal>)</title>
 
     <indexterm>
       <primary>GEOM</primary>
