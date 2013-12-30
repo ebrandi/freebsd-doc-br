@@ -9,7 +9,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 2142   # eresources          # r39544  # Liberado para Revisão
 40     # pgpkeys             # r39631  # Liberado para Revisão
 2039   # glossary.ent        # r39534  #
-25     # colophon.xml        # r39631  # Liberado para revisão
+25     # colophon.xml        # r39631  # Liberado para Revisão
 ##################################################################
 9215 Linhas
 
@@ -17,7 +17,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
-1048   # introduction        # r39576  # Vinícius Zavam (adotado), 25/12/2013
+1048   # introduction        # r39576  # Liberado para Revisão
 5011   # install             # r39550  # Marcos Alves, 16/10/2012 
 2731   # bsdinstall          # r39550  # Liberado para Revisão
 2716   # basics              # r39544  # Marcelo Rossi, 27/11/2012
@@ -50,7 +50,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 2075   # mac                 # r39544  #
 717    # audit               # r39544  # Liberado para Revisão
 4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
-981    # geom                # r39544  # Jonas Ferreira, 21/09/2012 
+981    # geom                # r39544  # Vinícius Zavam (adotado), 29/12/2013
 885    # filesystems         # r39544  # Liberado para Revisão
 1296   # vinum               # r39544  #
 1300   # virtualization      # r39595  # Liberado para Revisão

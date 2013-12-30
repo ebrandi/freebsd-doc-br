@@ -1270,7 +1270,7 @@ Mounting root from ufs:/dev/md0c
   </sect1>
 
   <sect1 id="using-sysinstall">
-    <title>Introduzindo ao <application>sysinstall</application></title>
+    <title>Introduzindo o <application>sysinstall</application></title>
 
     <para>A utilidade <application>sysinstall</application> é a 
       aplicação fornecida pelo projeto FreeBSD. É uma aplicação baseada

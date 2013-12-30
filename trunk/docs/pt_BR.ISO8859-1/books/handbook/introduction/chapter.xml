@@ -953,36 +953,39 @@
 	  <listitem>
 	    <indexterm><primary>core team</primary></indexterm>
 
-	    <para>O <firstterm>Core Team</firstterm> do Projeto &os;
-	      would be equivalent to the board of directors if the
-	      &os;&nbsp;Project were a company.  The primary task of the core
-	      team is to make sure the project, as a whole, is in good shape
-	      and is heading in the right directions.  Inviting dedicated
-	      and responsible developers to join our group of committers
-	      is one of the functions of the core team, as is the
-	      recruitment of new core team members as others move on.
-	      The current core team was elected from a pool of committer
-	      candidates in July 2012.  Elections are held
-	      every 2 years.</para>
+	    <para>Se o Projeto &os; fosse uma empresa, o 
+	      <firstterm>Core Team</firstterm> seria algo equivalente 
+	      ao Conselho Administrativo (Diretoria). Sua principal 
+	      tarefa é manter, como um todo, o projeto <quote>na linha</quote>. 
+	      Convidar desenvolvedores dedicados e responsáveis para 
+	      compor o time de committers é uma das funções 
+	      desempenhadas pelo Core Team, bem como recrutar 
+	      desenvolvedores caso algum outro deixe de desempenhar uma 
+	      determinada função. A cada 2 anos é feita a eleição 
+	      para formar o Core Team, que é formado por um grupo de 
+	      committers que se candidatam para compor este quadro de 
+	      colaboradores. O time atual que faz parte do Core Team 
+	      foi eleito em Julho de 2012.</para>
 
-	    <para>Some core team members also have specific areas of
-	      responsibility, meaning that they are committed to
-	      ensuring that some large portion of the system works as
-	      advertised.  For a complete list of &os; developers
-	      and their areas of responsibility, please see the <ulink
-		url="&url.articles.contributors;/article.html">Contributors
-		List</ulink></para>
+	    <para>Alguns membros do Core Team se responsabilizam por 
+		áreas específicas no projeto, garantindo que o sistema 
+		possa operar como anunciado aos usuários e à comunidade. 
+		Para ver a lista completa de colaboradores do Projeto 
+		&os;, e suas áreas de responsabilidade, consulte a 
+		<ulink url="&url.articles.contributors;/article.html">
+		Lista de Colaboradores do Projeto</ulink>.</para>
 
 	    <note>
-	      <para>Most members of the core team are volunteers when it
-		comes to &os; development and do not benefit from the
-		project financially, so <quote>commitment</quote> should
-		also not be misconstrued as meaning <quote>guaranteed
-		support.</quote>  The <quote>board of directors</quote>
-		analogy above is not very accurate, and it may be
-		more suitable to say that these are the people who gave up
-		their lives in favor of &os; against their better
-		judgement!</para>
+	      <para>Muitos dos membros do Core Team são voluntários 
+		quando se trata de colaborar com o Projeto &os; e não 
+		são financeiramente beneficiados por exercer funções 
+		aqui já descritas. <quote>Comprometimento</quote> não 
+		deve ser confundido com <quote>garantia de suporte</quote> 
+		vindo destes ou de outros membros do projeto. O 
+		conselho administrativo, analogicamente definido 
+		aqui, pode não ser tão preciso e talvez seja mais 
+		exato dizer que ele é composto por pessoas que dedicam 
+		suas vidas em pról do Projeto &os;!</para>
 	    </note>
 	  </listitem>
 	</varlistentry>
@@ -993,42 +996,52 @@
 	  <listitem>
 	    <indexterm><primary>contributors</primary></indexterm>
 
-	    <para>Last, but definitely not least, the largest group of
-	      developers are the users themselves who provide feedback and
-	      bug fixes to us on an almost constant basis.  The primary
-	      way of keeping in touch with &os;'s more non-centralized
-	      development is to subscribe to the &a.hackers; where such
-	      things are discussed.  See <xref linkend="eresources"/> for
-	      more information about the various &os; mailing lists.</para>
+	    <para>Por último, mas, definitivamente, não menos 
+		importante, o maior grupo de desenvolvedores é 
+		composto por usuários que dão seus próprios 
+		<literal>feedbacks</literal> e criam correções para 
+		falhas do sistema e nos enviam isso quase que 
+		regularmente. A principal maneira de acompanhar e manter 
+		contato com este modelo não centralizado de 
+		desenvolvimento adotado pelo &os; é assinar a &a.hackers;, 
+		onde usuários, colaboradores e voluntários estão 
+		lá discutindo esse assunto. Consulte o 
+		<xref linkend="eresources"/> para obter mais 
+		informações sobre outras listas de discussão 
+		ligadas ao &os;</para>
 
-	    <para><citetitle><ulink
-		url="&url.articles.contributors;/article.html">The
-		&os; Contributors List</ulink></citetitle> is a long
-	      and growing one, so why not join it by contributing
-	      something back to &os; today?</para>
+	    <para>A <citetitle><ulink
+		url="&url.articles.contributors;/article.html">Lista 
+		de Colaboradores do &os;</ulink></citetitle> está em 
+		crescimento constante, então, por quê não fazer parte 
+		dela e contribuir com algo em troca para beneficiar 
+		o &os; hoje?</para>
 
-	    <para>Providing code is not the only way of contributing to
-	      the project; for a more complete list of things that need
-	      doing, please refer to the <ulink
-		url="&url.base;/index.html">&os;&nbsp;Project web
-		site</ulink>.</para>
+	    <para>Fornecer código não é a única maneira de colaborar 
+		com o projeto; para uma lista mais completa com as 
+		necessidades que precisam ser preenchidas, por favor 
+		visite o <ulink url="&url.base;/index.html">
+		Sítio Web do Projeto &os;</ulink>.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
 
-      <para>In summary, our development model is organized as a loose set
-	of concentric circles.  The centralized model is designed for the
-	convenience of the <emphasis>users</emphasis> of &os;, who are
-	provided with an easy way of tracking one central code
-	base, not to keep potential contributors out! Our desire is to
-	present a stable operating system with a large set of coherent
-	<link linkend="ports">application programs</link> that the users
-	can easily install and use &mdash; this model works very well in
-	accomplishing that.</para>
+      <para>Em resumo, nosso modelo de desenvolvimento é organizado 
+	como <quote>um conjunto de círculos concêntricos</quote>. 
+	Um modelo centralizado é designado para conveniência dos 
+	<emphasis>usuários do &os;</emphasis> que se interessem 
+	numa maneira fácil de localizar uma base de código central, 
+	não para manter contribuidores em potencial fora! Nosso 
+	desejo é de poder sempre apresentar um sistema operacional 
+	estável com o maior <link linkend="ports">conjuto de aplicações</link> 
+	possíveis de serem facilmente instaladas &mdash; este modelo 
+	vem se mostrado muito bom e vem cumprindo todas as 
+	necessidades.</para>
 
-      <para>All we ask of those who would join us as &os; developers is
-	some of the same dedication its current people have to its
-	continued success!</para>
+      <para>Tudo que pedimos às pessoas que desejam fazer parte do 
+	grupo de desenvolvedores do &os; é que elas tenham a mesma 
+	dedicação que vemos nas pessoas que atualmente 
+	já contribuem para seu crescente sucesso!</para>
     </sect2>
 
     <sect2 id="relnotes">
