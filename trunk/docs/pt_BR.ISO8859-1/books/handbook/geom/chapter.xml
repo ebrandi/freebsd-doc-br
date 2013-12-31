@@ -216,20 +216,19 @@ Done.</screen>
 
     <screen>&prompt.root; <userinput>mount /dev/stripe/st0a /mnt</userinput></screen>
 
-    <para>To mount this striped file system automatically during the
-      boot process, place the volume information in
-      <filename>/etc/fstab</filename> file.  For this purpose, a
-      permanent mount point, named
-      <filename class="directory">stripe</filename>, is
-      created:</para>
+    <para>Para montar o novo volume automaticamente durante o processo 
+	de inicialização do &os; adicione uma entrada no arquivo 
+	<filename>/etc/fstab</filename>. Neste exemplo criou-se o 
+	diretório <filename class="directory">/stripe</filename> para 
+	demonstrar esta configuração:</para>
 
     <screen>&prompt.root; <userinput>mkdir /stripe</userinput>
-&prompt.root; <userinput>echo "/dev/stripe/st0a /stripe ufs rw 2 2" \</userinput>
-    <userinput>&gt;&gt; /etc/fstab</userinput></screen>
+&prompt.root; <userinput>echo "/dev/stripe/st0a /stripe ufs rw 2 2" &gt;&gt; /etc/fstab</userinput></screen>
 
-    <para>The <filename>geom_stripe.ko</filename> module must also be
-      automatically loaded during system initialization, by adding a
-      line to <filename>/boot/loader.conf</filename>:</para>
+    <para>O módulo <filename>geom_stripe.ko</filename> também pode 
+	ser carregado automaticamente durante o processo de 
+	inicialização do sistema. Para isso, adicione a seguinte 
+	entrada no arquivo <filename>/boot/loader.conf</filename>:</para>
 
     <screen>&prompt.root; <userinput>echo 'geom_stripe_load="YES"' &gt;&gt; /boot/loader.conf</userinput></screen>
   </sect1>
@@ -244,101 +243,112 @@ Done.</screen>
       <primary>Disk Mirroring</primary>
     </indexterm>
 
-    <para>Mirroring is a technology used by many corporations and home
-      users to back up data without interruption.  When a mirror
-      exists, it simply means that diskB replicates diskA.  Or,
-      perhaps diskC+D replicates diskA+B.  Regardless of the disk
-      configuration, the important aspect is that information on one
-      disk or partition is being replicated.  Later, that information
-      could be more easily restored, backed up without causing service
-      or access interruption, and even be physically stored in a data
-      safe.</para>
+    <para>Espelhamento (<literal>Mirroring</literal>) é uma tecnologia 
+	utilizada por diversas organizações e usuários domésticos para 
+	garantir o <literal>backup</literal> de dados sem interrupção. 
+	Quando um espelhamento existe, significa dizer que um disco 
+	B é réplica de um disco A (ou, talvez, que discos C e D são 
+	réplicas de discos A e B). Independentemente do tamanho do disco 
+	ou partição, o aspecto importante aqui é que toda a informação 
+	é replicada. Num outro momento esta informação pode ser mais 
+	facilmente restaurada ou movida sem causar a interrupção 
+	de serviços.</para>
 
-    <para>To begin, ensure the system has two disk drives of equal
-      size, these exercises assume they are direct access (&man.da.4;)
-      <acronym>SCSI</acronym> disks.</para>
+    <para>Para começar, garanta que existam dois discos do mesmo 
+	tamanho. Neste exercício, assuma que existem dois discos 
+	<acronym>SCSI</acronym> (veja mais informações na página de 
+	manual &man.da.4;).</para>
 
     <sect2>
-      <title>Mirroring Primary Disks</title>
+      <title>Espelhando Discos</title>
 
-      <para>Assuming &os; has been installed on the first,
-	<devicename>da0</devicename> disk device, &man.gmirror.8;
-	should be told to store its primary data there.</para>
+      <para>Assumindo que o &os; foi instalado no disco primário da 
+	máquina (detectado como <devicename>da0</devicename>), deve-se 
+	dizer ao &man.gmirror.8; para gravar seus dados 
+	preferencialmente neste disco primário (que será, também, o 
+	disco principal para este exemplo).</para>
 
-      <para>Before building the mirror, enable additional debugging
-	information and opening access to the device by setting the
-	<varname>kern.geom.debugflags</varname> &man.sysctl.8; option
-	to the following value:</para>
+      <para>Antes de construir este espelho (<literal>mirror</literal>), 
+	habilite a depuração adicional de erros e detecção de acesso 
+	à dispositivos alterando a opção 
+	<varname>kern.geom.debugflags</varname> com o comando 
+	&man.sysctl.8;:</para>
 
       <screen>&prompt.root; <userinput>sysctl kern.geom.debugflags=17</userinput></screen>
 
-      <para>Now create the mirror.  Begin the process by storing
-	meta-data information on the primary disk device,
-	effectively creating the
-	<filename class="devicefile">/dev/mirror/gm</filename> device
-	using the following command:</para>
+      <para>Agora crie o espelho. Começe o procedimento armazenando 
+	metadados no disco principal; para isso será criado o 
+	dispositivo <filename class="devicefile">/dev/mirror/gm</filename> 
+	com ajuda do seguinte comando:</para>
 
       <warning>
-	<para>Creating a mirror out of the boot drive may result in
-	  data loss if any data has been stored on the last sector of
-	  the disk.  This risk is reduced if creating the mirror is
-	  done promptly after a fresh install of &os;.  The following
-	  procedure is also incompatible with the default installation
-	  settings of &os;&nbsp;9.<replaceable>X</replaceable> which
-	  use the new <acronym>GPT</acronym> partition scheme.  GEOM
-	  will overwrite <acronym>GPT</acronym> metadata, causing data
-	  loss and possibly an unbootable system.</para>
+	<para>Criar um espelhamento fora do disco de inicialização 
+	  pode resultar na perda de dados caso já existam dados gravados 
+	  no último setor daquele disco. Este risco é bem menor quando 
+	  você cria o espelhamento loco após uma instalação recém 
+	  concluída do &os;. O seguinte procedimento também é 
+	  incompatível com as configurações padrões utilizadas pelo 
+	  &os; 9.<replaceable>X</replaceable>, que utiliza um novo 
+	  esquema de particionamento tipo <acronym>GPT</acronym>. O 
+	  GEOM iria sobrescrever os metadados utilizados pelo 
+	  <acronym>GPT</acronym> e causaria, muito provavelmente, 
+	  problemas que impossibilitariam a inicialização correta de 
+	  todo o sistema e perda de dados.</para>
       </warning>
 
       <screen>&prompt.root; <userinput>gmirror label -vb round-robin gm0 /dev/da0</userinput></screen>
 
-      <para>The system should respond with:</para>
+      <para>Logo após a execução do comando, o sistema deve 
+	responder com algo parecido com:</para>
 
       <screen>Metadata value stored on /dev/da0.
 Done.</screen>
 
-      <para>Initialize GEOM, this will load the
-	<filename>/boot/kernel/geom_mirror.ko</filename> kernel
-	module:</para>
+      <para>Agora inicialize o GEOM. Isso também fará com que o 
+	módulo <filename>geom_mirror.ko</filename> seja carregado:</para>
 
       <screen>&prompt.root; <userinput>gmirror load</userinput></screen>
 
       <note>
-	<para>When this command completes successfully, it creates the
-	  <devicename>gm0</devicename> device node under the
-	  <filename class="directory">/dev/mirror</filename>
-	  directory.</para>
+	<para>Quando a execução destes comandos tiver terminado com 
+	  sucesso, um dispositivo nomeado de 
+	  <devicename>gm0</devicename> será criado no diretório 
+	  <filename class="directory">/dev/mirror</filename>.</para>
       </note>
 
-      <para>Enable loading of the <filename>geom_mirror.ko</filename>
-	kernel module during system initialization:</para>
+      <para>Configure seu sistema para que o módulo 
+	<filename>geom_mirror.ko</filename> seja carregado durante a 
+	inicialização do sistema. Você pode fazer isso da seguinte 
+	forma:</para>
 
       <screen>&prompt.root; <userinput>echo 'geom_mirror_load="YES"' &gt;&gt; /boot/loader.conf</userinput></screen>
 
-      <para>Edit the <filename>/etc/fstab</filename> file, replacing
-	references to the old <devicename>da0</devicename> with the
-	new device nodes of the <devicename>gm0</devicename> mirror
-	device.</para>
+      <para>Edite, então, as configurações no arquivo 
+	<filename>/etc/fstab</filename> que façam mensão ao antigo 
+	dispositivo (<devicename>da0</devicename>) e utilize o novo 
+	dispositivo de espelhamento que foi criado 
+	(<devicename>gm0</devicename>).</para>
 
       <note>
-	<para>If &man.vi.1; is your preferred editor, the following is
-	  an easy way to accomplish this task:</para>
+	<para>Se o &man.vi.1; for seu editor preferido, existe um 
+	  jeito fácil de realizar estas modificações:</para>
 
 	<screen>&prompt.root; <userinput>vi /etc/fstab</userinput></screen>
 
-	<para>In &man.vi.1; back up the current contents of
-	  <filename>fstab</filename> by typing
-	  <userinput>:w /etc/fstab.bak</userinput>.  Then
-	  replace all old <devicename>da0</devicename> references
-	  with <devicename>gm0</devicename> by typing
+	<para>No &man.vi.1; você já poderá criar um backup do conteúdo 
+	  do seu <filename>fstab</filename> digitando 
+	  <userinput>:w /etc/fstab.bak</userinput>.  Então substitua 
+	  todas as antigas entradas de <devicename>da0</devicename> 
+	  por <devicename>gm0</devicename> digitando 
 	  <userinput>:%s/da/mirror\/gm/g</userinput>.</para>
       </note>
 
-      <para>The resulting <filename>fstab</filename> file should look
-	similar to the following.  It does not matter if the disk
-	drives are <acronym>SCSI</acronym> or <acronym>ATA</acronym>,
-	the <acronym>RAID</acronym> device will be
-	<devicename>gm</devicename> regardless.</para>
+      <para>Após as alterações no <filename>fstab</filename> o arquivo 
+	pode ser semelhante ao exemplo abaixo. O fato dos discos 
+	envolvidos serem do <acronym>SCSI</acronym> ou 
+	<acronym>ATA</acronym> não mudará o fato de que o 
+	espelhamento (<acronym>RAID</acronym> 1) feito receberá o 
+	nome de <devicename>gm0</devicename>.</para>
 
       <programlisting># Device		Mountpoint	FStype	Options		Dump	Pass#
 /dev/mirror/gm0s1b	none		swap	sw		0	0
@@ -349,15 +359,16 @@ Done.</screen>
 /dev/mirror/gm0s1e	/var		ufs	rw		2       2
 /dev/acd0		/cdrom		cd9660	ro,noauto	0	0</programlisting>
 
-      <para>Reboot the system:</para>
+      <para>Reinicie o sistema:</para>
 
       <screen>&prompt.root; <userinput>shutdown -r now</userinput></screen>
 
-      <para>During system initialization, the
-	<devicename>gm0</devicename> should be used in place of the
-	<devicename>da0</devicename> device.  Once fully initialized,
-	this may be checked by visually inspecting the output from
-	the <command>mount</command> command:</para>
+      <para>Durante o processo de inicialização do sistema, você 
+	deverá notar que <devicename>gm0</devicename> será usado ao 
+	invés de <devicename>da0</devicename>. Uma vez terminado o 
+	processo de inicialização por completo, é possível de se 
+	verificar esta alteração com ajuda do comando 
+	<command>mount</command>:</para>
 
       <screen>&prompt.root; <userinput>mount</userinput>
 Filesystem         1K-blocks    Used    Avail Capacity  Mounted on
@@ -368,85 +379,96 @@ devfs                      1       1        0   100%    /dev
 /dev/mirror/gm0s1e   3045006 2241420   559986    80%    /var
 devfs                      1       1        0   100%    /var/named/dev</screen>
 
-      <para>The output looks good, as expected.  Finally, to begin
-	synchronization, insert the <devicename>da1</devicename> disk
-	into the mirror using the following command:</para>
+      <para>A saída do comando parece boa, como já era de se esperar. 
+	Finalmente, para dar início ao processo de sincronização 
+	entre os discos espelhados, adicione o dispositivo que deverá 
+	receber a replicação do disco principal. Neste caso o 
+	dispositivo utilizado foi detectado como 
+	<devicename>da1</devicename> e será adicionado ao 
+	espelhamento com o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>gmirror insert gm0 /dev/da1</userinput></screen>
 
-      <para>As the mirror is built the status may be checked using
-	the following command:</para>
+      <para>Enquanto a replicação de dados é realizada, você pode 
+	verificar o status com o seguinte comando:</para>
 
       <screen>&prompt.root; <userinput>gmirror status</userinput></screen>
 
-      <para>Once the mirror has been built and all current data
-	has been synchronized, the output from the above command
-	should look like:</para>
+      <para>Uma vez que o processo de réplica for finalizado, a 
+	saída do comando acima deverá ser semelhante a:</para>
 
       <screen>      Name    Status  Components
 mirror/gm0  COMPLETE  da0
                       da1</screen>
 
-      <para>If there are any issues, or the mirror is still
-	completing the build process, the example will show
-	<literal>DEGRADED</literal> in place of
+      <para>Se existir alguma complicação, ou se o processo ainda 
+	não tiver sido concluído, o status será apresentado como 
+	<literal>DEGRADED</literal> ao invés de 
 	<literal>COMPLETE</literal>.</para>
     </sect2>
 
     <sect2>
-      <title>Troubleshooting</title>
+      <title>Solução de Problemas</title>
 
       <sect3>
-	<title>System Refuses to Boot</title>
+	<title>O Sistema não Inicializa</title>
 
-	<para>If the system boots up to a prompt similar to:</para>
+	<para>Se o sistema parar durante o processo de inicialização 
+	  e exibir uma mensagem similar a esta:</para>
 
 	<programlisting>ffs_mountroot: can't find rootvp
 Root mount failed: 6
 mountroot></programlisting>
 
-	<para>Reboot the machine using the power or reset button.  At
-	  the boot menu, select option six (6).  This will drop the
-	  system to a &man.loader.8; prompt.  Load the kernel module
-	  manually:</para>
+	<para>Reinicie sua máquina precionando o botão de liga/desliga 
+	  ou reset. No menu com opções de inicialização, selecione a 
+	  opção 6. Esta opção irá lhe fornecer um 
+	  <literal>prompt</literal> de comando do &man.loader.8;. 
+	  Carregue, então, o módulo no kernel e tente iniciar 
+	  o &os; normalmente:</para>
 
 	<screen>OK? <userinput>load geom_mirror</userinput>
 OK? <userinput>boot</userinput></screen>
 
-	<para>If this works then for whatever reason the module was
-	  not being loaded properly.  Check whether the relevant entry
-	  in <filename>/boot/loader.conf</filename> is correct.  If
-	  the problem persists, place:</para>
+	<para>Se este procedimento funcionar, isso indica que, por 
+	  algum motivo, o módulo responsável pelo espelhamento feito 
+	  através do GEOM não foi carregado automaticamente de forma 
+	  correta. Verifique se as configurações no arquivo 
+	  <filename>/boot/loader.conf</filename> estão corretas. 
+	  Caso o problema continue, adicione a entrada</para>
 
 	<programlisting>options	GEOM_MIRROR</programlisting>
 
-	<para>in the kernel configuration file, rebuild and reinstall.
-	  That should remedy this issue.</para>
+	<para>no arquivo de configuração do kernel, recompile-o e 
+	  instale-o. Isso deve remediar o problema.</para>
       </sect3>
     </sect2>
 
     <sect2>
-      <title>Recovering from Disk Failure</title>
+      <title>Recuperando-se de Falhas em Discos</title>
 
-      <para>The wonderful part about disk mirroring is that when a
-	disk fails, it may be replaced, presumably, without losing
-	any data.</para>
+      <para>A melhor parte sobre espelhamento de discos é que quando 
+	um disco falha ele pode ser substituído, presumidamente, sem 
+	que nenhuma informação tenha sido perdida</para>
 
-      <para>Considering the previous <acronym>RAID</acronym>1
-	configuration, assume that <devicename>da1</devicename>
-	has failed and now needs to be replaced.  To replace it,
-	determine which disk has failed and power down the system.
-	At this point, the disk may be swapped with a new one and
-	the system brought back up.  After the system has restarted,
-	the following commands may be used to replace the disk:</para>
+      <para>Considerando o exemplo anterior com a configuração em 
+	<acronym>RAID</acronym> 1 que foi feita, assuma que 
+	<devicename>da1</devicename> é um disco que tenha falhado e 
+	precisa ser trocado. Para realizar tal procedimento, 
+	identifique qual disco físico corresponde a unidade 
+	<devicename>da1</devicename> e desligue seu sistema. Neste 
+	ponto o disco com falha deve ser trocado por um novo disco 
+	e o sistema já pode ser religado. Depois do sistema ter 
+	inicializado novamente, os seguintes comandos podem ser 
+	usados para efetuar a troca do disco no espelhamento:</para>
 
       <screen>&prompt.root; <userinput>gmirror forget gm0</userinput></screen>
 
       <screen>&prompt.root; <userinput>gmirror insert gm0 /dev/da1</userinput></screen>
 
-      <para>Use the <command>gmirror</command> <option>status</option>
-	command to monitor the progress of the rebuild.  It is that
-	simple.</para>
+      <para>Use o comando <command>gmirror</command> <option>status</option>
+	para monitorar o andamento do processo de réplica entre os 
+	discos. É simples assim.</para>
     </sect2>
   </sect1>
 
@@ -456,7 +478,7 @@ OK? <userinput>boot</userinput></screen>
 	<author>
 	  <firstname>Mark</firstname>
 	  <surname>Gladman</surname>
-	  <contrib>Written by </contrib>
+	  <contrib>Uma Contribuição de </contrib>
 	</author>
 	<author>
 	  <firstname>Daniel</firstname>
@@ -467,7 +489,7 @@ OK? <userinput>boot</userinput></screen>
 	<author>
 	  <firstname>Tom</firstname>
 	  <surname>Rhodes</surname>
-	  <contrib>Based on documentation by </contrib>
+	  <contrib>Baseado na Documentação de </contrib>
 	</author>
 	<author>
 	  <firstname>Murray</firstname>
@@ -476,8 +498,8 @@ OK? <userinput>boot</userinput></screen>
       </authorgroup>
     </sect1info>
 
-    <title><acronym>RAID</acronym>3 - Byte-level Striping with Dedicated
-      Parity</title>
+    <title><acronym>RAID</acronym> 3 - Divisão (<literal>Striping</literal>) 
+	a Nível de Byte com Disco de Paridade</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -486,75 +508,84 @@ OK? <userinput>boot</userinput></screen>
       <primary>RAID3</primary>
     </indexterm>
 
-    <para><acronym>RAID</acronym>3 is a method used to combine several
-      disk drives into a single volume with a dedicated parity
-      disk.  In a <acronym>RAID</acronym>3 system, data is split up
-      into a number of bytes that are written across all the drives in
-      the array except for one disk which acts as a dedicated parity
-      disk.  This means that reading 1024KB from a
-      <acronym>RAID</acronym>3 implementation will access all disks in
-      the array.  Performance can be enhanced by using multiple
-      disk controllers.  The <acronym>RAID</acronym>3 array provides a
-      fault tolerance of 1 drive, while providing a capacity of 1 - 1/n
-      times the total capacity of all drives in the array, where n is the
-      number of hard drives in the array.  Such a configuration is
-      mostly suitable for storing data of larger sizes, e.g.
-      multimedia files.</para>
+    <para>O <acronym>RAID</acronym> 3 é um método utilizado para 
+      combinar diversos dispositivos de disco num único volume e 
+      faz uso de um disco de paridade dedicado. Num sistema com este 
+      tipo de <acronym>RAID</acronym>, os dados são divididos em num 
+      número de bytes que são escritos em todos os discos que fazem 
+      parte do array exceto por um dos discos, que funciona, 
+      dedicadamente, como disco de paridade. Isso significa que a 
+      leitura de 1024KB numa implementação em <acronym>RAID</acronym> 
+      3 irá acessar os dados em todos os discos do array &mdash; a 
+      performance pode ser melhorada através do uso de diversas 
+      controladores de disco. <acronym>RAID</acronym> 3 provê 
+      tolerância a falha para 1 dos discos do array enquanto provê 
+      capacidade de armazenamento <quote>1 - 1/n</quote> vezes a 
+      capacidade total de todos os discos que compõem o array, onde 
+      <replaceable>n</replaceable> é o número de discos neste array. 
+      Tal tipo de configuração é adequada, principalmente, para 
+      cenários que necessitem armazenar arquivos grandes como, 
+      por exemplo, arquivos de multimídia.</para>
 
-    <para>At least 3 physical hard drives are required to build a
-      <acronym>RAID</acronym>3 array.  Each disk must be of the same
-      size, since I/O requests are interleaved to read or write to
-      multiple disks in parallel.  Also, due to the nature of
-      <acronym>RAID</acronym>3, the number of drives must be
-      equal to 3, 5, 9, 17, etc. (2^n + 1).</para>
+    <para>Pelo menos 3 discos físicos são necessários para configurar 
+      um <acronym>RAID</acronym> 3. Cada um dos discos deve ter o 
+      mesmo tamanho, visto que as requisições de I/O são intercaladas 
+      para leitura e escrita paralelamente entre múltiplos discos. 
+      Também, dada a natureza do <acronym>RAID</acronym> 3, o número 
+      de discos utilizados deve seguir a seguinte progressão: 
+      3, 5, 9, 17 e etc 
+      (2^<replaceable>n</replaceable> + 1).</para>
 
     <sect2>
-      <title>Creating a Dedicated <acronym>RAID</acronym>3 Array</title>
+      <title>Criando um Array Dedicado em <acronym>RAID</acronym> 3</title>
 
-      <para>In &os;, support for <acronym>RAID</acronym>3 is
-	implemented by the &man.graid3.8; <acronym>GEOM</acronym>
-	class.  Creating a dedicated
-	<acronym>RAID</acronym>3 array on &os; requires the following
-	steps.</para>
+      <para>No &os;, o suporte a <acronym>RAID</acronym> 3 é 
+	implementado pela a classe do &man.graid3.8;, pertencente 
+	ao framework <acronym>GEOM</acronym>. A criação de um array 
+	dedicado para este tipo de <acronym>RAID</acronym> no &os; 
+	requer que você siga os passos a seguir.</para>
 
       <note>
-	<para>While it is theoretically possible to boot from a
-	  <acronym>RAID</acronym>3 array on &os;, that configuration
-	  is uncommon and is not advised.</para>
+	<para>Na teoria, é possível de se inicializar o &os; num 
+	  sistema com <acronym>RAID</acronym> 3, mas este tipo de 
+	  configuração é bastante incomum e não é aconselhável de 
+	  se realizar.</para>
       </note>
 
       <procedure>
 	<step>
-	  <para>First, load the <filename>geom_raid3.ko</filename>
-	    kernel module by issuing the following command:</para>
+	  <para>Primeiro, o módulo <filename>geom_raid3.ko</filename> 
+	    deverá ser carregado com ajuda do seguinte comando:</para>
 
 	  <screen>&prompt.root; <userinput>graid3 load</userinput></screen>
 
-	  <para>Alternatively, it is possible to manually load the
-	    <filename>geom_raid3.ko</filename> module:</para>
+	  <para>Um outro jeito para se carregar este módulo 
+	    manualmente é utilizando o comando 
+	    <command>kldload</command> para este fim:</para>
 
 	  <screen>&prompt.root; <userinput>kldload geom_raid3.ko</userinput></screen>
 	</step>
 
 	<step>
-	  <para>Create or ensure that a suitable mount point
-	    exists:</para>
+	  <para>Garanta que exista um ponto de montagem para receber 
+	    o volume que será criado. Caso não exista, crie um 
+	    diretório para tal finalidade:</para>
 
-	  <screen>&prompt.root; <userinput>mkdir <replaceable>/multimedia/</replaceable></userinput></screen>
+	  <screen>&prompt.root; <userinput>mkdir <replaceable>/multimedia</replaceable></userinput></screen>
 	</step>
 
 	<step>
-	  <para>Determine the device names for the disks which will be
-	    added to the array, and create the new
-	    <acronym>RAID</acronym>3 device.  The final device listed
-	    will act as the dedicated parity disk.  This
-	    example uses three unpartitioned
-	    <acronym>ATA</acronym> drives:
-	    <devicename><replaceable>ada1</replaceable></devicename>
-	    and <devicename><replaceable>ada2</replaceable></devicename>
-	    for data, and
-	    <devicename><replaceable>ada3</replaceable></devicename>
-	    for parity.</para>
+	  <para>Determine quais dispositivos serão utilizados para a 
+	    criação do array e crie um novo dispositivo agrupando-os 
+	    em <acronym>RAID</acronym> 3. O último disco adicionado 
+	    na listagem funcionará como disco de paridade. Neste exemplo 
+	    foram utilizados 3 discos <acronym>ATA</acronym> ainda 
+	    não particionados: 
+	    <devicename><replaceable>ada1</replaceable></devicename>, 
+	    <devicename><replaceable>ada2</replaceable></devicename> 
+	    (armazenamento dos dados) e 
+	    <devicename><replaceable>ada3</replaceable></devicename> 
+	    (paridade do array).</para>
 
 	  <screen>&prompt.root; <userinput>graid3 label -v gr0 /dev/ada1 /dev/ada2 /dev/ada3</userinput>
 Metadata value stored on /dev/ada1.
@@ -564,48 +595,51 @@ Done.</screen>
 	</step>
 
 	<step>
-	  <para>Partition the newly created
-	    <devicename>gr0</devicename> device and put a UFS file
-	    system on it:</para>
+	  <para>Particione o novo dispositivo criado 
+	    (<devicename>gr0</devicename>) e utilize o sistema de 
+	    arquivos UFS nele:</para>
 
 	  <screen>&prompt.root; <userinput>gpart create -s GPT /dev/raid3/gr0</userinput>
 &prompt.root; <userinput>gpart add -t freebsd-ufs /dev/raid3/gr0</userinput>
 &prompt.root; <userinput>newfs -j /dev/raid3/gr0p1</userinput></screen>
 
-	  <para>Many numbers will glide across the screen, and after a
-	    bit of time, the process will be complete.  The volume has
-	    been created and is ready to be mounted.</para>
+	  <para>Vários números aparecerão na tela e, depois de um 
+	    certo tempo, o processo será concluído. O volume terá 
+	    sido criado e estará pronto para ser utilizado.</para>
 	</step>
 
 	<step>
-	  <para>The last step is to mount the file system:</para>
+	  <para>O último passo é montar o novo volume e usar seu 
+	    sistema de arquivos:</para>
 
-	  <screen>&prompt.root; <userinput>mount /dev/raid3/gr0p1 /multimedia/</userinput></screen>
+	  <screen>&prompt.root; <userinput>mount /dev/raid3/gr0p1 /multimedia</userinput></screen>
 
-	  <para>The <acronym>RAID</acronym>3 array is now ready to
-	    use.</para>
+	  <para>Agora o volume em <acronym>RAID</acronym> 3 já está 
+	    pronto para uso!</para>
 	</step>
       </procedure>
 
-      <para>Additional configuration is needed to retain the above
-	setup across system reboots.</para>
+      <para>Uma certa configuração adicional é necessária para 
+	    garantir que o ambiente continue funcionando após o 
+	    sistema ser reiniciado.</para>
 
       <procedure>
 	<step>
-	  <para>The <filename>geom_raid3.ko</filename> module must be
-	    loaded before the array can be mounted.  To automatically
-	    load the kernel module during the system initialization, add
-	    the following line to the
-	    <filename>/boot/loader.conf</filename> file:</para>
+	  <para>O módulo <filename>geom_raid3.ko</filename> deve ser 
+	    carregado antes que o array seja montado. Para carregar 
+	    este módulo automaticamente durante o processo de 
+	    inicialização do &os;, adicione a seguinte entrada no 
+	    arquivo <filename>/boot/loader.conf</filename> file:</para>
 
 	  <programlisting>geom_raid3_load="YES"</programlisting>
 	</step>
 
 	<step>
-	  <para>The following volume information must be added to the
-	    <filename>/etc/fstab</filename> file in order to
-	    automatically mount the array's file system during
-	    the system boot process:</para>
+	  <para>A seguinte entrada deve ser adicionada ao conteúdo 
+	    do arquivo <filename>/etc/fstab</filename> para que o 
+	    sistema de arquivos do array (volume) seja montado 
+	    automaticamente durante o processo de inicialização do 
+	    sistema:</para>
 
 	  <programlisting>/dev/raid3/gr0p1	/multimedia	ufs	rw	2	2</programlisting>
 	</step>
@@ -614,49 +648,58 @@ Done.</screen>
   </sect1>
 
   <sect1 id="geom-ggate">
-    <title>GEOM Gate Network Devices</title>
+    <title>GEOM e Dispositivos de Rede</title>
 
-    <para>GEOM supports the remote use of devices, such as disks,
-      CD-ROMs, files, etc. through the use of the gate utilities.
-      This is similar to <acronym>NFS</acronym>.</para>
+    <para>O GEOM suporta o uso de dispositivos remotos (unidades de 
+      CD-ROM, discos, arquivos e etc) através de utilitários que lhe 
+      fornecem tal função. É similar ao que pode ser feito com 
+      <acronym>NFS</acronym>.</para>
 
-    <para>To begin, an exports file must be created.  This file
-      specifies who is permitted to access the exported resources and
-      what level of access they are offered.  For example, to export
-      the fourth slice on the first <acronym>SCSI</acronym> disk, the
-      following <filename>/etc/gg.exports</filename> is more than
-      adequate:</para>
+    <para>Para começar, um arquivo que exportará os volumes precisa 
+      ser criado. Este arquivo dirá quem têm permissão para acessar 
+      determinado volume e quais serão essas permissões. Por 
+      exemplo, para permitir acesso à partição 4 em seu primeiro 
+      disco <acronym>SCSI</acronym> através da rede você teria que 
+      editar o arquivo <filename>/etc/gg.exports</filename> para que 
+      ele seja semelhante a:</para>
 
     <programlisting>192.168.1.0/24 RW /dev/da0s4d</programlisting>
 
-    <para>It will allow all hosts inside the private network access
-      the file system on the <devicename>da0s4d</devicename>
-      partition.</para>
+    <para>Considerando que sua rede é endereçada com o bloco 
+      192.168.1.0/24, este exemplo permite que todas as estações em sua 
+      rede possam ter acesso a partição 
+      <devicename>da0s4d</devicename> com permissões de leitura 
+      e escrita.</para>
 
-    <para>To export this device, ensure it is not currently mounted,
-      and start the &man.ggated.8; server daemon:</para>
+    <para>Para exportar corretamente este dispositivo, garanta que 
+      ele esteja montado e que o daemon do servidor &man.ggated.8; 
+      esteja em execução. Para iniciar o &man.ggated.8;, utilize o 
+      seguinte comando:</para>
 
     <screen>&prompt.root; <userinput>ggated</userinput></screen>
 
-    <para>Now to <command>mount</command> the device on the client
-      machine, issue the following commands:</para>
+    <para>Agora, para montar o dispositivo exportado numa estação 
+      cliente, faça uso dos comandos <command>ggatec</command> e 
+      <command>mount</command>:</para>
 
     <screen>&prompt.root; <userinput>ggatec create -o rw 192.168.1.1 /dev/da0s4d</userinput>
 ggate0
 &prompt.root; <userinput>mount /dev/ggate0 /mnt</userinput></screen>
 
-    <para>From here on, the device may be accessed through the
-      <filename class="directory">/mnt</filename> mount point.</para>
+    <para>Deste ponto em diante, o dispositivo remoto (no servidor 
+      192.168.1.1) já pode ser acessado através do diretório 
+      <filename class="directory">/mnt</filename> na estação cliente.</para>
 
     <note>
-      <para>It should be pointed out that this will fail if the device
-	is currently mounted on either the server machine or any other
-	machine on the network.</para>
+      <para>Atente para o fato de que este procedimento pode falhar 
+	caso o dispositivo já tenha sido montado por uma outra 
+	estação na rede (ou até mesmo pelo próprio servidor).</para>
     </note>
 
-    <para>When the device is no longer needed, it may be safely
-      unmounted with the &man.umount.8; command, similar to any other
-      disk device.</para>
+    <para>Quando não for mais necessário fazer uso do dispositivo 
+	montado remotamente ele pode ser desmontado com segurança da 
+	mesma forma que quaisquer outros discos locais, com auxílio 
+	do comando &man.umount.8;.</para>
   </sect1>
 
   <sect1 id="geom-glabel">
