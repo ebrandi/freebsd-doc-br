@@ -43,7 +43,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 ##################################################################
 3556   # config              # r39544  #
-1055   # boot                # r39544  # Pronto para Revisão
+1055   # boot                # r39544  # Liberado para Revisão
 1034   # users               # r39544  #
 4151   # security            # r39576  # Nilton Jose Rizzo, 13/10/2012
 988    # jails               # r39566  # Liberado para Revisão
