@@ -50,7 +50,7 @@ Linhas #      Capitulo       # Revisão #   Responsavel , Data Inicio
 2075   # mac                 # r39544  #
 717    # audit               # r39544  # Liberado para Revisão
 4871   # disks               # r39606  # Luiz Gustavo, 30/09/2012
-981    # geom                # r39544  # Vinícius Zavam (adotado), 29/12/2013
+981    # geom                # r39544  # Liberado para Revisão
 885    # filesystems         # r39544  # Liberado para Revisão
 1296   # vinum               # r39544  #
 1300   # virtualization      # r39595  # Liberado para Revisão

@@ -498,8 +498,8 @@ OK? <userinput>boot</userinput></screen>
       </authorgroup>
     </sect1info>
 
-    <title><acronym>RAID</acronym> 3 - Divisão (<literal>Striping</literal>) 
-	a Nível de Byte com Disco de Paridade</title>
+    <title><acronym>RAID</acronym> 3 - Divisão a Nível de Byte 
+	com Disco de Paridade</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -703,7 +703,7 @@ ggate0
   </sect1>
 
   <sect1 id="geom-glabel">
-    <title>Labeling Disk Devices</title>
+    <title>Nomeando Dispositivos de Disco</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -712,147 +712,166 @@ ggate0
       <primary>Disk Labels</primary>
     </indexterm>
 
-    <para>During system initialization, the &os; kernel will create
-      device nodes as devices are found.  This method of probing for
-      devices raises some issues, for instance what if a new disk
-      device is added via <acronym>USB</acronym>?  It is very likely
-      that a flash device may be handed the device name of
-      <devicename>da0</devicename> and the original
-      <devicename>da0</devicename> shifted to
-      <devicename>da1</devicename>.  This will cause issues mounting
-      file systems if they are listed in
-      <filename>/etc/fstab</filename>, effectively, this may also
-      prevent the system from booting.</para>
+    <para>Durante a inicialização do sistema, o kernel do &os; irá 
+      criar alguns nós para representar dispositivos que forem sendo 
+      identificados. Este método de detecção de dispositivos gera 
+      algumas indagações. E se um novo dispositivo de disco for 
+      adicionado via <acronym>USB</acronym>? É provável que na 
+      identificação de um novo dispositivo ele seja nomeado de 
+      <devicename>da0</devicename> e um antigo dispositivo 
+      (anteriormente conhecido como <devicename>da0</devicename>) 
+      receba o nome de <devicename>da1</devicename>. Isso certamente 
+      causaria problemas durante a tentativa de montagem de 
+      dispositivos especificados no <filename>/etc/fstab</filename>. 
+      De certa maneira, é capaz até de previnir que o sistema inicie 
+      normalmente.</para>
 
-    <para>One solution to this issue is to chain the
-      <acronym>SCSI</acronym> devices in order so a new device added
-      to the <acronym>SCSI</acronym> card will be issued unused device
-      numbers.  But what about <acronym>USB</acronym> devices which
-      may replace the primary <acronym>SCSI</acronym> disk?  This
-      happens because <acronym>USB</acronym> devices are usually
-      probed before the <acronym>SCSI</acronym> card.  One solution is
-      to only insert these devices after the system has been booted.
-      Another method could be to use only a single
-      <acronym>ATA</acronym> drive and never list the
-      <acronym>SCSI</acronym> devices in
+    <para>Uma solução para isso é atrelar (identificar) dispositivos 
+      <acronym>SCSI</acronym> em ordem, para que novos dispositivos 
+      <acronym>SCSI</acronym> possam ser numerados com identificadores 
+      diferentes dos que já estiverem em uso. Mas, o quê fazer com 
+      dispositivos <acronym>USB</acronym> que podem chegar a sobrepor 
+      esta identificação prévia para um disco <acronym>SCSI</acronym>? 
+      Isso ocorre pelo fato de que, geralmente, o sistema realiza uma 
+      busca por dispositivos <acronym>USB</acronym> e os nomeia 
+      (identifica) antes de dispositivos numa controladora 
+      <acronym>SCSI</acronym>. Uma solução para este problema é inserir 
+      este tipo de dispositivo somente depois da inicialização do 
+      sistema ter sido finalizada. Um outro método é fazer uso de um 
+      único disco <acronym>ATA</acronym> e nunca especificar o uso de 
+      discos <acronym>SCSI</acronym> no arquivo 
       <filename>/etc/fstab</filename>.</para>
 
-    <para>A better solution is available.  By using the
-      <command>glabel</command> utility, an administrator or user may
-      label their disk devices and use these labels in
-      <filename>/etc/fstab</filename>.  Because
-      <command>glabel</command> stores the label in the last sector of
-      a given provider, the label will remain persistent across
-      reboots.  By using this label as a device, the file system may
-      always be mounted regardless of what device node it is accessed
-      through.</para>
+    <para>Uma solução melhor está disponível! Fazendo uso do 
+      utilitário <command>glabel</command>, um usuário (ou o 
+      administrador do sistema) pode nomear dispositivos de disco 
+      e configurar o arquivo <filename>/etc/fstab</filename> de 
+      acordo com o nome adotado. Pelo fato do <command>glabel</command> 
+      gravar informações no último setor do disco, o nome para aquele 
+      dispositivo permanecerá o mesmo até após o sistema ter sido 
+      reiniciado. Usar o nome do dispositivo para montar os volumes 
+      fará com que os sistemas de arquivos destes discos possam 
+      sempre sejam montados sem problemas, independente de que 
+      dispositivo você esteja querendo acessar.</para>
 
     <note>
-      <para>This goes without saying that a label be permanent.  The
-	<command>glabel</command> utility may be used to create both a
-	transient and permanent label.  Only the permanent label will
-	remain consistent across reboots.  See the &man.glabel.8;
-	manual page for more information on the differences between
-	labels.</para>
+      <para>O <command>glabel</command> utility pode ser usado para 
+	criar nomes temporários ou permanentes. Apenas nomeando um 
+	dispositivo de forma permanente fará com que sus identificação 
+	continue após o sistema ser reiniciado. Consulte a página de 
+	manual &man.glabel.8; para obter mais informações e saber 
+	sobre as diferenças entre os tipos de nomes que podem ser 
+	atribuídos.</para>
     </note>
 
     <sect2>
-      <title>Label Types and Examples</title>
+      <title>Tipos e Exemplos de Nomeação</title>
 
-      <para>There are two types of labels, a generic label and a
-	file system label.  Labels can be permanent or temporary.
-	Permanent labels can be created with the &man.tunefs.8;
-	or &man.newfs.8; commands.  They will then be created
-	in a sub-directory of
-	<filename class="directory">/dev</filename>, which will be
-	named according to their file system type.  For example,
-	<acronym>UFS</acronym>2 file system labels will be created in
-	the <filename class="directory">/dev/ufs</filename> directory.
-	Permanent labels can also be created with the <command>glabel
-	label</command> command.  These are not file system specific,
-	and will be created in the
-	<filename class="directory">/dev/label</filename>
-	directory.</para>
+      <para>Existem dois tipos de nomeação que podem ser realizadas, 
+	uma genérica e uma correspondente ao sistema de arquivos. Os 
+	nomes podem ser permanentes ou temporários. Nomes permanentes 
+	podem ser criados com os comandos &man.tunefs.8; ou &man.newfs.8;. 
+	Assim as referências aos nomes criados para os volumes estarão 
+	num subdiretório do diretório 
+	<filename class="directory">/dev</filename>, e farão correspondência 
+	com o sistema de arquivos utilizado. Por exemplo: um volume 
+	que use o sistema de arquivos <acronym>UFS</acronym>2 será 
+	localizado no diretório <filename class="directory">/dev/ufs</filename>. 
+	Nomes permanentes também podem ser criados com o comando 
+	<command>glabel label</command>. Volumes nomeados através 
+	deste comando não atrelam diretórios específicos e todos os 
+	dispositivos e volumes nomeados estarão no diretório 
+	<filename class="directory">/dev/label</filename>.</para>
 
-      <para>A temporary label will go away with the next reboot.
-	These labels will be created in the
-	<filename class="directory">/dev/label</filename> directory
-	and are perfect for experimentation.  A temporary label can be
-	created using the <command>glabel create</command> command.
-	For more information, please read the manual page of
-	&man.glabel.8;.</para>
+      <para>Nomear um dispositivo fará com que o nome criado não esteja 
+	mais disponível para acesso após o sistema ter reiniciado. 
+	Eles podem ser acessados através do diretório 
+	<filename class="directory">/dev/label</filename> e são 
+	excelentes para que você possa realizar testes e experimentos 
+	no sistema. Um nome temporário pode ser criado com o comando 
+	<command>glabel create</command>. Para mais informações, por 
+	favor, consulte a página de manual &man.glabel.8;.</para>
 
 <!-- XXXTR: How do you create a file system label without running newfs
 	    or when there is no newfs (e.g.: cd9660)? -->
 
-      <para>To create a permanent label for a
-	<acronym>UFS</acronym>2 file system without destroying any
-	data, issue the following command:</para>
+      <para>Para nomear um volume que use sistema de arquivos 
+	<acronym>UFS</acronym>2 de forma permanente, sem que se 
+	percam os dados armazenados neste volume, use o seguinte 
+	comando:</para>
 
       <screen>&prompt.root; <userinput>tunefs -L <replaceable>home</replaceable> <replaceable>/dev/da3</replaceable></userinput></screen>
 
       <warning>
-	<para>If the file system is full, this may cause data
-	  corruption; however, if the file system is full then the
-	  main goal should be removing stale files and not adding
-	  labels.</para>
+	<para>Se o sistema de arquivos estiver cheio, isso pode 
+	  acarretar problemas e alguns dados podem ser corrompidos. 
+	  Entretanto, se o sistema de arquivos estiver cheio, 
+	  recomenda-se remover alguns arquivos antigos e não nomear 
+	  o volume.</para>
       </warning>
 
-      <para>A label should now exist in
-	<filename class="directory">/dev/ufs</filename> which may be
-	added to <filename>/etc/fstab</filename>:</para>
+      <para>Agora um nome para <replaceable>/dev/da3</replaceable> 
+	deve estar disponível e acessível através do diretório 
+	<filename class="directory">/dev/ufs</filename> e pode ser 
+	usado no arquivo <filename>/etc/fstab</filename> 
+	da seguinte forma:</para>
 
       <programlisting>/dev/ufs/home		/home            ufs     rw              2      2</programlisting>
 
       <note>
-	<para>The file system must not be mounted while attempting
-	  to run <command>tunefs</command>.</para>
+	<para>O sistema de arquivos não deve estar montado enquanto 
+	  você tenta executar o comando <command>tunefs</command> 
+	  para realizar esta operação de nomear o volume.</para>
       </note>
 
-      <para>Now the file system may be mounted like normal:</para>
+      <para>Agora o volume já pode ser montado normalmente:</para>
 
       <screen>&prompt.root; <userinput>mount /home</userinput></screen>
 
-      <para>From this point on, so long as the
-	<filename>geom_label.ko</filename> kernel module is loaded at
-	boot with <filename>/boot/loader.conf</filename> or the
-	<literal>GEOM_LABEL</literal> kernel option is present,
-	the device node may change without any ill effect on the
-	system.</para>
+      <para>Deste ponto em diante, já que o módulo 
+	<filename>geom_label.ko</filename> é carregado automaticamente 
+	durante a inicialização do sistema ou a opção 
+	<literal>GEOM_LABEL</literal> está presente no arquivo de 
+	configuração do kernel utilizado, o sistema deve nomear um nó 
+	para fazer referência àquele dispositivo sem que hajam 
+	problemas afetando o funcionamento do &os;.</para>
 
-      <para>File systems may also be created with a default label
-	by using the <option>-L</option> flag with
-	<command>newfs</command>.  See the &man.newfs.8; manual page
-	for more information.</para>
+      <para>Sistemas de arquivos também podem receber um nome com 
+	uso do parâmetro <option>-L</option>, utilizado junto do 
+	comando <command>newfs</command>.  Consulte a página de 
+	manual &man.newfs.8; para obter mais informações.</para>
 
-      <para>The following command can be used to destroy the
-	label:</para>
+      <para>O seguinte comando pode ser utilizado para 
+	destruir/remover um nome dado para um determinado 
+	volume:</para>
 
       <screen>&prompt.root; <userinput>glabel destroy home</userinput></screen>
 
-      <para>The following example shows how to label the partitions of
-	a boot disk.</para>
+      <para>O seguinte exemplo trata de como se nomear um disco 
+	particionado que seja utilizado para a inicialização do sistema.</para>
 
       <example>
-	<title>Labeling Partitions on the Boot Disk</title>
+	<title>Nomeando Partições num Disco de Inicialização</title>
 
-	<para>By permanently labeling the partitions on the boot disk,
-	  the system should be able to continue to boot normally, even
-	  if the disk is moved to another controller or transferred to
-	  a different system.  For this example, it is assumed that a
-	  single <acronym>ATA</acronym> disk is used, which is
-	  currently recognized by the system as
-	  <devicename>ad0</devicename>.  It is also assumed that the
-	  standard &os; partition scheme is used, with
+	<para>Nomeando partições num disco de inicialização 
+	  (<literal>boot disk</literal>) deve fazer com que o sistema 
+	  continue sendo carregado normalmente após ser reiniciado, 
+	  mesmo que o disco seja movido para uma outra controladora ou 
+	  transferido para outra máquina. Para este exemplo assume-se 
+	  que existe um único disco <acronym>ATA</acronym>, 
+	  reconhecido pelo &os; como <devicename>ad0</devicename>. 
+	  Também assume-se que o esquema de particionamento padrão 
+	  adotado pelo &os; foi utilizado, com as seguintes partições: 
 	  <filename class="directory">/</filename>,
 	  <filename class="directory">/var</filename>,
-	  <filename class="directory">/usr</filename> and
-	  <filename class="directory">/tmp</filename> file systems, as
-	  well as a swap partition.</para>
+	  <filename class="directory">/usr</filename> e
+	  <filename class="directory">/tmp</filename> 
+	  (além da partição de swap).</para>
 
-	<para>Reboot the system, and at the &man.loader.8; prompt,
-	  press <keycap>4</keycap> to boot into single user mode.
-	  Then enter the following commands:</para>
+	<para>Reinicie o sistema e, no prompt do &man.loader.8;, 
+	  precione <keycap>4</keycap> para entrar no modo 
+	  <literal>single user</literal>. Em seguida, execute os 
+	  seguintes comandos:</para>
 
 	<screen>&prompt.root; <userinput>glabel label rootfs /dev/ad0s1a</userinput>
 GEOM_LABEL: Label for provider /dev/ad0s1a is label/rootfs
@@ -866,11 +885,12 @@ GEOM_LABEL: Label for provider /dev/ad0s1e is label/tmp
 GEOM_LABEL: Label for provider /dev/ad0s1b is label/swap
 &prompt.root; <userinput>exit</userinput></screen>
 
-	<para>The system will continue with multi-user boot.  After
-	  the boot completes, edit <filename>/etc/fstab</filename> and
-	  replace the conventional device names, with their respective
-	  labels.  The final <filename>/etc/fstab</filename> file will
-	  look like the following:</para>
+	<para>O sistema, então, continuará a ser iniciado normalmente. 
+	  Depois que todo processo de inicialização tiver sido 
+	  completamente finalizado, edite o arquivo 
+	  <filename>/etc/fstab</filename> e substitua as antigas 
+	  referências aos dispositivos e utilize os nomes criados em 
+	  seus lugares. O resultado final deve ser algo semelhante a:</para>
 
 	<programlisting># Device                Mountpoint      FStype  Options         Dump    Pass#
 /dev/label/swap         none            swap    sw              0       0
@@ -879,9 +899,9 @@ GEOM_LABEL: Label for provider /dev/ad0s1b is label/swap
 /dev/label/usr          /usr            ufs     rw              2       2
 /dev/label/var          /var            ufs     rw              2       2</programlisting>
 
-	<para>The system can now be rebooted.  If everything went
-	  well, it will come up normally and <command>mount</command>
-	  will show:</para>
+	<para>Agora o sistema pode ser reiniciado. Se tudo correu 
+	  bem, o sistema será iniciado normalmente e o comando 
+	  <command>mount</command> exibirá o seguinte resultado:</para>
 
 	<screen>&prompt.root; <userinput>mount</userinput>
 /dev/label/rootfs on / (ufs, local)
@@ -891,43 +911,49 @@ devfs on /dev (devfs, local)
 /dev/label/var on /var (ufs, local, soft-updates)</screen>
       </example>
 
-      <para>Starting with &os;&nbsp;7.2, the &man.glabel.8; class
-	supports a new label type for <acronym>UFS</acronym> file
-	systems, based on the unique file system id,
-	<literal>ufsid</literal>.  These labels may be found in the
-	<filename class="directory">/dev/ufsid</filename> directory
-	and are created automatically during system startup.  It is
-	possible to use <literal>ufsid</literal> labels to mount
-	partitions using the <filename>/etc/fstab</filename> facility.
-	Use the <command>glabel status</command> command to receive a
-	list of file systems and their corresponding
-	<literal>ufsid</literal> labels:</para>
+      <para>A partir do &os; 7.2, o &man.glabel.8; dá suporte para um 
+	novo tipo de nomeação que pode ser dada para sistemas de 
+	arquivo <acronym>UFS</acronym> baseada no ID único do sistema 
+	de arquivos, o <literal>ufsid</literal>. Nomeando-se volumes 
+	desta maneira, os nós que farão referencia aos nomes criados 
+	podem ser acessados através do diretório 
+	<filename class="directory">/dev/ufsid</filename> e são criados 
+	automaticamente durante o processo de inicialização do sistema. 
+	É possível usar <literal>ufsid</literal> para montar partições 
+	através do <filename>/etc/fstab</filename>. Use o comando 
+	<command>glabel status</command> para obter uma lista dos 
+	sistemas de arquivo presentes no sistema e seus respectivos 
+	<literal>ufsid</literal>:</para>
 
       <screen>&prompt.user; <userinput>glabel status</userinput>
                   Name  Status  Components
 ufsid/486b6fc38d330916     N/A  ad4s1d
 ufsid/486b6fc16926168e     N/A  ad4s1f</screen>
 
-      <para>In the above example <devicename>ad4s1d</devicename>
-	represents the <filename class="directory">/var</filename>
-	file system, while <devicename>ad4s1f</devicename> represents
-	the <filename class="directory">/usr</filename> file system.
-	Using the <literal>ufsid</literal> values shown, these
-	partitions may now be mounted with the following entries in
+      <para>No exemplo acima, <devicename>ad4s1d</devicename> 
+	representa o sistema de arquivos da partição <filename 
+	class="directory">/var</filename> e <devicename>ad4s1f</devicename> 
+	representa o sistema de arquivos da partição 
+	<filename class="directory">/usr</filename>. Fazendo uso dos 
+	valores dos <literal>ufsid</literal> mostrados essas 
+	partições podem ser especificadas e montadas com as 
+	seguintes estradas presentes no arquivo 
 	<filename>/etc/fstab</filename>:</para>
 
       <programlisting>/dev/ufsid/486b6fc38d330916        /var        ufs        rw        2      2
 /dev/ufsid/486b6fc16926168e        /usr        ufs        rw        2      2</programlisting>
 
-      <para>Any partitions with <literal>ufsid</literal> labels can be
-	mounted in this way, eliminating the need to create permanent
-	labels for them manually, while still enjoying the benefits of
-	device-name independent mounting.</para>
+      <para>Quaisquer partições com um <literal>ufsid</literal> podem 
+	ser montadas desta maneira, eliminando a necessidade de se 
+	criar um nome específico para cada uma delas manualmente. 
+	Assim você aproveita os benefícios de montar um volume 
+	independente de qual identificação ele irá receber no sistema, 
+	visto que o <literal>ufsid</literal> é único.</para>
     </sect2>
   </sect1>
 
   <sect1 id="geom-gjournal">
-    <title>UFS Journaling Through GEOM</title>
+    <title>GEOM e <literal>Journaling</literal> de UFS</title>
 
     <indexterm>
       <primary>GEOM</primary>
@@ -936,98 +962,111 @@ ufsid/486b6fc16926168e     N/A  ad4s1f</screen>
       <primary>Journaling</primary>
     </indexterm>
 
-    <para>With the release of &os; 7.0, the long awaited feature
-      of journals has been implemented.  The implementation itself is
-      provided through the <acronym>GEOM</acronym> subsystem and is
-      easily configured via the &man.gjournal.8; utility.</para>
+    <para>Com o lançamento do &os; 7.0-RELEASE, a tão aguardada 
+      funcionalidade de <literal>journaling</literal> foi implementada. 
+      Sua implementação propriamente dita é feita através do 
+      framework GEOM e, com ajuda do utilitário &man.gjournal.8;, é 
+      de fácil configuração.</para>
 
-    <para>What is journaling?  Journaling capability stores a log of
-      file system transactions, i.e.: changes that make up a complete
-      disk write operation, before meta-data and file writes are
-      committed to the disk proper.  This transaction log can later
-      be replayed to redo file system transactions, preventing file
-      system inconsistencies.</para>
+    <para>O quê é o <literal>journaling</literal>? A capacidade de um 
+      sistema fazer <literal>Journaling</literal> indica que é 
+      guardado um log das transações realizadas pelo sistema de 
+      arquivos como, por exemplo, mudanças que compões uma operação de 
+      escrita em disco. Esses logs são armazenados antes mesmo que 
+      metadados e as operações de escrita propriamente ditas sejam 
+      executadas. Posteriormente, este log pode ser interpretado para 
+      refazer transações, previnindo que haja inconsistência 
+      no sistema.</para>
 
-    <para>This method is yet another mechanism to protect against data
-      loss and inconsistencies of the file system.  Unlike Soft
-      Updates which tracks and enforces meta-data updates and
-      Snapshots which is an image of the file system, an actual log is
-      stored in disk space specifically reserved for this task, and in
-      some cases may be stored on another disk entirely.</para>
+    <para>Este é mais um dos métodos utilizados para proteção contra 
+      perda e inconsistência de dados num sistema de arquivos. 
+      Diferente dos <literal>Soft Updates</literal>, que acompanham 
+      e forçam atualizações de metadados, e <literal>Snapshots</literal>, 
+      que são imagens completas de um sistema de arquivos, realmente 
+      armazena-se um registro das operações realizadas num espaço 
+      especialmente reservado do disco e, em alguns casos, pode-se 
+      usar outro disco apenas para isso.</para>
 
-    <para>Unlike other file system journaling implementations, the
-      <command>gjournal</command> method is block based and not
-      implemented as part of the file system - only as a
-      <acronym>GEOM</acronym> extension.</para>
+    <para>Diferente da implementação de <literal>journaling</literal> 
+      em outros sistemas de arquivo, o método que faz uso do 
+      <command>gjournal</command> é baseado em blocos e não faz 
+      parte da implementação do próprio sistema de arquivos &mdash; 
+      é apenas uma extensão do GEOM.</para>
 
-    <para>To enable support for <command>gjournal</command>, the
-      &os; kernel must have the following option - which is the
-      default on &os; 7.0 and later systems:</para>
+    <para>Para habilitar o uso do <command>gjournal</command>, o 
+      kernel do &os; deve contar com a seguinte opção &mdash; 
+      padrão para versões 7.0-RELEASE em diante:</para>
 
     <programlisting>options	UFS_GJOURNAL</programlisting>
 
-    <para>If journaled volumes need to be mounted during startup, the
-      <filename>geom_journal.ko</filename> kernel module will also
-      have to be loaded, by adding the following line in
+    <para>Se volumes que usem journaling precisarem ser montados 
+      durante o processo de inicialização, o módulo 
+      <filename>geom_journal.ko</filename> precisa ser carregado. 
+      Para tal, adicione a seguinte entrada no arquivo 
       <filename>/boot/loader.conf</filename>:</para>
 
     <programlisting>geom_journal_load="YES"</programlisting>
 
-    <para>Alternatively, this function can also be built into a custom
-      kernel, by adding the following line in the kernel configuration
-      file:</para>
+    <para>Uma outra alternativa para isso é customizar um kernel de 
+      modo que use a seguinte opção em seu arquivo de configuração:</para>
 
     <programlisting>options	GEOM_JOURNAL</programlisting>
 
-    <para>Creating a journal on a free file system may now be done
-      using the following steps, considering that the
-      <devicename>da4</devicename> is a new <acronym>SCSI</acronym>
-      disk:</para>
+    <para>Agora é possível criar um novo sistema de arquivos que 
+      utilize journaling seguindo os passos abaixo, considerando que 
+      <devicename>da4</devicename> é um disco 
+      <acronym>SCSI</acronym> que foi recentemente adicionado 
+      ao sistema:</para>
 
     <screen>&prompt.root; <userinput>gjournal load</userinput>
 &prompt.root; <userinput>gjournal label /dev/da4</userinput></screen>
 
-    <para>At this point, there should be a
-      <devicename>/dev/da4</devicename> device node and a
-      <devicename>/dev/da4.journal</devicename> device node.
-      A file system may now be created on this device:</para>
+    <para>Neste ponto já devem existir os dispositivos 
+      <devicename>/dev/da4</devicename> e
+      <devicename>/dev/da4.journal</devicename>.
+      Agora o sistema de arquivos pode ser criado:</para>
 
     <screen>&prompt.root; <userinput>newfs -O 2 -J /dev/da4.journal</userinput></screen>
 
-    <para>The previously issued command will create a
-      <acronym>UFS</acronym>2 file system on the journaled
-      device.</para>
+    <para>O comando previamente executado irá criar um sistema de 
+      arquivos <acronym>UFS</acronym>2 no dispositivo que deve 
+      utilizar <literal>journaling</literal>.</para>
 
-    <para>Effectively <command>mount</command> the device at the
-      desired point with:</para>
+    <para>Você já pode fazer uso do comando <command>mount</command> 
+      para, efetivamente, montar o volume num diretório a sua escolha:</para>
 
     <screen>&prompt.root; <userinput>mount /dev/da4.journal <replaceable>/mnt</replaceable></userinput></screen>
 
     <note>
-      <para>In the case of several slices, a journal will be created
-	for each individual slice.  For instance, if
-	<devicename>ad4s1</devicename> and
-	<devicename>ad4s2</devicename> are both slices, then
-	<command>gjournal</command> will create
-	<devicename>ad4s1.journal</devicename> and
-	<devicename>ad4s2.journal</devicename>.</para>
+      <para>Caso existam diferentes partições (
+	<literal>slices</literal>), um <literal>journal</literal> 
+	será criado para cada 
+	uma delas. Por exemplo: se <devicename>ad4s1</devicename> e 
+	<devicename>ad4s2</devicename> forem partições, o 
+	<command>gjournal</command> criará <literal>journal</literal> 
+	para ambas (<devicename>ad4s1.journal</devicename> e 
+	<devicename>ad4s2.journal</devicename>, respectivamente).</para>
     </note>
 
-    <para>For better performance, keeping the journal on another disk
-      may be desired.  For these cases, the journal provider or
-      storage device should be listed after the device to enable
-      journaling on.  Journaling may also be enabled on current file
-      systems by using <command>tunefs</command>; however, always make
-      a backup before attempting to alter a file system.  In most
-      cases, the <command>gjournal</command> will fail if it is unable
-      to create the actual journal but this does not protect against
-      data loss incurred as a result of misusing
-      <command>tunefs</command>.</para>
+    <para>Para obter uma melhor performance, é preferível se manter o 
+	<literal>journal</literal> num disco a parte. Para casos 
+	assim, o disco que venha a fornecer o 
+	<literal>journaling</literal> deve estar listado logo após o 
+	disco em que se pretende utilizar <literal>journaling</literal>. 
+	O <literal>journal</literal> também pode estar presente no 
+	mesmo sistema de arquivos e pode-se utilizar o comando 
+	<command>tunefs</command> para isso. Entretanto, procure sempre 
+	fazer um backup antes de realizar alterações assim no sistema 
+	de arquivos. Em muitos casos o <command>gjournal</command> 
+	pode falhar se for incapaz de criar um <literal>journal</literal>, 
+	mas isso não dá proteção contra perda de dados pelo mau uso 
+	do <command>tunefs</command>.</para>
 
-    <para>It is also possible to journal the boot disk of a &os;
-      system.  Please refer to the article <ulink
-	url="&url.articles.gjournal-desktop;">Implementing UFS
-	Journaling on a Desktop PC</ulink> for detailed instructions
-      on this task.</para>
+    <para>Também é possível usar <literal>journal</literal> num disco 
+	de inicialização utilizado por um sistema &os;.  Por favor 
+	leia o artigo <ulink
+	url="&url.articles.gjournal-desktop;">Implementando Journaling 
+	de UFS num Desktop</ulink> para ter instruções mais detalhadas 
+	para realizar esta tarefa.</para>
   </sect1>
 </chapter>
