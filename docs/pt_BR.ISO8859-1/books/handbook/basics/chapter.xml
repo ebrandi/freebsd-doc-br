@@ -1171,28 +1171,31 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
   </sect1>
 
   <sect1 id="disk-organization">
-      <title>Disk Organization</title>
+      <title>Organização de Discos</title>
 
-      <para>The smallest unit of organization that FreeBSD uses to find files
-	is the filename.  Filenames are case-sensitive, which means that
-	<filename>readme.txt</filename> and <filename>README.TXT</filename>
-	are two separate files.  FreeBSD does not use the extension
-	(<filename>.txt</filename>) of a file to determine whether the file is
-	a program, or a document, or some other form of data.</para>
+      <para>A menor unidade de organização que o &os; usa para localizar 
+	arquivos é o nome do arquivo. Nomes de arquivos são sensitivos, o 
+	que significa que <filename>readme.txt</filename> e 
+	<filename>README.TXT</filename> são dois arquivos distintos. 
+	O &os; não faz uso da extensão do arquivo 
+	(<filename>.txt</filename>) para determinar se ele é um 
+	arquivo executável, se é um documento de texto ou qualquer 
+	outro tipo de arquivo.</para>
 
-      <para>Files are stored in directories.  A directory may contain no
-	files, or it may contain many hundreds of files.  A directory can also
-	contain other directories, allowing you to build up a hierarchy of
-	directories within one another.  This makes it much easier to organize
-	your data.</para>
+      <para>Arquivos são armazenados em diretórios. Um diretório pode 
+	não conter arquivo algum, ou pode conter muitas centenas de 
+	arquivos. Um diretório também pode conter outros diretórios, 
+	permitindo que você tenha uma hierarquia de diretórios. Um 
+	diretório dentro de outro. Isso faz com que você possa 
+	organizar seus dados com maior facilidade.</para>
 
-      <para>Files and directories are referenced by giving the file or
-	directory name, followed by a forward slash, <literal>/</literal>,
-	followed by any other directory names that are necessary.  If you have
-	directory <filename>foo</filename>, which contains directory
-	<filename>bar</filename>, which contains the file
-	<filename>readme.txt</filename>, then the full name, or
-	<firstterm>path</firstterm> to the file is
+      <para>Arquivos e diretórios são referenciados por seus respectivos 
+	nomes ou pelo nome de um diretório seguido de uma barra, 
+	<literal>/</literal>, e outro diretório, caso seja necessário. Se 
+	você tiver um diretório <filename>foo</filename>, que abriga o 
+	diretório <filename>bar</filename> onde pode-se encontrar o arquivo 
+	<filename>readme.txt</filename>, então o caminho 
+	(<firstterm>path</firstterm>) completo para este arquivo seria 
 	<filename>foo/bar/readme.txt</filename>.</para>
 
       <para>Directories and files are stored in a file system.  Each file system
