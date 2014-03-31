@@ -1198,38 +1198,45 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	(<firstterm>path</firstterm>) completo para este arquivo seria 
 	<filename>foo/bar/readme.txt</filename>.</para>
 
-      <para>Directories and files are stored in a file system.  Each file system
-	contains exactly one directory at the very top level, called the
-	<firstterm>root directory</firstterm> for that file system.  This root
-	directory can then contain other directories.</para>
+      <para>Diretórios e arquivos são armazenados num Sistema de 
+	Arquivos. Cada Sistema de Arquivos contém um único diretório no 
+	topo de sua hierarquia, o <firstterm>diretório raíz</firstterm>. 
+	Este diretório pode armazenar outros diretórios e arquivos.</para>
 
-      <para>So far this is probably similar to any other operating system you
-	may have used.  There are a few differences; for example, &ms-dos; uses
-	<literal>\</literal> to separate file and directory names, while &macos;
-	uses <literal>:</literal>.</para>
+      <para>Até aqui o &os; pode parecer semelhante a outro Sistema 
+	Operacional que você já tenha utilizado, mas existem algumas 
+	diferenças. Por exemplo? O &ms-dos; faz uso de uma barra 
+	invertida, <literal>\</literal>, para separar nomes de diretórios 
+	e arquivos. Enquanto isso, o &macos; utiliza 
+	<literal>:</literal> (dois pontos).</para>
 
-      <para>FreeBSD does not use drive letters, or other drive names in the
-	path.  You would not write <filename>c:/foo/bar/readme.txt</filename>
-	on FreeBSD.</para>
+      <para>O &os; não faz uso de nomes ou letras para representar um 
+	diretório raíz num caminho que aponte para um arquivo. 
+	Você não fará uso de um caminho como 
+	<filename>C:/foo/bar/readme.txt</filename> num sistema &os;.</para>
 
-      <para>Instead, one file system is designated the <firstterm>root
-	  file system</firstterm>.  The root file system's root directory is
-	referred to as <literal>/</literal>.  Every other file system is then
-	<firstterm>mounted</firstterm> under the root file system.  No matter
-	how many disks you have on your FreeBSD system, every directory
-	appears to be part of the same disk.</para>
+      <para>Por outro lado, o &os; designa e representa um diretório 
+	raíz para o Sistema de Arquivos. O diretório raíz é referenciado 
+	por uma barra, <literal>/</literal>. Todo o restante do Sistema 
+	de Arquivos é <firstterm>montado</firstterm> abaixo deste 
+	diretório. Não importa quantos discos integrem seu sistema &os;, 
+	cada diretório aparentará ser parte do mesmo disco no sistema 
+	de arquivos.</para>
 
-      <para>Suppose you have three file systems, called <literal>A</literal>,
-	<literal>B</literal>, and <literal>C</literal>.  Each file system has
-	one root directory, which contains two other directories, called
-	<literal>A1</literal>, <literal>A2</literal> (and likewise
-	<literal>B1</literal>, <literal>B2</literal> and
-	<literal>C1</literal>, <literal>C2</literal>).</para>
+      <para>Suponha que você tenha três diferentes Sistemas de Arquivo: 
+	<literal>A</literal>, <literal>B</literal> e <literal>C</literal>. 
+	Cada um destes Sistemas de Arquivos têm seu próprio diretório 
+	raíz e neste diretório outros dois diretórios: 
+	<literal>X1</literal> e <literal>X2</literal>, onde 
+	<literal>X</literal> representa o Sistema de Arquivos onde estes 
+	diretórios foram criados (<literal>A</literal>, 
+	<literal>B</literal> ou <literal>C</literal>).</para>
 
-      <para>Call <literal>A</literal> the root file system.  If you used the
-	<command>ls</command> command to view the contents of this directory
-	you would see two subdirectories, <literal>A1</literal> and
-	<literal>A2</literal>.  The directory tree looks like this:</para>
+      <para>Tome como base o diretório raíz do Sistema de Arquivos 
+	<literal>A</literal>.  Se você usar o comando <command>ls</command> 
+	para ver o conteúdo deste diretório, você verá os dois 
+	subdiretórios, <literal>A1</literal> e <literal>A1</literal>. A 
+	árvore de diretórios seria parecida com a seguinte:</para>
 
       <mediaobject>
 	<imageobject>
@@ -1245,11 +1252,14 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</textobject>
       </mediaobject>
 
-      <para>A file system must be mounted on to a directory in another
-	file system.  So now suppose that you mount file system
-	<literal>B</literal> on to the directory <literal>A1</literal>.  The
-	root directory of <literal>B</literal> replaces <literal>A1</literal>,
-	and the directories in <literal>B</literal> appear accordingly:</para>
+      <para>Um Sistema de Arquivos deve ser montado num diretório de um 
+	outro Sistema de Arquivos. Agora suponha que você montou o 
+	Sistema de Arquivos <literal>B</literal> no diretório <literal>A1</literal>, 
+	do sistema <literal>A</literal>. O diretório raíz do sistema 
+	<literal>B</literal> irá substituir o conteúdo existente no 
+	diretório <literal>A1</literal>, e os diretórios do Sistema de 
+	Arquivos <literal>B</literal> poderão ser localizados e vistos 
+	numa árvore semelhante a esta:</para>
 
       <mediaobject>
 	<imageobject>
@@ -1269,15 +1279,18 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</textobject>
       </mediaobject>
 
-      <para>Any files that are in the <literal>B1</literal> or
-	<literal>B2</literal> directories can be reached with the path
-	<filename>/A1/B1</filename> or <filename>/A1/B2</filename> as
-	necessary.  Any files that were in <filename>/A1</filename> have been
-	temporarily hidden.  They will reappear if <literal>B</literal> is
-	<firstterm>unmounted</firstterm> from A.</para>
+      <para>Quaisquer arquivos que estiverem no diretório 
+	<literal>B1</literal>, ou <literal>B2</literal>, podem ser 
+	alcançados através do caminho <filename>/A1/B1</filename>, ou 
+	<filename>/A1/B2</filename>, como for necessário. Todos os 
+	arquivos que faziam parte do diretório <filename>/A1</filename> 
+	encontram-se, neste momento, temporariamente escondidos. Eles 
+	aparecerão novamente quando você <firstterm>desmontar</firstterm> 
+	o Sistema de Arquivos <literal>B</literal>.</para>
 
-      <para>If <literal>B</literal> had been mounted on <literal>A2</literal>
-	then the diagram would look like this:</para>
+      <para>Se o sistema <literal>B</literal> fosse montado no 
+	diretório <literal>A2</literal>, então o diagrama da árvore de 
+	diretórios seria parecido com o seguinte:</para>
 
       <mediaobject>
 	<imageobject>
@@ -1297,13 +1310,14 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</textobject>
       </mediaobject>
 
-      <para>and the paths would be <filename>/A2/B1</filename> and
-	<filename>/A2/B2</filename> respectively.</para>
+      <para>Assim, os caminhos seriam diferentes. 
+	<filename>/A2/B1</filename> e 
+	<filename>/A2/B2</filename>, respectivamente.</para>
 
-      <para>File systems can be mounted on top of one another.  Continuing the
-	last example, the <literal>C</literal> file system could be mounted on
-	top of the <literal>B1</literal> directory in the <literal>B</literal>
-	file system, leading to this arrangement:</para>
+      <para>Sistemas de Arquivos podem ser montados sob outros já montados. 
+	Considerando o último exemplo, o sistema <literal>C</literal> 
+	poderia ser montado no diretório <literal>B1</literal>, criando 
+	uma nova ramificação na árvore de diretórios conforme abaixo:</para>
 
       <mediaobject>
 	<imageobject>
@@ -1327,9 +1341,8 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</textobject>
       </mediaobject>
 
-      <para>Or <literal>C</literal> could be mounted directly on to the
-	<literal>A</literal> file system, under the <literal>A1</literal>
-	directory:</para>
+      <para>Ou, então, o Sistema de Arquivos <literal>C</literal> 
+	poderia ser montado no diretório <literal>A1</literal>:</para>
 
       <mediaobject>
 	<imageobject>
@@ -1353,20 +1366,24 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</textobject>
       </mediaobject>
 
-      <para>If you are familiar with &ms-dos;, this is similar, although not
-	identical, to the <command>join</command> command.</para>
+      <para>Se você está familiarizado com o &ms-dos;, este comportamento 
+	pode parecer semelhante ao comando <command>join</command>,
+	mas não o mesmo.</para>
 
-      <para>This is not normally something you need to concern yourself with.
-	Typically you create file systems when installing FreeBSD and decide
-	where to mount them, and then never change them unless you add a new
-	disk.</para>
+      <para>Normalmente isso não é algo com o que você precise se 
+	preocupar. Tipicamente você cria Sistemas de Arquivos 
+	enquanto faz a instalação do &os; e decide onde montá-los. 
+	Assim você não precisa alterar nenhum deles, a não ser que 
+	adicione um novo disco, crie ou altere um novo Sistema de 
+	Arquivos.</para>
 
-      <para>It is entirely possible to have one large root file system, and not
-	need to create any others.  There are some drawbacks to this approach,
-	and one advantage.</para>
+      <para>É inteiramente possível que você tenha um Sistema de Arquivos 
+	com uma raíz suficientemente grande e não precise criar nenhum 
+	outro Sistema de Arquivos sob seu sistema existente. Existem 
+	algumas desvantagens para essa abordagem, e uma vantagem.</para>
 
       <itemizedlist>
-	<title>Benefits of Multiple File Systems</title>
+	<title>Benefícios de Multiplos Sistemas de Arquivos</title>
 
 	<listitem>
 	  <para>Different file systems can have different <firstterm>mount
