@@ -1383,41 +1383,46 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	algumas desvantagens para essa abordagem, e uma vantagem.</para>
 
       <itemizedlist>
-	<title>Benefícios de Multiplos Sistemas de Arquivos</title>
+	<title>Benefícios de Múltiplos Sistemas de Arquivos</title>
 
 	<listitem>
-	  <para>Different file systems can have different <firstterm>mount
-	    options</firstterm>.  For example, with careful planning, the
-	    root file system can be mounted read-only, making it impossible for
-	    you to inadvertently delete or edit a critical file.  Separating
-	    user-writable file systems, such as <filename>/home</filename>,
-	    from other file systems also allows them to be mounted
-	    <firstterm>nosuid</firstterm>; this option prevents the
-	    <firstterm>suid</firstterm>/<firstterm>guid</firstterm> bits on
-	    executables stored on the file system from taking effect, possibly
-	    improving security.</para>
+	  <para>Diferentes Sistemas de Arquivos podem fazer uso de 
+	    diferentes <firstterm>opções de montagem<firstterm>. Por 
+	    exemplo, com o devido planejamento, o diretório raíz pode 
+	    ser montado como somente-leitura. Assim, seria impossível 
+	    que você alterasse ou removesse algum arquivo crítico do 
+	    sistema de forma indevida. Separar Sistemas de Arquivos com 
+	    permissões de escrita à usuários, como ocorre em 
+	    <filename>/home</filename>, também permite que estes sistemas 
+	    sejam montados com opção de nosuid; esta opção previne que 
+	    bits de <firstterm>suid</firstterm> e <firstterm>guid</firstterm> 
+	    sejam habilitados em arquivos armazenados abaixo da raíz 
+	    deste sistema, possibilitando um ganho no controle de segurança.</para>
 	</listitem>
 
 	<listitem>
-	  <para>FreeBSD automatically optimizes the layout of files on a
-	    file system, depending on how the file system is being used.  So a
-	    file system that contains many small files that are written
-	    frequently will have a different optimization to one that contains
-	    fewer, larger files.  By having one big file system this
-	    optimization breaks down.</para>
+	  <para>Automaticamente o &os; cria otimizações para o layout de 
+	    arquivos dispostos num Sistema de Arquivos, dependendo de como o 
+	    Sistema de Arquivos for utilizado. Assim, um sistema onde muitos 
+	    arquivos pequenos são escritos frequentemente no sistema 
+	    apresentarão uma otimização diferenciada de sistemas com alguns 
+	    poucos arquivos grandes. Ter um único e grande Sistema de Arquivos 
+	    quebra esse esquema de otimização.</para>
 	</listitem>
 
 	<listitem>
-	  <para>FreeBSD's file systems are very robust should you lose power.
-	    However, a power loss at a critical point could still damage the
-	    structure of the file system.  By splitting your data over multiple
-	    file systems it is more likely that the system will still come up,
-	    making it easier for you to restore from backup as necessary.</para>
+	  <para>Os Sistemas de Arquivos do &os; são robustos que você perde 
+	    força. Entretanto, durante uma queda de energia durante um 
+	    procedimento crítico pode corromper a estrutura do Sistema 
+	    de Arquivos. Com seus dados divididos em diferentes Sistemas de 
+	    Arquivos, é possível que seu sistema volte após uma interrupção 
+	    abrupta desse tipo, fazendo com que seja fácil para você 
+	    restaurar dados de algum backup caso seja necessário.</para>
 	</listitem>
       </itemizedlist>
 
       <itemizedlist>
-	<title>Benefit of a Single File System</title>
+	<title>Benefícios de um Único Sistema de Arquivos</title>
 
 	<listitem>
 	  <para>File systems are a fixed size.  If you create a file system when
