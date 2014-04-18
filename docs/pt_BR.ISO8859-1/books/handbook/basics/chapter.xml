@@ -1425,39 +1425,50 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	<title>Benefícios de um Único Sistema de Arquivos</title>
 
 	<listitem>
-	  <para>File systems are a fixed size.  If you create a file system when
-	    you install FreeBSD and give it a specific size, you may later
-	    discover that you need to make the partition bigger.  This is not
-	    easily accomplished without backing up, recreating the file system
-	    with the new size, and then restoring the backed up data.</para>
+	  <para>Sistemas de Arquivos são coisas de tamanho fixo. Caso 
+	      você crie um Sistema de Arquivos numa determinada partição 
+	      durante o procedimento de instalação do &os;, você pode 
+	      acabar descobrindo que era necessário ter criado uma 
+	      partição maior. Esta não é uma tarefa fácil de se completar. 
+	      Será necessária a criação prévia de um backup, a recriação 
+	      do Sistema de Arquivos numa partição maior e, finalmente, 
+	      efetuar a restauração dos dados.</para>
 
 	  <important>
-	    <para>FreeBSD features the &man.growfs.8;
-	      command, which makes it possible to increase the size of
-	      file system on the fly, removing this limitation.</para>
+	    <para>O &os; fornece o comando &man.growfs.8;, que 
+	      possibilita a manipulação de tamanho de partições 
+	      enquanto o sistema está em execução. Assim, esta 
+	      limitação com um único Sistema de Arquivos muito 
+	      pequeno não existe num sistema &os;.</para>
 	  </important>
 	</listitem>
       </itemizedlist>
 
-      <para>File systems are contained in partitions.  This does not have the
-	same meaning as the common usage of the term partition (for example, &ms-dos;
-	partition), because of &os;'s &unix; heritage.  Each partition is
-	identified by a letter from <literal>a</literal> through to
-	<literal>h</literal>.  Each partition can contain only one file system,
-	which means that file systems are often described by either their
-	typical mount point in the file system hierarchy, or the letter of the
-	partition they are contained in.</para>
+      <para>Sistemas de Arquivos estão contidos em partições. Isto não 
+	tem o mesmo sentido que o uso do termo <quote>partição</quote> 
+	em alguns sistemas operacionais (&ms-dos;, por exemplo) 
+	por causa da herança que o &os; adota, sendo um verdadeiro 
+	sistema &UNIX;. Cada partição é identificada por uma 
+	determinada letra, de <literal>A</literal> até 
+	<literal>H</literal>. Cada partição pode conter apenas um único 
+	Sistema de Arquivos, o que significa que os Sistemas de 
+	Arquivos são frequentemente descritos ou por seu ponto de 
+	montagem ou pela letra da partição onde estão.</para>
 
-      <para>FreeBSD also uses disk space for <firstterm>swap
-	  space</firstterm>.  Swap space provides FreeBSD with
-	<firstterm>virtual memory</firstterm>.  This allows your computer to
-	behave as though it has much more memory than it actually does.  When
-	FreeBSD runs out of memory it moves some of the data that is not
-	currently being used to the swap space, and moves it back in (moving
-	something else out) when it needs it.</para>
+      <para>O &os; também faz uso de um determinado espaço do disco 
+	para trabalhar com uma <firstterm>área de troca</firstterm> 
+	<literal>(swap)</literal>, ou área de paginação. Esta área 
+	de troca provê ao &os; uma <firstterm>memória virtual</firstterm>. 
+	Ela permite que seu computador se comporte como se ele tivesse 
+	mais memória RAM do que realmente têm. Quando o sistema 
+	operacional identifica que está sem memória suficiente para 
+	realizar uma operação, ele efetua uma troca de dados. Ele move 
+	dados que não estão sendo frequentemente utilizados na memória 
+	RAM e os grava nesta memória virtual, a swap. Quando os dados 
+	movidos para a swap forem necessários novamente, o sistema os 
+	move novamente para a RAM.</para>
 
-      <para>Some partitions have certain conventions associated with
-	them.</para>
+      <para>Algumas partições apresentam certas convenções.</para>
 
       <informaltable frame="none" pgwide="1">
 	<tgroup cols="2">
@@ -1466,9 +1477,9 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
 	  <thead>
 	    <row>
-	      <entry>Partition</entry>
+	      <entry>Partição</entry>
 
-	      <entry>Convention</entry>
+	      <entry>Convenção</entry>
 	    </row>
 	  </thead>
 
@@ -1476,56 +1487,60 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	    <row>
 	      <entry><literal>a</literal></entry>
 
-	      <entry>Normally contains the root file system</entry>
+	      <entry>Normalmente destinada a armazenar a raíz do 
+		Sistema de Arquivos.</entry>
 	    </row>
 
 	    <row>
 	      <entry><literal>b</literal></entry>
 
-	      <entry>Normally contains swap space</entry>
+	      <entry>Normalmente é a Área de Troca (swap).</entry>
 	    </row>
 
 	    <row>
 	      <entry><literal>c</literal></entry>
 
-	      <entry>Normally the same size as the enclosing slice.  This
-		allows utilities that need to work on the entire slice (for
-		example, a bad block scanner) to work on the
-		<literal>c</literal> partition.  You would not normally create
-		a file system on this partition.</entry>
+	      <entry>Normalmente apresenta o mesmo tamanho de toda a 
+		fatia de particionamento <literal>(slice)</literal>. Esta 
+		partição permite que alguns softwares possam trabalhar 
+		com informações da partição inteira (por exemplo, um 
+		scanner de <quote>bad blocks</quote> de disco). Não é 
+		aconselhado que você crie Sistemas de Arquivos neste 
+		particionamento específico do disco.</entry>
 	    </row>
 
 	    <row>
 	      <entry><literal>d</literal></entry>
 
-	      <entry>Partition <literal>d</literal> used to have a special
-		meaning associated with it, although that is now gone and
-		<literal>d</literal> may work as any normal partition.</entry>
+	      <entry>Não mais existe uma convenção especial 
+		para esta partição. Use-a como uma partição comum.</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
 
-      <para>Each partition-that-contains-a-file-system is stored in what
-	FreeBSD calls a <firstterm>slice</firstterm>.  Slice is FreeBSD's term
-	for what the common call partitions, and again, this is because of
-	FreeBSD's &unix; background.  Slices are numbered, starting at 1,
-	through to 4.</para>
+      <para>Cada <quote>partição-que-contém-um-sistema-de-arquivos</quote> 
+	é compreendida pelo &os; como um slice. Este é o termo que 
+	se usa para fazer referência a um particionamento no disco. É 
+	um termo herdado do background que o &os; obteve do &unix;. 
+	Slices são numerados e esta numeração vai de 1 à 4.</para>
 
 	<indexterm><primary>slices</primary></indexterm>
 	<indexterm><primary>partitions</primary></indexterm>
 	<indexterm><primary>dangerously dedicated</primary></indexterm>
 
-      <para>Slice numbers follow
-	the device name, prefixed with an <literal>s</literal>,
-	starting at 1.  So <quote>da0<emphasis>s1</emphasis></quote>
-	is the first slice on the first SCSI drive.  There can only be
-	four physical slices on a disk, but you can have logical
-	slices inside physical slices of the appropriate type.  These
-	extended slices are numbered starting at 5, so
-	<quote>ad0<emphasis>s5</emphasis></quote> is the first
-	extended slice on the first IDE disk.  These devices are used by file
-	systems that expect to occupy a slice.</para>
+      <para>A numeração de um slice obedece a nomenclatura dada ao 
+	dispositivo de armazenamento em que esteja, prefixado pela 
+	letra <literal>s</literal> e começa sempre com o número 1. 
+	Assim, <quote>da0<emphasis>s1</emphasis></quote> seria o 
+	primeiro slice do primeiro disco SCSI em seu sistema &os;. Podem 
+	existir apenas quatro slices por disco, mas você pode criar 
+	slices lógicos dentro de cada um deles. Estes slices lógicos 
+	começam a ser identificados pelo número 5 e, assim, 
+	<quote>ad0<emphasis>s5</emphasis></quote> seria o primeiro 
+	slice lógico no primeiro disco IDE de seu sistema &os;. 
+	Estes slices lógicos são utilizados de forma que seus Sistemas 
+	de Arquivo possam ocupar todo um slice criado num disco.</para>
 
       <para>Slices, <quote>dangerously dedicated</quote> physical
 	drives, and other drives contain
@@ -2817,23 +2832,27 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
     </sect2>
 
     <sect2 id="basics-info">
-      <title>GNU Info Files</title>
+      <title>Arquivos GNU &man.info.1;</title>
       <indexterm><primary>Free Software Foundation</primary></indexterm>
 
-      <para>FreeBSD includes many applications and utilities produced by
-	the Free Software Foundation (FSF).  In addition to manual pages,
-	these programs come with more extensive hypertext documents called
-	<literal>info</literal> files which can be viewed with the
-	<command>info</command> command or, if you installed
-	<application>emacs</application>, the info mode of
+      <para>O &os; é acompanhado de muitas aplicações e utilitários 
+	produzidos pela Free Software Foundation (FSF). Além de 
+	páginas de manual, estes programas vêm com documentos de 
+	hipertexto mais extensos chamados de arquivos <literal>info</literal> 
+	e podem ser visualizados com o comando <command>info</command> 
+	ou, se você preferir, através do 
 	<application>emacs</application>.</para>
 
-      <para>To use the &man.info.1; command, type:</para>
+      <para>Para usar o comando &man.info.1;, execute-o direto na 
+	linha de comando do shell:</para>
 
       <screen>&prompt.user; <userinput>info</userinput></screen>
 
-      <para>For a brief introduction, type <literal>h</literal>.  For a
-	quick command reference, type <literal>?</literal>.</para>
+      <para>Caso queira consultar a ajuda e ler uma breve introdução 
+	sobre o comando <command>info</command>, aperte a tecla 
+	<literal>h</literal>. Para referências de comandos que podem 
+	ser executados na interface do <command>info</command>, 
+	aperte a tecla <literal>?</literal>.</para>
     </sect2>
   </sect1>
 </chapter>
