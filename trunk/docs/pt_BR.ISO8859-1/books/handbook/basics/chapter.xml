@@ -2828,7 +2828,7 @@ Swap: 256M Total, 38M Used, 217M Free, 15% Inuse
 	<screen>&prompt.user; <userinput>cd /usr/bin</userinput>
 &prompt.user; <userinput>whatis *</userinput></screen>
 
-	<para>which does the same thing.</para>
+	<para>que faz a mesma coisa.</para>
     </sect2>
 
     <sect2 id="basics-info">
