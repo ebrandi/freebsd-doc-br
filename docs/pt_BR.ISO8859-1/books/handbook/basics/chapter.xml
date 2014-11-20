@@ -1542,40 +1542,43 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	Estes slices lógicos são utilizados de forma que seus Sistemas 
 	de Arquivo possam ocupar todo um slice criado num disco.</para>
 
-      <para>Slices, <quote>dangerously dedicated</quote> physical
-	drives, and other drives contain
-	<firstterm>partitions</firstterm>, which are represented as
-	letters from <literal>a</literal> to <literal>h</literal>.
-	This letter is appended to the device name, so
-	<quote>da0<emphasis>a</emphasis></quote> is the a partition on
-	the first da drive, which is <quote>dangerously dedicated</quote>.
-	<quote>ad1s3<emphasis>e</emphasis></quote> is the fifth partition
-	in the third slice of the second IDE disk drive.</para>
+      <para>Slices, discos físicos <quote>dedicados</quote>, e outros 
+	discos podem conter <firstterm>partições</firstterm>, representadas 
+	com letras de <literal>a</literal> até <literal>h</literal>.
+	Esta letra irá sufixar o nome do dispositivo, de modo que 
+	<quote>da0<emphasis>a</emphasis></quote> representa uma partição no 
+	primeiro disco <quote>dedicado</quote> (da0). 
+	<quote>ad1s3<emphasis>e</emphasis></quote> representa a quinta 
+	partição no terceiro slice do segundo disco IDE.</para>
 
-      <para>Finally, each disk on the system is identified.  A disk name
-	starts with a code that indicates the type of disk, and then a number,
-	indicating which disk it is.  Unlike slices, disk numbering starts at
-	0.  Common codes that you will see are listed in
+      <para>Finalmente, cada disco no sistema está identificado. O nome 
+	do disco inicia com um identificador que remete ao tipo do disco, 
+	e então um número, que indica o número do disco. Diferente da 
+	numeração utilizada para indicação de slices, a numeração de 
+	discos inicia a partir do 0. Os identificadores mais comuns que 
+	você pode encontrar podem ser vistos em 
 	<xref linkend="basics-dev-codes"/>.</para>
 
-      <para>When referring to a partition FreeBSD requires that you also name
-	the slice and disk that contains the partition, and when referring to
-	a slice you must also refer to the disk name.
-	Thus, you refer to a partition by listing
-	the disk name, <literal>s</literal>, the slice number, and then the
-	partition letter.  Examples are shown in
+      <para>Quando você referencia uma partição, o &os; requer que você 
+	informe o número do slice e o identificador do disco que contém a 
+	partição. Quando você quer referenciar um slice, deve, obrigatoriamente, 
+	informar o identificador do disco. Seguindo este padrão, a 
+	identificação completa é dada por: disco, <literal>s</literal>, 
+	número do slice, partição. Exemplos podem ser consultados em 
 	<xref linkend="basics-disk-slice-part"/>.</para>
 
-      <para><xref linkend="basics-concept-disk-model"/> shows a conceptual
-	model of the disk layout that should help make things clearer.</para>
+      <para><xref linkend="basics-concept-disk-model"/> exibe um 
+	modelo conceitual do layout de um disco que pode ajudar a clarear 
+	seus pensamentos.</para>
 
-      <para>In order to install FreeBSD you must first configure the disk
-	slices, then create partitions within the slice you will use for
-	FreeBSD, and then create a file system (or swap space) in each
-	partition, and decide where that file system will be mounted.</para>
+      <para>Para que você possa instalar o &os;, faz-se necessário que 
+	você configure os slices, crie as partições no slice que você 
+	pretende instalar o sistema, crie os sistemas de arquivo (ou espaços 
+	de troca/<literal>swap</literal>) e então decida onde o sistema de 
+	arquivos raíz será montado.</para>
 
       <table frame="none" pgwide="1" id="basics-dev-codes">
-	<title>Disk Device Codes</title>
+	<title>Identificadores para Dispositivos de Disco</title>
 
 	<tgroup cols="2">
           <colspec colwidth="1*"/>
@@ -1583,9 +1586,9 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
 	  <thead>
 	    <row>
-	      <entry>Code</entry>
+	      <entry>Identificador</entry>
 
-	      <entry>Meaning</entry>
+	      <entry>Significado</entry>
 	    </row>
 	  </thead>
 
@@ -1593,38 +1596,38 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	    <row>
 	      <entry><devicename>ad</devicename></entry>
 
-	      <entry>ATAPI (IDE) disk</entry>
+	      <entry>Disco ATAPI (IDE)</entry>
 	    </row>
 
 	    <row>
 	      <entry><devicename>da</devicename></entry>
 
-	      <entry>SCSI direct access disk</entry>
+	      <entry>Disco SCSI</entry>
 	    </row>
 
 	    <row>
 	      <entry><devicename>acd</devicename></entry>
 
-	      <entry>ATAPI (IDE) CDROM</entry>
+	      <entry>CD-ROM ATAPI (IDE)</entry>
 	    </row>
 
 	    <row>
 	      <entry><devicename>cd</devicename></entry>
 
-	      <entry>SCSI CDROM</entry>
+	      <entry>CD-ROM SCSI</entry>
 	    </row>
 
 	    <row>
 	      <entry><devicename>fd</devicename></entry>
 
-	      <entry>Floppy disk</entry>
+	      <entry>Disco Floppy</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
       </table>
 
       <example id="basics-disk-slice-part">
-	<title>Sample Disk, Slice, and Partition Names</title>
+	<title>Disco de Exemplo, Slice e Letra da Partição</title>
 
 	<informaltable frame="none" pgwide="1">
 	  <tgroup cols="2">
@@ -1633,9 +1636,9 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
 	    <thead>
 	      <row>
-		<entry>Name</entry>
+		<entry>Identificação Completa</entry>
 
-		<entry>Meaning</entry>
+		<entry>Significado</entry>
 	      </row>
 	    </thead>
 
@@ -1643,16 +1646,16 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	      <row>
 		<entry><literal>ad0s1a</literal></entry>
 
-		<entry>The first partition (<literal>a</literal>) on the first
-		  slice (<literal>s1</literal>) on the first IDE disk
+		<entry>Primeira partição (<literal>a</literal>) no primeiro 
+		  slice (<literal>s1</literal>) do primeiro disco IDE 
 		  (<literal>ad0</literal>).</entry>
 	      </row>
 
 	      <row>
 		<entry><literal>da1s2e</literal></entry>
 
-		<entry>The fifth partition (<literal>e</literal>) on the
-		  second slice (<literal>s2</literal>) on the second SCSI disk
+		<entry>Quinta partição (<literal>e</literal>) no segundo 
+		  slice (<literal>s2</literal>) do segundo disco SCSI 
 		  (<literal>da1</literal>).</entry>
 	      </row>
 	    </tbody>
