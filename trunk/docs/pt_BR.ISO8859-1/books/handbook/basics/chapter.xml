@@ -1664,20 +1664,21 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
       </example>
 
       <example id="basics-concept-disk-model">
-	<title>Conceptual Model of a Disk</title>
+	<title>Modelo Conceitual de um Disco</title>
 
-	<para>This diagram shows FreeBSD's view of the first IDE disk attached
-	  to the system.  Assume that the disk is 4&nbsp;GB in size, and contains
-	  two 2&nbsp;GB slices (&ms-dos; partitions).  The first slice contains a &ms-dos;
-	  disk, <devicename>C:</devicename>, and the second slice contains a
-	  FreeBSD installation.  This example FreeBSD installation has three
-	  data partitions, and a swap partition.</para>
+	<para>Este diagrama exibe a visão do &os; do primeiro disco IDE 
+	  conectado ao sistema. Considerando que o disco possui 4GB de 
+	  capacidade, sendo dois slices de 2GB (partições &ms-dos;). O 
+	  primeiro slice contém uma partição cujo seu sistema operacional 
+	  a identifica como <devicename>C:</devicename>, e o segundo slice 
+	  contém uma instalação do &os;. Esta instalação de exemplo possui 
+	  três partições de dados e uma área de troca (swap).</para>
 
-	<para>The three partitions will each hold a file system.  Partition
-	  <literal>a</literal> will be used for the root file system,
-	  <literal>e</literal> for the <filename>/var</filename> directory
-	  hierarchy, and <literal>f</literal> for the
-	  <filename>/usr</filename> directory hierarchy.</para>
+	<para>Cada uma das três partições terá um sistema de arquivos. A 
+	  partição <literal>a</literal> será o sistema de arquivos raíz, 
+	  <literal>e</literal> será nosso diretório <filename>/var</filename> 
+	  e <literal>f</literal> será utilizada como nossi diretório 
+	  <filename>/usr</filename> na árvore de diretórios.</para>
 
         <mediaobject>
           <imageobject>
@@ -1688,25 +1689,25 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	    <literallayout class="monospaced">.-----------------.  --.
 |                 |    |
 |  DOS / Windows  |    |
-:                 :     &gt;  First slice, ad0s1
+:                 :     &gt;  Primeiro slice, ad0s1
 :                 :    |
 |                 |    |
 :=================:  ==:                               --.
-|                 |    |  Partition a, mounted as /      |
-|                 |     &gt; referred to as ad0s2a          |
+|                 |    |  Partição a,  usada como raíz   |
+|                 |     &gt; referenciada como ad0s2a       |
 |                 |    |                                 |
 :-----------------:  ==:                                 |
-|                 |    |  Partition b, used as swap      |
-|                 |     &gt; referred to as ad0s2b          |
+|                 |    |  Partição b, usada como swap    |
+|                 |     &gt; referenciada como ad0s2b       |
 |                 |    |                                 |
-:-----------------:  ==:                                 |  Partition c, no
-|                 |    |  Partition e, used as /var       &gt; file system, all
-|                 |     &gt; referred to as ad0s2e          |  of FreeBSD slice,
-|                 |    |                                 |  ad0s2c
+:-----------------:  ==:                                 |  Partição c, sem
+|                 |    |  Partição e, usada como /var      &gt; sistema de arquivos, todo
+|                 |     &gt; referenciada como ad0s2e       |  o &os;, ad0s2c
+|                 |    |                                 |  
 :-----------------:  ==:                                 |
 |                 |    |                                 |
-:                 :    |  Partition f, used as /usr      |
-:                 :     &gt; referred to as ad0s2f          |
+:                 :    |  Partição f, usada como /usr    |
+:                 :     &gt; referenciada como ad0s2f       |
 :                 :    |                                 |
 |                 |    |                                 |
 |                 |  --'                                 |
@@ -1719,76 +1720,79 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 
 
   <sect1 id="mount-unmount">
-    <title>Mounting and Unmounting File Systems</title>
+    <title>Montando e Desmontando Sistemas de Arquivos</title>
 
-    <para>The file system is best visualized as a tree,
-      rooted, as it were, at <filename>/</filename>.
-      <filename>/dev</filename>, <filename>/usr</filename>, and the
-      other directories in the root directory are branches, which may
-      have their own branches, such as
-      <filename>/usr/local</filename>, and so on.</para>
+    <para>Um sistema de arquivos é melhor representado como uma árvore, 
+	  com sua raíz em <filename>/</filename> possui diretórios (galhos) 
+	  <filename>/dev</filename>, <filename>/usr</filename> e outros 
+	  diretórios no mesmo nível de sua raíz. Por sua vez, esses 
+	  diretórios podem conter outros diretórios (ramificações da árvore), 
+	  tais como <filename>/usr/local</filename> e por aí em diante.</para>
 
     <indexterm><primary>root file system</primary></indexterm>
-    <para>There are various reasons to house some of these
-      directories on separate file systems.  <filename>/var</filename>
-      contains the directories <filename>log/</filename>,
-      <filename>spool/</filename>,
-      and various types of temporary files, and
-      as such, may get filled up.  Filling up the root file system
-      is not a good idea, so splitting <filename>/var</filename> from
-      <filename>/</filename> is often favorable.</para>
+    <para>Existem inumeros motivos para se manter alguns diretórios 
+	  separados, cada um com seu espaço reservado para sistema de 
+	  arquivos. O <filename>/var</filename>, por exemplo, abriga 
+	  sub-diretórios como <filename>log/</filename>, <filename>spool/</filename> 
+	  e diversos outros que contém arquivos temporários. Sendo assim, 
+	  ele tende a ser populado com uma frequência bem maior que os 
+	  outros diretórios a ponto de ficar cheio. Não é uma boa idéia 
+	  ter o sistema de arquivos raíz cheio, então separar o ponto de 
+	  montagem do diretório <filename>/var</filename> do sistema de 
+	  arquivos raíz é uma boa prática.</para>
 
-    <para>Another common reason to contain certain directory trees on
-      other file systems is if they are to be housed on separate
-      physical disks, or are separate virtual disks, such as <link
-	linkend="network-nfs">Network File System</link> mounts, or CDROM
-      drives.</para>
+    <para>Outro motivo para se ter diretórios, ou árvores de 
+	  diretórios, numa outra partição, ou sistema de arquivos, é o 
+	  fato de eles estarem fisicamente armazenados num outro disco, 
+	  num disco virtual montado através da rede (<link 
+	  linkend="network-nfs">NFS</link>) ou num drive de CD-ROM.</para>
 
     <sect2 id="disks-fstab">
-      <title>The <filename>fstab</filename> File</title>
+      <title>O Arquivo <filename>fstab</filename></title>
       <indexterm>
 	<primary>file systems</primary>
 	<secondary>mounted with fstab</secondary>
       </indexterm>
 
-      <para>During the <link linkend="boot">boot process</link>,
-	file systems listed in <filename>/etc/fstab</filename> are
-	automatically mounted (unless they are listed with the
-	<option>noauto</option> option).</para>
+      <para>Durante o <link linkend="boot">processo de inicialização do 
+	&os;</link>, sistemas de arquivos listados em 
+	<filename>/etc/fstab</filename> são montados automaticamente (ao 
+	menos que eles estejam listados com a opção <option>noauto</option>).</para>
 
-      <para>The <filename>/etc/fstab</filename> file contains a list
-	of lines of the following format:</para>
+      <para>O <filename>/etc/fstab</filename> contém uma lista de 
+	linhas no seguinte formato:</para>
 
-      <programlisting><replaceable>device</replaceable>       <replaceable>/mount-point</replaceable> <replaceable>fstype</replaceable>     <replaceable>options</replaceable>      <replaceable>dumpfreq</replaceable>     <replaceable>passno</replaceable></programlisting>
+      <programlisting><replaceable>dispositivo</replaceable>       <replaceable>/ponto-de-montagem</replaceable> <replaceable>sis-arquivos</replaceable>     <replaceable>opções</replaceable>      <replaceable>dump</replaceable>     <replaceable>pass</replaceable></programlisting>
 
       <variablelist>
 	<varlistentry>
-	  <term><literal>device</literal></term>
+	  <term><literal>dispositivo</literal></term>
 	  <listitem>
-	    <para>A device name (which should exist), as explained in
-	      <xref linkend="disks-naming"/>.</para>
+	    <para>O nome de um dispositivo de disco (já existente), como 
+		  explicado em <xref linkend="disks-naming"/>.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><literal>mount-point</literal></term>
+	  <term><literal>/ponto-de-montagem</literal></term>
 
-	  <listitem><para>A directory (which should exist), on which
-	      to mount the file system.</para>
+	  <listitem><para>Um diretório (já existente), onde será montado 
+		  o sistema de arquivos em questão.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><literal>fstype</literal></term>
+	  <term><literal>sis-arquivos</literal></term>
 
-	  <listitem><para>The file system type to pass to
-		&man.mount.8;.  The default FreeBSD file system is
-	      <literal>ufs</literal>.</para>
+	  <listitem><para>O tipo do sistema de arquivos repassado ao comando 
+		&man.mount.8; para identificar e montar o sistema de arquivos. 
+		O sistema de arquivos padrão utilizado pelo &os; é o 
+		<literal>UFS</literal>.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><literal>options</literal></term>
+	  <term><literal>opções</literal></term>
 
 	  <listitem><para>Either <option>rw</option> for read-write
 	      file systems, or <option>ro</option> for read-only
@@ -1800,7 +1804,7 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><literal>dumpfreq</literal></term>
+	  <term><literal>dump</literal></term>
 
 	 <listitem><para>This is used by &man.dump.8; to determine which
 	     file systems require dumping.  If the field is missing,
@@ -1809,7 +1813,7 @@ root     5211  0.0  0.2  3620  1724   2  I+    2:09AM   0:00.01 passwd</screen>
        </varlistentry>
 
        <varlistentry>
-	 <term><literal>passno</literal></term>
+	 <term><literal>pass</literal></term>
 
 	 <listitem>
 	   <para>This determines the order in which file systems should
