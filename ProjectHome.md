@@ -1,0 +1,1 @@
+Project to translate official FreeBSD documentation to Brazilian Portuguese.
